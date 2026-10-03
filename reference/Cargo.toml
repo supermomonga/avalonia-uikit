@@ -1,0 +1,33 @@
+[package]
+name = "avalonia-uikit-reference"
+version = "0.1.0"
+edition = "2024"
+publish = false
+description = "Renders GPUI Kit components headlessly and records golden data for the Avalonia theme tests."
+
+[[bin]]
+name = "reference"
+path = "src/main.rs"
+
+[dependencies]
+gpui-kit = { path = "vendor/gpui-kit/crates/kit", features = ["test-support", "component", "assets"] }
+gpui-base = { path = "vendor/gpui-kit/crates/base", features = ["test-support"] }
+gpui-component = { path = "vendor/gpui-kit/crates/component", features = ["test-support"] }
+anyhow = "1"
+image = { version = "0.25", default-features = false, features = ["png"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1", features = ["preserve_order", "float_roundtrip"] }
+sha2 = "0.10"
+toml = { version = "0.8", features = ["preserve_order"] }
+
+[patch.crates-io]
+gpui-pre = { path = "vendor/gpui-pre" }
+
+[workspace]
+exclude = ["vendor"]
+
+[profile.dev]
+opt-level = 1
+
+[profile.dev.package."*"]
+opt-level = 2

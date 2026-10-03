@@ -1,0 +1,7 @@
+reference/vendor/
+reference/target/
+tests/artifacts/
+bin/
+obj/
+*.user
+.DS_Store

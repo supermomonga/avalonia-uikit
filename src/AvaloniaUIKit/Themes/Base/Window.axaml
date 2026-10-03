@@ -1,0 +1,54 @@
+<!--
+  The window is GPUI Kit's Root: the theme background, foreground and font
+  (crates/component/src/root.rs).
+-->
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ControlTheme x:Key="{x:Type Window}" TargetType="Window">
+    <Setter Property="Background" Value="{DynamicResource Gpui.Background}" />
+    <Setter Property="TransparencyBackgroundFallback" Value="{DynamicResource Gpui.Background}" />
+    <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+    <Setter Property="FontFamily" Value="{DynamicResource Gpui.FontFamily}" />
+    <Setter Property="FontSize" Value="{DynamicResource Gpui.FontSize}" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Panel>
+          <Border Name="PART_TransparencyFallback" IsHitTestVisible="False" />
+          <Border Background="{TemplateBinding Background}" IsHitTestVisible="False" />
+          <Panel Margin="{TemplateBinding WindowDecorationMargin}" Background="Transparent" />
+          <VisualLayerManager Name="PART_VisualLayerManager">
+            <ContentPresenter Name="PART_ContentPresenter"
+                              Margin="{TemplateBinding Padding}"
+                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                              Content="{TemplateBinding Content}"
+                              ContentTemplate="{TemplateBinding ContentTemplate}" />
+          </VisualLayerManager>
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type EmbeddableControlRoot}" TargetType="EmbeddableControlRoot">
+    <Setter Property="Background" Value="{DynamicResource Gpui.Background}" />
+    <Setter Property="TransparencyBackgroundFallback" Value="{DynamicResource Gpui.Background}" />
+    <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+    <Setter Property="FontFamily" Value="{DynamicResource Gpui.FontFamily}" />
+    <Setter Property="FontSize" Value="{DynamicResource Gpui.FontSize}" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Panel>
+          <Border Name="PART_TransparencyFallback" IsHitTestVisible="False" />
+          <Border Background="{TemplateBinding Background}">
+            <VisualLayerManager Name="PART_VisualLayerManager">
+              <ContentPresenter Name="PART_ContentPresenter"
+                                Margin="{TemplateBinding Padding}"
+                                Content="{TemplateBinding Content}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}" />
+            </VisualLayerManager>
+          </Border>
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+</ResourceDictionary>

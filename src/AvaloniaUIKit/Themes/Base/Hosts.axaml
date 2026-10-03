@@ -1,0 +1,95 @@
+<!--
+  Popup hosts and the adorner layer. GPUI Kit draws its own focus rings, so the
+  default focus adorner is removed.
+-->
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ControlTheme x:Key="{x:Type PopupRoot}" TargetType="PopupRoot">
+    <Setter Property="Background" Value="{x:Null}" />
+    <Setter Property="TransparencyLevelHint" Value="Transparent" />
+    <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+    <Setter Property="FontFamily" Value="{DynamicResource Gpui.FontFamily}" />
+    <Setter Property="FontSize" Value="{DynamicResource Gpui.FontSize}" />
+    <Setter Property="FontWeight" Value="Normal" />
+    <Setter Property="FontStyle" Value="Normal" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <LayoutTransformControl LayoutTransform="{TemplateBinding Transform}">
+          <Panel>
+            <Border Name="PART_TransparencyFallback" IsHitTestVisible="False" />
+            <VisualLayerManager Name="PART_VisualLayerManager">
+              <ContentPresenter Name="PART_ContentPresenter"
+                                Padding="{TemplateBinding Padding}"
+                                Background="{TemplateBinding Background}"
+                                Content="{TemplateBinding Content}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}" />
+            </VisualLayerManager>
+          </Panel>
+        </LayoutTransformControl>
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type OverlayPopupHost}" TargetType="OverlayPopupHost">
+    <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+    <Setter Property="FontFamily" Value="{DynamicResource Gpui.FontFamily}" />
+    <Setter Property="FontSize" Value="{DynamicResource Gpui.FontSize}" />
+    <Setter Property="FontWeight" Value="Normal" />
+    <Setter Property="FontStyle" Value="Normal" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <LayoutTransformControl LayoutTransform="{TemplateBinding Transform}">
+          <VisualLayerManager Name="PART_VisualLayerManager">
+            <ContentPresenter Name="PART_ContentPresenter"
+                              Padding="{TemplateBinding Padding}"
+                              Background="{TemplateBinding Background}"
+                              Content="{TemplateBinding Content}"
+                              ContentTemplate="{TemplateBinding ContentTemplate}" />
+          </VisualLayerManager>
+        </LayoutTransformControl>
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type AdornerLayer}" TargetType="AdornerLayer">
+    <Setter Property="DefaultFocusAdorner" Value="{x:Null}" />
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type ContentControl}" TargetType="ContentControl">
+    <Setter Property="Template">
+      <ControlTemplate>
+        <ContentPresenter Name="PART_ContentPresenter"
+                          Background="{TemplateBinding Background}"
+                          BorderBrush="{TemplateBinding BorderBrush}"
+                          BorderThickness="{TemplateBinding BorderThickness}"
+                          CornerRadius="{TemplateBinding CornerRadius}"
+                          Padding="{TemplateBinding Padding}"
+                          HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                          Content="{TemplateBinding Content}"
+                          ContentTemplate="{TemplateBinding ContentTemplate}" />
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type TransitioningContentControl}" TargetType="TransitioningContentControl">
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Panel>
+          <ContentPresenter Name="PART_ContentPresenter"
+                            Background="{TemplateBinding Background}"
+                            Padding="{TemplateBinding Padding}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+          <ContentPresenter Name="PART_ContentPresenter2"
+                            Background="{TemplateBinding Background}"
+                            Padding="{TemplateBinding Padding}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+</ResourceDictionary>

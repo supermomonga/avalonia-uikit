@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>AvaloniaUIKit</RootNamespace>
+    <PackageId>AvaloniaUIKit</PackageId>
+    <Description>Avalonia themes that reproduce the look and motion of GPUI Kit components.</Description>
+    <IsAotCompatible>true</IsAotCompatible>
+    <IsTrimmable>true</IsTrimmable>
+    <EnableTrimAnalyzer>true</EnableTrimAnalyzer>
+    <AvaloniaXamlIlVerifyIl>true</AvaloniaXamlIlVerifyIl>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Avalonia" />
+    <PackageReference Include="Microsoft.CodeAnalysis.BannedApiAnalyzers" PrivateAssets="all" />
+    <AdditionalFiles Include="BannedSymbols.txt" />
+    <InternalsVisibleTo Include="AvaloniaUIKit.Tests" />
+  </ItemGroup>
+</Project>

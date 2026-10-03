@@ -1,0 +1,6 @@
+# The window background alone, used to verify the base Window theme.
+component = "surface"
+viewport = [32, 16]
+anchor = [0, 0]
+
+[[group]]

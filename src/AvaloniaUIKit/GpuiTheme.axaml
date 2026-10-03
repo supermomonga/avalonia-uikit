@@ -1,0 +1,15 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="AvaloniaUIKit.GpuiTheme">
+  <Styles.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Tokens/Colors.g.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Tokens/Metrics.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Base/Window.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Base/Hosts.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/Button.axaml" />
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+  </Styles.Resources>
+</Styles>

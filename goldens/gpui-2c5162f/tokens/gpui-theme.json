@@ -1,0 +1,4809 @@
+{
+  "gpui_kit": "2c5162f8c5b0c7fcec066ed53125d304c632bfe2",
+  "light": {
+    "mode": "Light",
+    "colors": {
+      "accent": "#f5f5f5ff",
+      "accent_foreground": "#171717ff",
+      "accordion": "#ffffffff",
+      "background": "#ffffffff",
+      "border": "#e5e5e5ff",
+      "button": "#ffffffff",
+      "button_active": "#e5e5e5b3",
+      "button_foreground": "#0a0a0aff",
+      "button_hover": "#e5e5e580",
+      "button_danger": "#ef444433",
+      "button_danger_active": "#ef444466",
+      "button_danger_foreground": "#ef4444ff",
+      "button_danger_hover": "#ef44444d",
+      "button_info": "#06b6d433",
+      "button_info_active": "#06b6d466",
+      "button_info_foreground": "#06b6d4ff",
+      "button_info_hover": "#06b6d44d",
+      "button_primary": "#171717ff",
+      "button_primary_active": "#0a0a0aff",
+      "button_primary_foreground": "#fafafaff",
+      "button_primary_hover": "#262626ff",
+      "button_secondary": "#e5e5e5ff",
+      "button_secondary_active": "#d4d4d4ff",
+      "button_secondary_foreground": "#171717ff",
+      "button_secondary_hover": "#e5e5e5ff",
+      "button_success": "#22c55e33",
+      "button_success_active": "#22c55e66",
+      "button_success_foreground": "#22c55eff",
+      "button_success_hover": "#22c55e4d",
+      "button_warning": "#eab30833",
+      "button_warning_active": "#eab30866",
+      "button_warning_foreground": "#eab308ff",
+      "button_warning_hover": "#eab3084d",
+      "group_box": "#f5f5f5ff",
+      "group_box_foreground": "#171717ff",
+      "caret": "#0a0a0aff",
+      "chart_1": "#93c5fdff",
+      "chart_2": "#3b82f6ff",
+      "chart_3": "#2563ebff",
+      "chart_4": "#1d4ed8ff",
+      "chart_5": "#1e40afff",
+      "chart_bullish": "#16a34aff",
+      "chart_bearish": "#dc2626ff",
+      "chart_grid": "#e5e5e599",
+      "danger": "#ef4444ff",
+      "danger_active": "#ed2828ff",
+      "danger_foreground": "#fafafaff",
+      "danger_hover": "#f15757ff",
+      "description_list_label": "#fafafaff",
+      "description_list_label_foreground": "#737373ff",
+      "drag_border": "#171717a6",
+      "drop_target": "#3b82f640",
+      "foreground": "#0a0a0aff",
+      "info": "#06b6d4ff",
+      "info_active": "#05a4bfff",
+      "info_foreground": "#fafafaff",
+      "info_hover": "#1fbdd8ff",
+      "input": "#e5e5e5ff",
+      "link": "#171717ff",
+      "link_active": "#171717ff",
+      "link_hover": "#171717ff",
+      "list": "#ffffffff",
+      "list_active": "#bfdbfe33",
+      "list_active_border": "#60a5faff",
+      "list_even": "#fafafaff",
+      "list_head": "#fafafaff",
+      "list_hover": "#f5f5f5ff",
+      "muted": "#f5f5f5ff",
+      "muted_foreground": "#737373ff",
+      "popover": "#ffffffff",
+      "popover_foreground": "#0a0a0aff",
+      "primary": "#171717ff",
+      "primary_active": "#0a0a0aff",
+      "primary_foreground": "#fafafaff",
+      "primary_hover": "#262626ff",
+      "progress_bar": "#171717ff",
+      "ring": "#a3a3a3ff",
+      "scrollbar": "#fafafa00",
+      "scrollbar_thumb": "#a3a3a3e6",
+      "scrollbar_thumb_hover": "#a3a3a3ff",
+      "secondary": "#e5e5e5ff",
+      "secondary_active": "#d4d4d4ff",
+      "secondary_foreground": "#171717ff",
+      "secondary_hover": "#e5e5e5ff",
+      "selection": "#55a0fc4d",
+      "sidebar": "#fafafaff",
+      "sidebar_accent": "#e5e5e5ff",
+      "sidebar_accent_foreground": "#171717ff",
+      "sidebar_border": "#e5e5e5ff",
+      "sidebar_foreground": "#171717ff",
+      "sidebar_primary": "#171717ff",
+      "sidebar_primary_foreground": "#fafafaff",
+      "skeleton": "#f5f5f5ff",
+      "slider_bar": "#171717ff",
+      "slider_thumb": "#ffffffff",
+      "success": "#22c55eff",
+      "success_foreground": "#fafafaff",
+      "success_hover": "#38cb6eff",
+      "success_active": "#1fb155ff",
+      "switch": "#d4d4d4ff",
+      "switch_thumb": "#ffffffff",
+      "tab": "#00000000",
+      "tab_active": "#ffffffff",
+      "tab_active_foreground": "#171717ff",
+      "tab_bar": "#f5f5f5ff",
+      "tab_bar_segmented": "#f5f5f5ff",
+      "tab_foreground": "#404040ff",
+      "table": "#ffffffff",
+      "table_active": "#bfdbfe33",
+      "table_active_border": "#60a5faff",
+      "table_even": "#fafafaff",
+      "table_head": "#fafafaff",
+      "table_head_foreground": "#737373ff",
+      "table_foot": "#fafafaff",
+      "table_foot_foreground": "#737373ff",
+      "table_hover": "#f5f5f5ff",
+      "table_row_border": "#e5e5e5b3",
+      "title_bar": "#f8f8f8ff",
+      "title_bar_border": "#e5e5e5ff",
+      "status_bar": "#f8f8f8ff",
+      "status_bar_border": "#e5e5e5ff",
+      "warning": "#eab308ff",
+      "warning_active": "#d3a107ff",
+      "warning_hover": "#ecbb21ff",
+      "warning_foreground": "#fafafaff",
+      "overlay": "#0000000d",
+      "window_border": "#e5e5e5ff",
+      "red": "#dc2626ff",
+      "red_light": "#f87171ff",
+      "green": "#16a34aff",
+      "green_light": "#4ade80ff",
+      "blue": "#2563ebff",
+      "blue_light": "#60a5faff",
+      "yellow": "#ca8a04ff",
+      "yellow_light": "#facc15ff",
+      "magenta": "#9333eaff",
+      "magenta_light": "#c084fcff",
+      "cyan": "#0891b2ff",
+      "cyan_light": "#22d3eeff"
+    },
+    "derived": {
+      "button.default.normal.background": "#ffffffff",
+      "button.default.normal.foreground": "#0a0a0aff",
+      "button.default.normal.border": "#e5e5e5ff",
+      "button.default.hover.background": "#e5e5e580",
+      "button.default.hover.foreground": "#0a0a0aff",
+      "button.default.hover.border": "#e5e5e5ff",
+      "button.default.pressed.background": "#e5e5e5b3",
+      "button.default.pressed.foreground": "#0a0a0aff",
+      "button.default.pressed.border": "#e5e5e5ff",
+      "button.default.selected.background": "#e5e5e5b3",
+      "button.default.selected.foreground": "#0a0a0aff",
+      "button.default.selected.border": "#e5e5e5ff",
+      "button.default.disabled.background": "#ffffff80",
+      "button.default.disabled.foreground": "#73737380",
+      "button.default.disabled.border": "#e5e5e580",
+      "button.default.outline.normal.background": "#ffffffff",
+      "button.default.outline.normal.foreground": "#0a0a0aff",
+      "button.default.outline.normal.border": "#e5e5e5ff",
+      "button.default.outline.hover.background": "#e5e5e580",
+      "button.default.outline.hover.foreground": "#0a0a0aff",
+      "button.default.outline.hover.border": "#e5e5e5ff",
+      "button.default.outline.pressed.background": "#e5e5e5b3",
+      "button.default.outline.pressed.foreground": "#0a0a0aff",
+      "button.default.outline.pressed.border": "#e5e5e5ff",
+      "button.default.outline.selected.background": "#e5e5e5b3",
+      "button.default.outline.selected.foreground": "#0a0a0aff",
+      "button.default.outline.selected.border": "#e5e5e5ff",
+      "button.default.outline.disabled.background": "#ffffff80",
+      "button.default.outline.disabled.foreground": "#73737380",
+      "button.default.outline.disabled.border": "#e5e5e580",
+      "button.primary.normal.background": "#171717ff",
+      "button.primary.normal.foreground": "#fafafaff",
+      "button.primary.normal.border": "#171717ff",
+      "button.primary.hover.background": "#262626ff",
+      "button.primary.hover.foreground": "#fafafaff",
+      "button.primary.hover.border": "#171717ff",
+      "button.primary.pressed.background": "#0a0a0aff",
+      "button.primary.pressed.foreground": "#fafafaff",
+      "button.primary.pressed.border": "#171717ff",
+      "button.primary.selected.background": "#0a0a0aff",
+      "button.primary.selected.foreground": "#fafafaff",
+      "button.primary.selected.border": "#171717ff",
+      "button.primary.disabled.background": "#17171726",
+      "button.primary.disabled.foreground": "#73737380",
+      "button.primary.disabled.border": "#17171726",
+      "button.primary.outline.normal.background": "#1717171a",
+      "button.primary.outline.normal.foreground": "#171717ff",
+      "button.primary.outline.normal.border": "#171717ff",
+      "button.primary.outline.hover.background": "#26262633",
+      "button.primary.outline.hover.foreground": "#171717ff",
+      "button.primary.outline.hover.border": "#171717ff",
+      "button.primary.outline.pressed.background": "#0a0a0a66",
+      "button.primary.outline.pressed.foreground": "#171717ff",
+      "button.primary.outline.pressed.border": "#171717ff",
+      "button.primary.outline.selected.background": "#0a0a0a66",
+      "button.primary.outline.selected.foreground": "#171717ff",
+      "button.primary.outline.selected.border": "#171717ff",
+      "button.primary.outline.disabled.background": "#1717170d",
+      "button.primary.outline.disabled.foreground": "#73737380",
+      "button.primary.outline.disabled.border": "#17171780",
+      "button.secondary.normal.background": "#e5e5e5ff",
+      "button.secondary.normal.foreground": "#171717ff",
+      "button.secondary.normal.border": "#e5e5e5ff",
+      "button.secondary.hover.background": "#e5e5e5ff",
+      "button.secondary.hover.foreground": "#171717ff",
+      "button.secondary.hover.border": "#e5e5e5ff",
+      "button.secondary.pressed.background": "#d4d4d4ff",
+      "button.secondary.pressed.foreground": "#171717ff",
+      "button.secondary.pressed.border": "#e5e5e5ff",
+      "button.secondary.selected.background": "#d4d4d4ff",
+      "button.secondary.selected.foreground": "#171717ff",
+      "button.secondary.selected.border": "#e5e5e5ff",
+      "button.secondary.disabled.background": "#e5e5e5ff",
+      "button.secondary.disabled.foreground": "#73737380",
+      "button.secondary.disabled.border": "#e5e5e5ff",
+      "button.secondary.outline.normal.background": "#e5e5e51a",
+      "button.secondary.outline.normal.foreground": "#171717ff",
+      "button.secondary.outline.normal.border": "#e5e5e5ff",
+      "button.secondary.outline.hover.background": "#e5e5e533",
+      "button.secondary.outline.hover.foreground": "#171717ff",
+      "button.secondary.outline.hover.border": "#e5e5e5ff",
+      "button.secondary.outline.pressed.background": "#d4d4d466",
+      "button.secondary.outline.pressed.foreground": "#171717ff",
+      "button.secondary.outline.pressed.border": "#e5e5e5ff",
+      "button.secondary.outline.selected.background": "#d4d4d466",
+      "button.secondary.outline.selected.foreground": "#171717ff",
+      "button.secondary.outline.selected.border": "#e5e5e5ff",
+      "button.secondary.outline.disabled.background": "#e5e5e50d",
+      "button.secondary.outline.disabled.foreground": "#73737380",
+      "button.secondary.outline.disabled.border": "#e5e5e580",
+      "button.danger.normal.background": "#ef444433",
+      "button.danger.normal.foreground": "#ef4444ff",
+      "button.danger.normal.border": "#ef444433",
+      "button.danger.hover.background": "#ef44444d",
+      "button.danger.hover.foreground": "#ef4444ff",
+      "button.danger.hover.border": "#ef444433",
+      "button.danger.pressed.background": "#ef444466",
+      "button.danger.pressed.foreground": "#ef4444ff",
+      "button.danger.pressed.border": "#ef444433",
+      "button.danger.selected.background": "#ef444466",
+      "button.danger.selected.foreground": "#ef4444ff",
+      "button.danger.selected.border": "#ef444433",
+      "button.danger.disabled.background": "#ef444408",
+      "button.danger.disabled.foreground": "#73737380",
+      "button.danger.disabled.border": "#ef444408",
+      "button.danger.outline.normal.background": "#ef44441a",
+      "button.danger.outline.normal.foreground": "#ef4444ff",
+      "button.danger.outline.normal.border": "#ef444466",
+      "button.danger.outline.hover.background": "#f1575733",
+      "button.danger.outline.hover.foreground": "#ef4444ff",
+      "button.danger.outline.hover.border": "#ef444466",
+      "button.danger.outline.pressed.background": "#ed282866",
+      "button.danger.outline.pressed.foreground": "#ef4444ff",
+      "button.danger.outline.pressed.border": "#ef444466",
+      "button.danger.outline.selected.background": "#ed282866",
+      "button.danger.outline.selected.foreground": "#ef4444ff",
+      "button.danger.outline.selected.border": "#ef444466",
+      "button.danger.outline.disabled.background": "#ef44440d",
+      "button.danger.outline.disabled.foreground": "#73737380",
+      "button.danger.outline.disabled.border": "#ef444433",
+      "button.warning.normal.background": "#eab30833",
+      "button.warning.normal.foreground": "#eab308ff",
+      "button.warning.normal.border": "#eab30833",
+      "button.warning.hover.background": "#eab3084d",
+      "button.warning.hover.foreground": "#eab308ff",
+      "button.warning.hover.border": "#eab30833",
+      "button.warning.pressed.background": "#eab30866",
+      "button.warning.pressed.foreground": "#eab308ff",
+      "button.warning.pressed.border": "#eab30833",
+      "button.warning.selected.background": "#eab30866",
+      "button.warning.selected.foreground": "#eab308ff",
+      "button.warning.selected.border": "#eab30833",
+      "button.warning.disabled.background": "#eab30808",
+      "button.warning.disabled.foreground": "#73737380",
+      "button.warning.disabled.border": "#eab30808",
+      "button.warning.outline.normal.background": "#eab3081a",
+      "button.warning.outline.normal.foreground": "#eab308ff",
+      "button.warning.outline.normal.border": "#eab30866",
+      "button.warning.outline.hover.background": "#ecbb2133",
+      "button.warning.outline.hover.foreground": "#eab308ff",
+      "button.warning.outline.hover.border": "#eab30866",
+      "button.warning.outline.pressed.background": "#d3a10766",
+      "button.warning.outline.pressed.foreground": "#eab308ff",
+      "button.warning.outline.pressed.border": "#eab30866",
+      "button.warning.outline.selected.background": "#d3a10766",
+      "button.warning.outline.selected.foreground": "#eab308ff",
+      "button.warning.outline.selected.border": "#eab30866",
+      "button.warning.outline.disabled.background": "#eab3080d",
+      "button.warning.outline.disabled.foreground": "#73737380",
+      "button.warning.outline.disabled.border": "#eab30833",
+      "button.success.normal.background": "#22c55e33",
+      "button.success.normal.foreground": "#22c55eff",
+      "button.success.normal.border": "#22c55e33",
+      "button.success.hover.background": "#22c55e4d",
+      "button.success.hover.foreground": "#22c55eff",
+      "button.success.hover.border": "#22c55e33",
+      "button.success.pressed.background": "#22c55e66",
+      "button.success.pressed.foreground": "#22c55eff",
+      "button.success.pressed.border": "#22c55e33",
+      "button.success.selected.background": "#22c55e66",
+      "button.success.selected.foreground": "#22c55eff",
+      "button.success.selected.border": "#22c55e33",
+      "button.success.disabled.background": "#22c55e08",
+      "button.success.disabled.foreground": "#73737380",
+      "button.success.disabled.border": "#22c55e08",
+      "button.success.outline.normal.background": "#22c55e1a",
+      "button.success.outline.normal.foreground": "#22c55eff",
+      "button.success.outline.normal.border": "#22c55e66",
+      "button.success.outline.hover.background": "#38cb6e33",
+      "button.success.outline.hover.foreground": "#22c55eff",
+      "button.success.outline.hover.border": "#22c55e66",
+      "button.success.outline.pressed.background": "#1fb15566",
+      "button.success.outline.pressed.foreground": "#22c55eff",
+      "button.success.outline.pressed.border": "#22c55e66",
+      "button.success.outline.selected.background": "#1fb15566",
+      "button.success.outline.selected.foreground": "#22c55eff",
+      "button.success.outline.selected.border": "#22c55e66",
+      "button.success.outline.disabled.background": "#22c55e0d",
+      "button.success.outline.disabled.foreground": "#73737380",
+      "button.success.outline.disabled.border": "#22c55e33",
+      "button.info.normal.background": "#06b6d433",
+      "button.info.normal.foreground": "#06b6d4ff",
+      "button.info.normal.border": "#06b6d433",
+      "button.info.hover.background": "#06b6d44d",
+      "button.info.hover.foreground": "#06b6d4ff",
+      "button.info.hover.border": "#06b6d433",
+      "button.info.pressed.background": "#06b6d466",
+      "button.info.pressed.foreground": "#06b6d4ff",
+      "button.info.pressed.border": "#06b6d433",
+      "button.info.selected.background": "#06b6d466",
+      "button.info.selected.foreground": "#06b6d4ff",
+      "button.info.selected.border": "#06b6d433",
+      "button.info.disabled.background": "#06b6d408",
+      "button.info.disabled.foreground": "#73737380",
+      "button.info.disabled.border": "#06b6d408",
+      "button.info.outline.normal.background": "#06b6d41a",
+      "button.info.outline.normal.foreground": "#06b6d4ff",
+      "button.info.outline.normal.border": "#06b6d466",
+      "button.info.outline.hover.background": "#1fbdd833",
+      "button.info.outline.hover.foreground": "#06b6d4ff",
+      "button.info.outline.hover.border": "#06b6d466",
+      "button.info.outline.pressed.background": "#05a4bf66",
+      "button.info.outline.pressed.foreground": "#06b6d4ff",
+      "button.info.outline.pressed.border": "#06b6d466",
+      "button.info.outline.selected.background": "#05a4bf66",
+      "button.info.outline.selected.foreground": "#06b6d4ff",
+      "button.info.outline.selected.border": "#06b6d466",
+      "button.info.outline.disabled.background": "#06b6d40d",
+      "button.info.outline.disabled.foreground": "#73737380",
+      "button.info.outline.disabled.border": "#06b6d433",
+      "button.ghost.normal.background": "#00000000",
+      "button.ghost.normal.foreground": "#171717ff",
+      "button.ghost.normal.border": "#00000000",
+      "button.ghost.hover.background": "#f5f5f5ff",
+      "button.ghost.hover.foreground": "#171717ff",
+      "button.ghost.hover.border": "#00000000",
+      "button.ghost.pressed.background": "#e5e5e5b3",
+      "button.ghost.pressed.foreground": "#171717ff",
+      "button.ghost.pressed.border": "#00000000",
+      "button.ghost.selected.background": "#d4d4d4ff",
+      "button.ghost.selected.foreground": "#171717ff",
+      "button.ghost.selected.border": "#00000000",
+      "button.ghost.disabled.background": "#00000000",
+      "button.ghost.disabled.foreground": "#73737380",
+      "button.ghost.disabled.border": "#00000000",
+      "button.ghost.outline.normal.background": "#00000000",
+      "button.ghost.outline.normal.foreground": "#171717ff",
+      "button.ghost.outline.normal.border": "#00000000",
+      "button.ghost.outline.hover.background": "#f5f5f5ff",
+      "button.ghost.outline.hover.foreground": "#171717ff",
+      "button.ghost.outline.hover.border": "#00000000",
+      "button.ghost.outline.pressed.background": "#e5e5e5b3",
+      "button.ghost.outline.pressed.foreground": "#171717ff",
+      "button.ghost.outline.pressed.border": "#00000000",
+      "button.ghost.outline.selected.background": "#e5e5e5b3",
+      "button.ghost.outline.selected.foreground": "#171717ff",
+      "button.ghost.outline.selected.border": "#00000000",
+      "button.ghost.outline.disabled.background": "#00000000",
+      "button.ghost.outline.disabled.foreground": "#73737380",
+      "button.ghost.outline.disabled.border": "#00000000",
+      "button.link.normal.background": "#00000000",
+      "button.link.normal.foreground": "#171717ff",
+      "button.link.normal.border": "#00000000",
+      "button.link.hover.background": "#00000000",
+      "button.link.hover.foreground": "#171717ff",
+      "button.link.hover.border": "#00000000",
+      "button.link.pressed.background": "#00000000",
+      "button.link.pressed.foreground": "#171717ff",
+      "button.link.pressed.border": "#00000000",
+      "button.link.selected.background": "#00000000",
+      "button.link.selected.foreground": "#171717ff",
+      "button.link.selected.border": "#00000000",
+      "button.link.disabled.background": "#00000000",
+      "button.link.disabled.foreground": "#73737380",
+      "button.link.disabled.border": "#00000000",
+      "button.link.outline.normal.background": "#00000000",
+      "button.link.outline.normal.foreground": "#171717ff",
+      "button.link.outline.normal.border": "#00000000",
+      "button.link.outline.hover.background": "#00000000",
+      "button.link.outline.hover.foreground": "#171717ff",
+      "button.link.outline.hover.border": "#00000000",
+      "button.link.outline.pressed.background": "#00000000",
+      "button.link.outline.pressed.foreground": "#171717ff",
+      "button.link.outline.pressed.border": "#00000000",
+      "button.link.outline.selected.background": "#00000000",
+      "button.link.outline.selected.foreground": "#171717ff",
+      "button.link.outline.selected.border": "#00000000",
+      "button.link.outline.disabled.background": "#00000000",
+      "button.link.outline.disabled.foreground": "#73737380",
+      "button.link.outline.disabled.border": "#00000000",
+      "button.text.normal.background": "#00000000",
+      "button.text.normal.foreground": "#0a0a0ae6",
+      "button.text.normal.border": "#00000000",
+      "button.text.hover.background": "#00000000",
+      "button.text.hover.foreground": "#0a0a0aff",
+      "button.text.hover.border": "#00000000",
+      "button.text.pressed.background": "#00000000",
+      "button.text.pressed.foreground": "#0a0a0ab3",
+      "button.text.pressed.border": "#00000000",
+      "button.text.selected.background": "#00000000",
+      "button.text.selected.foreground": "#0a0a0ab3",
+      "button.text.selected.border": "#00000000",
+      "button.text.disabled.background": "#00000000",
+      "button.text.disabled.foreground": "#73737380",
+      "button.text.disabled.border": "#00000000",
+      "button.text.outline.normal.background": "#00000000",
+      "button.text.outline.normal.foreground": "#0a0a0ae6",
+      "button.text.outline.normal.border": "#00000000",
+      "button.text.outline.hover.background": "#00000000",
+      "button.text.outline.hover.foreground": "#0a0a0aff",
+      "button.text.outline.hover.border": "#00000000",
+      "button.text.outline.pressed.background": "#00000000",
+      "button.text.outline.pressed.foreground": "#0a0a0ab3",
+      "button.text.outline.pressed.border": "#00000000",
+      "button.text.outline.selected.background": "#00000000",
+      "button.text.outline.selected.foreground": "#0a0a0ae6",
+      "button.text.outline.selected.border": "#00000000",
+      "button.text.outline.disabled.background": "#00000000",
+      "button.text.outline.disabled.foreground": "#73737380",
+      "button.text.outline.disabled.border": "#00000000",
+      "button.default.group-hover.background": "#e5e5e540",
+      "button.default.outline.group-hover.background": "#e5e5e540",
+      "button.primary.group-hover.background": "#26262680",
+      "button.primary.outline.group-hover.background": "#2626261a",
+      "button.secondary.group-hover.background": "#e5e5e580",
+      "button.secondary.outline.group-hover.background": "#e5e5e51a",
+      "button.danger.group-hover.background": "#ef444426",
+      "button.danger.outline.group-hover.background": "#f157571a",
+      "button.warning.group-hover.background": "#eab30826",
+      "button.warning.outline.group-hover.background": "#ecbb211a",
+      "button.success.group-hover.background": "#22c55e26",
+      "button.success.outline.group-hover.background": "#38cb6e1a",
+      "button.info.group-hover.background": "#06b6d426",
+      "button.info.outline.group-hover.background": "#1fbdd81a",
+      "button.ghost.group-hover.background": "#f5f5f580",
+      "button.ghost.outline.group-hover.background": "#f5f5f580",
+      "button.link.group-hover.background": "#00000000",
+      "button.link.outline.group-hover.background": "#00000000",
+      "button.text.group-hover.background": "#00000000",
+      "button.text.outline.group-hover.background": "#00000000",
+      "focus-ring": "#a3a3a380"
+    },
+    "derived_float": {
+      "button.default.normal.background": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "button.default.normal.foreground": [
+        0.039000000804662704,
+        0.039000000804662704,
+        0.039000000804662704,
+        1.0
+      ],
+      "button.default.normal.border": [
+        0.8980000019073486,
+        0.8980000019073486,
+        0.8980000019073486,
+        1.0
+      ],
+      "button.default.hover.background": [
+        0.8980000615119934,
+        0.8979999423027039,
+        0.8980000019073486,
+        0.5
+      ],
+      "button.default.hover.foreground": [
+        0.039000000804662704,
+        0.039000000804662704,
+        0.039000000804662704,
+        1.0
+      ],
+      "button.default.hover.border": [
+        0.8980000019073486,
+        0.8980000019073486,
+        0.8980000019073486,
+        1.0
+      ],
+      "button.default.pressed.background": [
+        0.8980000615119934,
+        0.8980000615119934,
+        0.8980000019073486,
+        0.699999988079071
+      ],
+      "button.default.pressed.foreground": [
+        0.039000000804662704,
+        0.039000000804662704,
+        0.039000000804662704,
+        1.0
+      ],
+      "button.default.pressed.border": [
+        0.8980000019073486,
+        0.8980000019073486,
+        0.8980000019073486,
+        1.0
+      ],
+      "button.default.selected.background": [
+        0.8980000615119934,
+        0.8980000615119934,
+        0.8980000019073486,
+        0.699999988079071
+      ],
+      "button.default.selected.foreground": [
+        0.039000000804662704,
+        0.039000000804662704,
+        0.039000000804662704,
+        1.0
+      ],
+      "button.default.selected.border": [
+        0.8980000019073486,
+        0.8980000019073486,
+        0.8980000019073486,
+        1.0
+      ],
+      "button.default.disabled.background": [
+        1.0,
+        1.0,
+        1.0,
+        0.5
+      ],
+      "button.default.disabled.foreground": [
+        0.4509999752044678,
+        0.4509999752044678,
+        0.4509999752044678,
+        0.5
+      ],
+      "button.default.disabled.border": [
+        0.8980000019073486,
+        0.8980000019073486,
+        0.8980000019073486,
+        0.5
+      ],
+      "button.default.outline.normal.background": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "button.default.outline.normal.foreground": [
+        0.039000000804662704,
+        0.039000000804662704,
+        0.039000000804662704,
+        1.0
+      ],
+      "button.default.outline.normal.border": [
+        0.8980000019073486,
+        0.8980000019073486,
+        0.8980000019073486,
+        1.0
+      ],
+      "button.default.outline.hover.background": [
+        0.8980000615119934,
+        0.8979999423027039,
+        0.8980000019073486,
+        0.5
+      ],
+      "button.default.outline.hover.foreground": [
+        0.039000000804662704,
+        0.039000000804662704,
+        0.039000000804662704,
+        1.0
+      ],
+      "button.default.outline.hover.border": [
+        0.8980000019073486,
+        0.8980000019073486,
+        0.8980000019073486,
+        1.0
+      ],
+      "button.default.outline.pressed.background": [
+        0.8980000615119934,
+        0.8980000615119934,
+        0.8980000019073486,
+        0.699999988079071
+      ],
+      "button.default.outline.pressed.foreground": [
+        0.039000000804662704,
+        0.039000000804662704,
+        0.039000000804662704,
+        1.0
+      ],
+      "button.default.outline.pressed.border": [
+        0.8980000019073486,
+        0.8980000019073486,
+        0.8980000019073486,
+        1.0
+      ],
+      "button.default.outline.selected.background": [
+        0.8980000615119934,
+        0.8980000615119934,
+        0.8980000019073486,
+        0.699999988079071
+      ],
+      "button.default.outline.selected.foreground": [
+        0.039000000804662704,
+        0.039000000804662704,
+        0.039000000804662704,
+        1.0
+      ],
+      "button.default.outline.selected.border": [
+        0.8980000019073486,
+        0.8980000019073486,
+        0.8980000019073486,
+        1.0
+      ],
+      "button.default.outline.disabled.background": [
+        1.0,
+        1.0,
+        1.0,
+        0.5
+      ],
+      "button.default.outline.disabled.foreground": [
+        0.4509999752044678,
+        0.4509999752044678,
+        0.4509999752044678,
+        0.5
+      ],
+      "button.default.outline.disabled.border": [
+        0.8980000019073486,
+        0.8980000019073486,
+        0.8980000019073486,
+        0.5
+      ],
+      "button.primary.normal.background": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        1.0
+      ],
+      "button.primary.normal.foreground": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        1.0
+      ],
+      "button.primary.normal.border": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        1.0
+      ],
+      "button.primary.hover.background": [
+        0.14899998903274536,
+        0.14899998903274536,
+        0.14899998903274536,
+        1.0
+      ],
+      "button.primary.hover.foreground": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        1.0
+      ],
+      "button.primary.hover.border": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        1.0
+      ],
+      "button.primary.pressed.background": [
+        0.039000000804662704,
+        0.039000000804662704,
+        0.039000000804662704,
+        1.0
+      ],
+      "button.primary.pressed.foreground": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        1.0
+      ],
+      "button.primary.pressed.border": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        1.0
+      ],
+      "button.primary.selected.background": [
+        0.039000000804662704,
+        0.039000000804662704,
+        0.039000000804662704,
+        1.0
+      ],
+      "button.primary.selected.foreground": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        1.0
+      ],
+      "button.primary.selected.border": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        1.0
+      ],
+      "button.primary.disabled.background": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        0.15000000596046448
+      ],
+      "button.primary.disabled.foreground": [
+        0.4509999752044678,
+        0.4509999752044678,
+        0.4509999752044678,
+        0.5
+      ],
+      "button.primary.disabled.border": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        0.15000000596046448
+      ],
+      "button.primary.outline.normal.background": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        0.10000000149011612
+      ],
+      "button.primary.outline.normal.foreground": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        1.0
+      ],
+      "button.primary.outline.normal.border": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        1.0
+      ],
+      "button.primary.outline.hover.background": [
+        0.14899998903274536,
+        0.14899998903274536,
+        0.14899998903274536,
+        0.20000000298023224
+      ],
+      "button.primary.outline.hover.foreground": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        1.0
+      ],
+      "button.primary.outline.hover.border": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        1.0
+      ],
+      "button.primary.outline.pressed.background": [
+        0.039000000804662704,
+        0.039000000804662704,
+        0.039000000804662704,
+        0.4000000059604645
+      ],
+      "button.primary.outline.pressed.foreground": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        1.0
+      ],
+      "button.primary.outline.pressed.border": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        1.0
+      ],
+      "button.primary.outline.selected.background": [
+        0.039000000804662704,
+        0.039000000804662704,
+        0.039000000804662704,
+        0.4000000059604645
+      ],
+      "button.primary.outline.selected.foreground": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        1.0
+      ],
+      "button.primary.outline.selected.border": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        1.0
+      ],
+      "button.primary.outline.disabled.background": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        0.05000000074505806
+      ],
+      "button.primary.outline.disabled.foreground": [
+        0.4509999752044678,
+        0.4509999752044678,
+        0.4509999752044678,
+        0.5
+      ],
+      "button.primary.outline.disabled.border": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        0.5
+      ],
+      "button.secondary.normal.background": [
+        0.8980000019073486,
+        0.8980000019073486,
+        0.8980000019073486,
+        1.0
+      ],
+      "button.secondary.normal.foreground": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        1.0
+      ],
+      "button.secondary.normal.border": [
+        0.8980000019073486,
+        0.8980000019073486,
+        0.8980000019073486,
+        1.0
+      ],
+      "button.secondary.hover.background": [
+        0.8980000019073486,
+        0.8980000019073486,
+        0.8980000019073486,
+        1.0
+      ],
+      "button.secondary.hover.foreground": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        1.0
+      ],
+      "button.secondary.hover.border": [
+        0.8980000019073486,
+        0.8980000019073486,
+        0.8980000019073486,
+        1.0
+      ],
+      "button.secondary.pressed.background": [
+        0.8309999704360962,
+        0.8309999704360962,
+        0.8309999704360962,
+        1.0
+      ],
+      "button.secondary.pressed.foreground": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        1.0
+      ],
+      "button.secondary.pressed.border": [
+        0.8980000019073486,
+        0.8980000019073486,
+        0.8980000019073486,
+        1.0
+      ],
+      "button.secondary.selected.background": [
+        0.8309999704360962,
+        0.8309999704360962,
+        0.8309999704360962,
+        1.0
+      ],
+      "button.secondary.selected.foreground": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        1.0
+      ],
+      "button.secondary.selected.border": [
+        0.8980000019073486,
+        0.8980000019073486,
+        0.8980000019073486,
+        1.0
+      ],
+      "button.secondary.disabled.background": [
+        0.8980000019073486,
+        0.8980000019073486,
+        0.8980000019073486,
+        1.0
+      ],
+      "button.secondary.disabled.foreground": [
+        0.4509999752044678,
+        0.4509999752044678,
+        0.4509999752044678,
+        0.5
+      ],
+      "button.secondary.disabled.border": [
+        0.8980000019073486,
+        0.8980000019073486,
+        0.8980000019073486,
+        1.0
+      ],
+      "button.secondary.outline.normal.background": [
+        0.8980000019073486,
+        0.8980000019073486,
+        0.8980000019073486,
+        0.10000000149011612
+      ],
+      "button.secondary.outline.normal.foreground": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        1.0
+      ],
+      "button.secondary.outline.normal.border": [
+        0.8980000019073486,
+        0.8980000019073486,
+        0.8980000019073486,
+        1.0
+      ],
+      "button.secondary.outline.hover.background": [
+        0.8980000019073486,
+        0.8980000019073486,
+        0.8980000019073486,
+        0.20000000298023224
+      ],
+      "button.secondary.outline.hover.foreground": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        1.0
+      ],
+      "button.secondary.outline.hover.border": [
+        0.8980000019073486,
+        0.8980000019073486,
+        0.8980000019073486,
+        1.0
+      ],
+      "button.secondary.outline.pressed.background": [
+        0.8309999704360962,
+        0.8309999704360962,
+        0.8309999704360962,
+        0.4000000059604645
+      ],
+      "button.secondary.outline.pressed.foreground": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        1.0
+      ],
+      "button.secondary.outline.pressed.border": [
+        0.8980000019073486,
+        0.8980000019073486,
+        0.8980000019073486,
+        1.0
+      ],
+      "button.secondary.outline.selected.background": [
+        0.8309999704360962,
+        0.8309999704360962,
+        0.8309999704360962,
+        0.4000000059604645
+      ],
+      "button.secondary.outline.selected.foreground": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        1.0
+      ],
+      "button.secondary.outline.selected.border": [
+        0.8980000019073486,
+        0.8980000019073486,
+        0.8980000019073486,
+        1.0
+      ],
+      "button.secondary.outline.disabled.background": [
+        0.8980000019073486,
+        0.8980000019073486,
+        0.8980000019073486,
+        0.05000000074505806
+      ],
+      "button.secondary.outline.disabled.foreground": [
+        0.4509999752044678,
+        0.4509999752044678,
+        0.4509999752044678,
+        0.5
+      ],
+      "button.secondary.outline.disabled.border": [
+        0.8980000019073486,
+        0.8980000019073486,
+        0.8980000019073486,
+        0.5
+      ],
+      "button.danger.normal.background": [
+        0.9371157288551331,
+        0.26688435673713684,
+        0.2668837904930115,
+        0.20000000298023224
+      ],
+      "button.danger.normal.foreground": [
+        0.9371159672737122,
+        0.2668840289115906,
+        0.2668840289115906,
+        1.0
+      ],
+      "button.danger.normal.border": [
+        0.9371157288551331,
+        0.26688435673713684,
+        0.2668837904930115,
+        0.20000000298023224
+      ],
+      "button.danger.hover.background": [
+        0.9371157288551331,
+        0.26688435673713684,
+        0.2668837904930115,
+        0.30000001192092896
+      ],
+      "button.danger.hover.foreground": [
+        0.9371159672737122,
+        0.2668840289115906,
+        0.2668840289115906,
+        1.0
+      ],
+      "button.danger.hover.border": [
+        0.9371157288551331,
+        0.26688435673713684,
+        0.2668837904930115,
+        0.20000000298023224
+      ],
+      "button.danger.pressed.background": [
+        0.9371157288551331,
+        0.26688435673713684,
+        0.2668837904930115,
+        0.4000000059604645
+      ],
+      "button.danger.pressed.foreground": [
+        0.9371159672737122,
+        0.2668840289115906,
+        0.2668840289115906,
+        1.0
+      ],
+      "button.danger.pressed.border": [
+        0.9371157288551331,
+        0.26688435673713684,
+        0.2668837904930115,
+        0.20000000298023224
+      ],
+      "button.danger.selected.background": [
+        0.9371157288551331,
+        0.26688435673713684,
+        0.2668837904930115,
+        0.4000000059604645
+      ],
+      "button.danger.selected.foreground": [
+        0.9371159672737122,
+        0.2668840289115906,
+        0.2668840289115906,
+        1.0
+      ],
+      "button.danger.selected.border": [
+        0.9371157288551331,
+        0.26688435673713684,
+        0.2668837904930115,
+        0.20000000298023224
+      ],
+      "button.danger.disabled.background": [
+        0.9371157288551331,
+        0.26688435673713684,
+        0.2668837904930115,
+        0.030000001192092896
+      ],
+      "button.danger.disabled.foreground": [
+        0.4509999752044678,
+        0.4509999752044678,
+        0.4509999752044678,
+        0.5
+      ],
+      "button.danger.disabled.border": [
+        0.9371157288551331,
+        0.26688435673713684,
+        0.2668837904930115,
+        0.030000001192092896
+      ],
+      "button.danger.outline.normal.background": [
+        0.9371159672737122,
+        0.2668840289115906,
+        0.2668840289115906,
+        0.10000000149011612
+      ],
+      "button.danger.outline.normal.foreground": [
+        0.9371159672737122,
+        0.2668840289115906,
+        0.2668840289115906,
+        1.0
+      ],
+      "button.danger.outline.normal.border": [
+        0.9371157288551331,
+        0.26688435673713684,
+        0.2668837904930115,
+        0.4000000059604645
+      ],
+      "button.danger.outline.hover.background": [
+        0.9434044361114502,
+        0.3401956856250763,
+        0.3401956856250763,
+        0.20000000298023224
+      ],
+      "button.danger.outline.hover.foreground": [
+        0.9371159672737122,
+        0.2668840289115906,
+        0.2668840289115906,
+        1.0
+      ],
+      "button.danger.outline.hover.border": [
+        0.9371157288551331,
+        0.26688435673713684,
+        0.2668837904930115,
+        0.4000000059604645
+      ],
+      "button.danger.outline.pressed.background": [
+        0.9276043772697449,
+        0.15599554777145386,
+        0.15599554777145386,
+        0.4000000059604645
+      ],
+      "button.danger.outline.pressed.foreground": [
+        0.9371159672737122,
+        0.2668840289115906,
+        0.2668840289115906,
+        1.0
+      ],
+      "button.danger.outline.pressed.border": [
+        0.9371157288551331,
+        0.26688435673713684,
+        0.2668837904930115,
+        0.4000000059604645
+      ],
+      "button.danger.outline.selected.background": [
+        0.9276043772697449,
+        0.15599554777145386,
+        0.15599554777145386,
+        0.4000000059604645
+      ],
+      "button.danger.outline.selected.foreground": [
+        0.9371159672737122,
+        0.2668840289115906,
+        0.2668840289115906,
+        1.0
+      ],
+      "button.danger.outline.selected.border": [
+        0.9371157288551331,
+        0.26688435673713684,
+        0.2668837904930115,
+        0.4000000059604645
+      ],
+      "button.danger.outline.disabled.background": [
+        0.9371159672737122,
+        0.2668840289115906,
+        0.2668840289115906,
+        0.05000000074505806
+      ],
+      "button.danger.outline.disabled.foreground": [
+        0.4509999752044678,
+        0.4509999752044678,
+        0.4509999752044678,
+        0.5
+      ],
+      "button.danger.outline.disabled.border": [
+        0.9371157288551331,
+        0.26688435673713684,
+        0.2668837904930115,
+        0.20000000298023224
+      ],
+      "button.warning.normal.background": [
+        0.9186498522758484,
+        0.7027404308319092,
+        0.03135043382644653,
+        0.20000000298023224
+      ],
+      "button.warning.normal.foreground": [
+        0.9186500310897827,
+        0.7027404308319092,
+        0.03134998679161072,
+        1.0
+      ],
+      "button.warning.normal.border": [
+        0.9186498522758484,
+        0.7027404308319092,
+        0.03135043382644653,
+        0.20000000298023224
+      ],
+      "button.warning.hover.background": [
+        0.9186498522758484,
+        0.7027404308319092,
+        0.03135043382644653,
+        0.30000001192092896
+      ],
+      "button.warning.hover.foreground": [
+        0.9186500310897827,
+        0.7027404308319092,
+        0.03134998679161072,
+        1.0
+      ],
+      "button.warning.hover.border": [
+        0.9186498522758484,
+        0.7027404308319092,
+        0.03135043382644653,
+        0.20000000298023224
+      ],
+      "button.warning.pressed.background": [
+        0.9186498522758484,
+        0.7027404308319092,
+        0.03135043382644653,
+        0.4000000059604645
+      ],
+      "button.warning.pressed.foreground": [
+        0.9186500310897827,
+        0.7027404308319092,
+        0.03134998679161072,
+        1.0
+      ],
+      "button.warning.pressed.border": [
+        0.9186498522758484,
+        0.7027404308319092,
+        0.03135043382644653,
+        0.20000000298023224
+      ],
+      "button.warning.selected.background": [
+        0.9186498522758484,
+        0.7027404308319092,
+        0.03135043382644653,
+        0.4000000059604645
+      ],
+      "button.warning.selected.foreground": [
+        0.9186500310897827,
+        0.7027404308319092,
+        0.03134998679161072,
+        1.0
+      ],
+      "button.warning.selected.border": [
+        0.9186498522758484,
+        0.7027404308319092,
+        0.03135043382644653,
+        0.20000000298023224
+      ],
+      "button.warning.disabled.background": [
+        0.9186498522758484,
+        0.7027404308319092,
+        0.03135043382644653,
+        0.030000001192092896
+      ],
+      "button.warning.disabled.foreground": [
+        0.4509999752044678,
+        0.4509999752044678,
+        0.4509999752044678,
+        0.5
+      ],
+      "button.warning.disabled.border": [
+        0.9186498522758484,
+        0.7027404308319092,
+        0.03135043382644653,
+        0.030000001192092896
+      ],
+      "button.warning.outline.normal.background": [
+        0.9186500310897827,
+        0.7027404308319092,
+        0.03134998679161072,
+        0.10000000149011612
+      ],
+      "button.warning.outline.normal.foreground": [
+        0.9186500310897827,
+        0.7027404308319092,
+        0.03134998679161072,
+        1.0
+      ],
+      "button.warning.outline.normal.border": [
+        0.9186498522758484,
+        0.7027404308319092,
+        0.03135043382644653,
+        0.4000000059604645
+      ],
+      "button.warning.outline.hover.background": [
+        0.9267850518226624,
+        0.7324663996696472,
+        0.1282150149345398,
+        0.20000000298023224
+      ],
+      "button.warning.outline.hover.foreground": [
+        0.9186500310897827,
+        0.7027404308319092,
+        0.03134998679161072,
+        1.0
+      ],
+      "button.warning.outline.hover.border": [
+        0.9186498522758484,
+        0.7027404308319092,
+        0.03135043382644653,
+        0.4000000059604645
+      ],
+      "button.warning.outline.pressed.background": [
+        0.8267849683761597,
+        0.6324663162231445,
+        0.028214991092681885,
+        0.4000000059604645
+      ],
+      "button.warning.outline.pressed.foreground": [
+        0.9186500310897827,
+        0.7027404308319092,
+        0.03134998679161072,
+        1.0
+      ],
+      "button.warning.outline.pressed.border": [
+        0.9186498522758484,
+        0.7027404308319092,
+        0.03135043382644653,
+        0.4000000059604645
+      ],
+      "button.warning.outline.selected.background": [
+        0.8267849683761597,
+        0.6324663162231445,
+        0.028214991092681885,
+        0.4000000059604645
+      ],
+      "button.warning.outline.selected.foreground": [
+        0.9186500310897827,
+        0.7027404308319092,
+        0.03134998679161072,
+        1.0
+      ],
+      "button.warning.outline.selected.border": [
+        0.9186498522758484,
+        0.7027404308319092,
+        0.03135043382644653,
+        0.4000000059604645
+      ],
+      "button.warning.outline.disabled.background": [
+        0.9186500310897827,
+        0.7027404308319092,
+        0.03134998679161072,
+        0.05000000074505806
+      ],
+      "button.warning.outline.disabled.foreground": [
+        0.4509999752044678,
+        0.4509999752044678,
+        0.4509999752044678,
+        0.5
+      ],
+      "button.warning.outline.disabled.border": [
+        0.9186498522758484,
+        0.7027404308319092,
+        0.03135043382644653,
+        0.20000000298023224
+      ],
+      "button.success.normal.background": [
+        0.13318443298339844,
+        0.7728177309036255,
+        0.3687814772129059,
+        0.20000000298023224
+      ],
+      "button.success.normal.foreground": [
+        0.13318201899528503,
+        0.7728179693222046,
+        0.3687813878059387,
+        1.0
+      ],
+      "button.success.normal.border": [
+        0.13318443298339844,
+        0.7728177309036255,
+        0.3687814772129059,
+        0.20000000298023224
+      ],
+      "button.success.hover.background": [
+        0.13318443298339844,
+        0.7728177309036255,
+        0.3687814772129059,
+        0.30000001192092896
+      ],
+      "button.success.hover.foreground": [
+        0.13318201899528503,
+        0.7728179693222046,
+        0.3687813878059387,
+        1.0
+      ],
+      "button.success.hover.border": [
+        0.13318443298339844,
+        0.7728177309036255,
+        0.3687814772129059,
+        0.20000000298023224
+      ],
+      "button.success.pressed.background": [
+        0.13318443298339844,
+        0.7728177309036255,
+        0.3687814772129059,
+        0.4000000059604645
+      ],
+      "button.success.pressed.foreground": [
+        0.13318201899528503,
+        0.7728179693222046,
+        0.3687813878059387,
+        1.0
+      ],
+      "button.success.pressed.border": [
+        0.13318443298339844,
+        0.7728177309036255,
+        0.3687814772129059,
+        0.20000000298023224
+      ],
+      "button.success.selected.background": [
+        0.13318443298339844,
+        0.7728177309036255,
+        0.3687814772129059,
+        0.4000000059604645
+      ],
+      "button.success.selected.foreground": [
+        0.13318201899528503,
+        0.7728179693222046,
+        0.3687813878059387,
+        1.0
+      ],
+      "button.success.selected.border": [
+        0.13318443298339844,
+        0.7728177309036255,
+        0.3687814772129059,
+        0.20000000298023224
+      ],
+      "button.success.disabled.background": [
+        0.13318443298339844,
+        0.7728177309036255,
+        0.3687814772129059,
+        0.030000001192092896
+      ],
+      "button.success.disabled.foreground": [
+        0.4509999752044678,
+        0.4509999752044678,
+        0.4509999752044678,
+        0.5
+      ],
+      "button.success.disabled.border": [
+        0.13318443298339844,
+        0.7728177309036255,
+        0.3687814772129059,
+        0.030000001192092896
+      ],
+      "button.success.outline.normal.background": [
+        0.13318201899528503,
+        0.7728179693222046,
+        0.3687813878059387,
+        0.10000000149011612
+      ],
+      "button.success.outline.normal.foreground": [
+        0.13318201899528503,
+        0.7728179693222046,
+        0.3687813878059387,
+        1.0
+      ],
+      "button.success.outline.normal.border": [
+        0.13318443298339844,
+        0.7728177309036255,
+        0.3687814772129059,
+        0.4000000059604645
+      ],
+      "button.success.outline.hover.background": [
+        0.21986380219459534,
+        0.7955361604690552,
+        0.43190324306488037,
+        0.20000000298023224
+      ],
+      "button.success.outline.hover.foreground": [
+        0.13318201899528503,
+        0.7728179693222046,
+        0.3687813878059387,
+        1.0
+      ],
+      "button.success.outline.hover.border": [
+        0.13318443298339844,
+        0.7728177309036255,
+        0.3687814772129059,
+        0.4000000059604645
+      ],
+      "button.success.outline.pressed.background": [
+        0.11986380815505981,
+        0.6955361366271973,
+        0.33190327882766724,
+        0.4000000059604645
+      ],
+      "button.success.outline.pressed.foreground": [
+        0.13318201899528503,
+        0.7728179693222046,
+        0.3687813878059387,
+        1.0
+      ],
+      "button.success.outline.pressed.border": [
+        0.13318443298339844,
+        0.7728177309036255,
+        0.3687814772129059,
+        0.4000000059604645
+      ],
+      "button.success.outline.selected.background": [
+        0.11986380815505981,
+        0.6955361366271973,
+        0.33190327882766724,
+        0.4000000059604645
+      ],
+      "button.success.outline.selected.foreground": [
+        0.13318201899528503,
+        0.7728179693222046,
+        0.3687813878059387,
+        1.0
+      ],
+      "button.success.outline.selected.border": [
+        0.13318443298339844,
+        0.7728177309036255,
+        0.3687814772129059,
+        0.4000000059604645
+      ],
+      "button.success.outline.disabled.background": [
+        0.13318201899528503,
+        0.7728179693222046,
+        0.3687813878059387,
+        0.05000000074505806
+      ],
+      "button.success.outline.disabled.foreground": [
+        0.4509999752044678,
+        0.4509999752044678,
+        0.4509999752044678,
+        0.5
+      ],
+      "button.success.outline.disabled.border": [
+        0.13318443298339844,
+        0.7728177309036255,
+        0.3687814772129059,
+        0.20000000298023224
+      ],
+      "button.info.normal.background": [
+        0.02348548173904419,
+        0.7134957909584045,
+        0.8305150866508484,
+        0.20000000298023224
+      ],
+      "button.info.normal.foreground": [
+        0.023485004901885986,
+        0.713495671749115,
+        0.8305150270462036,
+        1.0
+      ],
+      "button.info.normal.border": [
+        0.02348548173904419,
+        0.7134957909584045,
+        0.8305150866508484,
+        0.20000000298023224
+      ],
+      "button.info.hover.background": [
+        0.02348548173904419,
+        0.7134957909584045,
+        0.8305150866508484,
+        0.30000001192092896
+      ],
+      "button.info.hover.foreground": [
+        0.023485004901885986,
+        0.713495671749115,
+        0.8305150270462036,
+        1.0
+      ],
+      "button.info.hover.border": [
+        0.02348548173904419,
+        0.7134957909584045,
+        0.8305150866508484,
+        0.20000000298023224
+      ],
+      "button.info.pressed.background": [
+        0.02348548173904419,
+        0.7134957909584045,
+        0.8305150866508484,
+        0.4000000059604645
+      ],
+      "button.info.pressed.foreground": [
+        0.023485004901885986,
+        0.713495671749115,
+        0.8305150270462036,
+        1.0
+      ],
+      "button.info.pressed.border": [
+        0.02348548173904419,
+        0.7134957909584045,
+        0.8305150866508484,
+        0.20000000298023224
+      ],
+      "button.info.selected.background": [
+        0.02348548173904419,
+        0.7134957909584045,
+        0.8305150866508484,
+        0.4000000059604645
+      ],
+      "button.info.selected.foreground": [
+        0.023485004901885986,
+        0.713495671749115,
+        0.8305150270462036,
+        1.0
+      ],
+      "button.info.selected.border": [
+        0.02348548173904419,
+        0.7134957909584045,
+        0.8305150866508484,
+        0.20000000298023224
+      ],
+      "button.info.disabled.background": [
+        0.02348548173904419,
+        0.7134957909584045,
+        0.8305150866508484,
+        0.030000001192092896
+      ],
+      "button.info.disabled.foreground": [
+        0.4509999752044678,
+        0.4509999752044678,
+        0.4509999752044678,
+        0.5
+      ],
+      "button.info.disabled.border": [
+        0.02348548173904419,
+        0.7134957909584045,
+        0.8305150866508484,
+        0.030000001192092896
+      ],
+      "button.info.outline.normal.background": [
+        0.023485004901885986,
+        0.713495671749115,
+        0.8305150270462036,
+        0.10000000149011612
+      ],
+      "button.info.outline.normal.foreground": [
+        0.023485004901885986,
+        0.713495671749115,
+        0.8305150270462036,
+        1.0
+      ],
+      "button.info.outline.normal.border": [
+        0.02348548173904419,
+        0.7134957909584045,
+        0.8305150866508484,
+        0.4000000059604645
+      ],
+      "button.info.outline.hover.background": [
+        0.12113654613494873,
+        0.7421461343765259,
+        0.8474635481834412,
+        0.20000000298023224
+      ],
+      "button.info.outline.hover.foreground": [
+        0.023485004901885986,
+        0.713495671749115,
+        0.8305150270462036,
+        1.0
+      ],
+      "button.info.outline.hover.border": [
+        0.02348548173904419,
+        0.7134957909584045,
+        0.8305150866508484,
+        0.4000000059604645
+      ],
+      "button.info.outline.pressed.background": [
+        0.021136492490768433,
+        0.642146110534668,
+        0.7474634647369385,
+        0.4000000059604645
+      ],
+      "button.info.outline.pressed.foreground": [
+        0.023485004901885986,
+        0.713495671749115,
+        0.8305150270462036,
+        1.0
+      ],
+      "button.info.outline.pressed.border": [
+        0.02348548173904419,
+        0.7134957909584045,
+        0.8305150866508484,
+        0.4000000059604645
+      ],
+      "button.info.outline.selected.background": [
+        0.021136492490768433,
+        0.642146110534668,
+        0.7474634647369385,
+        0.4000000059604645
+      ],
+      "button.info.outline.selected.foreground": [
+        0.023485004901885986,
+        0.713495671749115,
+        0.8305150270462036,
+        1.0
+      ],
+      "button.info.outline.selected.border": [
+        0.02348548173904419,
+        0.7134957909584045,
+        0.8305150866508484,
+        0.4000000059604645
+      ],
+      "button.info.outline.disabled.background": [
+        0.023485004901885986,
+        0.713495671749115,
+        0.8305150270462036,
+        0.05000000074505806
+      ],
+      "button.info.outline.disabled.foreground": [
+        0.4509999752044678,
+        0.4509999752044678,
+        0.4509999752044678,
+        0.5
+      ],
+      "button.info.outline.disabled.border": [
+        0.02348548173904419,
+        0.7134957909584045,
+        0.8305150866508484,
+        0.20000000298023224
+      ],
+      "button.ghost.normal.background": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.ghost.normal.foreground": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        1.0
+      ],
+      "button.ghost.normal.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.ghost.hover.background": [
+        0.9609999656677246,
+        0.9609999656677246,
+        0.9609999656677246,
+        1.0
+      ],
+      "button.ghost.hover.foreground": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        1.0
+      ],
+      "button.ghost.hover.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.ghost.pressed.background": [
+        0.8980000615119934,
+        0.8980000615119934,
+        0.8980000019073486,
+        0.699999988079071
+      ],
+      "button.ghost.pressed.foreground": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        1.0
+      ],
+      "button.ghost.pressed.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.ghost.selected.background": [
+        0.8309999704360962,
+        0.8309999704360962,
+        0.8309999704360962,
+        1.0
+      ],
+      "button.ghost.selected.foreground": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        1.0
+      ],
+      "button.ghost.selected.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.ghost.disabled.background": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.ghost.disabled.foreground": [
+        0.4509999752044678,
+        0.4509999752044678,
+        0.4509999752044678,
+        0.5
+      ],
+      "button.ghost.disabled.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.ghost.outline.normal.background": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.ghost.outline.normal.foreground": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        1.0
+      ],
+      "button.ghost.outline.normal.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.ghost.outline.hover.background": [
+        0.9609999656677246,
+        0.9609999656677246,
+        0.9609999656677246,
+        1.0
+      ],
+      "button.ghost.outline.hover.foreground": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        1.0
+      ],
+      "button.ghost.outline.hover.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.ghost.outline.pressed.background": [
+        0.8980000615119934,
+        0.8980000615119934,
+        0.8980000019073486,
+        0.699999988079071
+      ],
+      "button.ghost.outline.pressed.foreground": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        1.0
+      ],
+      "button.ghost.outline.pressed.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.ghost.outline.selected.background": [
+        0.8980000615119934,
+        0.8980000615119934,
+        0.8980000019073486,
+        0.699999988079071
+      ],
+      "button.ghost.outline.selected.foreground": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        1.0
+      ],
+      "button.ghost.outline.selected.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.ghost.outline.disabled.background": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.ghost.outline.disabled.foreground": [
+        0.4509999752044678,
+        0.4509999752044678,
+        0.4509999752044678,
+        0.5
+      ],
+      "button.ghost.outline.disabled.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.link.normal.background": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.link.normal.foreground": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        1.0
+      ],
+      "button.link.normal.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.link.hover.background": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.link.hover.foreground": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        1.0
+      ],
+      "button.link.hover.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.link.pressed.background": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.link.pressed.foreground": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        1.0
+      ],
+      "button.link.pressed.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.link.selected.background": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.link.selected.foreground": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        1.0
+      ],
+      "button.link.selected.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.link.disabled.background": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.link.disabled.foreground": [
+        0.4509999752044678,
+        0.4509999752044678,
+        0.4509999752044678,
+        0.5
+      ],
+      "button.link.disabled.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.link.outline.normal.background": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.link.outline.normal.foreground": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        1.0
+      ],
+      "button.link.outline.normal.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.link.outline.hover.background": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.link.outline.hover.foreground": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        1.0
+      ],
+      "button.link.outline.hover.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.link.outline.pressed.background": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.link.outline.pressed.foreground": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        1.0
+      ],
+      "button.link.outline.pressed.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.link.outline.selected.background": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.link.outline.selected.foreground": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        1.0
+      ],
+      "button.link.outline.selected.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.link.outline.disabled.background": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.link.outline.disabled.foreground": [
+        0.4509999752044678,
+        0.4509999752044678,
+        0.4509999752044678,
+        0.5
+      ],
+      "button.link.outline.disabled.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.text.normal.background": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.text.normal.foreground": [
+        0.039000000804662704,
+        0.039000000804662704,
+        0.039000000804662704,
+        0.8999999761581421
+      ],
+      "button.text.normal.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.text.hover.background": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.text.hover.foreground": [
+        0.039000000804662704,
+        0.039000000804662704,
+        0.039000000804662704,
+        1.0
+      ],
+      "button.text.hover.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.text.pressed.background": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.text.pressed.foreground": [
+        0.039000000804662704,
+        0.039000000804662704,
+        0.039000000804662704,
+        0.699999988079071
+      ],
+      "button.text.pressed.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.text.selected.background": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.text.selected.foreground": [
+        0.039000000804662704,
+        0.039000000804662704,
+        0.039000000804662704,
+        0.699999988079071
+      ],
+      "button.text.selected.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.text.disabled.background": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.text.disabled.foreground": [
+        0.4509999752044678,
+        0.4509999752044678,
+        0.4509999752044678,
+        0.5
+      ],
+      "button.text.disabled.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.text.outline.normal.background": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.text.outline.normal.foreground": [
+        0.039000000804662704,
+        0.039000000804662704,
+        0.039000000804662704,
+        0.8999999761581421
+      ],
+      "button.text.outline.normal.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.text.outline.hover.background": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.text.outline.hover.foreground": [
+        0.039000000804662704,
+        0.039000000804662704,
+        0.039000000804662704,
+        1.0
+      ],
+      "button.text.outline.hover.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.text.outline.pressed.background": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.text.outline.pressed.foreground": [
+        0.039000000804662704,
+        0.039000000804662704,
+        0.039000000804662704,
+        0.699999988079071
+      ],
+      "button.text.outline.pressed.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.text.outline.selected.background": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.text.outline.selected.foreground": [
+        0.039000000804662704,
+        0.039000000804662704,
+        0.039000000804662704,
+        0.8999999761581421
+      ],
+      "button.text.outline.selected.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.text.outline.disabled.background": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.text.outline.disabled.foreground": [
+        0.4509999752044678,
+        0.4509999752044678,
+        0.4509999752044678,
+        0.5
+      ],
+      "button.text.outline.disabled.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.default.group-hover.background": [
+        0.8980000615119934,
+        0.8979999423027039,
+        0.8980000019073486,
+        0.25
+      ],
+      "button.default.outline.group-hover.background": [
+        0.8980000615119934,
+        0.8979999423027039,
+        0.8980000019073486,
+        0.25
+      ],
+      "button.primary.group-hover.background": [
+        0.14899998903274536,
+        0.14899998903274536,
+        0.14899998903274536,
+        0.5
+      ],
+      "button.primary.outline.group-hover.background": [
+        0.14899998903274536,
+        0.14899998903274536,
+        0.14899998903274536,
+        0.10000000149011612
+      ],
+      "button.secondary.group-hover.background": [
+        0.8980000019073486,
+        0.8980000019073486,
+        0.8980000019073486,
+        0.5
+      ],
+      "button.secondary.outline.group-hover.background": [
+        0.8980000019073486,
+        0.8980000019073486,
+        0.8980000019073486,
+        0.10000000149011612
+      ],
+      "button.danger.group-hover.background": [
+        0.9371157288551331,
+        0.26688435673713684,
+        0.2668837904930115,
+        0.15000000596046448
+      ],
+      "button.danger.outline.group-hover.background": [
+        0.9434044361114502,
+        0.3401956856250763,
+        0.3401956856250763,
+        0.10000000149011612
+      ],
+      "button.warning.group-hover.background": [
+        0.9186498522758484,
+        0.7027404308319092,
+        0.03135043382644653,
+        0.15000000596046448
+      ],
+      "button.warning.outline.group-hover.background": [
+        0.9267850518226624,
+        0.7324663996696472,
+        0.1282150149345398,
+        0.10000000149011612
+      ],
+      "button.success.group-hover.background": [
+        0.13318443298339844,
+        0.7728177309036255,
+        0.3687814772129059,
+        0.15000000596046448
+      ],
+      "button.success.outline.group-hover.background": [
+        0.21986380219459534,
+        0.7955361604690552,
+        0.43190324306488037,
+        0.10000000149011612
+      ],
+      "button.info.group-hover.background": [
+        0.02348548173904419,
+        0.7134957909584045,
+        0.8305150866508484,
+        0.15000000596046448
+      ],
+      "button.info.outline.group-hover.background": [
+        0.12113654613494873,
+        0.7421461343765259,
+        0.8474635481834412,
+        0.10000000149011612
+      ],
+      "button.ghost.group-hover.background": [
+        0.9609999656677246,
+        0.9609999656677246,
+        0.9609999656677246,
+        0.5
+      ],
+      "button.ghost.outline.group-hover.background": [
+        0.9609999656677246,
+        0.9609999656677246,
+        0.9609999656677246,
+        0.5
+      ],
+      "button.link.group-hover.background": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.link.outline.group-hover.background": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.text.group-hover.background": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.text.outline.group-hover.background": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "focus-ring": [
+        0.6389999985694885,
+        0.6389999985694885,
+        0.6389999985694885,
+        0.5
+      ]
+    },
+    "scalars": {
+      "font_size": 16.0,
+      "radius": 6.0,
+      "radius_lg": 8.0,
+      "shadow": true,
+      "focus_ring": true
+    },
+    "motion": "MotionTokens { duration_instant: 0ns, duration_fast: 120ms, duration_normal: 180ms, duration_slow: 280ms, easing_enter: CubicBezier { x1: 0.16, y1: 1.0, x2: 0.3, y2: 1.0 }, easing_exit: CubicBezier { x1: 0.4, y1: 0.0, x2: 1.0, y2: 1.0 }, easing_move: CubicBezier { x1: 0.2, y1: 0.0, x2: 0.0, y2: 1.0 }, spring_control: Spring { response: 180ms, damping: 1.0, epsilon: 0.001, travel: true }, spring_move: Spring { response: 280ms, damping: 0.85, epsilon: 0.1, travel: true }, distance_short: 0.25rem, distance_medium: 0.5rem }"
+  },
+  "dark": {
+    "mode": "Dark",
+    "colors": {
+      "accent": "#262626ff",
+      "accent_foreground": "#fafafaff",
+      "accordion": "#0a0a0aff",
+      "background": "#0a0a0aff",
+      "border": "#262626ff",
+      "button": "#2f2f2f4d",
+      "button_active": "#2f2f2fb3",
+      "button_foreground": "#fafafaff",
+      "button_hover": "#2f2f2f80",
+      "button_danger": "#f8717133",
+      "button_danger_active": "#f8717166",
+      "button_danger_foreground": "#f87171ff",
+      "button_danger_hover": "#f871714d",
+      "button_info": "#22d3ee33",
+      "button_info_active": "#22d3ee66",
+      "button_info_foreground": "#22d3eeff",
+      "button_info_hover": "#22d3ee4d",
+      "button_primary": "#fafafaff",
+      "button_primary_active": "#e5e5e5ff",
+      "button_primary_foreground": "#171717ff",
+      "button_primary_hover": "#f5f5f5ff",
+      "button_secondary": "#262626ff",
+      "button_secondary_active": "#212121ff",
+      "button_secondary_foreground": "#fafafaff",
+      "button_secondary_hover": "#292929ff",
+      "button_success": "#4ade8033",
+      "button_success_active": "#4ade8066",
+      "button_success_foreground": "#4ade80ff",
+      "button_success_hover": "#4ade804d",
+      "button_warning": "#facc1533",
+      "button_warning_active": "#facc1566",
+      "button_warning_foreground": "#facc15ff",
+      "button_warning_hover": "#facc154d",
+      "group_box": "#0a0a0aff",
+      "group_box_foreground": "#fafafaff",
+      "caret": "#fafafaff",
+      "chart_1": "#93c5fdff",
+      "chart_2": "#3b82f6ff",
+      "chart_3": "#2563ebff",
+      "chart_4": "#1d4ed8ff",
+      "chart_5": "#1e40afff",
+      "chart_bullish": "#16a34aff",
+      "chart_bearish": "#dc2626ff",
+      "chart_grid": "#26262699",
+      "danger": "#f87171ff",
+      "danger_active": "#f52c2cff",
+      "danger_foreground": "#dc2626ff",
+      "danger_hover": "#e06767ff",
+      "description_list_label": "#101010ff",
+      "description_list_label_foreground": "#a3a3a3ff",
+      "drag_border": "#fafafaa6",
+      "drop_target": "#3b82f619",
+      "foreground": "#fafafaff",
+      "info": "#22d3eeff",
+      "info_active": "#10b1caff",
+      "info_foreground": "#0891b2ff",
+      "info_hover": "#1fbfd7ff",
+      "input": "#2f2f2fff",
+      "link": "#fafafaff",
+      "link_active": "#fafafaff",
+      "link_hover": "#fafafaff",
+      "list": "#0a0a0aff",
+      "list_active": "#1e40af33",
+      "list_active_border": "#1d4ed8ff",
+      "list_even": "#17171766",
+      "list_head": "#17171766",
+      "list_hover": "#26262699",
+      "muted": "#262626ff",
+      "muted_foreground": "#a3a3a3ff",
+      "popover": "#0a0a0aff",
+      "popover_foreground": "#fafafaff",
+      "primary": "#fafafaff",
+      "primary_active": "#e5e5e5ff",
+      "primary_foreground": "#171717ff",
+      "primary_hover": "#f5f5f5ff",
+      "progress_bar": "#fafafaff",
+      "ring": "#737373ff",
+      "scrollbar": "#17171700",
+      "scrollbar_thumb": "#525252e6",
+      "scrollbar_thumb_hover": "#525252ff",
+      "secondary": "#262626ff",
+      "secondary_active": "#212121ff",
+      "secondary_foreground": "#fafafaff",
+      "secondary_hover": "#292929ff",
+      "selection": "#1d4ed84d",
+      "sidebar": "#0a0a0aff",
+      "sidebar_accent": "#262626ff",
+      "sidebar_accent_foreground": "#f5f5f5ff",
+      "sidebar_border": "#262626ff",
+      "sidebar_foreground": "#f5f5f5ff",
+      "sidebar_primary": "#f5f5f5ff",
+      "sidebar_primary_foreground": "#0a0a0aff",
+      "skeleton": "#171717ff",
+      "slider_bar": "#fafafaff",
+      "slider_thumb": "#0a0a0aff",
+      "success": "#4ade80ff",
+      "success_foreground": "#16a34aff",
+      "success_hover": "#43c974ff",
+      "success_active": "#24c860ff",
+      "switch": "#404040ff",
+      "switch_thumb": "#0a0a0aff",
+      "tab": "#00000000",
+      "tab_active": "#0a0a0aff",
+      "tab_active_foreground": "#fafafaff",
+      "tab_bar": "#171717ff",
+      "tab_bar_segmented": "#171717ff",
+      "tab_foreground": "#d4d4d4ff",
+      "table": "#0a0a0aff",
+      "table_active": "#1e40af33",
+      "table_active_border": "#1d4ed8ff",
+      "table_even": "#17171766",
+      "table_head": "#17171766",
+      "table_head_foreground": "#525252ff",
+      "table_foot": "#17171766",
+      "table_foot_foreground": "#a3a3a3ff",
+      "table_hover": "#26262699",
+      "table_row_border": "#262626b3",
+      "title_bar": "#171717ff",
+      "title_bar_border": "#262626ff",
+      "status_bar": "#171717ff",
+      "status_bar_border": "#262626ff",
+      "warning": "#facc15ff",
+      "warning_active": "#d4aa05ff",
+      "warning_hover": "#e2b814ff",
+      "warning_foreground": "#ca8a04ff",
+      "overlay": "#00000033",
+      "window_border": "#262626ff",
+      "red": "#f87171ff",
+      "red_light": "#fca5a5ff",
+      "green": "#4ade80ff",
+      "green_light": "#86efacff",
+      "blue": "#60a5faff",
+      "blue_light": "#93c5fdff",
+      "yellow": "#facc15ff",
+      "yellow_light": "#fde047ff",
+      "magenta": "#c084fcff",
+      "magenta_light": "#d8b4feff",
+      "cyan": "#22d3eeff",
+      "cyan_light": "#67e8f9ff"
+    },
+    "derived": {
+      "button.default.normal.background": "#2f2f2f4d",
+      "button.default.normal.foreground": "#fafafaff",
+      "button.default.normal.border": "#2f2f2fff",
+      "button.default.hover.background": "#2f2f2f80",
+      "button.default.hover.foreground": "#fafafaff",
+      "button.default.hover.border": "#2f2f2fff",
+      "button.default.pressed.background": "#2f2f2fb3",
+      "button.default.pressed.foreground": "#fafafaff",
+      "button.default.pressed.border": "#2f2f2fff",
+      "button.default.selected.background": "#2f2f2fb3",
+      "button.default.selected.foreground": "#fafafaff",
+      "button.default.selected.border": "#2f2f2fff",
+      "button.default.disabled.background": "#2f2f2f26",
+      "button.default.disabled.foreground": "#a3a3a380",
+      "button.default.disabled.border": "#2f2f2f80",
+      "button.default.outline.normal.background": "#2f2f2f4d",
+      "button.default.outline.normal.foreground": "#fafafaff",
+      "button.default.outline.normal.border": "#2f2f2fff",
+      "button.default.outline.hover.background": "#2f2f2f80",
+      "button.default.outline.hover.foreground": "#fafafaff",
+      "button.default.outline.hover.border": "#2f2f2fff",
+      "button.default.outline.pressed.background": "#2f2f2fb3",
+      "button.default.outline.pressed.foreground": "#fafafaff",
+      "button.default.outline.pressed.border": "#2f2f2fff",
+      "button.default.outline.selected.background": "#2f2f2fb3",
+      "button.default.outline.selected.foreground": "#fafafaff",
+      "button.default.outline.selected.border": "#2f2f2fff",
+      "button.default.outline.disabled.background": "#2f2f2f26",
+      "button.default.outline.disabled.foreground": "#a3a3a380",
+      "button.default.outline.disabled.border": "#2f2f2f80",
+      "button.primary.normal.background": "#fafafaff",
+      "button.primary.normal.foreground": "#171717ff",
+      "button.primary.normal.border": "#fafafaff",
+      "button.primary.hover.background": "#f5f5f5ff",
+      "button.primary.hover.foreground": "#171717ff",
+      "button.primary.hover.border": "#fafafaff",
+      "button.primary.pressed.background": "#e5e5e5ff",
+      "button.primary.pressed.foreground": "#171717ff",
+      "button.primary.pressed.border": "#fafafaff",
+      "button.primary.selected.background": "#e5e5e5ff",
+      "button.primary.selected.foreground": "#171717ff",
+      "button.primary.selected.border": "#fafafaff",
+      "button.primary.disabled.background": "#fafafa26",
+      "button.primary.disabled.foreground": "#a3a3a380",
+      "button.primary.disabled.border": "#fafafa26",
+      "button.primary.outline.normal.background": "#fafafa1a",
+      "button.primary.outline.normal.foreground": "#fafafaff",
+      "button.primary.outline.normal.border": "#fafafaff",
+      "button.primary.outline.hover.background": "#f5f5f533",
+      "button.primary.outline.hover.foreground": "#fafafaff",
+      "button.primary.outline.hover.border": "#fafafaff",
+      "button.primary.outline.pressed.background": "#e5e5e566",
+      "button.primary.outline.pressed.foreground": "#fafafaff",
+      "button.primary.outline.pressed.border": "#fafafaff",
+      "button.primary.outline.selected.background": "#e5e5e566",
+      "button.primary.outline.selected.foreground": "#fafafaff",
+      "button.primary.outline.selected.border": "#fafafaff",
+      "button.primary.outline.disabled.background": "#fafafa0d",
+      "button.primary.outline.disabled.foreground": "#a3a3a380",
+      "button.primary.outline.disabled.border": "#fafafa80",
+      "button.secondary.normal.background": "#262626ff",
+      "button.secondary.normal.foreground": "#fafafaff",
+      "button.secondary.normal.border": "#262626ff",
+      "button.secondary.hover.background": "#292929ff",
+      "button.secondary.hover.foreground": "#fafafaff",
+      "button.secondary.hover.border": "#262626ff",
+      "button.secondary.pressed.background": "#212121ff",
+      "button.secondary.pressed.foreground": "#fafafaff",
+      "button.secondary.pressed.border": "#262626ff",
+      "button.secondary.selected.background": "#212121ff",
+      "button.secondary.selected.foreground": "#fafafaff",
+      "button.secondary.selected.border": "#262626ff",
+      "button.secondary.disabled.background": "#262626ff",
+      "button.secondary.disabled.foreground": "#a3a3a380",
+      "button.secondary.disabled.border": "#262626ff",
+      "button.secondary.outline.normal.background": "#2626261a",
+      "button.secondary.outline.normal.foreground": "#fafafaff",
+      "button.secondary.outline.normal.border": "#262626ff",
+      "button.secondary.outline.hover.background": "#29292933",
+      "button.secondary.outline.hover.foreground": "#fafafaff",
+      "button.secondary.outline.hover.border": "#262626ff",
+      "button.secondary.outline.pressed.background": "#21212166",
+      "button.secondary.outline.pressed.foreground": "#fafafaff",
+      "button.secondary.outline.pressed.border": "#262626ff",
+      "button.secondary.outline.selected.background": "#21212166",
+      "button.secondary.outline.selected.foreground": "#fafafaff",
+      "button.secondary.outline.selected.border": "#262626ff",
+      "button.secondary.outline.disabled.background": "#2626260d",
+      "button.secondary.outline.disabled.foreground": "#a3a3a380",
+      "button.secondary.outline.disabled.border": "#26262680",
+      "button.danger.normal.background": "#f8717133",
+      "button.danger.normal.foreground": "#f87171ff",
+      "button.danger.normal.border": "#f8717133",
+      "button.danger.hover.background": "#f871714d",
+      "button.danger.hover.foreground": "#f87171ff",
+      "button.danger.hover.border": "#f8717133",
+      "button.danger.pressed.background": "#f8717166",
+      "button.danger.pressed.foreground": "#f87171ff",
+      "button.danger.pressed.border": "#f8717133",
+      "button.danger.selected.background": "#f8717166",
+      "button.danger.selected.foreground": "#f87171ff",
+      "button.danger.selected.border": "#f8717133",
+      "button.danger.disabled.background": "#f8717108",
+      "button.danger.disabled.foreground": "#a3a3a380",
+      "button.danger.disabled.border": "#f8717108",
+      "button.danger.outline.normal.background": "#f871711a",
+      "button.danger.outline.normal.foreground": "#f87171ff",
+      "button.danger.outline.normal.border": "#f8717166",
+      "button.danger.outline.hover.background": "#e0676733",
+      "button.danger.outline.hover.foreground": "#f87171ff",
+      "button.danger.outline.hover.border": "#f8717166",
+      "button.danger.outline.pressed.background": "#f52c2c66",
+      "button.danger.outline.pressed.foreground": "#f87171ff",
+      "button.danger.outline.pressed.border": "#f8717166",
+      "button.danger.outline.selected.background": "#f52c2c66",
+      "button.danger.outline.selected.foreground": "#f87171ff",
+      "button.danger.outline.selected.border": "#f8717166",
+      "button.danger.outline.disabled.background": "#f871710d",
+      "button.danger.outline.disabled.foreground": "#a3a3a380",
+      "button.danger.outline.disabled.border": "#f8717133",
+      "button.warning.normal.background": "#facc1533",
+      "button.warning.normal.foreground": "#facc15ff",
+      "button.warning.normal.border": "#facc1533",
+      "button.warning.hover.background": "#facc154d",
+      "button.warning.hover.foreground": "#facc15ff",
+      "button.warning.hover.border": "#facc1533",
+      "button.warning.pressed.background": "#facc1566",
+      "button.warning.pressed.foreground": "#facc15ff",
+      "button.warning.pressed.border": "#facc1533",
+      "button.warning.selected.background": "#facc1566",
+      "button.warning.selected.foreground": "#facc15ff",
+      "button.warning.selected.border": "#facc1533",
+      "button.warning.disabled.background": "#facc1508",
+      "button.warning.disabled.foreground": "#a3a3a380",
+      "button.warning.disabled.border": "#facc1508",
+      "button.warning.outline.normal.background": "#facc151a",
+      "button.warning.outline.normal.foreground": "#facc15ff",
+      "button.warning.outline.normal.border": "#facc1566",
+      "button.warning.outline.hover.background": "#e2b81433",
+      "button.warning.outline.hover.foreground": "#facc15ff",
+      "button.warning.outline.hover.border": "#facc1566",
+      "button.warning.outline.pressed.background": "#d4aa0566",
+      "button.warning.outline.pressed.foreground": "#facc15ff",
+      "button.warning.outline.pressed.border": "#facc1566",
+      "button.warning.outline.selected.background": "#d4aa0566",
+      "button.warning.outline.selected.foreground": "#facc15ff",
+      "button.warning.outline.selected.border": "#facc1566",
+      "button.warning.outline.disabled.background": "#facc150d",
+      "button.warning.outline.disabled.foreground": "#a3a3a380",
+      "button.warning.outline.disabled.border": "#facc1533",
+      "button.success.normal.background": "#4ade8033",
+      "button.success.normal.foreground": "#4ade80ff",
+      "button.success.normal.border": "#4ade8033",
+      "button.success.hover.background": "#4ade804d",
+      "button.success.hover.foreground": "#4ade80ff",
+      "button.success.hover.border": "#4ade8033",
+      "button.success.pressed.background": "#4ade8066",
+      "button.success.pressed.foreground": "#4ade80ff",
+      "button.success.pressed.border": "#4ade8033",
+      "button.success.selected.background": "#4ade8066",
+      "button.success.selected.foreground": "#4ade80ff",
+      "button.success.selected.border": "#4ade8033",
+      "button.success.disabled.background": "#4ade8008",
+      "button.success.disabled.foreground": "#a3a3a380",
+      "button.success.disabled.border": "#4ade8008",
+      "button.success.outline.normal.background": "#4ade801a",
+      "button.success.outline.normal.foreground": "#4ade80ff",
+      "button.success.outline.normal.border": "#4ade8066",
+      "button.success.outline.hover.background": "#43c97433",
+      "button.success.outline.hover.foreground": "#4ade80ff",
+      "button.success.outline.hover.border": "#4ade8066",
+      "button.success.outline.pressed.background": "#24c86066",
+      "button.success.outline.pressed.foreground": "#4ade80ff",
+      "button.success.outline.pressed.border": "#4ade8066",
+      "button.success.outline.selected.background": "#24c86066",
+      "button.success.outline.selected.foreground": "#4ade80ff",
+      "button.success.outline.selected.border": "#4ade8066",
+      "button.success.outline.disabled.background": "#4ade800d",
+      "button.success.outline.disabled.foreground": "#a3a3a380",
+      "button.success.outline.disabled.border": "#4ade8033",
+      "button.info.normal.background": "#22d3ee33",
+      "button.info.normal.foreground": "#22d3eeff",
+      "button.info.normal.border": "#22d3ee33",
+      "button.info.hover.background": "#22d3ee4d",
+      "button.info.hover.foreground": "#22d3eeff",
+      "button.info.hover.border": "#22d3ee33",
+      "button.info.pressed.background": "#22d3ee66",
+      "button.info.pressed.foreground": "#22d3eeff",
+      "button.info.pressed.border": "#22d3ee33",
+      "button.info.selected.background": "#22d3ee66",
+      "button.info.selected.foreground": "#22d3eeff",
+      "button.info.selected.border": "#22d3ee33",
+      "button.info.disabled.background": "#22d3ee08",
+      "button.info.disabled.foreground": "#a3a3a380",
+      "button.info.disabled.border": "#22d3ee08",
+      "button.info.outline.normal.background": "#22d3ee1a",
+      "button.info.outline.normal.foreground": "#22d3eeff",
+      "button.info.outline.normal.border": "#22d3ee66",
+      "button.info.outline.hover.background": "#1fbfd733",
+      "button.info.outline.hover.foreground": "#22d3eeff",
+      "button.info.outline.hover.border": "#22d3ee66",
+      "button.info.outline.pressed.background": "#10b1ca66",
+      "button.info.outline.pressed.foreground": "#22d3eeff",
+      "button.info.outline.pressed.border": "#22d3ee66",
+      "button.info.outline.selected.background": "#10b1ca66",
+      "button.info.outline.selected.foreground": "#22d3eeff",
+      "button.info.outline.selected.border": "#22d3ee66",
+      "button.info.outline.disabled.background": "#22d3ee0d",
+      "button.info.outline.disabled.foreground": "#a3a3a380",
+      "button.info.outline.disabled.border": "#22d3ee33",
+      "button.ghost.normal.background": "#00000000",
+      "button.ghost.normal.foreground": "#fafafaff",
+      "button.ghost.normal.border": "#00000000",
+      "button.ghost.hover.background": "#26262680",
+      "button.ghost.hover.foreground": "#fafafaff",
+      "button.ghost.hover.border": "#00000000",
+      "button.ghost.pressed.background": "#2f2f2fb3",
+      "button.ghost.pressed.foreground": "#fafafaff",
+      "button.ghost.pressed.border": "#00000000",
+      "button.ghost.selected.background": "#212121ff",
+      "button.ghost.selected.foreground": "#fafafaff",
+      "button.ghost.selected.border": "#00000000",
+      "button.ghost.disabled.background": "#00000000",
+      "button.ghost.disabled.foreground": "#a3a3a380",
+      "button.ghost.disabled.border": "#00000000",
+      "button.ghost.outline.normal.background": "#00000000",
+      "button.ghost.outline.normal.foreground": "#fafafaff",
+      "button.ghost.outline.normal.border": "#00000000",
+      "button.ghost.outline.hover.background": "#26262680",
+      "button.ghost.outline.hover.foreground": "#fafafaff",
+      "button.ghost.outline.hover.border": "#00000000",
+      "button.ghost.outline.pressed.background": "#2f2f2fb3",
+      "button.ghost.outline.pressed.foreground": "#fafafaff",
+      "button.ghost.outline.pressed.border": "#00000000",
+      "button.ghost.outline.selected.background": "#2f2f2fb3",
+      "button.ghost.outline.selected.foreground": "#fafafaff",
+      "button.ghost.outline.selected.border": "#00000000",
+      "button.ghost.outline.disabled.background": "#00000000",
+      "button.ghost.outline.disabled.foreground": "#a3a3a380",
+      "button.ghost.outline.disabled.border": "#00000000",
+      "button.link.normal.background": "#00000000",
+      "button.link.normal.foreground": "#fafafaff",
+      "button.link.normal.border": "#00000000",
+      "button.link.hover.background": "#00000000",
+      "button.link.hover.foreground": "#fafafaff",
+      "button.link.hover.border": "#00000000",
+      "button.link.pressed.background": "#00000000",
+      "button.link.pressed.foreground": "#fafafaff",
+      "button.link.pressed.border": "#00000000",
+      "button.link.selected.background": "#00000000",
+      "button.link.selected.foreground": "#fafafaff",
+      "button.link.selected.border": "#00000000",
+      "button.link.disabled.background": "#00000000",
+      "button.link.disabled.foreground": "#a3a3a380",
+      "button.link.disabled.border": "#00000000",
+      "button.link.outline.normal.background": "#00000000",
+      "button.link.outline.normal.foreground": "#fafafaff",
+      "button.link.outline.normal.border": "#00000000",
+      "button.link.outline.hover.background": "#00000000",
+      "button.link.outline.hover.foreground": "#fafafaff",
+      "button.link.outline.hover.border": "#00000000",
+      "button.link.outline.pressed.background": "#00000000",
+      "button.link.outline.pressed.foreground": "#fafafaff",
+      "button.link.outline.pressed.border": "#00000000",
+      "button.link.outline.selected.background": "#00000000",
+      "button.link.outline.selected.foreground": "#fafafaff",
+      "button.link.outline.selected.border": "#00000000",
+      "button.link.outline.disabled.background": "#00000000",
+      "button.link.outline.disabled.foreground": "#a3a3a380",
+      "button.link.outline.disabled.border": "#00000000",
+      "button.text.normal.background": "#00000000",
+      "button.text.normal.foreground": "#fafafae6",
+      "button.text.normal.border": "#00000000",
+      "button.text.hover.background": "#00000000",
+      "button.text.hover.foreground": "#fafafaff",
+      "button.text.hover.border": "#00000000",
+      "button.text.pressed.background": "#00000000",
+      "button.text.pressed.foreground": "#fafafab3",
+      "button.text.pressed.border": "#00000000",
+      "button.text.selected.background": "#00000000",
+      "button.text.selected.foreground": "#fafafab3",
+      "button.text.selected.border": "#00000000",
+      "button.text.disabled.background": "#00000000",
+      "button.text.disabled.foreground": "#a3a3a380",
+      "button.text.disabled.border": "#00000000",
+      "button.text.outline.normal.background": "#00000000",
+      "button.text.outline.normal.foreground": "#fafafae6",
+      "button.text.outline.normal.border": "#00000000",
+      "button.text.outline.hover.background": "#00000000",
+      "button.text.outline.hover.foreground": "#fafafaff",
+      "button.text.outline.hover.border": "#00000000",
+      "button.text.outline.pressed.background": "#00000000",
+      "button.text.outline.pressed.foreground": "#fafafab3",
+      "button.text.outline.pressed.border": "#00000000",
+      "button.text.outline.selected.background": "#00000000",
+      "button.text.outline.selected.foreground": "#fafafae6",
+      "button.text.outline.selected.border": "#00000000",
+      "button.text.outline.disabled.background": "#00000000",
+      "button.text.outline.disabled.foreground": "#a3a3a380",
+      "button.text.outline.disabled.border": "#00000000",
+      "button.default.group-hover.background": "#2f2f2f40",
+      "button.default.outline.group-hover.background": "#2f2f2f40",
+      "button.primary.group-hover.background": "#f5f5f580",
+      "button.primary.outline.group-hover.background": "#f5f5f51a",
+      "button.secondary.group-hover.background": "#29292980",
+      "button.secondary.outline.group-hover.background": "#2929291a",
+      "button.danger.group-hover.background": "#f8717126",
+      "button.danger.outline.group-hover.background": "#e067671a",
+      "button.warning.group-hover.background": "#facc1526",
+      "button.warning.outline.group-hover.background": "#e2b8141a",
+      "button.success.group-hover.background": "#4ade8026",
+      "button.success.outline.group-hover.background": "#43c9741a",
+      "button.info.group-hover.background": "#22d3ee26",
+      "button.info.outline.group-hover.background": "#1fbfd71a",
+      "button.ghost.group-hover.background": "#26262640",
+      "button.ghost.outline.group-hover.background": "#26262640",
+      "button.link.group-hover.background": "#00000000",
+      "button.link.outline.group-hover.background": "#00000000",
+      "button.text.group-hover.background": "#00000000",
+      "button.text.outline.group-hover.background": "#00000000",
+      "focus-ring": "#73737380"
+    },
+    "derived_float": {
+      "button.default.normal.background": [
+        0.18431371450424194,
+        0.18431374430656433,
+        0.18431365489959717,
+        0.30000001192092896
+      ],
+      "button.default.normal.foreground": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        1.0
+      ],
+      "button.default.normal.border": [
+        0.18431372940540314,
+        0.18431372940540314,
+        0.18431372940540314,
+        1.0
+      ],
+      "button.default.hover.background": [
+        0.18431371450424194,
+        0.18431374430656433,
+        0.18431365489959717,
+        0.5
+      ],
+      "button.default.hover.foreground": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        1.0
+      ],
+      "button.default.hover.border": [
+        0.18431372940540314,
+        0.18431372940540314,
+        0.18431372940540314,
+        1.0
+      ],
+      "button.default.pressed.background": [
+        0.18431371450424194,
+        0.18431374430656433,
+        0.18431365489959717,
+        0.699999988079071
+      ],
+      "button.default.pressed.foreground": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        1.0
+      ],
+      "button.default.pressed.border": [
+        0.18431372940540314,
+        0.18431372940540314,
+        0.18431372940540314,
+        1.0
+      ],
+      "button.default.selected.background": [
+        0.18431371450424194,
+        0.18431374430656433,
+        0.18431365489959717,
+        0.699999988079071
+      ],
+      "button.default.selected.foreground": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        1.0
+      ],
+      "button.default.selected.border": [
+        0.18431372940540314,
+        0.18431372940540314,
+        0.18431372940540314,
+        1.0
+      ],
+      "button.default.disabled.background": [
+        0.18431371450424194,
+        0.18431374430656433,
+        0.18431365489959717,
+        0.15000000596046448
+      ],
+      "button.default.disabled.foreground": [
+        0.6389999985694885,
+        0.6389999985694885,
+        0.6389999985694885,
+        0.5
+      ],
+      "button.default.disabled.border": [
+        0.18431372940540314,
+        0.18431372940540314,
+        0.18431372940540314,
+        0.5
+      ],
+      "button.default.outline.normal.background": [
+        0.18431371450424194,
+        0.18431374430656433,
+        0.18431365489959717,
+        0.30000001192092896
+      ],
+      "button.default.outline.normal.foreground": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        1.0
+      ],
+      "button.default.outline.normal.border": [
+        0.18431372940540314,
+        0.18431372940540314,
+        0.18431372940540314,
+        1.0
+      ],
+      "button.default.outline.hover.background": [
+        0.18431371450424194,
+        0.18431374430656433,
+        0.18431365489959717,
+        0.5
+      ],
+      "button.default.outline.hover.foreground": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        1.0
+      ],
+      "button.default.outline.hover.border": [
+        0.18431372940540314,
+        0.18431372940540314,
+        0.18431372940540314,
+        1.0
+      ],
+      "button.default.outline.pressed.background": [
+        0.18431371450424194,
+        0.18431374430656433,
+        0.18431365489959717,
+        0.699999988079071
+      ],
+      "button.default.outline.pressed.foreground": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        1.0
+      ],
+      "button.default.outline.pressed.border": [
+        0.18431372940540314,
+        0.18431372940540314,
+        0.18431372940540314,
+        1.0
+      ],
+      "button.default.outline.selected.background": [
+        0.18431371450424194,
+        0.18431374430656433,
+        0.18431365489959717,
+        0.699999988079071
+      ],
+      "button.default.outline.selected.foreground": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        1.0
+      ],
+      "button.default.outline.selected.border": [
+        0.18431372940540314,
+        0.18431372940540314,
+        0.18431372940540314,
+        1.0
+      ],
+      "button.default.outline.disabled.background": [
+        0.18431371450424194,
+        0.18431374430656433,
+        0.18431365489959717,
+        0.15000000596046448
+      ],
+      "button.default.outline.disabled.foreground": [
+        0.6389999985694885,
+        0.6389999985694885,
+        0.6389999985694885,
+        0.5
+      ],
+      "button.default.outline.disabled.border": [
+        0.18431372940540314,
+        0.18431372940540314,
+        0.18431372940540314,
+        0.5
+      ],
+      "button.primary.normal.background": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        1.0
+      ],
+      "button.primary.normal.foreground": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        1.0
+      ],
+      "button.primary.normal.border": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        1.0
+      ],
+      "button.primary.hover.background": [
+        0.9609999656677246,
+        0.9609999656677246,
+        0.9609999656677246,
+        1.0
+      ],
+      "button.primary.hover.foreground": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        1.0
+      ],
+      "button.primary.hover.border": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        1.0
+      ],
+      "button.primary.pressed.background": [
+        0.8980000019073486,
+        0.8980000019073486,
+        0.8980000019073486,
+        1.0
+      ],
+      "button.primary.pressed.foreground": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        1.0
+      ],
+      "button.primary.pressed.border": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        1.0
+      ],
+      "button.primary.selected.background": [
+        0.8980000019073486,
+        0.8980000019073486,
+        0.8980000019073486,
+        1.0
+      ],
+      "button.primary.selected.foreground": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        1.0
+      ],
+      "button.primary.selected.border": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        1.0
+      ],
+      "button.primary.disabled.background": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        0.15000000596046448
+      ],
+      "button.primary.disabled.foreground": [
+        0.6389999985694885,
+        0.6389999985694885,
+        0.6389999985694885,
+        0.5
+      ],
+      "button.primary.disabled.border": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        0.15000000596046448
+      ],
+      "button.primary.outline.normal.background": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        0.10000000149011612
+      ],
+      "button.primary.outline.normal.foreground": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        1.0
+      ],
+      "button.primary.outline.normal.border": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        1.0
+      ],
+      "button.primary.outline.hover.background": [
+        0.9609999656677246,
+        0.9609999656677246,
+        0.9609999656677246,
+        0.20000000298023224
+      ],
+      "button.primary.outline.hover.foreground": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        1.0
+      ],
+      "button.primary.outline.hover.border": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        1.0
+      ],
+      "button.primary.outline.pressed.background": [
+        0.8980000019073486,
+        0.8980000019073486,
+        0.8980000019073486,
+        0.4000000059604645
+      ],
+      "button.primary.outline.pressed.foreground": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        1.0
+      ],
+      "button.primary.outline.pressed.border": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        1.0
+      ],
+      "button.primary.outline.selected.background": [
+        0.8980000019073486,
+        0.8980000019073486,
+        0.8980000019073486,
+        0.4000000059604645
+      ],
+      "button.primary.outline.selected.foreground": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        1.0
+      ],
+      "button.primary.outline.selected.border": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        1.0
+      ],
+      "button.primary.outline.disabled.background": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        0.05000000074505806
+      ],
+      "button.primary.outline.disabled.foreground": [
+        0.6389999985694885,
+        0.6389999985694885,
+        0.6389999985694885,
+        0.5
+      ],
+      "button.primary.outline.disabled.border": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        0.5
+      ],
+      "button.secondary.normal.background": [
+        0.14899998903274536,
+        0.14899998903274536,
+        0.14899998903274536,
+        1.0
+      ],
+      "button.secondary.normal.foreground": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        1.0
+      ],
+      "button.secondary.normal.border": [
+        0.14899998903274536,
+        0.14899998903274536,
+        0.14899998903274536,
+        1.0
+      ],
+      "button.secondary.hover.background": [
+        0.16078431904315948,
+        0.16078431904315948,
+        0.16078431904315948,
+        1.0
+      ],
+      "button.secondary.hover.foreground": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        1.0
+      ],
+      "button.secondary.hover.border": [
+        0.14899998903274536,
+        0.14899998903274536,
+        0.14899998903274536,
+        1.0
+      ],
+      "button.secondary.pressed.background": [
+        0.12941177189350128,
+        0.12941177189350128,
+        0.12941177189350128,
+        1.0
+      ],
+      "button.secondary.pressed.foreground": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        1.0
+      ],
+      "button.secondary.pressed.border": [
+        0.14899998903274536,
+        0.14899998903274536,
+        0.14899998903274536,
+        1.0
+      ],
+      "button.secondary.selected.background": [
+        0.12941177189350128,
+        0.12941177189350128,
+        0.12941177189350128,
+        1.0
+      ],
+      "button.secondary.selected.foreground": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        1.0
+      ],
+      "button.secondary.selected.border": [
+        0.14899998903274536,
+        0.14899998903274536,
+        0.14899998903274536,
+        1.0
+      ],
+      "button.secondary.disabled.background": [
+        0.14899998903274536,
+        0.14899998903274536,
+        0.14899998903274536,
+        1.0
+      ],
+      "button.secondary.disabled.foreground": [
+        0.6389999985694885,
+        0.6389999985694885,
+        0.6389999985694885,
+        0.5
+      ],
+      "button.secondary.disabled.border": [
+        0.14899998903274536,
+        0.14899998903274536,
+        0.14899998903274536,
+        1.0
+      ],
+      "button.secondary.outline.normal.background": [
+        0.14899998903274536,
+        0.14899998903274536,
+        0.14899998903274536,
+        0.10000000149011612
+      ],
+      "button.secondary.outline.normal.foreground": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        1.0
+      ],
+      "button.secondary.outline.normal.border": [
+        0.14899998903274536,
+        0.14899998903274536,
+        0.14899998903274536,
+        1.0
+      ],
+      "button.secondary.outline.hover.background": [
+        0.16078431904315948,
+        0.16078431904315948,
+        0.16078431904315948,
+        0.20000000298023224
+      ],
+      "button.secondary.outline.hover.foreground": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        1.0
+      ],
+      "button.secondary.outline.hover.border": [
+        0.14899998903274536,
+        0.14899998903274536,
+        0.14899998903274536,
+        1.0
+      ],
+      "button.secondary.outline.pressed.background": [
+        0.12941177189350128,
+        0.12941177189350128,
+        0.12941177189350128,
+        0.4000000059604645
+      ],
+      "button.secondary.outline.pressed.foreground": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        1.0
+      ],
+      "button.secondary.outline.pressed.border": [
+        0.14899998903274536,
+        0.14899998903274536,
+        0.14899998903274536,
+        1.0
+      ],
+      "button.secondary.outline.selected.background": [
+        0.12941177189350128,
+        0.12941177189350128,
+        0.12941177189350128,
+        0.4000000059604645
+      ],
+      "button.secondary.outline.selected.foreground": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        1.0
+      ],
+      "button.secondary.outline.selected.border": [
+        0.14899998903274536,
+        0.14899998903274536,
+        0.14899998903274536,
+        1.0
+      ],
+      "button.secondary.outline.disabled.background": [
+        0.14899998903274536,
+        0.14899998903274536,
+        0.14899998903274536,
+        0.05000000074505806
+      ],
+      "button.secondary.outline.disabled.foreground": [
+        0.6389999985694885,
+        0.6389999985694885,
+        0.6389999985694885,
+        0.5
+      ],
+      "button.secondary.outline.disabled.border": [
+        0.14899998903274536,
+        0.14899998903274536,
+        0.14899998903274536,
+        0.5
+      ],
+      "button.danger.normal.background": [
+        0.9725522398948669,
+        0.4434477686882019,
+        0.4434477686882019,
+        0.20000000298023224
+      ],
+      "button.danger.normal.foreground": [
+        0.9725520014762878,
+        0.443448007106781,
+        0.443448007106781,
+        1.0
+      ],
+      "button.danger.normal.border": [
+        0.9725522398948669,
+        0.4434477686882019,
+        0.4434477686882019,
+        0.20000000298023224
+      ],
+      "button.danger.hover.background": [
+        0.9725522398948669,
+        0.4434477686882019,
+        0.4434477686882019,
+        0.30000001192092896
+      ],
+      "button.danger.hover.foreground": [
+        0.9725520014762878,
+        0.443448007106781,
+        0.443448007106781,
+        1.0
+      ],
+      "button.danger.hover.border": [
+        0.9725522398948669,
+        0.4434477686882019,
+        0.4434477686882019,
+        0.20000000298023224
+      ],
+      "button.danger.pressed.background": [
+        0.9725522398948669,
+        0.4434477686882019,
+        0.4434477686882019,
+        0.4000000059604645
+      ],
+      "button.danger.pressed.foreground": [
+        0.9725520014762878,
+        0.443448007106781,
+        0.443448007106781,
+        1.0
+      ],
+      "button.danger.pressed.border": [
+        0.9725522398948669,
+        0.4434477686882019,
+        0.4434477686882019,
+        0.20000000298023224
+      ],
+      "button.danger.selected.background": [
+        0.9725522398948669,
+        0.4434477686882019,
+        0.4434477686882019,
+        0.4000000059604645
+      ],
+      "button.danger.selected.foreground": [
+        0.9725520014762878,
+        0.443448007106781,
+        0.443448007106781,
+        1.0
+      ],
+      "button.danger.selected.border": [
+        0.9725522398948669,
+        0.4434477686882019,
+        0.4434477686882019,
+        0.20000000298023224
+      ],
+      "button.danger.disabled.background": [
+        0.9725522398948669,
+        0.4434477686882019,
+        0.4434477686882019,
+        0.030000001192092896
+      ],
+      "button.danger.disabled.foreground": [
+        0.6389999985694885,
+        0.6389999985694885,
+        0.6389999985694885,
+        0.5
+      ],
+      "button.danger.disabled.border": [
+        0.9725522398948669,
+        0.4434477686882019,
+        0.4434477686882019,
+        0.030000001192092896
+      ],
+      "button.danger.outline.normal.background": [
+        0.9725520014762878,
+        0.443448007106781,
+        0.443448007106781,
+        0.10000000149011612
+      ],
+      "button.danger.outline.normal.foreground": [
+        0.9725520014762878,
+        0.443448007106781,
+        0.443448007106781,
+        1.0
+      ],
+      "button.danger.outline.normal.border": [
+        0.9725522398948669,
+        0.4434477686882019,
+        0.4434477686882019,
+        0.4000000059604645
+      ],
+      "button.danger.outline.hover.background": [
+        0.8791967630386353,
+        0.4030032157897949,
+        0.4030032157897949,
+        0.20000000298023224
+      ],
+      "button.danger.outline.hover.foreground": [
+        0.9725520014762878,
+        0.443448007106781,
+        0.443448007106781,
+        1.0
+      ],
+      "button.danger.outline.hover.border": [
+        0.9725522398948669,
+        0.4434477686882019,
+        0.4434477686882019,
+        0.4000000059604645
+      ],
+      "button.danger.outline.pressed.background": [
+        0.9592415690422058,
+        0.17355841398239136,
+        0.17355841398239136,
+        0.4000000059604645
+      ],
+      "button.danger.outline.pressed.foreground": [
+        0.9725520014762878,
+        0.443448007106781,
+        0.443448007106781,
+        1.0
+      ],
+      "button.danger.outline.pressed.border": [
+        0.9725522398948669,
+        0.4434477686882019,
+        0.4434477686882019,
+        0.4000000059604645
+      ],
+      "button.danger.outline.selected.background": [
+        0.9592415690422058,
+        0.17355841398239136,
+        0.17355841398239136,
+        0.4000000059604645
+      ],
+      "button.danger.outline.selected.foreground": [
+        0.9725520014762878,
+        0.443448007106781,
+        0.443448007106781,
+        1.0
+      ],
+      "button.danger.outline.selected.border": [
+        0.9725522398948669,
+        0.4434477686882019,
+        0.4434477686882019,
+        0.4000000059604645
+      ],
+      "button.danger.outline.disabled.background": [
+        0.9725520014762878,
+        0.443448007106781,
+        0.443448007106781,
+        0.05000000074505806
+      ],
+      "button.danger.outline.disabled.foreground": [
+        0.6389999985694885,
+        0.6389999985694885,
+        0.6389999985694885,
+        0.5
+      ],
+      "button.danger.outline.disabled.border": [
+        0.9725522398948669,
+        0.4434477686882019,
+        0.4434477686882019,
+        0.20000000298023224
+      ],
+      "button.warning.normal.background": [
+        0.9803023934364319,
+        0.7990832924842834,
+        0.08169597387313843,
+        0.20000000298023224
+      ],
+      "button.warning.normal.foreground": [
+        0.9803019762039185,
+        0.7990834712982178,
+        0.08169791102409363,
+        1.0
+      ],
+      "button.warning.normal.border": [
+        0.9803023934364319,
+        0.7990832924842834,
+        0.08169597387313843,
+        0.20000000298023224
+      ],
+      "button.warning.hover.background": [
+        0.9803024530410767,
+        0.7990833520889282,
+        0.08169552683830261,
+        0.30000001192092896
+      ],
+      "button.warning.hover.foreground": [
+        0.9803019762039185,
+        0.7990834712982178,
+        0.08169791102409363,
+        1.0
+      ],
+      "button.warning.hover.border": [
+        0.9803023934364319,
+        0.7990832924842834,
+        0.08169597387313843,
+        0.20000000298023224
+      ],
+      "button.warning.pressed.background": [
+        0.9803023934364319,
+        0.7990832924842834,
+        0.08169597387313843,
+        0.4000000059604645
+      ],
+      "button.warning.pressed.foreground": [
+        0.9803019762039185,
+        0.7990834712982178,
+        0.08169791102409363,
+        1.0
+      ],
+      "button.warning.pressed.border": [
+        0.9803023934364319,
+        0.7990832924842834,
+        0.08169597387313843,
+        0.20000000298023224
+      ],
+      "button.warning.selected.background": [
+        0.9803023934364319,
+        0.7990832924842834,
+        0.08169597387313843,
+        0.4000000059604645
+      ],
+      "button.warning.selected.foreground": [
+        0.9803019762039185,
+        0.7990834712982178,
+        0.08169791102409363,
+        1.0
+      ],
+      "button.warning.selected.border": [
+        0.9803023934364319,
+        0.7990832924842834,
+        0.08169597387313843,
+        0.20000000298023224
+      ],
+      "button.warning.disabled.background": [
+        0.9803023934364319,
+        0.7990832924842834,
+        0.08169597387313843,
+        0.030000001192092896
+      ],
+      "button.warning.disabled.foreground": [
+        0.6389999985694885,
+        0.6389999985694885,
+        0.6389999985694885,
+        0.5
+      ],
+      "button.warning.disabled.border": [
+        0.9803023934364319,
+        0.7990832924842834,
+        0.08169597387313843,
+        0.030000001192092896
+      ],
+      "button.warning.outline.normal.background": [
+        0.9803019762039185,
+        0.7990834712982178,
+        0.08169791102409363,
+        0.10000000149011612
+      ],
+      "button.warning.outline.normal.foreground": [
+        0.9803019762039185,
+        0.7990834712982178,
+        0.08169791102409363,
+        1.0
+      ],
+      "button.warning.outline.normal.border": [
+        0.9803023934364319,
+        0.7990832924842834,
+        0.08169597387313843,
+        0.4000000059604645
+      ],
+      "button.warning.outline.hover.background": [
+        0.8861717581748962,
+        0.7230750918388367,
+        0.07742810249328613,
+        0.20000000298023224
+      ],
+      "button.warning.outline.hover.foreground": [
+        0.9803019762039185,
+        0.7990834712982178,
+        0.08169791102409363,
+        1.0
+      ],
+      "button.warning.outline.hover.border": [
+        0.9803023934364319,
+        0.7990832924842834,
+        0.08169597387313843,
+        0.4000000059604645
+      ],
+      "button.warning.outline.pressed.background": [
+        0.8317583799362183,
+        0.6676183938980103,
+        0.017841607332229614,
+        0.4000000059604645
+      ],
+      "button.warning.outline.pressed.foreground": [
+        0.9803019762039185,
+        0.7990834712982178,
+        0.08169791102409363,
+        1.0
+      ],
+      "button.warning.outline.pressed.border": [
+        0.9803023934364319,
+        0.7990832924842834,
+        0.08169597387313843,
+        0.4000000059604645
+      ],
+      "button.warning.outline.selected.background": [
+        0.8317583799362183,
+        0.6676183938980103,
+        0.017841607332229614,
+        0.4000000059604645
+      ],
+      "button.warning.outline.selected.foreground": [
+        0.9803019762039185,
+        0.7990834712982178,
+        0.08169791102409363,
+        1.0
+      ],
+      "button.warning.outline.selected.border": [
+        0.9803023934364319,
+        0.7990832924842834,
+        0.08169597387313843,
+        0.4000000059604645
+      ],
+      "button.warning.outline.disabled.background": [
+        0.9803019762039185,
+        0.7990834712982178,
+        0.08169791102409363,
+        0.05000000074505806
+      ],
+      "button.warning.outline.disabled.foreground": [
+        0.6389999985694885,
+        0.6389999985694885,
+        0.6389999985694885,
+        0.5
+      ],
+      "button.warning.outline.disabled.border": [
+        0.9803023934364319,
+        0.7990832924842834,
+        0.08169597387313843,
+        0.20000000298023224
+      ],
+      "button.success.normal.background": [
+        0.28936123847961426,
+        0.8706398010253906,
+        0.501526951789856,
+        0.20000000298023224
+      ],
+      "button.success.normal.foreground": [
+        0.289359986782074,
+        0.870639979839325,
+        0.5015270709991455,
+        1.0
+      ],
+      "button.success.normal.border": [
+        0.28936123847961426,
+        0.8706398010253906,
+        0.501526951789856,
+        0.20000000298023224
+      ],
+      "button.success.hover.background": [
+        0.28936123847961426,
+        0.8706398010253906,
+        0.501526951789856,
+        0.30000001192092896
+      ],
+      "button.success.hover.foreground": [
+        0.289359986782074,
+        0.870639979839325,
+        0.5015270709991455,
+        1.0
+      ],
+      "button.success.hover.border": [
+        0.28936123847961426,
+        0.8706398010253906,
+        0.501526951789856,
+        0.20000000298023224
+      ],
+      "button.success.pressed.background": [
+        0.28936123847961426,
+        0.8706398010253906,
+        0.501526951789856,
+        0.4000000059604645
+      ],
+      "button.success.pressed.foreground": [
+        0.289359986782074,
+        0.870639979839325,
+        0.5015270709991455,
+        1.0
+      ],
+      "button.success.pressed.border": [
+        0.28936123847961426,
+        0.8706398010253906,
+        0.501526951789856,
+        0.20000000298023224
+      ],
+      "button.success.selected.background": [
+        0.28936123847961426,
+        0.8706398010253906,
+        0.501526951789856,
+        0.4000000059604645
+      ],
+      "button.success.selected.foreground": [
+        0.289359986782074,
+        0.870639979839325,
+        0.5015270709991455,
+        1.0
+      ],
+      "button.success.selected.border": [
+        0.28936123847961426,
+        0.8706398010253906,
+        0.501526951789856,
+        0.20000000298023224
+      ],
+      "button.success.disabled.background": [
+        0.28936123847961426,
+        0.8706398010253906,
+        0.501526951789856,
+        0.030000001192092896
+      ],
+      "button.success.disabled.foreground": [
+        0.6389999985694885,
+        0.6389999985694885,
+        0.6389999985694885,
+        0.5
+      ],
+      "button.success.disabled.border": [
+        0.28936123847961426,
+        0.8706398010253906,
+        0.501526951789856,
+        0.030000001192092896
+      ],
+      "button.success.outline.normal.background": [
+        0.289359986782074,
+        0.870639979839325,
+        0.5015270709991455,
+        0.10000000149011612
+      ],
+      "button.success.outline.normal.foreground": [
+        0.289359986782074,
+        0.870639979839325,
+        0.5015270709991455,
+        1.0
+      ],
+      "button.success.outline.normal.border": [
+        0.28936123847961426,
+        0.8706398010253906,
+        0.501526951789856,
+        0.4000000059604645
+      ],
+      "button.success.outline.hover.background": [
+        0.2643239498138428,
+        0.7874759435653687,
+        0.4552743136882782,
+        0.20000000298023224
+      ],
+      "button.success.outline.hover.foreground": [
+        0.289359986782074,
+        0.870639979839325,
+        0.5015270709991455,
+        1.0
+      ],
+      "button.success.outline.hover.border": [
+        0.28936123847961426,
+        0.8706398010253906,
+        0.501526951789856,
+        0.4000000059604645
+      ],
+      "button.success.outline.pressed.background": [
+        0.14291200041770935,
+        0.7850879430770874,
+        0.37730610370635986,
+        0.4000000059604645
+      ],
+      "button.success.outline.pressed.foreground": [
+        0.289359986782074,
+        0.870639979839325,
+        0.5015270709991455,
+        1.0
+      ],
+      "button.success.outline.pressed.border": [
+        0.28936123847961426,
+        0.8706398010253906,
+        0.501526951789856,
+        0.4000000059604645
+      ],
+      "button.success.outline.selected.background": [
+        0.14291200041770935,
+        0.7850879430770874,
+        0.37730610370635986,
+        0.4000000059604645
+      ],
+      "button.success.outline.selected.foreground": [
+        0.289359986782074,
+        0.870639979839325,
+        0.5015270709991455,
+        1.0
+      ],
+      "button.success.outline.selected.border": [
+        0.28936123847961426,
+        0.8706398010253906,
+        0.501526951789856,
+        0.4000000059604645
+      ],
+      "button.success.outline.disabled.background": [
+        0.289359986782074,
+        0.870639979839325,
+        0.5015270709991455,
+        0.05000000074505806
+      ],
+      "button.success.outline.disabled.foreground": [
+        0.6389999985694885,
+        0.6389999985694885,
+        0.6389999985694885,
+        0.5
+      ],
+      "button.success.outline.disabled.border": [
+        0.28936123847961426,
+        0.8706398010253906,
+        0.501526951789856,
+        0.20000000298023224
+      ],
+      "button.info.normal.background": [
+        0.13278141617774963,
+        0.827828049659729,
+        0.9332190752029419,
+        0.20000000298023224
+      ],
+      "button.info.normal.foreground": [
+        0.1327809989452362,
+        0.8278281688690186,
+        0.9332189559936523,
+        1.0
+      ],
+      "button.info.normal.border": [
+        0.13278141617774963,
+        0.827828049659729,
+        0.9332190752029419,
+        0.20000000298023224
+      ],
+      "button.info.hover.background": [
+        0.13278040289878845,
+        0.8278281688690186,
+        0.9332188367843628,
+        0.30000001192092896
+      ],
+      "button.info.hover.foreground": [
+        0.1327809989452362,
+        0.8278281688690186,
+        0.9332189559936523,
+        1.0
+      ],
+      "button.info.hover.border": [
+        0.13278141617774963,
+        0.827828049659729,
+        0.9332190752029419,
+        0.20000000298023224
+      ],
+      "button.info.pressed.background": [
+        0.13278141617774963,
+        0.827828049659729,
+        0.9332190752029419,
+        0.4000000059604645
+      ],
+      "button.info.pressed.foreground": [
+        0.1327809989452362,
+        0.8278281688690186,
+        0.9332189559936523,
+        1.0
+      ],
+      "button.info.pressed.border": [
+        0.13278141617774963,
+        0.827828049659729,
+        0.9332190752029419,
+        0.20000000298023224
+      ],
+      "button.info.selected.background": [
+        0.13278141617774963,
+        0.827828049659729,
+        0.9332190752029419,
+        0.4000000059604645
+      ],
+      "button.info.selected.foreground": [
+        0.1327809989452362,
+        0.8278281688690186,
+        0.9332189559936523,
+        1.0
+      ],
+      "button.info.selected.border": [
+        0.13278141617774963,
+        0.827828049659729,
+        0.9332190752029419,
+        0.20000000298023224
+      ],
+      "button.info.disabled.background": [
+        0.13278141617774963,
+        0.827828049659729,
+        0.9332190752029419,
+        0.030000001192092896
+      ],
+      "button.info.disabled.foreground": [
+        0.6389999985694885,
+        0.6389999985694885,
+        0.6389999985694885,
+        0.5
+      ],
+      "button.info.disabled.border": [
+        0.13278141617774963,
+        0.827828049659729,
+        0.9332190752029419,
+        0.030000001192092896
+      ],
+      "button.info.outline.normal.background": [
+        0.1327809989452362,
+        0.8278281688690186,
+        0.9332189559936523,
+        0.10000000149011612
+      ],
+      "button.info.outline.normal.foreground": [
+        0.1327809989452362,
+        0.8278281688690186,
+        0.9332189559936523,
+        1.0
+      ],
+      "button.info.outline.normal.border": [
+        0.13278141617774963,
+        0.827828049659729,
+        0.9332190752029419,
+        0.4000000059604645
+      ],
+      "button.info.outline.hover.background": [
+        0.12340289354324341,
+        0.7489452958106995,
+        0.8437970280647278,
+        0.20000000298023224
+      ],
+      "button.info.outline.hover.foreground": [
+        0.1327809989452362,
+        0.8278281688690186,
+        0.9332189559936523,
+        1.0
+      ],
+      "button.info.outline.hover.border": [
+        0.13278141617774963,
+        0.827828049659729,
+        0.9332190752029419,
+        0.4000000059604645
+      ],
+      "button.info.outline.pressed.background": [
+        0.06097519397735596,
+        0.69559645652771,
+        0.7918248176574707,
+        0.4000000059604645
+      ],
+      "button.info.outline.pressed.foreground": [
+        0.1327809989452362,
+        0.8278281688690186,
+        0.9332189559936523,
+        1.0
+      ],
+      "button.info.outline.pressed.border": [
+        0.13278141617774963,
+        0.827828049659729,
+        0.9332190752029419,
+        0.4000000059604645
+      ],
+      "button.info.outline.selected.background": [
+        0.06097519397735596,
+        0.69559645652771,
+        0.7918248176574707,
+        0.4000000059604645
+      ],
+      "button.info.outline.selected.foreground": [
+        0.1327809989452362,
+        0.8278281688690186,
+        0.9332189559936523,
+        1.0
+      ],
+      "button.info.outline.selected.border": [
+        0.13278141617774963,
+        0.827828049659729,
+        0.9332190752029419,
+        0.4000000059604645
+      ],
+      "button.info.outline.disabled.background": [
+        0.1327809989452362,
+        0.8278281688690186,
+        0.9332189559936523,
+        0.05000000074505806
+      ],
+      "button.info.outline.disabled.foreground": [
+        0.6389999985694885,
+        0.6389999985694885,
+        0.6389999985694885,
+        0.5
+      ],
+      "button.info.outline.disabled.border": [
+        0.13278141617774963,
+        0.827828049659729,
+        0.9332190752029419,
+        0.20000000298023224
+      ],
+      "button.ghost.normal.background": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.ghost.normal.foreground": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        1.0
+      ],
+      "button.ghost.normal.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.ghost.hover.background": [
+        0.14899998903274536,
+        0.14899998903274536,
+        0.14899998903274536,
+        0.5
+      ],
+      "button.ghost.hover.foreground": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        1.0
+      ],
+      "button.ghost.hover.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.ghost.pressed.background": [
+        0.18431371450424194,
+        0.18431374430656433,
+        0.18431365489959717,
+        0.699999988079071
+      ],
+      "button.ghost.pressed.foreground": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        1.0
+      ],
+      "button.ghost.pressed.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.ghost.selected.background": [
+        0.12941177189350128,
+        0.12941177189350128,
+        0.12941177189350128,
+        1.0
+      ],
+      "button.ghost.selected.foreground": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        1.0
+      ],
+      "button.ghost.selected.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.ghost.disabled.background": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.ghost.disabled.foreground": [
+        0.6389999985694885,
+        0.6389999985694885,
+        0.6389999985694885,
+        0.5
+      ],
+      "button.ghost.disabled.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.ghost.outline.normal.background": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.ghost.outline.normal.foreground": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        1.0
+      ],
+      "button.ghost.outline.normal.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.ghost.outline.hover.background": [
+        0.14899998903274536,
+        0.14899998903274536,
+        0.14899998903274536,
+        0.5
+      ],
+      "button.ghost.outline.hover.foreground": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        1.0
+      ],
+      "button.ghost.outline.hover.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.ghost.outline.pressed.background": [
+        0.18431371450424194,
+        0.18431374430656433,
+        0.18431365489959717,
+        0.699999988079071
+      ],
+      "button.ghost.outline.pressed.foreground": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        1.0
+      ],
+      "button.ghost.outline.pressed.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.ghost.outline.selected.background": [
+        0.18431371450424194,
+        0.18431374430656433,
+        0.18431365489959717,
+        0.699999988079071
+      ],
+      "button.ghost.outline.selected.foreground": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        1.0
+      ],
+      "button.ghost.outline.selected.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.ghost.outline.disabled.background": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.ghost.outline.disabled.foreground": [
+        0.6389999985694885,
+        0.6389999985694885,
+        0.6389999985694885,
+        0.5
+      ],
+      "button.ghost.outline.disabled.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.link.normal.background": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.link.normal.foreground": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        1.0
+      ],
+      "button.link.normal.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.link.hover.background": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.link.hover.foreground": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        1.0
+      ],
+      "button.link.hover.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.link.pressed.background": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.link.pressed.foreground": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        1.0
+      ],
+      "button.link.pressed.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.link.selected.background": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.link.selected.foreground": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        1.0
+      ],
+      "button.link.selected.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.link.disabled.background": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.link.disabled.foreground": [
+        0.6389999985694885,
+        0.6389999985694885,
+        0.6389999985694885,
+        0.5
+      ],
+      "button.link.disabled.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.link.outline.normal.background": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.link.outline.normal.foreground": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        1.0
+      ],
+      "button.link.outline.normal.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.link.outline.hover.background": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.link.outline.hover.foreground": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        1.0
+      ],
+      "button.link.outline.hover.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.link.outline.pressed.background": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.link.outline.pressed.foreground": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        1.0
+      ],
+      "button.link.outline.pressed.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.link.outline.selected.background": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.link.outline.selected.foreground": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        1.0
+      ],
+      "button.link.outline.selected.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.link.outline.disabled.background": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.link.outline.disabled.foreground": [
+        0.6389999985694885,
+        0.6389999985694885,
+        0.6389999985694885,
+        0.5
+      ],
+      "button.link.outline.disabled.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.text.normal.background": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.text.normal.foreground": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        0.8999999761581421
+      ],
+      "button.text.normal.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.text.hover.background": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.text.hover.foreground": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        1.0
+      ],
+      "button.text.hover.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.text.pressed.background": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.text.pressed.foreground": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        0.699999988079071
+      ],
+      "button.text.pressed.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.text.selected.background": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.text.selected.foreground": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        0.699999988079071
+      ],
+      "button.text.selected.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.text.disabled.background": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.text.disabled.foreground": [
+        0.6389999985694885,
+        0.6389999985694885,
+        0.6389999985694885,
+        0.5
+      ],
+      "button.text.disabled.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.text.outline.normal.background": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.text.outline.normal.foreground": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        0.8999999761581421
+      ],
+      "button.text.outline.normal.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.text.outline.hover.background": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.text.outline.hover.foreground": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        1.0
+      ],
+      "button.text.outline.hover.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.text.outline.pressed.background": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.text.outline.pressed.foreground": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        0.699999988079071
+      ],
+      "button.text.outline.pressed.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.text.outline.selected.background": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.text.outline.selected.foreground": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        0.8999999761581421
+      ],
+      "button.text.outline.selected.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.text.outline.disabled.background": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.text.outline.disabled.foreground": [
+        0.6389999985694885,
+        0.6389999985694885,
+        0.6389999985694885,
+        0.5
+      ],
+      "button.text.outline.disabled.border": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.default.group-hover.background": [
+        0.18431371450424194,
+        0.18431374430656433,
+        0.18431365489959717,
+        0.25
+      ],
+      "button.default.outline.group-hover.background": [
+        0.18431371450424194,
+        0.18431374430656433,
+        0.18431365489959717,
+        0.25
+      ],
+      "button.primary.group-hover.background": [
+        0.9609999656677246,
+        0.9609999656677246,
+        0.9609999656677246,
+        0.5
+      ],
+      "button.primary.outline.group-hover.background": [
+        0.9609999656677246,
+        0.9609999656677246,
+        0.9609999656677246,
+        0.10000000149011612
+      ],
+      "button.secondary.group-hover.background": [
+        0.16078431904315948,
+        0.16078431904315948,
+        0.16078431904315948,
+        0.5
+      ],
+      "button.secondary.outline.group-hover.background": [
+        0.16078431904315948,
+        0.16078431904315948,
+        0.16078431904315948,
+        0.10000000149011612
+      ],
+      "button.danger.group-hover.background": [
+        0.9725522398948669,
+        0.4434477686882019,
+        0.4434477686882019,
+        0.15000000596046448
+      ],
+      "button.danger.outline.group-hover.background": [
+        0.8791967630386353,
+        0.4030032157897949,
+        0.4030032157897949,
+        0.10000000149011612
+      ],
+      "button.warning.group-hover.background": [
+        0.9803024530410767,
+        0.7990833520889282,
+        0.08169552683830261,
+        0.15000000596046448
+      ],
+      "button.warning.outline.group-hover.background": [
+        0.8861717581748962,
+        0.7230750918388367,
+        0.07742810249328613,
+        0.10000000149011612
+      ],
+      "button.success.group-hover.background": [
+        0.28936123847961426,
+        0.8706398010253906,
+        0.501526951789856,
+        0.15000000596046448
+      ],
+      "button.success.outline.group-hover.background": [
+        0.2643239498138428,
+        0.7874759435653687,
+        0.4552743136882782,
+        0.10000000149011612
+      ],
+      "button.info.group-hover.background": [
+        0.13278040289878845,
+        0.8278281688690186,
+        0.9332188367843628,
+        0.15000000596046448
+      ],
+      "button.info.outline.group-hover.background": [
+        0.12340289354324341,
+        0.7489452958106995,
+        0.8437970280647278,
+        0.10000000149011612
+      ],
+      "button.ghost.group-hover.background": [
+        0.14899998903274536,
+        0.14899998903274536,
+        0.14899998903274536,
+        0.25
+      ],
+      "button.ghost.outline.group-hover.background": [
+        0.14899998903274536,
+        0.14899998903274536,
+        0.14899998903274536,
+        0.25
+      ],
+      "button.link.group-hover.background": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.link.outline.group-hover.background": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.text.group-hover.background": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "button.text.outline.group-hover.background": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "focus-ring": [
+        0.4509999752044678,
+        0.4509999752044678,
+        0.4509999752044678,
+        0.5
+      ]
+    },
+    "scalars": {
+      "font_size": 16.0,
+      "radius": 6.0,
+      "radius_lg": 8.0,
+      "shadow": true,
+      "focus_ring": true
+    },
+    "motion": "MotionTokens { duration_instant: 0ns, duration_fast: 120ms, duration_normal: 180ms, duration_slow: 280ms, easing_enter: CubicBezier { x1: 0.16, y1: 1.0, x2: 0.3, y2: 1.0 }, easing_exit: CubicBezier { x1: 0.4, y1: 0.0, x2: 1.0, y2: 1.0 }, easing_move: CubicBezier { x1: 0.2, y1: 0.0, x2: 0.0, y2: 1.0 }, spring_control: Spring { response: 180ms, damping: 1.0, epsilon: 0.001, travel: true }, spring_move: Spring { response: 280ms, damping: 0.85, epsilon: 0.1, travel: true }, distance_short: 0.25rem, distance_medium: 0.5rem }"
+  }
+}

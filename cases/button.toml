@@ -1,0 +1,10 @@
+# GPUI Kit Button -> Avalonia Button.
+component = "button"
+viewport = [128, 48]
+anchor = [16, 8]
+
+[[group]]
+name = "label"
+params = { label = "Button" }
+matrix = { variant = ["default", "primary", "secondary", "danger", "warning", "success", "info", "ghost", "link", "text"], size = ["xsmall", "small", "medium", "large"] }
+states = ["normal", "hover", "pressed", "focus", "disabled"]

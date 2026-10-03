@@ -1,0 +1,10 @@
+T:System.Reflection.Assembly;The theme must stay NativeAOT-safe: no reflection.
+T:System.Reflection.MemberInfo;The theme must stay NativeAOT-safe: no reflection.
+T:System.Reflection.MethodInfo;The theme must stay NativeAOT-safe: no reflection.
+T:System.Reflection.PropertyInfo;The theme must stay NativeAOT-safe: no reflection.
+T:System.Reflection.FieldInfo;The theme must stay NativeAOT-safe: no reflection.
+T:System.Reflection.ConstructorInfo;The theme must stay NativeAOT-safe: no reflection.
+T:System.Activator;The theme must stay NativeAOT-safe: no reflection-based activation.
+M:System.Type.GetType(System.String);The theme must stay NativeAOT-safe: no reflection.
+T:Avalonia.Markup.Xaml.MarkupExtensions.ReflectionBindingExtension;Use compiled bindings.
+T:Avalonia.Data.Binding;Use compiled bindings (TemplateBinding or CompiledBinding).

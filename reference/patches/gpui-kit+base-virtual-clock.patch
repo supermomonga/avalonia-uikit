@@ -1,0 +1,273 @@
+diff -ruN a/crates/base/src/lib.rs b/crates/base/src/lib.rs
+--- a/crates/base/src/lib.rs
++++ b/crates/base/src/lib.rs
+@@ -65,6 +65,7 @@
+ mod switch;
+ mod table;
+ mod tabs;
++pub mod test_clock;
+ pub mod text;
+ mod text_boundary;
+ mod text_selection;
+diff -ruN a/crates/base/src/scrollbar.rs b/crates/base/src/scrollbar.rs
+--- a/crates/base/src/scrollbar.rs
++++ b/crates/base/src/scrollbar.rs
+@@ -169,7 +169,7 @@
+ 
+ impl Default for ScrollbarState {
+     fn default() -> Self {
+-        let now = Instant::now();
++        let now = crate::test_clock::now();
+         Self(Rc::new(Cell::new(ScrollbarStateInner {
+             hovered_axis: None,
+             hovered_on_thumb: None,
+@@ -546,7 +546,7 @@
+                     return;
+                 }
+                 inner.drag_update_scheduled = false;
+-                inner.last_update = Instant::now();
++                inner.last_update = crate::test_clock::now();
+                 state.set(inner);
+                 cx.update(|_, cx| cx.notify(view)).ok();
+             })
+@@ -564,7 +564,7 @@
+         }
+ 
+         state.dragged_axis = Some(axis);
+-        state.last_update = Instant::now();
++        state.last_update = crate::test_clock::now();
+         state.drag_update_scheduled = false;
+         state.drag_update_generation = state.drag_update_generation.wrapping_add(1);
+         state
+@@ -591,7 +591,7 @@
+         state.hovered_on_thumb = axis;
+         if self.is_scrollbar_visible() {
+             if axis.is_some() {
+-                state.last_scroll_time = Some(Instant::now());
++                state.last_scroll_time = Some(crate::test_clock::now());
+             }
+         }
+         state
+@@ -621,7 +621,7 @@
+     }
+ 
+     fn is_scrollbar_visible(&self) -> bool {
+-        self.dragged_axis.is_some() || self.visibility.sample(Instant::now()).opacity > 0.0
++        self.dragged_axis.is_some() || self.visibility.sample(crate::test_clock::now()).opacity > 0.0
+     }
+ }
+ 
+@@ -1297,7 +1297,7 @@
+             .read(cx)
+             .clone();
+ 
+-        let now = Instant::now();
++        let now = crate::test_clock::now();
+         let base_theme = cx.theme();
+         let mode = self.mode.unwrap_or(base_theme.scrollbar.mode());
+         let motion = base_theme.scrollbar.motion();
+@@ -1647,7 +1647,7 @@
+                                 if scroll_handle.offset() != state.get().last_scroll_offset {
+                                     state.set(state.get().with_last_scroll(
+                                         scroll_handle.offset(),
+-                                        Some(Instant::now()),
++                                        Some(crate::test_clock::now()),
+                                     ));
+                                     cx.notify(view_id);
+                                 }
+@@ -1690,13 +1690,13 @@
+                             }
+                             if matches!(event.phase, TouchPhase::Ended | TouchPhase::Cancelled) {
+                                 scroll_handle.end_drag();
+-                                state.set(state.get().with_unset_drag_pos(Instant::now()));
++                                state.set(state.get().with_unset_drag_pos(crate::test_clock::now()));
+                             }
+                             window.prevent_default();
+                             cx.stop_propagation();
+                             if event.phase == TouchPhase::Moved {
+                                 state.notify_drag(
+-                                    Instant::now(),
++                                    crate::test_clock::now(),
+                                     max_fps_duration,
+                                     view_id,
+                                     window,
+@@ -1763,10 +1763,10 @@
+                             // Update hovered state for scrollbar
+                             if bounds.contains(&event.position) && need_hover_to_update {
+                                 let hover_changed = state.get().hovered_axis != Some(axis);
+-                                state.set(state.get().with_hovered(Some(axis), Instant::now()));
++                                state.set(state.get().with_hovered(Some(axis), crate::test_clock::now()));
+                                 notify |= hover_changed;
+                             } else if state.get().hovered_axis == Some(axis) {
+-                                state.set(state.get().with_hovered(None, Instant::now()));
++                                state.set(state.get().with_hovered(None, crate::test_clock::now()));
+                                 notify = true;
+                             }
+ 
+@@ -1803,7 +1803,7 @@
+                                 }
+                                 if notify {
+                                     state.notify_drag(
+-                                        Instant::now(),
++                                        crate::test_clock::now(),
+                                         max_fps_duration,
+                                         view_id,
+                                         window,
+@@ -1832,7 +1832,7 @@
+                                     scroll_handle.offset(),
+                                 ));
+                                 scroll_handle.end_drag();
+-                                state.set(state.get().with_unset_drag_pos(Instant::now()));
++                                state.set(state.get().with_unset_drag_pos(crate::test_clock::now()));
+                                 cx.notify(view_id);
+                             }
+                         }
+@@ -1875,7 +1875,7 @@
+ 
+     #[test]
+     fn visibility_animation_uses_direction_specific_curves_and_durations() {
+-        let start = Instant::now();
++        let start = crate::test_clock::now();
+         let mut animation = VisibilityAnimation::hidden(start);
+ 
+         animation.set_visible(true, ScrollbarEntrance::SlideAndFade, ENTER, EXIT, start);
+@@ -1900,7 +1900,7 @@
+ 
+     #[test]
+     fn entrance_fades_linearly_while_position_eases_out() {
+-        let start = Instant::now();
++        let start = crate::test_clock::now();
+         let mut animation = VisibilityAnimation::hidden(start);
+         animation.set_visible(true, ScrollbarEntrance::SlideAndFade, ENTER, EXIT, start);
+ 
+@@ -1911,7 +1911,7 @@
+ 
+     #[test]
+     fn fade_entrance_snaps_position_and_animates_opacity() {
+-        let start = Instant::now();
++        let start = crate::test_clock::now();
+         let mut animation = VisibilityAnimation::hidden(start);
+         animation.set_visible(true, ScrollbarEntrance::Fade, ENTER, EXIT, start);
+ 
+@@ -1925,7 +1925,7 @@
+ 
+     #[test]
+     fn active_visibility_adopts_a_changed_entrance_policy() {
+-        let start = Instant::now();
++        let start = crate::test_clock::now();
+         let halfway = start + ENTER / 2;
+         let mut animation = VisibilityAnimation::hidden(start);
+         animation.set_visible(true, ScrollbarEntrance::SlideAndFade, ENTER, EXIT, start);
+@@ -1992,7 +1992,7 @@
+ 
+     #[test]
+     fn motionless_base_snaps_every_transition() {
+-        let now = Instant::now();
++        let now = crate::test_clock::now();
+         let motion = ScrollbarMotion::default();
+         let mut visibility = VisibilityAnimation::hidden(now);
+ 
+@@ -2021,7 +2021,7 @@
+ 
+     #[test]
+     fn a_zero_duration_settles_a_transition_already_in_flight() {
+-        let start = Instant::now();
++        let start = crate::test_clock::now();
+         let mut animation = VisibilityAnimation::hidden(start);
+         animation.set_visible(true, ScrollbarEntrance::SlideAndFade, ENTER, EXIT, start);
+ 
+@@ -2042,7 +2042,7 @@
+ 
+     #[test]
+     fn thumb_expansion_animates_in_both_directions() {
+-        let start = Instant::now();
++        let start = crate::test_clock::now();
+         let mut animation = WidthAnimation::new(start);
+         assert_eq!(animation.set_target(px(6.), EXPAND, start), (px(6.), false));
+ 
+@@ -2062,7 +2062,7 @@
+ 
+     #[test]
+     fn reduced_motion_snaps_thumb_expansion() {
+-        let now = Instant::now();
++        let now = crate::test_clock::now();
+         let mut animation = WidthAnimation::new(now);
+         assert_eq!(
+             animation.set_target(px(8.), Duration::ZERO, now),
+@@ -2088,7 +2088,7 @@
+ 
+     #[test]
+     fn visibility_animation_reverses_from_current_progress() {
+-        let start = Instant::now();
++        let start = crate::test_clock::now();
+         let mut animation = VisibilityAnimation::hidden(start);
+         animation.set_visible(true, ScrollbarEntrance::SlideAndFade, ENTER, EXIT, start);
+         let reversal_time = start + Duration::from_millis(60);
+@@ -2111,7 +2111,7 @@
+ 
+     #[test]
+     fn always_hover_drag_and_recent_scroll_request_visibility() {
+-        let now = Instant::now();
++        let now = crate::test_clock::now();
+         let idle = DEFAULT_IDLE;
+         assert!(wants_visible(
+             ScrollbarMode::Always,
+@@ -2167,7 +2167,7 @@
+ 
+     #[test]
+     fn leaving_hover_starts_a_fresh_idle_hold() {
+-        let entered_at = Instant::now();
++        let entered_at = crate::test_clock::now();
+         let left_at = entered_at + Duration::from_secs(5);
+         let state = ScrollbarState::default().get();
+ 
+@@ -2187,7 +2187,7 @@
+ 
+     #[test]
+     fn idle_boundary_starts_the_exit_without_a_jump() {
+-        let activity = Instant::now();
++        let activity = crate::test_clock::now();
+         let exit_start = activity + DEFAULT_IDLE;
+         let mut animation = VisibilityAnimation::hidden(activity - ENTER);
+         animation.set_visible(true, ScrollbarEntrance::Fade, ENTER, EXIT, activity - ENTER);
+@@ -2552,7 +2552,7 @@
+             })
+         });
+         let state = ScrollbarState::default();
+-        let now = Instant::now();
++        let now = crate::test_clock::now();
+         let interval = Duration::from_secs_f64(1. / 30.);
+         let mut inner = state.get().with_drag_pos(Axis::Vertical, Point::default());
+         inner.last_update = now;
+@@ -2590,7 +2590,7 @@
+         handle.set_offset(point(px(0.), px(-40.)));
+         cx.update(|window, cx| state.notify_drag(next, interval, view.entity_id(), window, cx));
+         cx.run_until_parked();
+-        state.set(state.get().with_unset_drag_pos(Instant::now()));
++        state.set(state.get().with_unset_drag_pos(crate::test_clock::now()));
+         handle.set_offset(point(px(0.), px(-50.)));
+         cx.update(|_, cx| cx.notify(view.entity_id()));
+         assert_eq!(*observed.borrow(), vec![px(-30.), px(-50.)]);
+diff -ruN a/crates/base/src/test_clock.rs b/crates/base/src/test_clock.rs
+--- a/crates/base/src/test_clock.rs
++++ b/crates/base/src/test_clock.rs
+@@ -0,0 +1,19 @@
++//! Reference-harness instrumentation (not part of upstream gpui-kit).
++//!
++//! The scrollbar samples its motion with `Instant::now()`. The harness pins
++//! that reading to the test executor's clock so captures are deterministic.
++use std::cell::Cell;
++
++thread_local! {
++    static NOW: Cell<Option<instant::Instant>> = const { Cell::new(None) };
++}
++
++/// Overrides the time returned by [`now`] on this thread; `None` restores the wall clock.
++pub fn set(now: Option<instant::Instant>) {
++    NOW.with(|cell| cell.set(now));
++}
++
++/// The overridden time, or the wall clock when no override is set.
++pub fn now() -> instant::Instant {
++    NOW.with(|cell| cell.get()).unwrap_or_else(instant::Instant::now)
++}
