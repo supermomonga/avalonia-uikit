@@ -2,6 +2,7 @@
   <Folder Name="/src/">
     <Project Path="src/AvaloniaUIKit/AvaloniaUIKit.csproj" />
     <Project Path="src/AvaloniaUIKit.ColorPicker/AvaloniaUIKit.ColorPicker.csproj" />
+    <Project Path="src/AvaloniaUIKit.DataGrid/AvaloniaUIKit.DataGrid.csproj" />
   </Folder>
   <Folder Name="/samples/">
     <Project Path="samples/AvaloniaUIKit.AotSmoke/AvaloniaUIKit.AotSmoke.csproj" />

@@ -32727,6 +32727,1176 @@
       "png_sha256": "397be430333670a703e9d22ea4f45aabca2f1c1e2dd48f0edb33d3c500365a2d"
     },
     {
+      "id": "datagrid/borderless.base/focus+key-escape/dark",
+      "component": "datagrid",
+      "group": "borderless",
+      "params": {
+        "sort": "none",
+        "borderless": true,
+        "widths": [
+          120,
+          116,
+          104
+        ]
+      },
+      "state": "focus+key-escape",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        202.0
+      ],
+      "png": "png/datagrid/borderless.base/focus+key-escape/dark.png",
+      "scene": "scenes/datagrid/borderless.base/focus+key-escape/dark.json",
+      "png_sha256": "60f4949d647a8541747918ae53027b6d643987c0e838901bd814ee95c698b5ff"
+    },
+    {
+      "id": "datagrid/borderless.base/focus+key-escape/light",
+      "component": "datagrid",
+      "group": "borderless",
+      "params": {
+        "sort": "none",
+        "borderless": true,
+        "widths": [
+          120,
+          116,
+          104
+        ]
+      },
+      "state": "focus+key-escape",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        202.0
+      ],
+      "png": "png/datagrid/borderless.base/focus+key-escape/light.png",
+      "scene": "scenes/datagrid/borderless.base/focus+key-escape/light.json",
+      "png_sha256": "71ae5744f4afaa0bc85261f7d899a489531962cdb2ef781d8c76a24a28f2afe9"
+    },
+    {
+      "id": "datagrid/borderless.base/normal/dark",
+      "component": "datagrid",
+      "group": "borderless",
+      "params": {
+        "sort": "none",
+        "borderless": true,
+        "widths": [
+          120,
+          116,
+          104
+        ]
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        202.0
+      ],
+      "png": "png/datagrid/borderless.base/normal/dark.png",
+      "scene": "scenes/datagrid/borderless.base/normal/dark.json",
+      "png_sha256": "8e276ac694e2a5f9ffd272129c2f5b900e588ad1cff92afdb0ed40679fb7292a"
+    },
+    {
+      "id": "datagrid/borderless.base/normal/light",
+      "component": "datagrid",
+      "group": "borderless",
+      "params": {
+        "sort": "none",
+        "borderless": true,
+        "widths": [
+          120,
+          116,
+          104
+        ]
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        202.0
+      ],
+      "png": "png/datagrid/borderless.base/normal/light.png",
+      "scene": "scenes/datagrid/borderless.base/normal/light.json",
+      "png_sha256": "81e2bf752d5f0b7e9a3c1ddf7919a48f8794665f514aa233baf54554cc1f439e"
+    },
+    {
+      "id": "datagrid/medium.base/at-121-33/dark",
+      "component": "datagrid",
+      "group": "medium",
+      "params": {
+        "sort": "ascending",
+        "widths": [
+          120,
+          116,
+          104
+        ]
+      },
+      "state": "at-121-33",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        204.0
+      ],
+      "png": "png/datagrid/medium.base/at-121-33/dark.png",
+      "scene": "scenes/datagrid/medium.base/at-121-33/dark.json",
+      "png_sha256": "c5eacb3158c226d4ad618df31d1d82811b8c5ca32b14ebab7c31c796500c0fb1"
+    },
+    {
+      "id": "datagrid/medium.base/at-121-33/light",
+      "component": "datagrid",
+      "group": "medium",
+      "params": {
+        "sort": "ascending",
+        "widths": [
+          120,
+          116,
+          104
+        ]
+      },
+      "state": "at-121-33",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        204.0
+      ],
+      "png": "png/datagrid/medium.base/at-121-33/light.png",
+      "scene": "scenes/datagrid/medium.base/at-121-33/light.json",
+      "png_sha256": "9bf2bc19b9476e12a00208cfba4cb5e4473d99ad5e848140216a928b2b26b8e0"
+    },
+    {
+      "id": "datagrid/medium.base/at-135-33/dark",
+      "component": "datagrid",
+      "group": "medium",
+      "params": {
+        "sort": "ascending",
+        "widths": [
+          120,
+          116,
+          104
+        ]
+      },
+      "state": "at-135-33",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        204.0
+      ],
+      "png": "png/datagrid/medium.base/at-135-33/dark.png",
+      "scene": "scenes/datagrid/medium.base/at-135-33/dark.json",
+      "png_sha256": "eb2426bd0dc37a9b3d9bfe788d0a66409cc7db8083b7bd82485ab9baea22dc6c"
+    },
+    {
+      "id": "datagrid/medium.base/at-135-33/light",
+      "component": "datagrid",
+      "group": "medium",
+      "params": {
+        "sort": "ascending",
+        "widths": [
+          120,
+          116,
+          104
+        ]
+      },
+      "state": "at-135-33",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        204.0
+      ],
+      "png": "png/datagrid/medium.base/at-135-33/light.png",
+      "scene": "scenes/datagrid/medium.base/at-135-33/light.json",
+      "png_sha256": "785aa6c86b4d6a06466fd834c35ba4e8a5e85b23661aa61d7a507354e7c7208f"
+    },
+    {
+      "id": "datagrid/medium.base/at-139-33/dark",
+      "component": "datagrid",
+      "group": "medium",
+      "params": {
+        "sort": "ascending",
+        "widths": [
+          120,
+          116,
+          104
+        ]
+      },
+      "state": "at-139-33",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        204.0
+      ],
+      "png": "png/datagrid/medium.base/at-139-33/dark.png",
+      "scene": "scenes/datagrid/medium.base/at-139-33/dark.json",
+      "png_sha256": "a55ed41dc7ae74b80e8b68fc449089851598692c615012c34c44e9806d023b94"
+    },
+    {
+      "id": "datagrid/medium.base/at-139-33/light",
+      "component": "datagrid",
+      "group": "medium",
+      "params": {
+        "sort": "ascending",
+        "widths": [
+          120,
+          116,
+          104
+        ]
+      },
+      "state": "at-139-33",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        204.0
+      ],
+      "png": "png/datagrid/medium.base/at-139-33/light.png",
+      "scene": "scenes/datagrid/medium.base/at-139-33/light.json",
+      "png_sha256": "7f5f5576c39b31f7f5d7c1dc43cd209ca96e37b3a9b8f00fdaec329d0486952c"
+    },
+    {
+      "id": "datagrid/medium.base/at-80-97/dark",
+      "component": "datagrid",
+      "group": "medium",
+      "params": {
+        "sort": "ascending",
+        "widths": [
+          120,
+          116,
+          104
+        ]
+      },
+      "state": "at-80-97",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        204.0
+      ],
+      "png": "png/datagrid/medium.base/at-80-97/dark.png",
+      "scene": "scenes/datagrid/medium.base/at-80-97/dark.json",
+      "png_sha256": "6542a067c819faf44c24f9aee6246e2b698e335eddf517970ae2f4341942249f"
+    },
+    {
+      "id": "datagrid/medium.base/at-80-97/light",
+      "component": "datagrid",
+      "group": "medium",
+      "params": {
+        "sort": "ascending",
+        "widths": [
+          120,
+          116,
+          104
+        ]
+      },
+      "state": "at-80-97",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        204.0
+      ],
+      "png": "png/datagrid/medium.base/at-80-97/light.png",
+      "scene": "scenes/datagrid/medium.base/at-80-97/light.json",
+      "png_sha256": "bbf651ba0662d3909ae00f17ae5a645f1a60c8c1094eb9ef7810e4cc892577e9"
+    },
+    {
+      "id": "datagrid/medium.base/click-at-80-97/dark",
+      "component": "datagrid",
+      "group": "medium",
+      "params": {
+        "sort": "ascending",
+        "widths": [
+          120,
+          116,
+          104
+        ]
+      },
+      "state": "click-at-80-97",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        204.0
+      ],
+      "png": "png/datagrid/medium.base/click-at-80-97/dark.png",
+      "scene": "scenes/datagrid/medium.base/click-at-80-97/dark.json",
+      "png_sha256": "803e6f16cbec04837dc0986dced2d502a2d6980561759da607862def545c8ee7"
+    },
+    {
+      "id": "datagrid/medium.base/click-at-80-97/light",
+      "component": "datagrid",
+      "group": "medium",
+      "params": {
+        "sort": "ascending",
+        "widths": [
+          120,
+          116,
+          104
+        ]
+      },
+      "state": "click-at-80-97",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        204.0
+      ],
+      "png": "png/datagrid/medium.base/click-at-80-97/light.png",
+      "scene": "scenes/datagrid/medium.base/click-at-80-97/light.json",
+      "png_sha256": "4a21158980baf1e19de8737f22286c6a228c415d624454d49cda0f8748f95d9b"
+    },
+    {
+      "id": "datagrid/medium.base/focus+key-escape/dark",
+      "component": "datagrid",
+      "group": "medium",
+      "params": {
+        "sort": "ascending",
+        "widths": [
+          120,
+          116,
+          104
+        ]
+      },
+      "state": "focus+key-escape",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        204.0
+      ],
+      "png": "png/datagrid/medium.base/focus+key-escape/dark.png",
+      "scene": "scenes/datagrid/medium.base/focus+key-escape/dark.json",
+      "png_sha256": "f65285dbea37190f500cf873e43ca9f3e1e7d3df9cc7c72148d5345de5174095"
+    },
+    {
+      "id": "datagrid/medium.base/focus+key-escape/light",
+      "component": "datagrid",
+      "group": "medium",
+      "params": {
+        "sort": "ascending",
+        "widths": [
+          120,
+          116,
+          104
+        ]
+      },
+      "state": "focus+key-escape",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        204.0
+      ],
+      "png": "png/datagrid/medium.base/focus+key-escape/light.png",
+      "scene": "scenes/datagrid/medium.base/focus+key-escape/light.json",
+      "png_sha256": "45235cfc597b9e698e8651c4e28d948e5d2f50d431d5668b7e8fc369cddb6dd1"
+    },
+    {
+      "id": "datagrid/size.large/normal/dark",
+      "component": "datagrid",
+      "group": "size",
+      "params": {
+        "sort": "ascending",
+        "widths": [
+          120,
+          116,
+          104
+        ],
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        252.0
+      ],
+      "png": "png/datagrid/size.large/normal/dark.png",
+      "scene": "scenes/datagrid/size.large/normal/dark.json",
+      "png_sha256": "6a80de9cec405594ceaaba15b2302d97eaff41ad80045419200652f941369f52"
+    },
+    {
+      "id": "datagrid/size.large/normal/light",
+      "component": "datagrid",
+      "group": "size",
+      "params": {
+        "sort": "ascending",
+        "widths": [
+          120,
+          116,
+          104
+        ],
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        252.0
+      ],
+      "png": "png/datagrid/size.large/normal/light.png",
+      "scene": "scenes/datagrid/size.large/normal/light.json",
+      "png_sha256": "0997b383020d1035ecde415e992b08648402c58b796458dfff18c18b32c1d03b"
+    },
+    {
+      "id": "datagrid/size.medium/normal/dark",
+      "component": "datagrid",
+      "group": "size",
+      "params": {
+        "sort": "ascending",
+        "widths": [
+          120,
+          116,
+          104
+        ],
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        204.0
+      ],
+      "png": "png/datagrid/size.medium/normal/dark.png",
+      "scene": "scenes/datagrid/size.medium/normal/dark.json",
+      "png_sha256": "a55ed41dc7ae74b80e8b68fc449089851598692c615012c34c44e9806d023b94"
+    },
+    {
+      "id": "datagrid/size.medium/normal/light",
+      "component": "datagrid",
+      "group": "size",
+      "params": {
+        "sort": "ascending",
+        "widths": [
+          120,
+          116,
+          104
+        ],
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        204.0
+      ],
+      "png": "png/datagrid/size.medium/normal/light.png",
+      "scene": "scenes/datagrid/size.medium/normal/light.json",
+      "png_sha256": "7f5f5576c39b31f7f5d7c1dc43cd209ca96e37b3a9b8f00fdaec329d0486952c"
+    },
+    {
+      "id": "datagrid/size.small/normal/dark",
+      "component": "datagrid",
+      "group": "size",
+      "params": {
+        "sort": "ascending",
+        "widths": [
+          120,
+          116,
+          104
+        ],
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        192.0
+      ],
+      "png": "png/datagrid/size.small/normal/dark.png",
+      "scene": "scenes/datagrid/size.small/normal/dark.json",
+      "png_sha256": "71a7570fdcad7cb7d29e55b33c8b48c360c2b4f368ff75b92013f35ec6f24b74"
+    },
+    {
+      "id": "datagrid/size.small/normal/light",
+      "component": "datagrid",
+      "group": "size",
+      "params": {
+        "sort": "ascending",
+        "widths": [
+          120,
+          116,
+          104
+        ],
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        192.0
+      ],
+      "png": "png/datagrid/size.small/normal/light.png",
+      "scene": "scenes/datagrid/size.small/normal/light.json",
+      "png_sha256": "2fcbc72f55efc91a85cf8d1e238909f709a595b6bff47083546914e62ac3bb7c"
+    },
+    {
+      "id": "datagrid/size.xsmall/normal/dark",
+      "component": "datagrid",
+      "group": "size",
+      "params": {
+        "sort": "ascending",
+        "widths": [
+          120,
+          116,
+          104
+        ],
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        168.0
+      ],
+      "png": "png/datagrid/size.xsmall/normal/dark.png",
+      "scene": "scenes/datagrid/size.xsmall/normal/dark.json",
+      "png_sha256": "9fe09b72ea4e5c0ef93162ef040f0abddd372776f12a6553c1b53449753ab87b"
+    },
+    {
+      "id": "datagrid/size.xsmall/normal/light",
+      "component": "datagrid",
+      "group": "size",
+      "params": {
+        "sort": "ascending",
+        "widths": [
+          120,
+          116,
+          104
+        ],
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        168.0
+      ],
+      "png": "png/datagrid/size.xsmall/normal/light.png",
+      "scene": "scenes/datagrid/size.xsmall/normal/light.json",
+      "png_sha256": "d5178bed1b463f006721ead29bd99ec9df3cfe99af2f2e8b51e5c41d6ccd950c"
+    },
+    {
+      "id": "datagrid/sort.descending/normal/dark",
+      "component": "datagrid",
+      "group": "sort",
+      "params": {
+        "widths": [
+          120,
+          116,
+          104
+        ],
+        "sort": "descending"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        204.0
+      ],
+      "png": "png/datagrid/sort.descending/normal/dark.png",
+      "scene": "scenes/datagrid/sort.descending/normal/dark.json",
+      "png_sha256": "4264b1294af8ed4f77d8fa99f66b51945faddde0444f2428c302eba08f985918"
+    },
+    {
+      "id": "datagrid/sort.descending/normal/light",
+      "component": "datagrid",
+      "group": "sort",
+      "params": {
+        "widths": [
+          120,
+          116,
+          104
+        ],
+        "sort": "descending"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        204.0
+      ],
+      "png": "png/datagrid/sort.descending/normal/light.png",
+      "scene": "scenes/datagrid/sort.descending/normal/light.json",
+      "png_sha256": "380e4337978fcdb739bc567426d2539ac3ca28f9f4a2725cb8e7dd3ea1a9cb81"
+    },
+    {
+      "id": "datagrid/sort.idle/normal/dark",
+      "component": "datagrid",
+      "group": "sort",
+      "params": {
+        "widths": [
+          120,
+          116,
+          104
+        ],
+        "sort": "idle"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        204.0
+      ],
+      "png": "png/datagrid/sort.idle/normal/dark.png",
+      "scene": "scenes/datagrid/sort.idle/normal/dark.json",
+      "png_sha256": "8d662154a6bee3c89d72fbe4d55a0c9b1f05d947b6d001fad3a1a6cbde52a772"
+    },
+    {
+      "id": "datagrid/sort.idle/normal/light",
+      "component": "datagrid",
+      "group": "sort",
+      "params": {
+        "widths": [
+          120,
+          116,
+          104
+        ],
+        "sort": "idle"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        204.0
+      ],
+      "png": "png/datagrid/sort.idle/normal/light.png",
+      "scene": "scenes/datagrid/sort.idle/normal/light.json",
+      "png_sha256": "9c50b5de216e0498904c2525e3b0213918d818f93c631841364d20a27584c9a0"
+    },
+    {
+      "id": "datagrid/sort.none/normal/dark",
+      "component": "datagrid",
+      "group": "sort",
+      "params": {
+        "widths": [
+          120,
+          116,
+          104
+        ],
+        "sort": "none"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        204.0
+      ],
+      "png": "png/datagrid/sort.none/normal/dark.png",
+      "scene": "scenes/datagrid/sort.none/normal/dark.json",
+      "png_sha256": "de3c86bd09d2a7f3491993f6146bd8a264c13b28745e5cecd7b8f08b5d543acb"
+    },
+    {
+      "id": "datagrid/sort.none/normal/light",
+      "component": "datagrid",
+      "group": "sort",
+      "params": {
+        "widths": [
+          120,
+          116,
+          104
+        ],
+        "sort": "none"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        204.0
+      ],
+      "png": "png/datagrid/sort.none/normal/light.png",
+      "scene": "scenes/datagrid/sort.none/normal/light.json",
+      "png_sha256": "af66684bac5422dcb69bd46b349a769896da70f031922c61c287edf134050f10"
+    },
+    {
+      "id": "datagrid/stripe.base/at-80-97/dark",
+      "component": "datagrid",
+      "group": "stripe",
+      "params": {
+        "sort": "none",
+        "stripe": true,
+        "widths": [
+          120,
+          116,
+          104
+        ]
+      },
+      "state": "at-80-97",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        204.0
+      ],
+      "png": "png/datagrid/stripe.base/at-80-97/dark.png",
+      "scene": "scenes/datagrid/stripe.base/at-80-97/dark.json",
+      "png_sha256": "8ceb1bea1415b61a80dd3caf903c2c3f72e4ca1950c7ee584cd65b767260e4ce"
+    },
+    {
+      "id": "datagrid/stripe.base/at-80-97/light",
+      "component": "datagrid",
+      "group": "stripe",
+      "params": {
+        "sort": "none",
+        "stripe": true,
+        "widths": [
+          120,
+          116,
+          104
+        ]
+      },
+      "state": "at-80-97",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        204.0
+      ],
+      "png": "png/datagrid/stripe.base/at-80-97/light.png",
+      "scene": "scenes/datagrid/stripe.base/at-80-97/light.json",
+      "png_sha256": "67a19f6e840fabd6b1ad49d571aebd43b236662764ec5598f25b27cd56c3648b"
+    },
+    {
+      "id": "datagrid/stripe.base/click-at-80-97/dark",
+      "component": "datagrid",
+      "group": "stripe",
+      "params": {
+        "sort": "none",
+        "stripe": true,
+        "widths": [
+          120,
+          116,
+          104
+        ]
+      },
+      "state": "click-at-80-97",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        204.0
+      ],
+      "png": "png/datagrid/stripe.base/click-at-80-97/dark.png",
+      "scene": "scenes/datagrid/stripe.base/click-at-80-97/dark.json",
+      "png_sha256": "af90ce411e1c113eea6f2d0b1ce8ecb1662553909568965ebf2a2318bff15e3e"
+    },
+    {
+      "id": "datagrid/stripe.base/click-at-80-97/light",
+      "component": "datagrid",
+      "group": "stripe",
+      "params": {
+        "sort": "none",
+        "stripe": true,
+        "widths": [
+          120,
+          116,
+          104
+        ]
+      },
+      "state": "click-at-80-97",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        204.0
+      ],
+      "png": "png/datagrid/stripe.base/click-at-80-97/light.png",
+      "scene": "scenes/datagrid/stripe.base/click-at-80-97/light.json",
+      "png_sha256": "c42a757443a9aff79b641bc1c55f3421148f6da4aa8d64be148b879e3d7b1f73"
+    },
+    {
+      "id": "datagrid/stripe.base/normal/dark",
+      "component": "datagrid",
+      "group": "stripe",
+      "params": {
+        "sort": "none",
+        "stripe": true,
+        "widths": [
+          120,
+          116,
+          104
+        ]
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        204.0
+      ],
+      "png": "png/datagrid/stripe.base/normal/dark.png",
+      "scene": "scenes/datagrid/stripe.base/normal/dark.json",
+      "png_sha256": "02b277f31bedee7c65e0c7e586d484d657e1963d7094b899ddee537f3e62e952"
+    },
+    {
+      "id": "datagrid/stripe.base/normal/light",
+      "component": "datagrid",
+      "group": "stripe",
+      "params": {
+        "sort": "none",
+        "stripe": true,
+        "widths": [
+          120,
+          116,
+          104
+        ]
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        204.0
+      ],
+      "png": "png/datagrid/stripe.base/normal/light.png",
+      "scene": "scenes/datagrid/stripe.base/normal/light.json",
+      "png_sha256": "9eb1f5d9ba0754a328430579d66af91580f3d038d31fdb984587807e90eb30cf"
+    },
+    {
       "id": "datatable/borderless.base/focus+key-escape/dark",
       "component": "datatable",
       "group": "borderless",

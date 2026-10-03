@@ -4,7 +4,7 @@
 use super::size;
 use crate::{
     harness::Builder,
-    manifest::{Params, param_bool, param_f32},
+    manifest::{Params, param_bool, param_f32, param_str},
 };
 use anyhow::Result;
 use gpui_kit::{
@@ -83,18 +83,36 @@ const DATA: [[&str; 3]; 5] = [
 /// Column::align to it), keeping the text at the top as the default render_th.
 pub struct CaseDelegate {
     columns: Vec<Column>,
+    rows: Vec<[&'static str; 3]>,
 }
 
 impl CaseDelegate {
-    fn new() -> Self {
+    /// `sort`: "none" (no sortable column), "idle" (all sortable), "ascending" or
+    /// "descending" (Amount sorted, the others sortable).
+    fn new(sort: &str, widths: Option<Vec<f32>>) -> Self {
         let columns = COLUMNS
             .iter()
-            .map(|&(key, name, width, right)| {
+            .enumerate()
+            .map(|(ix, &(key, name, width, right))| {
+                let width = widths.as_ref().and_then(|w| w.get(ix).copied()).unwrap_or(width);
                 let column = Column::new(key, name).width(px(width));
-                if right { column.text_right() } else { column }
+                let column = if right { column.text_right() } else { column };
+                match (sort, key) {
+                    ("none", _) => column,
+                    ("ascending", "amount") => column.ascending(),
+                    ("descending", "amount") => column.descending(),
+                    _ => column.sortable(),
+                }
             })
             .collect();
-        Self { columns }
+        // The rows in the order the sorted column says, as an app's delegate sorts them.
+        let mut rows = DATA.to_vec();
+        match sort {
+            "ascending" => rows.sort_by(|a, b| a[2].cmp(b[2])),
+            "descending" => rows.sort_by(|a, b| b[2].cmp(a[2])),
+            _ => {}
+        }
+        Self { columns, rows }
     }
 
     fn right(&self, col: usize) -> bool {
@@ -130,7 +148,7 @@ impl TableDelegate for CaseDelegate {
         _: &mut Window,
         _: &mut Context<TableState<Self>>,
     ) -> impl IntoElement {
-        div().w_full().flex().when(self.right(col_ix), |d| d.justify_end()).child(DATA[row_ix][col_ix])
+        div().w_full().flex().when(self.right(col_ix), |d| d.justify_end()).child(self.rows[row_ix][col_ix])
     }
 }
 
@@ -140,12 +158,18 @@ pub fn data_table(params: &Params) -> Result<Builder> {
     let bordered = !param_bool(params, "borderless");
     let resizable = !param_bool(params, "fixed_columns");
     let width = param_f32(params, "width", 360.);
+    let sort = param_str(params, "sort", "none").to_string();
+    // Column widths other than COLUMNS' (a sortable header needs room for its sort box).
+    let widths: Option<Vec<f32>> = params
+        .get("widths")
+        .and_then(|v| v.as_array())
+        .map(|a| a.iter().filter_map(|w| w.as_f64()).map(|w| w as f32).collect());
     // Below the last row, so the rows do not fill the body (no filler rows, last rule kept).
     let extra = param_f32(params, "extra", 10.);
     Ok(Rc::new(move |view, window, cx| {
         if view.state.entity.is_none() {
             let state = cx.new(|cx| {
-                TableState::new(CaseDelegate::new(), window, cx)
+                TableState::new(CaseDelegate::new(&sort, widths.clone()), window, cx)
                     .col_selectable(false)
                     .col_movable(false)
                     .col_resizable(resizable)

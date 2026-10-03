@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>AvaloniaUIKit</RootNamespace>
+    <PackageId>AvaloniaUIKit.DataGrid</PackageId>
+    <Description>GPUI Kit's DataTable look for Avalonia.Controls.DataGrid, on top of AvaloniaUIKit's GpuiTheme.</Description>
+    <IsAotCompatible>true</IsAotCompatible>
+    <IsTrimmable>true</IsTrimmable>
+    <EnableTrimAnalyzer>true</EnableTrimAnalyzer>
+    <AvaloniaXamlIlVerifyIl>true</AvaloniaXamlIlVerifyIl>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Avalonia" />
+    <PackageReference Include="Avalonia.Controls.DataGrid" />
+    <PackageReference Include="Microsoft.CodeAnalysis.BannedApiAnalyzers" PrivateAssets="all" />
+    <AdditionalFiles Include="../AvaloniaUIKit/BannedSymbols.txt" Link="BannedSymbols.txt" />
+    <ProjectReference Include="../AvaloniaUIKit/AvaloniaUIKit.csproj" />
+  </ItemGroup>
+</Project>

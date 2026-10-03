@@ -86,6 +86,7 @@ pub fn builder(case: &Case) -> Result<Builder> {
         "titlebar" => title_bar::builder(&params),
         "color_picker" => color_picker::builder(&params),
         "datatable" => table::data_table(&params),
+        "datagrid" => table::data_table(&params),
         "toolbar" => toolbar::builder(&params),
         "popover" => popover::popover(&params),
         "accordion" => accordion::builder(&params),

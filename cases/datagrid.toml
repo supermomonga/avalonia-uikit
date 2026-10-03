@@ -1,0 +1,36 @@
+# GPUI Kit DataTable -> DataGrid (Avalonia.Controls.DataGrid, with the
+# AvaloniaUIKit.DataGrid themes). The table of the datatable cases, its Email
+# and Amount columns 116 and 104px wide so Amount's title fits beside its sort
+# box at every size (too narrow, GPUI pushes the box past the padding).
+# Medium and bordered: the header is y 17-49, row k y 49+32k; the columns are
+# x 17-137, 137-253, 253-357; Name's sort box is x 113-129, y 24.5-40.5.
+component = "datagrid"
+viewport = [392, 288]
+anchor = [16, 16]
+
+[[group]]
+name = "size"
+params = { sort = "ascending", widths = [120, 116, 104] }
+matrix = { size = ["xsmall", "small", "medium", "large"] }
+
+# Not sortable, sortable (the idle chevrons at half strength), sorted descending.
+[[group]]
+name = "sort"
+params = { widths = [120, 116, 104] }
+matrix = { sort = ["none", "idle", "descending"] }
+
+# Row hover, click-select, keyboard ring, sort box hover, resize band hover (inner / outer half).
+[[group]]
+name = "medium"
+params = { sort = "ascending", widths = [120, 116, 104] }
+states = ["at-80-97", "click-at-80-97", "focus+key-escape", "at-121-33", "at-135-33", "at-139-33"]
+
+[[group]]
+name = "stripe"
+params = { sort = "none", stripe = true, widths = [120, 116, 104] }
+states = ["normal", "at-80-97", "click-at-80-97"]
+
+[[group]]
+name = "borderless"
+params = { sort = "none", borderless = true, widths = [120, 116, 104] }
+states = ["normal", "focus+key-escape"]

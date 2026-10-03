@@ -238,9 +238,11 @@ public class BehaviorTests
     // a click focuses without the ring, a key after it shows it (Avalonia moves
     // focus between rows, so Tables.ShowsFocusRing follows the input instead).
     [Test]
-    public async Task A_data_table_shows_the_focus_ring_after_keys_only()
+    [Arguments("datatable/size.medium/normal/light")]
+    [Arguments("datagrid/medium.base/at-80-97/light")]
+    public async Task A_data_table_shows_the_focus_ring_after_keys_only(string id)
     {
-        var golden = Case("datatable/size.medium/normal/light");
+        var golden = Case(id);
         using var host = CaseHost.Open(golden, Adapters.Create(golden));
         host.Drive(golden, "click-at-80-65");
         await Assert.That(RingVisible(host)).IsFalse();

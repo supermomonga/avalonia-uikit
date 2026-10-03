@@ -350,7 +350,7 @@ public static class StructuralComparison
     private static IReadOnlyList<Primitive> Dedupe(List<Primitive> list)
     {
         var result = new List<Primitive>();
-        foreach (var p in list)
+        foreach (var p in list.Select(Strip))
         {
             if (!result.Any(r => Same(r, p, 0.001, 0.01)))
             {
@@ -358,6 +358,25 @@ public static class StructuralComparison
             }
         }
         return result;
+    }
+
+    /// <summary>
+    /// A square box's border on one side only paints a strip: GPUI's row rule (a
+    /// quad's bottom border) and DataGrid's grid line (a 1px rectangle) alike.
+    /// </summary>
+    private static Primitive Strip(Primitive p)
+    {
+        var w = p.Widths;
+        if (p.Kind != PrimitiveKind.Band || p.Radii != default || new[] { w.Left, w.Top, w.Right, w.Bottom }.Count(e => e > 0) != 1)
+        {
+            return p;
+        }
+        var b = p.Bounds;
+        var strip = w.Left > 0 ? new Rect(b.X, b.Y, w.Left, b.Height)
+            : w.Top > 0 ? new Rect(b.X, b.Y, b.Width, w.Top)
+            : w.Right > 0 ? new Rect(b.Right - w.Right, b.Y, w.Right, b.Height)
+            : new Rect(b.X, b.Bottom - w.Bottom, b.Width, w.Bottom);
+        return p with { Kind = PrimitiveKind.Fill, Bounds = strip, Widths = default };
     }
 
     public static bool Same(Primitive a, Primitive b, double geometry, double color) =>
@@ -428,6 +447,9 @@ public static class StructuralComparison
             .Concat(scene.Underlines.Where(u => !u.Color.IsTransparent).Select(u => u.Color))
             .Concat(scene.PathColors.Where(c => !c.IsTransparent)));
         var actual = new List<Rgba>();
+        // A two-tone icon is one sprite in GPUI, its faint half inside the mask; in
+        // Avalonia it is a second icon at the half's opacity, in the sprite's color.
+        var layers = new List<Rgba>();
         foreach (var visual in root.GetSelfAndVisualDescendants())
         {
             // A shape of no width or height still strokes a line (a dashed separator).
@@ -470,15 +492,17 @@ public static class StructuralComparison
                         actual.Add(selection);
                     }
                     break;
-                // A shape whose geometry is empty (an arc of no sweep) paints nothing.
-                case Shape shape when shape.RenderedGeometry is { Bounds: var g } && g.Width + g.Height > 0:
+                // A shape whose geometry is empty (an arc of no sweep) paints nothing. A
+                // Rectangle is a box (a DataGrid grid line): the structure compares it.
+                case Shape shape when shape is not Rectangle && shape.RenderedGeometry is { Bounds: var g } && g.Width + g.Height > 0:
+                    var inks = shape.TemplatedParent is PathIcon { Opacity: < 1 } ? layers : actual;
                     if (Solid(shape.Stroke, opacity) is { } stroke && shape.StrokeThickness > 0)
                     {
-                        actual.Add(stroke);
+                        inks.Add(stroke);
                     }
                     if (Solid(shape.Fill, opacity) is { } fill)
                     {
-                        actual.Add(fill);
+                        inks.Add(fill);
                     }
                     break;
             }
@@ -486,6 +510,16 @@ public static class StructuralComparison
         // R30: ink fading below 5% is compared by pixels only (GPUI culls some of it).
         expected = expected.Where(c => c.A >= 0.05).ToList();
         actual = Distinct(actual.Where(c => !c.IsTransparent && c.A >= 0.05));
+        foreach (var layer in layers.Where(c => !c.IsTransparent && c.A >= 0.05))
+        {
+            // Matched as is, or as the faint half of a stronger sprite of its color.
+            var faintHalf = !expected.Any(e => layer.Distance(e) <= ColorTolerance) &&
+                expected.Any(e => (layer with { A = e.A }).Distance(e) <= ColorTolerance && layer.A < e.A);
+            if (!faintHalf)
+            {
+                actual.Add(layer);
+            }
+        }
         var messages = new List<string>();
         foreach (var e in expected.Where(e => !actual.Any(a => a.Distance(e) <= ColorTolerance)))
         {

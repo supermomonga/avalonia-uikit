@@ -68,6 +68,7 @@ public static class Adapters
         "slider" => Slider(c),
         "table" => Table(c),
         "datatable" => DataTable(c),
+        "datagrid" => DataGridCase(c),
         "carousel" => CarouselCase(c),
         "sidebar" => c.Str("host", "splitview") == "drawer" ? SidebarDrawer(c) : Sidebar(c),
         "sheet" => Sheet(c),
@@ -110,6 +111,14 @@ public static class Adapters
                 {
                     item.IsSelected = false;
                 }
+            }
+        }
+        // R28: DataGrid selects its first row when it takes focus; GPUI's table selects nothing.
+        if (c.Component == "datagrid" && !c.State.Contains("click", StringComparison.Ordinal))
+        {
+            foreach (var grid in host.Window.GetVisualDescendants().OfType<DataGrid>())
+            {
+                grid.SelectedIndex = -1;
             }
         }
         foreach (var box in host.Window.GetVisualDescendants().OfType<TextBox>())
@@ -1060,6 +1069,54 @@ public static class Adapters
         FlagClass(table, c, "stripe");
         FlagClass(table, c, "borderless");
         return table;
+    }
+
+    /// <summary>
+    /// The DataTable cases on DataGrid: the same people and columns, sorted by
+    /// Amount when the case sorts (as the GPUI delegate orders its rows).
+    /// </summary>
+    private static DataGrid DataGridCase(GoldenCase c)
+    {
+        var size = c.Str("size", "medium");
+        double row = size switch { "xsmall" => 26, "small" => 30, "large" => 40, _ => 32 };
+        var sort = c.Str("sort", "none");
+        var rows = new Avalonia.Collections.DataGridCollectionView(People);
+        if (sort is "ascending" or "descending")
+        {
+            rows.SortDescriptions.Add(Avalonia.Collections.DataGridSortDescription.FromPath(nameof(Person.Amount),
+                sort == "ascending" ? System.ComponentModel.ListSortDirection.Ascending : System.ComponentModel.ListSortDirection.Descending));
+        }
+        double Width(int ix, double fallback) =>
+            c.Params["widths"] is System.Text.Json.Nodes.JsonArray w && ix < w.Count ? w[ix]!.GetValue<double>() : fallback;
+        var amount = new DataGridTextColumn
+        {
+            Header = new TextBlock { Text = "Amount", HorizontalAlignment = HorizontalAlignment.Right },
+            Width = new DataGridLength(Width(2, 80)),
+            SortMemberPath = nameof(Person.Amount),
+            Binding = Avalonia.Data.CompiledBinding.Create<Person, string>(r => r.Amount),
+        };
+        amount.CellStyleClasses.Add("text-right");
+        var grid = new DataGrid
+        {
+            Width = c.Num("width", 360),
+            Height = (c.Bool("borderless") ? 0 : 2) + row * (People.Length + 1) + c.Num("extra", 10),
+            ItemsSource = rows,
+            CanUserSortColumns = sort != "none",
+            CanUserResizeColumns = true,
+            CanUserReorderColumns = false,
+            // GPUI's table only displays: a click selects, it does not edit.
+            IsReadOnly = true,
+            Columns =
+            {
+                new DataGridTextColumn { Header = "Name", Width = new DataGridLength(Width(0, 120)), SortMemberPath = nameof(Person.Name), Binding = Avalonia.Data.CompiledBinding.Create<Person, string>(r => r.Name) },
+                new DataGridTextColumn { Header = "Email", Width = new DataGridLength(Width(1, 140)), SortMemberPath = nameof(Person.Email), Binding = Avalonia.Data.CompiledBinding.Create<Person, string>(r => r.Email) },
+                amount,
+            },
+        };
+        ClassFrom(grid, c, "size", "medium");
+        FlagClass(grid, c, "stripe");
+        FlagClass(grid, c, "borderless");
+        return grid;
     }
 
     // GPUI's img() box is the element; Avalonia's Image takes the fitted size, so the

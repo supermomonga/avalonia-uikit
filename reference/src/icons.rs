@@ -8,7 +8,7 @@ use std::{fmt::Write as _, path::Path};
 use tiny_skia_path::PathSegment;
 
 /// The icons the themes draw, by GPUI IconName file name.
-pub const ICONS: [&str; 35] = [
+pub const ICONS: [&str; 37] = [
     "check",
     "minus",
     "plus",
@@ -17,6 +17,8 @@ pub const ICONS: [&str; 35] = [
     "chevron-up",
     "chevron-left",
     "chevrons-up-down",
+    "sort-ascending",
+    "sort-descending",
     "loader",
     "copy",
     "external-link",
@@ -46,21 +48,26 @@ pub const ICONS: [&str; 35] = [
     "ellipsis",
 ];
 
-fn outline(svg: &[u8]) -> Result<String> {
+/// The icon's opaque outline, and the outline of its translucent parts (a
+/// two-tone icon's faint half, which the theme layers at their opacity).
+fn outline(svg: &[u8]) -> Result<(String, Option<String>)> {
     let tree = usvg::Tree::from_data(svg, &usvg::Options::default())?;
-    let mut data = String::new();
     // Zero-area anchors at (0,0) and (24,24): they paint nothing but make the
     // geometry's bounds the icon's 24x24 box, so a stretched Viewbox scales
     // the icon exactly as GPUI scales the SVG.
-    data.push_str("F1 M0,0L0,0Z M24,24L24,24Z");
-    collect(tree.root(), &mut data)?;
-    Ok(data)
+    let anchors = "F1 M0,0L0,0Z M24,24L24,24Z";
+    let (mut data, mut faint) = (String::from(anchors), String::from(anchors));
+    collect(tree.root(), &mut data, &mut faint)?;
+    let faint = (faint.len() > anchors.len()).then_some(faint);
+    Ok((data, faint))
 }
 
-fn collect(group: &usvg::Group, data: &mut String) -> Result<()> {
+fn collect(group: &usvg::Group, data: &mut String, faint: &mut String) -> Result<()> {
     for node in group.children() {
         match node {
-            usvg::Node::Group(group) => collect(group, data)?,
+            // usvg wraps a path with an opacity in a group of that opacity.
+            usvg::Node::Group(inner) if inner.opacity().get() < 1.0 => collect(inner, faint, &mut String::new())?,
+            usvg::Node::Group(inner) => collect(inner, data, faint)?,
             usvg::Node::Path(path) => {
                 let transform = path.abs_transform();
                 if let Some(stroke) = path.stroke() {
@@ -114,7 +121,11 @@ pub fn write_xaml(root: &Path) -> Result<()> {
         let svg = std::fs::read(icons.join(format!("{name}.svg")))
             .with_context(|| format!("reading icon {name}"))?;
         let key = format!("Gpui.Icon.{}", crate::tokens::pascal(name));
-        let _ = writeln!(xaml, "  <StreamGeometry x:Key=\"{key}\">{}</StreamGeometry>", outline(&svg)?);
+        let (data, faint) = outline(&svg)?;
+        let _ = writeln!(xaml, "  <StreamGeometry x:Key=\"{key}\">{data}</StreamGeometry>");
+        if let Some(faint) = faint {
+            let _ = writeln!(xaml, "  <StreamGeometry x:Key=\"{key}.Faint\">{faint}</StreamGeometry>");
+        }
     }
     xaml.push_str("</ResourceDictionary>\n");
     let out = root.join("src/AvaloniaUIKit/Themes/Icons/Lucide.g.axaml");
