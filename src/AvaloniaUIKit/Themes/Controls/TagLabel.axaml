@@ -1,0 +1,216 @@
+<!--
+  GPUI Kit Tag (crates/component/src/tag.rs) -> gpui:TagLabel.
+  Classes: color   primary (default) secondary danger success warning info,
+                   or a palette color: neutral gray red orange amber yellow lime green emerald teal cyan sky blue indigo violet purple fuchsia pink rose
+           outline transparent fill, the color as the text
+           size    xsmall / small (10px text, 6x2 padding, radius 3), the
+                   default medium (12px, 10x4, radius 6), large (14px, 10x4)
+           rounded-full
+  Hover fades the whole tag to 90%, as GPUI does.
+-->
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:gpui="using:AvaloniaUIKit">
+  <ControlTheme x:Key="{x:Type gpui:TagLabel}" TargetType="gpui:TagLabel">
+    <Setter Property="Background" Value="{DynamicResource Gpui.Primary}" />
+    <Setter Property="Foreground" Value="{DynamicResource Gpui.PrimaryForeground}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Primary}" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="CornerRadius" Value="5.5" />
+    <Setter Property="Padding" Value="10,4" />
+    <Setter Property="FontSize" Value="12" />
+    <Setter Property="HorizontalAlignment" Value="Left" />
+    <Setter Property="VerticalAlignment" Value="Top" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <ContentPresenter Name="PART_ContentPresenter"
+                          BackgroundSizing="OuterBorderEdge"
+                          Background="{TemplateBinding Background}"
+                          BorderBrush="{TemplateBinding BorderBrush}"
+                          BorderThickness="{TemplateBinding BorderThickness}"
+                          CornerRadius="{TemplateBinding CornerRadius}"
+                          Padding="{TemplateBinding Padding}"
+                          Content="{TemplateBinding Content}"
+                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                          Foreground="{TemplateBinding Foreground}"
+                          LineHeight="15"
+                          TextWrapping="NoWrap"
+                          VerticalContentAlignment="Center" />
+      </ControlTemplate>
+    </Setter>
+
+    <Style Selector="^:pointerover">
+      <Setter Property="Opacity" Value="0.9" />
+    </Style>
+
+    <!-- Theme colors: fill, border, text; outline keeps the border and colors the text. -->
+    <Style Selector="^.outline">
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.Primary}" />
+    </Style>
+    <Style Selector="^.secondary">
+      <Setter Property="Background" Value="{DynamicResource Gpui.Secondary}" />
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.SecondaryForeground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Border}" />
+    </Style>
+    <Style Selector="^.secondary.outline">
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.MutedForeground}" />
+    </Style>
+    <Style Selector="^.danger">
+      <Setter Property="Background" Value="{DynamicResource Gpui.Danger}" />
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.DangerForeground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Danger}" />
+    </Style>
+    <Style Selector="^.danger.outline">
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.Danger}" />
+    </Style>
+    <Style Selector="^.success">
+      <Setter Property="Background" Value="{DynamicResource Gpui.Success}" />
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.SuccessForeground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Success}" />
+    </Style>
+    <Style Selector="^.success.outline">
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.Success}" />
+    </Style>
+    <Style Selector="^.warning">
+      <Setter Property="Background" Value="{DynamicResource Gpui.Warning}" />
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.WarningForeground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Warning}" />
+    </Style>
+    <Style Selector="^.warning.outline">
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.Warning}" />
+    </Style>
+    <Style Selector="^.info">
+      <Setter Property="Background" Value="{DynamicResource Gpui.Info}" />
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.InfoForeground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Info}" />
+    </Style>
+    <Style Selector="^.info.outline">
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.Info}" />
+    </Style>
+
+    <!-- Palette colors (TagVariant::Color): the same text with or without outline. -->
+    <Style Selector="^.neutral">
+      <Setter Property="Background" Value="{DynamicResource Gpui.Tag.Neutral.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.Tag.Neutral.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Tag.Neutral.Border}" />
+    </Style>
+    <Style Selector="^.gray">
+      <Setter Property="Background" Value="{DynamicResource Gpui.Tag.Gray.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.Tag.Gray.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Tag.Gray.Border}" />
+    </Style>
+    <Style Selector="^.red">
+      <Setter Property="Background" Value="{DynamicResource Gpui.Tag.Red.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.Tag.Red.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Tag.Red.Border}" />
+    </Style>
+    <Style Selector="^.orange">
+      <Setter Property="Background" Value="{DynamicResource Gpui.Tag.Orange.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.Tag.Orange.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Tag.Orange.Border}" />
+    </Style>
+    <Style Selector="^.amber">
+      <Setter Property="Background" Value="{DynamicResource Gpui.Tag.Amber.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.Tag.Amber.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Tag.Amber.Border}" />
+    </Style>
+    <Style Selector="^.yellow">
+      <Setter Property="Background" Value="{DynamicResource Gpui.Tag.Yellow.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.Tag.Yellow.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Tag.Yellow.Border}" />
+    </Style>
+    <Style Selector="^.lime">
+      <Setter Property="Background" Value="{DynamicResource Gpui.Tag.Lime.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.Tag.Lime.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Tag.Lime.Border}" />
+    </Style>
+    <Style Selector="^.green">
+      <Setter Property="Background" Value="{DynamicResource Gpui.Tag.Green.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.Tag.Green.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Tag.Green.Border}" />
+    </Style>
+    <Style Selector="^.emerald">
+      <Setter Property="Background" Value="{DynamicResource Gpui.Tag.Emerald.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.Tag.Emerald.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Tag.Emerald.Border}" />
+    </Style>
+    <Style Selector="^.teal">
+      <Setter Property="Background" Value="{DynamicResource Gpui.Tag.Teal.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.Tag.Teal.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Tag.Teal.Border}" />
+    </Style>
+    <Style Selector="^.cyan">
+      <Setter Property="Background" Value="{DynamicResource Gpui.Tag.Cyan.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.Tag.Cyan.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Tag.Cyan.Border}" />
+    </Style>
+    <Style Selector="^.sky">
+      <Setter Property="Background" Value="{DynamicResource Gpui.Tag.Sky.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.Tag.Sky.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Tag.Sky.Border}" />
+    </Style>
+    <Style Selector="^.blue">
+      <Setter Property="Background" Value="{DynamicResource Gpui.Tag.Blue.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.Tag.Blue.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Tag.Blue.Border}" />
+    </Style>
+    <Style Selector="^.indigo">
+      <Setter Property="Background" Value="{DynamicResource Gpui.Tag.Indigo.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.Tag.Indigo.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Tag.Indigo.Border}" />
+    </Style>
+    <Style Selector="^.violet">
+      <Setter Property="Background" Value="{DynamicResource Gpui.Tag.Violet.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.Tag.Violet.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Tag.Violet.Border}" />
+    </Style>
+    <Style Selector="^.purple">
+      <Setter Property="Background" Value="{DynamicResource Gpui.Tag.Purple.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.Tag.Purple.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Tag.Purple.Border}" />
+    </Style>
+    <Style Selector="^.fuchsia">
+      <Setter Property="Background" Value="{DynamicResource Gpui.Tag.Fuchsia.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.Tag.Fuchsia.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Tag.Fuchsia.Border}" />
+    </Style>
+    <Style Selector="^.pink">
+      <Setter Property="Background" Value="{DynamicResource Gpui.Tag.Pink.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.Tag.Pink.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Tag.Pink.Border}" />
+    </Style>
+    <Style Selector="^.rose">
+      <Setter Property="Background" Value="{DynamicResource Gpui.Tag.Rose.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.Tag.Rose.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Tag.Rose.Border}" />
+    </Style>
+    <Style Selector="^.outline">
+      <Setter Property="Background" Value="Transparent" />
+    </Style>
+
+    <Style Selector="^.xsmall, ^.small">
+      <Setter Property="FontSize" Value="10" />
+      <Setter Property="Padding" Value="6,2" />
+      <Setter Property="CornerRadius" Value="2.5" />
+    </Style>
+    <Style Selector="^.xsmall /template/ ContentPresenter#PART_ContentPresenter, ^.small /template/ ContentPresenter#PART_ContentPresenter">
+      <Setter Property="LineHeight" Value="12.5" />
+    </Style>
+    <Style Selector="^.large">
+      <Setter Property="FontSize" Value="14" />
+    </Style>
+    <Style Selector="^.large /template/ ContentPresenter#PART_ContentPresenter">
+      <Setter Property="LineHeight" Value="17.5" />
+    </Style>
+    <!-- rounded_full is rems(1), which a single line clamps to half the height. -->
+    <Style Selector="^.rounded-full">
+      <Setter Property="CornerRadius" Value="12" />
+    </Style>
+    <Style Selector="^.rounded-full.xsmall, ^.rounded-full.small">
+      <Setter Property="CornerRadius" Value="8.75" />
+    </Style>
+    <Style Selector="^.rounded-full.large">
+      <Setter Property="CornerRadius" Value="13.25" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

@@ -1,0 +1,22 @@
+# GPUI Kit Empty -> gpui:EmptyState, 360px wide.
+component = "empty"
+viewport = [392, 280]
+anchor = [16, 16]
+
+[[group]]
+name = "full"
+params = { media = "icon", title = "No projects yet", description = "Create your first project to get started.", actions = "Create project|Import project" }
+
+# Descriptions fit on one line: GPUI centers a wrapped line with its trailing
+# space, half a space left of Avalonia's (R34).
+[[group]]
+name = "header"
+params = { media = "icon", title = "No results", description = "Try a different search term." }
+
+[[group]]
+name = "plain"
+params = { media = "plain", title = "Inbox zero", description = "You have read every message." }
+
+[[group]]
+name = "title"
+params = { media = "none", title = "Nothing here" }

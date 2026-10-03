@@ -1,0 +1,15 @@
+# GPUI Kit Kbd -> gpui:Kbd. Modifier symbols (⌘ ⇧ ...) are not in the bundled
+# Inter, so the renderers fall back to different fonts (R22): the cases use
+# keys without modifiers; the notation itself has unit tests.
+component = "kbd"
+viewport = [120, 44]
+anchor = [16, 12]
+
+[[group]]
+name = "key"
+matrix = { keys = ["a", "k", "f12", "space", "pagedown", "tab"] }
+
+[[group]]
+name = "outline"
+params = { outline = true }
+matrix = { keys = ["a", "f12"] }

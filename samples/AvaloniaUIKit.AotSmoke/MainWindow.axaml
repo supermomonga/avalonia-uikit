@@ -1,6 +1,7 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="using:AvaloniaUIKit.AotSmoke"
+        xmlns:gpui="using:AvaloniaUIKit"
         x:Class="AvaloniaUIKit.AotSmoke.MainWindow"
         Title="AvaloniaUIKit gallery" Width="760" Height="860">
   <DockPanel>
@@ -262,6 +263,58 @@
           <PipsPager Classes="compact small" NumberOfPages="5" SelectedPageIndex="0" />
         </StackPanel>
 
+        <TextBlock Text="Badge, Tag, Alert, Skeleton, Kbd, Clipboard, Rating" Foreground="{DynamicResource Gpui.MutedForeground}" />
+        <StackPanel Orientation="Horizontal" Spacing="24">
+          <gpui:Badge Count="3">
+            <Border Width="32" Height="32" CornerRadius="6" Background="{DynamicResource Gpui.Secondary}" />
+          </gpui:Badge>
+          <gpui:Badge IsDot="True" BadgeBackground="{DynamicResource Gpui.Green}">
+            <PathIcon Data="{StaticResource Gpui.Icon.Bell}" Classes="large" />
+          </gpui:Badge>
+          <gpui:Badge Icon="{StaticResource Gpui.Icon.Check}">
+            <gpui:Avatar UserName="Jason Lee" />
+          </gpui:Badge>
+          <gpui:TagLabel Content="Primary" />
+          <gpui:TagLabel Classes="outline danger" Content="Danger" />
+          <gpui:TagLabel Classes="blue small rounded-full" Content="Blue" />
+        </StackPanel>
+        <gpui:Alert Classes="info" Title="Heads up!" Content="You can add components to your app using the CLI."
+                    IsClosable="True" Width="420" HorizontalAlignment="Left" />
+        <gpui:Alert Classes="warning banner" Content="A new version is available." Width="420" HorizontalAlignment="Left" />
+        <StackPanel Orientation="Horizontal" Spacing="12">
+          <gpui:Avatar Classes="small" />
+          <StackPanel Spacing="8">
+            <gpui:Skeleton Width="200" />
+            <gpui:Skeleton Classes="secondary" Width="140" />
+          </StackPanel>
+          <gpui:Kbd Gesture="Ctrl+K" />
+          <gpui:Kbd Classes="outline" Gesture="F12" />
+          <gpui:Clipboard Text="Copied text" />
+          <gpui:Rating Value="3" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Spacing="16">
+          <gpui:AvatarGroup Classes="small" Limit="3" ShowsEllipsis="True">
+            <gpui:Avatar UserName="Alice" />
+            <gpui:Avatar UserName="Bob" />
+            <gpui:Avatar UserName="Carol" />
+            <gpui:Avatar UserName="Dave" />
+          </gpui:AvatarGroup>
+          <gpui:Breadcrumb VerticalAlignment="Center">
+            <gpui:BreadcrumbItem Content="Home" />
+            <gpui:BreadcrumbItem Content="Documents" />
+            <gpui:BreadcrumbItem Content="Report" />
+          </gpui:Breadcrumb>
+        </StackPanel>
+        <gpui:EmptyState Classes="icon-media" Media="{StaticResource Gpui.Icon.Folder}" Title="No projects yet"
+                         Description="Create your first project to get started." Width="420" HorizontalAlignment="Left">
+          <gpui:EmptyState.Actions>
+            <StackPanel Orientation="Horizontal" Spacing="8">
+              <Button Classes="primary" Content="Create project" />
+              <Button Classes="outline" Content="Import project" />
+            </StackPanel>
+          </gpui:EmptyState.Actions>
+        </gpui:EmptyState>
+        <gpui:StatusBar Width="420" HorizontalAlignment="Left" Left="main" Content="Ready" Right="UTF-8" />
         <TextBlock Text="GroupBox, Separator, Link" Foreground="{DynamicResource Gpui.MutedForeground}" />
         <GroupBox Classes="outline" Header="Account" Content="Content" Width="320" HorizontalAlignment="Left" />
         <Separator Width="320" HorizontalAlignment="Left" />

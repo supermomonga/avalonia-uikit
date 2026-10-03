@@ -1,0 +1,21 @@
+# GPUI Kit StatusBar -> gpui:StatusBar, 400px wide. Each region is a row of
+# texts 8px apart; the center aligns by which ends are pinned.
+component = "statusbar"
+viewport = [432, 56]
+anchor = [16, 16]
+
+[[group]]
+name = "regions"
+params = { left = "main|0 errors", center = "Ready", right = "Ln 1, Col 1|UTF-8" }
+
+[[group]]
+name = "left"
+params = { left = "main", center = "Ready" }
+
+[[group]]
+name = "right"
+params = { center = "Ready", right = "UTF-8" }
+
+[[group]]
+name = "center"
+params = { center = "Indexing…|42%" }

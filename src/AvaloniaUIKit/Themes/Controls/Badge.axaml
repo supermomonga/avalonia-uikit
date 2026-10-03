@@ -1,0 +1,104 @@
+<!--
+  GPUI Kit Badge (crates/component/src/badge.rs) -> gpui:Badge.
+  Sizes: small (and xsmall), the default medium, large. The badge overflows
+  the content's top right corner and takes no room of its own:
+    count  a 14px pill (10px text, 2px padding, at least 14 wide), moved
+           out by 3px per character (small: 4px, above by 4; large: 1px per
+           character, 2px below the top);
+    dot    6px at the top right;
+    icon   a 10 / 16 / 24px circle at the bottom right with a 1px ring in
+           the background color, the icon at the text size (8 / 10 / 14px).
+-->
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:gpui="using:AvaloniaUIKit"
+                    xmlns:gconv="using:AvaloniaUIKit.Converters">
+  <gconv:LinearThicknessConverter x:Key="Gpui.Badge.Offset" Base="0,-3,0,0" Step="0,0,-3,0" />
+  <gconv:LinearThicknessConverter x:Key="Gpui.Badge.Offset.Small" Base="0,-4,0,0" Step="0,0,-4,0" />
+  <gconv:LinearThicknessConverter x:Key="Gpui.Badge.Offset.Large" Base="0,2,0,0" Step="0,0,-1,0" />
+
+  <ControlTheme x:Key="{x:Type gpui:Badge}" TargetType="gpui:Badge">
+    <Setter Property="BadgeBackground" Value="{DynamicResource Gpui.Red}" />
+    <Setter Property="ClipToBounds" Value="False" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Panel>
+          <ContentPresenter Name="PART_ContentPresenter"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            Padding="{TemplateBinding Padding}"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+          <Border Name="PART_Badge" IsVisible="False" IsHitTestVisible="False"
+                  HorizontalAlignment="Right" VerticalAlignment="Top"
+                  Background="{TemplateBinding BadgeBackground}">
+            <Panel>
+              <TextBlock Name="PART_Text" IsVisible="False" Text="{TemplateBinding Text}"
+                         Foreground="White" FontSize="10" LineHeight="10" ClipToBounds="False"
+                         gpui:TextLines.CentersTallGlyphs="True"
+                         HorizontalAlignment="Center" VerticalAlignment="Center" />
+              <PathIcon Name="PART_Icon" IsVisible="False" Data="{TemplateBinding Icon}"
+                        Foreground="White" Width="10" Height="10" />
+            </Panel>
+          </Border>
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+
+    <Style Selector="^:count /template/ Border#PART_Badge">
+      <Setter Property="IsVisible" Value="True" />
+      <Setter Property="Padding" Value="2" />
+      <Setter Property="MinWidth" Value="14" />
+      <Setter Property="CornerRadius" Value="7" />
+      <Setter Property="Margin" Value="{Binding $parent[gpui:Badge].Text.Length, Converter={StaticResource Gpui.Badge.Offset}}" />
+    </Style>
+    <Style Selector="^:count /template/ TextBlock#PART_Text">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+    <Style Selector="^.small:count /template/ Border#PART_Badge, ^.xsmall:count /template/ Border#PART_Badge">
+      <Setter Property="Margin" Value="{Binding $parent[gpui:Badge].Text.Length, Converter={StaticResource Gpui.Badge.Offset.Small}}" />
+    </Style>
+    <Style Selector="^.large:count /template/ Border#PART_Badge">
+      <Setter Property="Margin" Value="{Binding $parent[gpui:Badge].Text.Length, Converter={StaticResource Gpui.Badge.Offset.Large}}" />
+    </Style>
+
+    <Style Selector="^:dot /template/ Border#PART_Badge">
+      <Setter Property="IsVisible" Value="True" />
+      <Setter Property="Width" Value="6" />
+      <Setter Property="Height" Value="6" />
+      <Setter Property="CornerRadius" Value="3" />
+    </Style>
+
+    <Style Selector="^:icon /template/ Border#PART_Badge">
+      <Setter Property="IsVisible" Value="True" />
+      <Setter Property="VerticalAlignment" Value="Bottom" />
+      <Setter Property="Width" Value="16" />
+      <Setter Property="Height" Value="16" />
+      <Setter Property="CornerRadius" Value="7.5" />
+      <Setter Property="BorderThickness" Value="1" />
+      <Setter Property="BackgroundSizing" Value="OuterBorderEdge" />
+      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Background}" />
+    </Style>
+    <Style Selector="^:icon /template/ PathIcon#PART_Icon">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+    <Style Selector="^.small:icon /template/ Border#PART_Badge, ^.xsmall:icon /template/ Border#PART_Badge">
+      <Setter Property="Width" Value="10" />
+      <Setter Property="Height" Value="10" />
+      <Setter Property="CornerRadius" Value="4.5" />
+    </Style>
+    <Style Selector="^.small:icon /template/ PathIcon#PART_Icon, ^.xsmall:icon /template/ PathIcon#PART_Icon">
+      <Setter Property="Width" Value="8" />
+      <Setter Property="Height" Value="8" />
+    </Style>
+    <Style Selector="^.large:icon /template/ Border#PART_Badge">
+      <Setter Property="Width" Value="24" />
+      <Setter Property="Height" Value="24" />
+      <Setter Property="CornerRadius" Value="11.5" />
+    </Style>
+    <Style Selector="^.large:icon /template/ PathIcon#PART_Icon">
+      <Setter Property="Width" Value="14" />
+      <Setter Property="Height" Value="14" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

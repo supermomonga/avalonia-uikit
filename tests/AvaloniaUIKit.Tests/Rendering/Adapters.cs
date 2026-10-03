@@ -14,7 +14,7 @@ namespace AvaloniaUIKit.Tests.Rendering;
 /// GPUI reference harness used (reference/src/cases/*.rs), mapped to the
 /// theme's style classes and the control's own properties.
 /// </summary>
-public static class Adapters
+public static partial class Adapters
 {
     public static Control Create(GoldenCase c) => c.Component switch
     {
@@ -81,7 +81,7 @@ public static class Adapters
             // macOS: GPUI keeps 80px for the traffic lights.
             Resources = { ["Gpui.TitleBar.Padding"] = new Avalonia.Thickness(80, 0, 0, 1) },
         },
-        _ => throw new NotSupportedException($"no adapter for {c.Component}"),
+        _ => KitControl(c) ?? throw new NotSupportedException($"no adapter for {c.Component}"),
     };
 
     /// <summary>

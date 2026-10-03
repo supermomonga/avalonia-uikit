@@ -1,0 +1,39 @@
+# GPUI Kit Badge -> gpui:Badge. The child is a secondary square the size of a
+# matching avatar (24 / 32 / 48px); the badge overflows its top right corner.
+component = "badge"
+viewport = [104, 88]
+anchor = [24, 24]
+
+[[group]]
+name = "count"
+params = { variant = "count", count = 3 }
+matrix = { size = ["small", "medium", "large"] }
+
+# Two digits push the badge further out; past max it shows "max+".
+[[group]]
+name = "digits"
+params = { variant = "count" }
+matrix = { count = [12, 100] }
+
+[[group]]
+name = "max"
+params = { variant = "count", count = 12, max = 9 }
+
+[[group]]
+name = "dot"
+params = { variant = "dot" }
+matrix = { size = ["small", "medium", "large"] }
+
+[[group]]
+name = "icon"
+params = { variant = "icon", icon = "check" }
+matrix = { size = ["small", "medium", "large"] }
+
+[[group]]
+name = "color"
+params = { variant = "count", count = 5 }
+matrix = { color = ["blue", "green", "yellow"] }
+
+[[group]]
+name = "color-dot"
+params = { variant = "dot", color = "green" }

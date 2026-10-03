@@ -1041,6 +1041,230 @@
       <SolidColorBrush x:Key="Gpui.TitleBar.GradientTop" Color="#FFFBFBFB" />
       <Color x:Key="Gpui.WindowFrame.Color">#FFCCCCCC</Color>
       <SolidColorBrush x:Key="Gpui.WindowFrame" Color="#FFCCCCCC" />
+      <Color x:Key="Gpui.Tag.Neutral.Background.Color">#FFFAFAFA</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Neutral.Background" Color="#FFFAFAFA" />
+      <Color x:Key="Gpui.Tag.Neutral.Border.Color">#FFE5E5E5</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Neutral.Border" Color="#FFE5E5E5" />
+      <Color x:Key="Gpui.Tag.Neutral.Foreground.Color">#FF525252</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Neutral.Foreground" Color="#FF525252" />
+      <Color x:Key="Gpui.Tag.Gray.Background.Color">#FFF9FAFB</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Gray.Background" Color="#FFF9FAFB" />
+      <Color x:Key="Gpui.Tag.Gray.Border.Color">#FFE5E7EB</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Gray.Border" Color="#FFE5E7EB" />
+      <Color x:Key="Gpui.Tag.Gray.Foreground.Color">#FF4B5563</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Gray.Foreground" Color="#FF4B5563" />
+      <Color x:Key="Gpui.Tag.Red.Background.Color">#FFFEF2F2</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Red.Background" Color="#FFFEF2F2" />
+      <Color x:Key="Gpui.Tag.Red.Border.Color">#FFFECACA</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Red.Border" Color="#FFFECACA" />
+      <Color x:Key="Gpui.Tag.Red.Foreground.Color">#FFDC2626</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Red.Foreground" Color="#FFDC2626" />
+      <Color x:Key="Gpui.Tag.Orange.Background.Color">#FFFFF7ED</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Orange.Background" Color="#FFFFF7ED" />
+      <Color x:Key="Gpui.Tag.Orange.Border.Color">#FFFED7AA</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Orange.Border" Color="#FFFED7AA" />
+      <Color x:Key="Gpui.Tag.Orange.Foreground.Color">#FFEA580C</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Orange.Foreground" Color="#FFEA580C" />
+      <Color x:Key="Gpui.Tag.Amber.Background.Color">#FFFFFBEB</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Amber.Background" Color="#FFFFFBEB" />
+      <Color x:Key="Gpui.Tag.Amber.Border.Color">#FFFDE68A</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Amber.Border" Color="#FFFDE68A" />
+      <Color x:Key="Gpui.Tag.Amber.Foreground.Color">#FFD97706</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Amber.Foreground" Color="#FFD97706" />
+      <Color x:Key="Gpui.Tag.Yellow.Background.Color">#FFFEFCE8</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Yellow.Background" Color="#FFFEFCE8" />
+      <Color x:Key="Gpui.Tag.Yellow.Border.Color">#FFFEF08A</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Yellow.Border" Color="#FFFEF08A" />
+      <Color x:Key="Gpui.Tag.Yellow.Foreground.Color">#FFCA8A04</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Yellow.Foreground" Color="#FFCA8A04" />
+      <Color x:Key="Gpui.Tag.Lime.Background.Color">#FFF7FEE7</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Lime.Background" Color="#FFF7FEE7" />
+      <Color x:Key="Gpui.Tag.Lime.Border.Color">#FFD9F99D</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Lime.Border" Color="#FFD9F99D" />
+      <Color x:Key="Gpui.Tag.Lime.Foreground.Color">#FF65A30D</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Lime.Foreground" Color="#FF65A30D" />
+      <Color x:Key="Gpui.Tag.Green.Background.Color">#FFF0FDF4</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Green.Background" Color="#FFF0FDF4" />
+      <Color x:Key="Gpui.Tag.Green.Border.Color">#FFBBF7D0</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Green.Border" Color="#FFBBF7D0" />
+      <Color x:Key="Gpui.Tag.Green.Foreground.Color">#FF16A34A</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Green.Foreground" Color="#FF16A34A" />
+      <Color x:Key="Gpui.Tag.Emerald.Background.Color">#FFECFDF5</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Emerald.Background" Color="#FFECFDF5" />
+      <Color x:Key="Gpui.Tag.Emerald.Border.Color">#FFA7F3D0</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Emerald.Border" Color="#FFA7F3D0" />
+      <Color x:Key="Gpui.Tag.Emerald.Foreground.Color">#FF059669</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Emerald.Foreground" Color="#FF059669" />
+      <Color x:Key="Gpui.Tag.Teal.Background.Color">#FFF0FDFA</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Teal.Background" Color="#FFF0FDFA" />
+      <Color x:Key="Gpui.Tag.Teal.Border.Color">#FF99F6E4</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Teal.Border" Color="#FF99F6E4" />
+      <Color x:Key="Gpui.Tag.Teal.Foreground.Color">#FF0D9488</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Teal.Foreground" Color="#FF0D9488" />
+      <Color x:Key="Gpui.Tag.Cyan.Background.Color">#FFECFEFF</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Cyan.Background" Color="#FFECFEFF" />
+      <Color x:Key="Gpui.Tag.Cyan.Border.Color">#FFA5F3FC</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Cyan.Border" Color="#FFA5F3FC" />
+      <Color x:Key="Gpui.Tag.Cyan.Foreground.Color">#FF0891B2</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Cyan.Foreground" Color="#FF0891B2" />
+      <Color x:Key="Gpui.Tag.Sky.Background.Color">#FFF0F9FF</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Sky.Background" Color="#FFF0F9FF" />
+      <Color x:Key="Gpui.Tag.Sky.Border.Color">#FFBAE6FD</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Sky.Border" Color="#FFBAE6FD" />
+      <Color x:Key="Gpui.Tag.Sky.Foreground.Color">#FF0284C7</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Sky.Foreground" Color="#FF0284C7" />
+      <Color x:Key="Gpui.Tag.Blue.Background.Color">#FFEFF6FF</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Blue.Background" Color="#FFEFF6FF" />
+      <Color x:Key="Gpui.Tag.Blue.Border.Color">#FFBFDBFE</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Blue.Border" Color="#FFBFDBFE" />
+      <Color x:Key="Gpui.Tag.Blue.Foreground.Color">#FF2563EB</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Blue.Foreground" Color="#FF2563EB" />
+      <Color x:Key="Gpui.Tag.Indigo.Background.Color">#FFEEF2FF</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Indigo.Background" Color="#FFEEF2FF" />
+      <Color x:Key="Gpui.Tag.Indigo.Border.Color">#FFC7D2FE</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Indigo.Border" Color="#FFC7D2FE" />
+      <Color x:Key="Gpui.Tag.Indigo.Foreground.Color">#FF4F46E5</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Indigo.Foreground" Color="#FF4F46E5" />
+      <Color x:Key="Gpui.Tag.Violet.Background.Color">#FFF5F3FF</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Violet.Background" Color="#FFF5F3FF" />
+      <Color x:Key="Gpui.Tag.Violet.Border.Color">#FFDDD6FE</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Violet.Border" Color="#FFDDD6FE" />
+      <Color x:Key="Gpui.Tag.Violet.Foreground.Color">#FF7C3AED</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Violet.Foreground" Color="#FF7C3AED" />
+      <Color x:Key="Gpui.Tag.Purple.Background.Color">#FFFAF5FF</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Purple.Background" Color="#FFFAF5FF" />
+      <Color x:Key="Gpui.Tag.Purple.Border.Color">#FFE9D5FF</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Purple.Border" Color="#FFE9D5FF" />
+      <Color x:Key="Gpui.Tag.Purple.Foreground.Color">#FF9333EA</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Purple.Foreground" Color="#FF9333EA" />
+      <Color x:Key="Gpui.Tag.Fuchsia.Background.Color">#FFFDF4FF</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Fuchsia.Background" Color="#FFFDF4FF" />
+      <Color x:Key="Gpui.Tag.Fuchsia.Border.Color">#FFF5D0FE</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Fuchsia.Border" Color="#FFF5D0FE" />
+      <Color x:Key="Gpui.Tag.Fuchsia.Foreground.Color">#FFC026D3</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Fuchsia.Foreground" Color="#FFC026D3" />
+      <Color x:Key="Gpui.Tag.Pink.Background.Color">#FFFDF2F8</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Pink.Background" Color="#FFFDF2F8" />
+      <Color x:Key="Gpui.Tag.Pink.Border.Color">#FFFBCFE8</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Pink.Border" Color="#FFFBCFE8" />
+      <Color x:Key="Gpui.Tag.Pink.Foreground.Color">#FFDB2777</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Pink.Foreground" Color="#FFDB2777" />
+      <Color x:Key="Gpui.Tag.Rose.Background.Color">#FFFFF1F2</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Rose.Background" Color="#FFFFF1F2" />
+      <Color x:Key="Gpui.Tag.Rose.Border.Color">#FFFECDD3</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Rose.Border" Color="#FFFECDD3" />
+      <Color x:Key="Gpui.Tag.Rose.Foreground.Color">#FFE11D48</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Rose.Foreground" Color="#FFE11D48" />
+      <Color x:Key="Gpui.Alert.Close.Hover.Color">#CCFFFFFF</Color>
+      <SolidColorBrush x:Key="Gpui.Alert.Close.Hover" Color="#CCFFFFFF" />
+      <Color x:Key="Gpui.Alert.Close.Pressed.Color">#E6FFFFFF</Color>
+      <SolidColorBrush x:Key="Gpui.Alert.Close.Pressed" Color="#E6FFFFFF" />
+      <Color x:Key="Gpui.Alert.Info.Background.Color">#0A06B6D4</Color>
+      <SolidColorBrush x:Key="Gpui.Alert.Info.Background" Color="#0A06B6D4" />
+      <Color x:Key="Gpui.Alert.Info.Border.Color">#4D06B6D4</Color>
+      <SolidColorBrush x:Key="Gpui.Alert.Info.Border" Color="#4D06B6D4" />
+      <Color x:Key="Gpui.Alert.Info.Close.Hover.Color">#0806B6D4</Color>
+      <SolidColorBrush x:Key="Gpui.Alert.Info.Close.Hover" Color="#0806B6D4" />
+      <Color x:Key="Gpui.Alert.Info.Close.Pressed.Color">#0906B6D4</Color>
+      <SolidColorBrush x:Key="Gpui.Alert.Info.Close.Pressed" Color="#0906B6D4" />
+      <Color x:Key="Gpui.Alert.Success.Background.Color">#0A22C55E</Color>
+      <SolidColorBrush x:Key="Gpui.Alert.Success.Background" Color="#0A22C55E" />
+      <Color x:Key="Gpui.Alert.Success.Border.Color">#4D22C55E</Color>
+      <SolidColorBrush x:Key="Gpui.Alert.Success.Border" Color="#4D22C55E" />
+      <Color x:Key="Gpui.Alert.Success.Close.Hover.Color">#0822C55E</Color>
+      <SolidColorBrush x:Key="Gpui.Alert.Success.Close.Hover" Color="#0822C55E" />
+      <Color x:Key="Gpui.Alert.Success.Close.Pressed.Color">#0922C55E</Color>
+      <SolidColorBrush x:Key="Gpui.Alert.Success.Close.Pressed" Color="#0922C55E" />
+      <Color x:Key="Gpui.Alert.Warning.Background.Color">#0AEAB308</Color>
+      <SolidColorBrush x:Key="Gpui.Alert.Warning.Background" Color="#0AEAB308" />
+      <Color x:Key="Gpui.Alert.Warning.Border.Color">#4DEAB308</Color>
+      <SolidColorBrush x:Key="Gpui.Alert.Warning.Border" Color="#4DEAB308" />
+      <Color x:Key="Gpui.Alert.Warning.Close.Hover.Color">#08EAB308</Color>
+      <SolidColorBrush x:Key="Gpui.Alert.Warning.Close.Hover" Color="#08EAB308" />
+      <Color x:Key="Gpui.Alert.Warning.Close.Pressed.Color">#09EAB308</Color>
+      <SolidColorBrush x:Key="Gpui.Alert.Warning.Close.Pressed" Color="#09EAB308" />
+      <Color x:Key="Gpui.Alert.Error.Background.Color">#0AEF4444</Color>
+      <SolidColorBrush x:Key="Gpui.Alert.Error.Background" Color="#0AEF4444" />
+      <Color x:Key="Gpui.Alert.Error.Border.Color">#4DEF4444</Color>
+      <SolidColorBrush x:Key="Gpui.Alert.Error.Border" Color="#4DEF4444" />
+      <Color x:Key="Gpui.Alert.Error.Close.Hover.Color">#08EF4444</Color>
+      <SolidColorBrush x:Key="Gpui.Alert.Error.Close.Hover" Color="#08EF4444" />
+      <Color x:Key="Gpui.Alert.Error.Close.Pressed.Color">#09EF4444</Color>
+      <SolidColorBrush x:Key="Gpui.Alert.Error.Close.Pressed" Color="#09EF4444" />
+      <Color x:Key="Gpui.Avatar.Hue0.Background.Color">#FFFFEDF4</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue0.Background" Color="#FFFFEDF4" />
+      <Color x:Key="Gpui.Avatar.Hue0.Foreground.Color">#FFA13760</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue0.Foreground" Color="#FFA13760" />
+      <Color x:Key="Gpui.Avatar.Hue0.Border.Color">#FFF8CED9</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue0.Border" Color="#FFF8CED9" />
+      <Color x:Key="Gpui.Avatar.Hue1.Background.Color">#FFFFEEE9</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue1.Background" Color="#FFFFEEE9" />
+      <Color x:Key="Gpui.Avatar.Hue1.Foreground.Color">#FFA63A2D</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue1.Foreground" Color="#FFA63A2D" />
+      <Color x:Key="Gpui.Avatar.Hue1.Border.Color">#FFFACFC7</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue1.Border" Color="#FFFACFC7" />
+      <Color x:Key="Gpui.Avatar.Hue2.Background.Color">#FFFFF1E0</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue2.Background" Color="#FFFFF1E0" />
+      <Color x:Key="Gpui.Avatar.Hue2.Foreground.Color">#FF9C4900</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue2.Foreground" Color="#FF9C4900" />
+      <Color x:Key="Gpui.Avatar.Hue2.Border.Color">#FFF4D4BA</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue2.Border" Color="#FFF4D4BA" />
+      <Color x:Key="Gpui.Avatar.Hue3.Background.Color">#FFFDF5DD</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue3.Background" Color="#FFFDF5DD" />
+      <Color x:Key="Gpui.Avatar.Hue3.Foreground.Color">#FF835C00</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue3.Foreground" Color="#FF835C00" />
+      <Color x:Key="Gpui.Avatar.Hue3.Border.Color">#FFE7DAB6</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue3.Border" Color="#FFE7DAB6" />
+      <Color x:Key="Gpui.Avatar.Hue4.Background.Color">#FFF2F9E1</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue4.Background" Color="#FFF2F9E1" />
+      <Color x:Key="Gpui.Avatar.Hue4.Foreground.Color">#FF5A6E00</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue4.Foreground" Color="#FF5A6E00" />
+      <Color x:Key="Gpui.Avatar.Hue4.Border.Color">#FFD6E0BC</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue4.Border" Color="#FFD6E0BC" />
+      <Color x:Key="Gpui.Avatar.Hue5.Background.Color">#FFE7FCEA</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue5.Background" Color="#FFE7FCEA" />
+      <Color x:Key="Gpui.Avatar.Hue5.Foreground.Color">#FF007932</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue5.Foreground" Color="#FF007932" />
+      <Color x:Key="Gpui.Avatar.Hue5.Border.Color">#FFC4E5CA</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue5.Border" Color="#FFC4E5CA" />
+      <Color x:Key="Gpui.Avatar.Hue6.Background.Color">#FFDFFDF6</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue6.Background" Color="#FFDFFDF6" />
+      <Color x:Key="Gpui.Avatar.Hue6.Foreground.Color">#FF007C66</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue6.Foreground" Color="#FF007C66" />
+      <Color x:Key="Gpui.Avatar.Hue6.Border.Color">#FFB8E6DC</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue6.Border" Color="#FFB8E6DC" />
+      <Color x:Key="Gpui.Avatar.Hue7.Background.Color">#FFDEFCFF</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue7.Background" Color="#FFDEFCFF" />
+      <Color x:Key="Gpui.Avatar.Hue7.Foreground.Color">#FF007790</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue7.Foreground" Color="#FF007790" />
+      <Color x:Key="Gpui.Avatar.Hue7.Border.Color">#FFB5E4ED</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue7.Border" Color="#FFB5E4ED" />
+      <Color x:Key="Gpui.Avatar.Hue8.Background.Color">#FFE3F9FF</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue8.Background" Color="#FFE3F9FF" />
+      <Color x:Key="Gpui.Avatar.Hue8.Foreground.Color">#FF006AAC</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue8.Foreground" Color="#FF006AAC" />
+      <Color x:Key="Gpui.Avatar.Hue8.Border.Color">#FFBEE0F9</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue8.Border" Color="#FFBEE0F9" />
+      <Color x:Key="Gpui.Avatar.Hue9.Background.Color">#FFECF5FF</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue9.Background" Color="#FFECF5FF" />
+      <Color x:Key="Gpui.Avatar.Hue9.Foreground.Color">#FF445AB5</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue9.Foreground" Color="#FF445AB5" />
+      <Color x:Key="Gpui.Avatar.Hue9.Border.Color">#FFCEDAFD</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue9.Border" Color="#FFCEDAFD" />
+      <Color x:Key="Gpui.Avatar.Hue10.Background.Color">#FFF8F1FF</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue10.Background" Color="#FFF8F1FF" />
+      <Color x:Key="Gpui.Avatar.Hue10.Foreground.Color">#FF714BA8</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue10.Foreground" Color="#FF714BA8" />
+      <Color x:Key="Gpui.Avatar.Hue10.Border.Color">#FFDFD4F8</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue10.Border" Color="#FFDFD4F8" />
+      <Color x:Key="Gpui.Avatar.Hue11.Background.Color">#FFFFEEFF</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue11.Background" Color="#FFFFEEFF" />
+      <Color x:Key="Gpui.Avatar.Hue11.Foreground.Color">#FF8F3E8A</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue11.Foreground" Color="#FF8F3E8A" />
+      <Color x:Key="Gpui.Avatar.Hue11.Border.Color">#FFEFCFEB</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue11.Border" Color="#FFEFCFEB" />
+      <Color x:Key="Gpui.Skeleton.Secondary.Color">#80F5F5F5</Color>
+      <SolidColorBrush x:Key="Gpui.Skeleton.Secondary" Color="#80F5F5F5" />
     </ResourceDictionary>
     <ResourceDictionary x:Key="Dark">
       <Color x:Key="Gpui.Accent.Color">#FF262626</Color>
@@ -2077,6 +2301,230 @@
       <SolidColorBrush x:Key="Gpui.TitleBar.GradientTop" Color="#FF111111" />
       <Color x:Key="Gpui.WindowFrame.Color">#FF333333</Color>
       <SolidColorBrush x:Key="Gpui.WindowFrame" Color="#FF333333" />
+      <Color x:Key="Gpui.Tag.Neutral.Background.Color">#800A0A0A</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Neutral.Background" Color="#800A0A0A" />
+      <Color x:Key="Gpui.Tag.Neutral.Border.Color">#80262626</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Neutral.Border" Color="#80262626" />
+      <Color x:Key="Gpui.Tag.Neutral.Foreground.Color">#FFD4D4D4</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Neutral.Foreground" Color="#FFD4D4D4" />
+      <Color x:Key="Gpui.Tag.Gray.Background.Color">#80030712</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Gray.Background" Color="#80030712" />
+      <Color x:Key="Gpui.Tag.Gray.Border.Color">#801F2937</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Gray.Border" Color="#801F2937" />
+      <Color x:Key="Gpui.Tag.Gray.Foreground.Color">#FFD1D5DB</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Gray.Foreground" Color="#FFD1D5DB" />
+      <Color x:Key="Gpui.Tag.Red.Background.Color">#80450A0A</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Red.Background" Color="#80450A0A" />
+      <Color x:Key="Gpui.Tag.Red.Border.Color">#80991B1B</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Red.Border" Color="#80991B1B" />
+      <Color x:Key="Gpui.Tag.Red.Foreground.Color">#FFFCA5A5</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Red.Foreground" Color="#FFFCA5A5" />
+      <Color x:Key="Gpui.Tag.Orange.Background.Color">#80431407</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Orange.Background" Color="#80431407" />
+      <Color x:Key="Gpui.Tag.Orange.Border.Color">#809A3412</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Orange.Border" Color="#809A3412" />
+      <Color x:Key="Gpui.Tag.Orange.Foreground.Color">#FFFDBA74</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Orange.Foreground" Color="#FFFDBA74" />
+      <Color x:Key="Gpui.Tag.Amber.Background.Color">#80451A03</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Amber.Background" Color="#80451A03" />
+      <Color x:Key="Gpui.Tag.Amber.Border.Color">#8092400E</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Amber.Border" Color="#8092400E" />
+      <Color x:Key="Gpui.Tag.Amber.Foreground.Color">#FFFCD34D</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Amber.Foreground" Color="#FFFCD34D" />
+      <Color x:Key="Gpui.Tag.Yellow.Background.Color">#80422006</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Yellow.Background" Color="#80422006" />
+      <Color x:Key="Gpui.Tag.Yellow.Border.Color">#80854D0E</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Yellow.Border" Color="#80854D0E" />
+      <Color x:Key="Gpui.Tag.Yellow.Foreground.Color">#FFFDE047</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Yellow.Foreground" Color="#FFFDE047" />
+      <Color x:Key="Gpui.Tag.Lime.Background.Color">#801A2E05</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Lime.Background" Color="#801A2E05" />
+      <Color x:Key="Gpui.Tag.Lime.Border.Color">#803F6212</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Lime.Border" Color="#803F6212" />
+      <Color x:Key="Gpui.Tag.Lime.Foreground.Color">#FFBEF264</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Lime.Foreground" Color="#FFBEF264" />
+      <Color x:Key="Gpui.Tag.Green.Background.Color">#80052E16</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Green.Background" Color="#80052E16" />
+      <Color x:Key="Gpui.Tag.Green.Border.Color">#80166534</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Green.Border" Color="#80166534" />
+      <Color x:Key="Gpui.Tag.Green.Foreground.Color">#FF86EFAC</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Green.Foreground" Color="#FF86EFAC" />
+      <Color x:Key="Gpui.Tag.Emerald.Background.Color">#80022C22</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Emerald.Background" Color="#80022C22" />
+      <Color x:Key="Gpui.Tag.Emerald.Border.Color">#80065F46</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Emerald.Border" Color="#80065F46" />
+      <Color x:Key="Gpui.Tag.Emerald.Foreground.Color">#FF6EE7B7</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Emerald.Foreground" Color="#FF6EE7B7" />
+      <Color x:Key="Gpui.Tag.Teal.Background.Color">#80042F2E</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Teal.Background" Color="#80042F2E" />
+      <Color x:Key="Gpui.Tag.Teal.Border.Color">#80115E59</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Teal.Border" Color="#80115E59" />
+      <Color x:Key="Gpui.Tag.Teal.Foreground.Color">#FF5EEAD4</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Teal.Foreground" Color="#FF5EEAD4" />
+      <Color x:Key="Gpui.Tag.Cyan.Background.Color">#80083344</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Cyan.Background" Color="#80083344" />
+      <Color x:Key="Gpui.Tag.Cyan.Border.Color">#80155E75</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Cyan.Border" Color="#80155E75" />
+      <Color x:Key="Gpui.Tag.Cyan.Foreground.Color">#FF67E8F9</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Cyan.Foreground" Color="#FF67E8F9" />
+      <Color x:Key="Gpui.Tag.Sky.Background.Color">#80082F49</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Sky.Background" Color="#80082F49" />
+      <Color x:Key="Gpui.Tag.Sky.Border.Color">#80075985</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Sky.Border" Color="#80075985" />
+      <Color x:Key="Gpui.Tag.Sky.Foreground.Color">#FF7DD3FC</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Sky.Foreground" Color="#FF7DD3FC" />
+      <Color x:Key="Gpui.Tag.Blue.Background.Color">#80172554</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Blue.Background" Color="#80172554" />
+      <Color x:Key="Gpui.Tag.Blue.Border.Color">#801E40AF</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Blue.Border" Color="#801E40AF" />
+      <Color x:Key="Gpui.Tag.Blue.Foreground.Color">#FF93C5FD</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Blue.Foreground" Color="#FF93C5FD" />
+      <Color x:Key="Gpui.Tag.Indigo.Background.Color">#801E1B4B</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Indigo.Background" Color="#801E1B4B" />
+      <Color x:Key="Gpui.Tag.Indigo.Border.Color">#803730A3</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Indigo.Border" Color="#803730A3" />
+      <Color x:Key="Gpui.Tag.Indigo.Foreground.Color">#FFA5B4FC</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Indigo.Foreground" Color="#FFA5B4FC" />
+      <Color x:Key="Gpui.Tag.Violet.Background.Color">#802E1065</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Violet.Background" Color="#802E1065" />
+      <Color x:Key="Gpui.Tag.Violet.Border.Color">#805B21B6</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Violet.Border" Color="#805B21B6" />
+      <Color x:Key="Gpui.Tag.Violet.Foreground.Color">#FFC4B5FD</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Violet.Foreground" Color="#FFC4B5FD" />
+      <Color x:Key="Gpui.Tag.Purple.Background.Color">#803B0764</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Purple.Background" Color="#803B0764" />
+      <Color x:Key="Gpui.Tag.Purple.Border.Color">#806B21A8</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Purple.Border" Color="#806B21A8" />
+      <Color x:Key="Gpui.Tag.Purple.Foreground.Color">#FFD8B4FE</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Purple.Foreground" Color="#FFD8B4FE" />
+      <Color x:Key="Gpui.Tag.Fuchsia.Background.Color">#804A044E</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Fuchsia.Background" Color="#804A044E" />
+      <Color x:Key="Gpui.Tag.Fuchsia.Border.Color">#8086198F</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Fuchsia.Border" Color="#8086198F" />
+      <Color x:Key="Gpui.Tag.Fuchsia.Foreground.Color">#FFF0ABFC</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Fuchsia.Foreground" Color="#FFF0ABFC" />
+      <Color x:Key="Gpui.Tag.Pink.Background.Color">#80500724</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Pink.Background" Color="#80500724" />
+      <Color x:Key="Gpui.Tag.Pink.Border.Color">#809D174D</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Pink.Border" Color="#809D174D" />
+      <Color x:Key="Gpui.Tag.Pink.Foreground.Color">#FFF9A8D4</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Pink.Foreground" Color="#FFF9A8D4" />
+      <Color x:Key="Gpui.Tag.Rose.Background.Color">#804C0519</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Rose.Background" Color="#804C0519" />
+      <Color x:Key="Gpui.Tag.Rose.Border.Color">#809F1239</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Rose.Border" Color="#809F1239" />
+      <Color x:Key="Gpui.Tag.Rose.Foreground.Color">#FFFDA4AF</Color>
+      <SolidColorBrush x:Key="Gpui.Tag.Rose.Foreground" Color="#FFFDA4AF" />
+      <Color x:Key="Gpui.Alert.Close.Hover.Color">#CC0A0A0A</Color>
+      <SolidColorBrush x:Key="Gpui.Alert.Close.Hover" Color="#CC0A0A0A" />
+      <Color x:Key="Gpui.Alert.Close.Pressed.Color">#E60A0A0A</Color>
+      <SolidColorBrush x:Key="Gpui.Alert.Close.Pressed" Color="#E60A0A0A" />
+      <Color x:Key="Gpui.Alert.Info.Background.Color">#0A22D3EE</Color>
+      <SolidColorBrush x:Key="Gpui.Alert.Info.Background" Color="#0A22D3EE" />
+      <Color x:Key="Gpui.Alert.Info.Border.Color">#4D22D3EE</Color>
+      <SolidColorBrush x:Key="Gpui.Alert.Info.Border" Color="#4D22D3EE" />
+      <Color x:Key="Gpui.Alert.Info.Close.Hover.Color">#0822D3EE</Color>
+      <SolidColorBrush x:Key="Gpui.Alert.Info.Close.Hover" Color="#0822D3EE" />
+      <Color x:Key="Gpui.Alert.Info.Close.Pressed.Color">#0922D3EE</Color>
+      <SolidColorBrush x:Key="Gpui.Alert.Info.Close.Pressed" Color="#0922D3EE" />
+      <Color x:Key="Gpui.Alert.Success.Background.Color">#0A4ADE80</Color>
+      <SolidColorBrush x:Key="Gpui.Alert.Success.Background" Color="#0A4ADE80" />
+      <Color x:Key="Gpui.Alert.Success.Border.Color">#4D4ADE80</Color>
+      <SolidColorBrush x:Key="Gpui.Alert.Success.Border" Color="#4D4ADE80" />
+      <Color x:Key="Gpui.Alert.Success.Close.Hover.Color">#084ADE80</Color>
+      <SolidColorBrush x:Key="Gpui.Alert.Success.Close.Hover" Color="#084ADE80" />
+      <Color x:Key="Gpui.Alert.Success.Close.Pressed.Color">#094ADE80</Color>
+      <SolidColorBrush x:Key="Gpui.Alert.Success.Close.Pressed" Color="#094ADE80" />
+      <Color x:Key="Gpui.Alert.Warning.Background.Color">#0AFACC15</Color>
+      <SolidColorBrush x:Key="Gpui.Alert.Warning.Background" Color="#0AFACC15" />
+      <Color x:Key="Gpui.Alert.Warning.Border.Color">#4DFACC15</Color>
+      <SolidColorBrush x:Key="Gpui.Alert.Warning.Border" Color="#4DFACC15" />
+      <Color x:Key="Gpui.Alert.Warning.Close.Hover.Color">#08FACC15</Color>
+      <SolidColorBrush x:Key="Gpui.Alert.Warning.Close.Hover" Color="#08FACC15" />
+      <Color x:Key="Gpui.Alert.Warning.Close.Pressed.Color">#09FACC15</Color>
+      <SolidColorBrush x:Key="Gpui.Alert.Warning.Close.Pressed" Color="#09FACC15" />
+      <Color x:Key="Gpui.Alert.Error.Background.Color">#0AF87171</Color>
+      <SolidColorBrush x:Key="Gpui.Alert.Error.Background" Color="#0AF87171" />
+      <Color x:Key="Gpui.Alert.Error.Border.Color">#4DF87171</Color>
+      <SolidColorBrush x:Key="Gpui.Alert.Error.Border" Color="#4DF87171" />
+      <Color x:Key="Gpui.Alert.Error.Close.Hover.Color">#08F87171</Color>
+      <SolidColorBrush x:Key="Gpui.Alert.Error.Close.Hover" Color="#08F87171" />
+      <Color x:Key="Gpui.Alert.Error.Close.Pressed.Color">#09F87171</Color>
+      <SolidColorBrush x:Key="Gpui.Alert.Error.Close.Pressed" Color="#09F87171" />
+      <Color x:Key="Gpui.Avatar.Hue0.Background.Color">#FF42232D</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue0.Background" Color="#FF42232D" />
+      <Color x:Key="Gpui.Avatar.Hue0.Foreground.Color">#FFFFA6C1</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue0.Foreground" Color="#FFFFA6C1" />
+      <Color x:Key="Gpui.Avatar.Hue0.Border.Color">#FF572F3C</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue0.Border" Color="#FF572F3C" />
+      <Color x:Key="Gpui.Avatar.Hue1.Background.Color">#FF44241F</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue1.Background" Color="#FF44241F" />
+      <Color x:Key="Gpui.Avatar.Hue1.Foreground.Color">#FFFFA99A</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue1.Foreground" Color="#FFFFA99A" />
+      <Color x:Key="Gpui.Avatar.Hue1.Border.Color">#FF59302A</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue1.Border" Color="#FF59302A" />
+      <Color x:Key="Gpui.Avatar.Hue2.Background.Color">#FF402712</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue2.Background" Color="#FF402712" />
+      <Color x:Key="Gpui.Avatar.Hue2.Foreground.Color">#FFF9B379</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue2.Foreground" Color="#FFF9B379" />
+      <Color x:Key="Gpui.Avatar.Hue2.Border.Color">#FF54351A</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue2.Border" Color="#FF54351A" />
+      <Color x:Key="Gpui.Avatar.Hue3.Background.Color">#FF382C0C</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue3.Background" Color="#FF382C0C" />
+      <Color x:Key="Gpui.Avatar.Hue3.Foreground.Color">#FFE0C16D</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue3.Foreground" Color="#FFE0C16D" />
+      <Color x:Key="Gpui.Avatar.Hue3.Border.Color">#FF493B13</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue3.Border" Color="#FF493B13" />
+      <Color x:Key="Gpui.Avatar.Hue4.Background.Color">#FF2B3113</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue4.Background" Color="#FF2B3113" />
+      <Color x:Key="Gpui.Avatar.Hue4.Foreground.Color">#FFBBCF7C</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue4.Foreground" Color="#FFBBCF7C" />
+      <Color x:Key="Gpui.Avatar.Hue4.Border.Color">#FF39421B</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue4.Border" Color="#FF39421B" />
+      <Color x:Key="Gpui.Avatar.Hue5.Background.Color">#FF1A3520</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue5.Background" Color="#FF1A3520" />
+      <Color x:Key="Gpui.Avatar.Hue5.Foreground.Color">#FF8FD89E</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue5.Foreground" Color="#FF8FD89E" />
+      <Color x:Key="Gpui.Avatar.Hue5.Border.Color">#FF24462C</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue5.Border" Color="#FF24462C" />
+      <Color x:Key="Gpui.Avatar.Hue6.Background.Color">#FF07362F</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue6.Background" Color="#FF07362F" />
+      <Color x:Key="Gpui.Avatar.Hue6.Foreground.Color">#FF68DCC7</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue6.Foreground" Color="#FF68DCC7" />
+      <Color x:Key="Gpui.Avatar.Hue6.Border.Color">#FF0C473E</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue6.Border" Color="#FF0C473E" />
+      <Color x:Key="Gpui.Avatar.Hue7.Background.Color">#FF03343C</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue7.Background" Color="#FF03343C" />
+      <Color x:Key="Gpui.Avatar.Hue7.Foreground.Color">#FF60D8EB</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue7.Foreground" Color="#FF60D8EB" />
+      <Color x:Key="Gpui.Avatar.Hue7.Border.Color">#FF05454E</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue7.Border" Color="#FF05454E" />
+      <Color x:Key="Gpui.Avatar.Hue8.Background.Color">#FF133144</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue8.Background" Color="#FF133144" />
+      <Color x:Key="Gpui.Avatar.Hue8.Foreground.Color">#FF7ECEFF</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue8.Foreground" Color="#FF7ECEFF" />
+      <Color x:Key="Gpui.Avatar.Hue8.Border.Color">#FF1C4159</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue8.Border" Color="#FF1C4159" />
+      <Color x:Key="Gpui.Avatar.Hue9.Background.Color">#FF242C47</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue9.Background" Color="#FF242C47" />
+      <Color x:Key="Gpui.Avatar.Hue9.Foreground.Color">#FFA8C1FF</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue9.Foreground" Color="#FFA8C1FF" />
+      <Color x:Key="Gpui.Avatar.Hue9.Border.Color">#FF313B5D</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue9.Border" Color="#FF313B5D" />
+      <Color x:Key="Gpui.Avatar.Hue10.Background.Color">#FF322843</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue10.Background" Color="#FF322843" />
+      <Color x:Key="Gpui.Avatar.Hue10.Foreground.Color">#FFCFB4FF</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue10.Foreground" Color="#FFCFB4FF" />
+      <Color x:Key="Gpui.Avatar.Hue10.Border.Color">#FF423658</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue10.Border" Color="#FF423658" />
+      <Color x:Key="Gpui.Avatar.Hue11.Background.Color">#FF3C243A</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue11.Background" Color="#FF3C243A" />
+      <Color x:Key="Gpui.Avatar.Hue11.Foreground.Color">#FFEDAAE6</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue11.Foreground" Color="#FFEDAAE6" />
+      <Color x:Key="Gpui.Avatar.Hue11.Border.Color">#FF4F314C</Color>
+      <SolidColorBrush x:Key="Gpui.Avatar.Hue11.Border" Color="#FF4F314C" />
+      <Color x:Key="Gpui.Skeleton.Secondary.Color">#80171717</Color>
+      <SolidColorBrush x:Key="Gpui.Skeleton.Secondary" Color="#80171717" />
     </ResourceDictionary>
   </ResourceDictionary.ThemeDictionaries>
 </ResourceDictionary>

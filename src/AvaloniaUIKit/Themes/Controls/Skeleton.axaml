@@ -1,0 +1,36 @@
+<!--
+  GPUI Kit Skeleton (crates/component/src/skeleton.rs) -> gpui:Skeleton.
+  A 16px bar in the skeleton color (at 50% with the secondary class) whose
+  opacity runs 1 -> 0.5 -> 1 every 2s: GPUI's bounce(ease_in_out), each half
+  a quadratic ease-in-out, which Alternate playback of a 1s animation is.
+  The template's Border fades: the control's own Opacity, animated from the
+  theme, did not follow the animation clock.
+-->
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:gpui="using:AvaloniaUIKit">
+  <ControlTheme x:Key="{x:Type gpui:Skeleton}" TargetType="gpui:Skeleton">
+    <Setter Property="Background" Value="{DynamicResource Gpui.Skeleton}" />
+    <Setter Property="Height" Value="16" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}" />
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^.secondary">
+      <Setter Property="Background" Value="{DynamicResource Gpui.Skeleton.Secondary}" />
+    </Style>
+    <Style Selector="^ /template/ Border">
+      <Style.Animations>
+        <Animation Duration="0:0:1" IterationCount="INFINITE" PlaybackDirection="Alternate" Easing="QuadraticEaseInOut">
+          <KeyFrame Cue="0%">
+            <Setter Property="Opacity" Value="1" />
+          </KeyFrame>
+          <KeyFrame Cue="100%">
+            <Setter Property="Opacity" Value="0.5" />
+          </KeyFrame>
+        </Animation>
+      </Style.Animations>
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

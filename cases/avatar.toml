@@ -1,0 +1,28 @@
+# GPUI Kit Avatar -> gpui:Avatar: initials on a color picked from them, an
+# image, or the user icon, in a circle 16 / 24 / 48 / 80px across.
+component = "avatar"
+viewport = [112, 112]
+anchor = [16, 16]
+
+[[group]]
+name = "name"
+params = { name = "Jason Lee" }
+matrix = { size = ["xsmall", "small", "medium", "large"] }
+
+# Names whose initials land on different hues of GPUI's twelve.
+[[group]]
+name = "hue"
+matrix = { name = ["Alice", "Bob", "Carol", "Dave", "Erin", "Frank", "Grace", "Heidi"] }
+
+[[group]]
+name = "single"
+params = { name = "zed" }
+
+[[group]]
+name = "placeholder"
+matrix = { size = ["small", "medium", "large"] }
+
+[[group]]
+name = "image"
+params = { image = "small", name = "Jason Lee" }
+matrix = { size = ["small", "medium"] }

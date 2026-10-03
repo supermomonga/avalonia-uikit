@@ -11,7 +11,11 @@ public static class VisualAssert
     /// <summary>Layout must agree to a quarter of a logical pixel (R9 covers rounding ties).</summary>
     public const double GeometryTolerance = 0.26;
 
-    public static void Matches(GoldenCase golden, PixelTolerance? tolerance = null, Action<CaseHost>? configure = null, Func<GoldenCase, Avalonia.Controls.Control>? create = null)
+    /// <param name="excluded">
+    /// Areas (window coordinates) whose pixels are not compared, each for a
+    /// relaxation the caller cites; structure is still compared there.
+    /// </param>
+    public static void Matches(GoldenCase golden, PixelTolerance? tolerance = null, Action<CaseHost>? configure = null, Func<GoldenCase, Avalonia.Controls.Control>? create = null, Func<CaseHost, IEnumerable<Rect>>? excluded = null)
     {
         using var host = CaseHost.Open(golden, (create ?? Adapters.Create)(golden));
         configure?.Invoke(host);
@@ -25,7 +29,7 @@ public static class VisualAssert
         {
             failures.Add($"bounds {Fmt(bounds)} != gpui {Fmt(golden.ComponentBounds)}");
         }
-        Compare(golden, host, tolerance, failures);
+        Compare(golden, host, tolerance, failures, excluded: excluded?.Invoke(host));
     }
 
     /// <summary>
@@ -36,13 +40,14 @@ public static class VisualAssert
     public static void MatchesPosed(GoldenCase golden, CaseHost host, PixelTolerance? tolerance = null) =>
         Compare(golden, host, tolerance, [], geometryTolerance: 0.51);
 
-    private static void Compare(GoldenCase golden, CaseHost host, PixelTolerance? tolerance, List<string> failures, double geometryTolerance = StructuralComparison.GeometryTolerance)
+    private static void Compare(GoldenCase golden, CaseHost host, PixelTolerance? tolerance, List<string> failures, double geometryTolerance = StructuralComparison.GeometryTolerance, IEnumerable<Rect>? excluded = null)
     {
         var actual = host.Capture();
         var expected = RgbaImage.Load(Path.Combine(Repo.Goldens, golden.Png!));
         var scene = GoldenScene.Load(golden.Scene!);
         var primitives = StructuralComparison.FromVisuals(host.Window);
         var regions = PixelComparison.Classify(scene, expected.Width, expected.Height, CaseHost.Scale, primitives);
+        PixelComparison.Exclude(regions, expected.Width, expected.Height, CaseHost.Scale, excluded);
         var inkMass = PixelComparison.InkMass(expected, actual, regions, scene, CaseHost.Scale);
         var report = PixelComparison.Compare(expected, actual, regions, tolerance ?? PixelTolerance.Default, inkMass);
         Calibration.RecordInk(golden.Id, inkMass);

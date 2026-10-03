@@ -1,0 +1,13 @@
+# GPUI Kit Clipboard -> gpui:Clipboard: a ghost icon-only button; a click
+# copies and shows a check for two seconds.
+component = "clipboard"
+viewport = [64, 56]
+anchor = [16, 12]
+
+[[group]]
+name = "size"
+matrix = { size = ["xsmall", "small", "medium", "large"] }
+
+[[group]]
+name = "pointer"
+states = ["hover", "pressed", "click", "click+wait-1900ms", "click+wait-2100ms"]

@@ -1,0 +1,28 @@
+# GPUI Kit Skeleton -> gpui:Skeleton: a 16px bar in the skeleton color that
+# pulses 1 -> 0.5 -> 1 (bounce of ease-in-out) every two seconds.
+component = "skeleton"
+viewport = [272, 72]
+anchor = [16, 16]
+
+[[group]]
+name = "bar"
+params = { width = 240 }
+
+[[group]]
+name = "secondary"
+params = { width = 240, secondary = true }
+
+[[group]]
+name = "circle"
+params = { width = 40, height = 40, radius = 20 }
+
+[[group]]
+name = "rounded"
+params = { width = 200, height = 24, radius = 6 }
+
+[[motion]]
+name = "pulse"
+params = { width = 240 }
+trigger = "wait-0ms"
+samples_ms = [0, 250, 500, 750, 1000, 1250, 1500, 1750, 2000, 2500]
+themes = ["light"]

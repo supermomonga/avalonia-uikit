@@ -1,0 +1,35 @@
+# GPUI Kit Rating -> gpui:Rating: five stars, each a 16px icon with 2px of
+# padding (20px apart at medium). Star n's center at medium: x = 16 + 20n - 10.
+component = "rating"
+viewport = [168, 48]
+anchor = [16, 12]
+
+[[group]]
+name = "value"
+matrix = { value = [0, 3, 5] }
+
+[[group]]
+name = "size"
+params = { value = 3 }
+matrix = { size = ["xsmall", "small", "large"] }
+
+[[group]]
+name = "max"
+params = { value = 7, max = 10 }
+viewport = [248, 48]
+
+[[group]]
+name = "color"
+params = { value = 4, color = "red" }
+
+# Pointer previews the value under it; a click on a filled star at or below
+# the value clears down to the star before.
+[[group]]
+name = "pointer"
+params = { value = 2 }
+states = ["at-86-22", "click-at-86-22", "click-at-46-22", "click-at-26-22+at-150-40"]
+
+[[group]]
+name = "disabled"
+params = { value = 3 }
+states = ["disabled", "disabled+at-86-22"]

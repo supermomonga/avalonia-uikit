@@ -8,7 +8,7 @@ use anyhow::Result;
 use gpui_kit::{IntoElement as _, ObjectFit, RenderImage, Styled as _, StyledImage as _, img, px};
 use std::{rc::Rc, sync::Arc};
 
-fn decode(name: &str) -> Result<Arc<RenderImage>> {
+pub fn decode(name: &str) -> Result<Arc<RenderImage>> {
     let bytes: &[u8] = match name {
         "wide" => include_bytes!("../../../assets/images/wide-192x96.png"),
         "tall" => include_bytes!("../../../assets/images/tall-96x192.png"),

@@ -1,0 +1,48 @@
+<!--
+  GPUI Kit StatusBar (crates/component/src/status_bar.rs) -> gpui:StatusBar.
+  A 1px top border, 8x4 padding, muted text_xs on its 19.5px line, regions
+  8px apart, each clipping what does not fit.
+-->
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:gpui="using:AvaloniaUIKit">
+  <ControlTheme x:Key="{x:Type gpui:StatusBar}" TargetType="gpui:StatusBar">
+    <Setter Property="Background" Value="{DynamicResource Gpui.StatusBar}" />
+    <Setter Property="Foreground" Value="{DynamicResource Gpui.MutedForeground}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource Gpui.StatusBarBorder}" />
+    <Setter Property="BorderThickness" Value="0,1,0,0" />
+    <Setter Property="Padding" Value="8,4" />
+    <Setter Property="FontSize" Value="12" />
+    <Setter Property="HorizontalContentAlignment" Value="Left" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                Padding="{TemplateBinding Padding}">
+          <DockPanel>
+            <ContentPresenter Name="PART_Left" DockPanel.Dock="Left" Margin="0,0,8,0"
+                              Content="{TemplateBinding Left}" ClipToBounds="True"
+                              VerticalContentAlignment="Center" LineHeight="19.5"
+                              IsVisible="{TemplateBinding Left, Converter={x:Static ObjectConverters.IsNotNull}}" />
+            <ContentPresenter Name="PART_Right" DockPanel.Dock="Right" Margin="8,0,0,0"
+                              Content="{TemplateBinding Right}" ClipToBounds="True"
+                              VerticalContentAlignment="Center" LineHeight="19.5"
+                              IsVisible="{TemplateBinding Right, Converter={x:Static ObjectConverters.IsNotNull}}" />
+            <ContentPresenter Name="PART_ContentPresenter" ClipToBounds="True"
+                              Content="{TemplateBinding Content}"
+                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                              VerticalContentAlignment="Center" LineHeight="19.5" />
+          </DockPanel>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^:left">
+      <Setter Property="HorizontalContentAlignment" Value="Right" />
+    </Style>
+    <Style Selector="^:left:right">
+      <Setter Property="HorizontalContentAlignment" Value="Center" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

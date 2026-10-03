@@ -1,0 +1,21 @@
+# GPUI Kit Breadcrumb -> gpui:Breadcrumb / gpui:BreadcrumbItem.
+component = "breadcrumb"
+viewport = [320, 48]
+anchor = [16, 12]
+
+[[group]]
+name = "items"
+params = { items = "Home|Documents|Report" }
+
+[[group]]
+name = "single"
+params = { items = "Home" }
+
+[[group]]
+name = "disabled"
+params = { items = "Home|Archive|2025|Report", disabled_item = 1 }
+
+[[group]]
+name = "long"
+params = { items = "Workspace|Projects|Avalonia UI Kit|Components|Breadcrumb" }
+viewport = [440, 48]

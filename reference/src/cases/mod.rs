@@ -12,6 +12,17 @@ use gpui_kit::{
 use std::time::Duration;
 
 mod accordion;
+mod alert;
+mod avatar;
+mod badge;
+mod breadcrumb;
+mod clipboard;
+mod empty;
+mod kbd;
+mod rating;
+mod skeleton;
+mod status_bar;
+mod tag;
 mod button;
 mod carousel;
 mod color_picker;
@@ -25,7 +36,7 @@ pub mod popover;
 mod progress;
 mod resizable;
 mod icon;
-mod image;
+pub mod image;
 mod input;
 mod label;
 mod list;
@@ -98,6 +109,18 @@ pub fn builder(case: &Case) -> Result<Builder> {
         "timefield" => time::time_field(&params),
         "collapsible" => accordion::collapsible(&params),
         "slider" => slider::builder(&params),
+        "badge" => badge::builder(&params),
+        "tag" => tag::builder(&params),
+        "alert" => alert::builder(&params),
+        "skeleton" => skeleton::builder(&params),
+        "statusbar" => status_bar::builder(&params),
+        "breadcrumb" => breadcrumb::builder(&params),
+        "kbd" => kbd::builder(&params),
+        "clipboard" => clipboard::builder(&params),
+        "rating" => rating::builder(&params),
+        "avatar" => avatar::builder(&params),
+        "avatargroup" => avatar::group(&params),
+        "empty" => empty::builder(&params),
         other => bail!("unknown component {other}"),
     }
 }
@@ -237,6 +260,15 @@ pub fn icon(name: &str) -> Option<IconName> {
         "undo-2" => IconName::Undo2,
         "redo-2" => IconName::Redo2,
         "ellipsis" => IconName::Ellipsis,
+        "bell" => IconName::Bell,
+        "star" => IconName::Star,
+        "star-fill" => IconName::StarFill,
+        "user" => IconName::User,
+        "folder" => IconName::Folder,
+        "inbox" => IconName::Inbox,
+        "circle-check" => IconName::CircleCheck,
+        "triangle-alert" => IconName::TriangleAlert,
+        "circle-x" => IconName::CircleX,
         _ => return None,
     })
 }
@@ -255,6 +287,10 @@ pub fn derived_colors(theme: &gpui_kit::component::Theme, out: &mut Vec<(String,
     slider::derived_colors(theme, out);
     time::derived_colors(theme, out);
     title_bar::derived_colors(theme, out);
+    tag::derived_colors(theme, out);
+    alert::derived_colors(theme, out);
+    avatar::derived_colors(theme, out);
+    skeleton::derived_colors(theme, out);
 }
 
 pub fn disabled(params: &Params) -> bool {

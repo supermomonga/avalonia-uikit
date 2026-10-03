@@ -1,0 +1,42 @@
+# GPUI Kit Tag -> gpui:TagLabel.
+component = "tag"
+viewport = [140, 48]
+anchor = [16, 12]
+
+[[group]]
+name = "solid"
+params = { label = "Tag" }
+matrix = { variant = ["primary", "secondary", "danger", "success", "warning", "info"] }
+
+[[group]]
+name = "outline"
+params = { label = "Tag", outline = true }
+matrix = { variant = ["primary", "secondary", "danger", "success", "warning", "info"] }
+
+[[group]]
+name = "size"
+params = { label = "Tag" }
+matrix = { size = ["xsmall", "small", "medium", "large"] }
+
+[[group]]
+name = "rounded"
+params = { label = "Tag", rounded_full = true }
+matrix = { size = ["small", "medium"] }
+
+# TagVariant::Color: every palette color.
+[[group]]
+name = "color"
+params = { label = "Tag" }
+matrix = { variant = ["neutral", "gray", "red", "orange", "amber", "yellow", "lime", "green", "emerald", "teal", "cyan", "sky", "blue", "indigo", "violet", "purple", "fuchsia", "pink", "rose"] }
+
+[[group]]
+name = "color-outline"
+params = { label = "Tag", outline = true }
+matrix = { variant = ["blue", "rose"] }
+
+# Hover fades the whole tag to 90%.
+[[group]]
+name = "hover"
+params = { label = "Tag" }
+matrix = { variant = ["primary", "blue"] }
+states = ["hover"]

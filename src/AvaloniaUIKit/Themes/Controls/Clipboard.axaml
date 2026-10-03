@@ -1,0 +1,73 @@
+<!--
+  GPUI Kit Clipboard (crates/component/src/clipboard.rs) -> gpui:Clipboard.
+  A ghost icon-only Button (the Button theme's sizes: xsmall, small, large)
+  showing the copy icon, and the check while :copied.
+-->
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:gpui="using:AvaloniaUIKit">
+  <Styles.Resources>
+    <ControlTheme x:Key="{x:Type gpui:Clipboard}" TargetType="gpui:Clipboard" BasedOn="{StaticResource {x:Type Button}}">
+      <Setter Property="Content">
+        <Template>
+          <PathIcon Data="{StaticResource Gpui.Icon.Copy}" />
+        </Template>
+      </Setter>
+      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Ghost.Normal.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Ghost.Normal.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Ghost.Normal.Border}" />
+      <Setter Property="BorderThickness" Value="0" />
+      <Setter Property="CornerRadius" Value="6" />
+      <Setter Property="Width" Value="32" />
+      <Setter Property="Height" Value="32" />
+      <Setter Property="Padding" Value="0" />
+      <Style Selector="^:pointerover">
+        <Setter Property="Background" Value="{DynamicResource Gpui.Button.Ghost.Hover.Background}" />
+        <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Ghost.Hover.Foreground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Ghost.Hover.Border}" />
+      </Style>
+      <Style Selector="^:pressed">
+        <Setter Property="Background" Value="{DynamicResource Gpui.Button.Ghost.Pressed.Background}" />
+        <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Ghost.Pressed.Foreground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Ghost.Pressed.Border}" />
+      </Style>
+      <Style Selector="^:disabled">
+        <Setter Property="Background" Value="{DynamicResource Gpui.Button.Ghost.Disabled.Background}" />
+        <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Ghost.Disabled.Foreground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Ghost.Disabled.Border}" />
+      </Style>
+      <Style Selector="^.xsmall">
+        <Setter Property="Width" Value="20" />
+        <Setter Property="Height" Value="20" />
+        <Setter Property="Padding" Value="0" />
+      </Style>
+      <Style Selector="^.small">
+        <Setter Property="Width" Value="24" />
+        <Setter Property="Height" Value="24" />
+        <Setter Property="Padding" Value="0" />
+      </Style>
+      <Style Selector="^.large">
+        <Setter Property="Width" Value="32" />
+        <Setter Property="Height" Value="32" />
+        <Setter Property="Padding" Value="0" />
+      </Style>
+    </ControlTheme>
+  </Styles.Resources>
+
+  <Style Selector="gpui|Clipboard:copied PathIcon">
+    <Setter Property="Data" Value="{StaticResource Gpui.Icon.Check}" />
+  </Style>
+  <!-- Button icon sizes (Size -> icon_size). -->
+  <Style Selector="gpui|Clipboard.xsmall PathIcon">
+    <Setter Property="Width" Value="12" />
+    <Setter Property="Height" Value="12" />
+  </Style>
+  <Style Selector="gpui|Clipboard.small PathIcon">
+    <Setter Property="Width" Value="14" />
+    <Setter Property="Height" Value="14" />
+  </Style>
+  <Style Selector="gpui|Clipboard.large PathIcon">
+    <Setter Property="Width" Value="24" />
+    <Setter Property="Height" Value="24" />
+  </Style>
+</Styles>

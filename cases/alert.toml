@@ -1,0 +1,47 @@
+# GPUI Kit Alert -> gpui:Alert, 360px wide. The close button (20px: 2px
+# padding around a 16px icon) sits at the top right: center (350, 36) for a
+# medium alert anchored at (16, 16).
+component = "alert"
+viewport = [392, 132]
+anchor = [16, 16]
+
+[[group]]
+name = "variant"
+params = { message = "This is an alert message." }
+matrix = { variant = ["default", "info", "success", "warning", "error"] }
+
+[[group]]
+name = "title"
+params = { title = "Heads up!", message = "You can add components to your app using the CLI." }
+matrix = { variant = ["default", "error"] }
+
+# 340px: at 360 the small sizes leave the second line's first word exactly at
+# the edge, where GPUI counts the trailing space and Avalonia does not.
+[[group]]
+name = "size"
+params = { title = "Heads up!", message = "You can add components to your app using the CLI.", variant = "info", width = 340 }
+matrix = { size = ["xsmall", "small", "large"] }
+
+[[group]]
+name = "banner"
+params = { message = "A new version is available.", banner = true }
+matrix = { variant = ["info", "warning"] }
+
+[[group]]
+name = "icon"
+params = { message = "Your changes have been saved.", variant = "success", icon = "circle-check" }
+
+[[group]]
+name = "wrap"
+params = { message = "Network connection is unstable. Changes will sync automatically when the connection recovers." }
+
+[[group]]
+name = "close"
+params = { message = "This is an alert message.", closable = true }
+matrix = { variant = ["default", "warning"] }
+states = ["normal", "at-350-36", "pressed-at-350-36"]
+
+[[group]]
+name = "close-size"
+params = { title = "Heads up!", message = "You can add components to your app using the CLI.", closable = true, width = 340 }
+matrix = { size = ["xsmall", "small", "large"] }

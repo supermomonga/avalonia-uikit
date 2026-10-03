@@ -1,0 +1,182 @@
+{
+  "quads": [
+    {
+      "order": 1,
+      "bounds": [
+        0.0,
+        0.0,
+        104.0,
+        88.0
+      ],
+      "clip": [
+        0.0,
+        0.0,
+        104.0,
+        88.0
+      ],
+      "background": {
+        "kind": "solid",
+        "rgba": [
+          0.039,
+          0.039,
+          0.039,
+          1.0
+        ]
+      },
+      "border_color": [
+        0.039,
+        0.039,
+        0.039,
+        0.0
+      ],
+      "border_widths": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "corner_radii": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "border_style": "Solid"
+    },
+    {
+      "order": 2,
+      "bounds": [
+        0.0,
+        0.0,
+        104.0,
+        88.0
+      ],
+      "clip": [
+        0.0,
+        0.0,
+        104.0,
+        88.0
+      ],
+      "background": {
+        "kind": "solid",
+        "rgba": [
+          0.039,
+          0.039,
+          0.039,
+          1.0
+        ]
+      },
+      "border_color": [
+        0.039,
+        0.039,
+        0.039,
+        0.0
+      ],
+      "border_widths": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "corner_radii": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "border_style": "Solid"
+    },
+    {
+      "order": 3,
+      "bounds": [
+        24.0,
+        24.0,
+        32.0,
+        32.0
+      ],
+      "clip": [
+        0.0,
+        0.0,
+        104.0,
+        88.0
+      ],
+      "background": {
+        "kind": "solid",
+        "rgba": [
+          0.149,
+          0.149,
+          0.149,
+          1.0
+        ]
+      },
+      "border_color": [
+        0.149,
+        0.149,
+        0.149,
+        0.0
+      ],
+      "border_widths": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "corner_radii": [
+        6.0,
+        6.0,
+        6.0,
+        6.0
+      ],
+      "border_style": "Solid"
+    },
+    {
+      "order": 4,
+      "bounds": [
+        50.0,
+        24.0,
+        6.0,
+        6.0
+      ],
+      "clip": [
+        0.0,
+        0.0,
+        104.0,
+        88.0
+      ],
+      "background": {
+        "kind": "solid",
+        "rgba": [
+          0.972552,
+          0.443448,
+          0.443448,
+          1.0
+        ]
+      },
+      "border_color": [
+        0.972552,
+        0.443448,
+        0.443448,
+        0.0
+      ],
+      "border_widths": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "corner_radii": [
+        3.0,
+        3.0,
+        3.0,
+        3.0
+      ],
+      "border_style": "Solid"
+    }
+  ],
+  "shadows": [],
+  "underlines": [],
+  "mono_sprites": [],
+  "subpixel_sprites": [],
+  "poly_sprites": [],
+  "paths": []
+}

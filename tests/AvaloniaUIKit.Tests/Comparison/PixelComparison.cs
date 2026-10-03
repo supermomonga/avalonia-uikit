@@ -38,6 +38,8 @@ public enum Region : byte
     /// 8-bit steps per channel against banding, Skia does not (R32).
     /// </summary>
     Gradient,
+    /// <summary>Not compared: an area a test excludes for a cited relaxation.</summary>
+    Excluded,
 }
 
 /// <summary>
@@ -303,6 +305,25 @@ public static class PixelComparison
         return (r, g, b);
     }
 
+    /// <summary>Marks the pixels inside <paramref name="areas"/> (logical px) as not compared.</summary>
+    public static void Exclude(Region[] regions, int width, int height, double scale, IEnumerable<Rect>? areas)
+    {
+        foreach (var area in areas ?? [])
+        {
+            var x0 = Math.Max(0, (int)Math.Floor(area.X * scale));
+            var y0 = Math.Max(0, (int)Math.Floor(area.Y * scale));
+            var x1 = Math.Min(width, (int)Math.Ceiling(area.Right * scale));
+            var y1 = Math.Min(height, (int)Math.Ceiling(area.Bottom * scale));
+            for (var y = y0; y < y1; y++)
+            {
+                for (var x = x0; x < x1; x++)
+                {
+                    regions[y * width + x] = Region.Excluded;
+                }
+            }
+        }
+    }
+
     public static PixelReport Compare(RgbaImage expected, RgbaImage actual, Region[] regions, PixelTolerance tolerance, (double Expected, double Actual)? inkMass = null)
     {
         var failures = new List<string>();
@@ -317,6 +338,10 @@ public static class PixelComparison
             for (var x = 0; x < expected.Width; x++)
             {
                 var region = regions[y * expected.Width + x];
+                if (region == Region.Excluded)
+                {
+                    continue;
+                }
                 // Outlines and centered text may sit one device pixel apart (R9), so
                 // edge and ink pixels are compared with the closest of GPUI's pixels
                 // around them.

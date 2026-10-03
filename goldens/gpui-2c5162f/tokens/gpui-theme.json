@@ -521,7 +521,119 @@
       "calendar.weekday": "#73737380",
       "calendar.disabled": "#73737380",
       "title-bar.gradient-top": "#fbfbfbff",
-      "window-frame": "#ccccccff"
+      "window-frame": "#ccccccff",
+      "tag.neutral.background": "#fafafaff",
+      "tag.neutral.border": "#e5e5e5ff",
+      "tag.neutral.foreground": "#525252ff",
+      "tag.gray.background": "#f9fafbff",
+      "tag.gray.border": "#e5e7ebff",
+      "tag.gray.foreground": "#4b5563ff",
+      "tag.red.background": "#fef2f2ff",
+      "tag.red.border": "#fecacaff",
+      "tag.red.foreground": "#dc2626ff",
+      "tag.orange.background": "#fff7edff",
+      "tag.orange.border": "#fed7aaff",
+      "tag.orange.foreground": "#ea580cff",
+      "tag.amber.background": "#fffbebff",
+      "tag.amber.border": "#fde68aff",
+      "tag.amber.foreground": "#d97706ff",
+      "tag.yellow.background": "#fefce8ff",
+      "tag.yellow.border": "#fef08aff",
+      "tag.yellow.foreground": "#ca8a04ff",
+      "tag.lime.background": "#f7fee7ff",
+      "tag.lime.border": "#d9f99dff",
+      "tag.lime.foreground": "#65a30dff",
+      "tag.green.background": "#f0fdf4ff",
+      "tag.green.border": "#bbf7d0ff",
+      "tag.green.foreground": "#16a34aff",
+      "tag.emerald.background": "#ecfdf5ff",
+      "tag.emerald.border": "#a7f3d0ff",
+      "tag.emerald.foreground": "#059669ff",
+      "tag.teal.background": "#f0fdfaff",
+      "tag.teal.border": "#99f6e4ff",
+      "tag.teal.foreground": "#0d9488ff",
+      "tag.cyan.background": "#ecfeffff",
+      "tag.cyan.border": "#a5f3fcff",
+      "tag.cyan.foreground": "#0891b2ff",
+      "tag.sky.background": "#f0f9ffff",
+      "tag.sky.border": "#bae6fdff",
+      "tag.sky.foreground": "#0284c7ff",
+      "tag.blue.background": "#eff6ffff",
+      "tag.blue.border": "#bfdbfeff",
+      "tag.blue.foreground": "#2563ebff",
+      "tag.indigo.background": "#eef2ffff",
+      "tag.indigo.border": "#c7d2feff",
+      "tag.indigo.foreground": "#4f46e5ff",
+      "tag.violet.background": "#f5f3ffff",
+      "tag.violet.border": "#ddd6feff",
+      "tag.violet.foreground": "#7c3aedff",
+      "tag.purple.background": "#faf5ffff",
+      "tag.purple.border": "#e9d5ffff",
+      "tag.purple.foreground": "#9333eaff",
+      "tag.fuchsia.background": "#fdf4ffff",
+      "tag.fuchsia.border": "#f5d0feff",
+      "tag.fuchsia.foreground": "#c026d3ff",
+      "tag.pink.background": "#fdf2f8ff",
+      "tag.pink.border": "#fbcfe8ff",
+      "tag.pink.foreground": "#db2777ff",
+      "tag.rose.background": "#fff1f2ff",
+      "tag.rose.border": "#fecdd3ff",
+      "tag.rose.foreground": "#e11d48ff",
+      "alert.close.hover": "#ffffffcc",
+      "alert.close.pressed": "#ffffffe6",
+      "alert.info.background": "#06b6d40a",
+      "alert.info.border": "#06b6d44d",
+      "alert.info.close.hover": "#06b6d408",
+      "alert.info.close.pressed": "#06b6d409",
+      "alert.success.background": "#22c55e0a",
+      "alert.success.border": "#22c55e4d",
+      "alert.success.close.hover": "#22c55e08",
+      "alert.success.close.pressed": "#22c55e09",
+      "alert.warning.background": "#eab3080a",
+      "alert.warning.border": "#eab3084d",
+      "alert.warning.close.hover": "#eab30808",
+      "alert.warning.close.pressed": "#eab30809",
+      "alert.error.background": "#ef44440a",
+      "alert.error.border": "#ef44444d",
+      "alert.error.close.hover": "#ef444408",
+      "alert.error.close.pressed": "#ef444409",
+      "avatar.hue-0.background": "#ffedf4ff",
+      "avatar.hue-0.foreground": "#a13760ff",
+      "avatar.hue-0.border": "#f8ced9ff",
+      "avatar.hue-1.background": "#ffeee9ff",
+      "avatar.hue-1.foreground": "#a63a2dff",
+      "avatar.hue-1.border": "#facfc7ff",
+      "avatar.hue-2.background": "#fff1e0ff",
+      "avatar.hue-2.foreground": "#9c4900ff",
+      "avatar.hue-2.border": "#f4d4baff",
+      "avatar.hue-3.background": "#fdf5ddff",
+      "avatar.hue-3.foreground": "#835c00ff",
+      "avatar.hue-3.border": "#e7dab6ff",
+      "avatar.hue-4.background": "#f2f9e1ff",
+      "avatar.hue-4.foreground": "#5a6e00ff",
+      "avatar.hue-4.border": "#d6e0bcff",
+      "avatar.hue-5.background": "#e7fceaff",
+      "avatar.hue-5.foreground": "#007932ff",
+      "avatar.hue-5.border": "#c4e5caff",
+      "avatar.hue-6.background": "#dffdf6ff",
+      "avatar.hue-6.foreground": "#007c66ff",
+      "avatar.hue-6.border": "#b8e6dcff",
+      "avatar.hue-7.background": "#defcffff",
+      "avatar.hue-7.foreground": "#007790ff",
+      "avatar.hue-7.border": "#b5e4edff",
+      "avatar.hue-8.background": "#e3f9ffff",
+      "avatar.hue-8.foreground": "#006aacff",
+      "avatar.hue-8.border": "#bee0f9ff",
+      "avatar.hue-9.background": "#ecf5ffff",
+      "avatar.hue-9.foreground": "#445ab5ff",
+      "avatar.hue-9.border": "#cedafdff",
+      "avatar.hue-10.background": "#f8f1ffff",
+      "avatar.hue-10.foreground": "#714ba8ff",
+      "avatar.hue-10.border": "#dfd4f8ff",
+      "avatar.hue-11.background": "#ffeeffff",
+      "avatar.hue-11.foreground": "#8f3e8aff",
+      "avatar.hue-11.border": "#efcfebff",
+      "skeleton.secondary": "#f5f5f580"
     },
     "derived_float": {
       "button.default.normal.background": [
@@ -2791,6 +2903,678 @@
         0.800000011920929,
         0.800000011920929,
         1.0
+      ],
+      "tag.neutral.background": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        1.0
+      ],
+      "tag.neutral.border": [
+        0.8980000019073486,
+        0.8980000019073486,
+        0.8980000019073486,
+        1.0
+      ],
+      "tag.neutral.foreground": [
+        0.32199999690055847,
+        0.32199999690055847,
+        0.32199999690055847,
+        1.0
+      ],
+      "tag.gray.background": [
+        0.9760000109672546,
+        0.9800000190734863,
+        0.984000027179718,
+        1.0
+      ],
+      "tag.gray.border": [
+        0.898300051689148,
+        0.9061000347137451,
+        0.9217000603675842,
+        1.0
+      ],
+      "tag.gray.foreground": [
+        0.29394200444221497,
+        0.3331570029258728,
+        0.38805800676345825,
+        1.0
+      ],
+      "tag.red.background": [
+        0.9961390495300293,
+        0.9498611092567444,
+        0.9498611092567444,
+        1.0
+      ],
+      "tag.red.border": [
+        0.9960780143737793,
+        0.7919219732284546,
+        0.7919219732284546,
+        1.0
+      ],
+      "tag.red.foreground": [
+        0.862667977809906,
+        0.1493319869041443,
+        0.1493319869041443,
+        1.0
+      ],
+      "tag.orange.background": [
+        1.0,
+        0.9688499569892883,
+        0.9299999475479126,
+        1.0
+      ],
+      "tag.orange.border": [
+        0.9961130023002625,
+        0.8425579071044922,
+        0.6658869385719299,
+        1.0
+      ],
+      "tag.orange.foreground": [
+        0.916763961315155,
+        0.3443247675895691,
+        0.04723602533340454,
+        1.0
+      ],
+      "tag.amber.background": [
+        1.0,
+        0.9843999743461609,
+        0.9219999313354492,
+        1.0
+      ],
+      "tag.amber.border": [
+        0.9920779466629028,
+        0.902046799659729,
+        0.5419219136238098,
+        1.0
+      ],
+      "tag.amber.foreground": [
+        0.8504019975662231,
+        0.46593812108039856,
+        0.023598015308380127,
+        1.0
+      ],
+      "tag.yellow.background": [
+        0.9960989952087402,
+        0.9881975054740906,
+        0.9099010229110718,
+        1.0
+      ],
+      "tag.yellow.border": [
+        0.9960730075836182,
+        0.9415754675865173,
+        0.5419269800186157,
+        1.0
+      ],
+      "tag.yellow.foreground": [
+        0.792244017124176,
+        0.5411795973777771,
+        0.01575601100921631,
+        1.0
+      ],
+      "tag.lime.background": [
+        0.9685811996459961,
+        0.9960800409317017,
+        0.9059199690818787,
+        1.0
+      ],
+      "tag.lime.border": [
+        0.8507637977600098,
+        0.9765400290489197,
+        0.6154600381851196,
+        1.0
+      ],
+      "tag.lime.foreground": [
+        0.3959495425224304,
+        0.6389399766921997,
+        0.051059991121292114,
+        1.0
+      ],
+      "tag.green.background": [
+        0.941754937171936,
+        0.9922450184822083,
+        0.9573227167129517,
+        1.0
+      ],
+      "tag.green.border": [
+        0.733439028263092,
+        0.968561053276062,
+        0.8157317638397217,
+        1.0
+      ],
+      "tag.green.foreground": [
+        0.08639401197433472,
+        0.6396059989929199,
+        0.29016056656837463,
+        1.0
+      ],
+      "tag.emerald.background": [
+        0.925790011882782,
+        0.9922100305557251,
+        0.9609926342964172,
+        1.0
+      ],
+      "tag.emerald.border": [
+        0.6550400257110596,
+        0.9529600143432617,
+        0.8159167766571045,
+        1.0
+      ],
+      "tag.emerald.foreground": [
+        0.01976001262664795,
+        0.5882399678230286,
+        0.41201120615005493,
+        1.0
+      ],
+      "tag.teal.background": [
+        0.941754937171936,
+        0.9922450184822083,
+        0.9806323051452637,
+        1.0
+      ],
+      "tag.teal.border": [
+        0.599315881729126,
+        0.964684009552002,
+        0.8940461874008179,
+        1.0
+      ],
+      "tag.teal.foreground": [
+        0.05087602138519287,
+        0.5811240077018738,
+        0.5342854261398315,
+        1.0
+      ],
+      "tag.cyan.background": [
+        0.9260001182556152,
+        0.9960533380508423,
+        1.0,
+        1.0
+      ],
+      "tag.cyan.border": [
+        0.6478300094604492,
+        0.9530014991760254,
+        0.9881699681282043,
+        1.0
+      ],
+      "tag.cyan.foreground": [
+        0.031389981508255005,
+        0.5696142911911011,
+        0.6986100673675537,
+        1.0
+      ],
+      "tag.sky.background": [
+        0.9419999122619629,
+        0.9767999649047852,
+        1.0,
+        1.0
+      ],
+      "tag.sky.border": [
+        0.7297840118408203,
+        0.9021143317222595,
+        0.9922159910202026,
+        1.0
+      ],
+      "tag.sky.foreground": [
+        0.00788000226020813,
+        0.5175583362579346,
+        0.7801200151443481,
+        1.0
+      ],
+      "tag.blue.background": [
+        0.9380000829696655,
+        0.9650734066963196,
+        1.0,
+        1.0
+      ],
+      "tag.blue.border": [
+        0.7499370574951172,
+        0.8594630360603333,
+        0.9960629940032959,
+        1.0
+      ],
+      "tag.blue.foreground": [
+        0.14445599913597107,
+        0.38794368505477905,
+        0.9215439558029175,
+        1.0
+      ],
+      "tag.indigo.background": [
+        0.9339998960494995,
+        0.9495099186897278,
+        1.0,
+        1.0
+      ],
+      "tag.indigo.border": [
+        0.7799200415611267,
+        0.8231520652770996,
+        0.9960800409317017,
+        1.0
+      ],
+      "tag.indigo.foreground": [
+        0.30922144651412964,
+        0.2738439440727234,
+        0.8981559872627258,
+        1.0
+      ],
+      "tag.violet.background": [
+        0.9600000381469727,
+        0.9520000219345093,
+        1.0,
+        1.0
+      ],
+      "tag.violet.border": [
+        0.8672584891319275,
+        0.8399360775947571,
+        0.9960640072822571,
+        1.0
+      ],
+      "tag.violet.foreground": [
+        0.48543184995651245,
+        0.22647401690483093,
+        0.9295259714126587,
+        1.0
+      ],
+      "tag.purple.background": [
+        0.9800000190734863,
+        0.9600000381469727,
+        1.0,
+        1.0
+      ],
+      "tag.purple.border": [
+        0.914173424243927,
+        0.8360000848770142,
+        1.0,
+        1.0
+      ],
+      "tag.purple.foreground": [
+        0.5769267082214355,
+        0.20046702027320862,
+        0.9175330400466919,
+        1.0
+      ],
+      "tag.fuchsia.background": [
+        0.9920067191123962,
+        0.9560000896453857,
+        1.0,
+        1.0
+      ],
+      "tag.fuchsia.border": [
+        0.960931658744812,
+        0.8159478902816772,
+        0.9960519671440125,
+        1.0
+      ],
+      "tag.fuchsia.foreground": [
+        0.7525447010993958,
+        0.1488400101661682,
+        0.8271600008010864,
+        1.0
+      ],
+      "tag.pink.background": [
+        0.9922569990158081,
+        0.9497429132461548,
+        0.9729130864143372,
+        1.0
+      ],
+      "tag.pink.border": [
+        0.9842920303344727,
+        0.8117080330848694,
+        0.9097932577133179,
+        1.0
+      ],
+      "tag.pink.foreground": [
+        0.8587160110473633,
+        0.1532839834690094,
+        0.4672013521194458,
+        1.0
+      ],
+      "tag.rose.background": [
+        1.0,
+        0.9460000991821289,
+        0.9498701095581055,
+        1.0
+      ],
+      "tag.rose.border": [
+        0.9960999488830566,
+        0.8038999438285828,
+        0.8272842168807983,
+        1.0
+      ],
+      "tag.rose.foreground": [
+        0.8824559450149536,
+        0.11354401707649231,
+        0.2827048599720001,
+        1.0
+      ],
+      "alert.close.hover": [
+        1.0,
+        1.0,
+        1.0,
+        0.800000011920929
+      ],
+      "alert.close.pressed": [
+        1.0,
+        1.0,
+        1.0,
+        0.8999999761581421
+      ],
+      "alert.info.background": [
+        0.02348548173904419,
+        0.7134957909584045,
+        0.8305150866508484,
+        0.03999999910593033
+      ],
+      "alert.info.border": [
+        0.02348548173904419,
+        0.7134957909584045,
+        0.8305150866508484,
+        0.30000001192092896
+      ],
+      "alert.info.close.hover": [
+        0.02348548173904419,
+        0.7134957909584045,
+        0.8305150866508484,
+        0.03200000151991844
+      ],
+      "alert.info.close.pressed": [
+        0.02348548173904419,
+        0.7134957909584045,
+        0.8305150866508484,
+        0.035999998450279236
+      ],
+      "alert.success.background": [
+        0.13318443298339844,
+        0.7728177309036255,
+        0.3687814772129059,
+        0.03999999910593033
+      ],
+      "alert.success.border": [
+        0.13318443298339844,
+        0.7728177309036255,
+        0.3687814772129059,
+        0.30000001192092896
+      ],
+      "alert.success.close.hover": [
+        0.13318443298339844,
+        0.7728177309036255,
+        0.3687814772129059,
+        0.03200000151991844
+      ],
+      "alert.success.close.pressed": [
+        0.13318443298339844,
+        0.7728177309036255,
+        0.3687814772129059,
+        0.035999998450279236
+      ],
+      "alert.warning.background": [
+        0.9186498522758484,
+        0.7027404308319092,
+        0.03135043382644653,
+        0.03999999910593033
+      ],
+      "alert.warning.border": [
+        0.9186498522758484,
+        0.7027404308319092,
+        0.03135043382644653,
+        0.30000001192092896
+      ],
+      "alert.warning.close.hover": [
+        0.9186498522758484,
+        0.7027404308319092,
+        0.03135043382644653,
+        0.03200000151991844
+      ],
+      "alert.warning.close.pressed": [
+        0.9186498522758484,
+        0.7027404308319092,
+        0.03135043382644653,
+        0.035999998450279236
+      ],
+      "alert.error.background": [
+        0.9371157288551331,
+        0.26688435673713684,
+        0.2668837904930115,
+        0.03999999910593033
+      ],
+      "alert.error.border": [
+        0.9371157288551331,
+        0.26688435673713684,
+        0.2668837904930115,
+        0.30000001192092896
+      ],
+      "alert.error.close.hover": [
+        0.9371157288551331,
+        0.26688435673713684,
+        0.2668837904930115,
+        0.03200000151991844
+      ],
+      "alert.error.close.pressed": [
+        0.9371157288551331,
+        0.26688435673713684,
+        0.2668837904930115,
+        0.035999998450279236
+      ],
+      "avatar.hue-0.background": [
+        1.0,
+        0.9283195734024048,
+        0.9572270512580872,
+        1.0
+      ],
+      "avatar.hue-0.foreground": [
+        0.6313050389289856,
+        0.215046226978302,
+        0.3756507337093353,
+        1.0
+      ],
+      "avatar.hue-0.border": [
+        0.9731709361076355,
+        0.8065386414527893,
+        0.8518507480621338,
+        1.0
+      ],
+      "avatar.hue-1.background": [
+        1.0,
+        0.9323840737342834,
+        0.9120116233825684,
+        1.0
+      ],
+      "avatar.hue-1.foreground": [
+        0.6503416895866394,
+        0.22689160704612732,
+        0.1746947169303894,
+        1.0
+      ],
+      "avatar.hue-1.border": [
+        0.9813805222511292,
+        0.8126044273376465,
+        0.7822144031524658,
+        1.0
+      ],
+      "avatar.hue-2.background": [
+        0.9999999403953552,
+        0.9439061880111694,
+        0.8791327476501465,
+        1.0
+      ],
+      "avatar.hue-2.foreground": [
+        0.6119639873504639,
+        0.2854881286621094,
+        0.0,
+        1.0
+      ],
+      "avatar.hue-2.border": [
+        0.9583638310432434,
+        0.8303305506706238,
+        0.7306181788444519,
+        1.0
+      ],
+      "avatar.hue-3.background": [
+        0.9937906861305237,
+        0.9597621560096741,
+        0.8681248426437378,
+        1.0
+      ],
+      "avatar.hue-3.foreground": [
+        0.5143120884895325,
+        0.3619840443134308,
+        0.0,
+        1.0
+      ],
+      "avatar.hue-3.border": [
+        0.9077544808387756,
+        0.8548398613929749,
+        0.7129825949668884,
+        1.0
+      ],
+      "avatar.hue-4.background": [
+        0.9488949179649353,
+        0.9755663275718689,
+        0.8823939561843872,
+        1.0
+      ],
+      "avatar.hue-4.foreground": [
+        0.3516693711280823,
+        0.4296039342880249,
+        1.4901161193847656e-8,
+        1.0
+      ],
+      "avatar.hue-4.border": [
+        0.8393996953964233,
+        0.879188597202301,
+        0.735498309135437,
+        1.0
+      ],
+      "avatar.hue-5.background": [
+        0.9049484729766846,
+        0.9869957566261292,
+        0.9177322387695312,
+        1.0
+      ],
+      "avatar.hue-5.foreground": [
+        0.0,
+        0.47344791889190674,
+        0.19437624514102936,
+        1.0
+      ],
+      "avatar.hue-5.border": [
+        0.7698107957839966,
+        0.8966478705406189,
+        0.790856659412384,
+        1.0
+      ],
+      "avatar.hue-6.background": [
+        0.8750027418136597,
+        0.9910210967063904,
+        0.9639455676078796,
+        1.0
+      ],
+      "avatar.hue-6.foreground": [
+        0.0,
+        0.48577070236206055,
+        0.4014523923397064,
+        1.0
+      ],
+      "avatar.hue-6.border": [
+        0.72065669298172,
+        0.9026468396186829,
+        0.8621253967285156,
+        1.0
+      ],
+      "avatar.hue-7.background": [
+        0.8689994812011719,
+        0.9866762161254883,
+        1.0,
+        1.0
+      ],
+      "avatar.hue-7.foreground": [
+        0.0,
+        0.46474596858024597,
+        0.565589427947998,
+        1.0
+      ],
+      "avatar.hue-7.border": [
+        0.7109846472740173,
+        0.8958504796028137,
+        0.9297581315040588,
+        1.0
+      ],
+      "avatar.hue-8.background": [
+        0.888823390007019,
+        0.9752171635627747,
+        1.0,
+        1.0
+      ],
+      "avatar.hue-8.foreground": [
+        0.0,
+        0.4164261221885681,
+        0.6753596067428589,
+        1.0
+      ],
+      "avatar.hue-8.border": [
+        0.7443598508834839,
+        0.8782985806465149,
+        0.9767076373100281,
+        1.0
+      ],
+      "avatar.hue-9.background": [
+        0.9274169206619263,
+        0.9597039818763733,
+        1.0,
+        1.0
+      ],
+      "avatar.hue-9.foreground": [
+        0.2668760418891907,
+        0.35464712977409363,
+        0.7090526819229126,
+        1.0
+      ],
+      "avatar.hue-9.border": [
+        0.8063177466392517,
+        0.8546866774559021,
+        0.9916991591453552,
+        1.0
+      ],
+      "avatar.hue-10.background": [
+        0.972818911075592,
+        0.9441797733306885,
+        1.0,
+        1.0
+      ],
+      "avatar.hue-10.foreground": [
+        0.44340914487838745,
+        0.2946169972419739,
+        0.6596983671188354,
+        1.0
+      ],
+      "avatar.hue-10.border": [
+        0.8759850859642029,
+        0.8310647010803223,
+        0.9713250994682312,
+        1.0
+      ],
+      "avatar.hue-11.background": [
+        1.0,
+        0.9326882362365723,
+        1.0,
+        1.0
+      ],
+      "avatar.hue-11.foreground": [
+        0.5605302453041077,
+        0.2450505495071411,
+        0.54027259349823,
+        1.0
+      ],
+      "avatar.hue-11.border": [
+        0.9356806874275208,
+        0.8134388327598572,
+        0.9206114411354065,
+        1.0
+      ],
+      "skeleton.secondary": [
+        0.9607843160629272,
+        0.9607843160629272,
+        0.9607843160629272,
+        0.5
       ]
     },
     "scalars": {
@@ -3323,7 +4107,119 @@
       "calendar.weekday": "#a3a3a380",
       "calendar.disabled": "#a3a3a380",
       "title-bar.gradient-top": "#111111ff",
-      "window-frame": "#333333ff"
+      "window-frame": "#333333ff",
+      "tag.neutral.background": "#0a0a0a80",
+      "tag.neutral.border": "#26262680",
+      "tag.neutral.foreground": "#d4d4d4ff",
+      "tag.gray.background": "#03071280",
+      "tag.gray.border": "#1f293780",
+      "tag.gray.foreground": "#d1d5dbff",
+      "tag.red.background": "#450a0a80",
+      "tag.red.border": "#991b1b80",
+      "tag.red.foreground": "#fca5a5ff",
+      "tag.orange.background": "#43140780",
+      "tag.orange.border": "#9a341280",
+      "tag.orange.foreground": "#fdba74ff",
+      "tag.amber.background": "#451a0380",
+      "tag.amber.border": "#92400e80",
+      "tag.amber.foreground": "#fcd34dff",
+      "tag.yellow.background": "#42200680",
+      "tag.yellow.border": "#854d0e80",
+      "tag.yellow.foreground": "#fde047ff",
+      "tag.lime.background": "#1a2e0580",
+      "tag.lime.border": "#3f621280",
+      "tag.lime.foreground": "#bef264ff",
+      "tag.green.background": "#052e1680",
+      "tag.green.border": "#16653480",
+      "tag.green.foreground": "#86efacff",
+      "tag.emerald.background": "#022c2280",
+      "tag.emerald.border": "#065f4680",
+      "tag.emerald.foreground": "#6ee7b7ff",
+      "tag.teal.background": "#042f2e80",
+      "tag.teal.border": "#115e5980",
+      "tag.teal.foreground": "#5eead4ff",
+      "tag.cyan.background": "#08334480",
+      "tag.cyan.border": "#155e7580",
+      "tag.cyan.foreground": "#67e8f9ff",
+      "tag.sky.background": "#082f4980",
+      "tag.sky.border": "#07598580",
+      "tag.sky.foreground": "#7dd3fcff",
+      "tag.blue.background": "#17255480",
+      "tag.blue.border": "#1e40af80",
+      "tag.blue.foreground": "#93c5fdff",
+      "tag.indigo.background": "#1e1b4b80",
+      "tag.indigo.border": "#3730a380",
+      "tag.indigo.foreground": "#a5b4fcff",
+      "tag.violet.background": "#2e106580",
+      "tag.violet.border": "#5b21b680",
+      "tag.violet.foreground": "#c4b5fdff",
+      "tag.purple.background": "#3b076480",
+      "tag.purple.border": "#6b21a880",
+      "tag.purple.foreground": "#d8b4feff",
+      "tag.fuchsia.background": "#4a044e80",
+      "tag.fuchsia.border": "#86198f80",
+      "tag.fuchsia.foreground": "#f0abfcff",
+      "tag.pink.background": "#50072480",
+      "tag.pink.border": "#9d174d80",
+      "tag.pink.foreground": "#f9a8d4ff",
+      "tag.rose.background": "#4c051980",
+      "tag.rose.border": "#9f123980",
+      "tag.rose.foreground": "#fda4afff",
+      "alert.close.hover": "#0a0a0acc",
+      "alert.close.pressed": "#0a0a0ae6",
+      "alert.info.background": "#22d3ee0a",
+      "alert.info.border": "#22d3ee4d",
+      "alert.info.close.hover": "#22d3ee08",
+      "alert.info.close.pressed": "#22d3ee09",
+      "alert.success.background": "#4ade800a",
+      "alert.success.border": "#4ade804d",
+      "alert.success.close.hover": "#4ade8008",
+      "alert.success.close.pressed": "#4ade8009",
+      "alert.warning.background": "#facc150a",
+      "alert.warning.border": "#facc154d",
+      "alert.warning.close.hover": "#facc1508",
+      "alert.warning.close.pressed": "#facc1509",
+      "alert.error.background": "#f871710a",
+      "alert.error.border": "#f871714d",
+      "alert.error.close.hover": "#f8717108",
+      "alert.error.close.pressed": "#f8717109",
+      "avatar.hue-0.background": "#42232dff",
+      "avatar.hue-0.foreground": "#ffa6c1ff",
+      "avatar.hue-0.border": "#572f3cff",
+      "avatar.hue-1.background": "#44241fff",
+      "avatar.hue-1.foreground": "#ffa99aff",
+      "avatar.hue-1.border": "#59302aff",
+      "avatar.hue-2.background": "#402712ff",
+      "avatar.hue-2.foreground": "#f9b379ff",
+      "avatar.hue-2.border": "#54351aff",
+      "avatar.hue-3.background": "#382c0cff",
+      "avatar.hue-3.foreground": "#e0c16dff",
+      "avatar.hue-3.border": "#493b13ff",
+      "avatar.hue-4.background": "#2b3113ff",
+      "avatar.hue-4.foreground": "#bbcf7cff",
+      "avatar.hue-4.border": "#39421bff",
+      "avatar.hue-5.background": "#1a3520ff",
+      "avatar.hue-5.foreground": "#8fd89eff",
+      "avatar.hue-5.border": "#24462cff",
+      "avatar.hue-6.background": "#07362fff",
+      "avatar.hue-6.foreground": "#68dcc7ff",
+      "avatar.hue-6.border": "#0c473eff",
+      "avatar.hue-7.background": "#03343cff",
+      "avatar.hue-7.foreground": "#60d8ebff",
+      "avatar.hue-7.border": "#05454eff",
+      "avatar.hue-8.background": "#133144ff",
+      "avatar.hue-8.foreground": "#7eceffff",
+      "avatar.hue-8.border": "#1c4159ff",
+      "avatar.hue-9.background": "#242c47ff",
+      "avatar.hue-9.foreground": "#a8c1ffff",
+      "avatar.hue-9.border": "#313b5dff",
+      "avatar.hue-10.background": "#322843ff",
+      "avatar.hue-10.foreground": "#cfb4ffff",
+      "avatar.hue-10.border": "#423658ff",
+      "avatar.hue-11.background": "#3c243aff",
+      "avatar.hue-11.foreground": "#edaae6ff",
+      "avatar.hue-11.border": "#4f314cff",
+      "skeleton.secondary": "#17171780"
     },
     "derived_float": {
       "button.default.normal.background": [
@@ -5593,6 +6489,678 @@
         0.20000000298023224,
         0.20000000298023224,
         1.0
+      ],
+      "tag.neutral.background": [
+        0.039000000804662704,
+        0.039000000804662704,
+        0.039000000804662704,
+        0.5
+      ],
+      "tag.neutral.border": [
+        0.14899998903274536,
+        0.14899998903274536,
+        0.14899998903274536,
+        0.5
+      ],
+      "tag.neutral.foreground": [
+        0.8309999704360962,
+        0.8309999704360962,
+        0.8309999704360962,
+        1.0
+      ],
+      "tag.gray.background": [
+        0.01172599196434021,
+        0.027338780462741852,
+        0.0702740028500557,
+        0.5
+      ],
+      "tag.gray.border": [
+        0.12184900045394897,
+        0.161141499876976,
+        0.21615099906921387,
+        0.5
+      ],
+      "tag.gray.foreground": [
+        0.8193579912185669,
+        0.8350715637207031,
+        0.8586419820785522,
+        1.0
+      ],
+      "tag.red.background": [
+        0.27078500390052795,
+        0.039215005934238434,
+        0.039215005934238434,
+        0.5
+      ],
+      "tag.red.border": [
+        0.6000999808311462,
+        0.10590000450611115,
+        0.10590000450611115,
+        0.5
+      ],
+      "tag.red.foreground": [
+        0.9881699681282043,
+        0.6478300094604492,
+        0.6478300094604492,
+        1.0
+      ],
+      "tag.orange.background": [
+        0.26259496808052063,
+        0.0783628523349762,
+        0.027405016124248505,
+        0.5
+      ],
+      "tag.orange.border": [
+        0.6035670042037964,
+        0.20371650159358978,
+        0.07043299078941345,
+        0.5
+      ],
+      "tag.orange.foreground": [
+        0.9922720193862915,
+        0.7302597165107727,
+        0.45572808384895325,
+        1.0
+      ],
+      "tag.amber.background": [
+        0.27029699087142944,
+        0.10177991539239883,
+        0.011702999472618103,
+        0.5
+      ],
+      "tag.amber.border": [
+        0.5730500221252441,
+        0.25096452236175537,
+        0.05494999885559082,
+        0.5
+      ],
+      "tag.amber.foreground": [
+        0.9882849454879761,
+        0.8269410133361816,
+        0.3017149865627289,
+        1.0
+      ],
+      "tag.yellow.background": [
+        0.25845301151275635,
+        0.1253395974636078,
+        0.02354700118303299,
+        0.5
+      ],
+      "tag.yellow.border": [
+        0.5212799906730652,
+        0.30199676752090454,
+        0.05471999943256378,
+        0.5
+      ],
+      "tag.yellow.foreground": [
+        0.9919700026512146,
+        0.8777396082878113,
+        0.2780299782752991,
+        1.0
+      ],
+      "tag.lime.background": [
+        0.10187599807977676,
+        0.18039999902248383,
+        0.019600003957748413,
+        0.5
+      ],
+      "tag.lime.border": [
+        0.24631769955158234,
+        0.38363000750541687,
+        0.07037001848220825,
+        0.5
+      ],
+      "tag.lime.foreground": [
+        0.745134711265564,
+        0.9490050077438354,
+        0.3929949998855591,
+        1.0
+      ],
+      "tag.green.background": [
+        0.019600003957748413,
+        0.18039999902248383,
+        0.08633199334144592,
+        0.5
+      ],
+      "tag.green.border": [
+        0.08627800643444061,
+        0.395721971988678,
+        0.20386675000190735,
+        0.5
+      ],
+      "tag.green.foreground": [
+        0.5249460339546204,
+        0.9370540380477905,
+        0.6739917397499084,
+        1.0
+      ],
+      "tag.emerald.background": [
+        0.007829993963241577,
+        0.1721700131893158,
+        0.13300228118896484,
+        0.5
+      ],
+      "tag.emerald.border": [
+        0.023561984300613403,
+        0.3724380135536194,
+        0.27417123317718506,
+        0.5
+      ],
+      "tag.emerald.foreground": [
+        0.43200406432151794,
+        0.9059959650039673,
+        0.7179791927337646,
+        1.0
+      ],
+      "tag.teal.background": [
+        0.015699997544288635,
+        0.1843000054359436,
+        0.18036600947380066,
+        0.5
+      ],
+      "tag.teal.border": [
+        0.06670799851417542,
+        0.3692919909954071,
+        0.34962400794029236,
+        0.5
+      ],
+      "tag.teal.foreground": [
+        0.3684670031070709,
+        0.9175330400466919,
+        0.8315127491950989,
+        1.0
+      ],
+      "tag.cyan.background": [
+        0.03143899142742157,
+        0.19994309544563293,
+        0.26656097173690796,
+        0.5
+      ],
+      "tag.cyan.border": [
+        0.08238400518894196,
+        0.36908042430877686,
+        0.4596160054206848,
+        0.5
+      ],
+      "tag.cyan.foreground": [
+        0.40355998277664185,
+        0.9096039533615112,
+        0.9764400124549866,
+        1.0
+      ],
+      "tag.sky.background": [
+        0.03148201107978821,
+        0.18450357019901276,
+        0.2865179777145386,
+        0.5
+      ],
+      "tag.sky.border": [
+        0.027500003576278687,
+        0.34925004839897156,
+        0.5225000381469727,
+        0.5
+      ],
+      "tag.sky.foreground": [
+        0.48974505066871643,
+        0.8270701169967651,
+        0.9882550239562988,
+        1.0
+      ],
+      "tag.blue.background": [
+        0.09030000865459442,
+        0.1453620046377182,
+        0.3296999931335449,
+        0.5
+      ],
+      "tag.blue.border": [
+        0.11778602004051208,
+        0.25136667490005493,
+        0.6862139701843262,
+        0.5
+      ],
+      "tag.blue.foreground": [
+        0.5757761001586914,
+        0.7722007632255554,
+        0.9922239780426025,
+        1.0
+      ],
+      "tag.indigo.background": [
+        0.11773204058408737,
+        0.10580001026391983,
+        0.29420000314712524,
+        0.5
+      ],
+      "tag.indigo.border": [
+        0.21619760990142822,
+        0.1883699893951416,
+        0.6396300196647644,
+        0.5
+      ],
+      "tag.indigo.foreground": [
+        0.6478300094604492,
+        0.7062550187110901,
+        0.9881699681282043,
+        1.0
+      ],
+      "tag.violet.background": [
+        0.1802322119474411,
+        0.06274600327014923,
+        0.3952540159225464,
+        0.5
+      ],
+      "tag.violet.border": [
+        0.35766181349754333,
+        0.12955400347709656,
+        0.7144460678100586,
+        0.5
+      ],
+      "tag.violet.foreground": [
+        0.7686899900436401,
+        0.7098970413208008,
+        0.9921029806137085,
+        1.0
+      ],
+      "tag.purple.background": [
+        0.2312905192375183,
+        0.02751000225543976,
+        0.3924899697303772,
+        0.5
+      ],
+      "tag.purple.border": [
+        0.4195941686630249,
+        0.1292320191860199,
+        0.6587680578231812,
+        0.5
+      ],
+      "tag.purple.foreground": [
+        0.8471300005912781,
+        0.7058740258216858,
+        0.9961260557174683,
+        1.0
+      ],
+      "tag.fuchsia.background": [
+        0.29073166847229004,
+        0.015777990221977234,
+        0.30622202157974243,
+        0.5
+      ],
+      "tag.fuchsia.border": [
+        0.5245444178581238,
+        0.09804202616214752,
+        0.5599580407142639,
+        0.5
+      ],
+      "tag.fuchsia.foreground": [
+        0.9409713745117188,
+        0.6697989702224731,
+        0.9882009625434875,
+        1.0
+      ],
+      "tag.pink.background": [
+        0.31446900963783264,
+        0.02753099799156189,
+        0.1413497030735016,
+        0.5
+      ],
+      "tag.pink.border": [
+        0.6156319379806519,
+        0.09036800265312195,
+        0.30222463607788086,
+        0.5
+      ],
+      "tag.pink.foreground": [
+        0.9765220284461975,
+        0.6594780683517456,
+        0.8317385315895081,
+        1.0
+      ],
+      "tag.rose.background": [
+        0.2984429597854614,
+        0.019557014107704163,
+        0.09810991585254669,
+        0.5
+      ],
+      "tag.rose.border": [
+        0.6235589981079102,
+        0.07044100761413574,
+        0.2234703004360199,
+        0.5
+      ],
+      "tag.rose.foreground": [
+        0.992173969745636,
+        0.6438260078430176,
+        0.6867889761924744,
+        1.0
+      ],
+      "alert.close.hover": [
+        0.039000000804662704,
+        0.039000000804662704,
+        0.039000000804662704,
+        0.800000011920929
+      ],
+      "alert.close.pressed": [
+        0.039000000804662704,
+        0.039000000804662704,
+        0.039000000804662704,
+        0.8999999761581421
+      ],
+      "alert.info.background": [
+        0.13278040289878845,
+        0.8278281688690186,
+        0.9332188367843628,
+        0.03999999910593033
+      ],
+      "alert.info.border": [
+        0.13278040289878845,
+        0.8278281688690186,
+        0.9332188367843628,
+        0.30000001192092896
+      ],
+      "alert.info.close.hover": [
+        0.13278040289878845,
+        0.8278281688690186,
+        0.9332188367843628,
+        0.03200000151991844
+      ],
+      "alert.info.close.pressed": [
+        0.13278040289878845,
+        0.8278281688690186,
+        0.9332188367843628,
+        0.035999998450279236
+      ],
+      "alert.success.background": [
+        0.28936123847961426,
+        0.8706398010253906,
+        0.501526951789856,
+        0.03999999910593033
+      ],
+      "alert.success.border": [
+        0.28936123847961426,
+        0.8706398010253906,
+        0.501526951789856,
+        0.30000001192092896
+      ],
+      "alert.success.close.hover": [
+        0.28936123847961426,
+        0.8706398010253906,
+        0.501526951789856,
+        0.03200000151991844
+      ],
+      "alert.success.close.pressed": [
+        0.28936123847961426,
+        0.8706398010253906,
+        0.501526951789856,
+        0.035999998450279236
+      ],
+      "alert.warning.background": [
+        0.9803022146224976,
+        0.7990831136703491,
+        0.08169528841972351,
+        0.03999999910593033
+      ],
+      "alert.warning.border": [
+        0.9803024530410767,
+        0.7990833520889282,
+        0.08169552683830261,
+        0.30000001192092896
+      ],
+      "alert.warning.close.hover": [
+        0.9803022146224976,
+        0.7990831136703491,
+        0.08169528841972351,
+        0.03200000151991844
+      ],
+      "alert.warning.close.pressed": [
+        0.9803022146224976,
+        0.7990831136703491,
+        0.08169528841972351,
+        0.035999998450279236
+      ],
+      "alert.error.background": [
+        0.9725522398948669,
+        0.4434477686882019,
+        0.4434477686882019,
+        0.03999999910593033
+      ],
+      "alert.error.border": [
+        0.9725522398948669,
+        0.4434477686882019,
+        0.4434477686882019,
+        0.30000001192092896
+      ],
+      "alert.error.close.hover": [
+        0.9725522398948669,
+        0.4434477686882019,
+        0.4434477686882019,
+        0.03200000151991844
+      ],
+      "alert.error.close.pressed": [
+        0.9725522398948669,
+        0.4434477686882019,
+        0.4434477686882019,
+        0.035999998450279236
+      ],
+      "avatar.hue-0.background": [
+        0.25921106338500977,
+        0.1358162760734558,
+        0.17531786859035492,
+        1.0
+      ],
+      "avatar.hue-0.foreground": [
+        1.0,
+        0.6501181125640869,
+        0.7571457028388977,
+        1.0
+      ],
+      "avatar.hue-0.border": [
+        0.3396371603012085,
+        0.18465805053710938,
+        0.23427052795886993,
+        1.0
+      ],
+      "avatar.hue-1.background": [
+        0.26512765884399414,
+        0.13990747928619385,
+        0.11980640888214111,
+        1.0
+      ],
+      "avatar.hue-1.foreground": [
+        0.9999999403953552,
+        0.6621248126029968,
+        0.6025619506835938,
+        1.0
+      ],
+      "avatar.hue-1.border": [
+        0.3470681309700012,
+        0.18979647755622864,
+        0.16455024480819702,
+        1.0
+      ],
+      "avatar.hue-2.background": [
+        0.25118520855903625,
+        0.15435944497585297,
+        0.07044494897127151,
+        1.0
+      ],
+      "avatar.hue-2.foreground": [
+        0.9755957722663879,
+        0.7018840909004211,
+        0.4755091071128845,
+        1.0
+      ],
+      "avatar.hue-2.border": [
+        0.32955706119537354,
+        0.2079474925994873,
+        0.10255414247512817,
+        1.0
+      ],
+      "avatar.hue-3.background": [
+        0.217752605676651,
+        0.17449218034744263,
+        0.04805871844291687,
+        1.0
+      ],
+      "avatar.hue-3.foreground": [
+        0.8773695230484009,
+        0.7573451995849609,
+        0.4256690740585327,
+        1.0
+      ],
+      "avatar.hue-3.border": [
+        0.28756681084632874,
+        0.23323360085487366,
+        0.07443774491548538,
+        1.0
+      ],
+      "avatar.hue-4.background": [
+        0.1668851673603058,
+        0.19384384155273438,
+        0.07389064878225327,
+        1.0
+      ],
+      "avatar.hue-4.foreground": [
+        0.7324167490005493,
+        0.811352014541626,
+        0.4853365123271942,
+        1.0
+      ],
+      "avatar.hue-4.border": [
+        0.22367912530899048,
+        0.2575385868549347,
+        0.10688164830207825,
+        1.0
+      ],
+      "avatar.hue-5.background": [
+        0.10149914026260376,
+        0.20712697505950928,
+        0.12601083517074585,
+        1.0
+      ],
+      "avatar.hue-5.foreground": [
+        0.560300886631012,
+        0.8489261269569397,
+        0.6204205751419067,
+        1.0
+      ],
+      "avatar.hue-5.border": [
+        0.14155727624893188,
+        0.2742215394973755,
+        0.17234277725219727,
+        1.0
+      ],
+      "avatar.hue-6.background": [
+        0.026903845369815826,
+        0.2112378478050232,
+        0.18314719200134277,
+        1.0
+      ],
+      "avatar.hue-6.foreground": [
+        0.40672218799591064,
+        0.8608938455581665,
+        0.7792921662330627,
+        1.0
+      ],
+      "avatar.hue-6.border": [
+        0.04614865779876709,
+        0.2793846130371094,
+        0.24410380423069,
+        1.0
+      ],
+      "avatar.hue-7.background": [
+        0.011719778180122375,
+        0.20549966394901276,
+        0.2336954027414322,
+        1.0
+      ],
+      "avatar.hue-7.foreground": [
+        0.3752988576889038,
+        0.8451316356658936,
+        0.9229910373687744,
+        1.0
+      ],
+      "avatar.hue-7.border": [
+        0.020252466201782227,
+        0.2721775770187378,
+        0.3075904846191406,
+        1.0
+      ],
+      "avatar.hue-8.background": [
+        0.07524078339338303,
+        0.1917438805103302,
+        0.267868310213089,
+        1.0
+      ],
+      "avatar.hue-8.foreground": [
+        0.4952225387096405,
+        0.8066645264625549,
+        1.0,
+        1.0
+      ],
+      "avatar.hue-8.border": [
+        0.1085774227976799,
+        0.2549009621143341,
+        0.3505103886127472,
+        1.0
+      ],
+      "avatar.hue-9.background": [
+        0.1410711109638214,
+        0.17377616465091705,
+        0.2784964144229889,
+        1.0
+      ],
+      "avatar.hue-9.foreground": [
+        0.6597545146942139,
+        0.7560040950775146,
+        1.0,
+        1.0
+      ],
+      "avatar.hue-9.border": [
+        0.191258043050766,
+        0.23233407735824585,
+        0.3638589084148407,
+        1.0
+      ],
+      "avatar.hue-10.background": [
+        0.19474861025810242,
+        0.15598922967910767,
+        0.2634347081184387,
+        1.0
+      ],
+      "avatar.hue-10.foreground": [
+        0.8112490773200989,
+        0.705634355545044,
+        1.0,
+        1.0
+      ],
+      "avatar.hue-10.border": [
+        0.25867506861686707,
+        0.2099943459033966,
+        0.34494200348854065,
+        1.0
+      ],
+      "avatar.hue-11.background": [
+        0.23490750789642334,
+        0.1421855390071869,
+        0.2263733446598053,
+        1.0
+      ],
+      "avatar.hue-11.foreground": [
+        0.9288726449012756,
+        0.6670125722885132,
+        0.9025641679763794,
+        1.0
+      ],
+      "avatar.hue-11.border": [
+        0.3091127574443817,
+        0.19265761971473694,
+        0.29839420318603516,
+        1.0
+      ],
+      "skeleton.secondary": [
+        0.09019608050584793,
+        0.09019608050584793,
+        0.09019608050584793,
+        0.5
       ]
     },
     "scalars": {

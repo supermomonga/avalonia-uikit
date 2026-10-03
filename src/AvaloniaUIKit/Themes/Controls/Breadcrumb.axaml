@@ -1,0 +1,56 @@
+<!--
+  GPUI Kit Breadcrumb (crates/component/src/breadcrumb.rs) -> gpui:Breadcrumb
+  and gpui:BreadcrumbItem. Muted text_sm items 6px apart with a 14px muted
+  chevron between them; the last item is in the foreground color. Items show
+  no hover and take no focus, as in GPUI.
+-->
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:gpui="using:AvaloniaUIKit">
+  <ControlTheme x:Key="{x:Type gpui:Breadcrumb}" TargetType="gpui:Breadcrumb">
+    <Setter Property="Foreground" Value="{DynamicResource Gpui.MutedForeground}" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="ItemsPanel">
+      <ItemsPanelTemplate>
+        <StackPanel Orientation="Horizontal" Spacing="6" />
+      </ItemsPanelTemplate>
+    </Setter>
+    <Setter Property="Template">
+      <ControlTemplate>
+        <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type gpui:BreadcrumbItem}" TargetType="gpui:BreadcrumbItem">
+    <Setter Property="Foreground" Value="{DynamicResource Gpui.MutedForeground}" />
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Focusable" Value="False" />
+    <Setter Property="Cursor" Value="Hand" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <StackPanel Orientation="Horizontal" Spacing="6">
+          <PathIcon Name="PART_Separator" Data="{StaticResource Gpui.Icon.ChevronRight}"
+                    Width="14" Height="14" VerticalAlignment="Center"
+                    Foreground="{DynamicResource Gpui.MutedForeground}" />
+          <ContentPresenter Name="PART_ContentPresenter"
+                            Background="{TemplateBinding Background}"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            Foreground="{TemplateBinding Foreground}"
+                            LineHeight="22.5" VerticalContentAlignment="Center" />
+        </StackPanel>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^:nth-child(1) /template/ PathIcon#PART_Separator">
+      <Setter Property="IsVisible" Value="False" />
+    </Style>
+    <Style Selector="^:nth-last-child(1)">
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+    </Style>
+    <Style Selector="^:disabled">
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.MutedForeground}" />
+      <Setter Property="Cursor" Value="Arrow" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

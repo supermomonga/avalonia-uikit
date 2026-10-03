@@ -1,0 +1,19 @@
+# GPUI Kit AvatarGroup -> gpui:AvatarGroup: avatars overlapping by 30%, the
+# first on top, cut at the limit, optionally with an ellipsis avatar.
+component = "avatargroup"
+viewport = [240, 80]
+anchor = [16, 16]
+
+[[group]]
+name = "group"
+params = { names = "Alice|Bob|Carol" }
+matrix = { size = ["small", "medium"] }
+
+[[group]]
+name = "limit"
+params = { names = "Alice|Bob|Carol|Dave|Erin", limit = 3 }
+
+[[group]]
+name = "ellipsis"
+params = { names = "Alice|Bob|Carol|Dave|Erin", limit = 3, ellipsis = true }
+matrix = { size = ["small", "medium"] }

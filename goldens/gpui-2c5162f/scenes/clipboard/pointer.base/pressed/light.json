@@ -1,0 +1,177 @@
+{
+  "quads": [
+    {
+      "order": 1,
+      "bounds": [
+        0.0,
+        0.0,
+        64.0,
+        56.0
+      ],
+      "clip": [
+        0.0,
+        0.0,
+        64.0,
+        56.0
+      ],
+      "background": {
+        "kind": "solid",
+        "rgba": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "border_color": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "border_widths": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "corner_radii": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "border_style": "Solid"
+    },
+    {
+      "order": 2,
+      "bounds": [
+        0.0,
+        0.0,
+        64.0,
+        56.0
+      ],
+      "clip": [
+        0.0,
+        0.0,
+        64.0,
+        56.0
+      ],
+      "background": {
+        "kind": "solid",
+        "rgba": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "border_color": [
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "border_widths": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "corner_radii": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "border_style": "Solid"
+    },
+    {
+      "order": 3,
+      "bounds": [
+        16.0,
+        12.0,
+        32.0,
+        32.0
+      ],
+      "clip": [
+        0.0,
+        0.0,
+        64.0,
+        56.0
+      ],
+      "background": {
+        "kind": "solid",
+        "rgba": [
+          0.898,
+          0.898,
+          0.898,
+          0.7
+        ]
+      },
+      "border_color": [
+        0.898,
+        0.898,
+        0.898,
+        0.0
+      ],
+      "border_widths": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "corner_radii": [
+        6.0,
+        6.0,
+        6.0,
+        6.0
+      ],
+      "border_style": "Solid"
+    }
+  ],
+  "shadows": [],
+  "underlines": [],
+  "mono_sprites": [
+    {
+      "order": 4,
+      "bounds": [
+        24.0,
+        20.0,
+        16.0,
+        16.0
+      ],
+      "clip": [
+        16.0,
+        12.0,
+        32.0,
+        32.0
+      ],
+      "color": [
+        0.09,
+        0.09,
+        0.09,
+        1.0
+      ],
+      "transform": {
+        "rotation_scale": [
+          [
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0
+          ]
+        ],
+        "translation": [
+          0.0,
+          0.0
+        ]
+      }
+    }
+  ],
+  "subpixel_sprites": [],
+  "poly_sprites": [],
+  "paths": []
+}
