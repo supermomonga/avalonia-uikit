@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "avalonia_devtools": {
+      "type": "stdio",
+      "command": "avdt",
+      "args": [
+        "mcp"
+      ],
+      "env": {}
+    },
+    "avalonia-docs": {
+      "type": "http",
+      "url": "https://docs-mcp.avaloniaui.net/mcp"
+    }
+  }
+}
