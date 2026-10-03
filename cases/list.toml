@@ -1,0 +1,34 @@
+# GPUI Kit List + ListItem -> ListBox / ListBoxItem.
+# Rows are 34px (py 4, 16px text on a 26px line), padded 12px, with no list
+# padding: at y 8/42/76/110/144. Row 1 is selected; row 3 (Grape) is disabled.
+component = "list"
+viewport = [300, 240]
+anchor = [16, 8]
+
+[[group]]
+name = "rows"
+params = { width = 240, height = 200, selected = 1, disabled_row = 3 }
+states = ["normal", "at-60-25", "at-60-60", "at-60-125", "focus"]
+
+# The pointer leaves before the keys: GPUI repaints a row's hover only on the
+# next pointer move, so a row left under a still pointer is ambiguous.
+[[group]]
+name = "click"
+params = { width = 240, height = 200, selected = 1, disabled_row = 3 }
+states = ["click-at-60-25", "click-at-60-25+at-280-230+key-down", "click-at-60-25+at-280-230+key-down+key-down"]
+
+[[group]]
+name = "unselected"
+params = { width = 240, height = 200 }
+states = ["normal", "at-60-95"]
+
+# The scrollbar fades in after a scroll.
+[[group]]
+name = "scroll"
+params = { width = 240, height = 120, count = 12 }
+states = ["wheel-at-60-60+wait-400ms"]
+
+[[group]]
+name = "empty"
+params = { width = 240, height = 120, empty = true }
+states = ["normal"]

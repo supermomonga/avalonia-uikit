@@ -1,4 +1,5 @@
 using Avalonia.Controls;
+using Avalonia.Styling;
 using Avalonia.Controls.Documents;
 using Avalonia.Controls.Primitives;
 using Avalonia.Input;
@@ -45,6 +46,8 @@ public static class Adapters
         "input" => Input(c),
         "textarea" => Textarea(c),
         "input-group" => InputGroup(c),
+        "list" => List(c),
+        "virtual" => VirtualList(c),
         _ => throw new NotSupportedException($"no adapter for {c.Component}"),
     };
 
@@ -159,6 +162,86 @@ public static class Adapters
             box.MinLines = box.MaxLines = (int)c.Num("rows", 1);
         }
         return box;
+    }
+
+    /// <summary>The fruit names GPUI's list cases show, then "Item N".</summary>
+    public static IEnumerable<string> Names(int count)
+    {
+        string[] names = ["Apple", "Banana", "Cherry", "Grape", "Lemon", "Mango", "Orange", "Peach", "Pear", "Plum", "Kiwi", "Lime"];
+        return Enumerable.Range(0, count).Select(i => i < names.Length ? names[i] : $"Item {i + 1}");
+    }
+
+    /// <summary>A ListBox as GPUI's List: rows, a selected row and a disabled row.</summary>
+    private static ListBox List(GoldenCase c)
+    {
+        var list = new ListBox { Width = c.Num("width", 240), Height = c.Num("height", 200) };
+        if (!c.Bool("empty"))
+        {
+            var disabled = (int)c.Num("disabled_row", -1);
+            var i = 0;
+            foreach (var name in Names((int)c.Num("count", 5)))
+            {
+                list.Items.Add(new ListBoxItem { Content = name, IsEnabled = i++ != disabled });
+            }
+        }
+        if (c.Num("selected", -1) is var selected and >= 0)
+        {
+            list.SelectedIndex = (int)selected;
+        }
+        return list;
+    }
+
+    /// <summary>
+    /// GPUI's bare VirtualList as a ListBox with unstyled containers (app
+    /// content): "Row N" rows 30/45/60px tall (34 when uniform), every other one
+    /// on secondary, scrolled to `offset`.
+    /// </summary>
+    private static ListBox VirtualList(GoldenCase c)
+    {
+        var uniform = c.Bool("uniform");
+        double Row(int i) => uniform ? 34 : (i % 3) switch { 0 => 30, 1 => 45, _ => 60 };
+        var secondary = (Avalonia.Media.IBrush)Avalonia.Application.Current!.FindResource(c.IsDark ? Avalonia.Styling.ThemeVariant.Dark : Avalonia.Styling.ThemeVariant.Light, "Gpui.Secondary")!;
+        var bare = new ControlTheme(typeof(ListBoxItem))
+        {
+            Setters =
+            {
+                new Setter(Avalonia.Controls.Primitives.TemplatedControl.TemplateProperty, new Avalonia.Controls.Templates.FuncControlTemplate<ListBoxItem>((item, scope) =>
+                    new Avalonia.Controls.Presenters.ContentPresenter
+                    {
+                        Name = "PART_ContentPresenter",
+                        [!Avalonia.Controls.Presenters.ContentPresenter.ContentProperty] = item[!ContentControl.ContentProperty],
+                        [!Avalonia.Controls.Presenters.ContentPresenter.ContentTemplateProperty] = item[!ContentControl.ContentTemplateProperty],
+                    })),
+            },
+        };
+        var list = new ListBox
+        {
+            Width = c.Num("width", 240),
+            Height = c.Num("height", 200),
+            ItemContainerTheme = bare,
+            ItemsSource = Enumerable.Range(0, (int)c.Num("count", 1000)).ToList(),
+            ItemTemplate = new Avalonia.Controls.Templates.FuncDataTemplate<int>((i, _) => new Border
+            {
+                Height = Row(i),
+                Background = i % 2 == 1 ? secondary : null,
+                Padding = new Avalonia.Thickness(12, 0),
+                Child = new TextBlock { Text = $"Row {i}", FontSize = 16, LineHeight = 26, VerticalAlignment = Avalonia.Layout.VerticalAlignment.Top },
+            }),
+        };
+        if (c.Num("offset", 0) is var offset and > 0)
+        {
+            list.TemplateApplied += (_, e) =>
+            {
+                var viewer = e.NameScope.Find<ScrollViewer>("PART_ScrollViewer")!;
+                void Apply(object? sender, EventArgs args)
+                {
+                    viewer.LayoutUpdated -= Apply;
+                    viewer.Offset = new Avalonia.Vector(0, offset);
+                }
+                viewer.LayoutUpdated += Apply;
+            };
+        }
+        return list;
     }
 
     /// <summary>A TextBox.group as GPUI's InputGroup: addons before and after the text.</summary>

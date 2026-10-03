@@ -94,6 +94,20 @@ public class BehaviorTests
         await Assert.That(ThumbX()).IsEqualTo(start + 16);
     }
 
+    // GPUI's VirtualList paints the visible rows only; the theme must keep the
+    // ListBox's virtualizing panel so Avalonia realizes only those too.
+    [Test]
+    public async Task A_long_list_realizes_only_its_visible_rows()
+    {
+        var golden = Case("list/rows.base/normal/light");
+        var list = new ListBox { Width = 240, Height = 200, ItemsSource = Enumerable.Range(0, 10000).Select(i => $"Item {i}").ToList() };
+        using var host = CaseHost.Open(golden, list);
+        await Assert.That(list.ItemsPanelRoot).IsTypeOf<VirtualizingStackPanel>();
+        await Assert.That(host.Window.GetVisualDescendants().OfType<ListBoxItem>().Count()).IsLessThan(20);
+        host.Drive(golden, "wheel-at-60-60");
+        await Assert.That(host.Window.GetVisualDescendants().OfType<ListBoxItem>().Count()).IsLessThan(20);
+    }
+
     [Test]
     public async Task A_disabled_button_ignores_a_click()
     {

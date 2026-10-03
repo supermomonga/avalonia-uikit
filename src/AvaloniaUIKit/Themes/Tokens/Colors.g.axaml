@@ -1005,6 +1005,8 @@
       <SolidColorBrush x:Key="Gpui.InputGroup.Invalid.Ring" Color="#33EF4444" />
       <Color x:Key="Gpui.InputGroup.Button.Hover.Color">#FFF5F5F5</Color>
       <SolidColorBrush x:Key="Gpui.InputGroup.Button.Hover" Color="#FFF5F5F5" />
+      <Color x:Key="Gpui.List.Empty.Color">#99737373</Color>
+      <SolidColorBrush x:Key="Gpui.List.Empty" Color="#99737373" />
       <Color x:Key="Gpui.Link.Underline.Color">#80171717</Color>
       <SolidColorBrush x:Key="Gpui.Link.Underline" Color="#80171717" />
       <Color x:Key="Gpui.Link.Hover.Color">#CC171717</Color>
@@ -2013,6 +2015,8 @@
       <SolidColorBrush x:Key="Gpui.InputGroup.Invalid.Ring" Color="#66F87171" />
       <Color x:Key="Gpui.InputGroup.Button.Hover.Color">#80262626</Color>
       <SolidColorBrush x:Key="Gpui.InputGroup.Button.Hover" Color="#80262626" />
+      <Color x:Key="Gpui.List.Empty.Color">#99A3A3A3</Color>
+      <SolidColorBrush x:Key="Gpui.List.Empty" Color="#99A3A3A3" />
       <Color x:Key="Gpui.Link.Underline.Color">#80FAFAFA</Color>
       <SolidColorBrush x:Key="Gpui.Link.Underline" Color="#80FAFAFA" />
       <Color x:Key="Gpui.Link.Hover.Color">#CCFAFAFA</Color>

@@ -1,0 +1,22 @@
+# GPUI Kit VirtualList (unstyled) -> ListBox + VirtualizingStackPanel.
+# The rows are app content; this checks virtualization, clipping at the
+# viewport edge, the extent and the scrollbar.
+component = "virtual"
+viewport = [300, 240]
+anchor = [16, 8]
+
+[[group]]
+name = "variable"
+params = { count = 1000 }
+states = ["normal", "wheel-at-60-60+wait-400ms", "wheel-at-60-60+wheel-at-60-60+wheel-at-60-60+wait-400ms"]
+
+# Deep offsets only with uniform rows: Avalonia estimates unrealized heights.
+[[group]]
+name = "uniform"
+params = { count = 10000, uniform = true }
+states = ["normal", "at-248-60+wait-400ms"]
+
+[[group]]
+name = "deep"
+params = { count = 10000, uniform = true, offset = 170000 }
+states = ["at-248-60+wait-400ms"]
