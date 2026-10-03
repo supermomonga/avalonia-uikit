@@ -140,13 +140,16 @@ for size, (h, px, cpx, cmin, text, square) in SIZES.items():
         w(f'    <Style Selector="{sel} /template/ ContentPresenter#PART_ContentPresenter">')
         w(f'      <Setter Property="LineHeight" Value="{num(text * 1.25)}" />')
         w('    </Style>')
-for size, (h, px, cpx, cmin, text, square) in SIZES.items():
+# The unqualified (medium) rule must come first so the size-qualified rules,
+# declared later, win.
+MEDIUM_FIRST = sorted(SIZES.items(), key=lambda item: item[0] != "medium")
+for size, (h, px, cpx, cmin, text, square) in MEDIUM_FIRST:
     sel = "^.compact" if size == "medium" else f"^.compact.{size}"
     w(f'    <Style Selector="{sel}">')
     w(f'      <Setter Property="Padding" Value="{cpx},0" />')
     w(f'      <Setter Property="MinWidth" Value="{cmin}" />')
     w('    </Style>')
-for size, (h, px, cpx, cmin, text, square) in SIZES.items():
+for size, (h, px, cpx, cmin, text, square) in MEDIUM_FIRST:
     sel = "^.icon-only" if size == "medium" else f"^.icon-only.{size}"
     w(f'    <Style Selector="{sel}">')
     w(f'      <Setter Property="Width" Value="{square}" />')

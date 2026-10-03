@@ -540,7 +540,9 @@ dependencies = [
  "serde",
  "serde_json",
  "sha2 0.10.9",
+ "tiny-skia-path",
  "toml 0.8.23",
+ "usvg 0.46.0",
 ]
 
 [[package]]

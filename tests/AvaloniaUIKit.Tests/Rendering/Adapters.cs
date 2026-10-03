@@ -17,6 +17,13 @@ public static class Adapters
         _ => throw new NotSupportedException($"no adapter for {c.Component}"),
     };
 
+    /// <summary>A Lucide icon from the theme, as an app would put one in content.</summary>
+    public static PathIcon Icon(string name)
+    {
+        var key = "Gpui.Icon." + string.Concat(name.Split('-').Select(p => char.ToUpperInvariant(p[0]) + p[1..]));
+        return new PathIcon { Data = (Avalonia.Media.Geometry)Avalonia.Application.Current!.FindResource(key)! };
+    }
+
     /// <summary>Adds the case's value of <paramref name="key"/> as a class unless it is the default.</summary>
     public static void ClassFrom(Control control, GoldenCase c, string key, string defaultValue)
     {
@@ -41,6 +48,11 @@ public static class Adapters
         if (c.Has("label"))
         {
             button.Content = c.Str("label");
+        }
+        else if (c.Has("icon"))
+        {
+            button.Content = Icon(c.Str("icon"));
+            button.Classes.Add("icon-only");
         }
         ClassFrom(button, c, "variant", "default");
         ClassFrom(button, c, "size", "medium");

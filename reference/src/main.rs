@@ -9,6 +9,7 @@ mod cases;
 mod derived;
 mod fonts;
 mod harness;
+mod icons;
 mod manifest;
 mod scene_json;
 mod tokens;
@@ -183,6 +184,7 @@ fn generate(root: &Path, out: &Path, only: Option<&str>) -> Result<()> {
     let tokens = tokens::dump(&mut harness)?;
     write(&out.join("tokens/gpui-theme.json"), &serde_json::to_vec_pretty(&tokens)?)?;
     tokens::write_xaml(root, &tokens)?;
+    icons::write_xaml(root)?;
 
     let cases = all_cases(root, only)?;
     if only.is_none() {

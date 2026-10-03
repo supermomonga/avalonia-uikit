@@ -8,3 +8,33 @@ name = "label"
 params = { label = "Button" }
 matrix = { variant = ["default", "primary", "secondary", "danger", "warning", "success", "info", "ghost", "link", "text"], size = ["xsmall", "small", "medium", "large"] }
 states = ["normal", "hover", "pressed", "focus", "disabled"]
+
+[[group]]
+name = "outline"
+params = { label = "Button", outline = true }
+matrix = { variant = ["default", "primary", "secondary", "danger", "warning", "success", "info", "ghost"], size = ["small", "medium"] }
+states = ["normal", "hover", "pressed", "focus", "disabled"]
+
+[[group]]
+name = "selected"
+params = { label = "Button", selected = true }
+matrix = { variant = ["default", "primary", "secondary", "danger", "warning", "success", "info", "ghost", "link", "text"], outline = [false, true] }
+states = ["normal", "hover"]
+
+[[group]]
+name = "compact"
+params = { label = "OK", compact = true }
+matrix = { size = ["xsmall", "small", "medium", "large"] }
+states = ["normal"]
+
+[[group]]
+name = "rounded"
+params = { label = "Button" }
+matrix = { rounded = ["none", "small", "large"], variant = ["default", "primary"] }
+states = ["normal", "focus"]
+
+[[group]]
+name = "icon"
+params = { icon = "copy" }
+matrix = { variant = ["default", "primary", "ghost"], size = ["xsmall", "small", "medium", "large"] }
+states = ["normal", "hover"]

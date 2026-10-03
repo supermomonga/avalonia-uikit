@@ -6,10 +6,26 @@
       <ResourceDictionary.MergedDictionaries>
         <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Tokens/Colors.g.axaml" />
         <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Tokens/Metrics.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Icons/Lucide.g.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Base/PathIcon.axaml" />
         <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Base/Window.axaml" />
         <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Base/Hosts.axaml" />
         <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/Button.axaml" />
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
   </Styles.Resources>
+
+  <!-- Icons inside a button take the button's icon size (Size -> icon_size, icon.rs). -->
+  <Style Selector="Button.xsmall PathIcon">
+    <Setter Property="Width" Value="12" />
+    <Setter Property="Height" Value="12" />
+  </Style>
+  <Style Selector="Button.small PathIcon">
+    <Setter Property="Width" Value="14" />
+    <Setter Property="Height" Value="14" />
+  </Style>
+  <Style Selector="Button.large PathIcon">
+    <Setter Property="Width" Value="24" />
+    <Setter Property="Height" Value="24" />
+  </Style>
 </Styles>
