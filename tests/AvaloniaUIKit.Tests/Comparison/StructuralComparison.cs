@@ -322,6 +322,15 @@ public static class StructuralComparison
             var opacity = EffectiveOpacity(visual, root);
             switch (visual)
             {
+                case TextBlock t when t.Inlines is { Count: > 0 } inlines:
+                    foreach (var run in inlines.OfType<Avalonia.Controls.Documents.Run>())
+                    {
+                        if (!string.IsNullOrEmpty(run.Text?.Trim()) && Solid(run.Foreground, opacity) is { } runColor)
+                        {
+                            actual.Add(runColor);
+                        }
+                    }
+                    break;
                 case TextBlock t when !string.IsNullOrEmpty(t.Text) && Solid(t.Foreground, opacity) is { } c:
                     actual.Add(c);
                     foreach (var decoration in t.TextDecorations ?? [])

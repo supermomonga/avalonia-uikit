@@ -1,4 +1,5 @@
 using Avalonia.Controls;
+using Avalonia.Controls.Documents;
 using Avalonia.Controls.Primitives;
 using Avalonia.Input;
 using Avalonia.VisualTree;
@@ -40,6 +41,7 @@ public static class Adapters
         "tooltip" => Tooltip(c),
         "scroll" => Scroll(c),
         "icon" => IconCase(c),
+        "label" => LabelCase(c),
         _ => throw new NotSupportedException($"no adapter for {c.Component}"),
     };
 
@@ -84,6 +86,56 @@ public static class Adapters
         };
         Scrollbars.SetShowOnHover(viewer, mode != "scrolling");
         return viewer;
+    }
+
+    /// <summary>Text as GPUI's Label: TextBlock.label, SelectableTextBlock.label or a Label.</summary>
+    private static Control LabelCase(GoldenCase c)
+    {
+        TextBlock MakeText(TextBlock text)
+        {
+            text.Inlines!.Add(new Avalonia.Controls.Documents.Run(c.Str("text", "Label")));
+            if (c.Has("secondary"))
+            {
+                text.Inlines.Add(new Avalonia.Controls.Documents.Run(" " + c.Str("secondary")) { Classes = { "secondary" } });
+            }
+            return text;
+        }
+        var control = c.Str("control", "");
+        Control result = control switch
+        {
+            "label" => new Label { Content = MakeText(new TextBlock()) },
+            "selectable" => MakeText(new SelectableTextBlock { Classes = { "label" } }),
+            _ => MakeText(new TextBlock { Classes = { "label" } }),
+        };
+        var size = c.Str("text_size", "base") switch { "xs" => 12, "sm" => 14, "lg" => 18, "xl" => 20, "2xl" => 24, _ => 16 };
+        result.SetValue(TextElement.FontSizeProperty, (double)size);
+        result.SetValue(TextElement.FontWeightProperty, c.Str("weight", "normal") switch
+        {
+            "medium" => Avalonia.Media.FontWeight.Medium,
+            "semibold" => Avalonia.Media.FontWeight.SemiBold,
+            "bold" => Avalonia.Media.FontWeight.Bold,
+            _ => Avalonia.Media.FontWeight.Normal,
+        });
+        if (c.Has("width"))
+        {
+            result.Width = c.Num("width", 0);
+            result.SetValue(TextBlock.TextAlignmentProperty, c.Str("align", "left") switch
+            {
+                "center" => Avalonia.Media.TextAlignment.Center,
+                "right" => Avalonia.Media.TextAlignment.Right,
+                _ => Avalonia.Media.TextAlignment.Left,
+            });
+        }
+        if (c.Str("leading", "default") == "relaxed")
+        {
+            result.SetValue(TextBlock.LineHeightProperty, 28.8);
+        }
+        if (c.Has("color"))
+        {
+            var key = c.Str("color") == "muted" ? "Gpui.MutedForeground" : "Gpui.Danger";
+            result.SetValue(TextElement.ForegroundProperty, (Avalonia.Media.IBrush)Avalonia.Application.Current!.FindResource(c.IsDark ? Avalonia.Styling.ThemeVariant.Dark : Avalonia.Styling.ThemeVariant.Light, key)!);
+        }
+        return result;
     }
 
     /// <summary>A PathIcon with the theme's geometry, size class, color and rotation.</summary>

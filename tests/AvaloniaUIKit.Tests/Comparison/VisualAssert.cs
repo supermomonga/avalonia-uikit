@@ -68,14 +68,19 @@ public static class VisualAssert
         Math.Abs(a.X - b.X) <= GeometryTolerance && Math.Abs(a.Y - b.Y) <= GeometryTolerance &&
         Math.Abs(a.Width - b.Width) <= GeometryTolerance && Math.Abs(a.Height - b.Height) <= GeometryTolerance;
 
-    /// <summary>R9: GPUI rounds text widths up to whole logical pixels, Avalonia to device pixels.</summary>
+    /// <summary>
+    /// R9: GPUI rounds a text's measured size up to whole logical pixels,
+    /// Avalonia to device pixels, so a box holding text may be up to a pixel
+    /// smaller here per text run (wider) or in all (taller).
+    /// </summary>
     private static bool NearWithTextRounding(Rect gpui, Rect avalonia, int textRuns)
     {
         var dw = gpui.Width - avalonia.Width;
+        var dh = gpui.Height - avalonia.Height;
         return dw >= -GeometryTolerance && dw < textRuns &&
+            dh >= -GeometryTolerance && dh < 1 &&
             Math.Abs(gpui.X - avalonia.X) <= GeometryTolerance + dw &&
-            Math.Abs(gpui.Y - avalonia.Y) <= GeometryTolerance &&
-            Math.Abs(gpui.Height - avalonia.Height) <= GeometryTolerance;
+            Math.Abs(gpui.Y - avalonia.Y) <= GeometryTolerance;
     }
 
     public static string Fmt(Rect r) =>

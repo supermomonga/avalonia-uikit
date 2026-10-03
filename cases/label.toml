@@ -1,0 +1,42 @@
+# GPUI Kit Label -> TextBlock.label / SelectableTextBlock.label / Label.
+# The GPUI builder ignores `control`; the Avalonia adapter uses it.
+component = "label"
+viewport = [280, 52]
+anchor = [16, 12]
+
+[[group]]
+name = "size"
+params = { text = "Account details" }
+matrix = { text_size = ["xs", "sm", "base", "lg", "xl", "2xl"] }
+
+[[group]]
+name = "secondary"
+params = { text = "Company address", secondary = "(optional)" }
+matrix = { text_size = ["sm", "base"] }
+
+[[group]]
+name = "weight"
+params = { text = "Workspace owner", secondary = "Administrator" }
+matrix = { weight = ["medium", "semibold", "bold"] }
+
+[[group]]
+name = "align"
+params = { text = "Text align", width = 240 }
+matrix = { align = ["left", "center", "right"] }
+
+# Wraps at 200px; "relaxed" = line_height(rems(1.8)) = 28.8px.
+[[group]]
+name = "wrap"
+params = { text = "Label should support text wrap in default, if the text is too long, it should wrap to the next line.", width = 200 }
+matrix = { leading = ["default", "relaxed"] }
+viewport = [240, 140]
+
+[[group]]
+name = "color"
+params = { text = "Verified" }
+matrix = { color = ["muted", "danger"] }
+
+[[group]]
+name = "control"
+params = { text = "Company address", secondary = "(optional)" }
+matrix = { control = ["label", "selectable"] }

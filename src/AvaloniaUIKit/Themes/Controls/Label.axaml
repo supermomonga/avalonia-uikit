@@ -1,0 +1,59 @@
+<!--
+  GPUI Kit Label (crates/component/src/label.rs) -> the label class on
+  TextBlock / SelectableTextBlock, and Avalonia's Label control:
+
+    <TextBlock Classes="label">Company address<Run Classes="secondary"> (optional)</Run></TextBlock>
+
+  The foreground color on a fixed 20px line (rems(1.25)) whatever the font
+  size, wrapping when the width is constrained; a Run with the secondary class
+  is muted. Sizes and weights are the app's (GPUI's Styled text_* and font_*).
+  TextBlock has no default theme here: one would retarget every TextBlock in
+  every template.
+-->
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:gpui="using:AvaloniaUIKit">
+  <Styles.Resources>
+    <ControlTheme x:Key="{x:Type Label}" TargetType="Label">
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+      <Setter Property="Padding" Value="0" />
+      <Setter Property="HorizontalContentAlignment" Value="Left" />
+      <Setter Property="TextBlock.LineHeight" Value="20" />
+      <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+      <Setter Property="Template">
+        <ControlTemplate>
+          <ContentPresenter Name="PART_ContentPresenter"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            Padding="{TemplateBinding Padding}"
+                            RecognizesAccessKey="True"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+        </ControlTemplate>
+      </Setter>
+    </ControlTheme>
+  </Styles.Resources>
+
+  <Style Selector=":is(TextBlock).label">
+    <!-- Text taller than its 20px line (xl and up) overflows centered, unclipped, as in GPUI. -->
+    <Setter Property="ClipToBounds" Value="False" />
+    <Setter Property="gpui:TextLines.CentersTallGlyphs" Value="True" />
+    <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+    <Setter Property="LineHeight" Value="20" />
+    <Setter Property="TextWrapping" Value="Wrap" />
+  </Style>
+  <Style Selector="Label TextBlock">
+    <Setter Property="ClipToBounds" Value="False" />
+    <Setter Property="gpui:TextLines.CentersTallGlyphs" Value="True" />
+  </Style>
+  <Style Selector="SelectableTextBlock.label">
+    <Setter Property="SelectionBrush" Value="{DynamicResource Gpui.Selection}" />
+  </Style>
+  <Style Selector=":is(TextBlock).label Run.secondary, Label Run.secondary">
+    <Setter Property="Foreground" Value="{DynamicResource Gpui.MutedForeground}" />
+  </Style>
+</Styles>
