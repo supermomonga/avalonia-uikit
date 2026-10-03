@@ -10,8 +10,11 @@ ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 OUT="$ROOT/sites/public/wasm"
 DOTNET="${DOTNET:-dotnet}"
 
+PUB_ROOT="$ROOT/samples/AvaloniaUIKit.Browser/bin/Release/net10.0-browser/publish"
+# publish does not clean its output: fingerprinted files of earlier builds would pile up.
+rm -rf "$PUB_ROOT"
 "$DOTNET" publish "$ROOT/samples/AvaloniaUIKit.Browser" -c Release -nologo
-PUB="$ROOT/samples/AvaloniaUIKit.Browser/bin/Release/net10.0-browser/publish/wwwroot/_framework"
+PUB="$PUB_ROOT/wwwroot/_framework"
 [ -d "$PUB" ] || { echo "publish output not found: $PUB" >&2; exit 1; }
 
 if command -v sha256sum >/dev/null; then SUM=sha256sum; else SUM="shasum -a 256"; fi

@@ -106,7 +106,7 @@ internal static class Program
         };
         Prepare(window);
         window.Show();
-        Tick();
+        Settle();
         // Lock the window to the content's laid-out size, in case the platform did not follow SizeToContent.
         var width = Math.Max(1, Math.Ceiling(root.Bounds.Width));
         var height = Math.Max(1, Math.Ceiling(root.Bounds.Height));
@@ -132,7 +132,7 @@ internal static class Program
         };
         Prepare(window, scale);
         window.Show();
-        Tick();
+        Settle();
         Capture(window, path);
         window.Close();
     }
@@ -145,18 +145,23 @@ internal static class Program
     }
 
     /// <summary>
-    /// Runs layout, timers and frames for about 600 ms of real time, so the
-    /// transitions that start on load (a notification card's entrance, a
-    /// sheet sliding in, a spring settling) have finished before the capture.
+    /// Runs layout, timers and frames for about half a second of real time,
+    /// so the transitions that start on load (a notification card's entrance,
+    /// a sheet sliding in, a spring settling) have finished before the capture.
     /// </summary>
+    private static void Settle()
+    {
+        for (var i = 0; i < 6; i++)
+        {
+            Tick();
+            Thread.Sleep(80);
+        }
+        Tick();
+    }
+
+    /// <summary>Runs what is due now (layout, timers, jobs) and renders a frame.</summary>
     private static void Tick()
     {
-        for (var i = 0; i < 7; i++)
-        {
-            AvaloniaHeadlessPlatform.ForceRenderTimerTick();
-            Dispatcher.UIThread.RunJobs();
-            Thread.Sleep(100);
-        }
         AvaloniaHeadlessPlatform.ForceRenderTimerTick();
         Dispatcher.UIThread.RunJobs();
     }
