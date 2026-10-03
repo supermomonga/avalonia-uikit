@@ -11,5 +11,5 @@
 
 If you wish to examine the implementation of related libraries or frameworks, please refer directly to the source code cloned to the path below. Please note that access is strictly read-only, and any modifications are prohibited.
 
-- pgui-kit ... `../longbridge/gpui-kit`
-- Avalonia ... `../AvaloniaUI/Avalonia`
+- pgui-kit ... `~/ghq/github.com/longbridge/gpui-kit`
+- Avalonia ... `~/ghq/github.com/AvaloniaUI/Avalonia`
