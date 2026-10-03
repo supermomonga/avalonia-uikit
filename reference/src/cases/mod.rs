@@ -21,6 +21,7 @@ mod number;
 mod pagination;
 pub mod popover;
 mod progress;
+mod resizable;
 mod icon;
 mod input;
 mod label;
@@ -74,6 +75,7 @@ pub fn builder(case: &Case) -> Result<Builder> {
         "popover" => popover::popover(&params),
         "accordion" => accordion::builder(&params),
         "notification" => notification::notification(&params),
+        "resizable" => resizable::builder(&params),
         "collapsible" => accordion::collapsible(&params),
         "slider" => slider::builder(&params),
         other => bail!("unknown component {other}"),

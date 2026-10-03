@@ -59,6 +59,7 @@ public static class Adapters
         "popover" => Popover(c),
         "accordion" => Accordion(c),
         "notification" => NotificationArea(c),
+        "resizable" => Resizable(c),
         "collapsible" => Collapsible(c),
         "slider" => Slider(c),
         _ => throw new NotSupportedException($"no adapter for {c.Component}"),
@@ -657,6 +658,32 @@ public static class Adapters
         }
         FlagClass(slider, c, "reverse");
         return slider;
+    }
+
+    // Two empty panels in a Grid with a 1px definition for the splitter between them;
+    // GPUI's PANEL_MIN_SIZE as the definitions' minimum.
+    private static Grid Resizable(GoldenCase c)
+    {
+        var vertical = c.Bool("vertical");
+        var first = c.Num("first", 120);
+        var grid = new Grid { Width = c.Num("width", 320), Height = c.Num("height", 120) };
+        var splitter = new GridSplitter { ResizeDirection = vertical ? GridResizeDirection.Rows : GridResizeDirection.Columns };
+        if (vertical)
+        {
+            grid.RowDefinitions.Add(new RowDefinition(first, GridUnitType.Pixel) { MinHeight = 100 });
+            grid.RowDefinitions.Add(new RowDefinition(1, GridUnitType.Pixel));
+            grid.RowDefinitions.Add(new RowDefinition(1, GridUnitType.Star) { MinHeight = 100 });
+            Grid.SetRow(splitter, 1);
+        }
+        else
+        {
+            grid.ColumnDefinitions.Add(new ColumnDefinition(first, GridUnitType.Pixel) { MinWidth = 100 });
+            grid.ColumnDefinitions.Add(new ColumnDefinition(1, GridUnitType.Pixel));
+            grid.ColumnDefinitions.Add(new ColumnDefinition(1, GridUnitType.Star) { MinWidth = 100 });
+            Grid.SetColumn(splitter, 1);
+        }
+        grid.Children.Add(splitter);
+        return grid;
     }
 
     private static Avalonia.Controls.Notifications.WindowNotificationManager NotificationArea(GoldenCase c)

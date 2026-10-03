@@ -1,0 +1,78 @@
+# GPUI Kit Resizable (h_resizable / v_resizable) -> GridSplitter in a Grid.
+# Columns: a 320x120 group at (16, 8) whose first panel is 120px, so the hairline
+# is x=136..137 and the 9px band x=132..141. Pointers stay off the band edges.
+# A drag is two moves with the button held: GPUI starts dragging on the first
+# (past its 2px threshold) and resizes on the second.
+component = "resizable"
+viewport = [352, 136]
+anchor = [16, 8]
+
+[[group]]
+name = "columns"
+params = { width = 320, height = 120, first = 120 }
+states = [
+  "normal",
+  "at-136-68+wait-200ms",
+  "at-139-68+wait-200ms",
+  "at-143-68+wait-200ms",
+  "pressed-at-136-68+wait-200ms",
+  "pressed-at-136-68+drag-at-136-68+wait-200ms",
+  "pressed-at-136-68+drag-at-146-68+drag-at-176-68+wait-200ms",
+  "pressed-at-136-68+drag-at-146-68+drag-at-176-68+release+wait-200ms",
+]
+
+# Rows: a 320x240 group; first panel 110px, hairline y=118..119, band y=114..123.
+[[group]]
+name = "rows"
+viewport = [352, 256]
+params = { vertical = true, width = 320, height = 240, first = 110 }
+states = [
+  "normal",
+  "at-176-118+wait-200ms",
+  "at-176-125+wait-200ms",
+  "pressed-at-176-118+wait-200ms",
+  "pressed-at-176-118+drag-at-176-118+wait-200ms",
+  "pressed-at-176-118+drag-at-176-128+drag-at-176-138+wait-200ms",
+  "pressed-at-176-118+drag-at-176-128+drag-at-176-138+release+wait-200ms",
+]
+
+# The pill grows and fades in over 120ms (easing_move), and back out.
+[[motion]]
+name = "hover"
+params = { width = 320, height = 120, first = 120 }
+from = "at-60-68"
+trigger = "at-136-68"
+samples_ms = [0, 16, 33, 50, 66, 83, 100, 120, 140]
+themes = ["light"]
+
+[[motion]]
+name = "leave"
+params = { width = 320, height = 120, first = 120 }
+from = "at-136-68+wait-200ms"
+trigger = "at-60-68"
+samples_ms = [0, 16, 33, 50, 66, 83, 100, 120, 140]
+themes = ["light"]
+
+[[motion]]
+name = "press"
+params = { width = 320, height = 120, first = 120 }
+from = "at-136-68+wait-200ms"
+trigger = "pressed-at-136-68"
+samples_ms = [0, 16, 33, 50, 66, 83, 100, 120, 140]
+themes = ["light"]
+
+[[motion]]
+name = "drag"
+params = { width = 320, height = 120, first = 120 }
+from = "pressed-at-136-68+wait-200ms"
+trigger = "drag-at-136-68"
+samples_ms = [0, 16, 33, 50, 66, 83, 100, 120, 140]
+themes = ["light"]
+
+[[motion]]
+name = "release"
+params = { width = 320, height = 120, first = 120 }
+from = "pressed-at-136-68+drag-at-146-68+drag-at-176-68+wait-200ms"
+trigger = "release"
+samples_ms = [0, 16, 33, 50, 66, 83, 100, 120, 140]
+themes = ["light"]

@@ -1,0 +1,120 @@
+<!--
+  GPUI Kit Resizable's handle (crates/component/src/resizable.rs) -> GridSplitter:
+
+    <Grid ColumnDefinitions="120,1,*">
+      <GridSplitter Grid.Column="1" ResizeDirection="Columns" />
+    </Grid>
+
+  A 1px hairline in the border color, in a 9px band that takes the pointer and
+  overlaps both panels. A muted pill (3px thick, rounded) grows along it and
+  fades in with the handle's state: hovered 20px at 35%, pressed 28px at 60%,
+  dragging 44px at 90%, over 120ms (easing_move). Set ResizeDirection to Columns
+  or Rows: the theme keys the orientation on it. In a 1px definition between the
+  panels the band and hairline land where GPUI's do; for GPUI's exact layout put
+  the splitter at the start of the second panel's cell (ResizeBehavior
+  PreviousAndCurrent). Avalonia's keyboard focus shows the hovered pill.
+-->
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:gpui="using:AvaloniaUIKit"
+                    xmlns:gconv="using:AvaloniaUIKit.Converters">
+  <!-- resizable.rs: the pill is drawn only while it is longer than half a pixel. -->
+  <gconv:AboveConverter x:Key="Gpui.Splitter.PillShown" Threshold="0.5" />
+  <ControlTheme x:Key="{x:Type GridSplitter}" TargetType="GridSplitter">
+    <!-- The whole band takes the pointer, over both neighbours. -->
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="MinWidth" Value="0" />
+    <Setter Property="MinHeight" Value="0" />
+    <Setter Property="ZIndex" Value="1" />
+    <Setter Property="ClipToBounds" Value="False" />
+    <Setter Property="gpui:Splitters.TracksDrag" Value="True" />
+    <Setter Property="PreviewContent">
+      <Template>
+        <Border Background="{DynamicResource Gpui.Border}" />
+      </Template>
+    </Setter>
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Panel Background="{TemplateBinding Background}">
+          <Border Name="PART_Line" Background="{DynamicResource Gpui.Border}" />
+          <Border Name="PART_Pill" Background="{DynamicResource Gpui.MutedForeground}"
+                  CornerRadius="1.5" Opacity="0" IsHitTestVisible="False">
+            <Border.IsVisible>
+              <MultiBinding Converter="{StaticResource Gpui.Splitter.PillShown}">
+                <Binding RelativeSource="{RelativeSource Self}" Path="Width" />
+                <Binding RelativeSource="{RelativeSource Self}" Path="Height" />
+              </MultiBinding>
+            </Border.IsVisible>
+            <Border.Transitions>
+              <Transitions>
+                <DoubleTransition Property="Height" Duration="0:0:0.12" Easing="0.2,0,0,1" />
+                <DoubleTransition Property="Width" Duration="0:0:0.12" Easing="0.2,0,0,1" />
+                <DoubleTransition Property="Opacity" Duration="0:0:0.12" Easing="0.2,0,0,1" />
+              </Transitions>
+            </Border.Transitions>
+          </Border>
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+
+    <!-- Columns: the hairline runs down the middle of the band. -->
+    <Style Selector="^[ResizeDirection=Columns]">
+      <Setter Property="Width" Value="9" />
+      <Setter Property="Margin" Value="-4,0" />
+    </Style>
+    <Style Selector="^[ResizeDirection=Columns] /template/ Border#PART_Line">
+      <Setter Property="Width" Value="1" />
+      <Setter Property="HorizontalAlignment" Value="Center" />
+    </Style>
+    <Style Selector="^[ResizeDirection=Columns] /template/ Border#PART_Pill">
+      <Setter Property="Width" Value="3" />
+      <Setter Property="Height" Value="0" />
+      <Setter Property="HorizontalAlignment" Value="Center" />
+      <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+    <!-- Rows: across the middle. -->
+    <Style Selector="^[ResizeDirection=Rows]">
+      <Setter Property="Height" Value="9" />
+      <Setter Property="Margin" Value="0,-4" />
+    </Style>
+    <Style Selector="^[ResizeDirection=Rows] /template/ Border#PART_Line">
+      <Setter Property="Height" Value="1" />
+      <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+    <Style Selector="^[ResizeDirection=Rows] /template/ Border#PART_Pill">
+      <Setter Property="Height" Value="3" />
+      <Setter Property="Width" Value="0" />
+      <Setter Property="HorizontalAlignment" Value="Center" />
+      <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+
+    <!-- The handle's states; later wins. -->
+    <Style Selector="^:pointerover /template/ Border#PART_Pill, ^:focus-visible /template/ Border#PART_Pill">
+      <Setter Property="Opacity" Value="0.35" />
+    </Style>
+    <Style Selector="^[ResizeDirection=Columns]:pointerover /template/ Border#PART_Pill, ^[ResizeDirection=Columns]:focus-visible /template/ Border#PART_Pill">
+      <Setter Property="Height" Value="20" />
+    </Style>
+    <Style Selector="^[ResizeDirection=Rows]:pointerover /template/ Border#PART_Pill, ^[ResizeDirection=Rows]:focus-visible /template/ Border#PART_Pill">
+      <Setter Property="Width" Value="20" />
+    </Style>
+    <Style Selector="^:pressed /template/ Border#PART_Pill">
+      <Setter Property="Opacity" Value="0.6" />
+    </Style>
+    <Style Selector="^[ResizeDirection=Columns]:pressed /template/ Border#PART_Pill">
+      <Setter Property="Height" Value="28" />
+    </Style>
+    <Style Selector="^[ResizeDirection=Rows]:pressed /template/ Border#PART_Pill">
+      <Setter Property="Width" Value="28" />
+    </Style>
+    <Style Selector="^[(gpui|Splitters.IsDragging)=True] /template/ Border#PART_Pill">
+      <Setter Property="Opacity" Value="0.9" />
+    </Style>
+    <Style Selector="^[ResizeDirection=Columns][(gpui|Splitters.IsDragging)=True] /template/ Border#PART_Pill">
+      <Setter Property="Height" Value="44" />
+    </Style>
+    <Style Selector="^[ResizeDirection=Rows][(gpui|Splitters.IsDragging)=True] /template/ Border#PART_Pill">
+      <Setter Property="Width" Value="44" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

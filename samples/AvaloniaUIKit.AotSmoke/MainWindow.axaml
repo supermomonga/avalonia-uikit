@@ -103,6 +103,13 @@
           <TextBlock Text="Details" Margin="0,8,0,0" />
         </Expander>
 
+        <TextBlock Text="Resizable" Foreground="{DynamicResource Gpui.MutedForeground}" />
+        <Grid ColumnDefinitions="120,1,*" Width="320" Height="80" HorizontalAlignment="Left">
+          <TextBlock Text="One" Margin="8" />
+          <GridSplitter Grid.Column="1" ResizeDirection="Columns" />
+          <TextBlock Grid.Column="2" Text="Two" Margin="8" />
+        </Grid>
+
         <TextBlock Text="Popover" Foreground="{DynamicResource Gpui.MutedForeground}" />
         <Button Classes="outline" Content="Open" HorizontalAlignment="Left">
           <Button.Flyout>
