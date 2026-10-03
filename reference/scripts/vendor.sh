@@ -34,7 +34,8 @@ fi
 tar -xzf "$crate" -C "$VENDOR/gpui-pre" --strip-components=1
 rm "$crate"
 
-# The patches only replace wall-clock reads with the test executor's clock.
+# The patches only replace wall-clock reads with the test executor's clock
+# (and the calendar's "today" with a date the case pins).
 for patch in "$HERE"/patches/*.patch; do
   target="$VENDOR/$(basename "$patch" | cut -d'+' -f1)"
   patch --quiet --forward --strip=1 --directory="$target" < "$patch"
@@ -49,6 +50,11 @@ fi
 remaining="$(grep -c 'Instant::now()' "$VENDOR/gpui-kit/crates/base/src/scrollbar.rs" || true)"
 if [ "$remaining" != "0" ]; then
   echo "gpui-base scrollbar.rs still reads the wall clock ($remaining sites)" >&2
+  exit 1
+fi
+remaining="$(grep -c 'Local::now()' "$VENDOR/gpui-kit/crates/base/src/calendar.rs" || true)"
+if [ "$remaining" != "0" ]; then
+  echo "gpui-base calendar.rs still reads today from the wall clock ($remaining sites)" >&2
   exit 1
 fi
 echo "vendor ready: gpui-kit $GPUI_KIT_REV, gpui-pre $GPUI_PRE_VERSION"

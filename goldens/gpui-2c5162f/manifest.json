@@ -24958,6 +24958,1482 @@
       "png_sha256": "8b1a9f2bc83340b36a356b99122673c7bd78a53a7cac96c363b6910e3fd9f1ac"
     },
     {
+      "id": "calendar/blackout.base/at-109-207/dark",
+      "component": "calendar",
+      "group": "blackout",
+      "params": {
+        "date": "2025-03-14",
+        "blackout_from": "2025-03-17",
+        "blackout_to": "2025-03-21"
+      },
+      "state": "at-109-207",
+      "theme": "dark",
+      "viewport": [
+        340.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        248.0,
+        284.0
+      ],
+      "png": "png/calendar/blackout.base/at-109-207/dark.png",
+      "scene": "scenes/calendar/blackout.base/at-109-207/dark.json",
+      "png_sha256": "0690028c6148439de461e1893945445cc762a597f754f1055c6dcf2395a6f01f"
+    },
+    {
+      "id": "calendar/blackout.base/at-109-207/light",
+      "component": "calendar",
+      "group": "blackout",
+      "params": {
+        "date": "2025-03-14",
+        "blackout_from": "2025-03-17",
+        "blackout_to": "2025-03-21"
+      },
+      "state": "at-109-207",
+      "theme": "light",
+      "viewport": [
+        340.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        248.0,
+        284.0
+      ],
+      "png": "png/calendar/blackout.base/at-109-207/light.png",
+      "scene": "scenes/calendar/blackout.base/at-109-207/light.json",
+      "png_sha256": "ad22dce7429161bf46fdae673e80a8efc07cdc4b87f31640a5d48aa12654b560"
+    },
+    {
+      "id": "calendar/blackout.base/normal/dark",
+      "component": "calendar",
+      "group": "blackout",
+      "params": {
+        "date": "2025-03-14",
+        "blackout_from": "2025-03-17",
+        "blackout_to": "2025-03-21"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        340.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        248.0,
+        284.0
+      ],
+      "png": "png/calendar/blackout.base/normal/dark.png",
+      "scene": "scenes/calendar/blackout.base/normal/dark.json",
+      "png_sha256": "0690028c6148439de461e1893945445cc762a597f754f1055c6dcf2395a6f01f"
+    },
+    {
+      "id": "calendar/blackout.base/normal/light",
+      "component": "calendar",
+      "group": "blackout",
+      "params": {
+        "date": "2025-03-14",
+        "blackout_from": "2025-03-17",
+        "blackout_to": "2025-03-21"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        340.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        248.0,
+        284.0
+      ],
+      "png": "png/calendar/blackout.base/normal/light.png",
+      "scene": "scenes/calendar/blackout.base/normal/light.json",
+      "png_sha256": "ad22dce7429161bf46fdae673e80a8efc07cdc4b87f31640a5d48aa12654b560"
+    },
+    {
+      "id": "calendar/day.large/normal/dark",
+      "component": "calendar",
+      "group": "day",
+      "params": {
+        "date": "2025-03-14",
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        340.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        304.0,
+        348.0
+      ],
+      "png": "png/calendar/day.large/normal/dark.png",
+      "scene": "scenes/calendar/day.large/normal/dark.json",
+      "png_sha256": "9fb4bf65cd773d7907b75bb03dcc6cd33e13f2f1f331083530c89ffb589c103a"
+    },
+    {
+      "id": "calendar/day.large/normal/light",
+      "component": "calendar",
+      "group": "day",
+      "params": {
+        "date": "2025-03-14",
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        340.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        304.0,
+        348.0
+      ],
+      "png": "png/calendar/day.large/normal/light.png",
+      "scene": "scenes/calendar/day.large/normal/light.json",
+      "png_sha256": "1aa0fc210e305e398e70f86b2c76564b57a5a13f45bbdb69c486d6d9ccd43aba"
+    },
+    {
+      "id": "calendar/day.medium/normal/dark",
+      "component": "calendar",
+      "group": "day",
+      "params": {
+        "date": "2025-03-14",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        340.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        248.0,
+        284.0
+      ],
+      "png": "png/calendar/day.medium/normal/dark.png",
+      "scene": "scenes/calendar/day.medium/normal/dark.json",
+      "png_sha256": "a2b3008db70fcdf9ca5069cedb332e329fe0a0ed022ca64b0fe20ee55bc9aad1"
+    },
+    {
+      "id": "calendar/day.medium/normal/light",
+      "component": "calendar",
+      "group": "day",
+      "params": {
+        "date": "2025-03-14",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        340.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        248.0,
+        284.0
+      ],
+      "png": "png/calendar/day.medium/normal/light.png",
+      "scene": "scenes/calendar/day.medium/normal/light.json",
+      "png_sha256": "b5c745dc228829895cd5cce5aa7945d542d3870d71351b6321eeafcf29a67a83"
+    },
+    {
+      "id": "calendar/day.small/normal/dark",
+      "component": "calendar",
+      "group": "day",
+      "params": {
+        "date": "2025-03-14",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        340.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        220.0,
+        252.0
+      ],
+      "png": "png/calendar/day.small/normal/dark.png",
+      "scene": "scenes/calendar/day.small/normal/dark.json",
+      "png_sha256": "805ad7f34b2a0aa83c6838965ae923828bbd58436c2ce27277f7254a2d0f4d09"
+    },
+    {
+      "id": "calendar/day.small/normal/light",
+      "component": "calendar",
+      "group": "day",
+      "params": {
+        "date": "2025-03-14",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        340.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        220.0,
+        252.0
+      ],
+      "png": "png/calendar/day.small/normal/light.png",
+      "scene": "scenes/calendar/day.small/normal/light.json",
+      "png_sha256": "0e9fae4f816ca32d5f77963601a1bfd281b3ef426757e6d7bdee660f8a629fd7"
+    },
+    {
+      "id": "calendar/monday.base/normal/dark",
+      "component": "calendar",
+      "group": "monday",
+      "params": {
+        "date": "2025-03-14",
+        "first_day": "mon"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        340.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        248.0,
+        284.0
+      ],
+      "png": "png/calendar/monday.base/normal/dark.png",
+      "scene": "scenes/calendar/monday.base/normal/dark.json",
+      "png_sha256": "ff10b95b98d7e172887af630243557c1a925d6eeed0365de1d4b024663088250"
+    },
+    {
+      "id": "calendar/monday.base/normal/light",
+      "component": "calendar",
+      "group": "monday",
+      "params": {
+        "date": "2025-03-14",
+        "first_day": "mon"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        340.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        248.0,
+        284.0
+      ],
+      "png": "png/calendar/monday.base/normal/light.png",
+      "scene": "scenes/calendar/monday.base/normal/light.json",
+      "png_sha256": "c61ce7152e2fbac2d20233dad9c653daace462e28b8ab5c5a87271d15f9cfccd"
+    },
+    {
+      "id": "calendar/months.large/at-140-83/dark",
+      "component": "calendar",
+      "group": "months",
+      "params": {
+        "date": "2025-03-14",
+        "view": "month",
+        "size": "large"
+      },
+      "state": "at-140-83",
+      "theme": "dark",
+      "viewport": [
+        340.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        304.0,
+        260.0
+      ],
+      "png": "png/calendar/months.large/at-140-83/dark.png",
+      "scene": "scenes/calendar/months.large/at-140-83/dark.json",
+      "png_sha256": "401a0042dbb03bd8fbfefd0f00df41801757ab62f0b463342c1cd8722b327c52"
+    },
+    {
+      "id": "calendar/months.large/at-140-83/light",
+      "component": "calendar",
+      "group": "months",
+      "params": {
+        "date": "2025-03-14",
+        "view": "month",
+        "size": "large"
+      },
+      "state": "at-140-83",
+      "theme": "light",
+      "viewport": [
+        340.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        304.0,
+        260.0
+      ],
+      "png": "png/calendar/months.large/at-140-83/light.png",
+      "scene": "scenes/calendar/months.large/at-140-83/light.json",
+      "png_sha256": "1b3cb9bc3aa81aa454e9a4369fbfb2283781c91f61c50526b9291fe90f83aabb"
+    },
+    {
+      "id": "calendar/months.large/normal/dark",
+      "component": "calendar",
+      "group": "months",
+      "params": {
+        "date": "2025-03-14",
+        "view": "month",
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        340.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        304.0,
+        260.0
+      ],
+      "png": "png/calendar/months.large/normal/dark.png",
+      "scene": "scenes/calendar/months.large/normal/dark.json",
+      "png_sha256": "5255ace06e57d72181cb296bfcfb961142870f49664c0ec6172670f6046c7378"
+    },
+    {
+      "id": "calendar/months.large/normal/light",
+      "component": "calendar",
+      "group": "months",
+      "params": {
+        "date": "2025-03-14",
+        "view": "month",
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        340.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        304.0,
+        260.0
+      ],
+      "png": "png/calendar/months.large/normal/light.png",
+      "scene": "scenes/calendar/months.large/normal/light.json",
+      "png_sha256": "6037b7c7c81d44c6e3662b1b5333836692872df74c4e3f7717f5b05d3e342f59"
+    },
+    {
+      "id": "calendar/months.medium/at-140-83/dark",
+      "component": "calendar",
+      "group": "months",
+      "params": {
+        "date": "2025-03-14",
+        "view": "month",
+        "size": "medium"
+      },
+      "state": "at-140-83",
+      "theme": "dark",
+      "viewport": [
+        340.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        248.0,
+        220.0
+      ],
+      "png": "png/calendar/months.medium/at-140-83/dark.png",
+      "scene": "scenes/calendar/months.medium/at-140-83/dark.json",
+      "png_sha256": "6ef187274f61fd6bb1fcf06c94db48355ba31d82150be1ce70a799ca358b6a2b"
+    },
+    {
+      "id": "calendar/months.medium/at-140-83/light",
+      "component": "calendar",
+      "group": "months",
+      "params": {
+        "date": "2025-03-14",
+        "view": "month",
+        "size": "medium"
+      },
+      "state": "at-140-83",
+      "theme": "light",
+      "viewport": [
+        340.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        248.0,
+        220.0
+      ],
+      "png": "png/calendar/months.medium/at-140-83/light.png",
+      "scene": "scenes/calendar/months.medium/at-140-83/light.json",
+      "png_sha256": "434e99be04cd43e40551e19ec0a01d0a096219eb832b31e45e4712336e3faee1"
+    },
+    {
+      "id": "calendar/months.medium/normal/dark",
+      "component": "calendar",
+      "group": "months",
+      "params": {
+        "date": "2025-03-14",
+        "view": "month",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        340.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        248.0,
+        220.0
+      ],
+      "png": "png/calendar/months.medium/normal/dark.png",
+      "scene": "scenes/calendar/months.medium/normal/dark.json",
+      "png_sha256": "3d0570570ec875ad06b62f705ab48c99895440e435dba0dabe7914d141c8e048"
+    },
+    {
+      "id": "calendar/months.medium/normal/light",
+      "component": "calendar",
+      "group": "months",
+      "params": {
+        "date": "2025-03-14",
+        "view": "month",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        340.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        248.0,
+        220.0
+      ],
+      "png": "png/calendar/months.medium/normal/light.png",
+      "scene": "scenes/calendar/months.medium/normal/light.json",
+      "png_sha256": "d6495f365b807fc65ea9ac5ce55b3ff6b528529ac516f8bb4778f9e9146d478c"
+    },
+    {
+      "id": "calendar/months.small/at-140-83/dark",
+      "component": "calendar",
+      "group": "months",
+      "params": {
+        "date": "2025-03-14",
+        "view": "month",
+        "size": "small"
+      },
+      "state": "at-140-83",
+      "theme": "dark",
+      "viewport": [
+        340.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        220.0,
+        200.0
+      ],
+      "png": "png/calendar/months.small/at-140-83/dark.png",
+      "scene": "scenes/calendar/months.small/at-140-83/dark.json",
+      "png_sha256": "cc67f4dcb490535466f444fe320646ecefecb6848b70e63be04ea4be941cd73b"
+    },
+    {
+      "id": "calendar/months.small/at-140-83/light",
+      "component": "calendar",
+      "group": "months",
+      "params": {
+        "date": "2025-03-14",
+        "view": "month",
+        "size": "small"
+      },
+      "state": "at-140-83",
+      "theme": "light",
+      "viewport": [
+        340.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        220.0,
+        200.0
+      ],
+      "png": "png/calendar/months.small/at-140-83/light.png",
+      "scene": "scenes/calendar/months.small/at-140-83/light.json",
+      "png_sha256": "8e9446d7abb03f494d11a08c4adb7f1edcf769b9e6d9355466caf445e3196ae5"
+    },
+    {
+      "id": "calendar/months.small/normal/dark",
+      "component": "calendar",
+      "group": "months",
+      "params": {
+        "date": "2025-03-14",
+        "view": "month",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        340.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        220.0,
+        200.0
+      ],
+      "png": "png/calendar/months.small/normal/dark.png",
+      "scene": "scenes/calendar/months.small/normal/dark.json",
+      "png_sha256": "3f9caa8cfb31617bb7086626696aa3bb7efcf96abc388225cfbcd2f768f022d0"
+    },
+    {
+      "id": "calendar/months.small/normal/light",
+      "component": "calendar",
+      "group": "months",
+      "params": {
+        "date": "2025-03-14",
+        "view": "month",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        340.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        220.0,
+        200.0
+      ],
+      "png": "png/calendar/months.small/normal/light.png",
+      "scene": "scenes/calendar/months.small/normal/light.json",
+      "png_sha256": "801050d5e40fc7925ddeb7f7cc5d17be67fded5c25a2f991e5dd03daf840cf6a"
+    },
+    {
+      "id": "calendar/pointer.base/at-106-45/dark",
+      "component": "calendar",
+      "group": "pointer",
+      "params": {
+        "date": "2025-03-14",
+        "today": "2025-03-10"
+      },
+      "state": "at-106-45",
+      "theme": "dark",
+      "viewport": [
+        340.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        248.0,
+        284.0
+      ],
+      "png": "png/calendar/pointer.base/at-106-45/dark.png",
+      "scene": "scenes/calendar/pointer.base/at-106-45/dark.json",
+      "png_sha256": "d980174d3c77213cf0a97c4b590350bb26e26181cdbcbd33818be89a3b285f3e"
+    },
+    {
+      "id": "calendar/pointer.base/at-106-45/light",
+      "component": "calendar",
+      "group": "pointer",
+      "params": {
+        "date": "2025-03-14",
+        "today": "2025-03-10"
+      },
+      "state": "at-106-45",
+      "theme": "light",
+      "viewport": [
+        340.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        248.0,
+        284.0
+      ],
+      "png": "png/calendar/pointer.base/at-106-45/light.png",
+      "scene": "scenes/calendar/pointer.base/at-106-45/light.json",
+      "png_sha256": "8a27afdb0db079abcd740ee106907a67599e52f08abc93c1455747ffa38d3f33"
+    },
+    {
+      "id": "calendar/pointer.base/at-109-143/dark",
+      "component": "calendar",
+      "group": "pointer",
+      "params": {
+        "date": "2025-03-14",
+        "today": "2025-03-10"
+      },
+      "state": "at-109-143",
+      "theme": "dark",
+      "viewport": [
+        340.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        248.0,
+        284.0
+      ],
+      "png": "png/calendar/pointer.base/at-109-143/dark.png",
+      "scene": "scenes/calendar/pointer.base/at-109-143/dark.json",
+      "png_sha256": "404e3f4d18f2fcea56f62ce6328d1cd6888abd3f26273453912a12bcd851aea0"
+    },
+    {
+      "id": "calendar/pointer.base/at-109-143/light",
+      "component": "calendar",
+      "group": "pointer",
+      "params": {
+        "date": "2025-03-14",
+        "today": "2025-03-10"
+      },
+      "state": "at-109-143",
+      "theme": "light",
+      "viewport": [
+        340.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        248.0,
+        284.0
+      ],
+      "png": "png/calendar/pointer.base/at-109-143/light.png",
+      "scene": "scenes/calendar/pointer.base/at-109-143/light.json",
+      "png_sha256": "433ab4b40528f3f49d920860920e51f7155070dd06cdf752002d1923dfea48c8"
+    },
+    {
+      "id": "calendar/pointer.base/at-177-45/dark",
+      "component": "calendar",
+      "group": "pointer",
+      "params": {
+        "date": "2025-03-14",
+        "today": "2025-03-10"
+      },
+      "state": "at-177-45",
+      "theme": "dark",
+      "viewport": [
+        340.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        248.0,
+        284.0
+      ],
+      "png": "png/calendar/pointer.base/at-177-45/dark.png",
+      "scene": "scenes/calendar/pointer.base/at-177-45/dark.json",
+      "png_sha256": "7e996d3f40165187ceb8ac61e9736109748e02eeb1475c6fc2d0d0a4ef4f6d56"
+    },
+    {
+      "id": "calendar/pointer.base/at-177-45/light",
+      "component": "calendar",
+      "group": "pointer",
+      "params": {
+        "date": "2025-03-14",
+        "today": "2025-03-10"
+      },
+      "state": "at-177-45",
+      "theme": "light",
+      "viewport": [
+        340.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        248.0,
+        284.0
+      ],
+      "png": "png/calendar/pointer.base/at-177-45/light.png",
+      "scene": "scenes/calendar/pointer.base/at-177-45/light.json",
+      "png_sha256": "1de806bdbda7d69fe853f1748bc91602a6e3d76b341ac4029d08ce882dc67db9"
+    },
+    {
+      "id": "calendar/pointer.base/at-205-175/dark",
+      "component": "calendar",
+      "group": "pointer",
+      "params": {
+        "date": "2025-03-14",
+        "today": "2025-03-10"
+      },
+      "state": "at-205-175",
+      "theme": "dark",
+      "viewport": [
+        340.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        248.0,
+        284.0
+      ],
+      "png": "png/calendar/pointer.base/at-205-175/dark.png",
+      "scene": "scenes/calendar/pointer.base/at-205-175/dark.json",
+      "png_sha256": "c3b0c8a888287894b574fea7437538152996736b1bc3beb5a751b1b22597c3fd"
+    },
+    {
+      "id": "calendar/pointer.base/at-205-175/light",
+      "component": "calendar",
+      "group": "pointer",
+      "params": {
+        "date": "2025-03-14",
+        "today": "2025-03-10"
+      },
+      "state": "at-205-175",
+      "theme": "light",
+      "viewport": [
+        340.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        248.0,
+        284.0
+      ],
+      "png": "png/calendar/pointer.base/at-205-175/light.png",
+      "scene": "scenes/calendar/pointer.base/at-205-175/light.json",
+      "png_sha256": "c0d7094e9aa2afcb5b0ba7de267ae968b0470d572a348116a68fc4e85b0fb457"
+    },
+    {
+      "id": "calendar/pointer.base/at-235-45/dark",
+      "component": "calendar",
+      "group": "pointer",
+      "params": {
+        "date": "2025-03-14",
+        "today": "2025-03-10"
+      },
+      "state": "at-235-45",
+      "theme": "dark",
+      "viewport": [
+        340.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        248.0,
+        284.0
+      ],
+      "png": "png/calendar/pointer.base/at-235-45/dark.png",
+      "scene": "scenes/calendar/pointer.base/at-235-45/dark.json",
+      "png_sha256": "d0f1aefc4d46fa9d00a38c4540d711c2e9872c54c213d43df3a6c3b43c22204d"
+    },
+    {
+      "id": "calendar/pointer.base/at-235-45/light",
+      "component": "calendar",
+      "group": "pointer",
+      "params": {
+        "date": "2025-03-14",
+        "today": "2025-03-10"
+      },
+      "state": "at-235-45",
+      "theme": "light",
+      "viewport": [
+        340.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        248.0,
+        284.0
+      ],
+      "png": "png/calendar/pointer.base/at-235-45/light.png",
+      "scene": "scenes/calendar/pointer.base/at-235-45/light.json",
+      "png_sha256": "cf39c7cd25132a0eaccb3053cb288b28fd318979aeee3ac8bf6844ccead2fdf2"
+    },
+    {
+      "id": "calendar/pointer.base/at-45-111/dark",
+      "component": "calendar",
+      "group": "pointer",
+      "params": {
+        "date": "2025-03-14",
+        "today": "2025-03-10"
+      },
+      "state": "at-45-111",
+      "theme": "dark",
+      "viewport": [
+        340.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        248.0,
+        284.0
+      ],
+      "png": "png/calendar/pointer.base/at-45-111/dark.png",
+      "scene": "scenes/calendar/pointer.base/at-45-111/dark.json",
+      "png_sha256": "7e6d5d00cb19d0928faca2abf363e320d9ee3aebbe8d10cd8734f104cd7fb9a8"
+    },
+    {
+      "id": "calendar/pointer.base/at-45-111/light",
+      "component": "calendar",
+      "group": "pointer",
+      "params": {
+        "date": "2025-03-14",
+        "today": "2025-03-10"
+      },
+      "state": "at-45-111",
+      "theme": "light",
+      "viewport": [
+        340.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        248.0,
+        284.0
+      ],
+      "png": "png/calendar/pointer.base/at-45-111/light.png",
+      "scene": "scenes/calendar/pointer.base/at-45-111/light.json",
+      "png_sha256": "c1ebc72d8251d265f27a267b431a57838d8edfe3d88f4038381c75e9e4007617"
+    },
+    {
+      "id": "calendar/pointer.base/at-45-45+pressed-at-45-45/dark",
+      "component": "calendar",
+      "group": "pointer",
+      "params": {
+        "date": "2025-03-14",
+        "today": "2025-03-10"
+      },
+      "state": "at-45-45+pressed-at-45-45",
+      "theme": "dark",
+      "viewport": [
+        340.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        248.0,
+        284.0
+      ],
+      "png": "png/calendar/pointer.base/at-45-45+pressed-at-45-45/dark.png",
+      "scene": "scenes/calendar/pointer.base/at-45-45+pressed-at-45-45/dark.json",
+      "png_sha256": "9f49362314905bb21bb6c9a0468ad5b4bad149b30e3dfcfdfade9ec970023dda"
+    },
+    {
+      "id": "calendar/pointer.base/at-45-45+pressed-at-45-45/light",
+      "component": "calendar",
+      "group": "pointer",
+      "params": {
+        "date": "2025-03-14",
+        "today": "2025-03-10"
+      },
+      "state": "at-45-45+pressed-at-45-45",
+      "theme": "light",
+      "viewport": [
+        340.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        248.0,
+        284.0
+      ],
+      "png": "png/calendar/pointer.base/at-45-45+pressed-at-45-45/light.png",
+      "scene": "scenes/calendar/pointer.base/at-45-45+pressed-at-45-45/light.json",
+      "png_sha256": "c767671fe7692f1547beff69d245835e7899ab2cee74fbe0ae63ff9f679267f8"
+    },
+    {
+      "id": "calendar/pointer.base/at-45-45/dark",
+      "component": "calendar",
+      "group": "pointer",
+      "params": {
+        "date": "2025-03-14",
+        "today": "2025-03-10"
+      },
+      "state": "at-45-45",
+      "theme": "dark",
+      "viewport": [
+        340.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        248.0,
+        284.0
+      ],
+      "png": "png/calendar/pointer.base/at-45-45/dark.png",
+      "scene": "scenes/calendar/pointer.base/at-45-45/dark.json",
+      "png_sha256": "9f49362314905bb21bb6c9a0468ad5b4bad149b30e3dfcfdfade9ec970023dda"
+    },
+    {
+      "id": "calendar/pointer.base/at-45-45/light",
+      "component": "calendar",
+      "group": "pointer",
+      "params": {
+        "date": "2025-03-14",
+        "today": "2025-03-10"
+      },
+      "state": "at-45-45",
+      "theme": "light",
+      "viewport": [
+        340.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        248.0,
+        284.0
+      ],
+      "png": "png/calendar/pointer.base/at-45-45/light.png",
+      "scene": "scenes/calendar/pointer.base/at-45-45/light.json",
+      "png_sha256": "c767671fe7692f1547beff69d245835e7899ab2cee74fbe0ae63ff9f679267f8"
+    },
+    {
+      "id": "calendar/pointer.base/at-77-175/dark",
+      "component": "calendar",
+      "group": "pointer",
+      "params": {
+        "date": "2025-03-14",
+        "today": "2025-03-10"
+      },
+      "state": "at-77-175",
+      "theme": "dark",
+      "viewport": [
+        340.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        248.0,
+        284.0
+      ],
+      "png": "png/calendar/pointer.base/at-77-175/dark.png",
+      "scene": "scenes/calendar/pointer.base/at-77-175/dark.json",
+      "png_sha256": "89113180b6ed1ba2fb84c933276eb8f97c311bc06fe7ff7045c13c0815af3d1b"
+    },
+    {
+      "id": "calendar/pointer.base/at-77-175/light",
+      "component": "calendar",
+      "group": "pointer",
+      "params": {
+        "date": "2025-03-14",
+        "today": "2025-03-10"
+      },
+      "state": "at-77-175",
+      "theme": "light",
+      "viewport": [
+        340.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        248.0,
+        284.0
+      ],
+      "png": "png/calendar/pointer.base/at-77-175/light.png",
+      "scene": "scenes/calendar/pointer.base/at-77-175/light.json",
+      "png_sha256": "96fcc9b96aebed76f6e109c69573a67ee762b59123fb0f445eecf713dbe4875e"
+    },
+    {
+      "id": "calendar/select.base/click-at-109-143/dark",
+      "component": "calendar",
+      "group": "select",
+      "params": {
+        "date": "2025-03-14"
+      },
+      "state": "click-at-109-143",
+      "theme": "dark",
+      "viewport": [
+        340.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        248.0,
+        284.0
+      ],
+      "png": "png/calendar/select.base/click-at-109-143/dark.png",
+      "scene": "scenes/calendar/select.base/click-at-109-143/dark.json",
+      "png_sha256": "539e5ba6bf06f11fe9cc3a93f08d50ef092654b630e455f14eaccf58b9140c32"
+    },
+    {
+      "id": "calendar/select.base/click-at-109-143/light",
+      "component": "calendar",
+      "group": "select",
+      "params": {
+        "date": "2025-03-14"
+      },
+      "state": "click-at-109-143",
+      "theme": "light",
+      "viewport": [
+        340.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        248.0,
+        284.0
+      ],
+      "png": "png/calendar/select.base/click-at-109-143/light.png",
+      "scene": "scenes/calendar/select.base/click-at-109-143/light.json",
+      "png_sha256": "79ecfbb48f5a8cb0dcf299bf226697705551b39a727cf7da48cef3bb47226393"
+    },
+    {
+      "id": "calendar/today.large/normal/dark",
+      "component": "calendar",
+      "group": "today",
+      "params": {
+        "date": "2025-03-14",
+        "today": "2025-03-10",
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        340.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        304.0,
+        348.0
+      ],
+      "png": "png/calendar/today.large/normal/dark.png",
+      "scene": "scenes/calendar/today.large/normal/dark.json",
+      "png_sha256": "c82d4d90c435d6e7a86c04823b11a0076b49b3b177b03f4c09aae84762a4356c"
+    },
+    {
+      "id": "calendar/today.large/normal/light",
+      "component": "calendar",
+      "group": "today",
+      "params": {
+        "date": "2025-03-14",
+        "today": "2025-03-10",
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        340.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        304.0,
+        348.0
+      ],
+      "png": "png/calendar/today.large/normal/light.png",
+      "scene": "scenes/calendar/today.large/normal/light.json",
+      "png_sha256": "4edeaec526ea457b43d3970942121ebb994416166592fd02937757d2cac635bd"
+    },
+    {
+      "id": "calendar/today.medium/normal/dark",
+      "component": "calendar",
+      "group": "today",
+      "params": {
+        "date": "2025-03-14",
+        "today": "2025-03-10",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        340.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        248.0,
+        284.0
+      ],
+      "png": "png/calendar/today.medium/normal/dark.png",
+      "scene": "scenes/calendar/today.medium/normal/dark.json",
+      "png_sha256": "c3b0c8a888287894b574fea7437538152996736b1bc3beb5a751b1b22597c3fd"
+    },
+    {
+      "id": "calendar/today.medium/normal/light",
+      "component": "calendar",
+      "group": "today",
+      "params": {
+        "date": "2025-03-14",
+        "today": "2025-03-10",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        340.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        248.0,
+        284.0
+      ],
+      "png": "png/calendar/today.medium/normal/light.png",
+      "scene": "scenes/calendar/today.medium/normal/light.json",
+      "png_sha256": "c0d7094e9aa2afcb5b0ba7de267ae968b0470d572a348116a68fc4e85b0fb457"
+    },
+    {
+      "id": "calendar/today.small/normal/dark",
+      "component": "calendar",
+      "group": "today",
+      "params": {
+        "date": "2025-03-14",
+        "today": "2025-03-10",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        340.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        220.0,
+        252.0
+      ],
+      "png": "png/calendar/today.small/normal/dark.png",
+      "scene": "scenes/calendar/today.small/normal/dark.json",
+      "png_sha256": "334c748a86e6e5360db95bf76e12fecf020bb3e153ea06c27a1861a02a4e03ee"
+    },
+    {
+      "id": "calendar/today.small/normal/light",
+      "component": "calendar",
+      "group": "today",
+      "params": {
+        "date": "2025-03-14",
+        "today": "2025-03-10",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        340.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        220.0,
+        252.0
+      ],
+      "png": "png/calendar/today.small/normal/light.png",
+      "scene": "scenes/calendar/today.small/normal/light.json",
+      "png_sha256": "d2861f0ee40f20bfdc4c906133b8d9cb55edaf6d69a718cf8404e0340ff63c89"
+    },
+    {
+      "id": "calendar/unselected.base/normal/dark",
+      "component": "calendar",
+      "group": "unselected",
+      "params": {
+        "date": "none",
+        "today": "2025-03-10"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        340.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        248.0,
+        284.0
+      ],
+      "png": "png/calendar/unselected.base/normal/dark.png",
+      "scene": "scenes/calendar/unselected.base/normal/dark.json",
+      "png_sha256": "7df4f1ee8a3a2d4cbe9c07c7eee1a24c0b7e3e3de5c15f625478d407f2c98fb1"
+    },
+    {
+      "id": "calendar/unselected.base/normal/light",
+      "component": "calendar",
+      "group": "unselected",
+      "params": {
+        "date": "none",
+        "today": "2025-03-10"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        340.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        248.0,
+        284.0
+      ],
+      "png": "png/calendar/unselected.base/normal/light.png",
+      "scene": "scenes/calendar/unselected.base/normal/light.json",
+      "png_sha256": "4ac46bf0c41c72a6bf3f07dde60cf7d1dc3cd17fab95ce6fef7cdb91c3898c1f"
+    },
+    {
       "id": "checkbox/bare.medium.checked/disabled/dark",
       "component": "checkbox",
       "group": "bare",

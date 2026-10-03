@@ -1033,6 +1033,10 @@
       <SolidColorBrush x:Key="Gpui.Slider.Thumb.Edge" Color="#80171717" />
       <Color x:Key="Gpui.Slider.Ring.Color">#80A3A3A3</Color>
       <SolidColorBrush x:Key="Gpui.Slider.Ring" Color="#80A3A3A3" />
+      <Color x:Key="Gpui.Calendar.Weekday.Color">#80737373</Color>
+      <SolidColorBrush x:Key="Gpui.Calendar.Weekday" Color="#80737373" />
+      <Color x:Key="Gpui.Calendar.Disabled.Color">#80737373</Color>
+      <SolidColorBrush x:Key="Gpui.Calendar.Disabled" Color="#80737373" />
     </ResourceDictionary>
     <ResourceDictionary x:Key="Dark">
       <Color x:Key="Gpui.Accent.Color">#FF262626</Color>
@@ -2061,6 +2065,10 @@
       <SolidColorBrush x:Key="Gpui.Slider.Thumb.Edge" Color="#80FAFAFA" />
       <Color x:Key="Gpui.Slider.Ring.Color">#80737373</Color>
       <SolidColorBrush x:Key="Gpui.Slider.Ring" Color="#80737373" />
+      <Color x:Key="Gpui.Calendar.Weekday.Color">#80A3A3A3</Color>
+      <SolidColorBrush x:Key="Gpui.Calendar.Weekday" Color="#80A3A3A3" />
+      <Color x:Key="Gpui.Calendar.Disabled.Color">#80A3A3A3</Color>
+      <SolidColorBrush x:Key="Gpui.Calendar.Disabled" Color="#80A3A3A3" />
     </ResourceDictionary>
   </ResourceDictionary.ThemeDictionaries>
 </ResourceDictionary>

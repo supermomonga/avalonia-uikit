@@ -61,6 +61,7 @@ public static class Adapters
         "notification" => NotificationArea(c),
         "resizable" => Resizable(c),
         "image" => ImageCase(c),
+        "calendar" => CalendarCase(c),
         "collapsible" => Collapsible(c),
         "slider" => Slider(c),
         _ => throw new NotSupportedException($"no adapter for {c.Component}"),
@@ -74,6 +75,15 @@ public static class Adapters
     /// </summary>
     public static void AfterDrive(GoldenCase c, CaseHost host)
     {
+        // The case's "today" (GPUI's is pinned by the reference patch); Avalonia reads
+        // DateTime.Today whenever it lays out a month, so pin it after the last step.
+        if (c.Component == "calendar" && Date(c, "today", "2025-06-10") is { } today)
+        {
+            foreach (var day in host.Window.GetVisualDescendants().OfType<Avalonia.Controls.Primitives.CalendarDayButton>())
+            {
+                SetIsToday(day, day.DataContext is DateTime d && d.Date == today);
+            }
+        }
         // R28: Avalonia selects a menu's first item when the menu opens; GPUI starts
         // with none. Only the pointer's item (and an open submenu's) stays selected.
         if (!c.State.Contains("key-", StringComparison.Ordinal))
@@ -659,6 +669,35 @@ public static class Adapters
         }
         FlagClass(slider, c, "reverse");
         return slider;
+    }
+
+    [System.Runtime.CompilerServices.UnsafeAccessor(System.Runtime.CompilerServices.UnsafeAccessorKind.Method, Name = "set_IsToday")]
+    private static extern void SetIsToday(Avalonia.Controls.Primitives.CalendarDayButton button, bool value);
+
+    private static DateTime? Date(GoldenCase c, string key, string fallback) =>
+        DateTime.TryParseExact(c.Str(key, fallback), "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture,
+            System.Globalization.DateTimeStyles.None, out var d) ? d : null;
+
+    private static Calendar CalendarCase(GoldenCase c)
+    {
+        var date = Date(c, "date", "2025-03-14");
+        var today = Date(c, "today", "2025-06-10")!.Value;
+        var calendar = new Calendar
+        {
+            DisplayDate = date ?? today,
+            SelectedDate = date,
+            FirstDayOfWeek = c.Str("first_day", "sun") == "mon" ? DayOfWeek.Monday : DayOfWeek.Sunday,
+        };
+        ClassFrom(calendar, c, "size", "medium");
+        if (Date(c, "blackout_from", "none") is { } from && Date(c, "blackout_to", "none") is { } to)
+        {
+            calendar.BlackoutDates.Add(new CalendarDateRange(from, to));
+        }
+        if (c.Str("view", "day") == "month")
+        {
+            calendar.DisplayMode = CalendarMode.Year;
+        }
+        return calendar;
     }
 
     // GPUI's img() box is the element; Avalonia's Image takes the fitted size, so the

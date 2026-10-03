@@ -23,7 +23,18 @@ public sealed class TestApp : Application
         Avalonia.Controls.Platform.DefaultMenuInteractionHandler.MenuShowDelay = TimeSpan.Zero;
     }
 
-    public static AppBuilder BuildAvaloniaApp() =>
+    public static AppBuilder BuildAvaloniaApp()
+    {
+        // GPUI's labels are English: month and weekday names come from the culture.
+        var english = System.Globalization.CultureInfo.GetCultureInfo("en-US");
+        System.Globalization.CultureInfo.DefaultThreadCurrentCulture = english;
+        System.Globalization.CultureInfo.DefaultThreadCurrentUICulture = english;
+        System.Globalization.CultureInfo.CurrentCulture = english;
+        System.Globalization.CultureInfo.CurrentUICulture = english;
+        return Configure();
+    }
+
+    private static AppBuilder Configure() =>
         AppBuilder.Configure<TestApp>()
             .UseSkia()
             .UseHarfBuzz()

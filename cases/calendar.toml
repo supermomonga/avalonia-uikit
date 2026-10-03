@@ -1,0 +1,46 @@
+# GPUI Kit Calendar -> Calendar. March 2025: six weeks in both grids (Feb 23 - Apr 5).
+component = "calendar"
+viewport = [340, 400]
+anchor = [16, 16]
+
+[[group]]
+name = "day"
+params = { date = "2025-03-14" }
+matrix = { size = ["small", "medium", "large"] }
+
+[[group]]
+name = "today"
+params = { date = "2025-03-14", today = "2025-03-10" }
+matrix = { size = ["small", "medium", "large"] }
+
+# Medium coordinates: prev, month pill, year pill, next, Feb 23 (outside), Mar 4, today, selected.
+[[group]]
+name = "pointer"
+params = { date = "2025-03-14", today = "2025-03-10" }
+states = ["at-45-45", "at-106-45", "at-177-45", "at-235-45", "at-45-111", "at-109-143", "at-77-175", "at-205-175", "at-45-45+pressed-at-45-45"]
+
+# Selecting Mar 4 by click (pointer stays on it: selected has no hover).
+[[group]]
+name = "select"
+params = { date = "2025-03-14" }
+states = ["click-at-109-143"]
+
+[[group]]
+name = "blackout"
+params = { date = "2025-03-14", blackout_from = "2025-03-17", blackout_to = "2025-03-21" }
+states = ["normal", "at-109-207"]
+
+[[group]]
+name = "unselected"
+params = { date = "none", today = "2025-03-10" }
+
+[[group]]
+name = "monday"
+params = { date = "2025-03-14", first_day = "mon" }
+
+# Months grid (Avalonia DisplayMode=Year); needs the 3-column layout behavior.
+[[group]]
+name = "months"
+params = { date = "2025-03-14", view = "month" }
+matrix = { size = ["small", "medium", "large"] }
+states = ["normal", "at-140-83"]

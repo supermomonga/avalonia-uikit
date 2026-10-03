@@ -14,6 +14,7 @@ gpui-kit = { path = "vendor/gpui-kit/crates/kit", features = ["test-support", "c
 gpui-base = { path = "vendor/gpui-kit/crates/base", features = ["test-support"] }
 gpui-component = { path = "vendor/gpui-kit/crates/component", features = ["test-support"] }
 anyhow = "1"
+chrono = "0.4"
 image = { version = "0.25", default-features = false, features = ["png"] }
 serde = { version = "1", features = ["derive"] }
 serde_json = { version = "1", features = ["preserve_order", "float_roundtrip"] }

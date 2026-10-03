@@ -1,3 +1,24 @@
+diff -ruN a/crates/base/src/calendar.rs b/crates/base/src/calendar.rs
+--- a/crates/base/src/calendar.rs
++++ b/crates/base/src/calendar.rs
+@@ -2,7 +2,7 @@
+ use std::rc::Rc;
+ 
+ use crate::{h_flex, styled::StyledExt as _, v_flex};
+-use chrono::{Datelike, Local, NaiveDate, Weekday};
++use chrono::{Datelike, NaiveDate, Weekday};
+ use gpui::{
+     AnyElement, App, Context, ElementId, Empty, Entity, EventEmitter, FocusHandle,
+     InteractiveElement, IntoElement, ParentElement, Render, RenderOnce, SharedString,
+@@ -181,7 +181,7 @@
+ 
+ impl CalendarState {
+     pub fn new(_: &mut Window, cx: &mut Context<Self>) -> Self {
+-        let today = Local::now().date_naive();
++        let today = crate::test_clock::today();
+         Self {
+             focus_handle: cx.focus_handle(),
+             view: CalendarView::Day,
 diff -ruN a/crates/base/src/lib.rs b/crates/base/src/lib.rs
 --- a/crates/base/src/lib.rs
 +++ b/crates/base/src/lib.rs
@@ -251,7 +272,7 @@ diff -ruN a/crates/base/src/scrollbar.rs b/crates/base/src/scrollbar.rs
 diff -ruN a/crates/base/src/test_clock.rs b/crates/base/src/test_clock.rs
 --- a/crates/base/src/test_clock.rs
 +++ b/crates/base/src/test_clock.rs
-@@ -0,0 +1,19 @@
+@@ -0,0 +1,33 @@
 +//! Reference-harness instrumentation (not part of upstream gpui-kit).
 +//!
 +//! The scrollbar samples its motion with `Instant::now()`. The harness pins
@@ -270,4 +291,18 @@ diff -ruN a/crates/base/src/test_clock.rs b/crates/base/src/test_clock.rs
 +/// The overridden time, or the wall clock when no override is set.
 +pub fn now() -> instant::Instant {
 +    NOW.with(|cell| cell.get()).unwrap_or_else(instant::Instant::now)
++}
++
++thread_local! {
++    static TODAY: Cell<Option<chrono::NaiveDate>> = const { Cell::new(None) };
++}
++
++/// Overrides the date returned by [`today`] on this thread; `None` restores the wall clock.
++pub fn set_today(today: Option<chrono::NaiveDate>) {
++    TODAY.with(|cell| cell.set(today));
++}
++
++/// The overridden date, or today's local date when no override is set.
++pub fn today() -> chrono::NaiveDate {
++    TODAY.with(|cell| cell.get()).unwrap_or_else(|| chrono::Local::now().date_naive())
 +}

@@ -533,6 +533,7 @@ name = "avalonia-uikit-reference"
 version = "0.1.0"
 dependencies = [
  "anyhow",
+ "chrono",
  "gpui-base",
  "gpui-component",
  "gpui-kit",

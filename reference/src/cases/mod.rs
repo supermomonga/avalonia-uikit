@@ -32,6 +32,7 @@ mod select;
 mod slider;
 mod surface;
 mod tabs;
+pub mod time;
 mod toolbar;
 mod toggle;
 mod tree;
@@ -78,6 +79,7 @@ pub fn builder(case: &Case) -> Result<Builder> {
         "notification" => notification::notification(&params),
         "resizable" => resizable::builder(&params),
         "image" => image::builder(&params),
+        "calendar" => time::calendar(&params),
         "collapsible" => accordion::collapsible(&params),
         "slider" => slider::builder(&params),
         other => bail!("unknown component {other}"),
@@ -235,6 +237,7 @@ pub fn derived_colors(theme: &gpui_kit::component::Theme, out: &mut Vec<(String,
     progress::derived_colors(theme, out);
     tabs::derived_colors(theme, out);
     slider::derived_colors(theme, out);
+    time::derived_colors(theme, out);
 }
 
 pub fn disabled(params: &Params) -> bool {

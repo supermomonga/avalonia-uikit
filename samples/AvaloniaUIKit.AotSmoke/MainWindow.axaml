@@ -110,6 +110,12 @@
           <TextBlock Grid.Column="2" Text="Two" Margin="8" />
         </Grid>
 
+        <TextBlock Text="Calendar" Foreground="{DynamicResource Gpui.MutedForeground}" />
+        <StackPanel Orientation="Horizontal" Spacing="12">
+          <Calendar SelectedDate="2025-03-14" DisplayDate="2025-03-14" />
+          <Calendar DisplayMode="Year" DisplayDate="2025-03-14" Classes="small" />
+        </StackPanel>
+
         <TextBlock Text="Popover" Foreground="{DynamicResource Gpui.MutedForeground}" />
         <Button Classes="outline" Content="Open" HorizontalAlignment="Left">
           <Button.Flyout>
