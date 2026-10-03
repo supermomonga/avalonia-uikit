@@ -22,6 +22,7 @@ public class MotionTests
         using var host = CaseHost.Open(golden, Adapters.Create(golden));
         host.Drive(golden, golden.Motion!.From);
         host.Drive(golden, golden.Motion.Trigger);
+        Adapters.AfterDrive(golden, host);
         var failures = new List<string>();
         var elapsed = 0;
         foreach (var frame in golden.Motion.Frames)

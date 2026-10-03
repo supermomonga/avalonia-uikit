@@ -15,7 +15,8 @@
   with PasswordChar="•" (U+2022, GPUI's mask character).
 -->
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:gpui="using:AvaloniaUIKit">
   <!-- Button::text().xsmall() with an eye icon: shows the masked text while checked. -->
   <ControlTheme x:Key="GpuiRevealPasswordToggle" TargetType="ToggleButton">
     <Setter Property="Background" Value="Transparent" />
@@ -44,6 +45,77 @@
       <Setter Property="IsVisible" Value="False" />
     </Style>
     <Style Selector="^:checked /template/ PathIcon#PART_Revealed">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+  </ControlTheme>
+
+  <!--
+    InputGroupButton (input/group.rs): a ghost XSmall button laid out as a
+    compact Medium one: 24px high (32 when small), 8px (10px) padding, medium
+    weight on a 20px line, the small radius (the theme radius when small); hover
+    and press tint it with `muted`. The group applies it to its buttons.
+  -->
+  <ControlTheme x:Key="GpuiInputGroupButton" TargetType="Button">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="BorderBrush" Value="Transparent" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+    <Setter Property="Height" Value="24" />
+    <Setter Property="MinWidth" Value="0" />
+    <Setter Property="Padding" Value="8,0" />
+    <Setter Property="CornerRadius" Value="2.5" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="FontWeight" Value="Medium" />
+    <Setter Property="VerticalAlignment" Value="Center" />
+    <Setter Property="HorizontalContentAlignment" Value="Center" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="ClipToBounds" Value="False" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Panel>
+          <ContentPresenter Name="PART_ContentPresenter"
+                            BackgroundSizing="OuterBorderEdge"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            Padding="{TemplateBinding Padding}"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Foreground="{TemplateBinding Foreground}"
+                            LineHeight="20"
+                            TextWrapping="NoWrap"
+                            RecognizesAccessKey="True" />
+          <Border Name="PART_FocusRing" Margin="-3" BorderThickness="3" CornerRadius="4.5"
+                  BorderBrush="{DynamicResource Gpui.FocusRing}" IsVisible="False" IsHitTestVisible="False" />
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^.icon-only">
+      <Setter Property="Width" Value="24" />
+      <Setter Property="Padding" Value="0" />
+    </Style>
+    <Style Selector="^.small">
+      <Setter Property="Height" Value="32" />
+      <Setter Property="Padding" Value="10,0" />
+      <Setter Property="CornerRadius" Value="5.5" />
+    </Style>
+    <Style Selector="^.small /template/ Border#PART_FocusRing">
+      <Setter Property="CornerRadius" Value="7.5" />
+    </Style>
+    <Style Selector="^.small.icon-only">
+      <Setter Property="Width" Value="32" />
+      <Setter Property="Padding" Value="0" />
+    </Style>
+    <Style Selector="^:pointerover, ^:pressed">
+      <Setter Property="Background" Value="{DynamicResource Gpui.InputGroup.Button.Hover}" />
+    </Style>
+    <Style Selector="^:disabled">
+      <Setter Property="Opacity" Value="0.5" />
+    </Style>
+    <Style Selector="^:focus-visible /template/ Border#PART_FocusRing">
       <Setter Property="IsVisible" Value="True" />
     </Style>
   </ControlTheme>
@@ -214,6 +286,82 @@
     <Style Selector="^:disabled /template/ ContentPresenter#PART_InnerLeftContent, ^:disabled /template/ ContentPresenter#PART_InnerRightContent">
       <Setter Property="Opacity" Value="0.5" />
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+    </Style>
+
+    <!--
+      GPUI Kit InputGroup (input/group.rs) -> the group class: InnerLeftContent
+      and InnerRightContent are the addons, in muted medium-weight text on GPUI's
+      default (phi) line, 8px from the text and 6px from the border. The frame is
+      transparent (light) or tinted (dark); its border and background move to a
+      new color over 120ms (easing_move), as GPUI's GroupAppearance transition.
+      An invalid group (Avalonia's :error) shows the danger border and ring,
+      even when unfocused or disabled. Disabled, the whole group fades to half.
+    -->
+    <Style Selector="^.group">
+      <Setter Property="Background" Value="{DynamicResource Gpui.InputGroup.Background}" />
+    </Style>
+    <Style Selector="^.group /template/ Border#PART_BorderElement">
+      <Setter Property="gpui:Motion.ColorTransition">
+        <gpui:ColorTransition Duration="0:0:0.12" Easing="0.2,0,0,1" Properties="Background, BorderBrush" />
+      </Setter>
+    </Style>
+    <Style Selector="^.group /template/ ContentPresenter#PART_InnerLeftContent, ^.group /template/ ContentPresenter#PART_InnerRightContent">
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.MutedForeground}" />
+      <Setter Property="FontWeight" Value="Medium" />
+      <Setter Property="LineHeight" Value="22.6525" />
+    </Style>
+    <Style Selector="^.group.xsmall /template/ ContentPresenter#PART_InnerLeftContent, ^.group.xsmall /template/ ContentPresenter#PART_InnerRightContent">
+      <Setter Property="LineHeight" Value="19.4164" />
+    </Style>
+    <Style Selector="^.group.large /template/ ContentPresenter#PART_InnerLeftContent, ^.group.large /template/ ContentPresenter#PART_InnerRightContent">
+      <Setter Property="LineHeight" Value="25.8885" />
+    </Style>
+    <!-- 6px from the border (pl_1p5) and 8px to the text (pl_2), around the frame's input_px. -->
+    <Style Selector="^.group /template/ ContentPresenter#PART_InnerLeftContent">
+      <Setter Property="Margin" Value="-4,0,8,0" />
+    </Style>
+    <Style Selector="^.group /template/ ContentPresenter#PART_InnerRightContent">
+      <Setter Property="Margin" Value="8,0,-4,0" />
+    </Style>
+    <Style Selector="^.group.xsmall /template/ ContentPresenter#PART_InnerLeftContent">
+      <Setter Property="Margin" Value="2,0,8,0" />
+    </Style>
+    <Style Selector="^.group.xsmall /template/ ContentPresenter#PART_InnerRightContent">
+      <Setter Property="Margin" Value="8,0,2,0" />
+    </Style>
+    <Style Selector="^.group.small /template/ ContentPresenter#PART_InnerLeftContent">
+      <Setter Property="Margin" Value="-2,0,8,0" />
+    </Style>
+    <Style Selector="^.group.small /template/ ContentPresenter#PART_InnerRightContent">
+      <Setter Property="Margin" Value="8,0,-2,0" />
+    </Style>
+    <Style Selector="^.group.large /template/ ContentPresenter#PART_InnerLeftContent">
+      <Setter Property="Margin" Value="-6,0,8,0" />
+    </Style>
+    <Style Selector="^.group.large /template/ ContentPresenter#PART_InnerRightContent">
+      <Setter Property="Margin" Value="8,0,-6,0" />
+    </Style>
+    <!-- Multi-line, the frame has no padding: 6px from the border, and the text panel's own margin less 2 to the text. -->
+    <Style Selector="^.group[AcceptsReturn=True] /template/ ContentPresenter#PART_InnerLeftContent">
+      <Setter Property="Margin" Value="6,0,-2,0" />
+    </Style>
+    <Style Selector="^.group[AcceptsReturn=True] /template/ ContentPresenter#PART_InnerRightContent">
+      <Setter Property="Margin" Value="-2,0,6,0" />
+    </Style>
+    <Style Selector="^.group:error">
+      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Danger}" />
+    </Style>
+    <Style Selector="^.group:error /template/ Border#PART_FocusRing">
+      <Setter Property="IsVisible" Value="True" />
+      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.InputGroup.Invalid.Ring}" />
+    </Style>
+    <Style Selector="^.group:disabled">
+      <Setter Property="Background" Value="{DynamicResource Gpui.InputGroup.Disabled.Background}" />
+      <Setter Property="Opacity" Value="0.5" />
+    </Style>
+    <Style Selector="^.group:disabled /template/ ContentPresenter#PART_InnerLeftContent, ^.group:disabled /template/ ContentPresenter#PART_InnerRightContent">
+      <Setter Property="Opacity" Value="1" />
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.MutedForeground}" />
     </Style>
 
     <Style Selector="^.revealPasswordButton[AcceptsReturn=False]">

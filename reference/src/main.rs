@@ -187,6 +187,10 @@ fn generate(root: &Path, out: &Path, only: Option<&str>) -> Result<()> {
     icons::write_xaml(root)?;
 
     let cases = all_cases(root, only)?;
+    // Every case must have a builder before anything is deleted.
+    for case in &cases {
+        cases::builder(case).with_context(|| format!("no builder for {}", case.id))?;
+    }
     if only.is_none() {
         for dir in ["png", "scenes"] {
             let _ = std::fs::remove_dir_all(out.join(dir));

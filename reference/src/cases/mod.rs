@@ -51,6 +51,7 @@ pub fn builder(case: &Case) -> Result<Builder> {
         "label" => label::builder(&params),
         "input" => input::builder(&params),
         "textarea" => input::textarea(&params),
+        "input-group" => input::input_group(&params),
         other => bail!("unknown component {other}"),
     }
 }

@@ -1,0 +1,52 @@
+# GPUI Kit InputGroup -> TextBox.group with InnerLeftContent / InnerRightContent.
+component = "input-group"
+viewport = [280, 68]
+anchor = [16, 12]
+
+[[group]]
+name = "icon"
+params = { placeholder = "Search...", start = "search", width = 240 }
+matrix = { size = ["xsmall", "small", "medium", "large"] }
+states = ["normal", "focus", "disabled"]
+
+[[group]]
+name = "text"
+params = { value = "example", start = "https://", end = ".com", width = 240 }
+matrix = { size = ["small", "medium"] }
+states = ["normal", "focus"]
+
+[[group]]
+name = "button"
+params = { value = "gpui", end_button = "Clear", width = 240 }
+states = ["normal", "disabled"]
+
+[[group]]
+name = "iconbutton"
+params = { value = "gpui", end_icon = "close", width = 240 }
+matrix = { button_size = ["xsmall", "small"] }
+states = ["normal"]
+
+[[group]]
+name = "invalid"
+params = { value = "not an email", start = "search", invalid = true, width = 240 }
+states = ["normal", "focus", "disabled"]
+
+[[group]]
+name = "readonly"
+params = { value = "Read only", end = "Saving", readonly = true, width = 240 }
+states = ["normal", "focus"]
+
+[[group]]
+name = "textarea"
+params = { multiline = true, rows = 3, value = "Write a message", end_button = "Send", width = 240 }
+states = ["normal", "focus"]
+viewport = [280, 116]
+
+# The border turns from input to ring over 120ms, cubic-bezier(0.2, 0, 0, 1);
+# the ring band appears at once.
+[[motion]]
+name = "focus"
+params = { placeholder = "Search...", start = "search", width = 240 }
+trigger = "focus"
+samples_ms = [0, 16, 33, 50, 66, 83, 100, 120, 150]
+themes = ["light"]

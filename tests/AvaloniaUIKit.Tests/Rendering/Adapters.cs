@@ -44,6 +44,7 @@ public static class Adapters
         "label" => LabelCase(c),
         "input" => Input(c),
         "textarea" => Textarea(c),
+        "input-group" => InputGroup(c),
         _ => throw new NotSupportedException($"no adapter for {c.Component}"),
     };
 
@@ -156,6 +157,51 @@ public static class Adapters
         else
         {
             box.MinLines = box.MaxLines = (int)c.Num("rows", 1);
+        }
+        return box;
+    }
+
+    /// <summary>A TextBox.group as GPUI's InputGroup: addons before and after the text.</summary>
+    private static TextBox InputGroup(GoldenCase c)
+    {
+        var box = c.Bool("multiline") ? Textarea(c) : Input(c);
+        box.Classes.Add("group");
+        if (c.Bool("multiline"))
+        {
+            box.MinLines = box.MaxLines = (int)c.Num("rows", 3);
+        }
+        if (c.Has("start"))
+        {
+            var start = c.Str("start");
+            box.InnerLeftContent = start == "search" ? Icon(start) : start;
+        }
+        var tail = new List<object>();
+        if (c.Has("end"))
+        {
+            tail.Add(c.Str("end"));
+        }
+        if (c.Has("end_button"))
+        {
+            tail.Add(new Button { Content = c.Str("end_button") });
+        }
+        if (c.Has("end_icon"))
+        {
+            var button = new Button { Content = Icon(c.Str("end_icon")), Classes = { "icon-only" } };
+            if (c.Str("button_size", "xsmall") == "small")
+            {
+                button.Classes.Add("small");
+            }
+            tail.Add(button);
+        }
+        box.InnerRightContent = tail.Count switch
+        {
+            0 => null,
+            1 => tail[0],
+            _ => new StackPanel { Orientation = Avalonia.Layout.Orientation.Horizontal, Spacing = 8, Children = { } },
+        };
+        if (c.Bool("invalid"))
+        {
+            DataValidationErrors.SetError(box, new Exception("invalid"));
         }
         return box;
     }

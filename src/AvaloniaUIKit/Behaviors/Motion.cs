@@ -47,6 +47,16 @@ public static class Motion
     public static readonly AttachedProperty<bool> SpringTravelProperty =
         AvaloniaProperty.RegisterAttached<Layoutable, bool>("SpringTravel", typeof(Motion), true);
 
+    /// <summary>
+    /// Brush changes coming from the templated parent show as a GPUI color
+    /// transition (HSLA, eased) on this part. The first values are taken at once.
+    /// </summary>
+    public static readonly AttachedProperty<ColorTransition?> ColorTransitionProperty =
+        AvaloniaProperty.RegisterAttached<Layoutable, ColorTransition?>("ColorTransition", typeof(Motion));
+
+    private static readonly AttachedProperty<ColorRunner?> ColorRunnerProperty =
+        AvaloniaProperty.RegisterAttached<Layoutable, ColorRunner?>("ColorRunner", typeof(Motion));
+
     /// <summary>Seconds since the running spring's clock started; animated on the element's clock.</summary>
     internal static readonly AttachedProperty<double> SpringClockProperty =
         AvaloniaProperty.RegisterAttached<Layoutable, double>("SpringClock", typeof(Motion));
@@ -57,6 +67,13 @@ public static class Motion
     static Motion()
     {
         SettledTransitionsProperty.Changed.AddClassHandler<Layoutable>(OnSettledTransitionsChanged);
+        ColorTransitionProperty.Changed.AddClassHandler<Layoutable>((element, _) =>
+        {
+            if (element.GetValue(ColorRunnerProperty) is null)
+            {
+                element.SetValue(ColorRunnerProperty, new ColorRunner(element));
+            }
+        });
         SpringTargetProperty.Changed.AddClassHandler<Layoutable>((element, _) => Runner(element).Retarget(GetSpringTarget(element)));
         SpringsCanvasLeftProperty.Changed.AddClassHandler<Layoutable>(OnSpringsCanvasLeftChanged);
         SpringClockProperty.Changed.AddClassHandler<Layoutable>((element, e) => element.GetValue(RunnerProperty)?.OnClock(e.GetNewValue<double>()));
@@ -67,6 +84,12 @@ public static class Motion
 
     /// <summary>Sets the transitions <paramref name="element"/> takes on after its first layout.</summary>
     public static void SetSettledTransitions(Layoutable element, Transitions? value) => element.SetValue(SettledTransitionsProperty, value);
+
+    /// <summary>Gets the element's color transition.</summary>
+    public static ColorTransition? GetColorTransition(Layoutable element) => element.GetValue(ColorTransitionProperty);
+
+    /// <summary>Sets the element's color transition.</summary>
+    public static void SetColorTransition(Layoutable element, ColorTransition? value) => element.SetValue(ColorTransitionProperty, value);
 
     /// <summary>Gets the element's spring.</summary>
     public static Spring? GetSpring(Layoutable element) => element.GetValue(SpringProperty);
@@ -143,6 +166,68 @@ public static class Motion
         {
             element.LayoutUpdated -= OnFirstLayout;
             action();
+        }
+    }
+
+    /// <summary>
+    /// Watches the templated parent's brushes and plays each change on the
+    /// element as a GPUI color transition, at animation priority over the
+    /// element's own (template-bound) value.
+    /// </summary>
+    private sealed class ColorRunner
+    {
+        private readonly Layoutable _element;
+        private readonly Dictionary<string, CancellationTokenSource> _running = new();
+        private bool _laidOut;
+        private StyledElement? _source;
+
+        public ColorRunner(Layoutable element)
+        {
+            _element = element;
+            AfterFirstLayout(element, () => _laidOut = true);
+            element.AttachedToVisualTree += (_, _) => Watch();
+            Watch();
+        }
+
+        private void Watch()
+        {
+            if (_source is not null)
+            {
+                _source.PropertyChanged -= OnSourceChanged;
+            }
+            _source = _element.TemplatedParent as StyledElement ?? _element;
+            _source.PropertyChanged += OnSourceChanged;
+        }
+
+        private void OnSourceChanged(object? sender, AvaloniaPropertyChangedEventArgs e)
+        {
+            var spec = GetColorTransition(_element);
+            var name = e.Property.Name;
+            var flag = name switch
+            {
+                "Background" => BrushProperties.Background,
+                "BorderBrush" => BrushProperties.BorderBrush,
+                "Foreground" => BrushProperties.Foreground,
+                _ => BrushProperties.None,
+            };
+            if (spec is null || flag == BrushProperties.None || !spec.Properties.HasFlag(flag) || !_laidOut ||
+                AvaloniaPropertyRegistry.Instance.FindRegistered(_element, name) is not { } target ||
+                e.NewValue is not ISolidColorBrush to)
+            {
+                return;
+            }
+            // From the color showing now: mid-transition the part's animated value,
+            // otherwise the parent's previous brush (the part may already follow the new one).
+            var running = _running.Remove(name, out var previous);
+            var shown = running ? _element.GetValue(target) : e.OldValue;
+            previous?.Cancel();
+            if (shown is not ISolidColorBrush from || from.Color == to.Color)
+            {
+                return;
+            }
+            var cancel = new CancellationTokenSource();
+            _running[name] = cancel;
+            _ = spec.Build(target, from.Color, to.Color).RunAsync(_element, cancel.Token);
         }
     }
 
