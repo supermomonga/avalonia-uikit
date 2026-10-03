@@ -24,40 +24,23 @@
       <Setter Property="Height" Value="NaN" />
       <Setter Property="Margin" Value="-0.5,0" />
     </Style>
-    <!-- PathBuilder::stroke(1px).dash_array([4, 2]): a 6px tile, 4px drawn. -->
+    <!--
+      PathBuilder::stroke(1px).dash_array([4, 2]) along the middle of the line:
+      a zero-height Path stretched across the separator, centered in its 1px box.
+    -->
     <Style Selector="^.dashed">
       <Setter Property="Template">
         <ControlTemplate>
-          <Rectangle>
-            <Rectangle.Fill>
-              <VisualBrush TileMode="Tile" Stretch="None" AlignmentX="Left" AlignmentY="Top"
-                           DestinationRect="0,0,6,1" SourceRect="0,0,6,1">
-                <VisualBrush.Visual>
-                  <Canvas Width="6" Height="1">
-                    <Rectangle Width="4" Height="1" Fill="{Binding $parent[Separator].Background}" />
-                  </Canvas>
-                </VisualBrush.Visual>
-              </VisualBrush>
-            </Rectangle.Fill>
-          </Rectangle>
+          <Path Data="M0,0 H1" Stretch="Fill" Height="0" VerticalAlignment="Center"
+                Stroke="{TemplateBinding Background}" StrokeThickness="1" StrokeDashArray="4,2" />
         </ControlTemplate>
       </Setter>
     </Style>
     <Style Selector="^.vertical.dashed">
       <Setter Property="Template">
         <ControlTemplate>
-          <Rectangle>
-            <Rectangle.Fill>
-              <VisualBrush TileMode="Tile" Stretch="None" AlignmentX="Left" AlignmentY="Top"
-                           DestinationRect="0,0,1,6" SourceRect="0,0,1,6">
-                <VisualBrush.Visual>
-                  <Canvas Width="1" Height="6">
-                    <Rectangle Width="1" Height="4" Fill="{Binding $parent[Separator].Background}" />
-                  </Canvas>
-                </VisualBrush.Visual>
-              </VisualBrush>
-            </Rectangle.Fill>
-          </Rectangle>
+          <Path Data="M0,0 V1" Stretch="Fill" Width="0" HorizontalAlignment="Center"
+                Stroke="{TemplateBinding Background}" StrokeThickness="1" StrokeDashArray="4,2" />
         </ControlTemplate>
       </Setter>
     </Style>

@@ -23,12 +23,21 @@ public enum Region : byte
     Shadow,
 }
 
-/// <summary>Per-region limits, in 1/255 steps of the largest channel difference.</summary>
+/// <summary>
+/// Per-region limits, in 1/255 steps of the largest channel difference.
+/// InkMass* bound Avalonia's ink mass as a share of GPUI's (see
+/// <see cref="PixelComparison.InkMass"/>), checked once GPUI paints at least
+/// InkMassFloor of it. Calibrated over every case: text and icons land within
+/// 0.69-1.07 (the low end in tooltip fade frames), a missing line at 0.
+/// </summary>
 public sealed record PixelTolerance(
     double FlatMax = 2,
     double EdgeMax = 64,
     double EdgeMean = 3,
     double InkMean = 18,
+    double InkMassMin = 0.6,
+    double InkMassMax = 1.6,
+    double InkMassFloor = 200,
     double ShadowMax = 12)
 {
     public static PixelTolerance Default { get; } = new();
@@ -39,6 +48,9 @@ public sealed class RegionStats
     public int Count;
     public double Max;
     public double Sum;
+    /// <summary>Sum of GPUI's minus Avalonia's mean channel value: ink missing on one side shows as a bias.</summary>
+    public double SignedSum;
+    public double SignedMean => Count == 0 ? 0 : SignedSum / Count;
     public int MaxX;
     public int MaxY;
     public double Mean => Count == 0 ? 0 : Sum / Count;
@@ -55,7 +67,7 @@ public sealed class PixelReport
         var sb = new StringBuilder();
         foreach (var (region, s) in Stats)
         {
-            sb.Append(CultureInfo.InvariantCulture, $"{region}: n={s.Count} max={s.Max:0.#} at ({s.MaxX},{s.MaxY}) mean={s.Mean:0.##}; ");
+            sb.Append(CultureInfo.InvariantCulture, $"{region}: n={s.Count} max={s.Max:0.#} at ({s.MaxX},{s.MaxY}) mean={s.Mean:0.##} bias={s.SignedMean:0.##}; ");
         }
         foreach (var f in Failures)
         {
@@ -198,7 +210,51 @@ public static class PixelComparison
         return outside + Math.Min(Math.Max(qx, qy), 0) - radius;
     }
 
-    public static PixelReport Compare(RgbaImage expected, RgbaImage actual, Region[] regions, PixelTolerance tolerance)
+    /// <summary>
+    /// How much ink each side paints over what lies beneath it: the sum, over ink
+    /// pixels, of each pixel's largest channel difference from the fills under it
+    /// (from GPUI's scene). Rasterizers draw text a little bolder or lighter; a
+    /// missing or extra glyph, icon or line changes the sum far more.
+    /// </summary>
+    public static (double Expected, double Actual) InkMass(RgbaImage expected, RgbaImage actual, Region[] regions, GoldenScene scene, double scale)
+    {
+        double e = 0, a = 0;
+        for (var y = 0; y < expected.Height; y++)
+        {
+            for (var x = 0; x < expected.Width; x++)
+            {
+                if (regions[y * expected.Width + x] != Region.Ink)
+                {
+                    continue;
+                }
+                var bg = Beneath(scene, (x + 0.5) / scale, (y + 0.5) / scale);
+                var ep = expected.Pixel(x, y);
+                var ap = actual.Pixel(x, y);
+                e += Math.Max(Math.Abs(ep[0] - bg.R), Math.Max(Math.Abs(ep[1] - bg.G), Math.Abs(ep[2] - bg.B)));
+                a += Math.Max(Math.Abs(ap[0] - bg.R), Math.Max(Math.Abs(ap[1] - bg.G), Math.Abs(ap[2] - bg.B)));
+            }
+        }
+        return (e, a);
+    }
+
+    private static (double R, double G, double B) Beneath(GoldenScene scene, double x, double y)
+    {
+        double r = 0, g = 0, b = 0;
+        foreach (var q in scene.Quads.OrderBy(q => q.Order))
+        {
+            if (!q.SolidBackground || q.Background.IsTransparent || RoundedRectDistance(q.Bounds, q.Radii, x, y) > 0 || !q.Clip.Contains(new Point(x, y)))
+            {
+                continue;
+            }
+            var alpha = q.Background.A;
+            r = r * (1 - alpha) + q.Background.R * 255 * alpha;
+            g = g * (1 - alpha) + q.Background.G * 255 * alpha;
+            b = b * (1 - alpha) + q.Background.B * 255 * alpha;
+        }
+        return (r, g, b);
+    }
+
+    public static PixelReport Compare(RgbaImage expected, RgbaImage actual, Region[] regions, PixelTolerance tolerance, (double Expected, double Actual)? inkMass = null)
     {
         var failures = new List<string>();
         var stats = Enum.GetValues<Region>().ToDictionary(r => r, _ => new RegionStats());
@@ -219,6 +275,9 @@ public static class PixelComparison
                 var s = stats[region];
                 s.Count++;
                 s.Sum += d;
+                var ep = expected.Pixel(x, y);
+                var ap = actual.Pixel(x, y);
+                s.SignedSum += (ep[0] + ep[1] + ep[2] - ap[0] - ap[1] - ap[2]) / 3.0;
                 if (d > s.Max)
                 {
                     s.Max = d;
@@ -231,6 +290,12 @@ public static class PixelComparison
         Check(stats[Region.Edge].Max <= tolerance.EdgeMax, $"edge max {stats[Region.Edge].Max} > {tolerance.EdgeMax} at ({stats[Region.Edge].MaxX},{stats[Region.Edge].MaxY})");
         Check(stats[Region.Edge].Mean <= tolerance.EdgeMean, $"edge mean {stats[Region.Edge].Mean:0.##} > {tolerance.EdgeMean}");
         Check(stats[Region.Ink].Mean <= tolerance.InkMean, $"ink mean {stats[Region.Ink].Mean:0.##} > {tolerance.InkMean}");
+        if (inkMass is { } mass && mass.Expected >= tolerance.InkMassFloor)
+        {
+            var ratio = mass.Actual / mass.Expected;
+            Check(ratio >= tolerance.InkMassMin && ratio <= tolerance.InkMassMax,
+                $"ink mass {ratio:0.##}x GPUI's (allowed {tolerance.InkMassMin}-{tolerance.InkMassMax}): text, icon or line missing or extra");
+        }
         Check(stats[Region.Shadow].Max <= tolerance.ShadowMax, $"shadow max {stats[Region.Shadow].Max} > {tolerance.ShadowMax} at ({stats[Region.Shadow].MaxX},{stats[Region.Shadow].MaxY})");
         return new PixelReport { Stats = stats, Failures = failures };
 

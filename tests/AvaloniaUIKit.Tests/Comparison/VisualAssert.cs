@@ -40,13 +40,14 @@ public static class VisualAssert
 
     private static void Compare(GoldenCase golden, CaseHost host, PixelTolerance? tolerance, List<string> failures, double geometryTolerance = StructuralComparison.GeometryTolerance)
     {
-
         var actual = host.Capture();
         var expected = RgbaImage.Load(Path.Combine(Repo.Goldens, golden.Png!));
         var scene = GoldenScene.Load(golden.Scene!);
         var primitives = StructuralComparison.FromVisuals(host.Window);
         var regions = PixelComparison.Classify(scene, expected.Width, expected.Height, CaseHost.Scale, primitives);
-        var report = PixelComparison.Compare(expected, actual, regions, tolerance ?? PixelTolerance.Default);
+        var inkMass = PixelComparison.InkMass(expected, actual, regions, scene, CaseHost.Scale);
+        var report = PixelComparison.Compare(expected, actual, regions, tolerance ?? PixelTolerance.Default, inkMass);
+        Calibration.RecordInk(golden.Id, inkMass);
         failures.AddRange(report.Failures);
 
         var structure = StructuralComparison.Compare(scene, primitives, geometryTolerance);

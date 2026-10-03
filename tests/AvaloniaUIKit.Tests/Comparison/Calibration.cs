@@ -12,6 +12,20 @@ public static class Calibration
     private static readonly bool Enabled = Environment.GetEnvironmentVariable("AVALONIA_UIKIT_CALIBRATE") is { Length: > 0 };
     private static readonly object Gate = new();
 
+    public static void RecordInk(string id, (double Expected, double Actual) mass)
+    {
+        if (!Enabled)
+        {
+            return;
+        }
+        lock (Gate)
+        {
+            Directory.CreateDirectory(Repo.Artifacts);
+            File.AppendAllText(Path.Combine(Repo.Artifacts, "ink-mass.csv"),
+                string.Create(CultureInfo.InvariantCulture, $"{id},{mass.Expected:0},{mass.Actual:0}") + Environment.NewLine);
+        }
+    }
+
     public static void Record(string id, PixelReport report)
     {
         if (!Enabled)
@@ -24,6 +38,7 @@ public static class Calibration
             kv.Value.Count.ToString(CultureInfo.InvariantCulture),
             kv.Value.Max.ToString("0.##", CultureInfo.InvariantCulture),
             kv.Value.Mean.ToString("0.###", CultureInfo.InvariantCulture),
+            kv.Value.SignedMean.ToString("0.###", CultureInfo.InvariantCulture),
         })));
         lock (Gate)
         {
