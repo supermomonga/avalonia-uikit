@@ -215,4 +215,22 @@ public class BehaviorTests
         host.Drive(golden, "focus");
         await Assert.That(RingVisible(host)).IsTrue();
     }
+
+    // GPUI removes a closed notification after its 200ms exit; Avalonia's card
+    // must report IsClosed (the theme's contract) for the manager to remove it.
+    [Test]
+    public async Task A_closed_notification_is_removed_after_its_exit()
+    {
+        var golden = Case("notification/type.info/wait-1000ms/light");
+        using var host = CaseHost.Open(golden, Adapters.Create(golden));
+        host.Drive(golden, "wait-1000ms");
+        var card = host.Window.GetVisualDescendants().OfType<Avalonia.Controls.Notifications.NotificationCard>().Single();
+        card.Close();
+        VirtualTime.Advance(TimeSpan.FromMilliseconds(150));
+        await Assert.That(card.IsClosed).IsFalse();
+        VirtualTime.Advance(TimeSpan.FromMilliseconds(60));
+        host.Flush();
+        await Assert.That(card.IsClosed).IsTrue();
+        await Assert.That(host.Window.GetVisualDescendants().OfType<Avalonia.Controls.Notifications.NotificationCard>()).IsEmpty();
+    }
 }

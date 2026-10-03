@@ -3,13 +3,14 @@ using AvaloniaUIKit.Tests.Golden;
 
 namespace AvaloniaUIKit.Tests.Motion;
 
-/// <summary>The two motion frames whose pixels differ for a reason in principle.</summary>
+/// <summary>The motion frames whose pixels differ for a reason in principle.</summary>
 public static class MotionTolerance
 {
     public static PixelTolerance? For(GoldenCase golden, GoldenScene scene) => golden.Component switch
     {
         "tooltip" when Fading(golden, scene) => FadingGroup,
         "select" or "combobox" when FadingBelow(golden, scene) => FadingGroup,
+        "notification" when FadingCard(scene) => FadingGroup,
         "progress" when golden.Motion!.Name == "loading" && NarrowBar(golden, scene) => NarrowPill,
         _ => null,
     };
@@ -31,6 +32,10 @@ public static class MotionTolerance
     private static bool FadingBelow(GoldenCase golden, GoldenScene scene) =>
         scene.Quads.Where(q => q.SolidBackground && q.Bounds.Top >= golden.ComponentBounds.Bottom && q.Bounds.Width >= golden.ComponentBounds.Width - 0.5)
             .OrderBy(q => q.Order).FirstOrDefault() is { } surface && surface.Background.A < 0.999;
+
+    // A notification card mid-fade: its fill is translucent.
+    private static bool FadingCard(GoldenScene scene) =>
+        scene.Quads.Any(q => q.SolidBackground && q.Background.A is > 0 and < 0.999 && q.Bounds.Width >= 300);
 
     private static bool NarrowBar(GoldenCase golden, GoldenScene scene)
     {

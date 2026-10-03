@@ -1,0 +1,54 @@
+# GPUI Kit Notification -> WindowNotificationManager / NotificationCard.
+# The card is pushed on the first frame into a NotificationList filling the
+# case area: 382px wide, 50px from the top (34px title bar + 16) and 16px from
+# the side. It slides in from 96px above over 400ms (CSS ease).
+component = "notification"
+viewport = [430, 170]
+anchor = [0, 0]
+
+# The four type icons, and an untyped notification without one.
+[[group]]
+name = "type"
+params = { message = "Your changes have been saved." }
+matrix = { type = ["info", "success", "warning", "error", "none"] }
+states = ["wait-1000ms"]
+
+# Title and message; hovering the card reveals the close button, hovering the
+# button tints it.
+[[group]]
+name = "title"
+params = { title = "Update available", message = "A new version is ready to install." }
+matrix = { type = ["info", "error"] }
+states = ["wait-1000ms", "wait-1000ms+at-200-90", "wait-1000ms+at-399-65"]
+
+# A message that wraps to two lines (324px text column).
+[[group]]
+name = "wrap"
+params = { type = "warning", message = "Network connection is unstable. Changes will sync when it recovers." }
+states = ["wait-1000ms"]
+
+# The other five placements (TopRight is above). Bottom stacks settle their
+# height spring after ~0.6s, so they wait longer.
+[[group]]
+name = "placement"
+params = { type = "info", message = "Download complete.", height = 200 }
+matrix = { placement = ["top-left", "top-center", "bottom-left", "bottom-center", "bottom-right"] }
+states = ["wait-1500ms"]
+viewport = [430, 200]
+
+# Enter: fade in and slide down 96px over 400ms; the shadow ramps by opacity^3.
+[[motion]]
+name = "enter"
+params = { type = "info", message = "Your changes have been saved." }
+trigger = "wait-0ms"
+samples_ms = [0, 16, 33, 50, 100, 150, 200, 300, 400, 450]
+themes = ["light"]
+
+# Exit: the close button starts a 200ms fade and 96px slide up, then the card is removed.
+[[motion]]
+name = "exit"
+params = { type = "info", title = "Update available", message = "A new version is ready to install." }
+from = "wait-1000ms+at-200-90"
+trigger = "click-at-399-65"
+samples_ms = [0, 16, 33, 50, 100, 150, 200, 250]
+themes = ["light"]

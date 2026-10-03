@@ -354,6 +354,11 @@ public static class StructuralComparison
             {
                 continue;
             }
+            // Off the window it paints nothing (GPUI culls its sprites).
+            if (visual.TransformToVisual(root) is { } toRoot && !new Rect(visual.Bounds.Size).TransformToAABB(toRoot).Inflate(1).Intersects(new Rect(root.Bounds.Size)))
+            {
+                continue;
+            }
             var opacity = EffectiveOpacity(visual, root);
             switch (visual)
             {
@@ -394,7 +399,9 @@ public static class StructuralComparison
                     break;
             }
         }
-        actual = Distinct(actual.Where(c => !c.IsTransparent));
+        // R30: ink fading below 5% is compared by pixels only (GPUI culls some of it).
+        expected = expected.Where(c => c.A >= 0.05).ToList();
+        actual = Distinct(actual.Where(c => !c.IsTransparent && c.A >= 0.05));
         var messages = new List<string>();
         foreach (var e in expected.Where(e => !actual.Any(a => a.Distance(e) <= ColorTolerance)))
         {

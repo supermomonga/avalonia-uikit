@@ -1,0 +1,242 @@
+<!--
+  GPUI Kit Notification (crates/component/src/notification.rs) ->
+  WindowNotificationManager / NotificationCard:
+
+    var manager = new WindowNotificationManager(topLevel) { Position = NotificationPosition.TopRight, MaxItems = 10 };
+    manager.Show(new Notification("Update available", "A new version is ready."), NotificationType.Information);
+
+  A 382px card (popover background, 1px border, radius_lg, toast shadow) with
+  the type's icon at its top left, the title (semibold) and message on 22.5px
+  lines, and a ghost close button that shows while the card is hovered. GPUI
+  keeps cards 50px from the top (under a 34px title bar) or 16px from the
+  bottom, 16px from the side, the newest nearest the edge, 14px apart. A card
+  slides 96px in from its edge and fades in over 400ms (CSS ease), and out over
+  200ms on closing; its shadow ramps by the cube of the fade. The class plain
+  (Show(..., classes: ["plain"])) is GPUI's untyped notification, without an
+  icon. GPUI's collapsed stack, its hover expansion and autohide pause are not
+  part of the control; pass expiration 5.4s for GPUI's autohide.
+-->
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:gpui="using:AvaloniaUIKit"
+                    xmlns:gconv="using:AvaloniaUIKit.Converters"
+                    xmlns:notifications="using:Avalonia.Controls.Notifications">
+  <!--
+    styled.rs toast_shadow: shadow-lg halved, sigma 7.5 and 3 as Skia blurs. GPUI
+    keeps a shadow's corners when it spreads it; Avalonia shrinks them by the
+    spread, so each layer is cast by its own box with the radius grown back.
+  -->
+  <gconv:FadedShadowConverter x:Key="Gpui.Shadow.Toast.Far" Power="3" Shadows="0 10 24.2487 -3 #1A000000" />
+  <gconv:FadedShadowConverter x:Key="Gpui.Shadow.Toast.Near" Power="3" Shadows="0 4 8.6603 -4 #1A000000" />
+
+  <ControlTheme x:Key="{x:Type WindowNotificationManager}" TargetType="WindowNotificationManager">
+    <Setter Property="Template">
+      <ControlTemplate>
+        <ReversibleStackPanel Name="PART_Items" Spacing="14">
+          <ReversibleStackPanel.DataTemplates>
+            <DataTemplate DataType="notifications:INotification">
+              <StackPanel>
+                <TextBlock Text="{Binding Title}" FontWeight="SemiBold" LineHeight="22.5"
+                           IsVisible="{Binding Title, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
+                <TextBlock Text="{Binding Message}" LineHeight="22.5" TextWrapping="Wrap"
+                           IsVisible="{Binding Message, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
+              </StackPanel>
+            </DataTemplate>
+            <DataTemplate DataType="x:String">
+              <TextBlock Text="{Binding}" LineHeight="22.5" TextWrapping="Wrap" />
+            </DataTemplate>
+          </ReversibleStackPanel.DataTemplates>
+        </ReversibleStackPanel>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^:topleft /template/ ReversibleStackPanel#PART_Items, ^:topright /template/ ReversibleStackPanel#PART_Items, ^:topcenter /template/ ReversibleStackPanel#PART_Items">
+      <Setter Property="VerticalAlignment" Value="Top" />
+      <Setter Property="ReverseOrder" Value="True" />
+    </Style>
+    <Style Selector="^:bottomleft /template/ ReversibleStackPanel#PART_Items, ^:bottomright /template/ ReversibleStackPanel#PART_Items, ^:bottomcenter /template/ ReversibleStackPanel#PART_Items">
+      <Setter Property="VerticalAlignment" Value="Bottom" />
+      <Setter Property="gpui:Notifications.FromBottom" Value="True" />
+    </Style>
+    <Style Selector="^:topleft /template/ ReversibleStackPanel#PART_Items">
+      <Setter Property="HorizontalAlignment" Value="Left" />
+      <Setter Property="Margin" Value="16,50,0,0" />
+    </Style>
+    <Style Selector="^:topright /template/ ReversibleStackPanel#PART_Items">
+      <Setter Property="HorizontalAlignment" Value="Right" />
+      <Setter Property="Margin" Value="0,50,16,0" />
+    </Style>
+    <Style Selector="^:topcenter /template/ ReversibleStackPanel#PART_Items">
+      <Setter Property="HorizontalAlignment" Value="Center" />
+      <Setter Property="Margin" Value="0,50,0,0" />
+    </Style>
+    <Style Selector="^:bottomleft /template/ ReversibleStackPanel#PART_Items">
+      <Setter Property="HorizontalAlignment" Value="Left" />
+      <Setter Property="Margin" Value="16,0,0,16" />
+    </Style>
+    <Style Selector="^:bottomright /template/ ReversibleStackPanel#PART_Items">
+      <Setter Property="HorizontalAlignment" Value="Right" />
+      <Setter Property="Margin" Value="0,0,16,16" />
+    </Style>
+    <Style Selector="^:bottomcenter /template/ ReversibleStackPanel#PART_Items">
+      <Setter Property="HorizontalAlignment" Value="Center" />
+      <Setter Property="Margin" Value="0,0,0,16" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type NotificationCard}" TargetType="NotificationCard">
+    <Setter Property="Width" Value="382" />
+    <Setter Property="Background" Value="{DynamicResource Gpui.Popover}" />
+    <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Border}" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="CornerRadius" Value="7.5" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="ClipToBounds" Value="False" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <!-- The exit (closing) and enter motions each move and fade their own layer. -->
+        <Panel Name="PART_Exit">
+          <Panel.RenderTransform><TranslateTransform /></Panel.RenderTransform>
+          <Panel Name="PART_Motion">
+            <Panel.RenderTransform><TranslateTransform /></Panel.RenderTransform>
+            <Border Name="PART_ShadowFar" CornerRadius="11" IsHitTestVisible="False">
+              <Border.BoxShadow>
+                <MultiBinding Converter="{StaticResource Gpui.Shadow.Toast.Far}">
+                  <Binding ElementName="PART_Exit" Path="Opacity" />
+                  <Binding ElementName="PART_Motion" Path="Opacity" />
+                </MultiBinding>
+              </Border.BoxShadow>
+            </Border>
+            <Border Name="PART_ShadowNear" CornerRadius="12" IsHitTestVisible="False">
+              <Border.BoxShadow>
+                <MultiBinding Converter="{StaticResource Gpui.Shadow.Toast.Near}">
+                  <Binding ElementName="PART_Exit" Path="Opacity" />
+                  <Binding ElementName="PART_Motion" Path="Opacity" />
+                </MultiBinding>
+              </Border.BoxShadow>
+            </Border>
+            <Border Name="PART_Card"
+                    BackgroundSizing="OuterBorderEdge"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}">
+              <Panel>
+                <PathIcon Name="PART_Icon" Width="16" Height="16" Margin="16,18,0,0"
+                          HorizontalAlignment="Left" VerticalAlignment="Top" />
+                <ContentPresenter Name="PART_ContentPresenter" Margin="40,14,16,14"
+                                  Content="{TemplateBinding Content}"
+                                  ContentTemplate="{TemplateBinding ContentTemplate}" />
+                <Button Name="PART_CloseButton" Classes="ghost xsmall icon-only"
+                        HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,4,4,0"
+                        NotificationCard.CloseOnClick="True"
+                        Opacity="0" IsHitTestVisible="False">
+                  <PathIcon Data="{StaticResource Gpui.Icon.Close}" />
+                </Button>
+              </Panel>
+            </Border>
+          </Panel>
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+
+    <Style Selector="^:information /template/ PathIcon#PART_Icon">
+      <Setter Property="Data" Value="{StaticResource Gpui.Icon.Info}" />
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.Info}" />
+    </Style>
+    <Style Selector="^:success /template/ PathIcon#PART_Icon">
+      <Setter Property="Data" Value="{StaticResource Gpui.Icon.CircleCheck}" />
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.Success}" />
+    </Style>
+    <Style Selector="^:warning /template/ PathIcon#PART_Icon">
+      <Setter Property="Data" Value="{StaticResource Gpui.Icon.TriangleAlert}" />
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.Warning}" />
+    </Style>
+    <Style Selector="^:error /template/ PathIcon#PART_Icon">
+      <Setter Property="Data" Value="{StaticResource Gpui.Icon.CircleX}" />
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.Danger}" />
+    </Style>
+    <!-- GPUI's untyped notification: no icon, and no indent for one. -->
+    <Style Selector="^.plain /template/ PathIcon#PART_Icon">
+      <Setter Property="IsVisible" Value="False" />
+    </Style>
+    <Style Selector="^.plain /template/ ContentPresenter#PART_ContentPresenter">
+      <Setter Property="Margin" Value="16,14" />
+    </Style>
+
+    <!-- The close button shows while the card is hovered (group_hover). -->
+    <Style Selector="^:pointerover /template/ Button#PART_CloseButton">
+      <Setter Property="Opacity" Value="1" />
+      <Setter Property="IsHitTestVisible" Value="True" />
+    </Style>
+
+    <!-- Enter: 96px down from above (up from below) and in, over 400ms. -->
+    <Style Selector="^ /template/ Panel#PART_Motion[(gpui|Notifications.FromBottom)=False]">
+      <Style.Animations>
+        <Animation Duration="0:0:0.4" Easing="0.25,0.1,0.25,1" FillMode="Forward">
+          <KeyFrame Cue="0%">
+            <Setter Property="Opacity" Value="0" />
+            <Setter Property="TranslateTransform.Y" Value="-96" />
+          </KeyFrame>
+          <KeyFrame Cue="100%">
+            <Setter Property="Opacity" Value="1" />
+            <Setter Property="TranslateTransform.Y" Value="0" />
+          </KeyFrame>
+        </Animation>
+      </Style.Animations>
+    </Style>
+    <Style Selector="^ /template/ Panel#PART_Motion[(gpui|Notifications.FromBottom)=True]">
+      <Style.Animations>
+        <Animation Duration="0:0:0.4" Easing="0.25,0.1,0.25,1" FillMode="Forward">
+          <KeyFrame Cue="0%">
+            <Setter Property="Opacity" Value="0" />
+            <Setter Property="TranslateTransform.Y" Value="96" />
+          </KeyFrame>
+          <KeyFrame Cue="100%">
+            <Setter Property="Opacity" Value="1" />
+            <Setter Property="TranslateTransform.Y" Value="0" />
+          </KeyFrame>
+        </Animation>
+      </Style.Animations>
+    </Style>
+
+    <!-- Exit: 96px back toward the edge and out over 200ms, then closed (removed). -->
+    <Style Selector="^[IsClosing=True] /template/ Panel#PART_Exit[(gpui|Notifications.FromBottom)=False]">
+      <Style.Animations>
+        <Animation Duration="0:0:0.2" Easing="0.25,0.1,0.25,1" FillMode="Forward">
+          <KeyFrame Cue="0%">
+            <Setter Property="Opacity" Value="1" />
+            <Setter Property="TranslateTransform.Y" Value="0" />
+          </KeyFrame>
+          <KeyFrame Cue="100%">
+            <Setter Property="Opacity" Value="0" />
+            <Setter Property="TranslateTransform.Y" Value="-96" />
+          </KeyFrame>
+        </Animation>
+      </Style.Animations>
+    </Style>
+    <Style Selector="^[IsClosing=True] /template/ Panel#PART_Exit[(gpui|Notifications.FromBottom)=True]">
+      <Style.Animations>
+        <Animation Duration="0:0:0.2" Easing="0.25,0.1,0.25,1" FillMode="Forward">
+          <KeyFrame Cue="0%">
+            <Setter Property="Opacity" Value="1" />
+            <Setter Property="TranslateTransform.Y" Value="0" />
+          </KeyFrame>
+          <KeyFrame Cue="100%">
+            <Setter Property="Opacity" Value="0" />
+            <Setter Property="TranslateTransform.Y" Value="96" />
+          </KeyFrame>
+        </Animation>
+      </Style.Animations>
+    </Style>
+    <Style Selector="^[IsClosing=True]">
+      <Style.Animations>
+        <Animation Duration="0:0:0.2" FillMode="Forward">
+          <KeyFrame Cue="100%">
+            <Setter Property="IsClosed" Value="True" />
+          </KeyFrame>
+        </Animation>
+      </Style.Animations>
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

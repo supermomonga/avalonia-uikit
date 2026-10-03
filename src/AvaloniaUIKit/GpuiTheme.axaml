@@ -19,6 +19,7 @@
         <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/Separator.axaml" />
         <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/Menus.axaml" />
         <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/Flyout.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/Notification.axaml" />
         <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/SplitButton.axaml" />
         <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/NumericUpDown.axaml" />
         <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/TextBox.axaml" />

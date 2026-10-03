@@ -40284,6 +40284,1163 @@
       "png_sha256": "ffcbf8fc97c3616bf11a9a30062b218c2e9a9577d6fd70e0fed20b2e132dc287"
     },
     {
+      "id": "notification/motion.enter/wait-0ms/light",
+      "component": "notification",
+      "group": "motion.enter",
+      "params": {
+        "type": "info",
+        "message": "Your changes have been saved."
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        430.0,
+        170.0
+      ],
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "component_bounds": [
+        0.0,
+        0.0,
+        430.0,
+        170.0
+      ],
+      "motion": {
+        "name": "enter",
+        "trigger": "wait-0ms",
+        "from": "normal",
+        "frames": [
+          {
+            "t_ms": 0,
+            "png": "png/notification/motion.enter/wait-0ms/light/0000ms.png",
+            "scene": "scenes/notification/motion.enter/wait-0ms/light/0000ms.json",
+            "png_sha256": "5fb6a33d1af8160446cbddf3fc0b14375b8ccd4ae165b0c4df3d65777f7f1333"
+          },
+          {
+            "t_ms": 16,
+            "png": "png/notification/motion.enter/wait-0ms/light/0016ms.png",
+            "scene": "scenes/notification/motion.enter/wait-0ms/light/0016ms.json",
+            "png_sha256": "95cff58f0c1685ad578f081b97054af4e12fe636e6acf566f1c3a695c070989d"
+          },
+          {
+            "t_ms": 33,
+            "png": "png/notification/motion.enter/wait-0ms/light/0033ms.png",
+            "scene": "scenes/notification/motion.enter/wait-0ms/light/0033ms.json",
+            "png_sha256": "4baf40d28b48fe4f4fd02fe391da622268d9ead6a0960bad8a30011070bdcfc9"
+          },
+          {
+            "t_ms": 50,
+            "png": "png/notification/motion.enter/wait-0ms/light/0050ms.png",
+            "scene": "scenes/notification/motion.enter/wait-0ms/light/0050ms.json",
+            "png_sha256": "cf2ac164edf5aede9029c429754310b078ab7e95051591cbea064ec0380ab018"
+          },
+          {
+            "t_ms": 100,
+            "png": "png/notification/motion.enter/wait-0ms/light/0100ms.png",
+            "scene": "scenes/notification/motion.enter/wait-0ms/light/0100ms.json",
+            "png_sha256": "d4abea478c64c8ff71bde7a3360178d5fd8dc1d03f331c4de0d1b90ac23eaea1"
+          },
+          {
+            "t_ms": 150,
+            "png": "png/notification/motion.enter/wait-0ms/light/0150ms.png",
+            "scene": "scenes/notification/motion.enter/wait-0ms/light/0150ms.json",
+            "png_sha256": "863aa0b0f0ba87a3551b3fa13dda8c9eea33f394c5f3204271a25e13f63e3a0a"
+          },
+          {
+            "t_ms": 200,
+            "png": "png/notification/motion.enter/wait-0ms/light/0200ms.png",
+            "scene": "scenes/notification/motion.enter/wait-0ms/light/0200ms.json",
+            "png_sha256": "2c5a4e9cbede0df568aa2492c1cc31d71d26aa7d1c9f47c40173704ac6063595"
+          },
+          {
+            "t_ms": 300,
+            "png": "png/notification/motion.enter/wait-0ms/light/0300ms.png",
+            "scene": "scenes/notification/motion.enter/wait-0ms/light/0300ms.json",
+            "png_sha256": "fa096ef8b5855d081c6226d1a04f980a17aae9f7d1d1ed5dfebd7384490e44da"
+          },
+          {
+            "t_ms": 400,
+            "png": "png/notification/motion.enter/wait-0ms/light/0400ms.png",
+            "scene": "scenes/notification/motion.enter/wait-0ms/light/0400ms.json",
+            "png_sha256": "6bf9185ae296a36a4708ef3551cc22521c3cdb3200574e07fd6d00adca701977"
+          },
+          {
+            "t_ms": 450,
+            "png": "png/notification/motion.enter/wait-0ms/light/0450ms.png",
+            "scene": "scenes/notification/motion.enter/wait-0ms/light/0450ms.json",
+            "png_sha256": "6bf9185ae296a36a4708ef3551cc22521c3cdb3200574e07fd6d00adca701977"
+          }
+        ]
+      }
+    },
+    {
+      "id": "notification/motion.exit/click-at-399-65/light",
+      "component": "notification",
+      "group": "motion.exit",
+      "params": {
+        "type": "info",
+        "title": "Update available",
+        "message": "A new version is ready to install."
+      },
+      "state": "wait-1000ms+at-200-90",
+      "theme": "light",
+      "viewport": [
+        430.0,
+        170.0
+      ],
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "component_bounds": [
+        0.0,
+        0.0,
+        430.0,
+        170.0
+      ],
+      "motion": {
+        "name": "exit",
+        "trigger": "click-at-399-65",
+        "from": "wait-1000ms+at-200-90",
+        "frames": [
+          {
+            "t_ms": 0,
+            "png": "png/notification/motion.exit/click-at-399-65/light/0000ms.png",
+            "scene": "scenes/notification/motion.exit/click-at-399-65/light/0000ms.json",
+            "png_sha256": "07daede70bd029235a09b6438a983f3417059cb81b547c187eba860439a8ab46"
+          },
+          {
+            "t_ms": 16,
+            "png": "png/notification/motion.exit/click-at-399-65/light/0016ms.png",
+            "scene": "scenes/notification/motion.exit/click-at-399-65/light/0016ms.json",
+            "png_sha256": "33f09c90bf508c4f07d7ad97be48973b7ccf442f2f7195ae1df7828eb7da3f8e"
+          },
+          {
+            "t_ms": 33,
+            "png": "png/notification/motion.exit/click-at-399-65/light/0033ms.png",
+            "scene": "scenes/notification/motion.exit/click-at-399-65/light/0033ms.json",
+            "png_sha256": "808196ec535a1a5661782f60aa82d65a2868cb27babda69892599dbd6eb88876"
+          },
+          {
+            "t_ms": 50,
+            "png": "png/notification/motion.exit/click-at-399-65/light/0050ms.png",
+            "scene": "scenes/notification/motion.exit/click-at-399-65/light/0050ms.json",
+            "png_sha256": "de32c00f9c68b616e71ad6559754e9be1c5e542329d30ce6421e05e81a02a56a"
+          },
+          {
+            "t_ms": 100,
+            "png": "png/notification/motion.exit/click-at-399-65/light/0100ms.png",
+            "scene": "scenes/notification/motion.exit/click-at-399-65/light/0100ms.json",
+            "png_sha256": "adcdeafc9bdd7ca21717a4e53b2e4b72e3ef6a062d6408289c302eabb1e6e7dd"
+          },
+          {
+            "t_ms": 150,
+            "png": "png/notification/motion.exit/click-at-399-65/light/0150ms.png",
+            "scene": "scenes/notification/motion.exit/click-at-399-65/light/0150ms.json",
+            "png_sha256": "ae3b9da9b2b55394799f1f7a47f4c6d439053aa4f4d67c5db13d89f3dde0b052"
+          },
+          {
+            "t_ms": 200,
+            "png": "png/notification/motion.exit/click-at-399-65/light/0200ms.png",
+            "scene": "scenes/notification/motion.exit/click-at-399-65/light/0200ms.json",
+            "png_sha256": "5fb6a33d1af8160446cbddf3fc0b14375b8ccd4ae165b0c4df3d65777f7f1333"
+          },
+          {
+            "t_ms": 250,
+            "png": "png/notification/motion.exit/click-at-399-65/light/0250ms.png",
+            "scene": "scenes/notification/motion.exit/click-at-399-65/light/0250ms.json",
+            "png_sha256": "5fb6a33d1af8160446cbddf3fc0b14375b8ccd4ae165b0c4df3d65777f7f1333"
+          }
+        ]
+      }
+    },
+    {
+      "id": "notification/placement.bottom-center/wait-1500ms/dark",
+      "component": "notification",
+      "group": "placement",
+      "params": {
+        "type": "info",
+        "message": "Download complete.",
+        "height": 200,
+        "placement": "bottom-center"
+      },
+      "state": "wait-1500ms",
+      "theme": "dark",
+      "viewport": [
+        430.0,
+        200.0
+      ],
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "component_bounds": [
+        0.0,
+        0.0,
+        430.0,
+        200.0
+      ],
+      "png": "png/notification/placement.bottom-center/wait-1500ms/dark.png",
+      "scene": "scenes/notification/placement.bottom-center/wait-1500ms/dark.json",
+      "png_sha256": "78ffdc242d028bed3bf6ecc89d88724ff89d3e8b73b7a1209d9db55b22c1a011"
+    },
+    {
+      "id": "notification/placement.bottom-center/wait-1500ms/light",
+      "component": "notification",
+      "group": "placement",
+      "params": {
+        "type": "info",
+        "message": "Download complete.",
+        "height": 200,
+        "placement": "bottom-center"
+      },
+      "state": "wait-1500ms",
+      "theme": "light",
+      "viewport": [
+        430.0,
+        200.0
+      ],
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "component_bounds": [
+        0.0,
+        0.0,
+        430.0,
+        200.0
+      ],
+      "png": "png/notification/placement.bottom-center/wait-1500ms/light.png",
+      "scene": "scenes/notification/placement.bottom-center/wait-1500ms/light.json",
+      "png_sha256": "40fb8e4525757817027f2b17847a1de332df6063cac75c883e6a25eca6fd1da4"
+    },
+    {
+      "id": "notification/placement.bottom-left/wait-1500ms/dark",
+      "component": "notification",
+      "group": "placement",
+      "params": {
+        "type": "info",
+        "message": "Download complete.",
+        "height": 200,
+        "placement": "bottom-left"
+      },
+      "state": "wait-1500ms",
+      "theme": "dark",
+      "viewport": [
+        430.0,
+        200.0
+      ],
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "component_bounds": [
+        0.0,
+        0.0,
+        430.0,
+        200.0
+      ],
+      "png": "png/notification/placement.bottom-left/wait-1500ms/dark.png",
+      "scene": "scenes/notification/placement.bottom-left/wait-1500ms/dark.json",
+      "png_sha256": "970e8bed68170259fe448cd2bb0113ee773747567fa9d27679aa36c00f38e07a"
+    },
+    {
+      "id": "notification/placement.bottom-left/wait-1500ms/light",
+      "component": "notification",
+      "group": "placement",
+      "params": {
+        "type": "info",
+        "message": "Download complete.",
+        "height": 200,
+        "placement": "bottom-left"
+      },
+      "state": "wait-1500ms",
+      "theme": "light",
+      "viewport": [
+        430.0,
+        200.0
+      ],
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "component_bounds": [
+        0.0,
+        0.0,
+        430.0,
+        200.0
+      ],
+      "png": "png/notification/placement.bottom-left/wait-1500ms/light.png",
+      "scene": "scenes/notification/placement.bottom-left/wait-1500ms/light.json",
+      "png_sha256": "e12b31cb74b2be547f3d53ffdd8c6043c0dd259372e48a12332f6146a2c74256"
+    },
+    {
+      "id": "notification/placement.bottom-right/wait-1500ms/dark",
+      "component": "notification",
+      "group": "placement",
+      "params": {
+        "type": "info",
+        "message": "Download complete.",
+        "height": 200,
+        "placement": "bottom-right"
+      },
+      "state": "wait-1500ms",
+      "theme": "dark",
+      "viewport": [
+        430.0,
+        200.0
+      ],
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "component_bounds": [
+        0.0,
+        0.0,
+        430.0,
+        200.0
+      ],
+      "png": "png/notification/placement.bottom-right/wait-1500ms/dark.png",
+      "scene": "scenes/notification/placement.bottom-right/wait-1500ms/dark.json",
+      "png_sha256": "d4342c200003a662b7d764b7fe5e91498e1ca9fcedc9f4b540777d0e07ec112e"
+    },
+    {
+      "id": "notification/placement.bottom-right/wait-1500ms/light",
+      "component": "notification",
+      "group": "placement",
+      "params": {
+        "type": "info",
+        "message": "Download complete.",
+        "height": 200,
+        "placement": "bottom-right"
+      },
+      "state": "wait-1500ms",
+      "theme": "light",
+      "viewport": [
+        430.0,
+        200.0
+      ],
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "component_bounds": [
+        0.0,
+        0.0,
+        430.0,
+        200.0
+      ],
+      "png": "png/notification/placement.bottom-right/wait-1500ms/light.png",
+      "scene": "scenes/notification/placement.bottom-right/wait-1500ms/light.json",
+      "png_sha256": "0a652e8c6ed2770b45c8545abc78e49549cb6a509c0b8a60aca356cea64c6d15"
+    },
+    {
+      "id": "notification/placement.top-center/wait-1500ms/dark",
+      "component": "notification",
+      "group": "placement",
+      "params": {
+        "type": "info",
+        "message": "Download complete.",
+        "height": 200,
+        "placement": "top-center"
+      },
+      "state": "wait-1500ms",
+      "theme": "dark",
+      "viewport": [
+        430.0,
+        200.0
+      ],
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "component_bounds": [
+        0.0,
+        0.0,
+        430.0,
+        200.0
+      ],
+      "png": "png/notification/placement.top-center/wait-1500ms/dark.png",
+      "scene": "scenes/notification/placement.top-center/wait-1500ms/dark.json",
+      "png_sha256": "2d1208240ae65db9c1ec88aa9523505c16e12e15f6759510f7f9051daaba09cf"
+    },
+    {
+      "id": "notification/placement.top-center/wait-1500ms/light",
+      "component": "notification",
+      "group": "placement",
+      "params": {
+        "type": "info",
+        "message": "Download complete.",
+        "height": 200,
+        "placement": "top-center"
+      },
+      "state": "wait-1500ms",
+      "theme": "light",
+      "viewport": [
+        430.0,
+        200.0
+      ],
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "component_bounds": [
+        0.0,
+        0.0,
+        430.0,
+        200.0
+      ],
+      "png": "png/notification/placement.top-center/wait-1500ms/light.png",
+      "scene": "scenes/notification/placement.top-center/wait-1500ms/light.json",
+      "png_sha256": "caec40ac0116873d58c55175ef8e86522b4fa4264bc39977951d51c8d0a62686"
+    },
+    {
+      "id": "notification/placement.top-left/wait-1500ms/dark",
+      "component": "notification",
+      "group": "placement",
+      "params": {
+        "type": "info",
+        "message": "Download complete.",
+        "height": 200,
+        "placement": "top-left"
+      },
+      "state": "wait-1500ms",
+      "theme": "dark",
+      "viewport": [
+        430.0,
+        200.0
+      ],
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "component_bounds": [
+        0.0,
+        0.0,
+        430.0,
+        200.0
+      ],
+      "png": "png/notification/placement.top-left/wait-1500ms/dark.png",
+      "scene": "scenes/notification/placement.top-left/wait-1500ms/dark.json",
+      "png_sha256": "becf1479bb6fc3eee1d5316ca3dcb3c120517985bc92ecf0c81e5bc676198afe"
+    },
+    {
+      "id": "notification/placement.top-left/wait-1500ms/light",
+      "component": "notification",
+      "group": "placement",
+      "params": {
+        "type": "info",
+        "message": "Download complete.",
+        "height": 200,
+        "placement": "top-left"
+      },
+      "state": "wait-1500ms",
+      "theme": "light",
+      "viewport": [
+        430.0,
+        200.0
+      ],
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "component_bounds": [
+        0.0,
+        0.0,
+        430.0,
+        200.0
+      ],
+      "png": "png/notification/placement.top-left/wait-1500ms/light.png",
+      "scene": "scenes/notification/placement.top-left/wait-1500ms/light.json",
+      "png_sha256": "fbc05bee85e78301045a979fd0484d0a0dcca0b70995ca63a2a660a5909b7566"
+    },
+    {
+      "id": "notification/title.error/wait-1000ms+at-200-90/dark",
+      "component": "notification",
+      "group": "title",
+      "params": {
+        "title": "Update available",
+        "message": "A new version is ready to install.",
+        "type": "error"
+      },
+      "state": "wait-1000ms+at-200-90",
+      "theme": "dark",
+      "viewport": [
+        430.0,
+        170.0
+      ],
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "component_bounds": [
+        0.0,
+        0.0,
+        430.0,
+        170.0
+      ],
+      "png": "png/notification/title.error/wait-1000ms+at-200-90/dark.png",
+      "scene": "scenes/notification/title.error/wait-1000ms+at-200-90/dark.json",
+      "png_sha256": "cd7ee9e0af0103e297bd7b958a9ea50cfdb41768fd424ecf5e0a0d60e5e89d37"
+    },
+    {
+      "id": "notification/title.error/wait-1000ms+at-200-90/light",
+      "component": "notification",
+      "group": "title",
+      "params": {
+        "title": "Update available",
+        "message": "A new version is ready to install.",
+        "type": "error"
+      },
+      "state": "wait-1000ms+at-200-90",
+      "theme": "light",
+      "viewport": [
+        430.0,
+        170.0
+      ],
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "component_bounds": [
+        0.0,
+        0.0,
+        430.0,
+        170.0
+      ],
+      "png": "png/notification/title.error/wait-1000ms+at-200-90/light.png",
+      "scene": "scenes/notification/title.error/wait-1000ms+at-200-90/light.json",
+      "png_sha256": "11d9016d5992bc39a20f33023af76309551aa660702ffeb3e519a21f3ec1c6fb"
+    },
+    {
+      "id": "notification/title.error/wait-1000ms+at-399-65/dark",
+      "component": "notification",
+      "group": "title",
+      "params": {
+        "title": "Update available",
+        "message": "A new version is ready to install.",
+        "type": "error"
+      },
+      "state": "wait-1000ms+at-399-65",
+      "theme": "dark",
+      "viewport": [
+        430.0,
+        170.0
+      ],
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "component_bounds": [
+        0.0,
+        0.0,
+        430.0,
+        170.0
+      ],
+      "png": "png/notification/title.error/wait-1000ms+at-399-65/dark.png",
+      "scene": "scenes/notification/title.error/wait-1000ms+at-399-65/dark.json",
+      "png_sha256": "b2b8724c9f9766009436ee874196babbc2083a3ef9451bf6373e8bd61a4adeb6"
+    },
+    {
+      "id": "notification/title.error/wait-1000ms+at-399-65/light",
+      "component": "notification",
+      "group": "title",
+      "params": {
+        "title": "Update available",
+        "message": "A new version is ready to install.",
+        "type": "error"
+      },
+      "state": "wait-1000ms+at-399-65",
+      "theme": "light",
+      "viewport": [
+        430.0,
+        170.0
+      ],
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "component_bounds": [
+        0.0,
+        0.0,
+        430.0,
+        170.0
+      ],
+      "png": "png/notification/title.error/wait-1000ms+at-399-65/light.png",
+      "scene": "scenes/notification/title.error/wait-1000ms+at-399-65/light.json",
+      "png_sha256": "b3723d06fc1c6a43a168af611bd06614e9c3b47ec0c8a07d276d76e25200289f"
+    },
+    {
+      "id": "notification/title.error/wait-1000ms/dark",
+      "component": "notification",
+      "group": "title",
+      "params": {
+        "title": "Update available",
+        "message": "A new version is ready to install.",
+        "type": "error"
+      },
+      "state": "wait-1000ms",
+      "theme": "dark",
+      "viewport": [
+        430.0,
+        170.0
+      ],
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "component_bounds": [
+        0.0,
+        0.0,
+        430.0,
+        170.0
+      ],
+      "png": "png/notification/title.error/wait-1000ms/dark.png",
+      "scene": "scenes/notification/title.error/wait-1000ms/dark.json",
+      "png_sha256": "dc73294d4b4628140e0a20337026dfb89389ad38d5b482c21a66628ffc2feb3e"
+    },
+    {
+      "id": "notification/title.error/wait-1000ms/light",
+      "component": "notification",
+      "group": "title",
+      "params": {
+        "title": "Update available",
+        "message": "A new version is ready to install.",
+        "type": "error"
+      },
+      "state": "wait-1000ms",
+      "theme": "light",
+      "viewport": [
+        430.0,
+        170.0
+      ],
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "component_bounds": [
+        0.0,
+        0.0,
+        430.0,
+        170.0
+      ],
+      "png": "png/notification/title.error/wait-1000ms/light.png",
+      "scene": "scenes/notification/title.error/wait-1000ms/light.json",
+      "png_sha256": "961b8a698d00f5cb6136d9dc9cf9c6f9c3d722c985efe8ce8a3e0c862253ff50"
+    },
+    {
+      "id": "notification/title.info/wait-1000ms+at-200-90/dark",
+      "component": "notification",
+      "group": "title",
+      "params": {
+        "title": "Update available",
+        "message": "A new version is ready to install.",
+        "type": "info"
+      },
+      "state": "wait-1000ms+at-200-90",
+      "theme": "dark",
+      "viewport": [
+        430.0,
+        170.0
+      ],
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "component_bounds": [
+        0.0,
+        0.0,
+        430.0,
+        170.0
+      ],
+      "png": "png/notification/title.info/wait-1000ms+at-200-90/dark.png",
+      "scene": "scenes/notification/title.info/wait-1000ms+at-200-90/dark.json",
+      "png_sha256": "b16be5e8f23f9e655aa18d1cf910562441436be810650de15147729b36161258"
+    },
+    {
+      "id": "notification/title.info/wait-1000ms+at-200-90/light",
+      "component": "notification",
+      "group": "title",
+      "params": {
+        "title": "Update available",
+        "message": "A new version is ready to install.",
+        "type": "info"
+      },
+      "state": "wait-1000ms+at-200-90",
+      "theme": "light",
+      "viewport": [
+        430.0,
+        170.0
+      ],
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "component_bounds": [
+        0.0,
+        0.0,
+        430.0,
+        170.0
+      ],
+      "png": "png/notification/title.info/wait-1000ms+at-200-90/light.png",
+      "scene": "scenes/notification/title.info/wait-1000ms+at-200-90/light.json",
+      "png_sha256": "784e653301f1beb57d190bf245845f257059c23b86189870bee416aeda662be7"
+    },
+    {
+      "id": "notification/title.info/wait-1000ms+at-399-65/dark",
+      "component": "notification",
+      "group": "title",
+      "params": {
+        "title": "Update available",
+        "message": "A new version is ready to install.",
+        "type": "info"
+      },
+      "state": "wait-1000ms+at-399-65",
+      "theme": "dark",
+      "viewport": [
+        430.0,
+        170.0
+      ],
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "component_bounds": [
+        0.0,
+        0.0,
+        430.0,
+        170.0
+      ],
+      "png": "png/notification/title.info/wait-1000ms+at-399-65/dark.png",
+      "scene": "scenes/notification/title.info/wait-1000ms+at-399-65/dark.json",
+      "png_sha256": "8403e47b8f0810a7a4f8b9e0633cd35fe6bac38e53bbab113b80dc06a49b4a33"
+    },
+    {
+      "id": "notification/title.info/wait-1000ms+at-399-65/light",
+      "component": "notification",
+      "group": "title",
+      "params": {
+        "title": "Update available",
+        "message": "A new version is ready to install.",
+        "type": "info"
+      },
+      "state": "wait-1000ms+at-399-65",
+      "theme": "light",
+      "viewport": [
+        430.0,
+        170.0
+      ],
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "component_bounds": [
+        0.0,
+        0.0,
+        430.0,
+        170.0
+      ],
+      "png": "png/notification/title.info/wait-1000ms+at-399-65/light.png",
+      "scene": "scenes/notification/title.info/wait-1000ms+at-399-65/light.json",
+      "png_sha256": "07daede70bd029235a09b6438a983f3417059cb81b547c187eba860439a8ab46"
+    },
+    {
+      "id": "notification/title.info/wait-1000ms/dark",
+      "component": "notification",
+      "group": "title",
+      "params": {
+        "title": "Update available",
+        "message": "A new version is ready to install.",
+        "type": "info"
+      },
+      "state": "wait-1000ms",
+      "theme": "dark",
+      "viewport": [
+        430.0,
+        170.0
+      ],
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "component_bounds": [
+        0.0,
+        0.0,
+        430.0,
+        170.0
+      ],
+      "png": "png/notification/title.info/wait-1000ms/dark.png",
+      "scene": "scenes/notification/title.info/wait-1000ms/dark.json",
+      "png_sha256": "3fba73b7fd0be188a06ad9f0340295f5cc9aac4360234141c0bb214c2e702b89"
+    },
+    {
+      "id": "notification/title.info/wait-1000ms/light",
+      "component": "notification",
+      "group": "title",
+      "params": {
+        "title": "Update available",
+        "message": "A new version is ready to install.",
+        "type": "info"
+      },
+      "state": "wait-1000ms",
+      "theme": "light",
+      "viewport": [
+        430.0,
+        170.0
+      ],
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "component_bounds": [
+        0.0,
+        0.0,
+        430.0,
+        170.0
+      ],
+      "png": "png/notification/title.info/wait-1000ms/light.png",
+      "scene": "scenes/notification/title.info/wait-1000ms/light.json",
+      "png_sha256": "077efafca52a4fdace7a291627cb5d95922b01c144d08208ce257d8023c0a8cb"
+    },
+    {
+      "id": "notification/type.error/wait-1000ms/dark",
+      "component": "notification",
+      "group": "type",
+      "params": {
+        "message": "Your changes have been saved.",
+        "type": "error"
+      },
+      "state": "wait-1000ms",
+      "theme": "dark",
+      "viewport": [
+        430.0,
+        170.0
+      ],
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "component_bounds": [
+        0.0,
+        0.0,
+        430.0,
+        170.0
+      ],
+      "png": "png/notification/type.error/wait-1000ms/dark.png",
+      "scene": "scenes/notification/type.error/wait-1000ms/dark.json",
+      "png_sha256": "c009cd51eb0a4e73ecc208af154222ba889e4bcf18e20aa68ba4f77c73992216"
+    },
+    {
+      "id": "notification/type.error/wait-1000ms/light",
+      "component": "notification",
+      "group": "type",
+      "params": {
+        "message": "Your changes have been saved.",
+        "type": "error"
+      },
+      "state": "wait-1000ms",
+      "theme": "light",
+      "viewport": [
+        430.0,
+        170.0
+      ],
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "component_bounds": [
+        0.0,
+        0.0,
+        430.0,
+        170.0
+      ],
+      "png": "png/notification/type.error/wait-1000ms/light.png",
+      "scene": "scenes/notification/type.error/wait-1000ms/light.json",
+      "png_sha256": "596039e41c043a8565b7e4a28806e0309bb851c2f20abd1914541e24b2532f5a"
+    },
+    {
+      "id": "notification/type.info/wait-1000ms/dark",
+      "component": "notification",
+      "group": "type",
+      "params": {
+        "message": "Your changes have been saved.",
+        "type": "info"
+      },
+      "state": "wait-1000ms",
+      "theme": "dark",
+      "viewport": [
+        430.0,
+        170.0
+      ],
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "component_bounds": [
+        0.0,
+        0.0,
+        430.0,
+        170.0
+      ],
+      "png": "png/notification/type.info/wait-1000ms/dark.png",
+      "scene": "scenes/notification/type.info/wait-1000ms/dark.json",
+      "png_sha256": "e46fbb79cf52533ead252491d919544642190b976dbb2c3850d7a46941640bf4"
+    },
+    {
+      "id": "notification/type.info/wait-1000ms/light",
+      "component": "notification",
+      "group": "type",
+      "params": {
+        "message": "Your changes have been saved.",
+        "type": "info"
+      },
+      "state": "wait-1000ms",
+      "theme": "light",
+      "viewport": [
+        430.0,
+        170.0
+      ],
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "component_bounds": [
+        0.0,
+        0.0,
+        430.0,
+        170.0
+      ],
+      "png": "png/notification/type.info/wait-1000ms/light.png",
+      "scene": "scenes/notification/type.info/wait-1000ms/light.json",
+      "png_sha256": "6bf9185ae296a36a4708ef3551cc22521c3cdb3200574e07fd6d00adca701977"
+    },
+    {
+      "id": "notification/type.none/wait-1000ms/dark",
+      "component": "notification",
+      "group": "type",
+      "params": {
+        "message": "Your changes have been saved.",
+        "type": "none"
+      },
+      "state": "wait-1000ms",
+      "theme": "dark",
+      "viewport": [
+        430.0,
+        170.0
+      ],
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "component_bounds": [
+        0.0,
+        0.0,
+        430.0,
+        170.0
+      ],
+      "png": "png/notification/type.none/wait-1000ms/dark.png",
+      "scene": "scenes/notification/type.none/wait-1000ms/dark.json",
+      "png_sha256": "07d240542f7e4c7a086c40dc1015cb3bf69ee783a5c5c57d6599f39a4c192646"
+    },
+    {
+      "id": "notification/type.none/wait-1000ms/light",
+      "component": "notification",
+      "group": "type",
+      "params": {
+        "message": "Your changes have been saved.",
+        "type": "none"
+      },
+      "state": "wait-1000ms",
+      "theme": "light",
+      "viewport": [
+        430.0,
+        170.0
+      ],
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "component_bounds": [
+        0.0,
+        0.0,
+        430.0,
+        170.0
+      ],
+      "png": "png/notification/type.none/wait-1000ms/light.png",
+      "scene": "scenes/notification/type.none/wait-1000ms/light.json",
+      "png_sha256": "5cb5950107bac129f6a3b0584b4c31167c4ddd8bd81b86cf52f41717c5d5663d"
+    },
+    {
+      "id": "notification/type.success/wait-1000ms/dark",
+      "component": "notification",
+      "group": "type",
+      "params": {
+        "message": "Your changes have been saved.",
+        "type": "success"
+      },
+      "state": "wait-1000ms",
+      "theme": "dark",
+      "viewport": [
+        430.0,
+        170.0
+      ],
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "component_bounds": [
+        0.0,
+        0.0,
+        430.0,
+        170.0
+      ],
+      "png": "png/notification/type.success/wait-1000ms/dark.png",
+      "scene": "scenes/notification/type.success/wait-1000ms/dark.json",
+      "png_sha256": "8b548d95f7d2ec6dfa86727dfa240293047c5d45417393bb4a42aef5f2151e7b"
+    },
+    {
+      "id": "notification/type.success/wait-1000ms/light",
+      "component": "notification",
+      "group": "type",
+      "params": {
+        "message": "Your changes have been saved.",
+        "type": "success"
+      },
+      "state": "wait-1000ms",
+      "theme": "light",
+      "viewport": [
+        430.0,
+        170.0
+      ],
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "component_bounds": [
+        0.0,
+        0.0,
+        430.0,
+        170.0
+      ],
+      "png": "png/notification/type.success/wait-1000ms/light.png",
+      "scene": "scenes/notification/type.success/wait-1000ms/light.json",
+      "png_sha256": "02ab08e3daf7a5615ed26a1c66f071106c233532a91173a72d02b74d37854293"
+    },
+    {
+      "id": "notification/type.warning/wait-1000ms/dark",
+      "component": "notification",
+      "group": "type",
+      "params": {
+        "message": "Your changes have been saved.",
+        "type": "warning"
+      },
+      "state": "wait-1000ms",
+      "theme": "dark",
+      "viewport": [
+        430.0,
+        170.0
+      ],
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "component_bounds": [
+        0.0,
+        0.0,
+        430.0,
+        170.0
+      ],
+      "png": "png/notification/type.warning/wait-1000ms/dark.png",
+      "scene": "scenes/notification/type.warning/wait-1000ms/dark.json",
+      "png_sha256": "0bf311d860a4999872ea43098c2733ee9b006be6a453c9badaa6cc8e685f299d"
+    },
+    {
+      "id": "notification/type.warning/wait-1000ms/light",
+      "component": "notification",
+      "group": "type",
+      "params": {
+        "message": "Your changes have been saved.",
+        "type": "warning"
+      },
+      "state": "wait-1000ms",
+      "theme": "light",
+      "viewport": [
+        430.0,
+        170.0
+      ],
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "component_bounds": [
+        0.0,
+        0.0,
+        430.0,
+        170.0
+      ],
+      "png": "png/notification/type.warning/wait-1000ms/light.png",
+      "scene": "scenes/notification/type.warning/wait-1000ms/light.json",
+      "png_sha256": "f5c0bedb9ab13fed1cace8a465df4bec93c170c69e565cb1621c06aa2d2304ac"
+    },
+    {
+      "id": "notification/wrap.base/wait-1000ms/dark",
+      "component": "notification",
+      "group": "wrap",
+      "params": {
+        "type": "warning",
+        "message": "Network connection is unstable. Changes will sync when it recovers."
+      },
+      "state": "wait-1000ms",
+      "theme": "dark",
+      "viewport": [
+        430.0,
+        170.0
+      ],
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "component_bounds": [
+        0.0,
+        0.0,
+        430.0,
+        170.0
+      ],
+      "png": "png/notification/wrap.base/wait-1000ms/dark.png",
+      "scene": "scenes/notification/wrap.base/wait-1000ms/dark.json",
+      "png_sha256": "3a8e3fcd9278d892c25b44d8ec795ea1456518a4cd9aa59e67139c973c1e89d5"
+    },
+    {
+      "id": "notification/wrap.base/wait-1000ms/light",
+      "component": "notification",
+      "group": "wrap",
+      "params": {
+        "type": "warning",
+        "message": "Network connection is unstable. Changes will sync when it recovers."
+      },
+      "state": "wait-1000ms",
+      "theme": "light",
+      "viewport": [
+        430.0,
+        170.0
+      ],
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "component_bounds": [
+        0.0,
+        0.0,
+        430.0,
+        170.0
+      ],
+      "png": "png/notification/wrap.base/wait-1000ms/light.png",
+      "scene": "scenes/notification/wrap.base/wait-1000ms/light.json",
+      "png_sha256": "b853cce4843ca8e8456a1e4b419f1afb4102e6fdaf9b5787244604a551107df3"
+    },
+    {
       "id": "number/buttons.medium/at-160-24/dark",
       "component": "number",
       "group": "buttons",

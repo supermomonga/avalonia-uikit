@@ -58,6 +58,7 @@ public static class Adapters
         "toolbar" => Toolbar(c),
         "popover" => Popover(c),
         "accordion" => Accordion(c),
+        "notification" => NotificationArea(c),
         "collapsible" => Collapsible(c),
         "slider" => Slider(c),
         _ => throw new NotSupportedException($"no adapter for {c.Component}"),
@@ -656,6 +657,38 @@ public static class Adapters
         }
         FlagClass(slider, c, "reverse");
         return slider;
+    }
+
+    private static Avalonia.Controls.Notifications.WindowNotificationManager NotificationArea(GoldenCase c)
+    {
+        var type = c.Str("type", "info");
+        var manager = new Avalonia.Controls.Notifications.WindowNotificationManager
+        {
+            Width = c.Num("width", 430),
+            Height = c.Num("height", 170),
+            MaxItems = 10,
+            Position = c.Str("placement", "top-right") switch
+            {
+                "top-left" => Avalonia.Controls.Notifications.NotificationPosition.TopLeft,
+                "top-center" => Avalonia.Controls.Notifications.NotificationPosition.TopCenter,
+                "bottom-left" => Avalonia.Controls.Notifications.NotificationPosition.BottomLeft,
+                "bottom-center" => Avalonia.Controls.Notifications.NotificationPosition.BottomCenter,
+                "bottom-right" => Avalonia.Controls.Notifications.NotificationPosition.BottomRight,
+                _ => Avalonia.Controls.Notifications.NotificationPosition.TopRight,
+            },
+        };
+        var kind = type switch
+        {
+            "success" => Avalonia.Controls.Notifications.NotificationType.Success,
+            "warning" => Avalonia.Controls.Notifications.NotificationType.Warning,
+            "error" => Avalonia.Controls.Notifications.NotificationType.Error,
+            _ => Avalonia.Controls.Notifications.NotificationType.Information,
+        };
+        // Shown as the window opens, as GPUI pushes it on the first frame; no expiry.
+        manager.TemplateApplied += (_, _) => manager.Show(
+            new Avalonia.Controls.Notifications.Notification(c.Has("title") ? c.Str("title") : null, c.Str("message"), kind),
+            kind, TimeSpan.Zero, classes: type == "none" ? ["plain"] : null);
+        return manager;
     }
 
     private static Control Accordion(GoldenCase c)
