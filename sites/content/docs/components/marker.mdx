@@ -7,7 +7,23 @@ description: "A muted status line with an icon or a spinner, and optional separa
 
 ## Usage
 
-`gpui:Marker` shows its icon (or the spinner while `IsLoading`) and content as muted `text_sm`. The `separator` class fills the rest of the row with lines on both sides, and `border` adds a bottom border.
+`gpui:Marker` is a muted text_sm row for a conversation or a timeline: an `Icon` in a 16px box, then the content, 8px apart. `HorizontalContentAlignment` places the row: `Left` (the default, GPUI Kit's start), `Center` or `Right`. While `IsLoading`, and there is no icon, a small spinner leads instead.
+
+| Class | Meaning |
+| --- | --- |
+| `separator` | 1px lines in the border color fill the rest of the row, on both sides of the content when centered or on one side when aligned to an end. |
+| `border` | A bottom border, with 8px under the row. |
+| `shimmer` | While loading, a text content shimmers instead of the spinner (other content pulses). |
+
+## Examples
+
+`HorizontalContentAlignment` places the content and its separators at the start, center or end; without separators the row itself moves.
+
+<Demo name="marker/alignment" title="Alignment" />
+
+`IsLoading` leads with a spinner, or shimmers the text with `shimmer`; separators stay.
+
+<Demo name="marker/loading" title="Loading" />
 
 ## Not covered
 

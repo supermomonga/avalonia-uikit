@@ -7,7 +7,25 @@ description: "GPUI Kit's overlay scrollbars, as Avalonia's ScrollViewer."
 
 ## Usage
 
-The theme covers `ScrollViewer`, `ScrollBar` and `Thumb` in full: scrollbars overlay the content in a 16px strip, appear on scroll, grow under the pointer and fade out after two seconds. Every scrolling control gets them.
+The theme covers `ScrollViewer`, `ScrollBar` and `Thumb` in full, so every scrolling control gets GPUI Kit's scrollbars. They overlay the content in a 16px strip; the thumb is 6px wide with rounded ends and, under the pointer or while dragged, takes the hover color at once and widens to 8px over 300ms. Two properties on the `ScrollViewer` pick GPUI Kit's `ScrollbarMode`.
+
+| Mode | `AllowAutoHide` | `gpui:Scrollbars.ShowOnHover` | Behaviour |
+| --- | --- | --- | --- |
+| Always | `False` | – | The scrollbar always shows. |
+| Hover (the default) | `True` | `True` | Shows when the pointer enters the strip or the content scrolls, fading in over 300ms; hides 2s after the pointer leaves or the scrolling stops, fading and sliding out to its edge over 500ms. |
+| Scrolling | `True` | `False` | Shows only after a scroll, and stays while the pointer moves over it. |
+
+Pointed at straight on the thumb, a hidden bar slides in from its edge as it fades in.
+
+## Examples
+
+The three modes side by side.
+
+<Demo name="scrollable/modes" title="Modes" />
+
+A horizontal scrollbar, with `HorizontalScrollBarVisibility="Auto"`.
+
+<Demo name="scrollable/horizontal" title="Horizontal" />
 
 ## Not covered
 

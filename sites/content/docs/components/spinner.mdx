@@ -7,7 +7,17 @@ description: "GPUI Kit's spinner, as a ProgressBar with a named theme."
 
 ## Usage
 
-`ProgressBar Theme="{StaticResource GpuiSpinner}"` with `IsIndeterminate="True"` draws the rotating loader icon in the foreground color. Sizes: `xsmall`, `small`, `large`.
+`ProgressBar Theme="{StaticResource GpuiSpinner}"` draws GPUI Kit's loader icon turning once every 0.8 seconds, with an ease-in-out on each turn. The theme sets `IsIndeterminate` itself, and the icon takes `Foreground`, the text color by default. Sizes: `xsmall` (12px), `small` (14px), `large` (24px); medium (16px) needs no class.
+
+## Examples
+
+The four sizes.
+
+<Demo name="spinner/sizes" title="Sizes" />
+
+A spinner beside text, one in the muted color, and one inside a disabled button in the button's foreground.
+
+<Demo name="spinner/inline" title="Inline" />
 
 ## Not covered
 

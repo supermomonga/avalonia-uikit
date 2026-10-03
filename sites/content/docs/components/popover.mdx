@@ -1,13 +1,38 @@
 ---
 title: "Popover"
-description: "GPUI Kit's popover surface and enter motion, as Avalonia's Flyout."
+description: "GPUI Kit's popover surface, with its arrow or without any surface, as Avalonia's Flyout."
 ---
 
 <Demo name="popover/demo" />
 
 ## Usage
 
-The theme covers `Flyout` and `FlyoutPresenter`: the popover background, the ring and shadows, and the fade and slide when opening. Give the flyout a `Placement` such as `BottomEdgeAlignedLeft`.
+The theme covers `Flyout` and `FlyoutPresenter`: the popover background on the theme radius, a 1px ring and GPUI Kit's shadow, about 12px of padding, and a 4px gap from the trigger on whichever side the flyout opens. GPUI Kit never flips a popover, so give every flyout `PlacementConstraintAdjustment="SlideX, SlideY"`; an offset of n in GPUI Kit is a `HorizontalOffset` or `VerticalOffset` of n − 4, as the theme adds the gap. The popover opens in place, as GPUI Kit's does.
+
+GPUI Kit's anchors map to `Placement` as follows.
+
+| GPUI Kit anchor | `Placement` |
+| --- | --- |
+| TopLeft | `BottomEdgeAlignedLeft` |
+| TopCenter | `Bottom` |
+| TopRight | `BottomEdgeAlignedRight` |
+| BottomLeft | `TopEdgeAlignedLeft` |
+| BottomCenter | `Top` |
+| BottomRight | `TopEdgeAlignedRight` |
+| LeftCenter | `Right` |
+| RightCenter | `Left` |
+
+`FlyoutPresenterClasses` picks the look: `arrow` adds GPUI Kit's 6px arrow toward the trigger (the gap grows by its depth), and `plain` is `appearance(false)`: no surface and no padding, only the content.
+
+## Examples
+
+The eight placements; each slides to stay on screen instead of flipping.
+
+<Demo name="popover/placements" title="Placements" />
+
+`plain` draws the content alone; here an `Alert` brings its own surface.
+
+<Demo name="popover/plain" title="Plain" />
 
 ## Not covered
 

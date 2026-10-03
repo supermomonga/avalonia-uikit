@@ -7,8 +7,14 @@ description: "GPUI Kit's empty state: media, a title, a description and actions,
 
 ## Usage
 
-`gpui:EmptyState` centers its `Media`, `Title`, `Description`, `Actions` and content in a column with 24px padding and 16px gaps. The `icon-media` class frames the media in a 32px muted square.
+`gpui:EmptyState` centers a column with 24px padding and 16px gaps, on a radius of 12: the header (`Media`, then `Title` and `Description` 8px apart, at most 384px wide), the `Actions`, then its content. The title is text_sm medium and the description muted text_sm; both center and wrap. `Media` takes any control (an icon, an image, an avatar), and the `icon-media` class frames it in a 32px muted square. Every part is optional. The control is named `EmptyState`, as "Empty" says little in an Avalonia app.
+
+## Examples
+
+A 40px icon as plain media, a bordered state with `icon-media`, a title alone, and content below the actions.
+
+<Demo name="empty/variants" title="Variants" />
 
 ## Not covered
 
-- The dashed frame around the empty state (draw a `Border` with a dashed pen around it).
+- The dashed frame around the empty state; Avalonia's `Border` draws no dashes.

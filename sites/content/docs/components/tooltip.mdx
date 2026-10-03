@@ -1,13 +1,25 @@
 ---
 title: "Tooltip"
-description: "GPUI Kit's tooltip bubble, fading and sliding in, as ToolTip."
+description: "GPUI Kit's tooltip bubble, fading and sliding in above its trigger, as ToolTip."
 ---
 
 <Demo name="tooltip/demo" />
 
 ## Usage
 
-The theme covers `ToolTip` in full: the popover background with a 1px border and GPUI's shadow, 14px text, and the fade and slide when it shows. Set `ToolTip.Tip` on any control.
+The theme covers `ToolTip` in full: the popover background with a 1px border and GPUI Kit's shadow, 2px by 8px of padding and 14px text, fading in and sliding up 4px over 150ms. Set `ToolTip.Tip` on any control.
+
+The theme sets GPUI Kit's timing and placement on every control: a tooltip shows after 500ms (`ToolTip.ShowDelay`), or at once within 300ms of another tooltip closing (`ToolTip.BetweenShowDelay`), and opens above its trigger, centered (`ToolTip.Placement="Top"`). Set `ToolTip.Placement` on a control to open its tooltip on another side.
+
+## Examples
+
+`ToolTip.Placement` on each button: the default top, then bottom, left and right.
+
+<Demo name="tooltip/placements" title="Placements" />
+
+A tooltip as the label of `icon-only` buttons.
+
+<Demo name="tooltip/icon-buttons" title="Icon buttons" />
 
 ## Not covered
 

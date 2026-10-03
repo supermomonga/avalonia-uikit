@@ -7,7 +7,13 @@ description: "A header that reveals its content at its natural height, on GPUI K
 
 ## Usage
 
-Give an `Expander` the named theme: `Theme="{StaticResource GpuiCollapsible}"`. The content opens and closes on `Gpui.Spring.Control`, immediately when the expander is not visible, and reverses smoothly when toggled midway.
+Give an `Expander` the named theme: `Theme="{StaticResource GpuiCollapsible}"`. It has no chrome of its own: the header is the trigger and the content is whatever the app puts there. With the `reveal` class (GPUI Kit's `motion_id`) the content opens and closes at its natural height on `Gpui.Spring.Control` and reverses smoothly when toggled midway; without the class it appears and disappears at once, as GPUI Kit mounts it. `ExpandDirection="Up"` puts the content before the trigger.
+
+## Examples
+
+`ExpandDirection="Up"` reveals the content above the trigger.
+
+<Demo name="collapsible/up" title="Expand up" />
 
 ## Not covered
 
