@@ -1,0 +1,11 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.CheckboxDemo">
+  <StackPanel Spacing="8">
+    <CheckBox Content="Accept terms and conditions" IsChecked="True" />
+    <CheckBox Content="Subscribe to the newsletter" />
+    <CheckBox Content="Disabled" IsEnabled="False" />
+    <CheckBox Content="Disabled checked" IsChecked="True" IsEnabled="False" />
+  </StackPanel>
+</UserControl>

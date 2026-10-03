@@ -1,0 +1,19 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.FormColumns">
+  <gpui:Form Columns="2" Width="520" HorizontalAlignment="Left">
+    <gpui:FormField Label="First name">
+      <TextBox PlaceholderText="Enter first name" />
+    </gpui:FormField>
+    <gpui:FormField Label="Last name">
+      <TextBox PlaceholderText="Enter last name" />
+    </gpui:FormField>
+    <gpui:FormField Label="Address" ColumnSpan="2">
+      <TextBox PlaceholderText="Enter address" />
+    </gpui:FormField>
+    <gpui:Form.Footer>
+      <Button Classes="primary" Content="Save" />
+    </gpui:Form.Footer>
+  </gpui:Form>
+</UserControl>

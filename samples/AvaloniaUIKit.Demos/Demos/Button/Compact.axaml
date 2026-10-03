@@ -1,0 +1,13 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.ButtonCompact">
+  <WrapPanel ItemSpacing="8" LineSpacing="8">
+    <Button Classes="compact xsmall" Content="OK" />
+    <Button Classes="compact small" Content="OK" />
+    <Button Classes="compact" Content="OK" />
+    <Button Classes="compact large" Content="OK" />
+    <Button Classes="compact primary" Content="Compact primary" />
+    <Button Classes="compact outline" Content="Compact outline" />
+  </WrapPanel>
+</UserControl>

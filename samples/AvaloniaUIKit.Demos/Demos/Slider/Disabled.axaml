@@ -1,0 +1,10 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.SliderDisabled">
+  <StackPanel Spacing="8" Width="264" HorizontalAlignment="Left">
+    <Slider Value="0" Margin="12,8" IsEnabled="False" />
+    <Slider Value="40" Margin="12,8" IsEnabled="False" />
+    <Slider Value="100" Margin="12,8" IsEnabled="False" />
+  </StackPanel>
+</UserControl>

@@ -1,0 +1,15 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.ButtonOutline">
+  <WrapPanel ItemSpacing="8" LineSpacing="8">
+    <Button Classes="outline" Content="Default" />
+    <Button Classes="primary outline" Content="Primary" />
+    <Button Classes="secondary outline" Content="Secondary" />
+    <Button Classes="danger outline" Content="Danger" />
+    <Button Classes="warning outline" Content="Warning" />
+    <Button Classes="success outline" Content="Success" />
+    <Button Classes="info outline" Content="Info" />
+    <Button Classes="ghost outline" Content="Ghost" />
+  </WrapPanel>
+</UserControl>

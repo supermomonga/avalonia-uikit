@@ -1,0 +1,23 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.DropdownButtonVariants">
+  <Panel MinHeight="160">
+    <Panel.Resources>
+      <MenuFlyout x:Key="SaveMenu" Placement="BottomEdgeAlignedRight">
+        <MenuItem Header="Save As..." />
+        <MenuItem Header="Save All" />
+      </MenuFlyout>
+    </Panel.Resources>
+    <WrapPanel ItemSpacing="8" LineSpacing="8" VerticalAlignment="Top">
+      <SplitButton Content="Default" Flyout="{StaticResource SaveMenu}" />
+      <SplitButton Classes="primary" Content="Primary" Flyout="{StaticResource SaveMenu}" />
+      <SplitButton Classes="secondary" Content="Secondary" Flyout="{StaticResource SaveMenu}" />
+      <SplitButton Classes="danger" Content="Danger" Flyout="{StaticResource SaveMenu}" />
+      <SplitButton Classes="ghost" Content="Ghost" Flyout="{StaticResource SaveMenu}" />
+      <SplitButton Classes="outline" Content="Outline" Flyout="{StaticResource SaveMenu}" />
+      <SplitButton Classes="primary outline" Content="Primary outline" Flyout="{StaticResource SaveMenu}" />
+      <SplitButton Content="Disabled" IsEnabled="False" Flyout="{StaticResource SaveMenu}" />
+    </WrapPanel>
+  </Panel>
+</UserControl>

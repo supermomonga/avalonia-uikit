@@ -1,0 +1,21 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.ButtonRounded">
+  <StackPanel Spacing="8">
+    <WrapPanel ItemSpacing="8" LineSpacing="8">
+      <Button Classes="rounded-none" Content="None" />
+      <Button Classes="rounded-small" Content="Small" />
+      <Button Content="Medium" />
+      <Button Classes="rounded-large" Content="Large" />
+      <Button Classes="rounded-full" Content="Full" />
+    </WrapPanel>
+    <WrapPanel ItemSpacing="8" LineSpacing="8">
+      <Button Classes="primary rounded-none" Content="None" />
+      <Button Classes="primary rounded-small" Content="Small" />
+      <Button Classes="primary" Content="Medium" />
+      <Button Classes="primary rounded-large" Content="Large" />
+      <Button Classes="primary rounded-full" Content="Full" />
+    </WrapPanel>
+  </StackPanel>
+</UserControl>

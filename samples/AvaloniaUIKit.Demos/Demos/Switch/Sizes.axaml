@@ -1,0 +1,11 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.SwitchSizes">
+  <WrapPanel ItemSpacing="16" LineSpacing="8">
+    <ToggleSwitch Classes="xsmall" Content="Extra small" IsChecked="True" />
+    <ToggleSwitch Classes="small" Content="Small" IsChecked="True" />
+    <ToggleSwitch Content="Medium" IsChecked="True" />
+    <ToggleSwitch Classes="large" Content="Large" IsChecked="True" />
+  </WrapPanel>
+</UserControl>

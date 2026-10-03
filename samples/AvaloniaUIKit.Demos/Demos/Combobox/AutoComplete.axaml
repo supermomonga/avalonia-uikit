@@ -1,0 +1,11 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             xmlns:demos="using:AvaloniaUIKit.Demos"
+             x:Class="AvaloniaUIKit.Demos.ComboboxAutoComplete">
+  <Panel MinHeight="280">
+    <AutoCompleteBox Width="200" PlaceholderText="Type a fruit" FilterMode="Contains"
+                     ItemsSource="{x:Static demos:Fruits.All}"
+                     HorizontalAlignment="Left" VerticalAlignment="Top" />
+  </Panel>
+</UserControl>

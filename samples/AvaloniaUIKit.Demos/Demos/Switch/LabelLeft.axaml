@@ -1,0 +1,9 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.SwitchLabelLeft">
+  <StackPanel Spacing="8">
+    <ToggleSwitch Classes="label-left" Content="Wi-Fi" IsChecked="True" />
+    <ToggleSwitch Classes="label-left" Content="Bluetooth" />
+  </StackPanel>
+</UserControl>

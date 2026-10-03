@@ -1,0 +1,13 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             xmlns:demos="using:AvaloniaUIKit.Demos"
+             x:Class="AvaloniaUIKit.Demos.TimeFieldStates">
+  <Panel MinHeight="350">
+    <WrapPanel ItemSpacing="12" LineSpacing="12" VerticalAlignment="Top">
+      <TimePicker SelectedTime="09:30" ClockIdentifier="24HourClock" IsEnabled="False" />
+      <TimePicker SelectedTime="21:05" ClockIdentifier="24HourClock"
+                  DataValidationErrors.Errors="{x:Static demos:ValidationErrors.OutsideBusinessHours}" />
+    </WrapPanel>
+  </Panel>
+</UserControl>

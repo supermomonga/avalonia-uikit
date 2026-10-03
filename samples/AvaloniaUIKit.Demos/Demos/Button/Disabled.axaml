@@ -1,0 +1,14 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.ButtonDisabled">
+  <WrapPanel ItemSpacing="8" LineSpacing="8">
+    <Button Content="Default" IsEnabled="False" />
+    <Button Classes="primary" Content="Primary" IsEnabled="False" />
+    <Button Classes="secondary" Content="Secondary" IsEnabled="False" />
+    <Button Classes="danger" Content="Danger" IsEnabled="False" />
+    <Button Classes="ghost" Content="Ghost" IsEnabled="False" />
+    <Button Classes="link" Content="Link" IsEnabled="False" />
+    <Button Classes="primary outline" Content="Outline" IsEnabled="False" />
+  </WrapPanel>
+</UserControl>

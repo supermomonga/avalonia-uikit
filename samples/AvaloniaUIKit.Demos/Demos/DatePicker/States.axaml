@@ -1,0 +1,15 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.DatePickerStates">
+  <Panel MinHeight="360">
+    <WrapPanel ItemSpacing="12" LineSpacing="12" VerticalAlignment="Top">
+      <CalendarDatePicker Width="200" PlaceholderText="Select date"
+                          SelectedDateFormat="Custom" CustomDateFormatString="yyyy/MM/dd" />
+      <CalendarDatePicker Width="200" SelectedDate="2025-03-14" IsEnabled="False"
+                          SelectedDateFormat="Custom" CustomDateFormatString="yyyy/MM/dd" />
+      <CalendarDatePicker Width="200" PlaceholderText="Select date" IsEnabled="False"
+                          SelectedDateFormat="Custom" CustomDateFormatString="yyyy/MM/dd" />
+    </WrapPanel>
+  </Panel>
+</UserControl>

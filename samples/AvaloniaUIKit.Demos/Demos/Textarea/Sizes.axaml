@@ -1,0 +1,11 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.TextareaSizes">
+  <StackPanel Spacing="12" Width="280" HorizontalAlignment="Left">
+    <TextBox Classes="xsmall" AcceptsReturn="True" MinLines="2" MaxLines="2" PlaceholderText="Extra small" />
+    <TextBox Classes="small" AcceptsReturn="True" MinLines="2" MaxLines="2" PlaceholderText="Small" />
+    <TextBox AcceptsReturn="True" MinLines="2" MaxLines="2" PlaceholderText="Medium" />
+    <TextBox Classes="large" AcceptsReturn="True" MinLines="2" MaxLines="2" PlaceholderText="Large" />
+  </StackPanel>
+</UserControl>

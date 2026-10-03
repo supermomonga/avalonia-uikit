@@ -1,0 +1,10 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.InputGroupDemo">
+  <TextBox Classes="group" PlaceholderText="Search..." Width="280" HorizontalAlignment="Left">
+    <TextBox.InnerLeftContent>
+      <PathIcon Data="{StaticResource Gpui.Icon.Search}" />
+    </TextBox.InnerLeftContent>
+  </TextBox>
+</UserControl>

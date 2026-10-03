@@ -1,0 +1,37 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.ButtonGroupVariants">
+  <WrapPanel ItemSpacing="16" LineSpacing="12">
+    <StackPanel Classes="button-group" Orientation="Horizontal">
+      <Button Content="One" />
+      <Button Content="Two" />
+      <Button Content="Three" />
+    </StackPanel>
+    <StackPanel Classes="button-group" Orientation="Horizontal">
+      <Button Classes="primary" Content="One" />
+      <Button Classes="primary" Content="Two" />
+      <Button Classes="primary" Content="Three" />
+    </StackPanel>
+    <StackPanel Classes="button-group" Orientation="Horizontal">
+      <Button Classes="ghost" Content="One" />
+      <Button Classes="ghost" Content="Two" />
+      <Button Classes="ghost" Content="Three" />
+    </StackPanel>
+    <StackPanel Classes="button-group" Orientation="Horizontal">
+      <Button Classes="outline" Content="One" />
+      <Button Classes="outline" Content="Two" />
+      <Button Classes="outline" Content="Three" />
+    </StackPanel>
+    <StackPanel Classes="button-group" Orientation="Horizontal">
+      <Button Classes="primary outline" Content="One" />
+      <Button Classes="primary outline" Content="Two" />
+      <Button Classes="primary outline" Content="Three" />
+    </StackPanel>
+    <StackPanel Classes="button-group" Orientation="Horizontal">
+      <Button Classes="ghost outline" Content="One" />
+      <Button Classes="ghost outline" Content="Two" />
+      <Button Classes="ghost outline" Content="Three" />
+    </StackPanel>
+  </WrapPanel>
+</UserControl>

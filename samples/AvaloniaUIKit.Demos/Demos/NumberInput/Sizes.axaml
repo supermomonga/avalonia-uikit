@@ -1,0 +1,11 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.NumberInputSizes">
+  <StackPanel Spacing="12" Width="160" HorizontalAlignment="Left">
+    <NumericUpDown Classes="xsmall" Value="42" />
+    <NumericUpDown Classes="small" Value="42" />
+    <NumericUpDown Value="42" />
+    <NumericUpDown Classes="large" Value="42" />
+  </StackPanel>
+</UserControl>
