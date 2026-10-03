@@ -5,7 +5,8 @@
   (cover), else the initials on the hue the control picked (the ring takes
   the hue's border), else the placeholder icon at 60% of the size in the
   background color. Sizes: xsmall 16px (10.4px text), small 24 (12px), the
-  default 48 (14px), large 80 (30px semibold).
+  default 48 (14px), large 80 (30px semibold); any other Width / Height stays
+  a circle.
 -->
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -17,7 +18,6 @@
     <Setter Property="Width" Value="48" />
     <Setter Property="Height" Value="48" />
     <Setter Property="FontSize" Value="14" />
-    <Setter Property="CornerRadius" Value="24" />
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Border}" />
     <Setter Property="Placeholder" Value="{StaticResource Gpui.Icon.User}" />
@@ -26,9 +26,10 @@
     <Setter Property="Template">
       <ControlTemplate>
         <Panel>
-          <Border Name="PART_Base" Background="{DynamicResource Gpui.Secondary}" CornerRadius="{TemplateBinding CornerRadius}" />
+          <Border Name="PART_Base" Background="{DynamicResource Gpui.Secondary}"
+                  CornerRadius="{Binding $self.Bounds, Converter={x:Static gconv:AvatarConverters.Circle}}" />
           <Border Name="PART_Fallback" Margin="1" Background="{TemplateBinding Background}" ClipToBounds="True"
-                  CornerRadius="{TemplateBinding CornerRadius, Converter={x:Static gconv:AvatarConverters.Inner}}">
+                  CornerRadius="{Binding $self.Bounds, Converter={x:Static gconv:AvatarConverters.Circle}}">
             <Panel>
               <TextBlock Name="PART_Initials" IsVisible="False" Text="{TemplateBinding Initials}"
                          Foreground="{TemplateBinding Foreground}" LineHeight="22.5" ClipToBounds="False"
@@ -40,7 +41,7 @@
           <Image Name="PART_Image" Margin="1" IsVisible="False" Source="{TemplateBinding Source}" Stretch="UniformToFill"
                  Clip="{Binding $self.Bounds, Converter={StaticResource Gpui.Avatar.Clip}}" />
           <Border Name="PART_Ring" BorderThickness="1" BorderBrush="{TemplateBinding BorderBrush}"
-                  CornerRadius="{TemplateBinding CornerRadius, Converter={x:Static gconv:AvatarConverters.Ring}}" />
+                  CornerRadius="{Binding $self.Bounds, Converter={x:Static gconv:AvatarConverters.Ring}}" />
         </Panel>
       </ControlTemplate>
     </Setter>
@@ -79,7 +80,6 @@
     <Style Selector="^.xsmall">
       <Setter Property="Width" Value="16" />
       <Setter Property="Height" Value="16" />
-      <Setter Property="CornerRadius" Value="8" />
       <Setter Property="FontSize" Value="10.4" />
     </Style>
     <Style Selector="^.xsmall /template/ TextBlock#PART_Initials">
@@ -92,7 +92,6 @@
     <Style Selector="^.small">
       <Setter Property="Width" Value="24" />
       <Setter Property="Height" Value="24" />
-      <Setter Property="CornerRadius" Value="12" />
       <Setter Property="FontSize" Value="12" />
     </Style>
     <Style Selector="^.small /template/ TextBlock#PART_Initials">
@@ -105,7 +104,6 @@
     <Style Selector="^.large">
       <Setter Property="Width" Value="80" />
       <Setter Property="Height" Value="80" />
-      <Setter Property="CornerRadius" Value="40" />
       <Setter Property="FontSize" Value="30" />
       <Setter Property="FontWeight" Value="SemiBold" />
     </Style>

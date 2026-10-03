@@ -633,7 +633,10 @@
       "avatar.hue-11.background": "#ffeeffff",
       "avatar.hue-11.foreground": "#8f3e8aff",
       "avatar.hue-11.border": "#efcfebff",
-      "skeleton.secondary": "#f5f5f580"
+      "skeleton.secondary": "#f5f5f580",
+      "bubble.tinted": "#dfdfdfff",
+      "bubble.destructive": "#ef44441a",
+      "bubble.destructive-foreground": "#ef4444ff"
     },
     "derived_float": {
       "button.default.normal.background": [
@@ -3575,6 +3578,24 @@
         0.9607843160629272,
         0.9607843160629272,
         0.5
+      ],
+      "bubble.tinted": [
+        0.8756370544433594,
+        0.8756371140480042,
+        0.875636875629425,
+        1.0
+      ],
+      "bubble.destructive": [
+        0.9371159672737122,
+        0.2668840289115906,
+        0.2668840289115906,
+        0.10000000149011612
+      ],
+      "bubble.destructive-foreground": [
+        0.9371159672737122,
+        0.2668840289115906,
+        0.2668840289115906,
+        1.0
       ]
     },
     "scalars": {
@@ -4219,7 +4240,10 @@
       "avatar.hue-11.background": "#3c243aff",
       "avatar.hue-11.foreground": "#edaae6ff",
       "avatar.hue-11.border": "#4f314cff",
-      "skeleton.secondary": "#17171780"
+      "skeleton.secondary": "#17171780",
+      "bubble.tinted": "#393939ff",
+      "bubble.destructive": "#f8717133",
+      "bubble.destructive-foreground": "#f87171ff"
     },
     "derived_float": {
       "button.default.normal.background": [
@@ -7161,6 +7185,24 @@
         0.09019608050584793,
         0.09019608050584793,
         0.5
+      ],
+      "bubble.tinted": [
+        0.22515302896499634,
+        0.22515320777893066,
+        0.2251531481742859,
+        1.0
+      ],
+      "bubble.destructive": [
+        0.9725520014762878,
+        0.443448007106781,
+        0.443448007106781,
+        0.20000000298023224
+      ],
+      "bubble.destructive-foreground": [
+        0.9725520014762878,
+        0.443448007106781,
+        0.443448007106781,
+        1.0
       ]
     },
     "scalars": {

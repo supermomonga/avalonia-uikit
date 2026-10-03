@@ -15,6 +15,14 @@ mod accordion;
 mod alert;
 mod avatar;
 mod badge;
+mod bubble;
+mod description_list;
+mod form;
+mod hover_card;
+mod marker;
+mod message;
+mod shimmer;
+mod stepper;
 mod breadcrumb;
 mod clipboard;
 mod empty;
@@ -121,6 +129,14 @@ pub fn builder(case: &Case) -> Result<Builder> {
         "avatar" => avatar::builder(&params),
         "avatargroup" => avatar::group(&params),
         "empty" => empty::builder(&params),
+        "descriptionlist" => description_list::builder(&params),
+        "stepper" => stepper::builder(&params),
+        "form" => form::builder(&params),
+        "hovercard" => hover_card::builder(&params),
+        "shimmer" => shimmer::builder(&params),
+        "marker" => marker::builder(&params),
+        "bubble" => bubble::builder(&params),
+        "message" => message::builder(&params),
         other => bail!("unknown component {other}"),
     }
 }
@@ -291,6 +307,7 @@ pub fn derived_colors(theme: &gpui_kit::component::Theme, out: &mut Vec<(String,
     alert::derived_colors(theme, out);
     avatar::derived_colors(theme, out);
     skeleton::derived_colors(theme, out);
+    bubble::derived_colors(theme, out);
 }
 
 pub fn disabled(params: &Params) -> bool {

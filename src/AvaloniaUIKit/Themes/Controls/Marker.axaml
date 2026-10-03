@@ -1,0 +1,96 @@
+<!--
+  GPUI Kit Marker (crates/component/src/marker.rs) -> gpui:Marker.
+  Muted text_sm on a 21px line (at least 16px tall), parts 8px apart: the
+  spinner (while loading, unless there is an icon) or the icon in a 16px box,
+  then the content. separator: 1px border-colored lines filling the rest,
+  4px short of the content, on both sides (centered, the default) or one;
+  border: a bottom border and 8px under the row. HorizontalContentAlignment
+  places the row (start, center or end). Loading with the shimmer class
+  shimmers a text content and pulses other content.
+-->
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:gpui="using:AvaloniaUIKit">
+  <ControlTheme x:Key="{x:Type gpui:Marker}" TargetType="gpui:Marker">
+    <Setter Property="Foreground" Value="{DynamicResource Gpui.MutedForeground}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Border}" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="HorizontalContentAlignment" Value="Left" />
+    <Setter Property="MinHeight" Value="16" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}">
+          <gpui:MarkerPanel Name="PART_Row" Alignment="{TemplateBinding HorizontalContentAlignment}">
+            <Border Name="PART_LeadingLine" IsVisible="False" Height="1" Margin="0,0,4,0" VerticalAlignment="Center"
+                    Background="{DynamicResource Gpui.Border}" />
+            <StackPanel Name="PART_Middle" Orientation="Horizontal" Spacing="8">
+              <Panel Name="PART_Spinner" Width="16" Height="16" IsVisible="False" VerticalAlignment="Center">
+                <ProgressBar Theme="{StaticResource GpuiSpinner}" Classes="xsmall" IsIndeterminate="True"
+                             Foreground="{TemplateBinding Foreground}"
+                             HorizontalAlignment="Center" VerticalAlignment="Center" />
+              </Panel>
+              <ContentPresenter Name="PART_Icon" Width="16" Height="16" IsVisible="False" VerticalAlignment="Center"
+                                Content="{TemplateBinding Icon}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+              <ContentPresenter Name="PART_ContentPresenter" Content="{TemplateBinding Content}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}" LineHeight="21" VerticalAlignment="Center" />
+              <gpui:ShimmerText Name="PART_Shimmer" IsVisible="False" Text="{TemplateBinding Content}"
+                                Foreground="{TemplateBinding Foreground}" VerticalAlignment="Center"
+                                FontSize="{TemplateBinding FontSize}" TextBlock.LineHeight="21" />
+            </StackPanel>
+            <Border Name="PART_TrailingLine" IsVisible="False" Height="1" Margin="4,0,0,0" VerticalAlignment="Center"
+                    Background="{DynamicResource Gpui.Border}" />
+          </gpui:MarkerPanel>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^ /template/ TextBlock">
+      <Setter Property="LineHeight" Value="21" />
+    </Style>
+    <Style Selector="^ /template/ PathIcon">
+      <Setter Property="Width" Value="14" />
+      <Setter Property="Height" Value="14" />
+    </Style>
+    <Style Selector="^:icon /template/ ContentPresenter#PART_Icon">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+    <Style Selector="^:loading /template/ Panel#PART_Spinner">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+    <Style Selector="^:loading:icon /template/ Panel#PART_Spinner, ^.shimmer:loading /template/ Panel#PART_Spinner">
+      <Setter Property="IsVisible" Value="False" />
+    </Style>
+    <Style Selector="^.shimmer:loading:text /template/ ContentPresenter#PART_ContentPresenter">
+      <Setter Property="IsVisible" Value="False" />
+    </Style>
+    <Style Selector="^.shimmer:loading:text /template/ gpui|ShimmerText#PART_Shimmer">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+    <!-- marker.rs: content that is not text pulses between 60% and 100%. -->
+    <Style Selector="^.shimmer:loading:not(:text) /template/ ContentPresenter#PART_ContentPresenter">
+      <Style.Animations>
+        <Animation Duration="0:0:2" IterationCount="INFINITE">
+          <KeyFrame Cue="0%"><Setter Property="Opacity" Value="1" /></KeyFrame>
+          <KeyFrame Cue="50%"><Setter Property="Opacity" Value="0.6" /></KeyFrame>
+          <KeyFrame Cue="100%"><Setter Property="Opacity" Value="1" /></KeyFrame>
+        </Animation>
+      </Style.Animations>
+    </Style>
+    <Style Selector="^.separator">
+      <Setter Property="HorizontalContentAlignment" Value="Center" />
+    </Style>
+    <Style Selector="^.separator /template/ Border#PART_LeadingLine, ^.separator /template/ Border#PART_TrailingLine">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+    <Style Selector="^.separator[HorizontalContentAlignment=Left] /template/ Border#PART_LeadingLine">
+      <Setter Property="IsVisible" Value="False" />
+    </Style>
+    <Style Selector="^.separator[HorizontalContentAlignment=Right] /template/ Border#PART_TrailingLine">
+      <Setter Property="IsVisible" Value="False" />
+    </Style>
+    <Style Selector="^.border">
+      <Setter Property="BorderThickness" Value="0,0,0,1" />
+      <Setter Property="Padding" Value="0,0,0,8" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

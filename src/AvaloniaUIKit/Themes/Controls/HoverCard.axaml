@@ -1,0 +1,33 @@
+<!--
+  GPUI Kit HoverCard (crates/component/src/hover_card.rs) -> gpui:HoverCard:
+
+    <gpui:HoverCard Placement="Bottom">
+      <TextBlock Text="@huacnlee" />
+      <gpui:HoverCard.Card>...</gpui:HoverCard.Card>
+    </gpui:HoverCard>
+
+  The card is the popover surface (the FlyoutPresenter theme: background,
+  ring, shadow-md, 12px padding, 4px from the trigger). GPUI never flips it:
+  the popup slides to stay on screen.
+-->
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:gpui="using:AvaloniaUIKit">
+  <ControlTheme x:Key="{x:Type gpui:HoverCard}" TargetType="gpui:HoverCard">
+    <Setter Property="HorizontalAlignment" Value="Left" />
+    <Setter Property="VerticalAlignment" Value="Top" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Panel>
+          <ContentPresenter Name="PART_Trigger" Background="Transparent"
+                            Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" />
+          <Popup Name="PART_Popup" PlacementTarget="{Binding #PART_Trigger}" Placement="{TemplateBinding Placement}"
+                 IsOpen="{TemplateBinding IsOpen, Mode=TwoWay}" IsLightDismissEnabled="False"
+                 PlacementConstraintAdjustment="SlideX, SlideY">
+            <FlyoutPresenter Name="PART_Card" Content="{TemplateBinding Card}" />
+          </Popup>
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+</ResourceDictionary>

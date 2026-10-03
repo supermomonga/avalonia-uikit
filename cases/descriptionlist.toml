@@ -1,0 +1,30 @@
+# GPUI Kit DescriptionList -> gpui:DescriptionList, 760px wide, three columns
+# by default: rows fill up to the columns' spans; a short row's items grow to
+# share it. Bordered by default; labels 120px wide in the horizontal layout.
+component = "descriptionlist"
+viewport = [792, 200]
+anchor = [16, 16]
+
+[[group]]
+name = "horizontal"
+params = { width = 760, items = "Name:GPUI Kit|Version:0.1.0|License:Apache-2.0|Platform:macOS, Windows, Linux:2|Status:Stable" }
+matrix = { size = ["small", "medium", "large"] }
+
+# Values fit their cells: GPUI breaks a word that does not fit between any two
+# characters, Avalonia at its own break points.
+[[group]]
+name = "vertical"
+params = { width = 760, layout = "vertical", items = "Name:GPUI Kit|Version:0.1.0|License:Apache-2.0|Platform:macOS, Windows, Linux:2|Status:Stable" }
+
+[[group]]
+name = "borderless"
+params = { width = 760, borderless = true, items = "Name:GPUI Kit|Version:0.1.0|License:Apache-2.0|Platform:macOS, Windows, Linux:2|Status:Stable" }
+matrix = { layout = ["horizontal", "vertical"] }
+
+[[group]]
+name = "columns"
+params = { width = 760, columns = 2, label_width = 100, items = "Name:GPUI Kit|Version:0.1.0|License:Apache-2.0" }
+
+[[group]]
+name = "separator"
+params = { width = 760, items = "Name:GPUI Kit|Version:0.1.0|License:Apache-2.0|-|Author:Longbridge|Status:Stable" }

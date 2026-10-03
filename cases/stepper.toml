@@ -1,0 +1,34 @@
+# GPUI Kit Stepper -> gpui:Stepper / gpui:StepperItem, 480px wide. Steps up
+# to the selected one are checked (primary); the line after each passed step
+# is primary. Indicators: 8 / 18 / 24 / 32px; labels at the next size down.
+component = "stepper"
+viewport = [512, 96]
+anchor = [16, 16]
+
+[[group]]
+name = "selected"
+matrix = { selected = [0, 1, 2] }
+
+[[group]]
+name = "size"
+params = { selected = 1 }
+matrix = { size = ["xsmall", "small", "large"] }
+
+[[group]]
+name = "icon"
+params = { selected = 1, labels = "Order Details|Shipping|Finish", icons = "calendar|inbox|info" }
+
+[[group]]
+name = "center"
+params = { selected = 1, text_center = true }
+
+# The indicator of an unchecked step under the pointer, and pressed.
+[[group]]
+name = "pointer"
+params = { selected = 0 }
+states = ["at-246-28", "pressed-at-246-28", "disabled+at-246-28"]
+
+[[group]]
+name = "vertical"
+params = { selected = 1, layout = "vertical", width = 240, height = 200 }
+viewport = [272, 232]

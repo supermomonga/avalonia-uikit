@@ -49,6 +49,8 @@ pub struct CaseState {
     pub toggled: bool,
     pub value: f32,
     pub entity: Option<gpui_kit::AnyEntity>,
+    /// More entities, for cases with several stateful children (a form's inputs).
+    pub entities: Vec<gpui_kit::AnyEntity>,
 }
 
 pub type Builder = Rc<dyn Fn(&mut CaseView, &mut Window, &mut Context<CaseView>) -> AnyElement>;

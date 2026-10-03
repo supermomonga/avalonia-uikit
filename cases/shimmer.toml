@@ -1,0 +1,28 @@
+# GPUI Kit ShimmerText -> gpui:ShimmerText. The cases sweep once (GPUI's
+# repeating sweep follows the app's clock, not the element's); at rest the
+# text is plain.
+component = "shimmer"
+viewport = [240, 48]
+anchor = [16, 12]
+
+[[group]]
+name = "text"
+matrix = { color = ["", "muted"] }
+
+[[group]]
+name = "small"
+params = { text_size = "sm", text = "Generating a response…" }
+
+[[motion]]
+name = "sweep"
+params = { text = "Thinking about it…" }
+trigger = "wait-0ms"
+samples_ms = [0, 200, 400, 600, 800, 1000, 1200, 1400, 1600, 1800]
+themes = ["light", "dark"]
+
+[[motion]]
+name = "muted"
+params = { text = "Thinking about it…", color = "muted", reverse = true }
+trigger = "wait-0ms"
+samples_ms = [0, 500, 1000, 1500]
+themes = ["light", "dark"]

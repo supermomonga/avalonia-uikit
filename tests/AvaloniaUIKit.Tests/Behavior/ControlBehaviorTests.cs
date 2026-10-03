@@ -135,4 +135,47 @@ public class ControlBehaviorTests
     [Arguments("f12", false, "F12")]
     public async Task Kbd_writes_keys_as_gpui(string stroke, bool mac, string text) =>
         await Assert.That(Kbd.Format(Adapters.GpuiGesture(stroke), mac)).IsEqualTo(text);
+
+    // hover_card.rs: open 600ms after the pointer enters, kept while the pointer
+    // is on the card, closed 300ms after it leaves both.
+    [Test]
+    public async Task A_hover_card_opens_after_600ms_and_stays_while_the_pointer_is_on_it()
+    {
+        var golden = Case("hovercard/open.base/hover+wait-700ms/light");
+        using var host = CaseHost.Open(golden, Adapters.Create(golden));
+        var card = (HoverCard)host.Control;
+        host.Drive(golden, "hover");
+        VirtualTime.Advance(TimeSpan.FromMilliseconds(599));
+        await Assert.That(card.IsOpen).IsFalse();
+        VirtualTime.Advance(TimeSpan.FromMilliseconds(1));
+        await Assert.That(card.IsOpen).IsTrue();
+        // Onto the card (it opens 4px under the trigger): it stays open.
+        host.Drive(golden, "at-145-70+wait-1000ms");
+        await Assert.That(card.IsOpen).IsTrue();
+        host.Drive(golden, "at-300-190+wait-299ms");
+        await Assert.That(card.IsOpen).IsTrue();
+        VirtualTime.Advance(TimeSpan.FromMilliseconds(1));
+        await Assert.That(card.IsOpen).IsFalse();
+    }
+
+    [Test]
+    [Arguments("stepper/pointer.base/at-246-28/light", "click-at-246-28", 1)]
+    [Arguments("stepper/pointer.base/at-246-28/light", "click-at-465-60", 2)]
+    [Arguments("stepper/pointer.base/disabled+at-246-28/light", "click-at-246-28", 0)]
+    public async Task A_click_on_a_step_selects_it_unless_disabled(string id, string state, int selected)
+    {
+        var golden = Case(id);
+        using var host = CaseHost.Open(golden, Adapters.Create(golden));
+        host.Drive(golden, state);
+        await Assert.That(((Stepper)host.Control).SelectedIndex).IsEqualTo(selected);
+    }
+
+    // description_list.rs test_group_item_rows.
+    [Test]
+    public async Task Description_items_group_into_rows_as_gpui()
+    {
+        int[] spans = [1, 2, 1, 1, 1, 3, 1];
+        var rows = DescriptionList.GroupRows(spans.Select(s => new DescriptionItem { Span = s }), 3);
+        await Assert.That(string.Join(",", rows.Select(r => r.Count))).IsEqualTo("2,3,1,1");
+    }
 }

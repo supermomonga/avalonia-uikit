@@ -1,0 +1,100 @@
+<!--
+  GPUI Kit DescriptionList (crates/component/src/description_list.rs) ->
+  gpui:DescriptionList with gpui:DescriptionItem / gpui:DescriptionSeparator:
+
+    <gpui:DescriptionList Columns="3">
+      <gpui:DescriptionItem Label="Name" Value="GPUI Kit" />
+      <gpui:DescriptionItem Label="Platform" Value="macOS, Windows, Linux" Span="2" />
+      <gpui:DescriptionSeparator />
+    </gpui:DescriptionList>
+
+  Bordered (the default): a 1px border on radius 6 clipping the rows; a row
+  above another has a bottom border; labels are muted text_sm on the label
+  fill with a right border (and a left one after the first column). Values
+  are on GPUI's 16px line. Padding 8x4 (small 4x2, large 12x6). Without
+  borders there is no padding, no fill, and the rows are 4px apart (small 2,
+  large 8). A separator is an 8px band of the label fill.
+-->
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:gpui="using:AvaloniaUIKit">
+  <ControlTheme x:Key="{x:Type gpui:DescriptionList}" TargetType="gpui:DescriptionList">
+    <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Border}" />
+    <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+    <Setter Property="FontSize" Value="16" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Panel>
+          <Border Name="PART_Clip" ClipToBounds="True" CornerRadius="6">
+            <StackPanel Name="PART_Rows" />
+          </Border>
+          <!-- Painted over the rows, as GPUI paints the border after its children. -->
+          <Border Name="PART_Border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1"
+                  CornerRadius="5.5" IsHitTestVisible="False" />
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^ /template/ Border#PART_Clip">
+      <Setter Property="Padding" Value="1" />
+    </Style>
+    <Style Selector="^[IsBordered=False] /template/ Border#PART_Clip">
+      <Setter Property="Padding" Value="0" />
+      <Setter Property="CornerRadius" Value="0" />
+    </Style>
+    <Style Selector="^[IsBordered=False] /template/ Border#PART_Border">
+      <Setter Property="IsVisible" Value="False" />
+    </Style>
+    <Style Selector="^.xsmall, ^.small">
+      <Setter Property="CellPadding" Value="4,2" />
+      <Setter Property="RowSpacing" Value="2" />
+    </Style>
+    <Style Selector="^.large">
+      <Setter Property="CellPadding" Value="12,6" />
+      <Setter Property="RowSpacing" Value="8" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type gpui:DescriptionCell}" TargetType="gpui:DescriptionCell">
+    <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Border}" />
+    <Setter Property="ClipToBounds" Value="True" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <DockPanel>
+          <Border Name="PART_Label" DockPanel.Dock="Left" Width="{TemplateBinding LabelWidth}"
+                  Padding="{TemplateBinding CellPadding}" BackgroundSizing="OuterBorderEdge"
+                  BorderBrush="{TemplateBinding BorderBrush}">
+            <ContentPresenter Content="{TemplateBinding Label}" FontSize="14" LineHeight="22.5"
+                              Foreground="{DynamicResource Gpui.DescriptionListLabelForeground}" />
+          </Border>
+          <ContentPresenter Name="PART_Value" Content="{TemplateBinding Value}" Padding="{TemplateBinding CellPadding}"
+                            LineHeight="26" TextWrapping="Wrap" ClipToBounds="True" />
+        </DockPanel>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^:bordered /template/ Border#PART_Label">
+      <Setter Property="Background" Value="{DynamicResource Gpui.DescriptionListLabel}" />
+      <Setter Property="BorderThickness" Value="1,0,1,0" />
+    </Style>
+    <Style Selector="^:bordered:first /template/ Border#PART_Label">
+      <Setter Property="BorderThickness" Value="0,0,1,0" />
+    </Style>
+    <Style Selector="^:vertical /template/ Border#PART_Label">
+      <Setter Property="DockPanel.Dock" Value="Top" />
+      <Setter Property="Width" Value="NaN" />
+    </Style>
+    <Style Selector="^:vertical:bordered /template/ Border#PART_Label, ^:vertical:bordered:first /template/ Border#PART_Label">
+      <Setter Property="BorderThickness" Value="0,0,0,1" />
+    </Style>
+    <Style Selector="^:separator:bordered">
+      <Setter Property="Background" Value="{DynamicResource Gpui.DescriptionListLabel}" />
+    </Style>
+    <Style Selector="^:separator">
+      <Setter Property="Height" Value="8" />
+      <Setter Property="Template">
+        <ControlTemplate>
+          <Border Background="{TemplateBinding Background}" />
+        </ControlTemplate>
+      </Setter>
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

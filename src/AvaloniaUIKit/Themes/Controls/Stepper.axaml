@@ -1,0 +1,172 @@
+<!--
+  GPUI Kit Stepper (crates/component/src/stepper) -> gpui:Stepper with
+  gpui:StepperItem (the content is the label):
+
+    <gpui:Stepper SelectedIndex="1">
+      <gpui:StepperItem Content="Order Details" Icon="{StaticResource Gpui.Icon.Calendar}" />
+      <gpui:StepperItem Content="Shipping" />
+    </gpui:Stepper>
+
+  A step is its indicator (a circle in secondary, primary when checked, with
+  the number or the icon) and its label 4px below (8px beside when vertical),
+  then a line from 4px after the indicator to 4px before the next one, at the
+  indicator's middle: border color, primary after a passed step. Sizes
+  (indicator, line, label): xsmall 8 / 1.5 / 12px with no number, small 18 /
+  2 / 12px, medium 24 / 2 / 14px, large 32 / 3 / 14px. An unchecked
+  indicator takes secondary_hover under the pointer and secondary_active
+  pressed, unless the stepper is disabled. CentersSteps gives every step an
+  equal share with the indicator and label centered.
+-->
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:gpui="using:AvaloniaUIKit"
+                    xmlns:gconv="using:AvaloniaUIKit.Converters">
+  <ControlTheme x:Key="{x:Type gpui:Stepper}" TargetType="gpui:Stepper">
+    <Setter Property="ItemsPanel">
+      <ItemsPanelTemplate>
+        <gpui:StepperPanel Orientation="{Binding $parent[gpui:Stepper].Orientation}"
+                           SharesEqually="{Binding $parent[gpui:Stepper].CentersSteps}" />
+      </ItemsPanelTemplate>
+    </Setter>
+    <Setter Property="Template">
+      <ControlTemplate>
+        <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type gpui:StepperItem}" TargetType="gpui:StepperItem">
+    <Setter Property="FontSize" Value="14" />
+    <!-- A centered step's line reaches into the next step. -->
+    <Setter Property="ClipToBounds" Value="False" />
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Panel>
+          <Border Name="PART_Line" Height="2" VerticalAlignment="Top" HorizontalAlignment="Stretch"
+                  Background="{DynamicResource Gpui.Border}" />
+          <StackPanel Name="PART_Trigger" Spacing="4" HorizontalAlignment="Left" VerticalAlignment="Top"
+                      Background="{TemplateBinding Background}">
+            <Border Name="PART_Indicator" Width="{TemplateBinding IndicatorSize}" Height="{TemplateBinding IndicatorSize}"
+                    CornerRadius="{Binding $self.Bounds, Converter={x:Static gconv:AvatarConverters.Circle}}" HorizontalAlignment="Left"
+                    Background="{DynamicResource Gpui.Secondary}">
+              <Panel>
+                <TextBlock Name="PART_Number" Text="{TemplateBinding Number}" LineHeight="22.5"
+                           Foreground="{DynamicResource Gpui.SecondaryForeground}"
+                           HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <PathIcon Name="PART_Icon" IsVisible="False" Data="{TemplateBinding Icon}" Width="14" Height="14"
+                          Foreground="{DynamicResource Gpui.SecondaryForeground}" />
+              </Panel>
+            </Border>
+            <ContentPresenter Name="PART_ContentPresenter" Content="{TemplateBinding Content}"
+                              ContentTemplate="{TemplateBinding ContentTemplate}" LineHeight="22.5" />
+          </StackPanel>
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+
+    <!-- stepper/item.rs StepperSeparator: placed from the indicator's size and the step's width. -->
+    <Style Selector="^ /template/ Border#PART_Line">
+      <Setter Property="Margin">
+        <MultiBinding Converter="{x:Static gconv:StepperConverters.LineMargin}">
+          <Binding Path="$parent[gpui:StepperItem].Bounds" />
+          <Binding Path="$parent[gpui:StepperItem].IsVertical" />
+          <Binding Path="$parent[gpui:StepperItem].IsCentered" />
+          <Binding Path="$parent[gpui:StepperItem].IndicatorSize" />
+        </MultiBinding>
+      </Setter>
+    </Style>
+    <Style Selector="^:icon /template/ PathIcon#PART_Icon">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+    <Style Selector="^:icon /template/ TextBlock#PART_Number">
+      <Setter Property="IsVisible" Value="False" />
+    </Style>
+    <Style Selector="^ /template/ Border#PART_Indicator:pointerover">
+      <Setter Property="Background" Value="{DynamicResource Gpui.SecondaryHover}" />
+    </Style>
+    <Style Selector="^:indicator-pressed /template/ Border#PART_Indicator">
+      <Setter Property="Background" Value="{DynamicResource Gpui.SecondaryActive}" />
+    </Style>
+    <Style Selector="^:disabled /template/ Border#PART_Indicator">
+      <Setter Property="Background" Value="{DynamicResource Gpui.Secondary}" />
+    </Style>
+    <Style Selector="^:checked /template/ Border#PART_Indicator">
+      <Setter Property="Background" Value="{DynamicResource Gpui.Primary}" />
+    </Style>
+    <Style Selector="^:checked /template/ TextBlock#PART_Number">
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.PrimaryForeground}" />
+    </Style>
+    <Style Selector="^:checked /template/ PathIcon#PART_Icon">
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.PrimaryForeground}" />
+    </Style>
+    <Style Selector="^:passed /template/ Border#PART_Line">
+      <Setter Property="Background" Value="{DynamicResource Gpui.Primary}" />
+    </Style>
+    <Style Selector="^:last /template/ Border#PART_Line">
+      <Setter Property="IsVisible" Value="False" />
+    </Style>
+
+    <!-- text_center: the trigger centered; the line from the middle plus half the indicator and 4px to the next middle. -->
+    <Style Selector="^:centered /template/ StackPanel#PART_Trigger">
+      <Setter Property="HorizontalAlignment" Value="Center" />
+    </Style>
+    <Style Selector="^:centered /template/ Border#PART_Indicator">
+      <Setter Property="HorizontalAlignment" Value="Center" />
+    </Style>
+    <Style Selector="^:centered /template/ ContentPresenter#PART_ContentPresenter">
+      <Setter Property="HorizontalAlignment" Value="Center" />
+    </Style>
+
+
+    <!-- Vertical: the indicator and the label side by side; the line down from 4px under the indicator. -->
+    <Style Selector="^:vertical /template/ StackPanel#PART_Trigger">
+      <Setter Property="Orientation" Value="Horizontal" />
+      <Setter Property="Spacing" Value="8" />
+    </Style>
+    <Style Selector="^:vertical /template/ Border#PART_Line">
+      <Setter Property="Width" Value="2" />
+      <Setter Property="Height" Value="NaN" />
+      <Setter Property="HorizontalAlignment" Value="Left" />
+      <Setter Property="VerticalAlignment" Value="Stretch" />
+    </Style>
+
+    <Style Selector="^.xsmall">
+      <Setter Property="FontSize" Value="12" />
+    </Style>
+    <Style Selector="^.xsmall">
+      <Setter Property="IndicatorSize" Value="8" />
+    </Style>
+    <Style Selector="^.xsmall /template/ Border#PART_Indicator > Panel">
+      <Setter Property="IsVisible" Value="False" />
+    </Style>
+    <Style Selector="^.xsmall /template/ Border#PART_Line">
+      <Setter Property="Height" Value="1.5" />
+    </Style>
+    <Style Selector="^.xsmall /template/ ContentPresenter#PART_ContentPresenter">
+      <Setter Property="LineHeight" Value="19.5" />
+    </Style>
+    <Style Selector="^.small">
+      <Setter Property="FontSize" Value="12" />
+    </Style>
+    <Style Selector="^.small">
+      <Setter Property="IndicatorSize" Value="18" />
+    </Style>
+    <Style Selector="^.small /template/ ContentPresenter#PART_ContentPresenter">
+      <Setter Property="LineHeight" Value="19.5" />
+    </Style>
+    <Style Selector="^.small /template/ TextBlock#PART_Number">
+      <Setter Property="LineHeight" Value="19.5" />
+    </Style>
+    <Style Selector="^.small /template/ PathIcon#PART_Icon">
+      <Setter Property="Width" Value="12" />
+      <Setter Property="Height" Value="12" />
+    </Style>
+    <Style Selector="^.large">
+      <Setter Property="IndicatorSize" Value="32" />
+    </Style>
+    <Style Selector="^.large /template/ Border#PART_Line">
+      <Setter Property="Height" Value="3" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

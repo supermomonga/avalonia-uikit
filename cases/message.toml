@@ -1,0 +1,22 @@
+# GPUI Kit Message -> gpui:Message, 400px wide: a 32px avatar at the bottom
+# of the row, the header and footer in muted text_xs, bubbles 10px apart.
+component = "message"
+viewport = [432, 200]
+anchor = [16, 16]
+
+[[group]]
+name = "full"
+params = { avatar = "Alice", header = "Alice · 10:24 AM", footer = "Read", texts = "Can you review this draft?" }
+matrix = { align = ["start", "end"] }
+
+[[group]]
+name = "bubbles"
+params = { avatar = "Bob", texts = "Hi there!|Can you review this draft?", variant = "secondary" }
+
+[[group]]
+name = "plain"
+params = { header = "Assistant", texts = "Sure, here is a summary.", plain = true }
+
+[[group]]
+name = "filled"
+params = { align = "end", texts = "Looks good to me.", variant = "filled", footer = "Delivered" }

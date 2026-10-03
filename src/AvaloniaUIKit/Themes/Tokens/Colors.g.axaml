@@ -1265,6 +1265,12 @@
       <SolidColorBrush x:Key="Gpui.Avatar.Hue11.Border" Color="#FFEFCFEB" />
       <Color x:Key="Gpui.Skeleton.Secondary.Color">#80F5F5F5</Color>
       <SolidColorBrush x:Key="Gpui.Skeleton.Secondary" Color="#80F5F5F5" />
+      <Color x:Key="Gpui.Bubble.Tinted.Color">#FFDFDFDF</Color>
+      <SolidColorBrush x:Key="Gpui.Bubble.Tinted" Color="#FFDFDFDF" />
+      <Color x:Key="Gpui.Bubble.Destructive.Color">#1AEF4444</Color>
+      <SolidColorBrush x:Key="Gpui.Bubble.Destructive" Color="#1AEF4444" />
+      <Color x:Key="Gpui.Bubble.DestructiveForeground.Color">#FFEF4444</Color>
+      <SolidColorBrush x:Key="Gpui.Bubble.DestructiveForeground" Color="#FFEF4444" />
     </ResourceDictionary>
     <ResourceDictionary x:Key="Dark">
       <Color x:Key="Gpui.Accent.Color">#FF262626</Color>
@@ -2525,6 +2531,12 @@
       <SolidColorBrush x:Key="Gpui.Avatar.Hue11.Border" Color="#FF4F314C" />
       <Color x:Key="Gpui.Skeleton.Secondary.Color">#80171717</Color>
       <SolidColorBrush x:Key="Gpui.Skeleton.Secondary" Color="#80171717" />
+      <Color x:Key="Gpui.Bubble.Tinted.Color">#FF393939</Color>
+      <SolidColorBrush x:Key="Gpui.Bubble.Tinted" Color="#FF393939" />
+      <Color x:Key="Gpui.Bubble.Destructive.Color">#33F87171</Color>
+      <SolidColorBrush x:Key="Gpui.Bubble.Destructive" Color="#33F87171" />
+      <Color x:Key="Gpui.Bubble.DestructiveForeground.Color">#FFF87171</Color>
+      <SolidColorBrush x:Key="Gpui.Bubble.DestructiveForeground" Color="#FFF87171" />
     </ResourceDictionary>
   </ResourceDictionary.ThemeDictionaries>
 </ResourceDictionary>

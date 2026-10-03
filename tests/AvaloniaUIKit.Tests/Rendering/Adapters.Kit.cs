@@ -23,7 +23,7 @@ public static partial class Adapters
         "avatar" => AvatarCase(c),
         "avatargroup" => AvatarGroupCase(c),
         "empty" => EmptyCase(c),
-        _ => null,
+        _ => KitControl2(c),
     };
 
     /// <summary>A theme brush for the case's theme.</summary>
@@ -267,5 +267,281 @@ public static partial class Adapters
             empty.Actions = row;
         }
         return empty;
+    }
+}
+
+public static partial class Adapters
+{
+    private static Control? KitControl2(GoldenCase c) => c.Component switch
+    {
+        "descriptionlist" => DescriptionListCase(c),
+        "stepper" => StepperCase(c),
+        "form" => FormCase(c),
+        "hovercard" => HoverCardCase(c),
+        "shimmer" => ShimmerCase(c),
+        "marker" => MarkerCase(c),
+        "bubble" => BubbleCase(c),
+        "message" => MessageCase(c),
+        _ => null,
+    };
+
+    private static Control DescriptionListCase(GoldenCase c)
+    {
+        var list = Sized(new DescriptionList
+        {
+            Orientation = c.Str("layout", "horizontal") == "vertical" ? Orientation.Vertical : Orientation.Horizontal,
+            IsBordered = !c.Bool("borderless"),
+            Columns = (int)c.Num("columns", 3),
+            Width = c.Num("width", 520),
+            HorizontalAlignment = HorizontalAlignment.Left,
+            VerticalAlignment = VerticalAlignment.Top,
+        }, c);
+        if (c.Has("label_width"))
+        {
+            list.LabelWidth = c.Num("label_width", 120);
+        }
+        foreach (var item in c.Str("items", "Name:GPUI Kit|Version:0.1.0|License:Apache-2.0").Split('|'))
+        {
+            if (item == "-")
+            {
+                list.Items.Add(new DescriptionSeparator());
+                continue;
+            }
+            var parts = item.Split(':', 3);
+            list.Items.Add(new DescriptionItem
+            {
+                Label = parts[0],
+                Value = parts.Length > 1 ? parts[1] : "",
+                Span = parts.Length > 2 ? int.Parse(parts[2], System.Globalization.CultureInfo.InvariantCulture) : 1,
+            });
+        }
+        return list;
+    }
+
+    private static Control StepperCase(GoldenCase c)
+    {
+        var vertical = c.Str("layout", "horizontal") == "vertical";
+        var stepper = Sized(new Stepper
+        {
+            SelectedIndex = (int)c.Num("selected", 0),
+            Orientation = vertical ? Orientation.Vertical : Orientation.Horizontal,
+            CentersSteps = c.Bool("text_center"),
+            IsEnabled = !c.State.Split('+').Contains("disabled"),
+            Width = c.Num("width", 480),
+            HorizontalAlignment = HorizontalAlignment.Left,
+            VerticalAlignment = VerticalAlignment.Top,
+        }, c);
+        if (vertical)
+        {
+            stepper.Height = c.Num("height", 200);
+        }
+        var icons = c.Str("icons").Split('|');
+        var labels = c.Str("labels", "Step 1|Step 2|Step 3").Split('|');
+        for (var i = 0; i < labels.Length; i++)
+        {
+            var step = new StepperItem { Content = labels[i] };
+            if (i < icons.Length && icons[i].Length > 0)
+            {
+                step.Icon = Icon(icons[i]).Data;
+            }
+            stepper.Items.Add(step);
+        }
+        return stepper;
+    }
+
+    private static Control FormCase(GoldenCase c)
+    {
+        var size = c.Str("size", "medium");
+        var form = Sized(new Form
+        {
+            LabelOrientation = c.Str("layout", "vertical") == "horizontal" ? Orientation.Horizontal : Orientation.Vertical,
+            Columns = (int)c.Num("columns", 1),
+            Width = c.Num("width", 360),
+            HorizontalAlignment = HorizontalAlignment.Left,
+            VerticalAlignment = VerticalAlignment.Top,
+        }, c);
+        if (c.Has("label_width"))
+        {
+            form.LabelWidth = c.Num("label_width", 140);
+        }
+        foreach (var spec in c.Str("fields", "Name|Email").Split('|'))
+        {
+            var rest = spec;
+            var span = 1;
+            if (rest.Split('^') is [var r, var s])
+            {
+                rest = r;
+                span = int.Parse(s, System.Globalization.CultureInfo.InvariantCulture);
+            }
+            string? description = null;
+            if (rest.Split('~') is [var l, var d])
+            {
+                rest = l;
+                description = d;
+            }
+            var label = rest.TrimEnd('*');
+            var box = new TextBox { PlaceholderText = "Enter " + label.ToLowerInvariant() };
+            if (size != "medium")
+            {
+                box.Classes.Add(size);
+            }
+            form.Items.Add(new FormField { Label = label, IsRequired = rest.EndsWith('*'), Description = description, ColumnSpan = span, Content = box });
+        }
+        if (c.Has("footer"))
+        {
+            var button = new Button { Content = c.Str("footer"), Classes = { "primary" } };
+            if (size != "medium")
+            {
+                button.Classes.Add(size);
+            }
+            form.Footer = button;
+        }
+        return form;
+    }
+
+    private static Control HoverCardCase(GoldenCase c) => new HoverCard
+    {
+        Placement = c.Str("anchor", "top-center") switch
+        {
+            "top-left" => Avalonia.Controls.PlacementMode.BottomEdgeAlignedLeft,
+            "top-right" => Avalonia.Controls.PlacementMode.BottomEdgeAlignedRight,
+            "bottom-center" => Avalonia.Controls.PlacementMode.Top,
+            _ => Avalonia.Controls.PlacementMode.Bottom,
+        },
+        Content = new TextBlock { Text = "Hover over me", FontSize = 14, LineHeight = 22.5, Foreground = ThemeBrush(c, "Gpui.Primary") },
+        Card = new StackPanel
+        {
+            Spacing = 8,
+            Children =
+            {
+                new TextBlock { Text = c.Str("title", "This is a hover card"), FontSize = 14, LineHeight = 22.5, FontWeight = FontWeight.SemiBold },
+                new TextBlock { Text = c.Str("body", "Rich content on hover."), FontSize = 14, LineHeight = 22.5, Foreground = ThemeBrush(c, "Gpui.MutedForeground") },
+            },
+        },
+    };
+
+    private static Control ShimmerCase(GoldenCase c)
+    {
+        var shimmer = new ShimmerText
+        {
+            Text = c.Str("text", "Thinking…"),
+            Repeats = false,
+            IsReversed = c.Bool("reverse"),
+            Duration = TimeSpan.FromMilliseconds(c.Num("duration", 2000)),
+        };
+        if (c.Str("text_size", "base") == "sm")
+        {
+            shimmer.FontSize = 14;
+            shimmer.SetValue(TextBlock.LineHeightProperty, 22.5);
+        }
+        if (c.Str("color") == "muted")
+        {
+            shimmer.Foreground = ThemeBrush(c, "Gpui.MutedForeground");
+        }
+        return shimmer;
+    }
+
+    private static Control MarkerCase(GoldenCase c)
+    {
+        var marker = new Marker
+        {
+            Content = c.Str("text", "Conversation archived"),
+            IsLoading = c.Bool("loading"),
+            Width = c.Num("width", 320),
+            HorizontalAlignment = HorizontalAlignment.Left,
+            VerticalAlignment = VerticalAlignment.Top,
+        };
+        ClassFrom(marker, c, "variant", "plain");
+        if (c.Str("loading_style", "spinner") == "shimmer")
+        {
+            marker.Classes.Add("shimmer");
+        }
+        if (c.Str("icon") is { Length: > 0 } icon)
+        {
+            marker.Icon = Icon(icon);
+        }
+        switch (c.Str("align"))
+        {
+            case "start":
+                marker.HorizontalContentAlignment = HorizontalAlignment.Left;
+                break;
+            case "center":
+                marker.HorizontalContentAlignment = HorizontalAlignment.Center;
+                break;
+            case "end":
+                marker.HorizontalContentAlignment = HorizontalAlignment.Right;
+                break;
+        }
+        return marker;
+    }
+
+    private static Bubble MakeBubble(GoldenCase c, string text)
+    {
+        var bubble = new Bubble { Content = text };
+        ClassFrom(bubble, c, "variant", "filled");
+        return bubble;
+    }
+
+    private static Control BubbleCase(GoldenCase c)
+    {
+        var bubble = MakeBubble(c, c.Str("text", "Can you review this draft?"));
+        ClassFrom(bubble, c, "align", "");
+        if (c.Has("reaction"))
+        {
+            bubble.Reaction = c.Str("reaction");
+            if (c.Str("reaction_side", "bottom") == "top")
+            {
+                bubble.Classes.Add("reaction-top");
+            }
+            if (c.Str("reaction_align", "end") == "start")
+            {
+                bubble.Classes.Add("reaction-start");
+            }
+        }
+        return new Panel { Width = c.Num("width", 360), HorizontalAlignment = HorizontalAlignment.Left, VerticalAlignment = VerticalAlignment.Top, Children = { bubble } };
+    }
+
+    private static Control MessageCase(GoldenCase c)
+    {
+        var message = new Message { Width = c.Num("width", 400), HorizontalAlignment = HorizontalAlignment.Left, VerticalAlignment = VerticalAlignment.Top };
+        if (c.Str("align", "start") == "end")
+        {
+            message.Classes.Add("end");
+        }
+        if (c.Has("avatar"))
+        {
+            message.Avatar = new Avatar { UserName = c.Str("avatar"), Width = 32, Height = 32 };
+        }
+        if (c.Has("header"))
+        {
+            var header = new StackPanel { Orientation = Orientation.Horizontal, Spacing = 4 };
+            foreach (var part in c.Str("header").Split('·'))
+            {
+                header.Children.Add(new TextBlock { Text = part.Trim() });
+            }
+            message.Header = header;
+        }
+        foreach (var text in c.Str("texts", "Can you review this draft?").Split('|'))
+        {
+            if (c.Bool("plain"))
+            {
+                message.Items.Add(text);
+            }
+            else
+            {
+                var bubble = new Bubble { Content = text };
+                ClassFrom(bubble, c, "variant", "secondary");
+                if (!bubble.Classes.Any())
+                {
+                    bubble.Classes.Add("secondary");
+                }
+                message.Items.Add(bubble);
+            }
+        }
+        if (c.Has("footer"))
+        {
+            message.Footer = c.Str("footer");
+        }
+        return message;
     }
 }

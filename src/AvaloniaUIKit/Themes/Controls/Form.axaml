@@ -1,0 +1,101 @@
+<!--
+  GPUI Kit Form / Field (crates/component/src/form) -> gpui:Form with
+  gpui:FormField (the content is the input):
+
+    <gpui:Form Columns="2" LabelOrientation="Vertical">
+      <gpui:FormField Label="Email" IsRequired="True" Description="Used for sign in.">
+        <TextBox />
+      </gpui:FormField>
+      <gpui:Form.Footer><Button Classes="primary" Content="Save" /></gpui:Form.Footer>
+    </gpui:Form>
+
+  Rows 8px apart and columns 24px (three times; small 6 / 18, large 12 / 36).
+  A field is a column 2px apart (4 at large): the label (text_sm medium, a
+  danger "*" 4px after when required) 2px above the input (4px beside it,
+  140px wide, when horizontal), then the muted text_xs description, whose row
+  is there even when empty. Size classes on the form are its gaps; the inputs
+  keep their own size classes.
+-->
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:gpui="using:AvaloniaUIKit"
+        xmlns:gconv="using:AvaloniaUIKit.Converters">
+  <Styles.Resources>
+  <gconv:AffineConverter x:Key="Gpui.Form.Half" Scale="0.5" />
+  <gconv:AffineConverter x:Key="Gpui.Form.Triple" Scale="3" />
+
+  <ControlTheme x:Key="{x:Type gpui:Form}" TargetType="gpui:Form">
+    <Setter Property="ItemsPanel">
+      <ItemsPanelTemplate>
+        <gpui:FormPanel Columns="{Binding $parent[gpui:Form].Columns}"
+                        RowSpacing="{Binding $parent[gpui:Form].Gap}"
+                        ColumnSpacing="{Binding $parent[gpui:Form].Gap, Converter={StaticResource Gpui.Form.Triple}}" />
+      </ItemsPanelTemplate>
+    </Setter>
+    <Setter Property="Template">
+      <ControlTemplate>
+        <DockPanel>
+          <ContentPresenter Name="PART_Footer" DockPanel.Dock="Bottom" HorizontalAlignment="Right"
+                            Content="{TemplateBinding Footer}" Margin="{TemplateBinding Gap, Converter={x:Static gconv:FormConverters.TopGap}}"
+                            IsVisible="{TemplateBinding Footer, Converter={x:Static ObjectConverters.IsNotNull}}" />
+          <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
+        </DockPanel>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^.xsmall, ^.small">
+      <Setter Property="Gap" Value="6" />
+    </Style>
+    <Style Selector="^.large">
+      <Setter Property="Gap" Value="12" />
+      <Setter Property="gpui:Form.FieldGap" Value="8" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type gpui:FormField}" TargetType="gpui:FormField">
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Grid Name="PART_Grid" RowDefinitions="Auto,Auto,Auto,Auto" ColumnDefinitions="Auto,*">
+          <StackPanel Name="PART_Label" Orientation="Horizontal" Spacing="4" Grid.ColumnSpan="2">
+            <ContentPresenter Content="{TemplateBinding Label}" FontSize="14" FontWeight="Medium" LineHeight="22.5" ClipToBounds="True" />
+            <TextBlock Text="*" FontSize="14" FontWeight="Medium" LineHeight="22.5" Foreground="{DynamicResource Gpui.Danger}"
+                       IsVisible="{TemplateBinding IsRequired}" />
+          </StackPanel>
+          <ContentPresenter Name="PART_ContentPresenter" Grid.Row="1" Grid.ColumnSpan="2"
+                            Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" />
+          <ContentPresenter Name="PART_Description" Grid.Row="2" Grid.ColumnSpan="2"
+                            Content="{TemplateBinding Description}" FontSize="12" LineHeight="19.5"
+                            Foreground="{DynamicResource Gpui.MutedForeground}"
+                            Margin="{Binding $parent[gpui:FormField].(gpui:Form.FieldGap), Converter={x:Static gconv:FormConverters.HalfTop}}" />
+        </Grid>
+      </ControlTemplate>
+    </Setter>
+    <!-- Bindings in the template would outrank the styles; the label's gap comes from styles. -->
+    <Style Selector="^ /template/ StackPanel#PART_Label">
+      <Setter Property="Margin" Value="{Binding $parent[gpui:FormField].(gpui:Form.FieldGap), Converter={x:Static gconv:FormConverters.LabelGap}}" />
+    </Style>
+    <!-- Horizontal: the label beside the input, the description under the input. -->
+    <Style Selector="^:horizontal /template/ StackPanel#PART_Label">
+      <Setter Property="Grid.ColumnSpan" Value="1" />
+      <Setter Property="Grid.RowSpan" Value="2" />
+      <Setter Property="VerticalAlignment" Value="Center" />
+      <Setter Property="Width" Value="{Binding $parent[gpui:FormField].(gpui:Form.LabelWidth)}" />
+      <Setter Property="Margin" Value="{Binding $parent[gpui:FormField].(gpui:Form.FieldGap), Converter={x:Static gconv:FormConverters.LabelBeside}}" />
+    </Style>
+    <Style Selector="^:horizontal /template/ ContentPresenter#PART_ContentPresenter">
+      <Setter Property="Grid.Row" Value="0" />
+      <Setter Property="Grid.RowSpan" Value="2" />
+      <Setter Property="Grid.Column" Value="1" />
+      <Setter Property="Grid.ColumnSpan" Value="1" />
+    </Style>
+    <Style Selector="^:horizontal /template/ ContentPresenter#PART_Description">
+      <Setter Property="Grid.Column" Value="1" />
+      <Setter Property="Grid.ColumnSpan" Value="1" />
+    </Style>
+  </ControlTheme>
+  </Styles.Resources>
+
+  <!-- field.rs: the input sits in a full-width box, which stretches a block child. -->
+  <Style Selector="gpui|FormField > :is(Control)">
+    <Setter Property="HorizontalAlignment" Value="Stretch" />
+  </Style>
+</Styles>

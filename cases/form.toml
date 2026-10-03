@@ -1,0 +1,24 @@
+# GPUI Kit Form / Field -> gpui:Form / gpui:FormField with TextBoxes, 360px
+# wide (520 for two columns). Fields: "Label", "Label*" (required),
+# "Label~description", "Label^2" (spanning two columns).
+component = "form"
+viewport = [392, 240]
+anchor = [16, 16]
+
+[[group]]
+name = "vertical"
+params = { fields = "Name|Email*~We will never share your email." }
+matrix = { size = ["small", "medium", "large"] }
+
+[[group]]
+name = "horizontal"
+params = { layout = "horizontal", fields = "First name|Last name*|Email~Used for sign in." }
+
+[[group]]
+name = "label-width"
+params = { layout = "horizontal", label_width = 100, fields = "Name|Email" }
+
+[[group]]
+name = "columns"
+params = { columns = 2, width = 520, fields = "First name|Last name|Address^2", footer = "Save" }
+viewport = [552, 240]

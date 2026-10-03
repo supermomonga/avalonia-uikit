@@ -49,6 +49,11 @@
         <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/Rating.axaml" />
         <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/Avatar.axaml" />
         <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/EmptyState.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/DescriptionList.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/Stepper.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/HoverCard.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/ShimmerText.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/Marker.axaml" />
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
   </Styles.Resources>
@@ -65,6 +70,8 @@
   <StyleInclude Source="avares://AvaloniaUIKit/Themes/Controls/Calendar.axaml" />
   <StyleInclude Source="avares://AvaloniaUIKit/Themes/Controls/TableView.axaml" />
   <StyleInclude Source="avares://AvaloniaUIKit/Themes/Controls/Clipboard.axaml" />
+  <StyleInclude Source="avares://AvaloniaUIKit/Themes/Controls/Bubble.axaml" />
+  <StyleInclude Source="avares://AvaloniaUIKit/Themes/Controls/Form.axaml" />
 
   <!-- GPUI sizes a text to whole pixels, rounding its width up (text.rs). -->
   <Style Selector=":is(TopLevel)">

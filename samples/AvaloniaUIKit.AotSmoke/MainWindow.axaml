@@ -315,6 +315,43 @@
           </gpui:EmptyState.Actions>
         </gpui:EmptyState>
         <gpui:StatusBar Width="420" HorizontalAlignment="Left" Left="main" Content="Ready" Right="UTF-8" />
+        <TextBlock Text="DescriptionList, Stepper, Form, HoverCard, ShimmerText, Marker, Bubble, Message" Foreground="{DynamicResource Gpui.MutedForeground}" />
+        <gpui:DescriptionList Width="640" HorizontalAlignment="Left">
+          <gpui:DescriptionItem Label="Name" Value="GPUI Kit" />
+          <gpui:DescriptionItem Label="Version" Value="0.1.0" />
+          <gpui:DescriptionItem Label="License" Value="Apache-2.0" />
+          <gpui:DescriptionSeparator />
+          <gpui:DescriptionItem Label="Platform" Value="macOS, Windows, Linux" Span="2" />
+        </gpui:DescriptionList>
+        <gpui:Stepper SelectedIndex="1" Width="480" HorizontalAlignment="Left">
+          <gpui:StepperItem Content="Order Details" Icon="{StaticResource Gpui.Icon.Calendar}" />
+          <gpui:StepperItem Content="Shipping" />
+          <gpui:StepperItem Content="Finish" />
+        </gpui:Stepper>
+        <gpui:Form Columns="2" Width="480" HorizontalAlignment="Left">
+          <gpui:FormField Label="First name"><TextBox PlaceholderText="Enter first name" /></gpui:FormField>
+          <gpui:FormField Label="Email" IsRequired="True" Description="Used for sign in."><TextBox /></gpui:FormField>
+          <gpui:Form.Footer><Button Classes="primary" Content="Save" /></gpui:Form.Footer>
+        </gpui:Form>
+        <StackPanel Orientation="Horizontal" Spacing="24">
+          <gpui:HoverCard>
+            <TextBlock Text="Hover over me" Foreground="{DynamicResource Gpui.Primary}" />
+            <gpui:HoverCard.Card>
+              <TextBlock Text="This is a hover card" />
+            </gpui:HoverCard.Card>
+          </gpui:HoverCard>
+          <gpui:ShimmerText Text="Thinking…" />
+        </StackPanel>
+        <gpui:Marker Classes="separator" Content="Today" Width="420" HorizontalAlignment="Left" />
+        <gpui:Marker Content="Thinking" IsLoading="True" />
+        <gpui:Message Width="420" HorizontalAlignment="Left" Footer="Read">
+          <gpui:Message.Avatar><gpui:Avatar UserName="Alice" Width="32" Height="32" /></gpui:Message.Avatar>
+          <gpui:Message.Header><TextBlock Text="Alice" /></gpui:Message.Header>
+          <gpui:Bubble Classes="secondary" Content="Can you review this draft?" Reaction="+2" />
+        </gpui:Message>
+        <gpui:Message Classes="end" Width="420" HorizontalAlignment="Left">
+          <gpui:Bubble Content="Looks good to me." />
+        </gpui:Message>
         <TextBlock Text="GroupBox, Separator, Link" Foreground="{DynamicResource Gpui.MutedForeground}" />
         <GroupBox Classes="outline" Header="Account" Content="Content" Width="320" HorizontalAlignment="Left" />
         <Separator Width="320" HorizontalAlignment="Left" />

@@ -4,19 +4,28 @@ using Avalonia.Data.Converters;
 
 namespace AvaloniaUIKit.Converters;
 
-/// <summary>An avatar's corner radius for the parts inside and on its 1px ring.</summary>
+/// <summary>
+/// Corner radii that make a part a circle (GPUI's rounded_full) from its own
+/// bounds, whatever size the app gives it.
+/// </summary>
 public static class AvatarConverters
 {
-    /// <summary>The radius of the fill inside the ring: one pixel less.</summary>
-    public static readonly IValueConverter Inner = new Shrink(1);
+    /// <summary>Half the shorter side.</summary>
+    public static readonly IValueConverter Circle = new Half(0);
 
-    /// <summary>The radius of the ring's center line: half a pixel less.</summary>
-    public static readonly IValueConverter Ring = new Shrink(0.5);
+    /// <summary>The center line of a 1px ring: half a pixel less.</summary>
+    public static readonly IValueConverter Ring = new Half(0.5);
 
-    private sealed class Shrink(double by) : IValueConverter
+    /// <summary>The center line of a border as thick as the converter parameter: half of it less.</summary>
+    public static readonly IValueConverter Border = new Half(double.NaN);
+
+    private sealed class Half(double by) : IValueConverter
     {
-        public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture) =>
-            value is CornerRadius r ? new CornerRadius(Math.Max(0, r.TopLeft - by)) : value;
+        public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
+        {
+            var inset = double.IsNaN(by) ? System.Convert.ToDouble(parameter, CultureInfo.InvariantCulture) / 2 : by;
+            return value is Rect r ? new CornerRadius(Math.Max(0, Math.Min(r.Width, r.Height) / 2 - inset)) : value;
+        }
 
         public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture) =>
             throw new NotSupportedException();

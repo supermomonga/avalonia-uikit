@@ -1,0 +1,18 @@
+# GPUI Kit HoverCard -> gpui:HoverCard on a primary text trigger. The card
+# opens 600ms after the pointer enters the trigger.
+component = "hovercard"
+viewport = [320, 200]
+anchor = [96, 24]
+
+[[group]]
+name = "open"
+states = ["hover+wait-500ms", "hover+wait-700ms"]
+
+[[group]]
+name = "anchor"
+matrix = { anchor = ["top-left", "top-right"] }
+states = ["hover+wait-700ms"]
+
+# Above the trigger GPUI places the card from its unrounded height (two phi
+# lines of 22.65px) and lands half a pixel off Avalonia's rounded one (R9);
+# the Popover cases cover the placements.

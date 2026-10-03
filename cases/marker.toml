@@ -1,0 +1,30 @@
+# GPUI Kit Marker -> gpui:Marker, 320px wide: muted text_sm on a 21px line.
+component = "marker"
+viewport = [352, 56]
+anchor = [16, 16]
+
+[[group]]
+name = "plain"
+params = { text = "Conversation archived", icon = "info" }
+
+[[group]]
+name = "separator"
+params = { variant = "separator", text = "Today" }
+matrix = { align = ["start", "center", "end"] }
+
+[[group]]
+name = "border"
+params = { variant = "border", text = "Earlier messages" }
+
+[[group]]
+name = "align"
+params = { text = "Online", icon = "circle-check" }
+matrix = { align = ["center", "end"] }
+
+[[group]]
+name = "loading"
+params = { text = "Thinking", loading = true }
+
+[[group]]
+name = "shimmer"
+params = { text = "Thinking", loading = true, loading_style = "shimmer" }

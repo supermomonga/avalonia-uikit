@@ -1,0 +1,178 @@
+<!--
+  GPUI Kit Bubble and Message (crates/component/src/bubble.rs, message.rs) ->
+  gpui:Bubble and gpui:Message.
+
+  Bubble: text_sm on a 22.5px line, 12x8 padding inside a 1px transparent
+  border, radius 15 (radius_2xl; 14.5 at the border's center line), at most 80% of the room; stretched unless
+  aligned (start / end). Variants: filled (primary), secondary and muted
+  (muted fill), tinted (primary into the background), outline (border on
+  the background), ghost (no surface, full width), destructive. The reaction
+  pill (muted, a 3px ring in the background color, 6x2 padding) hangs 20px
+  over the bottom edge, 12px in from the end; reaction-top and reaction-start
+  move it.
+
+  Message: the items are the bubbles, 10px apart; the avatar (a muted circle
+  at least 32px) sits at the bottom 8px beside them; header and footer are
+  medium muted text_xs on a 15px line, inset 12px unless a bubble is ghost;
+  the footer lines up with the bubbles. The end class mirrors it all.
+-->
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:gpui="using:AvaloniaUIKit"
+        xmlns:gconv="using:AvaloniaUIKit.Converters">
+  <Styles.Resources>
+    <ControlTheme x:Key="{x:Type gpui:Bubble}" TargetType="gpui:Bubble">
+      <Setter Property="Background" Value="{DynamicResource Gpui.Primary}" />
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.PrimaryForeground}" />
+      <Setter Property="BorderBrush" Value="Transparent" />
+      <Setter Property="BorderThickness" Value="1" />
+      <Setter Property="CornerRadius" Value="14.5" />
+      <Setter Property="Padding" Value="12,8" />
+      <Setter Property="FontSize" Value="14" />
+      <Setter Property="VerticalAlignment" Value="Top" />
+      <Setter Property="ClipToBounds" Value="False" />
+      <Setter Property="Template">
+        <ControlTemplate>
+          <Panel>
+            <ContentPresenter Name="PART_ContentPresenter" ClipToBounds="True"
+                              BackgroundSizing="OuterBorderEdge"
+                              Background="{TemplateBinding Background}"
+                              BorderBrush="{TemplateBinding BorderBrush}"
+                              BorderThickness="{TemplateBinding BorderThickness}"
+                              CornerRadius="{TemplateBinding CornerRadius}"
+                              Padding="{TemplateBinding Padding}"
+                              Content="{TemplateBinding Content}"
+                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                              Foreground="{TemplateBinding Foreground}"
+                              LineHeight="22.5" TextWrapping="Wrap" />
+            <ContentPresenter Name="PART_Reaction" Content="{TemplateBinding Reaction}"
+                              IsVisible="{TemplateBinding Reaction, Converter={x:Static ObjectConverters.IsNotNull}}"
+                              HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,12,-20"
+                              Background="{DynamicResource Gpui.Muted}" Foreground="{DynamicResource Gpui.Foreground}"
+                              BorderBrush="{DynamicResource Gpui.Background}" BorderThickness="3"
+                              BackgroundSizing="OuterBorderEdge" Padding="6,2" FontSize="14" LineHeight="22.5"
+                              CornerRadius="{Binding $self.Bounds, Converter={x:Static gconv:AvatarConverters.Border}, ConverterParameter=3}" />
+          </Panel>
+        </ControlTemplate>
+      </Setter>
+      <Style Selector="^.start">
+        <Setter Property="HorizontalAlignment" Value="Left" />
+      </Style>
+      <Style Selector="^.end">
+        <Setter Property="HorizontalAlignment" Value="Right" />
+      </Style>
+      <Style Selector="^.reaction-top /template/ ContentPresenter#PART_Reaction">
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="Margin" Value="0,-20,12,0" />
+      </Style>
+      <Style Selector="^.reaction-start /template/ ContentPresenter#PART_Reaction">
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="Margin" Value="12,0,0,-20" />
+      </Style>
+      <Style Selector="^.reaction-start.reaction-top /template/ ContentPresenter#PART_Reaction">
+        <Setter Property="Margin" Value="12,-20,0,0" />
+      </Style>
+      <Style Selector="^.secondary">
+        <Setter Property="Background" Value="{DynamicResource Gpui.Muted}" />
+        <Setter Property="Foreground" Value="{DynamicResource Gpui.SecondaryForeground}" />
+      </Style>
+      <Style Selector="^.muted">
+        <Setter Property="Background" Value="{DynamicResource Gpui.Muted}" />
+        <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+      </Style>
+      <Style Selector="^.tinted">
+        <Setter Property="Background" Value="{DynamicResource Gpui.Bubble.Tinted}" />
+        <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+      </Style>
+      <Style Selector="^.outline">
+        <Setter Property="Background" Value="{DynamicResource Gpui.Background}" />
+        <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Border}" />
+      </Style>
+      <Style Selector="^.ghost">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="CornerRadius" Value="0" />
+        <Setter Property="Padding" Value="0" />
+      </Style>
+      <Style Selector="^.ghost /template/ ContentPresenter#PART_ContentPresenter">
+        <Setter Property="ClipToBounds" Value="False" />
+      </Style>
+      <Style Selector="^.destructive">
+        <Setter Property="Background" Value="{DynamicResource Gpui.Bubble.Destructive}" />
+        <Setter Property="Foreground" Value="{DynamicResource Gpui.Bubble.DestructiveForeground}" />
+      </Style>
+    </ControlTheme>
+
+    <!-- No text size in message.rs: plain content takes GPUI's 16px on a phi line. -->
+    <ControlTheme x:Key="GpuiMessageItem" TargetType="ContentPresenter">
+      <Setter Property="FontSize" Value="16" />
+      <Setter Property="LineHeight" Value="26" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type gpui:Message}" TargetType="gpui:Message">
+      <Setter Property="ItemContainerTheme" Value="{StaticResource GpuiMessageItem}" />
+      <Setter Property="ItemsPanel">
+        <ItemsPanelTemplate>
+          <StackPanel Spacing="10" />
+        </ItemsPanelTemplate>
+      </Setter>
+      <Setter Property="Template">
+        <ControlTemplate>
+          <StackPanel Spacing="10">
+            <DockPanel Name="PART_Row">
+              <Border Name="PART_Avatar" DockPanel.Dock="Left" Margin="0,0,8,0" MinWidth="32"
+                      VerticalAlignment="Bottom" Background="{DynamicResource Gpui.Muted}" ClipToBounds="True"
+                      CornerRadius="{Binding $self.Bounds, Converter={x:Static gconv:AvatarConverters.Circle}}"
+                      IsVisible="{TemplateBinding Avatar, Converter={x:Static ObjectConverters.IsNotNull}}">
+                <ContentPresenter Content="{TemplateBinding Avatar}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+              </Border>
+              <StackPanel Name="PART_Stack" Spacing="10">
+                <ContentPresenter Name="PART_Header" Classes="line" Content="{TemplateBinding Header}" HorizontalAlignment="Left"
+                                  IsVisible="{TemplateBinding Header, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
+              </StackPanel>
+            </DockPanel>
+            <ContentPresenter Name="PART_Footer" Classes="line" Content="{TemplateBinding Footer}" HorizontalAlignment="Left"
+                              IsVisible="{TemplateBinding Footer, Converter={x:Static ObjectConverters.IsNotNull}}" />
+          </StackPanel>
+        </ControlTemplate>
+      </Setter>
+      <Style Selector="^ /template/ ContentPresenter.line">
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontWeight" Value="Medium" />
+        <Setter Property="LineHeight" Value="15" />
+        <Setter Property="Foreground" Value="{DynamicResource Gpui.MutedForeground}" />
+        <Setter Property="Padding" Value="12,0" />
+      </Style>
+      <Style Selector="^:ghost /template/ ContentPresenter.line">
+        <Setter Property="Padding" Value="0" />
+      </Style>
+      <Style Selector="^:avatar /template/ ContentPresenter#PART_Footer">
+        <Setter Property="Margin" Value="40,0,0,0" />
+      </Style>
+      <Style Selector="^.end /template/ Border#PART_Avatar">
+        <Setter Property="DockPanel.Dock" Value="Right" />
+        <Setter Property="Margin" Value="8,0,0,0" />
+      </Style>
+      <Style Selector="^.end /template/ ContentPresenter.line">
+        <Setter Property="HorizontalAlignment" Value="Right" />
+      </Style>
+      <Style Selector="^.end:avatar /template/ ContentPresenter#PART_Footer">
+        <Setter Property="Margin" Value="0,0,40,0" />
+      </Style>
+    </ControlTheme>
+  </Styles.Resources>
+
+  <!-- message.rs: the content column aligns each bubble to the message's side. -->
+  <Style Selector="gpui|Message gpui|Bubble:not(.start):not(.end)">
+    <Setter Property="HorizontalAlignment" Value="Left" />
+  </Style>
+  <Style Selector="gpui|Message.end gpui|Bubble:not(.start):not(.end)">
+    <Setter Property="HorizontalAlignment" Value="Right" />
+  </Style>
+  <Style Selector="gpui|Message.end ContentPresenter">
+    <Setter Property="HorizontalAlignment" Value="Right" />
+  </Style>
+</Styles>
