@@ -1,0 +1,98 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="AvaloniaUIKit.AotSmoke.MainWindow"
+        Title="AvaloniaUIKit gallery" Width="760" Height="860">
+  <DockPanel>
+    <Menu DockPanel.Dock="Top" Margin="8">
+      <MenuItem Header="File">
+        <MenuItem Header="New File" />
+        <MenuItem Header="Refresh" InputGesture="F5" />
+        <Separator />
+        <MenuItem Header="Quit" />
+      </MenuItem>
+      <MenuItem Header="Edit">
+        <MenuItem Header="Undo" />
+        <MenuItem Header="Redo" />
+      </MenuItem>
+    </Menu>
+    <ScrollViewer AllowAutoHide="True">
+      <StackPanel Margin="16" Spacing="20">
+        <TextBlock Text="Button" Foreground="{DynamicResource Gpui.MutedForeground}" />
+        <WrapPanel ItemSpacing="8" LineSpacing="8">
+          <Button Content="Default" ToolTip.Tip="A tooltip" />
+          <Button Classes="primary" Content="Primary" />
+          <Button Classes="secondary" Content="Secondary" />
+          <Button Classes="danger" Content="Danger" />
+          <Button Classes="warning" Content="Warning" />
+          <Button Classes="success" Content="Success" />
+          <Button Classes="info" Content="Info" />
+          <Button Classes="ghost" Content="Ghost" />
+          <Button Classes="link" Content="Link" />
+          <Button Classes="text" Content="Text" />
+          <Button Classes="primary outline" Content="Outline" />
+          <Button Classes="small" Content="Small" />
+          <Button Classes="large" Content="Large" />
+          <Button Classes="icon-only ghost">
+            <PathIcon Data="{StaticResource Gpui.Icon.Copy}" />
+          </Button>
+          <Button Content="Disabled" IsEnabled="False" />
+        </WrapPanel>
+
+        <TextBlock Text="SplitButton" Foreground="{DynamicResource Gpui.MutedForeground}" />
+        <WrapPanel ItemSpacing="8" LineSpacing="8">
+          <SplitButton Content="Save">
+            <SplitButton.Flyout>
+              <MenuFlyout Placement="BottomEdgeAlignedRight">
+                <MenuItem Header="Save As..." />
+                <MenuItem Header="Save All" />
+              </MenuFlyout>
+            </SplitButton.Flyout>
+          </SplitButton>
+          <SplitButton Classes="primary" Content="Deploy" />
+          <SplitButton Classes="ghost" Content="Ghost" />
+        </WrapPanel>
+
+        <TextBlock Text="Toggle, Checkbox, Radio, Switch" Foreground="{DynamicResource Gpui.MutedForeground}" />
+        <WrapPanel ItemSpacing="12" LineSpacing="8">
+          <ToggleButton Content="Bold" IsChecked="True" />
+          <ToggleButton Classes="outline" Content="Italic" />
+          <CheckBox Content="Accept" IsChecked="True" />
+          <CheckBox Content="Disabled" IsEnabled="False" />
+          <RadioButton Content="Express" GroupName="ship" IsChecked="True" />
+          <RadioButton Content="Standard" GroupName="ship" />
+          <ToggleSwitch Content="Wi-Fi" IsChecked="True" />
+          <ToggleSwitch Classes="small" Content="Bluetooth" />
+        </WrapPanel>
+
+        <TextBlock Text="NumericUpDown, ProgressBar, Spinner" Foreground="{DynamicResource Gpui.MutedForeground}" />
+        <StackPanel Spacing="12" HorizontalAlignment="Left">
+          <NumericUpDown Value="42" Width="160" />
+          <ProgressBar Value="40" Width="240" />
+          <ProgressBar IsIndeterminate="True" Width="240" />
+          <ProgressBar Theme="{StaticResource GpuiSpinner}" Classes="large" />
+        </StackPanel>
+
+        <TextBlock Text="GroupBox, Separator, Link" Foreground="{DynamicResource Gpui.MutedForeground}" />
+        <GroupBox Classes="outline" Header="Account" Content="Content" Width="320" HorizontalAlignment="Left" />
+        <Separator Width="320" HorizontalAlignment="Left" />
+        <Separator Classes="dashed" Width="320" HorizontalAlignment="Left" />
+        <HyperlinkButton Content="Documentation" />
+
+        <Border Width="200" Height="64" BorderThickness="1" Background="Transparent"
+                BorderBrush="{DynamicResource Gpui.Border}" HorizontalAlignment="Left">
+          <Border.ContextMenu>
+            <ContextMenu>
+              <MenuItem Header="Copy" InputGesture="F5" />
+              <MenuItem Header="Word Wrap" ToggleType="CheckBox" IsChecked="True" />
+              <Separator />
+              <MenuItem Header="More">
+                <MenuItem Header="Paste" />
+              </MenuItem>
+            </ContextMenu>
+          </Border.ContextMenu>
+          <TextBlock Text="Right-click" Margin="8" />
+        </Border>
+      </StackPanel>
+    </ScrollViewer>
+  </DockPanel>
+</Window>
