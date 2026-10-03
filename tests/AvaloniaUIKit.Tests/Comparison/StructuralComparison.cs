@@ -386,22 +386,16 @@ public static class StructuralComparison
         SameShape(a, b, geometry, color);
 
     /// <summary>
-    /// Like <see cref="Same"/>, but lets a box be narrower in Avalonia by less than
-    /// one logical pixel, and shifted horizontally by less than one: GPUI rounds
-    /// text widths up to whole logical pixels, Avalonia to device pixels (R9).
+    /// Like <see cref="Same"/>, but lets a box sit one device pixel (half a logical
+    /// pixel) off horizontally: a centered box lands on either side of a half pixel,
+    /// as GPUI centers text before rounding its width up to whole logical pixels and
+    /// Avalonia centers the rounded box (R9). Widths match since TextLines.RoundsWidthUp.
     /// </summary>
-    public static bool SameWithTextRounding(Primitive gpui, Primitive avalonia, double geometry, double color)
-    {
-        var dw = gpui.Bounds.Width - avalonia.Bounds.Width;
-        var dx = gpui.Bounds.X - avalonia.Bounds.X;
-        return gpui.Kind == avalonia.Kind &&
-            dw >= -geometry && dw < 1 &&
-            // Boxes after (or around) text shift by up to the text's rounding difference.
-            dx > -0.5 - geometry && dx < 1 &&
-            Near(gpui.Bounds.Y, avalonia.Bounds.Y, geometry) &&
-            Near(gpui.Bounds.Height, avalonia.Bounds.Height, geometry) &&
-            SameShape(gpui, avalonia, geometry, color);
-    }
+    public static bool SameWithCenterRounding(Primitive gpui, Primitive avalonia, double geometry, double color) =>
+        gpui.Kind == avalonia.Kind &&
+        Near(gpui.Bounds.X, avalonia.Bounds.X, Math.Max(geometry, 0.51)) && Near(gpui.Bounds.Y, avalonia.Bounds.Y, geometry) &&
+        Near(gpui.Bounds.Width, avalonia.Bounds.Width, geometry) && Near(gpui.Bounds.Height, avalonia.Bounds.Height, geometry) &&
+        SameShape(gpui, avalonia, geometry, color);
 
     private static bool SameShape(Primitive a, Primitive b, double geometry, double color) =>
         // A spread shadow keeps the element's radius in GPUI and grows it by the
@@ -554,7 +548,7 @@ public static class StructuralComparison
         foreach (var e in expected)
         {
             var match = actual.FirstOrDefault(a => Same(e, a, geometryTolerance, ColorTolerance))
-                ?? actual.FirstOrDefault(a => SameWithTextRounding(e, a, geometryTolerance, ColorTolerance));
+                ?? actual.FirstOrDefault(a => SameWithCenterRounding(e, a, geometryTolerance, ColorTolerance));
             if (match is not null)
             {
                 actual.Remove(match);

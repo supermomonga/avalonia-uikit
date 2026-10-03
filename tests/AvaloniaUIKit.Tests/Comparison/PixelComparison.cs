@@ -45,7 +45,7 @@ public enum Region : byte
 /// InkMass* bound Avalonia's ink mass as a share of GPUI's (see
 /// <see cref="PixelComparison.InkMass"/>), checked once GPUI paints at least
 /// InkMassFloor of it. Calibrated over every case: text and icons land within
-/// 0.69-1.07 (the low end in tooltip fade frames), a missing line at 0.
+/// 0.65-1.10 (the low end in a fading tab pill frame), a missing line at 0.
 /// </summary>
 public sealed record PixelTolerance(
     double FlatMax = 2,

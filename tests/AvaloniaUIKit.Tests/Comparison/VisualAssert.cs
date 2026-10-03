@@ -1,5 +1,4 @@
 using Avalonia;
-using Avalonia.VisualTree;
 using AvaloniaUIKit.Tests.Golden;
 using AvaloniaUIKit.Tests.Infrastructure;
 using AvaloniaUIKit.Tests.Rendering;
@@ -20,10 +19,9 @@ public static class VisualAssert
         Adapters.AfterDrive(golden, host);
         var bounds = host.ControlBounds();
         var failures = new List<string>();
-        var textRuns = host.Control.GetSelfAndVisualDescendants().OfType<Avalonia.Controls.TextBlock>().Count(t => !string.IsNullOrEmpty(t.Text));
         // A zero-area GPUI box (a separator's flex container) has no Avalonia counterpart to compare.
         var comparable = golden.ComponentBounds.Width > 0 && golden.ComponentBounds.Height > 0;
-        if (comparable && !Near(bounds, golden.ComponentBounds) && !NearWithTextRounding(golden.ComponentBounds, bounds, Math.Max(1, textRuns)))
+        if (comparable && !Near(bounds, golden.ComponentBounds) && !NearWithTextRounding(golden.ComponentBounds, bounds))
         {
             failures.Add($"bounds {Fmt(bounds)} != gpui {Fmt(golden.ComponentBounds)}");
         }
@@ -69,18 +67,17 @@ public static class VisualAssert
         Math.Abs(a.Width - b.Width) <= GeometryTolerance && Math.Abs(a.Height - b.Height) <= GeometryTolerance;
 
     /// <summary>
-    /// R9: GPUI rounds a text's measured size up to whole logical pixels,
-    /// Avalonia to device pixels, so a box holding text may be up to a pixel
-    /// smaller here per text run (wider) or in all (taller).
+    /// R9: GPUI rounds a text's measured height up to whole logical pixels,
+    /// Avalonia to device pixels, so a box holding text (a wrapped label with a
+    /// fractional line height) may be less than a pixel shorter here. Widths
+    /// match: TextLines.RoundsWidthUp rounds them as GPUI does.
     /// </summary>
-    private static bool NearWithTextRounding(Rect gpui, Rect avalonia, int textRuns)
+    private static bool NearWithTextRounding(Rect gpui, Rect avalonia)
     {
-        var dw = gpui.Width - avalonia.Width;
         var dh = gpui.Height - avalonia.Height;
-        return dw >= -GeometryTolerance && dw < textRuns &&
-            dh >= -GeometryTolerance && dh < 1 &&
-            Math.Abs(gpui.X - avalonia.X) <= GeometryTolerance + dw &&
-            Math.Abs(gpui.Y - avalonia.Y) <= GeometryTolerance;
+        return dh >= -GeometryTolerance && dh < 1 &&
+            Math.Abs(gpui.X - avalonia.X) <= GeometryTolerance && Math.Abs(gpui.Y - avalonia.Y) <= GeometryTolerance &&
+            Math.Abs(gpui.Width - avalonia.Width) <= GeometryTolerance;
     }
 
     public static string Fmt(Rect r) =>
