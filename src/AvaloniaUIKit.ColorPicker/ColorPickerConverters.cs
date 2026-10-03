@@ -11,7 +11,7 @@ namespace AvaloniaUIKit;
 /// (theme/color.rs): its hex text, and the color darkened or lightened by
 /// scaling its HSL lightness.
 /// </summary>
-public static class GpuiColorConverters
+public static class ColorPickerConverters
 {
     /// <summary>The color as a brush.</summary>
     public static readonly IValueConverter Brush = new ShadeConverter(0);

@@ -1,10 +1,10 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:gpui="using:AvaloniaUIKit"
+             xmlns:uikit="using:AvaloniaUIKit"
              x:Class="AvaloniaUIKit.Demos.StepperIcons">
-  <gpui:Stepper SelectedIndex="1" Width="480" HorizontalAlignment="Left">
-    <gpui:StepperItem Content="Order Details" Icon="{StaticResource Gpui.Icon.Calendar}" />
-    <gpui:StepperItem Content="Shipping" Icon="{StaticResource Gpui.Icon.Inbox}" />
-    <gpui:StepperItem Content="Finish" Icon="{StaticResource Gpui.Icon.Info}" />
-  </gpui:Stepper>
+  <uikit:Stepper SelectedIndex="1" Width="480" HorizontalAlignment="Left">
+    <uikit:StepperItem Content="Order Details" Icon="{StaticResource UIKit.Icon.Calendar}" />
+    <uikit:StepperItem Content="Shipping" Icon="{StaticResource UIKit.Icon.Inbox}" />
+    <uikit:StepperItem Content="Finish" Icon="{StaticResource UIKit.Icon.Info}" />
+  </uikit:Stepper>
 </UserControl>

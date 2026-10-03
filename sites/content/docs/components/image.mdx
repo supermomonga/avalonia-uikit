@@ -1,21 +1,21 @@
 ---
 title: "Image"
-description: "Avalonia's Image with GPUI Kit's rounded corners and object fits."
+description: "Avalonia's Image with rounded corners and five fits."
 ---
 
 <Demo name="image/demo" />
 
 ## Usage
 
-`Image` is not themed by default: GPUI Kit has no Image component, an image keeps its colors, and Avalonia's `Stretch="Uniform"` is GPUI's default object fit. Three classes clip the drawn image to a radius: `rounded` (the theme radius, 6), `rounded-lg` (8) and `rounded-full` (a pill; the radius is clamped to half the shorter side). GPUI's object fits map to `Stretch`:
+`Image` is not themed by default: an image keeps its colors, and Avalonia's `Stretch="Uniform"` is the default fit. Three classes clip the drawn image to a radius: `rounded` (the theme radius, 6), `rounded-lg` (8) and `rounded-full` (a pill; the radius is clamped to half the shorter side). Five fits are set with `Stretch`:
 
-| GPUI `ObjectFit` | `Image` |
+| `Image` | Draws |
 | --- | --- |
-| Fill | `Stretch="Fill"` |
-| Contain | `Stretch="Uniform"` (the default) |
-| Cover | `Stretch="UniformToFill"` |
-| ScaleDown | `Stretch="Uniform" StretchDirection="DownOnly"` |
-| None | `Stretch="None"` with `HorizontalAlignment="Left" VerticalAlignment="Top"` |
+| `Stretch="Fill"` | The image stretched to the frame, ignoring its aspect ratio |
+| `Stretch="Uniform"` (the default) | The whole image, scaled to fit inside the frame |
+| `Stretch="UniformToFill"` | The image scaled to cover the frame, cropped to it |
+| `Stretch="Uniform" StretchDirection="DownOnly"` | As `Uniform`, but a smaller image keeps its own size |
+| `Stretch="None"` with `HorizontalAlignment="Left" VerticalAlignment="Top"` | The image at its own size, at the top left |
 
 ## Examples
 
@@ -31,4 +31,3 @@ The five fits in a 96px frame: a wide image for the first three, a small one for
 
 - Fetching from a URL.
 - A fallback image when loading fails.
-- Images taller than the frame, which GPUI does not fit.

@@ -1,28 +1,28 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:gpui="using:AvaloniaUIKit"
+             xmlns:uikit="using:AvaloniaUIKit"
              x:Class="AvaloniaUIKit.Demos.TabsIcons">
   <StackPanel Spacing="16" HorizontalAlignment="Left">
     <TabStrip Classes="pill" SelectedIndex="0">
       <TabStripItem Classes="icon-only">
-        <PathIcon Data="{StaticResource Gpui.Icon.Inbox}" />
+        <PathIcon Data="{StaticResource UIKit.Icon.Inbox}" />
       </TabStripItem>
       <TabStripItem Classes="icon-only">
-        <PathIcon Data="{StaticResource Gpui.Icon.Star}" />
+        <PathIcon Data="{StaticResource UIKit.Icon.Star}" />
       </TabStripItem>
       <TabStripItem Classes="icon-only">
-        <PathIcon Data="{StaticResource Gpui.Icon.User}" />
+        <PathIcon Data="{StaticResource UIKit.Icon.User}" />
       </TabStripItem>
     </TabStrip>
     <TabStrip Classes="segmented" SelectedIndex="0">
       <TabStripItem Classes="icon-only">
-        <PathIcon Data="{StaticResource Gpui.Icon.Inbox}" />
+        <PathIcon Data="{StaticResource UIKit.Icon.Inbox}" />
       </TabStripItem>
       <TabStripItem Classes="icon-only">
-        <PathIcon Data="{StaticResource Gpui.Icon.Star}" />
+        <PathIcon Data="{StaticResource UIKit.Icon.Star}" />
       </TabStripItem>
       <TabStripItem Classes="icon-only">
-        <PathIcon Data="{StaticResource Gpui.Icon.User}" />
+        <PathIcon Data="{StaticResource UIKit.Icon.User}" />
       </TabStripItem>
     </TabStrip>
   </StackPanel>

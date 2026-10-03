@@ -1,4 +1,4 @@
-# GPUI Kit Form / Field -> gpui:Form / gpui:FormField with TextBoxes, 360px
+# GPUI Kit Form / Field -> uikit:Form / uikit:FormField with TextBoxes, 360px
 # wide (520 for two columns). Fields: "Label", "Label*" (required),
 # "Label~description", "Label^2" (spanning two columns).
 component = "form"

@@ -1,17 +1,17 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:gpui="using:AvaloniaUIKit"
+             xmlns:uikit="using:AvaloniaUIKit"
              x:Class="AvaloniaUIKit.Demos.EmptyDemo">
-  <gpui:EmptyState Classes="icon-media" Title="No projects yet" Description="Create your first project to get started."
+  <uikit:EmptyState Classes="icon-media" Title="No projects yet" Description="Create your first project to get started."
                    Width="420" HorizontalAlignment="Left">
-    <gpui:EmptyState.Media>
-      <PathIcon Data="{StaticResource Gpui.Icon.Folder}" />
-    </gpui:EmptyState.Media>
-    <gpui:EmptyState.Actions>
+    <uikit:EmptyState.Media>
+      <PathIcon Data="{StaticResource UIKit.Icon.Folder}" />
+    </uikit:EmptyState.Media>
+    <uikit:EmptyState.Actions>
       <StackPanel Orientation="Horizontal" Spacing="8">
         <Button Classes="primary" Content="Create project" />
         <Button Classes="outline" Content="Import project" />
       </StackPanel>
-    </gpui:EmptyState.Actions>
-  </gpui:EmptyState>
+    </uikit:EmptyState.Actions>
+  </uikit:EmptyState>
 </UserControl>

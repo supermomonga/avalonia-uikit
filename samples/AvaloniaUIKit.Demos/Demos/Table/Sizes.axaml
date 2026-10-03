@@ -1,10 +1,10 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:gpui="using:AvaloniaUIKit"
+             xmlns:uikit="using:AvaloniaUIKit"
              xmlns:local="using:AvaloniaUIKit.Demos"
              x:Class="AvaloniaUIKit.Demos.TableSizes">
   <StackPanel Spacing="16" HorizontalAlignment="Left">
-    <TableView Theme="{StaticResource GpuiTable}" Classes="small" BorderThickness="1" CornerRadius="5.5"
+    <TableView Theme="{StaticResource UIKitTable}" Classes="small" BorderThickness="1" CornerRadius="5.5"
                Width="400" Height="150" ItemsSource="{x:Static local:Invoice.Samples}">
       <TableView.Columns>
         <TableViewColumn Header="Invoice" Binding="{Binding Id}" />
@@ -12,7 +12,7 @@
         <TableViewColumn Header="Amount" Binding="{Binding Amount}" HorizontalContentAlignment="Right" />
       </TableView.Columns>
     </TableView>
-    <TableView Theme="{StaticResource GpuiTable}" Classes="large" BorderThickness="1" CornerRadius="5.5"
+    <TableView Theme="{StaticResource UIKitTable}" Classes="large" BorderThickness="1" CornerRadius="5.5"
                Width="400" Height="190" ItemsSource="{x:Static local:Invoice.Samples}">
       <TableView.Columns>
         <TableViewColumn Header="Invoice" Binding="{Binding Id}" />

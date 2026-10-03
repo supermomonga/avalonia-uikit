@@ -11,9 +11,9 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:conv="using:Avalonia.Controls.Converters">
-  <x:Double x:Key="Gpui.TreeView.Indent">16</x:Double>
+  <x:Double x:Key="UIKit.TreeView.Indent">16</x:Double>
 
-  <ControlTheme x:Key="GpuiTreeViewExpander" TargetType="ToggleButton">
+  <ControlTheme x:Key="UIKitTreeViewExpander" TargetType="ToggleButton">
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="Width" Value="16" />
     <Setter Property="Height" Value="16" />
@@ -21,8 +21,8 @@
       <ControlTemplate>
         <Border Background="{TemplateBinding Background}">
           <Panel>
-            <PathIcon Name="PART_Closed" Data="{StaticResource Gpui.Icon.Folder}" />
-            <PathIcon Name="PART_Open" Data="{StaticResource Gpui.Icon.FolderOpen}" IsVisible="False" />
+            <PathIcon Name="PART_Closed" Data="{StaticResource UIKit.Icon.Folder}" />
+            <PathIcon Name="PART_Open" Data="{StaticResource UIKit.Icon.FolderOpen}" IsVisible="False" />
           </Panel>
         </Border>
       </ControlTemplate>
@@ -59,7 +59,7 @@
 
   <ControlTheme x:Key="{x:Type TreeViewItem}" TargetType="TreeViewItem">
     <Setter Property="Background" Value="Transparent" />
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
     <Setter Property="FontSize" Value="16" />
     <Setter Property="Padding" Value="0" />
     <Setter Property="CornerRadius" Value="0" />
@@ -77,15 +77,15 @@
               <Grid.Margin>
                 <MultiBinding Converter="{x:Static conv:TreeViewItemIndentConverter.Instance}">
                   <Binding Path="Level" RelativeSource="{RelativeSource TemplatedParent}" />
-                  <DynamicResource ResourceKey="Gpui.TreeView.Indent" />
+                  <DynamicResource ResourceKey="UIKit.TreeView.Indent" />
                 </MultiBinding>
               </Grid.Margin>
               <Panel Name="PART_ExpandCollapseChevronContainer" Margin="0,0,8,0" VerticalAlignment="Center">
                 <ToggleButton Name="PART_ExpandCollapseChevron"
-                              Theme="{StaticResource GpuiTreeViewExpander}"
+                              Theme="{StaticResource UIKitTreeViewExpander}"
                               Focusable="False"
                               IsChecked="{TemplateBinding IsExpanded, Mode=TwoWay}" />
-                <PathIcon Name="PART_FileIcon" Data="{StaticResource Gpui.Icon.File}" IsVisible="False" />
+                <PathIcon Name="PART_FileIcon" Data="{StaticResource UIKit.Icon.File}" IsVisible="False" />
               </Panel>
               <ContentPresenter Name="PART_HeaderPresenter"
                                 Grid.Column="1"
@@ -112,13 +112,13 @@
     </Style>
     <!-- Only the row itself: a parent item is pointerover while a child is. -->
     <Style Selector="^ /template/ Border#PART_LayoutRoot:pointerover">
-      <Setter Property="Background" Value="{DynamicResource Gpui.ListHover}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.ListHover}" />
     </Style>
     <Style Selector="^:selected /template/ Border#PART_LayoutRoot">
-      <Setter Property="Background" Value="{DynamicResource Gpui.ListActive}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.ListActive}" />
     </Style>
     <Style Selector="^:disabled">
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.MutedForeground}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.MutedForeground}" />
     </Style>
     <Style Selector="^:disabled /template/ Border#PART_LayoutRoot">
       <Setter Property="Background" Value="Transparent" />

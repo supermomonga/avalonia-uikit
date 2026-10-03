@@ -6,7 +6,7 @@
 
     <TabStrip Classes="pill small" SelectedIndex="0">
       <TabStripItem Content="Account" />
-      <TabStripItem Classes="icon-only"><PathIcon Data="{StaticResource Gpui.Icon.Copy}" /></TabStripItem>
+      <TabStripItem Classes="icon-only"><PathIcon Data="{StaticResource UIKit.Icon.Copy}" /></TabStripItem>
     </TabStrip>
 
   Classes on the TabStrip / TabControl: variant outline pill segmented underline
@@ -19,14 +19,14 @@
 -->
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:gpui="using:AvaloniaUIKit">
+        xmlns:uikit="using:AvaloniaUIKit">
   <Styles.Resources>
     <!-- styled.rs raised_shadow(): the segmented indicator. -->
-    <BoxShadows x:Key="Gpui.Shadow.Raised">0 1 3.4641 0 #1A000000, 0 1 1.7321 -1 #1A000000</BoxShadows>
+    <BoxShadows x:Key="UIKit.Shadow.Raised">0 1 3.4641 0 #1A000000, 0 1 1.7321 -1 #1A000000</BoxShadows>
     <!-- tab.rs: the newly selected pill's label, 200ms ease-in-out-cubic. -->
-    <gpui:ColorTransition x:Key="Gpui.Tab.PillFade" Duration="0:0:0.2" Easing="CubicEaseInOut" Properties="Foreground" />
+    <uikit:ColorTransition x:Key="UIKit.Tab.PillFade" Duration="0:0:0.2" Easing="CubicEaseInOut" Properties="Foreground" />
     <ControlTheme x:Key="{x:Type TabStripItem}" TargetType="TabStripItem">
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.TabForeground}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.TabForeground}" />
       <Setter Property="Background" Value="Transparent" />
       <Setter Property="BorderBrush" Value="Transparent" />
       <Setter Property="ClipToBounds" Value="False" />
@@ -60,7 +60,7 @@
             </Border>
             <!-- Avalonia-only keyboard focus (GPUI tabs take no focus): the 3px ring band. -->
             <Border Name="PART_FocusRing" Margin="-3" BorderThickness="3"
-                    BorderBrush="{DynamicResource Gpui.FocusRing}"
+                    BorderBrush="{DynamicResource UIKit.FocusRing}"
                     IsVisible="False" IsHitTestVisible="False" />
           </Panel>
         </ControlTemplate>
@@ -70,7 +70,7 @@
       </Style>
     </ControlTheme>
     <ControlTheme x:Key="{x:Type TabItem}" TargetType="TabItem">
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.TabForeground}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.TabForeground}" />
       <Setter Property="Background" Value="Transparent" />
       <Setter Property="BorderBrush" Value="Transparent" />
       <Setter Property="ClipToBounds" Value="False" />
@@ -104,7 +104,7 @@
             </Border>
             <!-- Avalonia-only keyboard focus (GPUI tabs take no focus): the 3px ring band. -->
             <Border Name="PART_FocusRing" Margin="-3" BorderThickness="3"
-                    BorderBrush="{DynamicResource Gpui.FocusRing}"
+                    BorderBrush="{DynamicResource UIKit.FocusRing}"
                     IsVisible="False" IsHitTestVisible="False" />
           </Panel>
         </ControlTemplate>
@@ -126,17 +126,17 @@
             <Panel>
               <!-- Tab and Underline: a 1px border line along the bar's bottom, under the tabs. -->
               <Border Name="PART_Baseline" BorderThickness="0,0,0,1"
-                      BorderBrush="{DynamicResource Gpui.Border}" IsHitTestVisible="False" />
+                      BorderBrush="{DynamicResource UIKit.Border}" IsHitTestVisible="False" />
               <!--
                 The selected tab's indicator (Pill, Segmented, Underline), under the
                 tabs and clipped to the bar's content as GPUI clips its tab row.
               -->
               <Canvas Name="PART_IndicatorLayer" ClipToBounds="True" IsHitTestVisible="False">
-                <Panel Name="PART_Indicator" gpui:Tabs.Indicator="True"
-                       gpui:Motion.Spring="{StaticResource Gpui.Spring.Move}" gpui:Motion.SpringsCanvasLeft="True">
+                <Panel Name="PART_Indicator" uikit:Tabs.Indicator="True"
+                       uikit:Motion.Spring="{StaticResource UIKit.Spring.Move}" uikit:Motion.SpringsCanvasLeft="True">
                   <Border Name="PART_IndicatorFill"
-                          gpui:Motion.Spring="{StaticResource Gpui.Spring.Move}"
-                          Width="{Binding $self.(gpui:Motion.SpringValue)}" />
+                          uikit:Motion.Spring="{StaticResource UIKit.Spring.Move}"
+                          Width="{Binding $self.(uikit:Motion.SpringValue)}" />
                 </Panel>
               </Canvas>
               <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
@@ -148,7 +148,7 @@
         <Setter Property="IsVisible" Value="True" />
       </Style>
       <Style Selector="^:not(.outline):not(.pill):not(.segmented):not(.underline) /template/ Border#PART_Bar">
-        <Setter Property="Background" Value="{DynamicResource Gpui.TabBar}" />
+        <Setter Property="Background" Value="{DynamicResource UIKit.TabBar}" />
       </Style>
       <Style Selector="^:not(.outline):not(.pill):not(.segmented):not(.underline) /template/ Border#PART_IndicatorFill">
         <Setter Property="IsVisible" Value="False" />
@@ -193,7 +193,7 @@
         <Setter Property="Background" Value="Transparent" />
       </Style>
       <Style Selector="^.pill /template/ Border#PART_IndicatorFill">
-        <Setter Property="Background" Value="{DynamicResource Gpui.Primary}" />
+        <Setter Property="Background" Value="{DynamicResource UIKit.Primary}" />
       </Style>
       <Style Selector="^.pill.xsmall /template/ StackPanel#PART_TabsPanel">
         <Setter Property="Spacing" Value="4" />
@@ -223,11 +223,11 @@
         <Setter Property="IsVisible" Value="False" />
       </Style>
       <Style Selector="^.segmented /template/ Border#PART_Bar">
-        <Setter Property="Background" Value="{DynamicResource Gpui.TabBarSegmented}" />
+        <Setter Property="Background" Value="{DynamicResource UIKit.TabBarSegmented}" />
       </Style>
       <Style Selector="^.segmented /template/ Border#PART_IndicatorFill">
-        <Setter Property="Background" Value="{DynamicResource Gpui.Background}" />
-        <Setter Property="BoxShadow" Value="{StaticResource Gpui.Shadow.Raised}" />
+        <Setter Property="Background" Value="{DynamicResource UIKit.Background}" />
+        <Setter Property="BoxShadow" Value="{StaticResource UIKit.Shadow.Raised}" />
         <Setter Property="VerticalAlignment" Value="Center" />
       </Style>
       <Style Selector="^.segmented.xsmall /template/ StackPanel#PART_TabsPanel">
@@ -281,7 +281,7 @@
         <Setter Property="Background" Value="Transparent" />
       </Style>
       <Style Selector="^.underline /template/ Border#PART_IndicatorFill">
-        <Setter Property="Background" Value="{DynamicResource Gpui.Primary}" />
+        <Setter Property="Background" Value="{DynamicResource UIKit.Primary}" />
         <Setter Property="Height" Value="2" />
         <Setter Property="VerticalAlignment" Value="Bottom" />
       </Style>
@@ -316,17 +316,17 @@
                 <Panel>
                   <!-- Tab and Underline: a 1px border line along the bar's bottom, under the tabs. -->
                   <Border Name="PART_Baseline" BorderThickness="0,0,0,1"
-                          BorderBrush="{DynamicResource Gpui.Border}" IsHitTestVisible="False" />
+                          BorderBrush="{DynamicResource UIKit.Border}" IsHitTestVisible="False" />
                   <!--
                     The selected tab's indicator (Pill, Segmented, Underline), under the
                     tabs and clipped to the bar's content as GPUI clips its tab row.
                   -->
                   <Canvas Name="PART_IndicatorLayer" ClipToBounds="True" IsHitTestVisible="False">
-                    <Panel Name="PART_Indicator" gpui:Tabs.Indicator="True"
-                           gpui:Motion.Spring="{StaticResource Gpui.Spring.Move}" gpui:Motion.SpringsCanvasLeft="True">
+                    <Panel Name="PART_Indicator" uikit:Tabs.Indicator="True"
+                           uikit:Motion.Spring="{StaticResource UIKit.Spring.Move}" uikit:Motion.SpringsCanvasLeft="True">
                       <Border Name="PART_IndicatorFill"
-                              gpui:Motion.Spring="{StaticResource Gpui.Spring.Move}"
-                              Width="{Binding $self.(gpui:Motion.SpringValue)}" />
+                              uikit:Motion.Spring="{StaticResource UIKit.Spring.Move}"
+                              Width="{Binding $self.(uikit:Motion.SpringValue)}" />
                     </Panel>
                   </Canvas>
                   <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
@@ -351,7 +351,7 @@
         <Setter Property="IsVisible" Value="True" />
       </Style>
       <Style Selector="^:not(.outline):not(.pill):not(.segmented):not(.underline) /template/ Border#PART_Bar">
-        <Setter Property="Background" Value="{DynamicResource Gpui.TabBar}" />
+        <Setter Property="Background" Value="{DynamicResource UIKit.TabBar}" />
       </Style>
       <Style Selector="^:not(.outline):not(.pill):not(.segmented):not(.underline) /template/ Border#PART_IndicatorFill">
         <Setter Property="IsVisible" Value="False" />
@@ -396,7 +396,7 @@
         <Setter Property="Background" Value="Transparent" />
       </Style>
       <Style Selector="^.pill /template/ Border#PART_IndicatorFill">
-        <Setter Property="Background" Value="{DynamicResource Gpui.Primary}" />
+        <Setter Property="Background" Value="{DynamicResource UIKit.Primary}" />
       </Style>
       <Style Selector="^.pill.xsmall /template/ StackPanel#PART_TabsPanel">
         <Setter Property="Spacing" Value="4" />
@@ -426,11 +426,11 @@
         <Setter Property="IsVisible" Value="False" />
       </Style>
       <Style Selector="^.segmented /template/ Border#PART_Bar">
-        <Setter Property="Background" Value="{DynamicResource Gpui.TabBarSegmented}" />
+        <Setter Property="Background" Value="{DynamicResource UIKit.TabBarSegmented}" />
       </Style>
       <Style Selector="^.segmented /template/ Border#PART_IndicatorFill">
-        <Setter Property="Background" Value="{DynamicResource Gpui.Background}" />
-        <Setter Property="BoxShadow" Value="{StaticResource Gpui.Shadow.Raised}" />
+        <Setter Property="Background" Value="{DynamicResource UIKit.Background}" />
+        <Setter Property="BoxShadow" Value="{StaticResource UIKit.Shadow.Raised}" />
         <Setter Property="VerticalAlignment" Value="Center" />
       </Style>
       <Style Selector="^.segmented.xsmall /template/ StackPanel#PART_TabsPanel">
@@ -484,7 +484,7 @@
         <Setter Property="Background" Value="Transparent" />
       </Style>
       <Style Selector="^.underline /template/ Border#PART_IndicatorFill">
-        <Setter Property="Background" Value="{DynamicResource Gpui.Primary}" />
+        <Setter Property="Background" Value="{DynamicResource UIKit.Primary}" />
         <Setter Property="Height" Value="2" />
         <Setter Property="VerticalAlignment" Value="Bottom" />
       </Style>
@@ -515,29 +515,29 @@
     <Setter Property="BorderThickness" Value="1,0,1,0" />
   </Style>
   <Style Selector="TabStrip:not(.outline):not(.pill):not(.segmented):not(.underline) > TabStripItem, TabControl:not(.outline):not(.pill):not(.segmented):not(.underline) > TabItem">
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.TabForeground}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.TabForeground}" />
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="BorderBrush" Value="Transparent" />
   </Style>
   <Style Selector="TabStrip:not(.outline):not(.pill):not(.segmented):not(.underline) > TabStripItem:pointerover:not(:selected):not(:disabled), TabControl:not(.outline):not(.pill):not(.segmented):not(.underline) > TabItem:pointerover:not(:selected):not(:disabled)">
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.TabActiveForeground}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.TabActiveForeground}" />
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="BorderBrush" Value="Transparent" />
   </Style>
   <Style Selector="TabStrip:not(.outline):not(.pill):not(.segmented):not(.underline) > TabStripItem:selected, TabControl:not(.outline):not(.pill):not(.segmented):not(.underline) > TabItem:selected">
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.TabActiveForeground}" />
-    <Setter Property="Background" Value="{DynamicResource Gpui.TabActive}" />
-    <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Border}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.TabActiveForeground}" />
+    <Setter Property="Background" Value="{DynamicResource UIKit.TabActive}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Border}" />
   </Style>
   <Style Selector="TabStrip:not(.outline):not(.pill):not(.segmented):not(.underline) > TabStripItem:disabled, TabControl:not(.outline):not(.pill):not(.segmented):not(.underline) > TabItem:disabled">
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.MutedForeground}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.MutedForeground}" />
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="BorderBrush" Value="Transparent" />
   </Style>
   <Style Selector="TabStrip:not(.outline):not(.pill):not(.segmented):not(.underline) > TabStripItem:disabled:selected, TabControl:not(.outline):not(.pill):not(.segmented):not(.underline) > TabItem:disabled:selected">
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.MutedForeground}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.MutedForeground}" />
     <Setter Property="Background" Value="Transparent" />
-    <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Border}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Border}" />
   </Style>
   <Style Selector="TabStrip:not(.outline):not(.pill):not(.segmented):not(.underline).xsmall > TabStripItem, TabControl:not(.outline):not(.pill):not(.segmented):not(.underline).xsmall > TabItem">
     <Setter Property="Height" Value="20" />
@@ -632,29 +632,29 @@
     <Setter Property="BorderThickness" Value="1" />
   </Style>
   <Style Selector="TabStrip.outline > TabStripItem, TabControl.outline > TabItem">
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.TabForeground}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.TabForeground}" />
     <Setter Property="Background" Value="Transparent" />
-    <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Border}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Border}" />
   </Style>
   <Style Selector="TabStrip.outline > TabStripItem:pointerover:not(:selected):not(:disabled), TabControl.outline > TabItem:pointerover:not(:selected):not(:disabled)">
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.SecondaryForeground}" />
-    <Setter Property="Background" Value="{DynamicResource Gpui.SecondaryHover}" />
-    <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Border}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.SecondaryForeground}" />
+    <Setter Property="Background" Value="{DynamicResource UIKit.SecondaryHover}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Border}" />
   </Style>
   <Style Selector="TabStrip.outline > TabStripItem:selected, TabControl.outline > TabItem:selected">
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.Primary}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.Primary}" />
     <Setter Property="Background" Value="Transparent" />
-    <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Primary}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Primary}" />
   </Style>
   <Style Selector="TabStrip.outline > TabStripItem:disabled, TabControl.outline > TabItem:disabled">
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.MutedForeground}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.MutedForeground}" />
     <Setter Property="Background" Value="Transparent" />
-    <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Border}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Border}" />
   </Style>
   <Style Selector="TabStrip.outline > TabStripItem:disabled:selected, TabControl.outline > TabItem:disabled:selected">
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.MutedForeground}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.MutedForeground}" />
     <Setter Property="Background" Value="Transparent" />
-    <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Primary}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Primary}" />
   </Style>
   <Style Selector="TabStrip.outline.xsmall > TabStripItem, TabControl.outline.xsmall > TabItem">
     <Setter Property="Height" Value="20" />
@@ -749,33 +749,33 @@
     <Setter Property="BorderThickness" Value="0" />
   </Style>
   <Style Selector="TabStrip.pill > TabStripItem, TabControl.pill > TabItem">
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="BorderBrush" Value="Transparent" />
   </Style>
   <Style Selector="TabStrip.pill > TabStripItem:pointerover:not(:selected):not(:disabled), TabControl.pill > TabItem:pointerover:not(:selected):not(:disabled)">
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.SecondaryForeground}" />
-    <Setter Property="Background" Value="{DynamicResource Gpui.Secondary}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.SecondaryForeground}" />
+    <Setter Property="Background" Value="{DynamicResource UIKit.Secondary}" />
     <Setter Property="BorderBrush" Value="Transparent" />
   </Style>
   <Style Selector="TabStrip.pill > TabStripItem:selected, TabControl.pill > TabItem:selected">
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.PrimaryForeground}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.PrimaryForeground}" />
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="BorderBrush" Value="Transparent" />
   </Style>
   <Style Selector="TabStrip.pill > TabStripItem:disabled, TabControl.pill > TabItem:disabled">
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.MutedForeground}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.MutedForeground}" />
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="BorderBrush" Value="Transparent" />
   </Style>
   <Style Selector="TabStrip.pill > TabStripItem:disabled:selected, TabControl.pill > TabItem:disabled:selected">
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.Tab.Pill.Disabled.SelectedForeground}" />
-    <Setter Property="Background" Value="{DynamicResource Gpui.Tab.Pill.Disabled.SelectedBackground}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.Tab.Pill.Disabled.SelectedForeground}" />
+    <Setter Property="Background" Value="{DynamicResource UIKit.Tab.Pill.Disabled.SelectedBackground}" />
     <Setter Property="BorderBrush" Value="Transparent" />
   </Style>
   <Style Selector="TabStrip.pill > TabStripItem, TabControl.pill > TabItem">
-    <Setter Property="gpui:Tabs.SelectionFade" Value="{StaticResource Gpui.Tab.PillFade}" />
-    <Setter Property="gpui:Tabs.SelectionFadeFrom" Value="{DynamicResource Gpui.Foreground}" />
+    <Setter Property="uikit:Tabs.SelectionFade" Value="{StaticResource UIKit.Tab.PillFade}" />
+    <Setter Property="uikit:Tabs.SelectionFadeFrom" Value="{DynamicResource UIKit.Foreground}" />
   </Style>
   <Style Selector="TabStrip.pill.xsmall > TabStripItem, TabControl.pill.xsmall > TabItem">
     <Setter Property="Height" Value="20" />
@@ -870,28 +870,28 @@
     <Setter Property="BorderThickness" Value="0" />
   </Style>
   <Style Selector="TabStrip.segmented > TabStripItem, TabControl.segmented > TabItem">
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.TabForeground}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.TabForeground}" />
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="BorderBrush" Value="Transparent" />
   </Style>
   <Style Selector="TabStrip.segmented > TabStripItem:pointerover:not(:selected):not(:disabled), TabControl.segmented > TabItem:pointerover:not(:selected):not(:disabled)">
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.TabActiveForeground}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.TabActiveForeground}" />
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="BorderBrush" Value="Transparent" />
   </Style>
   <Style Selector="TabStrip.segmented > TabStripItem:selected, TabControl.segmented > TabItem:selected">
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.TabActiveForeground}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.TabActiveForeground}" />
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="BorderBrush" Value="Transparent" />
   </Style>
   <Style Selector="TabStrip.segmented > TabStripItem:disabled, TabControl.segmented > TabItem:disabled">
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.MutedForeground}" />
-    <Setter Property="Background" Value="{DynamicResource Gpui.TabBar}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.MutedForeground}" />
+    <Setter Property="Background" Value="{DynamicResource UIKit.TabBar}" />
     <Setter Property="BorderBrush" Value="Transparent" />
   </Style>
   <Style Selector="TabStrip.segmented > TabStripItem:disabled:selected, TabControl.segmented > TabItem:disabled:selected">
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.MutedForeground}" />
-    <Setter Property="Background" Value="{DynamicResource Gpui.TabBar}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.MutedForeground}" />
+    <Setter Property="Background" Value="{DynamicResource UIKit.TabBar}" />
     <Setter Property="BorderBrush" Value="Transparent" />
   </Style>
   <Style Selector="TabStrip.segmented.xsmall > TabStripItem, TabControl.segmented.xsmall > TabItem">
@@ -987,29 +987,29 @@
     <Setter Property="BorderThickness" Value="0,0,0,2" />
   </Style>
   <Style Selector="TabStrip.underline > TabStripItem, TabControl.underline > TabItem">
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.TabForeground}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.TabForeground}" />
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="BorderBrush" Value="Transparent" />
   </Style>
   <Style Selector="TabStrip.underline > TabStripItem:pointerover:not(:selected):not(:disabled), TabControl.underline > TabItem:pointerover:not(:selected):not(:disabled)">
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.TabActiveForeground}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.TabActiveForeground}" />
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="BorderBrush" Value="Transparent" />
   </Style>
   <Style Selector="TabStrip.underline > TabStripItem:selected, TabControl.underline > TabItem:selected">
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.TabActiveForeground}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.TabActiveForeground}" />
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="BorderBrush" Value="Transparent" />
   </Style>
   <Style Selector="TabStrip.underline > TabStripItem:disabled, TabControl.underline > TabItem:disabled">
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.MutedForeground}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.MutedForeground}" />
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="BorderBrush" Value="Transparent" />
   </Style>
   <Style Selector="TabStrip.underline > TabStripItem:disabled:selected, TabControl.underline > TabItem:disabled:selected">
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.MutedForeground}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.MutedForeground}" />
     <Setter Property="Background" Value="Transparent" />
-    <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Border}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Border}" />
   </Style>
   <Style Selector="TabStrip.underline.xsmall > TabStripItem, TabControl.underline.xsmall > TabItem">
     <Setter Property="Height" Value="26" />

@@ -10,7 +10,7 @@
 -->
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-  <ControlTheme x:Key="GpuiSplitButtonPart" TargetType="Button">
+  <ControlTheme x:Key="UIKitSplitButtonPart" TargetType="Button">
     <Setter Property="ClipToBounds" Value="False" />
     <Setter Property="HorizontalContentAlignment" Value="Center" />
     <Setter Property="VerticalContentAlignment" Value="Center" />
@@ -28,7 +28,7 @@
                             TextWrapping="NoWrap" RecognizesAccessKey="True" />
           <Border Name="PART_FocusRing" Margin="-3" BorderThickness="3"
                   CornerRadius="7.5,1.5,1.5,7.5"
-                  BorderBrush="{DynamicResource Gpui.FocusRing}" IsVisible="False" IsHitTestVisible="False" />
+                  BorderBrush="{DynamicResource UIKit.FocusRing}" IsVisible="False" IsHitTestVisible="False" />
         </Panel>
       </ControlTemplate>
     </Setter>
@@ -48,14 +48,14 @@
     <Setter Property="Template">
       <ControlTemplate>
         <StackPanel Orientation="Horizontal">
-          <Button Name="PART_PrimaryButton" Theme="{StaticResource GpuiSplitButtonPart}"
+          <Button Name="PART_PrimaryButton" Theme="{StaticResource UIKitSplitButtonPart}"
                   Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}"
                   Command="{TemplateBinding Command}" CommandParameter="{TemplateBinding CommandParameter}"
                   FontSize="{TemplateBinding FontSize}"
                   Focusable="False" KeyboardNavigation.IsTabStop="False" />
-          <Button Name="PART_SecondaryButton" Theme="{StaticResource GpuiSplitButtonPart}"
+          <Button Name="PART_SecondaryButton" Theme="{StaticResource UIKitSplitButtonPart}"
                   Padding="0" Focusable="False" KeyboardNavigation.IsTabStop="False">
-            <PathIcon Name="PART_Caret" Data="{StaticResource Gpui.Icon.ChevronDown}" />
+            <PathIcon Name="PART_Caret" Data="{StaticResource UIKit.Icon.ChevronDown}" />
           </Button>
         </StackPanel>
       </ControlTemplate>
@@ -129,32 +129,32 @@
       <Setter Property="CornerRadius" Value="0,5.5,5.5,0" />
     </Style>
     <Style Selector="^ /template/ PathIcon#PART_Caret">
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Default.Caret}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Default.Caret}" />
     </Style>
     <Style Selector="^ /template/ Button">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Default.Normal.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Default.Normal.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Default.Normal.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Default.Normal.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Default.Normal.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Default.Normal.Border}" />
     </Style>
     <Style Selector="^ /template/ Button:pointerover">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Default.Hover.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Default.Hover.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Default.Hover.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Default.Hover.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Default.Hover.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Default.Hover.Border}" />
     </Style>
     <Style Selector="^ /template/ Button:pressed">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Default.Pressed.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Default.Pressed.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Default.Pressed.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Default.Pressed.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Default.Pressed.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Default.Pressed.Border}" />
     </Style>
     <Style Selector="^.selected /template/ Button, ^:flyout-open /template/ Button#PART_SecondaryButton">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Default.Selected.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Default.Selected.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Default.Selected.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Default.Selected.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Default.Selected.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Default.Selected.Border}" />
     </Style>
     <Style Selector="^:disabled /template/ Button">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Default.Disabled.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Default.Disabled.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Default.Disabled.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Default.Disabled.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Default.Disabled.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Default.Disabled.Border}" />
     </Style>
     <!-- default outline -->
     <Style Selector="^.outline /template/ Button#PART_PrimaryButton">
@@ -166,32 +166,32 @@
       <Setter Property="CornerRadius" Value="0,5.5,5.5,0" />
     </Style>
     <Style Selector="^.outline /template/ PathIcon#PART_Caret">
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Default.Outline.Caret}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Default.Outline.Caret}" />
     </Style>
     <Style Selector="^.outline /template/ Button">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Default.Outline.Normal.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Default.Outline.Normal.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Default.Outline.Normal.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Default.Outline.Normal.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Default.Outline.Normal.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Default.Outline.Normal.Border}" />
     </Style>
     <Style Selector="^.outline /template/ Button:pointerover">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Default.Outline.Hover.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Default.Outline.Hover.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Default.Outline.Hover.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Default.Outline.Hover.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Default.Outline.Hover.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Default.Outline.Hover.Border}" />
     </Style>
     <Style Selector="^.outline /template/ Button:pressed">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Default.Outline.Pressed.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Default.Outline.Pressed.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Default.Outline.Pressed.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Default.Outline.Pressed.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Default.Outline.Pressed.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Default.Outline.Pressed.Border}" />
     </Style>
     <Style Selector="^.outline.selected /template/ Button, ^.outline:flyout-open /template/ Button#PART_SecondaryButton">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Default.Outline.Selected.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Default.Outline.Selected.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Default.Outline.Selected.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Default.Outline.Selected.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Default.Outline.Selected.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Default.Outline.Selected.Border}" />
     </Style>
     <Style Selector="^.outline:disabled /template/ Button">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Default.Outline.Disabled.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Default.Outline.Disabled.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Default.Outline.Disabled.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Default.Outline.Disabled.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Default.Outline.Disabled.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Default.Outline.Disabled.Border}" />
     </Style>
     <!-- primary -->
     <Style Selector="^.primary /template/ Button#PART_PrimaryButton">
@@ -203,32 +203,32 @@
       <Setter Property="CornerRadius" Value="0,6,6,0" />
     </Style>
     <Style Selector="^.primary /template/ PathIcon#PART_Caret">
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Primary.Caret}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Primary.Caret}" />
     </Style>
     <Style Selector="^.primary /template/ Button">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Primary.Normal.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Primary.Normal.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Primary.Normal.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Primary.Normal.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Primary.Normal.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Primary.Normal.Border}" />
     </Style>
     <Style Selector="^.primary /template/ Button:pointerover">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Primary.Hover.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Primary.Hover.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Primary.Hover.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Primary.Hover.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Primary.Hover.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Primary.Hover.Border}" />
     </Style>
     <Style Selector="^.primary /template/ Button:pressed">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Primary.Pressed.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Primary.Pressed.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Primary.Pressed.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Primary.Pressed.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Primary.Pressed.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Primary.Pressed.Border}" />
     </Style>
     <Style Selector="^.primary.selected /template/ Button, ^.primary:flyout-open /template/ Button#PART_SecondaryButton">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Primary.Selected.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Primary.Selected.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Primary.Selected.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Primary.Selected.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Primary.Selected.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Primary.Selected.Border}" />
     </Style>
     <Style Selector="^.primary:disabled /template/ Button">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Primary.Disabled.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Primary.Disabled.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Primary.Disabled.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Primary.Disabled.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Primary.Disabled.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Primary.Disabled.Border}" />
     </Style>
     <!-- primary outline -->
     <Style Selector="^.primary.outline /template/ Button#PART_PrimaryButton">
@@ -240,32 +240,32 @@
       <Setter Property="CornerRadius" Value="0,5.5,5.5,0" />
     </Style>
     <Style Selector="^.primary.outline /template/ PathIcon#PART_Caret">
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Primary.Outline.Caret}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Primary.Outline.Caret}" />
     </Style>
     <Style Selector="^.primary.outline /template/ Button">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Primary.Outline.Normal.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Primary.Outline.Normal.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Primary.Outline.Normal.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Primary.Outline.Normal.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Primary.Outline.Normal.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Primary.Outline.Normal.Border}" />
     </Style>
     <Style Selector="^.primary.outline /template/ Button:pointerover">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Primary.Outline.Hover.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Primary.Outline.Hover.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Primary.Outline.Hover.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Primary.Outline.Hover.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Primary.Outline.Hover.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Primary.Outline.Hover.Border}" />
     </Style>
     <Style Selector="^.primary.outline /template/ Button:pressed">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Primary.Outline.Pressed.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Primary.Outline.Pressed.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Primary.Outline.Pressed.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Primary.Outline.Pressed.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Primary.Outline.Pressed.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Primary.Outline.Pressed.Border}" />
     </Style>
     <Style Selector="^.primary.outline.selected /template/ Button, ^.primary.outline:flyout-open /template/ Button#PART_SecondaryButton">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Primary.Outline.Selected.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Primary.Outline.Selected.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Primary.Outline.Selected.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Primary.Outline.Selected.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Primary.Outline.Selected.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Primary.Outline.Selected.Border}" />
     </Style>
     <Style Selector="^.primary.outline:disabled /template/ Button">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Primary.Outline.Disabled.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Primary.Outline.Disabled.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Primary.Outline.Disabled.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Primary.Outline.Disabled.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Primary.Outline.Disabled.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Primary.Outline.Disabled.Border}" />
     </Style>
     <!-- secondary -->
     <Style Selector="^.secondary /template/ Button#PART_PrimaryButton">
@@ -277,32 +277,32 @@
       <Setter Property="CornerRadius" Value="0,6,6,0" />
     </Style>
     <Style Selector="^.secondary /template/ PathIcon#PART_Caret">
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Secondary.Caret}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Secondary.Caret}" />
     </Style>
     <Style Selector="^.secondary /template/ Button">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Secondary.Normal.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Secondary.Normal.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Secondary.Normal.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Secondary.Normal.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Secondary.Normal.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Secondary.Normal.Border}" />
     </Style>
     <Style Selector="^.secondary /template/ Button:pointerover">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Secondary.Hover.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Secondary.Hover.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Secondary.Hover.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Secondary.Hover.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Secondary.Hover.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Secondary.Hover.Border}" />
     </Style>
     <Style Selector="^.secondary /template/ Button:pressed">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Secondary.Pressed.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Secondary.Pressed.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Secondary.Pressed.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Secondary.Pressed.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Secondary.Pressed.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Secondary.Pressed.Border}" />
     </Style>
     <Style Selector="^.secondary.selected /template/ Button, ^.secondary:flyout-open /template/ Button#PART_SecondaryButton">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Secondary.Selected.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Secondary.Selected.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Secondary.Selected.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Secondary.Selected.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Secondary.Selected.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Secondary.Selected.Border}" />
     </Style>
     <Style Selector="^.secondary:disabled /template/ Button">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Secondary.Disabled.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Secondary.Disabled.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Secondary.Disabled.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Secondary.Disabled.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Secondary.Disabled.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Secondary.Disabled.Border}" />
     </Style>
     <!-- secondary outline -->
     <Style Selector="^.secondary.outline /template/ Button#PART_PrimaryButton">
@@ -314,32 +314,32 @@
       <Setter Property="CornerRadius" Value="0,5.5,5.5,0" />
     </Style>
     <Style Selector="^.secondary.outline /template/ PathIcon#PART_Caret">
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Secondary.Outline.Caret}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Secondary.Outline.Caret}" />
     </Style>
     <Style Selector="^.secondary.outline /template/ Button">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Secondary.Outline.Normal.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Secondary.Outline.Normal.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Secondary.Outline.Normal.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Secondary.Outline.Normal.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Secondary.Outline.Normal.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Secondary.Outline.Normal.Border}" />
     </Style>
     <Style Selector="^.secondary.outline /template/ Button:pointerover">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Secondary.Outline.Hover.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Secondary.Outline.Hover.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Secondary.Outline.Hover.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Secondary.Outline.Hover.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Secondary.Outline.Hover.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Secondary.Outline.Hover.Border}" />
     </Style>
     <Style Selector="^.secondary.outline /template/ Button:pressed">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Secondary.Outline.Pressed.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Secondary.Outline.Pressed.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Secondary.Outline.Pressed.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Secondary.Outline.Pressed.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Secondary.Outline.Pressed.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Secondary.Outline.Pressed.Border}" />
     </Style>
     <Style Selector="^.secondary.outline.selected /template/ Button, ^.secondary.outline:flyout-open /template/ Button#PART_SecondaryButton">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Secondary.Outline.Selected.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Secondary.Outline.Selected.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Secondary.Outline.Selected.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Secondary.Outline.Selected.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Secondary.Outline.Selected.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Secondary.Outline.Selected.Border}" />
     </Style>
     <Style Selector="^.secondary.outline:disabled /template/ Button">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Secondary.Outline.Disabled.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Secondary.Outline.Disabled.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Secondary.Outline.Disabled.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Secondary.Outline.Disabled.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Secondary.Outline.Disabled.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Secondary.Outline.Disabled.Border}" />
     </Style>
     <!-- danger -->
     <Style Selector="^.danger /template/ Button#PART_PrimaryButton">
@@ -351,32 +351,32 @@
       <Setter Property="CornerRadius" Value="0,6,6,0" />
     </Style>
     <Style Selector="^.danger /template/ PathIcon#PART_Caret">
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Danger.Caret}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Danger.Caret}" />
     </Style>
     <Style Selector="^.danger /template/ Button">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Danger.Normal.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Danger.Normal.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Danger.Normal.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Danger.Normal.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Danger.Normal.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Danger.Normal.Border}" />
     </Style>
     <Style Selector="^.danger /template/ Button:pointerover">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Danger.Hover.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Danger.Hover.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Danger.Hover.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Danger.Hover.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Danger.Hover.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Danger.Hover.Border}" />
     </Style>
     <Style Selector="^.danger /template/ Button:pressed">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Danger.Pressed.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Danger.Pressed.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Danger.Pressed.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Danger.Pressed.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Danger.Pressed.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Danger.Pressed.Border}" />
     </Style>
     <Style Selector="^.danger.selected /template/ Button, ^.danger:flyout-open /template/ Button#PART_SecondaryButton">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Danger.Selected.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Danger.Selected.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Danger.Selected.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Danger.Selected.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Danger.Selected.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Danger.Selected.Border}" />
     </Style>
     <Style Selector="^.danger:disabled /template/ Button">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Danger.Disabled.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Danger.Disabled.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Danger.Disabled.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Danger.Disabled.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Danger.Disabled.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Danger.Disabled.Border}" />
     </Style>
     <!-- danger outline -->
     <Style Selector="^.danger.outline /template/ Button#PART_PrimaryButton">
@@ -388,32 +388,32 @@
       <Setter Property="CornerRadius" Value="0,5.5,5.5,0" />
     </Style>
     <Style Selector="^.danger.outline /template/ PathIcon#PART_Caret">
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Danger.Outline.Caret}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Danger.Outline.Caret}" />
     </Style>
     <Style Selector="^.danger.outline /template/ Button">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Danger.Outline.Normal.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Danger.Outline.Normal.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Danger.Outline.Normal.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Danger.Outline.Normal.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Danger.Outline.Normal.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Danger.Outline.Normal.Border}" />
     </Style>
     <Style Selector="^.danger.outline /template/ Button:pointerover">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Danger.Outline.Hover.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Danger.Outline.Hover.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Danger.Outline.Hover.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Danger.Outline.Hover.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Danger.Outline.Hover.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Danger.Outline.Hover.Border}" />
     </Style>
     <Style Selector="^.danger.outline /template/ Button:pressed">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Danger.Outline.Pressed.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Danger.Outline.Pressed.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Danger.Outline.Pressed.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Danger.Outline.Pressed.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Danger.Outline.Pressed.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Danger.Outline.Pressed.Border}" />
     </Style>
     <Style Selector="^.danger.outline.selected /template/ Button, ^.danger.outline:flyout-open /template/ Button#PART_SecondaryButton">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Danger.Outline.Selected.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Danger.Outline.Selected.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Danger.Outline.Selected.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Danger.Outline.Selected.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Danger.Outline.Selected.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Danger.Outline.Selected.Border}" />
     </Style>
     <Style Selector="^.danger.outline:disabled /template/ Button">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Danger.Outline.Disabled.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Danger.Outline.Disabled.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Danger.Outline.Disabled.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Danger.Outline.Disabled.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Danger.Outline.Disabled.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Danger.Outline.Disabled.Border}" />
     </Style>
     <!-- warning -->
     <Style Selector="^.warning /template/ Button#PART_PrimaryButton">
@@ -425,32 +425,32 @@
       <Setter Property="CornerRadius" Value="0,6,6,0" />
     </Style>
     <Style Selector="^.warning /template/ PathIcon#PART_Caret">
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Warning.Caret}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Warning.Caret}" />
     </Style>
     <Style Selector="^.warning /template/ Button">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Warning.Normal.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Warning.Normal.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Warning.Normal.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Warning.Normal.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Warning.Normal.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Warning.Normal.Border}" />
     </Style>
     <Style Selector="^.warning /template/ Button:pointerover">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Warning.Hover.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Warning.Hover.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Warning.Hover.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Warning.Hover.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Warning.Hover.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Warning.Hover.Border}" />
     </Style>
     <Style Selector="^.warning /template/ Button:pressed">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Warning.Pressed.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Warning.Pressed.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Warning.Pressed.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Warning.Pressed.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Warning.Pressed.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Warning.Pressed.Border}" />
     </Style>
     <Style Selector="^.warning.selected /template/ Button, ^.warning:flyout-open /template/ Button#PART_SecondaryButton">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Warning.Selected.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Warning.Selected.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Warning.Selected.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Warning.Selected.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Warning.Selected.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Warning.Selected.Border}" />
     </Style>
     <Style Selector="^.warning:disabled /template/ Button">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Warning.Disabled.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Warning.Disabled.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Warning.Disabled.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Warning.Disabled.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Warning.Disabled.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Warning.Disabled.Border}" />
     </Style>
     <!-- warning outline -->
     <Style Selector="^.warning.outline /template/ Button#PART_PrimaryButton">
@@ -462,32 +462,32 @@
       <Setter Property="CornerRadius" Value="0,5.5,5.5,0" />
     </Style>
     <Style Selector="^.warning.outline /template/ PathIcon#PART_Caret">
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Warning.Outline.Caret}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Warning.Outline.Caret}" />
     </Style>
     <Style Selector="^.warning.outline /template/ Button">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Warning.Outline.Normal.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Warning.Outline.Normal.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Warning.Outline.Normal.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Warning.Outline.Normal.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Warning.Outline.Normal.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Warning.Outline.Normal.Border}" />
     </Style>
     <Style Selector="^.warning.outline /template/ Button:pointerover">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Warning.Outline.Hover.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Warning.Outline.Hover.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Warning.Outline.Hover.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Warning.Outline.Hover.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Warning.Outline.Hover.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Warning.Outline.Hover.Border}" />
     </Style>
     <Style Selector="^.warning.outline /template/ Button:pressed">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Warning.Outline.Pressed.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Warning.Outline.Pressed.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Warning.Outline.Pressed.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Warning.Outline.Pressed.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Warning.Outline.Pressed.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Warning.Outline.Pressed.Border}" />
     </Style>
     <Style Selector="^.warning.outline.selected /template/ Button, ^.warning.outline:flyout-open /template/ Button#PART_SecondaryButton">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Warning.Outline.Selected.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Warning.Outline.Selected.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Warning.Outline.Selected.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Warning.Outline.Selected.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Warning.Outline.Selected.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Warning.Outline.Selected.Border}" />
     </Style>
     <Style Selector="^.warning.outline:disabled /template/ Button">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Warning.Outline.Disabled.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Warning.Outline.Disabled.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Warning.Outline.Disabled.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Warning.Outline.Disabled.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Warning.Outline.Disabled.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Warning.Outline.Disabled.Border}" />
     </Style>
     <!-- success -->
     <Style Selector="^.success /template/ Button#PART_PrimaryButton">
@@ -499,32 +499,32 @@
       <Setter Property="CornerRadius" Value="0,6,6,0" />
     </Style>
     <Style Selector="^.success /template/ PathIcon#PART_Caret">
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Success.Caret}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Success.Caret}" />
     </Style>
     <Style Selector="^.success /template/ Button">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Success.Normal.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Success.Normal.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Success.Normal.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Success.Normal.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Success.Normal.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Success.Normal.Border}" />
     </Style>
     <Style Selector="^.success /template/ Button:pointerover">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Success.Hover.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Success.Hover.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Success.Hover.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Success.Hover.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Success.Hover.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Success.Hover.Border}" />
     </Style>
     <Style Selector="^.success /template/ Button:pressed">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Success.Pressed.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Success.Pressed.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Success.Pressed.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Success.Pressed.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Success.Pressed.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Success.Pressed.Border}" />
     </Style>
     <Style Selector="^.success.selected /template/ Button, ^.success:flyout-open /template/ Button#PART_SecondaryButton">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Success.Selected.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Success.Selected.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Success.Selected.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Success.Selected.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Success.Selected.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Success.Selected.Border}" />
     </Style>
     <Style Selector="^.success:disabled /template/ Button">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Success.Disabled.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Success.Disabled.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Success.Disabled.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Success.Disabled.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Success.Disabled.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Success.Disabled.Border}" />
     </Style>
     <!-- success outline -->
     <Style Selector="^.success.outline /template/ Button#PART_PrimaryButton">
@@ -536,32 +536,32 @@
       <Setter Property="CornerRadius" Value="0,5.5,5.5,0" />
     </Style>
     <Style Selector="^.success.outline /template/ PathIcon#PART_Caret">
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Success.Outline.Caret}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Success.Outline.Caret}" />
     </Style>
     <Style Selector="^.success.outline /template/ Button">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Success.Outline.Normal.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Success.Outline.Normal.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Success.Outline.Normal.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Success.Outline.Normal.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Success.Outline.Normal.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Success.Outline.Normal.Border}" />
     </Style>
     <Style Selector="^.success.outline /template/ Button:pointerover">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Success.Outline.Hover.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Success.Outline.Hover.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Success.Outline.Hover.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Success.Outline.Hover.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Success.Outline.Hover.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Success.Outline.Hover.Border}" />
     </Style>
     <Style Selector="^.success.outline /template/ Button:pressed">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Success.Outline.Pressed.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Success.Outline.Pressed.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Success.Outline.Pressed.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Success.Outline.Pressed.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Success.Outline.Pressed.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Success.Outline.Pressed.Border}" />
     </Style>
     <Style Selector="^.success.outline.selected /template/ Button, ^.success.outline:flyout-open /template/ Button#PART_SecondaryButton">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Success.Outline.Selected.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Success.Outline.Selected.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Success.Outline.Selected.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Success.Outline.Selected.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Success.Outline.Selected.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Success.Outline.Selected.Border}" />
     </Style>
     <Style Selector="^.success.outline:disabled /template/ Button">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Success.Outline.Disabled.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Success.Outline.Disabled.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Success.Outline.Disabled.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Success.Outline.Disabled.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Success.Outline.Disabled.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Success.Outline.Disabled.Border}" />
     </Style>
     <!-- info -->
     <Style Selector="^.info /template/ Button#PART_PrimaryButton">
@@ -573,32 +573,32 @@
       <Setter Property="CornerRadius" Value="0,6,6,0" />
     </Style>
     <Style Selector="^.info /template/ PathIcon#PART_Caret">
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Info.Caret}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Info.Caret}" />
     </Style>
     <Style Selector="^.info /template/ Button">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Info.Normal.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Info.Normal.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Info.Normal.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Info.Normal.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Info.Normal.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Info.Normal.Border}" />
     </Style>
     <Style Selector="^.info /template/ Button:pointerover">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Info.Hover.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Info.Hover.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Info.Hover.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Info.Hover.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Info.Hover.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Info.Hover.Border}" />
     </Style>
     <Style Selector="^.info /template/ Button:pressed">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Info.Pressed.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Info.Pressed.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Info.Pressed.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Info.Pressed.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Info.Pressed.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Info.Pressed.Border}" />
     </Style>
     <Style Selector="^.info.selected /template/ Button, ^.info:flyout-open /template/ Button#PART_SecondaryButton">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Info.Selected.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Info.Selected.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Info.Selected.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Info.Selected.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Info.Selected.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Info.Selected.Border}" />
     </Style>
     <Style Selector="^.info:disabled /template/ Button">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Info.Disabled.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Info.Disabled.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Info.Disabled.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Info.Disabled.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Info.Disabled.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Info.Disabled.Border}" />
     </Style>
     <!-- info outline -->
     <Style Selector="^.info.outline /template/ Button#PART_PrimaryButton">
@@ -610,32 +610,32 @@
       <Setter Property="CornerRadius" Value="0,5.5,5.5,0" />
     </Style>
     <Style Selector="^.info.outline /template/ PathIcon#PART_Caret">
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Info.Outline.Caret}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Info.Outline.Caret}" />
     </Style>
     <Style Selector="^.info.outline /template/ Button">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Info.Outline.Normal.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Info.Outline.Normal.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Info.Outline.Normal.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Info.Outline.Normal.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Info.Outline.Normal.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Info.Outline.Normal.Border}" />
     </Style>
     <Style Selector="^.info.outline /template/ Button:pointerover">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Info.Outline.Hover.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Info.Outline.Hover.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Info.Outline.Hover.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Info.Outline.Hover.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Info.Outline.Hover.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Info.Outline.Hover.Border}" />
     </Style>
     <Style Selector="^.info.outline /template/ Button:pressed">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Info.Outline.Pressed.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Info.Outline.Pressed.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Info.Outline.Pressed.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Info.Outline.Pressed.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Info.Outline.Pressed.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Info.Outline.Pressed.Border}" />
     </Style>
     <Style Selector="^.info.outline.selected /template/ Button, ^.info.outline:flyout-open /template/ Button#PART_SecondaryButton">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Info.Outline.Selected.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Info.Outline.Selected.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Info.Outline.Selected.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Info.Outline.Selected.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Info.Outline.Selected.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Info.Outline.Selected.Border}" />
     </Style>
     <Style Selector="^.info.outline:disabled /template/ Button">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Info.Outline.Disabled.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Info.Outline.Disabled.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Info.Outline.Disabled.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Info.Outline.Disabled.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Info.Outline.Disabled.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Info.Outline.Disabled.Border}" />
     </Style>
     <!-- ghost -->
     <Style Selector="^.ghost /template/ Button#PART_PrimaryButton">
@@ -647,35 +647,35 @@
       <Setter Property="CornerRadius" Value="0,6,6,0" />
     </Style>
     <Style Selector="^.ghost /template/ PathIcon#PART_Caret">
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Ghost.Caret}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Ghost.Caret}" />
     </Style>
     <Style Selector="^.ghost /template/ Button">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Ghost.Normal.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Ghost.Normal.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Ghost.Normal.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Ghost.Normal.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Ghost.Normal.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Ghost.Normal.Border}" />
     </Style>
     <Style Selector="^.ghost:pointerover /template/ Button, ^.ghost:flyout-open /template/ Button#PART_PrimaryButton">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Ghost.GroupHover.Background}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Ghost.GroupHover.Background}" />
     </Style>
     <Style Selector="^.ghost /template/ Button:pointerover">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Ghost.Hover.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Ghost.Hover.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Ghost.Hover.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Ghost.Hover.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Ghost.Hover.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Ghost.Hover.Border}" />
     </Style>
     <Style Selector="^.ghost /template/ Button:pressed">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Ghost.Pressed.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Ghost.Pressed.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Ghost.Pressed.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Ghost.Pressed.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Ghost.Pressed.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Ghost.Pressed.Border}" />
     </Style>
     <Style Selector="^.ghost.selected /template/ Button, ^.ghost:flyout-open /template/ Button#PART_SecondaryButton">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Ghost.Selected.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Ghost.Selected.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Ghost.Selected.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Ghost.Selected.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Ghost.Selected.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Ghost.Selected.Border}" />
     </Style>
     <Style Selector="^.ghost:disabled /template/ Button">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Ghost.Disabled.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Ghost.Disabled.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Ghost.Disabled.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Ghost.Disabled.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Ghost.Disabled.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Ghost.Disabled.Border}" />
     </Style>
     <!-- ghost outline -->
     <Style Selector="^.ghost.outline /template/ Button#PART_PrimaryButton">
@@ -687,35 +687,35 @@
       <Setter Property="CornerRadius" Value="0,5.5,5.5,0" />
     </Style>
     <Style Selector="^.ghost.outline /template/ PathIcon#PART_Caret">
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Ghost.Outline.Caret}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Ghost.Outline.Caret}" />
     </Style>
     <Style Selector="^.ghost.outline /template/ Button">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Ghost.Outline.Normal.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Ghost.Outline.Normal.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Ghost.Outline.Normal.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Ghost.Outline.Normal.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Ghost.Outline.Normal.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Ghost.Outline.Normal.Border}" />
     </Style>
     <Style Selector="^.ghost.outline:pointerover /template/ Button, ^.ghost.outline:flyout-open /template/ Button#PART_PrimaryButton">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Ghost.Outline.GroupHover.Background}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Ghost.Outline.GroupHover.Background}" />
     </Style>
     <Style Selector="^.ghost.outline /template/ Button:pointerover">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Ghost.Outline.Hover.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Ghost.Outline.Hover.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Ghost.Outline.Hover.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Ghost.Outline.Hover.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Ghost.Outline.Hover.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Ghost.Outline.Hover.Border}" />
     </Style>
     <Style Selector="^.ghost.outline /template/ Button:pressed">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Ghost.Outline.Pressed.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Ghost.Outline.Pressed.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Ghost.Outline.Pressed.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Ghost.Outline.Pressed.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Ghost.Outline.Pressed.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Ghost.Outline.Pressed.Border}" />
     </Style>
     <Style Selector="^.ghost.outline.selected /template/ Button, ^.ghost.outline:flyout-open /template/ Button#PART_SecondaryButton">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Ghost.Outline.Selected.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Ghost.Outline.Selected.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Ghost.Outline.Selected.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Ghost.Outline.Selected.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Ghost.Outline.Selected.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Ghost.Outline.Selected.Border}" />
     </Style>
     <Style Selector="^.ghost.outline:disabled /template/ Button">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Ghost.Outline.Disabled.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Ghost.Outline.Disabled.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Ghost.Outline.Disabled.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Ghost.Outline.Disabled.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Ghost.Outline.Disabled.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Ghost.Outline.Disabled.Border}" />
     </Style>
     <!-- link -->
     <Style Selector="^.link /template/ Button#PART_PrimaryButton">
@@ -727,32 +727,32 @@
       <Setter Property="CornerRadius" Value="0,6,6,0" />
     </Style>
     <Style Selector="^.link /template/ PathIcon#PART_Caret">
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Link.Caret}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Link.Caret}" />
     </Style>
     <Style Selector="^.link /template/ Button">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Link.Normal.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Link.Normal.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Link.Normal.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Link.Normal.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Link.Normal.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Link.Normal.Border}" />
     </Style>
     <Style Selector="^.link /template/ Button:pointerover">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Link.Hover.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Link.Hover.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Link.Hover.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Link.Hover.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Link.Hover.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Link.Hover.Border}" />
     </Style>
     <Style Selector="^.link /template/ Button:pressed">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Link.Pressed.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Link.Pressed.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Link.Pressed.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Link.Pressed.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Link.Pressed.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Link.Pressed.Border}" />
     </Style>
     <Style Selector="^.link.selected /template/ Button, ^.link:flyout-open /template/ Button#PART_SecondaryButton">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Link.Selected.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Link.Selected.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Link.Selected.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Link.Selected.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Link.Selected.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Link.Selected.Border}" />
     </Style>
     <Style Selector="^.link:disabled /template/ Button">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Link.Disabled.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Link.Disabled.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Link.Disabled.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Link.Disabled.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Link.Disabled.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Link.Disabled.Border}" />
     </Style>
     <!-- link outline -->
     <Style Selector="^.link.outline /template/ Button#PART_PrimaryButton">
@@ -764,32 +764,32 @@
       <Setter Property="CornerRadius" Value="0,5.5,5.5,0" />
     </Style>
     <Style Selector="^.link.outline /template/ PathIcon#PART_Caret">
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Link.Outline.Caret}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Link.Outline.Caret}" />
     </Style>
     <Style Selector="^.link.outline /template/ Button">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Link.Outline.Normal.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Link.Outline.Normal.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Link.Outline.Normal.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Link.Outline.Normal.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Link.Outline.Normal.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Link.Outline.Normal.Border}" />
     </Style>
     <Style Selector="^.link.outline /template/ Button:pointerover">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Link.Outline.Hover.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Link.Outline.Hover.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Link.Outline.Hover.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Link.Outline.Hover.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Link.Outline.Hover.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Link.Outline.Hover.Border}" />
     </Style>
     <Style Selector="^.link.outline /template/ Button:pressed">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Link.Outline.Pressed.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Link.Outline.Pressed.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Link.Outline.Pressed.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Link.Outline.Pressed.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Link.Outline.Pressed.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Link.Outline.Pressed.Border}" />
     </Style>
     <Style Selector="^.link.outline.selected /template/ Button, ^.link.outline:flyout-open /template/ Button#PART_SecondaryButton">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Link.Outline.Selected.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Link.Outline.Selected.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Link.Outline.Selected.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Link.Outline.Selected.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Link.Outline.Selected.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Link.Outline.Selected.Border}" />
     </Style>
     <Style Selector="^.link.outline:disabled /template/ Button">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Link.Outline.Disabled.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Link.Outline.Disabled.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Link.Outline.Disabled.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Link.Outline.Disabled.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Link.Outline.Disabled.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Link.Outline.Disabled.Border}" />
     </Style>
     <!-- text -->
     <Style Selector="^.text /template/ Button#PART_PrimaryButton">
@@ -801,32 +801,32 @@
       <Setter Property="CornerRadius" Value="0,6,6,0" />
     </Style>
     <Style Selector="^.text /template/ PathIcon#PART_Caret">
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Text.Caret}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Text.Caret}" />
     </Style>
     <Style Selector="^.text /template/ Button">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Text.Normal.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Text.Normal.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Text.Normal.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Text.Normal.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Text.Normal.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Text.Normal.Border}" />
     </Style>
     <Style Selector="^.text /template/ Button:pointerover">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Text.Hover.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Text.Hover.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Text.Hover.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Text.Hover.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Text.Hover.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Text.Hover.Border}" />
     </Style>
     <Style Selector="^.text /template/ Button:pressed">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Text.Pressed.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Text.Pressed.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Text.Pressed.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Text.Pressed.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Text.Pressed.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Text.Pressed.Border}" />
     </Style>
     <Style Selector="^.text.selected /template/ Button, ^.text:flyout-open /template/ Button#PART_SecondaryButton">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Text.Selected.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Text.Selected.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Text.Selected.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Text.Selected.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Text.Selected.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Text.Selected.Border}" />
     </Style>
     <Style Selector="^.text:disabled /template/ Button">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Text.Disabled.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Text.Disabled.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Text.Disabled.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Text.Disabled.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Text.Disabled.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Text.Disabled.Border}" />
     </Style>
     <!-- text outline -->
     <Style Selector="^.text.outline /template/ Button#PART_PrimaryButton">
@@ -838,36 +838,36 @@
       <Setter Property="CornerRadius" Value="0,5.5,5.5,0" />
     </Style>
     <Style Selector="^.text.outline /template/ PathIcon#PART_Caret">
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Text.Outline.Caret}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Text.Outline.Caret}" />
     </Style>
     <Style Selector="^.text.outline /template/ Button">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Text.Outline.Normal.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Text.Outline.Normal.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Text.Outline.Normal.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Text.Outline.Normal.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Text.Outline.Normal.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Text.Outline.Normal.Border}" />
     </Style>
     <Style Selector="^.text.outline /template/ Button:pointerover">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Text.Outline.Hover.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Text.Outline.Hover.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Text.Outline.Hover.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Text.Outline.Hover.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Text.Outline.Hover.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Text.Outline.Hover.Border}" />
     </Style>
     <Style Selector="^.text.outline /template/ Button:pressed">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Text.Outline.Pressed.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Text.Outline.Pressed.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Text.Outline.Pressed.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Text.Outline.Pressed.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Text.Outline.Pressed.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Text.Outline.Pressed.Border}" />
     </Style>
     <Style Selector="^.text.outline.selected /template/ Button, ^.text.outline:flyout-open /template/ Button#PART_SecondaryButton">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Text.Outline.Selected.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Text.Outline.Selected.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Text.Outline.Selected.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Text.Outline.Selected.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Text.Outline.Selected.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Text.Outline.Selected.Border}" />
     </Style>
     <Style Selector="^.text.outline:disabled /template/ Button">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Text.Outline.Disabled.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Text.Outline.Disabled.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Text.Outline.Disabled.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Text.Outline.Disabled.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Text.Outline.Disabled.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Text.Outline.Disabled.Border}" />
     </Style>
 
     <Style Selector="^:focus-visible /template/ Button#PART_PrimaryButton">
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Ring}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Ring}" />
     </Style>
     <Style Selector="^:focus-visible /template/ Button#PART_PrimaryButton">
       <Setter Property="Tag" Value="focus-ring" />

@@ -1,11 +1,12 @@
 # Avalonia UIKit
 
-Avalonia themes and controls that reproduce the look and motion of
-[GPUI Kit](https://github.com/longbridge/gpui-kit) components.
+Avalonia themes and controls based on the Nova style of
+[shadcn/ui](https://ui.shadcn.com) and on
+[GPUI Kit](https://github.com/longbridge/gpui-kit).
 
 **Documentation and live demos: [avalonia-uikit.omofla.sh](https://avalonia-uikit.omofla.sh)**
 
-- `GpuiTheme` restyles Avalonia's own controls (Button, TextBox, ComboBox,
+- `NovaTheme` restyles Avalonia's own controls (Button, TextBox, ComboBox,
   Calendar, Tabs, Menus, ScrollViewer and 40 more) and adds the small
   components Avalonia lacks (Badge, Tag, Alert, Avatar, Stepper, Form and
   others). Optional packages cover `ColorPicker` and `DataGrid`.

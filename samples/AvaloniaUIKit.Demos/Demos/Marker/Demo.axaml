@@ -1,14 +1,14 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:gpui="using:AvaloniaUIKit"
+             xmlns:uikit="using:AvaloniaUIKit"
              x:Class="AvaloniaUIKit.Demos.MarkerDemo">
   <StackPanel Spacing="16" Width="420" HorizontalAlignment="Left">
-    <gpui:Marker Content="Conversation archived">
-      <gpui:Marker.Icon>
-        <PathIcon Data="{StaticResource Gpui.Icon.Info}" />
-      </gpui:Marker.Icon>
-    </gpui:Marker>
-    <gpui:Marker Classes="separator" Content="Today" />
-    <gpui:Marker Classes="border" Content="Earlier messages" />
+    <uikit:Marker Content="Conversation archived">
+      <uikit:Marker.Icon>
+        <PathIcon Data="{StaticResource UIKit.Icon.Info}" />
+      </uikit:Marker.Icon>
+    </uikit:Marker>
+    <uikit:Marker Classes="separator" Content="Today" />
+    <uikit:Marker Classes="border" Content="Earlier messages" />
   </StackPanel>
 </UserControl>

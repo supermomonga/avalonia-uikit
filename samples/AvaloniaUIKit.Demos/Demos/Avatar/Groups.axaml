@@ -1,26 +1,26 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:gpui="using:AvaloniaUIKit"
+             xmlns:uikit="using:AvaloniaUIKit"
              x:Class="AvaloniaUIKit.Demos.AvatarGroups">
   <StackPanel Orientation="Horizontal" Spacing="24" HorizontalAlignment="Left">
-    <gpui:AvatarGroup Classes="small">
-      <gpui:Avatar UserName="Alice" />
-      <gpui:Avatar UserName="Bob" />
-      <gpui:Avatar UserName="Carol" />
-    </gpui:AvatarGroup>
-    <gpui:AvatarGroup Limit="3">
-      <gpui:Avatar UserName="Alice" />
-      <gpui:Avatar UserName="Bob" />
-      <gpui:Avatar UserName="Carol" />
-      <gpui:Avatar UserName="Dave" />
-      <gpui:Avatar UserName="Erin" />
-    </gpui:AvatarGroup>
-    <gpui:AvatarGroup Limit="3" ShowsEllipsis="True">
-      <gpui:Avatar UserName="Alice" />
-      <gpui:Avatar UserName="Bob" />
-      <gpui:Avatar UserName="Carol" />
-      <gpui:Avatar UserName="Dave" />
-      <gpui:Avatar UserName="Erin" />
-    </gpui:AvatarGroup>
+    <uikit:AvatarGroup Classes="small">
+      <uikit:Avatar UserName="Alice" />
+      <uikit:Avatar UserName="Bob" />
+      <uikit:Avatar UserName="Carol" />
+    </uikit:AvatarGroup>
+    <uikit:AvatarGroup Limit="3">
+      <uikit:Avatar UserName="Alice" />
+      <uikit:Avatar UserName="Bob" />
+      <uikit:Avatar UserName="Carol" />
+      <uikit:Avatar UserName="Dave" />
+      <uikit:Avatar UserName="Erin" />
+    </uikit:AvatarGroup>
+    <uikit:AvatarGroup Limit="3" ShowsEllipsis="True">
+      <uikit:Avatar UserName="Alice" />
+      <uikit:Avatar UserName="Bob" />
+      <uikit:Avatar UserName="Carol" />
+      <uikit:Avatar UserName="Dave" />
+      <uikit:Avatar UserName="Erin" />
+    </uikit:AvatarGroup>
   </StackPanel>
 </UserControl>

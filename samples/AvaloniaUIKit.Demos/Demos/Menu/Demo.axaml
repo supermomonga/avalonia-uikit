@@ -1,14 +1,14 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:gpui="using:AvaloniaUIKit"
+             xmlns:uikit="using:AvaloniaUIKit"
              x:Class="AvaloniaUIKit.Demos.MenuDemo">
   <Panel MinWidth="400" MinHeight="260">
     <Menu VerticalAlignment="Top">
       <MenuItem Header="File">
         <MenuItem Header="New File" InputGesture="Ctrl+N" />
         <MenuItem Header="Open Recent">
-          <MenuItem Header="Avalonia UI Kit" />
-          <MenuItem Header="GPUI Kit" />
+          <MenuItem Header="Avalonia UIKit" />
+          <MenuItem Header="Sample App" />
         </MenuItem>
         <Separator />
         <MenuItem Header="Save" InputGesture="Ctrl+S" />

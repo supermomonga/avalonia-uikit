@@ -79,7 +79,7 @@ public static partial class Adapters
             Height = 34,
             HidesCaptionButtons = true,
             // macOS: GPUI keeps 80px for the traffic lights.
-            Resources = { ["Gpui.TitleBar.Padding"] = new Avalonia.Thickness(80, 0, 0, 1) },
+            Resources = { ["UIKit.TitleBar.Padding"] = new Avalonia.Thickness(80, 0, 0, 1) },
         },
         _ => KitControl(c) ?? throw new NotSupportedException($"no adapter for {c.Component}"),
     };
@@ -250,7 +250,7 @@ public static partial class Adapters
     {
         var uniform = c.Bool("uniform");
         double Row(int i) => uniform ? 34 : (i % 3) switch { 0 => 30, 1 => 45, _ => 60 };
-        var secondary = (Avalonia.Media.IBrush)Avalonia.Application.Current!.FindResource(c.IsDark ? Avalonia.Styling.ThemeVariant.Dark : Avalonia.Styling.ThemeVariant.Light, "Gpui.Secondary")!;
+        var secondary = (Avalonia.Media.IBrush)Avalonia.Application.Current!.FindResource(c.IsDark ? Avalonia.Styling.ThemeVariant.Dark : Avalonia.Styling.ThemeVariant.Light, "UIKit.Secondary")!;
         var bare = new ControlTheme(typeof(ListBoxItem))
         {
             Setters =
@@ -320,7 +320,7 @@ public static partial class Adapters
         {
             tree.Padding = new Avalonia.Thickness(4);
             tree.BorderThickness = new Avalonia.Thickness(1);
-            tree.BorderBrush = (Avalonia.Media.IBrush)Avalonia.Application.Current!.FindResource(c.IsDark ? Avalonia.Styling.ThemeVariant.Dark : Avalonia.Styling.ThemeVariant.Light, "Gpui.Border")!;
+            tree.BorderBrush = (Avalonia.Media.IBrush)Avalonia.Application.Current!.FindResource(c.IsDark ? Avalonia.Styling.ThemeVariant.Dark : Avalonia.Styling.ThemeVariant.Light, "UIKit.Border")!;
             tree.CornerRadius = new Avalonia.CornerRadius(5.5);
             foreach (var item in flat)
             {
@@ -446,7 +446,7 @@ public static partial class Adapters
         }
         if (c.Has("color"))
         {
-            var key = c.Str("color") == "muted" ? "Gpui.MutedForeground" : "Gpui.Danger";
+            var key = c.Str("color") == "muted" ? "UIKit.MutedForeground" : "UIKit.Danger";
             result.SetValue(TextElement.ForegroundProperty, (Avalonia.Media.IBrush)Avalonia.Application.Current!.FindResource(c.IsDark ? Avalonia.Styling.ThemeVariant.Dark : Avalonia.Styling.ThemeVariant.Light, key)!);
         }
         return result;
@@ -462,7 +462,7 @@ public static partial class Adapters
         }
         if (c.Has("color"))
         {
-            var key = "Gpui." + string.Concat(c.Str("color").Split('-').Select(p => char.ToUpperInvariant(p[0]) + p[1..]));
+            var key = "UIKit." + string.Concat(c.Str("color").Split('-').Select(p => char.ToUpperInvariant(p[0]) + p[1..]));
             icon.Foreground = (Avalonia.Media.IBrush)Avalonia.Application.Current!.FindResource(c.IsDark ? Avalonia.Styling.ThemeVariant.Dark : Avalonia.Styling.ThemeVariant.Light, key)!;
         }
         if (c.Has("rotate"))
@@ -475,7 +475,7 @@ public static partial class Adapters
     /// <summary>A Lucide icon from the theme, as an app would put one in content.</summary>
     public static PathIcon Icon(string name)
     {
-        var key = "Gpui.Icon." + string.Concat(name.Split('-').Select(p => char.ToUpperInvariant(p[0]) + p[1..]));
+        var key = "UIKit.Icon." + string.Concat(name.Split('-').Select(p => char.ToUpperInvariant(p[0]) + p[1..]));
         return new PathIcon { Data = (Avalonia.Media.Geometry)Avalonia.Application.Current!.FindResource(key)! };
     }
 
@@ -530,7 +530,7 @@ public static partial class Adapters
         var valueTo = c.Num("value_to", value);
         var progress = new ProgressBar
         {
-            Theme = (ControlTheme)Avalonia.Application.Current!.FindResource("GpuiProgressCircle")!,
+            Theme = (ControlTheme)Avalonia.Application.Current!.FindResource("UIKitProgressCircle")!,
             Value = value,
             IsIndeterminate = c.Bool("loading"),
         };
@@ -555,7 +555,7 @@ public static partial class Adapters
     private static ProgressBar Spinner(GoldenCase c)
     {
         var spinner = new ProgressBar { IsIndeterminate = true };
-        spinner.Theme = (Avalonia.Styling.ControlTheme)Avalonia.Application.Current!.FindResource("GpuiSpinner")!;
+        spinner.Theme = (Avalonia.Styling.ControlTheme)Avalonia.Application.Current!.FindResource("UIKitSpinner")!;
         ClassFrom(spinner, c, "size", "medium");
         return spinner;
     }
@@ -610,7 +610,7 @@ public static partial class Adapters
             Background = Avalonia.Media.Brushes.Transparent,
             ContextMenu = new ContextMenu { ItemsSource = StandardMenu() },
         };
-        area.Bind(Border.BorderBrushProperty, area.GetResourceObservable("Gpui.Border"));
+        area.Bind(Border.BorderBrushProperty, area.GetResourceObservable("UIKit.Border"));
         return area;
     }
 
@@ -806,7 +806,7 @@ public static partial class Adapters
                 "bottom" => DrawerPlacement.Bottom,
                 _ => DrawerPlacement.Right,
             },
-            Drawer = Fill("Gpui.Muted", double.NaN, 40),
+            Drawer = Fill("UIKit.Muted", double.NaN, 40),
             Content = content,
         };
         if (c.Params.ContainsKey("size"))
@@ -819,7 +819,7 @@ public static partial class Adapters
         }
         if (c.Bool("footer"))
         {
-            drawer.DrawerFooter = Fill("Gpui.Primary", 80, 24);
+            drawer.DrawerFooter = Fill("UIKit.Primary", 80, 24);
         }
         if (c.Bool("no_overlay"))
         {
@@ -832,7 +832,7 @@ public static partial class Adapters
     // reference/src/cases/sidebar.rs: the muted content area beside the sidebar.
     private static Border SidebarContent() => new()
     {
-        [!Border.BackgroundProperty] = new Avalonia.Markup.Xaml.MarkupExtensions.DynamicResourceExtension("Gpui.Muted"),
+        [!Border.BackgroundProperty] = new Avalonia.Markup.Xaml.MarkupExtensions.DynamicResourceExtension("UIKit.Muted"),
     };
 
     /// <summary>
@@ -869,7 +869,7 @@ public static partial class Adapters
             Width = 24,
             Height = 24,
             HorizontalAlignment = HorizontalAlignment.Left,
-            [!Border.BackgroundProperty] = new Avalonia.Markup.Xaml.MarkupExtensions.DynamicResourceExtension("Gpui.SidebarPrimary"),
+            [!Border.BackgroundProperty] = new Avalonia.Markup.Xaml.MarkupExtensions.DynamicResourceExtension("UIKit.SidebarPrimary"),
         };
         var icon = c.Str("collapsible", "icon") == "icon";
         var drawer = new DrawerPage
@@ -969,8 +969,8 @@ public static partial class Adapters
         CornerRadius = new Avalonia.CornerRadius(7.5),
         BorderThickness = new Avalonia.Thickness(1),
         BackgroundSizing = Avalonia.Media.BackgroundSizing.OuterBorderEdge,
-        [!Border.BackgroundProperty] = new Avalonia.Markup.Xaml.MarkupExtensions.DynamicResourceExtension("Gpui.Muted"),
-        [!Border.BorderBrushProperty] = new Avalonia.Markup.Xaml.MarkupExtensions.DynamicResourceExtension("Gpui.Border"),
+        [!Border.BackgroundProperty] = new Avalonia.Markup.Xaml.MarkupExtensions.DynamicResourceExtension("UIKit.Muted"),
+        [!Border.BorderBrushProperty] = new Avalonia.Markup.Xaml.MarkupExtensions.DynamicResourceExtension("UIKit.Border"),
         Child = new TextBlock
         {
             Text = number.ToString(System.Globalization.CultureInfo.InvariantCulture),
@@ -1002,7 +1002,7 @@ public static partial class Adapters
         GridLength Width(double px) => fixedWidths ? new GridLength(px) : new GridLength(1, GridUnitType.Star);
         var table = new TableView
         {
-            Theme = (ControlTheme)Avalonia.Application.Current!.FindResource("GpuiTable")!,
+            Theme = (ControlTheme)Avalonia.Application.Current!.FindResource("UIKitTable")!,
             Width = c.Num("width", 360),
             ItemsSource = Invoices,
             Columns =
@@ -1282,7 +1282,7 @@ public static partial class Adapters
         var up = c.Bool("content_first");
         var expander = new Expander
         {
-            Theme = (ControlTheme)Avalonia.Application.Current!.FindResource("GpuiCollapsible")!,
+            Theme = (ControlTheme)Avalonia.Application.Current!.FindResource("UIKitCollapsible")!,
             Width = c.Num("width", 240),
             HorizontalAlignment = HorizontalAlignment.Left,
             IsExpanded = c.Bool("open"),
@@ -1295,8 +1295,8 @@ public static partial class Adapters
                 BackgroundSizing = Avalonia.Media.BackgroundSizing.OuterBorderEdge,
                 CornerRadius = new Avalonia.CornerRadius(5.5),
                 BorderThickness = new Avalonia.Thickness(1),
-                [!Border.BorderBrushProperty] = new Avalonia.Markup.Xaml.MarkupExtensions.DynamicResourceExtension("Gpui.Border"),
-                [!Border.BackgroundProperty] = new Avalonia.Markup.Xaml.MarkupExtensions.DynamicResourceExtension("Gpui.Muted"),
+                [!Border.BorderBrushProperty] = new Avalonia.Markup.Xaml.MarkupExtensions.DynamicResourceExtension("UIKit.Border"),
+                [!Border.BackgroundProperty] = new Avalonia.Markup.Xaml.MarkupExtensions.DynamicResourceExtension("UIKit.Muted"),
             },
         };
         FlagClass(expander, c, "motion", "reveal");

@@ -1,13 +1,13 @@
 ---
 title: "Combobox"
-description: "GPUI Kit's combobox: a select that filters as you type, as ComboBox or AutoCompleteBox."
+description: "A select that filters as you type, as ComboBox or AutoCompleteBox."
 ---
 
 <Demo name="combobox/demo" />
 
 ## Usage
 
-GPUI Kit's Combobox pairs a trigger with a search field in its popup; Avalonia splits that between two controls. To pick from a list, use `ComboBox Classes="combobox"`: the themed Select, except that the trigger is titled with the committed item only (a plain `ComboBox` shows the item under the cursor while open). To filter as you type, use `AutoCompleteBox`: its text field is the input frame and its suggestions open in GPUI's dropdown popup, 6px below and as wide as the field, with the selected suggestion in the accent. `ItemsSource` and `FilterMode` are the control's own; `FilterMode="Contains"` matches anywhere in an item. Sizes on both: `xsmall`, `small`, `large` (medium is the default).
+Avalonia splits a combobox between two controls. To pick from a list, use `ComboBox Classes="combobox"`: the themed Select, except that the trigger is titled with the committed item only (a plain `ComboBox` shows the item under the cursor while open). To filter as you type, use `AutoCompleteBox`: its text field is the input frame and its suggestions open in the Select's dropdown popup, 6px below and as wide as the field, with the selected suggestion in the accent. `ItemsSource` and `FilterMode` are the control's own; `FilterMode="Contains"` matches anywhere in an item. Sizes on both: `xsmall`, `small`, `large` (medium is the default).
 
 ## Examples
 
@@ -23,4 +23,4 @@ A small and a medium combobox, and a disabled one.
 
 - Multiple selection with chips.
 - A custom search function: `AutoCompleteBox`'s own filtering is used.
-- GPUI's trigger plus a separate search field inside the popup.
+- A trigger with a separate search field inside the popup.

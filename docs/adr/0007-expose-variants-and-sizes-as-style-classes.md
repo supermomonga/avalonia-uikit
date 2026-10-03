@@ -3,6 +3,9 @@ number: 7
 title: Expose variants and sizes as style classes
 status: accepted
 date: 2026-10-03
+links:
+- target: 21
+  kind: amendedby
 ---
 
 # Expose variants and sizes as style classes

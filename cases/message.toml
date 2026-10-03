@@ -1,4 +1,4 @@
-# GPUI Kit Message -> gpui:Message, 400px wide: a 32px avatar at the bottom
+# GPUI Kit Message -> uikit:Message, 400px wide: a 32px avatar at the bottom
 # of the row, the header and footer in muted text_xs, bubbles 10px apart.
 component = "message"
 viewport = [432, 200]

@@ -3,6 +3,9 @@ number: 2
 title: Ship GpuiTheme as a standalone Styles theme
 status: accepted
 date: 2026-10-03
+links:
+- target: 21
+  kind: amendedby
 ---
 
 # Ship GpuiTheme as a standalone Styles theme

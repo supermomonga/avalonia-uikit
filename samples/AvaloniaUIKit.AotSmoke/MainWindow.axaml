@@ -1,7 +1,7 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="using:AvaloniaUIKit.AotSmoke"
-        xmlns:gpui="using:AvaloniaUIKit"
+        xmlns:uikit="using:AvaloniaUIKit"
         x:Class="AvaloniaUIKit.AotSmoke.MainWindow"
         Title="AvaloniaUIKit gallery" Width="760" Height="860">
   <DockPanel>
@@ -19,7 +19,7 @@
     </Menu>
     <ScrollViewer AllowAutoHide="True">
       <StackPanel Margin="16" Spacing="20">
-        <TextBlock Text="Button" Foreground="{DynamicResource Gpui.MutedForeground}" />
+        <TextBlock Text="Button" Foreground="{DynamicResource UIKit.MutedForeground}" />
         <WrapPanel ItemSpacing="8" LineSpacing="8">
           <Button Content="Default" ToolTip.Tip="A tooltip" />
           <Button Classes="primary" Content="Primary" />
@@ -35,12 +35,12 @@
           <Button Classes="small" Content="Small" />
           <Button Classes="large" Content="Large" />
           <Button Classes="icon-only ghost">
-            <PathIcon Data="{StaticResource Gpui.Icon.Copy}" />
+            <PathIcon Data="{StaticResource UIKit.Icon.Copy}" />
           </Button>
           <Button Content="Disabled" IsEnabled="False" />
         </WrapPanel>
 
-        <TextBlock Text="SplitButton" Foreground="{DynamicResource Gpui.MutedForeground}" />
+        <TextBlock Text="SplitButton" Foreground="{DynamicResource UIKit.MutedForeground}" />
         <WrapPanel ItemSpacing="8" LineSpacing="8">
           <SplitButton Content="Save">
             <SplitButton.Flyout>
@@ -54,7 +54,7 @@
           <SplitButton Classes="ghost" Content="Ghost" />
         </WrapPanel>
 
-        <TextBlock Text="Toggle, Checkbox, Radio, Switch" Foreground="{DynamicResource Gpui.MutedForeground}" />
+        <TextBlock Text="Toggle, Checkbox, Radio, Switch" Foreground="{DynamicResource UIKit.MutedForeground}" />
         <WrapPanel ItemSpacing="12" LineSpacing="8">
           <ToggleButton Content="Bold" IsChecked="True" />
           <ToggleButton Classes="outline" Content="Italic" />
@@ -66,20 +66,20 @@
           <ToggleSwitch Classes="small" Content="Bluetooth" />
         </WrapPanel>
 
-        <TextBlock Text="NumericUpDown, Slider, ProgressBar, Spinner" Foreground="{DynamicResource Gpui.MutedForeground}" />
+        <TextBlock Text="NumericUpDown, Slider, ProgressBar, Spinner" Foreground="{DynamicResource UIKit.MutedForeground}" />
         <StackPanel Spacing="12" HorizontalAlignment="Left">
           <NumericUpDown Value="42" Width="160" />
           <Slider Value="40" Width="240" HorizontalAlignment="Left" />
           <ProgressBar Value="40" Width="240" />
           <ProgressBar IsIndeterminate="True" Width="240" />
-          <ProgressBar Theme="{StaticResource GpuiSpinner}" Classes="large" />
+          <ProgressBar Theme="{StaticResource UIKitSpinner}" Classes="large" />
           <StackPanel Orientation="Horizontal" Spacing="12">
-            <ProgressBar Theme="{StaticResource GpuiProgressCircle}" Value="60" />
-            <ProgressBar Theme="{StaticResource GpuiProgressCircle}" Classes="large" IsIndeterminate="True" />
+            <ProgressBar Theme="{StaticResource UIKitProgressCircle}" Value="60" />
+            <ProgressBar Theme="{StaticResource UIKitProgressCircle}" Classes="large" IsIndeterminate="True" />
           </StackPanel>
         </StackPanel>
 
-                <TextBlock Text="ButtonGroup, ToggleGroup, Icon, Label" Foreground="{DynamicResource Gpui.MutedForeground}" />
+                <TextBlock Text="ButtonGroup, ToggleGroup, Icon, Label" Foreground="{DynamicResource UIKit.MutedForeground}" />
         <WrapPanel ItemSpacing="12" LineSpacing="8">
           <StackPanel Classes="button-group" Orientation="Horizontal">
             <Button Classes="outline" Content="One" />
@@ -90,29 +90,29 @@
             <ListBoxItem Content="Bold" />
             <ListBoxItem Content="Italic" />
           </ListBox>
-          <PathIcon Classes="large" Data="{StaticResource Gpui.Icon.Folder}" />
+          <PathIcon Classes="large" Data="{StaticResource UIKit.Icon.Folder}" />
           <TextBlock Classes="label">Company address<Run Classes="secondary"> (optional)</Run></TextBlock>
         </WrapPanel>
 
-        <TextBlock Text="Accordion, Collapsible" Foreground="{DynamicResource Gpui.MutedForeground}" />
+        <TextBlock Text="Accordion, Collapsible" Foreground="{DynamicResource UIKit.MutedForeground}" />
         <Border Classes="accordion" Width="320" HorizontalAlignment="Left">
           <StackPanel Classes="accordion">
             <Expander Header="Is it accessible?" Content="Yes, it is." IsExpanded="True" />
             <Expander Header="Is it animated?" Content="Yes, with a spring." />
           </StackPanel>
         </Border>
-        <Expander Theme="{StaticResource GpuiCollapsible}" Classes="reveal" Header="Order details" Width="320" HorizontalAlignment="Left">
+        <Expander Theme="{StaticResource UIKitCollapsible}" Classes="reveal" Header="Order details" Width="320" HorizontalAlignment="Left">
           <TextBlock Text="Details" Margin="0,8,0,0" />
         </Expander>
 
-        <TextBlock Text="Resizable" Foreground="{DynamicResource Gpui.MutedForeground}" />
+        <TextBlock Text="Resizable" Foreground="{DynamicResource UIKit.MutedForeground}" />
         <Grid ColumnDefinitions="120,1,*" Width="320" Height="80" HorizontalAlignment="Left">
           <TextBlock Text="One" Margin="8" />
           <GridSplitter Grid.Column="1" ResizeDirection="Columns" />
           <TextBlock Grid.Column="2" Text="Two" Margin="8" />
         </Grid>
 
-        <TextBlock Text="Calendar" Foreground="{DynamicResource Gpui.MutedForeground}" />
+        <TextBlock Text="Calendar" Foreground="{DynamicResource UIKit.MutedForeground}" />
         <StackPanel Orientation="Horizontal" Spacing="12">
           <Calendar SelectedDate="2025-03-14" DisplayDate="2025-03-14" />
           <Calendar DisplayMode="Year" DisplayDate="2025-03-14" Classes="small" />
@@ -123,8 +123,8 @@
 
         <TimePicker SelectedTime="09:30" ClockIdentifier="24HourClock" />
 
-        <TextBlock Text="Table" Foreground="{DynamicResource Gpui.MutedForeground}" />
-        <TableView Theme="{StaticResource GpuiTable}" Classes="stripe" Width="360" HorizontalAlignment="Left"
+        <TextBlock Text="Table" Foreground="{DynamicResource UIKit.MutedForeground}" />
+        <TableView Theme="{StaticResource UIKitTable}" Classes="stripe" Width="360" HorizontalAlignment="Left"
                    ItemsSource="{x:Static local:Invoice.Samples}">
           <TableView.Columns>
             <TableViewColumn Header="Invoice" Binding="{Binding Id}" />
@@ -141,61 +141,61 @@
           </TableView.Columns>
         </TableView>
 
-        <TextBlock Text="Carousel" Foreground="{DynamicResource Gpui.MutedForeground}" />
+        <TextBlock Text="Carousel" Foreground="{DynamicResource UIKit.MutedForeground}" />
         <StackPanel Spacing="16" Width="240" Margin="48,0" HorizontalAlignment="Left">
           <Panel>
             <Carousel Name="Slides" Focusable="True">
               <Border Height="120" CornerRadius="7.5" BorderThickness="1" BackgroundSizing="OuterBorderEdge"
-                      Background="{DynamicResource Gpui.Muted}" BorderBrush="{DynamicResource Gpui.Border}">
+                      Background="{DynamicResource UIKit.Muted}" BorderBrush="{DynamicResource UIKit.Border}">
                 <TextBlock Text="1" FontSize="24" FontWeight="SemiBold" HorizontalAlignment="Center" VerticalAlignment="Center" />
               </Border>
               <Border Height="120" CornerRadius="7.5" BorderThickness="1" BackgroundSizing="OuterBorderEdge"
-                      Background="{DynamicResource Gpui.Muted}" BorderBrush="{DynamicResource Gpui.Border}">
+                      Background="{DynamicResource UIKit.Muted}" BorderBrush="{DynamicResource UIKit.Border}">
                 <TextBlock Text="2" FontSize="24" FontWeight="SemiBold" HorizontalAlignment="Center" VerticalAlignment="Center" />
               </Border>
             </Carousel>
             <Button Classes="outline icon-only rounded-full" Margin="-48,0,0,0" HorizontalAlignment="Left"
                     VerticalAlignment="Center" Click="OnPreviousSlide">
-              <PathIcon Data="{StaticResource Gpui.Icon.ChevronLeft}" />
+              <PathIcon Data="{StaticResource UIKit.Icon.ChevronLeft}" />
             </Button>
             <Button Classes="outline icon-only rounded-full" Margin="0,0,-48,0" HorizontalAlignment="Right"
                     VerticalAlignment="Center" Click="OnNextSlide">
-              <PathIcon Data="{StaticResource Gpui.Icon.ChevronRight}" />
+              <PathIcon Data="{StaticResource UIKit.Icon.ChevronRight}" />
             </Button>
           </Panel>
           <PipsPager Classes="carousel" NumberOfPages="2" HorizontalAlignment="Center"
                      SelectedPageIndex="{Binding #Slides.SelectedIndex, Mode=TwoWay}" />
         </StackPanel>
 
-        <TextBlock Text="Sidebar" Foreground="{DynamicResource Gpui.MutedForeground}" />
+        <TextBlock Text="Sidebar" Foreground="{DynamicResource UIKit.MutedForeground}" />
         <SplitView DisplayMode="CompactInline" IsPaneOpen="True" OpenPaneLength="200" Width="400" Height="120"
                    HorizontalAlignment="Left">
-          <Border Background="{DynamicResource Gpui.Muted}" />
+          <Border Background="{DynamicResource UIKit.Muted}" />
         </SplitView>
         <DrawerPage DrawerLayoutBehavior="CompactInline" IsOpen="False" Width="400" Height="120"
                     HorizontalAlignment="Left">
           <DrawerPage.DrawerHeader>
             <TextBlock Text="Workspace" VerticalAlignment="Center" />
           </DrawerPage.DrawerHeader>
-          <Border Background="{DynamicResource Gpui.Muted}" />
+          <Border Background="{DynamicResource UIKit.Muted}" />
         </DrawerPage>
 
-        <TextBlock Text="Sheet" Foreground="{DynamicResource Gpui.MutedForeground}" />
+        <TextBlock Text="Sheet" Foreground="{DynamicResource UIKit.MutedForeground}" />
         <DrawerPage Classes="sheet" DrawerBehavior="Flyout" DrawerPlacement="Right" DrawerHeader="Settings"
                     IsOpen="True" Width="400" Height="200" HorizontalAlignment="Left">
           <DrawerPage.Drawer>
             <TextBlock Text="Sheet content" />
           </DrawerPage.Drawer>
-          <Border Background="{DynamicResource Gpui.Muted}" />
+          <Border Background="{DynamicResource UIKit.Muted}" />
         </DrawerPage>
 
-        <TextBlock Text="Color picker" Foreground="{DynamicResource Gpui.MutedForeground}" />
+        <TextBlock Text="Color picker" Foreground="{DynamicResource UIKit.MutedForeground}" />
         <StackPanel Orientation="Horizontal" Spacing="16">
           <ColorPicker Color="#2563EB" Content="Background" />
           <ColorPicker Color="#F59E0B" Classes="field" Width="200" />
         </StackPanel>
 
-        <TextBlock Text="Popover" Foreground="{DynamicResource Gpui.MutedForeground}" />
+        <TextBlock Text="Popover" Foreground="{DynamicResource UIKit.MutedForeground}" />
         <Button Classes="outline" Content="Open" HorizontalAlignment="Left">
           <Button.Flyout>
             <Flyout Placement="BottomEdgeAlignedLeft" PlacementConstraintAdjustment="SlideX, SlideY" FlyoutPresenterClasses="arrow">
@@ -204,23 +204,23 @@
           </Button.Flyout>
         </Button>
 
-        <TextBlock Text="Toolbar" Foreground="{DynamicResource Gpui.MutedForeground}" />
+        <TextBlock Text="Toolbar" Foreground="{DynamicResource UIKit.MutedForeground}" />
         <CommandBar Content="Files">
           <CommandBarButton>
-            <CommandBarButton.Icon><PathIcon Data="{StaticResource Gpui.Icon.Undo2}" /></CommandBarButton.Icon>
+            <CommandBarButton.Icon><PathIcon Data="{StaticResource UIKit.Icon.Undo2}" /></CommandBarButton.Icon>
           </CommandBarButton>
           <CommandBarButton>
-            <CommandBarButton.Icon><PathIcon Data="{StaticResource Gpui.Icon.Redo2}" /></CommandBarButton.Icon>
+            <CommandBarButton.Icon><PathIcon Data="{StaticResource UIKit.Icon.Redo2}" /></CommandBarButton.Icon>
           </CommandBarButton>
           <CommandBarSeparator />
           <CommandBarButton Label="New">
-            <CommandBarButton.Icon><PathIcon Data="{StaticResource Gpui.Icon.Plus}" /></CommandBarButton.Icon>
+            <CommandBarButton.Icon><PathIcon Data="{StaticResource UIKit.Icon.Plus}" /></CommandBarButton.Icon>
           </CommandBarButton>
           <CommandBarSeparator />
           <CommandBarToggleButton Label="B" IsChecked="True" />
         </CommandBar>
 
-        <TextBlock Text="Input, Textarea, InputGroup" Foreground="{DynamicResource Gpui.MutedForeground}" />
+        <TextBlock Text="Input, Textarea, InputGroup" Foreground="{DynamicResource UIKit.MutedForeground}" />
         <StackPanel Spacing="12" HorizontalAlignment="Left" Width="320">
           <TextBox PlaceholderText="Your name" />
           <TextBox Classes="revealPasswordButton" PasswordChar="•" Text="secret" />
@@ -228,7 +228,7 @@
           <TextBox Classes="group" PlaceholderText="Search" />
         </StackPanel>
 
-        <TextBlock Text="List, Select, Combobox, Tree, Tabs, Pagination" Foreground="{DynamicResource Gpui.MutedForeground}" />
+        <TextBlock Text="List, Select, Combobox, Tree, Tabs, Pagination" Foreground="{DynamicResource UIKit.MutedForeground}" />
         <StackPanel Spacing="12" HorizontalAlignment="Left">
           <ListBox Width="240" Height="120">
             <ListBoxItem Content="Apple" />
@@ -263,103 +263,103 @@
           <PipsPager Classes="compact small" NumberOfPages="5" SelectedPageIndex="0" />
         </StackPanel>
 
-        <TextBlock Text="Badge, Tag, Alert, Skeleton, Kbd, Clipboard, Rating" Foreground="{DynamicResource Gpui.MutedForeground}" />
+        <TextBlock Text="Badge, Tag, Alert, Skeleton, Kbd, Clipboard, Rating" Foreground="{DynamicResource UIKit.MutedForeground}" />
         <StackPanel Orientation="Horizontal" Spacing="24">
-          <gpui:Badge Count="3">
-            <Border Width="32" Height="32" CornerRadius="6" Background="{DynamicResource Gpui.Secondary}" />
-          </gpui:Badge>
-          <gpui:Badge IsDot="True" BadgeBackground="{DynamicResource Gpui.Green}">
-            <PathIcon Data="{StaticResource Gpui.Icon.Bell}" Classes="large" />
-          </gpui:Badge>
-          <gpui:Badge Icon="{StaticResource Gpui.Icon.Check}">
-            <gpui:Avatar UserName="Jason Lee" />
-          </gpui:Badge>
-          <gpui:TagLabel Content="Primary" />
-          <gpui:TagLabel Classes="outline danger" Content="Danger" />
-          <gpui:TagLabel Classes="blue small rounded-full" Content="Blue" />
+          <uikit:Badge Count="3">
+            <Border Width="32" Height="32" CornerRadius="6" Background="{DynamicResource UIKit.Secondary}" />
+          </uikit:Badge>
+          <uikit:Badge IsDot="True" BadgeBackground="{DynamicResource UIKit.Green}">
+            <PathIcon Data="{StaticResource UIKit.Icon.Bell}" Classes="large" />
+          </uikit:Badge>
+          <uikit:Badge Icon="{StaticResource UIKit.Icon.Check}">
+            <uikit:Avatar UserName="Jason Lee" />
+          </uikit:Badge>
+          <uikit:TagLabel Content="Primary" />
+          <uikit:TagLabel Classes="outline danger" Content="Danger" />
+          <uikit:TagLabel Classes="blue small rounded-full" Content="Blue" />
         </StackPanel>
-        <gpui:Alert Classes="info" Title="Heads up!" Content="You can add components to your app using the CLI."
+        <uikit:Alert Classes="info" Title="Heads up!" Content="You can add components to your app using the CLI."
                     IsClosable="True" Width="420" HorizontalAlignment="Left" />
-        <gpui:Alert Classes="warning banner" Content="A new version is available." Width="420" HorizontalAlignment="Left" />
+        <uikit:Alert Classes="warning banner" Content="A new version is available." Width="420" HorizontalAlignment="Left" />
         <StackPanel Orientation="Horizontal" Spacing="12">
-          <gpui:Avatar Classes="small" />
+          <uikit:Avatar Classes="small" />
           <StackPanel Spacing="8">
-            <gpui:Skeleton Width="200" />
-            <gpui:Skeleton Classes="secondary" Width="140" />
+            <uikit:Skeleton Width="200" />
+            <uikit:Skeleton Classes="secondary" Width="140" />
           </StackPanel>
-          <gpui:Kbd Gesture="Ctrl+K" />
-          <gpui:Kbd Classes="outline" Gesture="F12" />
-          <gpui:Clipboard Text="Copied text" />
-          <gpui:Rating Value="3" />
+          <uikit:Kbd Gesture="Ctrl+K" />
+          <uikit:Kbd Classes="outline" Gesture="F12" />
+          <uikit:Clipboard Text="Copied text" />
+          <uikit:Rating Value="3" />
         </StackPanel>
         <StackPanel Orientation="Horizontal" Spacing="16">
-          <gpui:AvatarGroup Classes="small" Limit="3" ShowsEllipsis="True">
-            <gpui:Avatar UserName="Alice" />
-            <gpui:Avatar UserName="Bob" />
-            <gpui:Avatar UserName="Carol" />
-            <gpui:Avatar UserName="Dave" />
-          </gpui:AvatarGroup>
-          <gpui:Breadcrumb VerticalAlignment="Center">
-            <gpui:BreadcrumbItem Content="Home" />
-            <gpui:BreadcrumbItem Content="Documents" />
-            <gpui:BreadcrumbItem Content="Report" />
-          </gpui:Breadcrumb>
+          <uikit:AvatarGroup Classes="small" Limit="3" ShowsEllipsis="True">
+            <uikit:Avatar UserName="Alice" />
+            <uikit:Avatar UserName="Bob" />
+            <uikit:Avatar UserName="Carol" />
+            <uikit:Avatar UserName="Dave" />
+          </uikit:AvatarGroup>
+          <uikit:Breadcrumb VerticalAlignment="Center">
+            <uikit:BreadcrumbItem Content="Home" />
+            <uikit:BreadcrumbItem Content="Documents" />
+            <uikit:BreadcrumbItem Content="Report" />
+          </uikit:Breadcrumb>
         </StackPanel>
-        <gpui:EmptyState Classes="icon-media" Media="{StaticResource Gpui.Icon.Folder}" Title="No projects yet"
+        <uikit:EmptyState Classes="icon-media" Media="{StaticResource UIKit.Icon.Folder}" Title="No projects yet"
                          Description="Create your first project to get started." Width="420" HorizontalAlignment="Left">
-          <gpui:EmptyState.Actions>
+          <uikit:EmptyState.Actions>
             <StackPanel Orientation="Horizontal" Spacing="8">
               <Button Classes="primary" Content="Create project" />
               <Button Classes="outline" Content="Import project" />
             </StackPanel>
-          </gpui:EmptyState.Actions>
-        </gpui:EmptyState>
-        <gpui:StatusBar Width="420" HorizontalAlignment="Left" Left="main" Content="Ready" Right="UTF-8" />
-        <TextBlock Text="DescriptionList, Stepper, Form, HoverCard, ShimmerText, Marker, Bubble, Message" Foreground="{DynamicResource Gpui.MutedForeground}" />
-        <gpui:DescriptionList Width="640" HorizontalAlignment="Left">
-          <gpui:DescriptionItem Label="Name" Value="GPUI Kit" />
-          <gpui:DescriptionItem Label="Version" Value="0.1.0" />
-          <gpui:DescriptionItem Label="License" Value="Apache-2.0" />
-          <gpui:DescriptionSeparator />
-          <gpui:DescriptionItem Label="Platform" Value="macOS, Windows, Linux" Span="2" />
-        </gpui:DescriptionList>
-        <gpui:Stepper SelectedIndex="1" Width="480" HorizontalAlignment="Left">
-          <gpui:StepperItem Content="Order Details" Icon="{StaticResource Gpui.Icon.Calendar}" />
-          <gpui:StepperItem Content="Shipping" />
-          <gpui:StepperItem Content="Finish" />
-        </gpui:Stepper>
-        <gpui:Form Columns="2" Width="480" HorizontalAlignment="Left">
-          <gpui:FormField Label="First name"><TextBox PlaceholderText="Enter first name" /></gpui:FormField>
-          <gpui:FormField Label="Email" IsRequired="True" Description="Used for sign in."><TextBox /></gpui:FormField>
-          <gpui:Form.Footer><Button Classes="primary" Content="Save" /></gpui:Form.Footer>
-        </gpui:Form>
+          </uikit:EmptyState.Actions>
+        </uikit:EmptyState>
+        <uikit:StatusBar Width="420" HorizontalAlignment="Left" Left="main" Content="Ready" Right="UTF-8" />
+        <TextBlock Text="DescriptionList, Stepper, Form, HoverCard, ShimmerText, Marker, Bubble, Message" Foreground="{DynamicResource UIKit.MutedForeground}" />
+        <uikit:DescriptionList Width="640" HorizontalAlignment="Left">
+          <uikit:DescriptionItem Label="Name" Value="Avalonia UIKit" />
+          <uikit:DescriptionItem Label="Version" Value="0.1.0" />
+          <uikit:DescriptionItem Label="License" Value="Apache-2.0" />
+          <uikit:DescriptionSeparator />
+          <uikit:DescriptionItem Label="Platform" Value="macOS, Windows, Linux" Span="2" />
+        </uikit:DescriptionList>
+        <uikit:Stepper SelectedIndex="1" Width="480" HorizontalAlignment="Left">
+          <uikit:StepperItem Content="Order Details" Icon="{StaticResource UIKit.Icon.Calendar}" />
+          <uikit:StepperItem Content="Shipping" />
+          <uikit:StepperItem Content="Finish" />
+        </uikit:Stepper>
+        <uikit:Form Columns="2" Width="480" HorizontalAlignment="Left">
+          <uikit:FormField Label="First name"><TextBox PlaceholderText="Enter first name" /></uikit:FormField>
+          <uikit:FormField Label="Email" IsRequired="True" Description="Used for sign in."><TextBox /></uikit:FormField>
+          <uikit:Form.Footer><Button Classes="primary" Content="Save" /></uikit:Form.Footer>
+        </uikit:Form>
         <StackPanel Orientation="Horizontal" Spacing="24">
-          <gpui:HoverCard>
-            <TextBlock Text="Hover over me" Foreground="{DynamicResource Gpui.Primary}" />
-            <gpui:HoverCard.Card>
+          <uikit:HoverCard>
+            <TextBlock Text="Hover over me" Foreground="{DynamicResource UIKit.Primary}" />
+            <uikit:HoverCard.Card>
               <TextBlock Text="This is a hover card" />
-            </gpui:HoverCard.Card>
-          </gpui:HoverCard>
-          <gpui:ShimmerText Text="Thinking…" />
+            </uikit:HoverCard.Card>
+          </uikit:HoverCard>
+          <uikit:ShimmerText Text="Thinking…" />
         </StackPanel>
-        <gpui:Marker Classes="separator" Content="Today" Width="420" HorizontalAlignment="Left" />
-        <gpui:Marker Content="Thinking" IsLoading="True" />
-        <gpui:Message Width="420" HorizontalAlignment="Left" Footer="Read">
-          <gpui:Message.Avatar><gpui:Avatar UserName="Alice" Width="32" Height="32" /></gpui:Message.Avatar>
-          <gpui:Message.Header><TextBlock Text="Alice" /></gpui:Message.Header>
-          <gpui:Bubble Classes="secondary" Content="Can you review this draft?" Reaction="+2" />
-        </gpui:Message>
-        <gpui:Message Classes="end" Width="420" HorizontalAlignment="Left">
-          <gpui:Bubble Content="Looks good to me." />
-        </gpui:Message>
-        <TextBlock Text="GroupBox, Separator, Link" Foreground="{DynamicResource Gpui.MutedForeground}" />
+        <uikit:Marker Classes="separator" Content="Today" Width="420" HorizontalAlignment="Left" />
+        <uikit:Marker Content="Thinking" IsLoading="True" />
+        <uikit:Message Width="420" HorizontalAlignment="Left" Footer="Read">
+          <uikit:Message.Avatar><uikit:Avatar UserName="Alice" Width="32" Height="32" /></uikit:Message.Avatar>
+          <uikit:Message.Header><TextBlock Text="Alice" /></uikit:Message.Header>
+          <uikit:Bubble Classes="secondary" Content="Can you review this draft?" Reaction="+2" />
+        </uikit:Message>
+        <uikit:Message Classes="end" Width="420" HorizontalAlignment="Left">
+          <uikit:Bubble Content="Looks good to me." />
+        </uikit:Message>
+        <TextBlock Text="GroupBox, Separator, Link" Foreground="{DynamicResource UIKit.MutedForeground}" />
         <GroupBox Classes="outline" Header="Account" Content="Content" Width="320" HorizontalAlignment="Left" />
         <Separator Width="320" HorizontalAlignment="Left" />
         <Separator Classes="dashed" Width="320" HorizontalAlignment="Left" />
         <HyperlinkButton Content="Documentation" />
 
         <Border Width="200" Height="64" BorderThickness="1" Background="Transparent"
-                BorderBrush="{DynamicResource Gpui.Border}" HorizontalAlignment="Left">
+                BorderBrush="{DynamicResource UIKit.Border}" HorizontalAlignment="Left">
           <Border.ContextMenu>
             <ContextMenu>
               <MenuItem Header="Copy" InputGesture="F5" />

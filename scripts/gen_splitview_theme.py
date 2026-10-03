@@ -36,8 +36,8 @@ def template(side):
               <Border Name="PART_PaneSurface"
                       Background="{{TemplateBinding PaneBackground}}"
                       BackgroundSizing="OuterBorderEdge"
-                      BorderBrush="{{DynamicResource Gpui.SidebarBorder}}"
-                      TextElement.Foreground="{{DynamicResource Gpui.SidebarForeground}}">
+                      BorderBrush="{{DynamicResource UIKit.SidebarBorder}}"
+                      TextElement.Foreground="{{DynamicResource UIKit.SidebarForeground}}">
                 <ContentPresenter Name="PART_PanePresenter"
                                   Content="{{TemplateBinding Pane}}"
                                   ContentTemplate="{{TemplateBinding PaneTemplate}}" />
@@ -98,16 +98,16 @@ w('''<!--
 -->
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:gpui="using:AvaloniaUIKit">
+                    xmlns:uikit="using:AvaloniaUIKit">
   <!-- shadow_xl (gpui styles.rs): (0, 20) blur 25 spread -5, (0, 8) blur 10 spread -6, black at 10%. -->
-  <BoxShadows x:Key="Gpui.Shadow.Xl">0 20 84.8705 -5 #1A000000, 0 8 32.909 -6 #1A000000</BoxShadows>
+  <BoxShadows x:Key="UIKit.Shadow.Xl">0 20 84.8705 -5 #1A000000, 0 8 32.909 -6 #1A000000</BoxShadows>
   <!-- SheetSettings.margin_top: the sheet's offset below a custom title bar (GPUI: 34px, TITLE_BAR_HEIGHT). -->
-  <Thickness x:Key="Gpui.Sheet.Margin">0</Thickness>
+  <Thickness x:Key="UIKit.Sheet.Margin">0</Thickness>
 
   <ControlTheme x:Key="{x:Type SplitView}" TargetType="SplitView">
     <Setter Property="OpenPaneLength" Value="255" />
     <Setter Property="CompactPaneLength" Value="48" />
-    <Setter Property="PaneBackground" Value="{DynamicResource Gpui.Sidebar}" />
+    <Setter Property="PaneBackground" Value="{DynamicResource UIKit.Sidebar}" />
 ''')
 for side in SIDES:
     w(f'''    <Style Selector="^:{side}">
@@ -128,7 +128,7 @@ for axis, sides, prop, closed in [("Width", ("left", "right"), "Width", "ClosedP
     modes = ", ".join(f"^:{s}:{m} /template/ Panel#PART_PaneRoot" for s in sides for m in ("inline", "compactinline", "compactoverlay"))
     w(f'''    <!-- mod.rs: EffectTransition 200ms ease_in_out_cubic on the clip; not on the first layout. -->
     <Style Selector="{modes}">
-      <Setter Property="gpui:Motion.SettledTransitions">
+      <Setter Property="uikit:Motion.SettledTransitions">
         <Transitions>
           <DoubleTransition Property="{prop}" Duration="0:0:0.2" Easing="CubicEaseInOut" />
         </Transitions>
@@ -156,26 +156,26 @@ for side in SIDES:
     </Style>''')
 w('')
 w('''    <!--
-      Overlay: the sheet. The pane sits below Gpui.Sheet.Margin and slides
+      Overlay: the sheet. The pane sits below UIKit.Sheet.Margin and slides
       100px in from its edge over 150ms, linearly (sheet.rs), its shadow
       spilling past it; closing collapses it at once. Closed, it is collapsed
       rather than hidden, so DrawerPage can focus into it as it opens.
     -->
     <Style Selector="^:overlay">
-      <Setter Property="PaneBackground" Value="{DynamicResource Gpui.Background}" />
+      <Setter Property="PaneBackground" Value="{DynamicResource UIKit.Background}" />
     </Style>
     <Style Selector="^:overlay /template/ Panel#PART_PaneRoot">
-      <Setter Property="Margin" Value="{DynamicResource Gpui.Sheet.Margin}" />
+      <Setter Property="Margin" Value="{DynamicResource UIKit.Sheet.Margin}" />
     </Style>
     <Style Selector="^:overlay:open /template/ Panel#PART_PaneRoot">
       <Setter Property="ClipToBounds" Value="False" />
     </Style>
     <Style Selector="^:overlay /template/ Border#PART_PaneSurface">
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Border}" />
-      <Setter Property="TextElement.Foreground" Value="{DynamicResource Gpui.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Border}" />
+      <Setter Property="TextElement.Foreground" Value="{DynamicResource UIKit.Foreground}" />
     </Style>
     <Style Selector="^:overlay /template/ Border#PART_PaneShadow">
-      <Setter Property="BoxShadow" Value="{StaticResource Gpui.Shadow.Xl}" />
+      <Setter Property="BoxShadow" Value="{StaticResource UIKit.Shadow.Xl}" />
     </Style>
     <Style Selector="^:bottom:overlay /template/ Panel#PART_PaneRoot">
       <Setter Property="Margin" Value="0" />
@@ -197,7 +197,7 @@ for side in SIDES:
     </Style>''')
 w('''
     <Style Selector="^:lightDismiss /template/ Rectangle#LightDismissLayer">
-      <Setter Property="Fill" Value="{DynamicResource Gpui.Overlay}" />
+      <Setter Property="Fill" Value="{DynamicResource UIKit.Overlay}" />
     </Style>
     <Style Selector="^:overlay:open /template/ Rectangle#LightDismissLayer, ^:compactoverlay:open /template/ Rectangle#LightDismissLayer">
       <Setter Property="IsVisible" Value="True" />

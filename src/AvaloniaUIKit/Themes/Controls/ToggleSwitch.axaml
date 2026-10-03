@@ -13,9 +13,9 @@
 -->
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:gpui="using:AvaloniaUIKit">
+                    xmlns:uikit="using:AvaloniaUIKit">
   <ControlTheme x:Key="{x:Type ToggleSwitch}" TargetType="ToggleSwitch">
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="FontSize" Value="14" />
     <Setter Property="ClipToBounds" Value="False" />
@@ -30,14 +30,14 @@
         <DockPanel Background="{TemplateBinding Background}">
           <Panel Name="PART_TrackArea" DockPanel.Dock="Left" VerticalAlignment="Top">
             <Border Name="PART_FocusRing" Margin="-3" BorderThickness="3" CornerRadius="11.5"
-                    BorderBrush="{DynamicResource Gpui.FocusRing}" IsVisible="False" IsHitTestVisible="False" />
+                    BorderBrush="{DynamicResource UIKit.FocusRing}" IsVisible="False" IsHitTestVisible="False" />
             <Border Name="PART_Track" Width="36" Height="20" BorderThickness="1" Padding="1"
                     CornerRadius="9.5" BackgroundSizing="OuterBorderEdge"
-                    BorderBrush="Transparent" Background="{DynamicResource Gpui.Switch}">
+                    BorderBrush="Transparent" Background="{DynamicResource UIKit.Switch}">
               <Canvas Name="PART_SwitchKnob" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Center">
                 <Panel Name="PART_MovingKnobs" Width="16" Height="16"
-                       gpui:Motion.Spring="{StaticResource Gpui.Spring.Move}" gpui:Motion.SpringsCanvasLeft="True">
-                  <Border Name="PART_Thumb" CornerRadius="8" Background="{DynamicResource Gpui.SwitchThumb}" />
+                       uikit:Motion.Spring="{StaticResource UIKit.Spring.Move}" uikit:Motion.SpringsCanvasLeft="True">
+                  <Border Name="PART_Thumb" CornerRadius="8" Background="{DynamicResource UIKit.SwitchThumb}" />
                 </Panel>
               </Canvas>
             </Border>
@@ -114,25 +114,25 @@
     </Style>
 
     <Style Selector="^:checked /template/ Border#PART_Track">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Primary}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Primary}" />
     </Style>
     <Style Selector="^:disabled">
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.MutedForeground}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.MutedForeground}" />
     </Style>
     <Style Selector="^:disabled /template/ Border#PART_Track">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Switch.Disabled.Track}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Switch.Disabled.Track}" />
     </Style>
     <Style Selector="^:disabled:checked /template/ Border#PART_Track">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Switch.Disabled.CheckedTrack}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Switch.Disabled.CheckedTrack}" />
     </Style>
     <Style Selector="^:focus /template/ Border#PART_Track">
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Ring}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Ring}" />
     </Style>
     <Style Selector="^:focus /template/ Border#PART_FocusRing">
       <Setter Property="IsVisible" Value="True" />
     </Style>
     <Style Selector="^:dragging /template/ Panel#PART_MovingKnobs">
-      <Setter Property="gpui:Motion.SpringTravel" Value="False" />
+      <Setter Property="uikit:Motion.SpringTravel" Value="False" />
     </Style>
   </ControlTheme>
 </ResourceDictionary>

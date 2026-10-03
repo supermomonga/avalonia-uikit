@@ -1,4 +1,4 @@
-# GPUI Kit Breadcrumb -> gpui:Breadcrumb / gpui:BreadcrumbItem.
+# GPUI Kit Breadcrumb -> uikit:Breadcrumb / uikit:BreadcrumbItem.
 component = "breadcrumb"
 viewport = [320, 48]
 anchor = [16, 12]

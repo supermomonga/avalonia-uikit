@@ -3,7 +3,7 @@
   CommandBarButton, CommandBarToggleButton and CommandBarSeparator:
 
     <CommandBar Content="Files">
-      <CommandBarButton><CommandBarButton.Icon><PathIcon Data="{StaticResource Gpui.Icon.Undo2}" /></CommandBarButton.Icon></CommandBarButton>
+      <CommandBarButton><CommandBarButton.Icon><PathIcon Data="{StaticResource UIKit.Icon.Undo2}" /></CommandBarButton.Icon></CommandBarButton>
       <CommandBarSeparator />
       <CommandBarButton Label="New"> ... </CommandBarButton>
       <CommandBarToggleButton Label="B" />
@@ -22,9 +22,9 @@
         xmlns:gconv="using:AvaloniaUIKit.Converters">
   <Styles.Resources>
     <ControlTheme x:Key="{x:Type CommandBarButton}" TargetType="CommandBarButton">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Ghost.Normal.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Ghost.Normal.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Ghost.Normal.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Ghost.Normal.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Ghost.Normal.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Ghost.Normal.Border}" />
       <Setter Property="BorderThickness" Value="0" />
       <Setter Property="CornerRadius" Value="6" />
       <!-- Size::Small, compact: h_6 px_1p5 min_w_6, square without a label. -->
@@ -64,25 +64,25 @@
             </Border>
             <!-- focus_ring (styled.rs): a 3px band outside, in ring at 50%. -->
             <Border Name="PART_FocusRing" Margin="-3" BorderThickness="3" CornerRadius="7.5"
-                    BorderBrush="{DynamicResource Gpui.FocusRing}"
+                    BorderBrush="{DynamicResource UIKit.FocusRing}"
                     IsVisible="False" IsHitTestVisible="False" />
           </Panel>
         </ControlTemplate>
       </Setter>
       <Style Selector="^:pointerover">
-        <Setter Property="Background" Value="{DynamicResource Gpui.Button.Ghost.Hover.Background}" />
-        <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Ghost.Hover.Foreground}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Ghost.Hover.Border}" />
+        <Setter Property="Background" Value="{DynamicResource UIKit.Button.Ghost.Hover.Background}" />
+        <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Ghost.Hover.Foreground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Ghost.Hover.Border}" />
       </Style>
       <Style Selector="^:pressed">
-        <Setter Property="Background" Value="{DynamicResource Gpui.Button.Ghost.Pressed.Background}" />
-        <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Ghost.Pressed.Foreground}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Ghost.Pressed.Border}" />
+        <Setter Property="Background" Value="{DynamicResource UIKit.Button.Ghost.Pressed.Background}" />
+        <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Ghost.Pressed.Foreground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Ghost.Pressed.Border}" />
       </Style>
       <Style Selector="^:disabled">
-        <Setter Property="Background" Value="{DynamicResource Gpui.Button.Ghost.Disabled.Background}" />
-        <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Ghost.Disabled.Foreground}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Ghost.Disabled.Border}" />
+        <Setter Property="Background" Value="{DynamicResource UIKit.Button.Ghost.Disabled.Background}" />
+        <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Ghost.Disabled.Foreground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Ghost.Disabled.Border}" />
       </Style>
       <Style Selector="^:focus-visible /template/ Border#PART_FocusRing">
         <Setter Property="IsVisible" Value="True" />
@@ -113,7 +113,7 @@
     <!-- GPUI's Toggle: the accent while checked or hovered, no pressed look, no ring. -->
     <ControlTheme x:Key="{x:Type CommandBarToggleButton}" TargetType="CommandBarToggleButton">
       <Setter Property="Background" Value="Transparent" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
       <Setter Property="BorderThickness" Value="0" />
       <Setter Property="CornerRadius" Value="6" />
       <!-- Size::Small: min_w_6 h_6 px_1 text_sm. -->
@@ -147,8 +147,8 @@
         </ControlTemplate>
       </Setter>
       <Style Selector="^:pointerover:not(:disabled), ^:checked">
-        <Setter Property="Background" Value="{DynamicResource Gpui.Accent}" />
-        <Setter Property="Foreground" Value="{DynamicResource Gpui.AccentForeground}" />
+        <Setter Property="Background" Value="{DynamicResource UIKit.Accent}" />
+        <Setter Property="Foreground" Value="{DynamicResource UIKit.AccentForeground}" />
       </Style>
       <Style Selector="^[IsCompact=True] /template/ TextBlock#PART_Label">
         <Setter Property="IsVisible" Value="False" />
@@ -173,7 +173,7 @@
 
     <!-- Separator::vertical().h_5(): a 1px border line taking no width. -->
     <ControlTheme x:Key="{x:Type CommandBarSeparator}" TargetType="CommandBarSeparator">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Border}" />
       <Setter Property="Width" Value="1" />
       <Setter Property="Height" Value="20" />
       <Setter Property="Margin" Value="-0.5,0" />
@@ -194,7 +194,7 @@
 
     <ControlTheme x:Key="{x:Type CommandBar}" TargetType="CommandBar">
       <Setter Property="Background" Value="Transparent" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
       <Setter Property="HorizontalAlignment" Value="Left" />
       <Setter Property="DefaultLabelPosition" Value="Right" />
       <!-- Focus rings paint outside the commands. -->
@@ -234,7 +234,7 @@
                         Classes="ghost icon-only small"
                         VerticalAlignment="Center"
                         IsVisible="{TemplateBinding IsOverflowButtonVisible}">
-                  <PathIcon Data="{StaticResource Gpui.Icon.Ellipsis}" />
+                  <PathIcon Data="{StaticResource UIKit.Icon.Ellipsis}" />
                 </Button>
               </StackPanel>
               <Popup Name="PART_OverflowPopup"
@@ -245,11 +245,11 @@
                 <!-- GPUI's popover surface (Menus.axaml), 4px below the button. -->
                 <Panel Margin="0,4,0,0">
                   <Border Margin="-1" CornerRadius="6"
-                          Background="{DynamicResource Gpui.PopoverRing}" IsHitTestVisible="False" />
-                  <Border Background="{DynamicResource Gpui.Popover}" CornerRadius="6"
-                          BoxShadow="{StaticResource Gpui.Shadow.Popover}" Padding="4" MinWidth="128">
+                          Background="{DynamicResource UIKit.PopoverRing}" IsHitTestVisible="False" />
+                  <Border Background="{DynamicResource UIKit.Popover}" CornerRadius="6"
+                          BoxShadow="{StaticResource UIKit.Shadow.Popover}" Padding="4" MinWidth="128">
                     <ItemsControl Name="PART_OverflowPresenter"
-                                  Foreground="{DynamicResource Gpui.PopoverForeground}"
+                                  Foreground="{DynamicResource UIKit.PopoverForeground}"
                                   ItemsSource="{Binding OverflowItems, RelativeSource={RelativeSource TemplatedParent}}">
                       <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>

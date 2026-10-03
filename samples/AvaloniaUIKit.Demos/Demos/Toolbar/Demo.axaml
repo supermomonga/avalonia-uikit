@@ -1,22 +1,22 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:gpui="using:AvaloniaUIKit"
+             xmlns:uikit="using:AvaloniaUIKit"
              x:Class="AvaloniaUIKit.Demos.ToolbarDemo">
   <CommandBar Content="Files" HorizontalAlignment="Left">
     <CommandBarButton>
       <CommandBarButton.Icon>
-        <PathIcon Data="{StaticResource Gpui.Icon.Undo2}" />
+        <PathIcon Data="{StaticResource UIKit.Icon.Undo2}" />
       </CommandBarButton.Icon>
     </CommandBarButton>
     <CommandBarButton>
       <CommandBarButton.Icon>
-        <PathIcon Data="{StaticResource Gpui.Icon.Redo2}" />
+        <PathIcon Data="{StaticResource UIKit.Icon.Redo2}" />
       </CommandBarButton.Icon>
     </CommandBarButton>
     <CommandBarSeparator />
     <CommandBarButton Label="New">
       <CommandBarButton.Icon>
-        <PathIcon Data="{StaticResource Gpui.Icon.Plus}" />
+        <PathIcon Data="{StaticResource UIKit.Icon.Plus}" />
       </CommandBarButton.Icon>
     </CommandBarButton>
     <CommandBarSeparator />

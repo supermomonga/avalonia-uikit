@@ -22,15 +22,15 @@
 -->
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:gpui="using:AvaloniaUIKit"
+                    xmlns:uikit="using:AvaloniaUIKit"
                     xmlns:gconv="using:AvaloniaUIKit.Converters">
   <ControlTheme x:Key="{x:Type ComboBox}" TargetType="ComboBox">
-    <Setter Property="Background" Value="{DynamicResource Gpui.InputBackground}" />
-    <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Input}" />
+    <Setter Property="Background" Value="{DynamicResource UIKit.InputBackground}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Input}" />
     <Setter Property="BorderThickness" Value="1" />
     <Setter Property="CornerRadius" Value="5.5" />
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
-    <Setter Property="PlaceholderForeground" Value="{DynamicResource Gpui.MutedForeground}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
+    <Setter Property="PlaceholderForeground" Value="{DynamicResource UIKit.MutedForeground}" />
     <Setter Property="FontSize" Value="14" />
     <Setter Property="Height" Value="32" />
     <Setter Property="Padding" Value="10,0" />
@@ -42,12 +42,12 @@
     <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
     <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
     <!-- While open, the trigger shows the item under the cursor (Selects). -->
-    <Setter Property="gpui:Selects.TracksCursor" Value="True" />
+    <Setter Property="uikit:Selects.TracksCursor" Value="True" />
     <Setter Property="Template">
       <ControlTemplate>
         <Panel>
           <Border Name="PART_FocusRing" Margin="-3" BorderThickness="3" CornerRadius="7.5"
-                  BorderBrush="{DynamicResource Gpui.FocusRing}" IsVisible="False" IsHitTestVisible="False" />
+                  BorderBrush="{DynamicResource UIKit.FocusRing}" IsVisible="False" IsHitTestVisible="False" />
           <Border Name="PART_Background"
                   Background="{TemplateBinding Background}"
                   BorderBrush="{TemplateBinding BorderBrush}"
@@ -70,13 +70,13 @@
                                 TextTrimming="CharacterEllipsis">
                 <ContentPresenter.Content>
                   <MultiBinding Converter="{x:Static gconv:FirstNonNullConverter.Instance}">
-                    <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="(gpui:Selects.CursorItem)" />
+                    <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="(uikit:Selects.CursorItem)" />
                     <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="SelectionBoxItem" />
                   </MultiBinding>
                 </ContentPresenter.Content>
               </ContentPresenter>
               <PathIcon Name="PART_Caret" Grid.Column="1" VerticalAlignment="Center"
-                        Data="{StaticResource Gpui.Icon.ChevronDown}" Foreground="{DynamicResource Gpui.MutedForeground}" />
+                        Data="{StaticResource UIKit.Icon.ChevronDown}" Foreground="{DynamicResource UIKit.MutedForeground}" />
             </Grid>
           </Border>
           <Popup Name="PART_Popup"
@@ -94,12 +94,12 @@
                 <TranslateTransform />
               </Panel.RenderTransform>
               <Border Name="PART_PopupRing" Margin="-1" CornerRadius="6"
-                      Background="{DynamicResource Gpui.PopoverRing}" IsHitTestVisible="False" />
+                      Background="{DynamicResource UIKit.PopoverRing}" IsHitTestVisible="False" />
               <Border Name="PART_PopupShadow" CornerRadius="6"
-                      BoxShadow="{StaticResource Gpui.Shadow.Popover}" IsHitTestVisible="False" />
+                      BoxShadow="{StaticResource UIKit.Shadow.Popover}" IsHitTestVisible="False" />
               <Border Name="PART_PopupSurface" CornerRadius="6" ClipToBounds="True"
-                      Background="{DynamicResource Gpui.Popover}"
-                      TextElement.Foreground="{DynamicResource Gpui.PopoverForeground}"
+                      Background="{DynamicResource UIKit.Popover}"
+                      TextElement.Foreground="{DynamicResource UIKit.PopoverForeground}"
                       MaxHeight="{TemplateBinding MaxDropDownHeight}">
                 <Panel>
                   <ScrollViewer HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
@@ -110,7 +110,7 @@
                   <!-- select.rs: an empty list shows a 28px Inbox icon in 24px of padding. -->
                   <Panel Name="PART_Empty" Height="76" IsVisible="False">
                     <PathIcon Width="28" Height="28" HorizontalAlignment="Center" VerticalAlignment="Center"
-                              Data="{StaticResource Gpui.Icon.Inbox}" Foreground="{DynamicResource Gpui.Select.Empty}" />
+                              Data="{StaticResource UIKit.Icon.Inbox}" Foreground="{DynamicResource UIKit.Select.Empty}" />
                   </Panel>
                 </Panel>
               </Border>
@@ -123,7 +123,7 @@
 
     <!-- GPUI Kit's Combobox titles the trigger with the committed item only. -->
     <Style Selector="^.combobox">
-      <Setter Property="gpui:Selects.TracksCursor" Value="False" />
+      <Setter Property="uikit:Selects.TracksCursor" Value="False" />
     </Style>
 
     <Style Selector="^:empty /template/ Panel#PART_Empty">
@@ -168,18 +168,18 @@
     </Style>
 
     <Style Selector="^:focus, ^:dropdownopen">
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Ring}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Ring}" />
     </Style>
     <Style Selector="^:focus /template/ Border#PART_FocusRing, ^:dropdownopen /template/ Border#PART_FocusRing">
       <Setter Property="IsVisible" Value="True" />
     </Style>
     <Style Selector="^:disabled">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Select.Disabled.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.MutedForeground}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Select.Disabled.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.MutedForeground}" />
       <Setter Property="Opacity" Value="0.5" />
     </Style>
     <Style Selector="^:error">
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Danger}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Danger}" />
     </Style>
 
     <!--
@@ -223,7 +223,7 @@
 
   <ControlTheme x:Key="{x:Type ComboBoxItem}" TargetType="ComboBoxItem">
     <Setter Property="Background" Value="Transparent" />
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
     <Setter Property="CornerRadius" Value="6" />
     <Setter Property="Padding" Value="7,4" />
     <Setter Property="FontSize" Value="14" />
@@ -245,23 +245,23 @@
                               TextTrimming="CharacterEllipsis" />
             <!-- The check keeps its 12px slot when hidden. -->
             <PathIcon Name="PART_Check" Grid.Column="1" Classes="xsmall" VerticalAlignment="Center"
-                      Data="{StaticResource Gpui.Icon.Check}" Foreground="{DynamicResource Gpui.Foreground}" Opacity="0" />
+                      Data="{StaticResource UIKit.Icon.Check}" Foreground="{DynamicResource UIKit.Foreground}" Opacity="0" />
           </Grid>
         </Border>
       </ControlTemplate>
     </Setter>
     <Style Selector="^:pointerover">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Select.Row.Hover}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Select.Row.Hover}" />
     </Style>
     <Style Selector="^:focus">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Accent}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Accent}" />
     </Style>
     <Style Selector="^:selected /template/ PathIcon#PART_Check">
       <Setter Property="Opacity" Value="1" />
     </Style>
     <Style Selector="^:disabled">
       <Setter Property="Background" Value="Transparent" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.MutedForeground}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.MutedForeground}" />
     </Style>
   </ControlTheme>
 </ResourceDictionary>

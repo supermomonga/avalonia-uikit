@@ -5,7 +5,7 @@
     <PipsPager NumberOfPages="5" SelectedPageIndex="2" Classes="small" />
 
   Previous and Next are ghost compact buttons with a chevron and a label (the
-  resources Gpui.Pagination.Previous / Next), the pages compact buttons: the
+  resources UIKit.Pagination.Previous / Next), the pages compact buttons: the
   current one outline, the others ghost. GPUI keeps the end buttons visible
   and disabled. Classes: xsmall small large (medium is the default) and
   compact (the chevrons only, as squares). Set them before the template
@@ -19,14 +19,14 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <Styles.Resources>
-    <x:String x:Key="Gpui.Pagination.Previous">Previous</x:String>
-    <x:String x:Key="Gpui.Pagination.Next">Next</x:String>
+    <x:String x:Key="UIKit.Pagination.Previous">Previous</x:String>
+    <x:String x:Key="UIKit.Pagination.Next">Next</x:String>
 
     <!-- A page: a compact button, ghost or (the current page) default outline. -->
-    <ControlTheme x:Key="GpuiPagerItem" TargetType="ListBoxItem">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Ghost.Normal.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Ghost.Normal.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Ghost.Normal.Border}" />
+    <ControlTheme x:Key="UIKitPagerItem" TargetType="ListBoxItem">
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Ghost.Normal.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Ghost.Normal.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Ghost.Normal.Border}" />
       <Setter Property="BorderThickness" Value="0" />
       <Setter Property="CornerRadius" Value="6" />
       <!-- The 4px gap, as margins: PipsPager pages by container size plus margins. -->
@@ -57,51 +57,51 @@
                               TextWrapping="NoWrap" />
             <Border Name="PART_FocusRing" Margin="-3" BorderThickness="3"
                     CornerRadius="7.5"
-                    BorderBrush="{DynamicResource Gpui.FocusRing}"
+                    BorderBrush="{DynamicResource UIKit.FocusRing}"
                     IsVisible="False" IsHitTestVisible="False" />
           </Panel>
         </ControlTemplate>
       </Setter>
       <Style Selector="^:pointerover">
-        <Setter Property="Background" Value="{DynamicResource Gpui.Button.Ghost.Hover.Background}" />
-        <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Ghost.Hover.Foreground}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Ghost.Hover.Border}" />
+        <Setter Property="Background" Value="{DynamicResource UIKit.Button.Ghost.Hover.Background}" />
+        <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Ghost.Hover.Foreground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Ghost.Hover.Border}" />
       </Style>
       <Style Selector="^:pressed">
-        <Setter Property="Background" Value="{DynamicResource Gpui.Button.Ghost.Pressed.Background}" />
-        <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Ghost.Pressed.Foreground}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Ghost.Pressed.Border}" />
+        <Setter Property="Background" Value="{DynamicResource UIKit.Button.Ghost.Pressed.Background}" />
+        <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Ghost.Pressed.Foreground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Ghost.Pressed.Border}" />
       </Style>
       <Style Selector="^:disabled">
-        <Setter Property="Background" Value="{DynamicResource Gpui.Button.Ghost.Disabled.Background}" />
-        <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Ghost.Disabled.Foreground}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Ghost.Disabled.Border}" />
+        <Setter Property="Background" Value="{DynamicResource UIKit.Button.Ghost.Disabled.Background}" />
+        <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Ghost.Disabled.Foreground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Ghost.Disabled.Border}" />
       </Style>
       <Style Selector="^:selected">
-        <Setter Property="Background" Value="{DynamicResource Gpui.Button.Default.Outline.Normal.Background}" />
-        <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Default.Outline.Normal.Foreground}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Default.Outline.Normal.Border}" />
+        <Setter Property="Background" Value="{DynamicResource UIKit.Button.Default.Outline.Normal.Background}" />
+        <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Default.Outline.Normal.Foreground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Default.Outline.Normal.Border}" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="CornerRadius" Value="5.5" />
       </Style>
       <Style Selector="^:selected:pointerover">
-        <Setter Property="Background" Value="{DynamicResource Gpui.Button.Default.Outline.Hover.Background}" />
-        <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Default.Outline.Hover.Foreground}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Default.Outline.Hover.Border}" />
+        <Setter Property="Background" Value="{DynamicResource UIKit.Button.Default.Outline.Hover.Background}" />
+        <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Default.Outline.Hover.Foreground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Default.Outline.Hover.Border}" />
       </Style>
       <Style Selector="^:selected:pressed">
-        <Setter Property="Background" Value="{DynamicResource Gpui.Button.Default.Outline.Pressed.Background}" />
-        <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Default.Outline.Pressed.Foreground}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Default.Outline.Pressed.Border}" />
+        <Setter Property="Background" Value="{DynamicResource UIKit.Button.Default.Outline.Pressed.Background}" />
+        <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Default.Outline.Pressed.Foreground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Default.Outline.Pressed.Border}" />
       </Style>
       <Style Selector="^:selected:disabled">
-        <Setter Property="Background" Value="{DynamicResource Gpui.Button.Default.Outline.Disabled.Background}" />
-        <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Default.Outline.Disabled.Foreground}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Default.Outline.Disabled.Border}" />
+        <Setter Property="Background" Value="{DynamicResource UIKit.Button.Default.Outline.Disabled.Background}" />
+        <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Default.Outline.Disabled.Foreground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Default.Outline.Disabled.Border}" />
       </Style>
       <!-- Keyboard focus: the border turns to ring, and the ring band shows. -->
       <Style Selector="^:focus-visible">
-        <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Ring}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Ring}" />
       </Style>
       <Style Selector="^:focus-visible /template/ Border#PART_FocusRing">
         <Setter Property="IsVisible" Value="True" />
@@ -113,10 +113,10 @@
       button, 8px from the next, selected for the current page (hovering a
       selected button changes nothing).
     -->
-    <ControlTheme x:Key="GpuiCarouselPip" TargetType="ListBoxItem">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Default.Normal.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Default.Normal.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Default.Normal.Border}" />
+    <ControlTheme x:Key="UIKitCarouselPip" TargetType="ListBoxItem">
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Default.Normal.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Default.Normal.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Default.Normal.Border}" />
       <Setter Property="BorderThickness" Value="1" />
       <Setter Property="CornerRadius" Value="5.5" />
       <Setter Property="Margin" Value="4,0" />
@@ -146,33 +146,33 @@
                               TextWrapping="NoWrap" />
             <Border Name="PART_FocusRing" Margin="-3" BorderThickness="3"
                     CornerRadius="7.5"
-                    BorderBrush="{DynamicResource Gpui.FocusRing}"
+                    BorderBrush="{DynamicResource UIKit.FocusRing}"
                     IsVisible="False" IsHitTestVisible="False" />
           </Panel>
         </ControlTemplate>
       </Setter>
       <Style Selector="^:pointerover">
-        <Setter Property="Background" Value="{DynamicResource Gpui.Button.Default.Hover.Background}" />
-        <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Default.Hover.Foreground}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Default.Hover.Border}" />
+        <Setter Property="Background" Value="{DynamicResource UIKit.Button.Default.Hover.Background}" />
+        <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Default.Hover.Foreground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Default.Hover.Border}" />
       </Style>
       <Style Selector="^:pressed">
-        <Setter Property="Background" Value="{DynamicResource Gpui.Button.Default.Pressed.Background}" />
-        <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Default.Pressed.Foreground}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Default.Pressed.Border}" />
+        <Setter Property="Background" Value="{DynamicResource UIKit.Button.Default.Pressed.Background}" />
+        <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Default.Pressed.Foreground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Default.Pressed.Border}" />
       </Style>
       <Style Selector="^:selected, ^:selected:pointerover, ^:selected:pressed">
-        <Setter Property="Background" Value="{DynamicResource Gpui.Button.Default.Selected.Background}" />
-        <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Default.Selected.Foreground}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Default.Selected.Border}" />
+        <Setter Property="Background" Value="{DynamicResource UIKit.Button.Default.Selected.Background}" />
+        <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Default.Selected.Foreground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Default.Selected.Border}" />
       </Style>
       <Style Selector="^:disabled">
-        <Setter Property="Background" Value="{DynamicResource Gpui.Button.Default.Disabled.Background}" />
-        <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Default.Disabled.Foreground}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Default.Disabled.Border}" />
+        <Setter Property="Background" Value="{DynamicResource UIKit.Button.Default.Disabled.Background}" />
+        <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Default.Disabled.Foreground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Default.Disabled.Border}" />
       </Style>
       <Style Selector="^:focus-visible">
-        <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Ring}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Ring}" />
       </Style>
       <Style Selector="^:focus-visible /template/ Border#PART_FocusRing">
         <Setter Property="IsVisible" Value="True" />
@@ -184,7 +184,7 @@
       side, so the scroll clip (pages past MaxVisiblePips) spares the focus
       band of the first and last page.
     -->
-    <ControlTheme x:Key="GpuiPagerList" TargetType="ListBox">
+    <ControlTheme x:Key="UIKitPagerList" TargetType="ListBox">
       <Setter Property="Background" Value="Transparent" />
       <Setter Property="BorderThickness" Value="0" />
       <Setter Property="ClipToBounds" Value="False" />
@@ -220,16 +220,16 @@
                     Classes="ghost compact"
                     Theme="{TemplateBinding PreviousButtonTheme}"
                     IsVisible="{TemplateBinding IsPreviousButtonVisible}"
-                    ToolTip.Tip="{DynamicResource Gpui.Pagination.Previous}">
+                    ToolTip.Tip="{DynamicResource UIKit.Pagination.Previous}">
               <StackPanel Orientation="Horizontal" Spacing="8">
                 <PathIcon Name="PreviousIcon" Width="14" Height="14"
-                          Data="{StaticResource Gpui.Icon.ChevronLeft}" />
-                <TextBlock Name="PreviousLabel" Text="{DynamicResource Gpui.Pagination.Previous}" />
+                          Data="{StaticResource UIKit.Icon.ChevronLeft}" />
+                <TextBlock Name="PreviousLabel" Text="{DynamicResource UIKit.Pagination.Previous}" />
               </StackPanel>
             </Button>
             <ListBox Name="PART_PipsPagerList"
-                     Theme="{StaticResource GpuiPagerList}"
-                     ItemContainerTheme="{StaticResource GpuiPagerItem}"
+                     Theme="{StaticResource UIKitPagerList}"
+                     ItemContainerTheme="{StaticResource UIKitPagerItem}"
                      ItemsSource="{Binding TemplateSettings.Pips, RelativeSource={RelativeSource TemplatedParent}}"
                      SelectedIndex="{Binding SelectedPageIndex, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
                      AutoScrollToSelectedItem="False"
@@ -245,11 +245,11 @@
                     Classes="ghost compact"
                     Theme="{TemplateBinding NextButtonTheme}"
                     IsVisible="{TemplateBinding IsNextButtonVisible}"
-                    ToolTip.Tip="{DynamicResource Gpui.Pagination.Next}">
+                    ToolTip.Tip="{DynamicResource UIKit.Pagination.Next}">
               <StackPanel Orientation="Horizontal" Spacing="8">
-                <TextBlock Name="NextLabel" Text="{DynamicResource Gpui.Pagination.Next}" />
+                <TextBlock Name="NextLabel" Text="{DynamicResource UIKit.Pagination.Next}" />
                 <PathIcon Name="NextIcon" Width="14" Height="14"
-                          Data="{StaticResource Gpui.Icon.ChevronRight}" />
+                          Data="{StaticResource UIKit.Icon.ChevronRight}" />
               </StackPanel>
             </Button>
           </StackPanel>
@@ -303,7 +303,7 @@
         <Setter Property="IsVisible" Value="False" />
       </Style>
       <Style Selector="^.carousel /template/ ListBox#PART_PipsPagerList">
-        <Setter Property="ItemContainerTheme" Value="{StaticResource GpuiCarouselPip}" />
+        <Setter Property="ItemContainerTheme" Value="{StaticResource UIKitCarouselPip}" />
         <Setter Property="Margin" Value="-4,0" />
       </Style>
 

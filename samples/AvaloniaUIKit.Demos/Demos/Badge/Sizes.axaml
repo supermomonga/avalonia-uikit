@@ -1,22 +1,22 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:gpui="using:AvaloniaUIKit"
+             xmlns:uikit="using:AvaloniaUIKit"
              x:Class="AvaloniaUIKit.Demos.BadgeSizes">
   <StackPanel Orientation="Horizontal" Spacing="24" Margin="0,8,12,0" HorizontalAlignment="Left">
-    <gpui:Badge Classes="small" Count="3" VerticalAlignment="Bottom">
-      <Border Width="24" Height="24" CornerRadius="6" Background="{DynamicResource Gpui.Secondary}" />
-    </gpui:Badge>
-    <gpui:Badge Count="3" VerticalAlignment="Bottom">
-      <Border Width="32" Height="32" CornerRadius="6" Background="{DynamicResource Gpui.Secondary}" />
-    </gpui:Badge>
-    <gpui:Badge Classes="large" Count="3" VerticalAlignment="Bottom">
-      <Border Width="48" Height="48" CornerRadius="6" Background="{DynamicResource Gpui.Secondary}" />
-    </gpui:Badge>
-    <gpui:Badge Classes="small" IsDot="True" VerticalAlignment="Bottom">
-      <Border Width="24" Height="24" CornerRadius="6" Background="{DynamicResource Gpui.Secondary}" />
-    </gpui:Badge>
-    <gpui:Badge Classes="large" IsDot="True" VerticalAlignment="Bottom">
-      <Border Width="48" Height="48" CornerRadius="6" Background="{DynamicResource Gpui.Secondary}" />
-    </gpui:Badge>
+    <uikit:Badge Classes="small" Count="3" VerticalAlignment="Bottom">
+      <Border Width="24" Height="24" CornerRadius="6" Background="{DynamicResource UIKit.Secondary}" />
+    </uikit:Badge>
+    <uikit:Badge Count="3" VerticalAlignment="Bottom">
+      <Border Width="32" Height="32" CornerRadius="6" Background="{DynamicResource UIKit.Secondary}" />
+    </uikit:Badge>
+    <uikit:Badge Classes="large" Count="3" VerticalAlignment="Bottom">
+      <Border Width="48" Height="48" CornerRadius="6" Background="{DynamicResource UIKit.Secondary}" />
+    </uikit:Badge>
+    <uikit:Badge Classes="small" IsDot="True" VerticalAlignment="Bottom">
+      <Border Width="24" Height="24" CornerRadius="6" Background="{DynamicResource UIKit.Secondary}" />
+    </uikit:Badge>
+    <uikit:Badge Classes="large" IsDot="True" VerticalAlignment="Bottom">
+      <Border Width="48" Height="48" CornerRadius="6" Background="{DynamicResource UIKit.Secondary}" />
+    </uikit:Badge>
   </StackPanel>
 </UserControl>

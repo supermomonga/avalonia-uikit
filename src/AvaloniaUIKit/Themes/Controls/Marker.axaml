@@ -1,5 +1,5 @@
 <!--
-  GPUI Kit Marker (crates/component/src/marker.rs) -> gpui:Marker.
+  GPUI Kit Marker (crates/component/src/marker.rs) -> uikit:Marker.
   Muted text_sm on a 21px line (at least 16px tall), parts 8px apart: the
   spinner (while loading, unless there is an icon) or the icon in a 16px box,
   then the content. separator: 1px border-colored lines filling the rest,
@@ -10,10 +10,10 @@
 -->
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:gpui="using:AvaloniaUIKit">
-  <ControlTheme x:Key="{x:Type gpui:Marker}" TargetType="gpui:Marker">
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.MutedForeground}" />
-    <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Border}" />
+                    xmlns:uikit="using:AvaloniaUIKit">
+  <ControlTheme x:Key="{x:Type uikit:Marker}" TargetType="uikit:Marker">
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.MutedForeground}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Border}" />
     <Setter Property="FontSize" Value="14" />
     <Setter Property="HorizontalContentAlignment" Value="Left" />
     <Setter Property="MinHeight" Value="16" />
@@ -21,12 +21,12 @@
       <ControlTemplate>
         <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"
                 BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}">
-          <gpui:MarkerPanel Name="PART_Row" Alignment="{TemplateBinding HorizontalContentAlignment}">
+          <uikit:MarkerPanel Name="PART_Row" Alignment="{TemplateBinding HorizontalContentAlignment}">
             <Border Name="PART_LeadingLine" IsVisible="False" Height="1" Margin="0,0,4,0" VerticalAlignment="Center"
-                    Background="{DynamicResource Gpui.Border}" />
+                    Background="{DynamicResource UIKit.Border}" />
             <StackPanel Name="PART_Middle" Orientation="Horizontal" Spacing="8">
               <Panel Name="PART_Spinner" Width="16" Height="16" IsVisible="False" VerticalAlignment="Center">
-                <ProgressBar Theme="{StaticResource GpuiSpinner}" Classes="xsmall" IsIndeterminate="True"
+                <ProgressBar Theme="{StaticResource UIKitSpinner}" Classes="xsmall" IsIndeterminate="True"
                              Foreground="{TemplateBinding Foreground}"
                              HorizontalAlignment="Center" VerticalAlignment="Center" />
               </Panel>
@@ -34,13 +34,13 @@
                                 Content="{TemplateBinding Icon}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
               <ContentPresenter Name="PART_ContentPresenter" Content="{TemplateBinding Content}"
                                 ContentTemplate="{TemplateBinding ContentTemplate}" LineHeight="21" VerticalAlignment="Center" />
-              <gpui:ShimmerText Name="PART_Shimmer" IsVisible="False" Text="{TemplateBinding Content}"
+              <uikit:ShimmerText Name="PART_Shimmer" IsVisible="False" Text="{TemplateBinding Content}"
                                 Foreground="{TemplateBinding Foreground}" VerticalAlignment="Center"
                                 FontSize="{TemplateBinding FontSize}" TextBlock.LineHeight="21" />
             </StackPanel>
             <Border Name="PART_TrailingLine" IsVisible="False" Height="1" Margin="4,0,0,0" VerticalAlignment="Center"
-                    Background="{DynamicResource Gpui.Border}" />
-          </gpui:MarkerPanel>
+                    Background="{DynamicResource UIKit.Border}" />
+          </uikit:MarkerPanel>
         </Border>
       </ControlTemplate>
     </Setter>
@@ -63,7 +63,7 @@
     <Style Selector="^.shimmer:loading:text /template/ ContentPresenter#PART_ContentPresenter">
       <Setter Property="IsVisible" Value="False" />
     </Style>
-    <Style Selector="^.shimmer:loading:text /template/ gpui|ShimmerText#PART_Shimmer">
+    <Style Selector="^.shimmer:loading:text /template/ uikit|ShimmerText#PART_Shimmer">
       <Setter Property="IsVisible" Value="True" />
     </Style>
     <!-- marker.rs: content that is not text pulses between 60% and 100%. -->

@@ -20,15 +20,15 @@
         xmlns:local="using:AvaloniaUIKit"
         xmlns:pc="using:Avalonia.Controls"
         xmlns:pconv="using:Avalonia.Controls.Converters"
-        x:Class="AvaloniaUIKit.GpuiColorPickerTheme">
+        x:Class="AvaloniaUIKit.NovaColorPickerTheme">
   <Styles.Resources>
     <ResourceDictionary>
-      <x:String x:Key="Gpui.ColorPicker.Palette">Palette</x:String>
-      <x:String x:Key="Gpui.ColorPicker.Components">Components</x:String>
-      <pconv:DoNothingForNullConverter x:Key="Gpui.ColorPicker.KeepColor" />
+      <x:String x:Key="UIKit.ColorPicker.Palette">Palette</x:String>
+      <x:String x:Key="UIKit.ColorPicker.Components">Components</x:String>
+      <pconv:DoNothingForNullConverter x:Key="UIKit.ColorPicker.KeepColor" />
 
       <!-- The trigger draws nothing itself: no hover, press or focus look (GPUI's has none). -->
-      <ControlTheme x:Key="GpuiColorPickerTrigger" TargetType="Button">
+      <ControlTheme x:Key="UIKitColorPickerTrigger" TargetType="Button">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Padding" Value="0" />
         <Setter Property="BorderThickness" Value="0" />
@@ -47,7 +47,7 @@
       </ControlTheme>
 
       <!-- ColorSwatch: 20px, square, a 1px border of the color darkened 10%; no selected look. -->
-      <ControlTheme x:Key="GpuiColorSwatch" TargetType="ListBoxItem" x:DataType="Color">
+      <ControlTheme x:Key="UIKitColorSwatch" TargetType="ListBoxItem" x:DataType="Color">
         <Setter Property="Width" Value="20" />
         <Setter Property="Height" Value="20" />
         <Setter Property="Padding" Value="0" />
@@ -55,17 +55,17 @@
           <ControlTemplate>
             <Border Name="PART_Swatch"
                     BorderThickness="1" BackgroundSizing="OuterBorderEdge"
-                    Background="{Binding Converter={x:Static local:GpuiColorConverters.Brush}}"
-                    BorderBrush="{Binding Converter={x:Static local:GpuiColorConverters.Darken10}}" />
+                    Background="{Binding Converter={x:Static local:ColorPickerConverters.Brush}}"
+                    BorderBrush="{Binding Converter={x:Static local:ColorPickerConverters.Darken10}}" />
           </ControlTemplate>
         </Setter>
         <Style Selector="^:pointerover /template/ Border#PART_Swatch">
-          <Setter Property="Background" Value="{Binding Converter={x:Static local:GpuiColorConverters.Lighten10}}" />
-          <Setter Property="BorderBrush" Value="{Binding Converter={x:Static local:GpuiColorConverters.Darken30}}" />
+          <Setter Property="Background" Value="{Binding Converter={x:Static local:ColorPickerConverters.Lighten10}}" />
+          <Setter Property="BorderBrush" Value="{Binding Converter={x:Static local:ColorPickerConverters.Darken30}}" />
         </Style>
         <Style Selector="^:pressed /template/ Border#PART_Swatch">
-          <Setter Property="Background" Value="{Binding Converter={x:Static local:GpuiColorConverters.Darken20}}" />
-          <Setter Property="BorderBrush" Value="{Binding Converter={x:Static local:GpuiColorConverters.Darken50}}" />
+          <Setter Property="Background" Value="{Binding Converter={x:Static local:ColorPickerConverters.Darken20}}" />
+          <Setter Property="BorderBrush" Value="{Binding Converter={x:Static local:ColorPickerConverters.Darken50}}" />
         </Style>
       </ControlTheme>
 
@@ -86,12 +86,12 @@
                      IsDirectionReversed="{TemplateBinding IsDirectionReversed}"
                      Orientation="Horizontal">
                 <Track.DecreaseButton>
-                  <RepeatButton Name="PART_DecreaseButton" Focusable="False" Theme="{DynamicResource GpuiSliderTrackButton}" />
+                  <RepeatButton Name="PART_DecreaseButton" Focusable="False" Theme="{DynamicResource UIKitSliderTrackButton}" />
                 </Track.DecreaseButton>
                 <Track.IncreaseButton>
-                  <RepeatButton Name="PART_IncreaseButton" Focusable="False" Theme="{DynamicResource GpuiSliderTrackButton}" />
+                  <RepeatButton Name="PART_IncreaseButton" Focusable="False" Theme="{DynamicResource UIKitSliderTrackButton}" />
                 </Track.IncreaseButton>
-                <Thumb Theme="{DynamicResource GpuiSliderThumb}" />
+                <Thumb Theme="{DynamicResource UIKitSliderThumb}" />
               </Track>
             </Grid>
           </ControlTemplate>
@@ -99,7 +99,7 @@
       </ControlTheme>
 
       <ControlTheme x:Key="{x:Type ColorPicker}" TargetType="ColorPicker">
-        <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+        <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
         <Setter Property="HorizontalAlignment" Value="Left" />
         <!-- The ring is drawn outside the bounds. -->
         <Setter Property="ClipToBounds" Value="False" />
@@ -113,10 +113,10 @@
             <Panel>
               <!-- ColorSelect's ring: the 3px band outside the frame. -->
               <Border Name="PART_FocusRing" Margin="-3" BorderThickness="3" CornerRadius="7.5"
-                      BorderBrush="{DynamicResource Gpui.FocusRing}"
+                      BorderBrush="{DynamicResource UIKit.FocusRing}"
                       IsVisible="False" IsHitTestVisible="False" />
               <Button Name="PART_Trigger"
-                      Theme="{StaticResource GpuiColorPickerTrigger}"
+                      Theme="{StaticResource UIKitColorPickerTrigger}"
                       HorizontalAlignment="Stretch"
                       HorizontalContentAlignment="Stretch">
                 <Button.Flyout>
@@ -130,14 +130,14 @@
                             <UniformGrid Rows="1" />
                           </ItemsPanelTemplate>
                         </TabControl.ItemsPanel>
-                        <TabItem Header="{DynamicResource Gpui.ColorPicker.Palette}">
+                        <TabItem Header="{DynamicResource UIKit.ColorPicker.Palette}">
                           <ListBox Name="PART_Palette"
                                    Margin="0,12,0,0"
                                    HorizontalAlignment="Left"
                                    Background="Transparent"
-                                   ItemContainerTheme="{StaticResource GpuiColorSwatch}"
+                                   ItemContainerTheme="{StaticResource UIKitColorSwatch}"
                                    ItemsSource="{TemplateBinding PaletteColors}"
-                                   SelectedItem="{Binding Color, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay, Converter={StaticResource Gpui.ColorPicker.KeepColor}}">
+                                   SelectedItem="{Binding Color, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay, Converter={StaticResource UIKit.ColorPicker.KeepColor}}">
                             <ListBox.ItemsPanel>
                               <ItemsPanelTemplate>
                                 <UniformGrid Columns="{Binding $parent[ColorPicker].PaletteColumnCount}" ColumnSpacing="4" RowSpacing="4" />
@@ -145,7 +145,7 @@
                             </ListBox.ItemsPanel>
                           </ListBox>
                         </TabItem>
-                        <TabItem Header="{DynamicResource Gpui.ColorPicker.Components}">
+                        <TabItem Header="{DynamicResource UIKit.ColorPicker.Components}">
                           <StackPanel Margin="0,12,0,0" Spacing="8">
                             <StackPanel.Styles>
                               <Style Selector="TextBlock.component">
@@ -155,7 +155,7 @@
                               </Style>
                             </StackPanel.Styles>
                             <Grid ColumnDefinitions="64,*,40" ColumnSpacing="8">
-                              <TextBlock Classes="component" Text="{TemplateBinding ColorModel, Converter={x:Static local:GpuiColorConverters.FirstComponent}}" />
+                              <TextBlock Classes="component" Text="{TemplateBinding ColorModel, Converter={x:Static local:ColorPickerConverters.FirstComponent}}" />
                               <ColorSlider Name="PART_Component1" Grid.Column="1" ColorComponent="Component1"
                                            ColorModel="{TemplateBinding ColorModel}"
                                            HsvColor="{Binding HsvColor, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}" />
@@ -163,7 +163,7 @@
                                          Text="{Binding #PART_Component1.Value, StringFormat={}{0:0}}" />
                             </Grid>
                             <Grid ColumnDefinitions="64,*,40" ColumnSpacing="8">
-                              <TextBlock Classes="component" Text="{TemplateBinding ColorModel, Converter={x:Static local:GpuiColorConverters.SecondComponent}}" />
+                              <TextBlock Classes="component" Text="{TemplateBinding ColorModel, Converter={x:Static local:ColorPickerConverters.SecondComponent}}" />
                               <ColorSlider Name="PART_Component2" Grid.Column="1" ColorComponent="Component2"
                                            ColorModel="{TemplateBinding ColorModel}"
                                            HsvColor="{Binding HsvColor, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}" />
@@ -171,7 +171,7 @@
                                          Text="{Binding #PART_Component2.Value, StringFormat={}{0:0}}" />
                             </Grid>
                             <Grid ColumnDefinitions="64,*,40" ColumnSpacing="8">
-                              <TextBlock Classes="component" Text="{TemplateBinding ColorModel, Converter={x:Static local:GpuiColorConverters.ThirdComponent}}" />
+                              <TextBlock Classes="component" Text="{TemplateBinding ColorModel, Converter={x:Static local:ColorPickerConverters.ThirdComponent}}" />
                               <ColorSlider Name="PART_Component3" Grid.Column="1" ColorComponent="Component3"
                                            ColorModel="{TemplateBinding ColorModel}"
                                            HsvColor="{Binding HsvColor, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}" />
@@ -196,8 +196,8 @@
                       <Grid ColumnDefinitions="Auto,*" ColumnSpacing="8">
                         <Border Width="20" Height="20" BorderThickness="1" CornerRadius="5.5" BackgroundSizing="OuterBorderEdge"
                                 VerticalAlignment="Center"
-                                Background="{Binding Color, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static local:GpuiColorConverters.Brush}}"
-                                BorderBrush="{Binding Color, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static local:GpuiColorConverters.Darken20}}" />
+                                Background="{Binding Color, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static local:ColorPickerConverters.Brush}}"
+                                BorderBrush="{Binding Color, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static local:ColorPickerConverters.Darken20}}" />
                         <TextBox Name="PART_HexTextBox" Grid.Column="1" Classes="small"
                                  HorizontalAlignment="Stretch" Padding="0,0,10,0">
                           <TextBox.InnerLeftContent>
@@ -214,9 +214,9 @@
                     <Border Name="PART_Swatch"
                             Width="32" Height="32" BorderThickness="1" CornerRadius="5.5" BackgroundSizing="OuterBorderEdge"
                             VerticalAlignment="Center"
-                            Background="{Binding Color, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static local:GpuiColorConverters.Brush}}"
-                            BorderBrush="{Binding Color, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static local:GpuiColorConverters.Darken30}}"
-                            ToolTip.Tip="{Binding Color, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static local:GpuiColorConverters.Hex}}" />
+                            Background="{Binding Color, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static local:ColorPickerConverters.Brush}}"
+                            BorderBrush="{Binding Color, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static local:ColorPickerConverters.Darken30}}"
+                            ToolTip.Tip="{Binding Color, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static local:ColorPickerConverters.Hex}}" />
                     <ContentPresenter Name="PART_ContentPresenter"
                                       VerticalAlignment="Center"
                                       FontSize="16"
@@ -230,22 +230,22 @@
                           IsVisible="False" BackgroundSizing="OuterBorderEdge"
                           Height="32" Padding="10,0"
                           BorderThickness="1" CornerRadius="5.5"
-                          Background="{DynamicResource Gpui.InputBackground}"
-                          BorderBrush="{DynamicResource Gpui.Input}">
+                          Background="{DynamicResource UIKit.InputBackground}"
+                          BorderBrush="{DynamicResource UIKit.Input}">
                     <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="8">
                       <Border Name="PART_FieldSwatch"
                               Width="16" Height="16" BorderThickness="1" CornerRadius="2.5" BackgroundSizing="OuterBorderEdge"
                               VerticalAlignment="Center"
-                              Background="{Binding Color, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static local:GpuiColorConverters.Brush}}"
-                              BorderBrush="{Binding Color, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static local:GpuiColorConverters.Darken30}}" />
+                              Background="{Binding Color, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static local:ColorPickerConverters.Brush}}"
+                              BorderBrush="{Binding Color, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static local:ColorPickerConverters.Darken30}}" />
                       <TextBlock Name="PART_FieldText" Grid.Column="1"
                                  VerticalAlignment="Center"
                                  FontSize="14" LineHeight="22.5"
-                                 Text="{Binding Color, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static local:GpuiColorConverters.Hex}}" />
+                                 Text="{Binding Color, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static local:ColorPickerConverters.Hex}}" />
                       <PathIcon Name="PART_Caret" Grid.Column="2"
                                 Width="16" Height="16"
-                                Data="{DynamicResource Gpui.Icon.ChevronDown}"
-                                Foreground="{DynamicResource Gpui.MutedForeground}" />
+                                Data="{DynamicResource UIKit.Icon.ChevronDown}"
+                                Foreground="{DynamicResource UIKit.MutedForeground}" />
                     </Grid>
                   </Border>
                 </Panel>
@@ -289,7 +289,7 @@
             <Setter Property="IsVisible" Value="True" />
           </Style>
           <Style Selector="^:focus-within /template/ Border#PART_Frame">
-            <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Ring}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Ring}" />
           </Style>
           <!-- input_size / input_text_size and the swatch and caret sizes. -->
           <Style Selector="^.xsmall">

@@ -1,13 +1,13 @@
 ---
 title: "Collapsible"
-description: "A header that reveals its content at its natural height, on GPUI Kit's spring."
+description: "A header that reveals its content at its natural height, on a spring."
 ---
 
 <Demo name="collapsible/demo" />
 
 ## Usage
 
-Give an `Expander` the named theme: `Theme="{StaticResource GpuiCollapsible}"`. It has no chrome of its own: the header is the trigger and the content is whatever the app puts there. With the `reveal` class (GPUI Kit's `motion_id`) the content opens and closes at its natural height on `Gpui.Spring.Control` and reverses smoothly when toggled midway; without the class it appears and disappears at once, as GPUI Kit mounts it. `ExpandDirection="Up"` puts the content before the trigger.
+Give an `Expander` the named theme: `Theme="{StaticResource UIKitCollapsible}"`. It has no chrome of its own: the header is the trigger and the content is whatever the app puts there. With the `reveal` class the content opens and closes at its natural height on `UIKit.Spring.Control` and reverses smoothly when toggled midway; without the class it appears and disappears at once. `ExpandDirection="Up"` puts the content before the trigger.
 
 ## Examples
 

@@ -1,7 +1,7 @@
 <!--
   GPUI Kit AccordionItem (crates/component/src/accordion.rs) -> Expander, and
   Collapsible (crates/component/src/collapsible.rs) -> Expander with
-  Theme="{StaticResource GpuiCollapsible}":
+  Theme="{StaticResource UIKitCollapsible}":
 
     <Border Classes="accordion">
       <StackPanel Classes="accordion">
@@ -21,17 +21,17 @@
   Expanders open independently (GPUI's multiple(true)). The title row takes
   no hover look and shows no focus ring, as GPUI's.
 
-  GpuiCollapsible has no chrome: the header and content are the app's, the
+  UIKitCollapsible has no chrome: the header and content are the app's, the
   content appears and disappears at once, or with the reveal under the class
   reveal (GPUI's motion_id). ExpandDirection Up puts the content first.
 -->
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:gpui="using:AvaloniaUIKit"
+        xmlns:uikit="using:AvaloniaUIKit"
         xmlns:gconv="using:AvaloniaUIKit.Converters">
   <Styles.Resources>
     <!-- A header row without a look of its own; the whole row takes the pointer. -->
-    <ControlTheme x:Key="GpuiExpanderHeader" TargetType="ToggleButton">
+    <ControlTheme x:Key="UIKitExpanderHeader" TargetType="ToggleButton">
       <Setter Property="Background" Value="Transparent" />
       <Setter Property="HorizontalAlignment" Value="Stretch" />
       <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -50,9 +50,9 @@
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type Expander}" TargetType="Expander">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Accordion}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Accordion}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Border}" />
       <Setter Property="BorderThickness" Value="0" />
       <Setter Property="HorizontalAlignment" Value="Stretch" />
       <Setter Property="FontSize" Value="14" />
@@ -70,7 +70,7 @@
                   CornerRadius="{TemplateBinding CornerRadius}">
             <DockPanel>
               <ToggleButton Name="PART_Header" DockPanel.Dock="Top"
-                            Theme="{StaticResource GpuiExpanderHeader}"
+                            Theme="{StaticResource UIKitExpanderHeader}"
                             Padding="12,8"
                             IsChecked="{Binding IsExpanded, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}">
                 <Grid ColumnDefinitions="*,Auto" ColumnSpacing="12">
@@ -81,8 +81,8 @@
                                     TextWrapping="Wrap"
                                     VerticalAlignment="Center" />
                   <PathIcon Name="PART_Chevron" Grid.Column="1" Width="12" Height="12"
-                            Data="{StaticResource Gpui.Icon.ChevronDown}"
-                            Foreground="{DynamicResource Gpui.MutedForeground}"
+                            Data="{StaticResource UIKit.Icon.ChevronDown}"
+                            Foreground="{DynamicResource UIKit.MutedForeground}"
                             RenderTransformOrigin="50%,50%" VerticalAlignment="Center" />
                 </Grid>
               </ToggleButton>
@@ -91,18 +91,18 @@
                 and is itself that height times the spring's progress, clipping.
               -->
               <Canvas Name="PART_Reveal" ClipToBounds="True"
-                      gpui:Motion.Spring="{StaticResource Gpui.Spring.Control}"
-                      gpui:Motion.SpringTarget="{TemplateBinding IsExpanded, Converter={x:Static gconv:RevealConverters.Unit}}">
+                      uikit:Motion.Spring="{StaticResource UIKit.Spring.Control}"
+                      uikit:Motion.SpringTarget="{TemplateBinding IsExpanded, Converter={x:Static gconv:RevealConverters.Unit}}">
                 <Canvas.Height>
                   <MultiBinding Converter="{x:Static gconv:RevealConverters.Product}">
                     <Binding ElementName="PART_ContentPresenter" Path="Bounds.Height" />
-                    <Binding RelativeSource="{RelativeSource Self}" Path="(gpui:Motion.SpringValue)" />
+                    <Binding RelativeSource="{RelativeSource Self}" Path="(uikit:Motion.SpringValue)" />
                   </MultiBinding>
                 </Canvas.Height>
                 <Canvas.IsVisible>
                   <MultiBinding Converter="{x:Static gconv:RevealConverters.Shown}">
                     <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="IsExpanded" />
-                    <Binding RelativeSource="{RelativeSource Self}" Path="(gpui:Motion.SpringValue)" />
+                    <Binding RelativeSource="{RelativeSource Self}" Path="(uikit:Motion.SpringValue)" />
                   </MultiBinding>
                 </Canvas.IsVisible>
                 <ContentPresenter Name="PART_ContentPresenter"
@@ -146,7 +146,7 @@
       </Style>
     </ControlTheme>
 
-    <ControlTheme x:Key="GpuiCollapsible" TargetType="Expander">
+    <ControlTheme x:Key="UIKitCollapsible" TargetType="Expander">
       <Setter Property="Background" Value="Transparent" />
       <Setter Property="HorizontalAlignment" Value="Stretch" />
       <Setter Property="Padding" Value="0" />
@@ -154,25 +154,25 @@
         <ControlTemplate>
           <DockPanel Background="{TemplateBinding Background}">
             <ToggleButton Name="PART_Header" DockPanel.Dock="Top"
-                          Theme="{StaticResource GpuiExpanderHeader}"
+                          Theme="{StaticResource UIKitExpanderHeader}"
                           Content="{TemplateBinding Header}"
                           ContentTemplate="{TemplateBinding HeaderTemplate}"
                           IsChecked="{Binding IsExpanded, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}" />
             <!-- Without the class reveal the spring takes each target at once: GPUI mounts at once. -->
             <Canvas Name="PART_Reveal" ClipToBounds="True"
-                    gpui:Motion.Spring="{StaticResource Gpui.Spring.Control}"
-                    gpui:Motion.SpringTravel="False"
-                    gpui:Motion.SpringTarget="{TemplateBinding IsExpanded, Converter={x:Static gconv:RevealConverters.Unit}}">
+                    uikit:Motion.Spring="{StaticResource UIKit.Spring.Control}"
+                    uikit:Motion.SpringTravel="False"
+                    uikit:Motion.SpringTarget="{TemplateBinding IsExpanded, Converter={x:Static gconv:RevealConverters.Unit}}">
               <Canvas.Height>
                 <MultiBinding Converter="{x:Static gconv:RevealConverters.Product}">
                   <Binding ElementName="PART_ContentPresenter" Path="Bounds.Height" />
-                  <Binding RelativeSource="{RelativeSource Self}" Path="(gpui:Motion.SpringValue)" />
+                  <Binding RelativeSource="{RelativeSource Self}" Path="(uikit:Motion.SpringValue)" />
                 </MultiBinding>
               </Canvas.Height>
               <Canvas.IsVisible>
                 <MultiBinding Converter="{x:Static gconv:RevealConverters.Shown}">
                   <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="IsExpanded" />
-                  <Binding RelativeSource="{RelativeSource Self}" Path="(gpui:Motion.SpringValue)" />
+                  <Binding RelativeSource="{RelativeSource Self}" Path="(uikit:Motion.SpringValue)" />
                 </MultiBinding>
               </Canvas.IsVisible>
               <ContentPresenter Name="PART_ContentPresenter"
@@ -188,7 +188,7 @@
         <Setter Property="DockPanel.Dock" Value="Bottom" />
       </Style>
       <Style Selector="^.reveal /template/ Canvas#PART_Reveal">
-        <Setter Property="gpui:Motion.SpringTravel" Value="True" />
+        <Setter Property="uikit:Motion.SpringTravel" Value="True" />
       </Style>
     </ControlTheme>
   </Styles.Resources>
@@ -200,7 +200,7 @@
   <!-- bordered(true): the card around the items, radius_lg. -->
   <Style Selector="Border.accordion">
     <Setter Property="BorderThickness" Value="1" />
-    <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Border}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Border}" />
     <Setter Property="CornerRadius" Value="7.5" />
     <Setter Property="ClipToBounds" Value="True" />
   </Style>

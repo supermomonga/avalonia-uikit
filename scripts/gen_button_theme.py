@@ -5,7 +5,7 @@ GPUI Kit's Button (crates/component/src/button/button.rs) has ten variants,
 an outline modifier and five visual states, each with its own background,
 foreground and border color. XAML cannot compute resource keys, so every
 combination is written out here. The colors themselves are generated from
-GPUI Kit by `reference generate` (Gpui.Button.<Variant>[.Outline].<State>.*).
+GPUI Kit by `reference generate` (UIKit.Button.<Variant>[.Outline].<State>.*).
 """
 from pathlib import Path
 
@@ -40,7 +40,7 @@ def pascal(name: str) -> str:
 
 def key(variant: str, outline: bool, state: str, part: str) -> str:
     outline_part = ".Outline" if outline else ""
-    return f"Gpui.Button.{pascal(variant)}{outline_part}.{pascal(state)}.{part}"
+    return f"UIKit.Button.{pascal(variant)}{outline_part}.{pascal(state)}.{part}"
 
 
 def bordered(variant: str, outline: bool) -> bool:
@@ -121,7 +121,7 @@ w('                            RecognizesAccessKey="True" />')
 w('          <!-- focus_ring (styled.rs): a 3px band outside the border, in ring at 50%. -->')
 w(f'          <Border Name="PART_FocusRing" Margin="-{num(RING)}" BorderThickness="{num(RING)}"')
 w(f'                  CornerRadius="{num(ROUNDED["medium"] + RING - RING / 2)}"')
-w('                  BorderBrush="{DynamicResource Gpui.FocusRing}"')
+w('                  BorderBrush="{DynamicResource UIKit.FocusRing}"')
 w('                  IsVisible="False" IsHitTestVisible="False" />')
 w('        </Panel>')
 w('      </ControlTemplate>')
@@ -217,7 +217,7 @@ for variant in VARIANTS:
 w('')
 w('    <!-- Keyboard focus: the border turns to ring, and the ring band shows. -->')
 w('    <Style Selector="^:focus-visible">')
-w('      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Ring}" />')
+w('      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Ring}" />')
 w('    </Style>')
 w('    <Style Selector="^:focus-visible /template/ Border#PART_FocusRing">')
 w('      <Setter Property="IsVisible" Value="True" />')

@@ -8,7 +8,7 @@
   turns to scrollbar_thumb_hover at once and widens to 8px over 300ms
   (ease-out-cubic).
 
-  ScrollViewer.AllowAutoHide and gpui:Scrollbars.ShowOnHover pick the GPUI mode:
+  ScrollViewer.AllowAutoHide and uikit:Scrollbars.ShowOnHover pick the GPUI mode:
   - AllowAutoHide=False is ScrollbarMode::Always: the scrollbar always shows.
   - AllowAutoHide=True is ScrollbarMode::Hover: it shows when the pointer
     enters the strip or the content scrolls (fading in over 300ms, linearly)
@@ -21,8 +21,8 @@
 -->
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:gpui="using:AvaloniaUIKit">
-  <ControlTheme x:Key="GpuiScrollBarPageButton" TargetType="RepeatButton">
+                    xmlns:uikit="using:AvaloniaUIKit">
+  <ControlTheme x:Key="UIKitScrollBarPageButton" TargetType="RepeatButton">
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="Focusable" Value="False" />
     <Setter Property="Opacity" Value="0" />
@@ -35,8 +35,8 @@
 
   <!-- The thumb spans the strip's width, as GPUI's thumb hitbox does; the pill
        inside it is what paints. -->
-  <ControlTheme x:Key="GpuiScrollBarThumb" TargetType="Thumb">
-    <Setter Property="Background" Value="{DynamicResource Gpui.ScrollbarThumb}" />
+  <ControlTheme x:Key="UIKitScrollBarThumb" TargetType="Thumb">
+    <Setter Property="Background" Value="{DynamicResource UIKit.ScrollbarThumb}" />
     <Setter Property="CornerRadius" Value="4" />
     <Setter Property="Template">
       <ControlTemplate>
@@ -53,8 +53,8 @@
       </ControlTemplate>
     </Setter>
     <!-- Hovered where it rests (Scrollbars.IsThumbHovered), or dragged. -->
-    <Style Selector="^[(gpui|Scrollbars.IsThumbHovered)=True], ^:pressed">
-      <Setter Property="Background" Value="{DynamicResource Gpui.ScrollbarThumbHover}" />
+    <Style Selector="^[(uikit|Scrollbars.IsThumbHovered)=True], ^:pressed">
+      <Setter Property="Background" Value="{DynamicResource UIKit.ScrollbarThumbHover}" />
     </Style>
     <!-- Vertical: 6px (8px when active) wide, 4px in from the right edge. -->
     <Style Selector="^[Tag=vertical] /template/ Border#PART_Pill">
@@ -62,7 +62,7 @@
       <Setter Property="HorizontalAlignment" Value="Right" />
       <Setter Property="Margin" Value="0,0,4,0" />
     </Style>
-    <Style Selector="^[Tag=vertical][(gpui|Scrollbars.IsThumbHovered)=True] /template/ Border#PART_Pill, ^[Tag=vertical]:pressed /template/ Border#PART_Pill">
+    <Style Selector="^[Tag=vertical][(uikit|Scrollbars.IsThumbHovered)=True] /template/ Border#PART_Pill, ^[Tag=vertical]:pressed /template/ Border#PART_Pill">
       <Setter Property="Width" Value="8" />
     </Style>
     <Style Selector="^[Tag=horizontal] /template/ Border#PART_Pill">
@@ -70,7 +70,7 @@
       <Setter Property="VerticalAlignment" Value="Bottom" />
       <Setter Property="Margin" Value="0,0,0,4" />
     </Style>
-    <Style Selector="^[Tag=horizontal][(gpui|Scrollbars.IsThumbHovered)=True] /template/ Border#PART_Pill, ^[Tag=horizontal]:pressed /template/ Border#PART_Pill">
+    <Style Selector="^[Tag=horizontal][(uikit|Scrollbars.IsThumbHovered)=True] /template/ Border#PART_Pill, ^[Tag=horizontal]:pressed /template/ Border#PART_Pill">
       <Setter Property="Height" Value="8" />
     </Style>
   </ControlTheme>
@@ -80,7 +80,7 @@
     <Setter Property="ShowDelay" Value="0:0:0" />
     <Setter Property="HideDelay" Value="0:0:2" />
     <!-- A scroll reveals the bar too, and Scrollbars.ShowOnHover picks Hover or Scrolling mode. -->
-    <Setter Property="gpui:Scrollbars.TracksScrolling" Value="True" />
+    <Setter Property="uikit:Scrollbars.TracksScrolling" Value="True" />
     <Setter Property="Focusable" Value="False" />
     <Style Selector="^:vertical">
       <Setter Property="Width" Value="16" />
@@ -99,12 +99,12 @@
                    DeferThumbDrag="{TemplateBinding ScrollViewer.IsDeferredScrollingEnabled}"
                    IsDirectionReversed="True">
               <Track.DecreaseButton>
-                <RepeatButton Name="PART_PageUpButton" Theme="{StaticResource GpuiScrollBarPageButton}" />
+                <RepeatButton Name="PART_PageUpButton" Theme="{StaticResource UIKitScrollBarPageButton}" />
               </Track.DecreaseButton>
               <Track.IncreaseButton>
-                <RepeatButton Name="PART_PageDownButton" Theme="{StaticResource GpuiScrollBarPageButton}" />
+                <RepeatButton Name="PART_PageDownButton" Theme="{StaticResource UIKitScrollBarPageButton}" />
               </Track.IncreaseButton>
-              <Thumb Name="PART_Thumb" Theme="{StaticResource GpuiScrollBarThumb}" MinHeight="40" Tag="vertical" />
+              <Thumb Name="PART_Thumb" Theme="{StaticResource UIKitScrollBarThumb}" MinHeight="40" Tag="vertical" />
             </Track>
           </Border>
         </ControlTemplate>
@@ -124,12 +124,12 @@
                    Orientation="{TemplateBinding Orientation}"
                    DeferThumbDrag="{TemplateBinding ScrollViewer.IsDeferredScrollingEnabled}">
               <Track.DecreaseButton>
-                <RepeatButton Name="PART_PageUpButton" Theme="{StaticResource GpuiScrollBarPageButton}" />
+                <RepeatButton Name="PART_PageUpButton" Theme="{StaticResource UIKitScrollBarPageButton}" />
               </Track.DecreaseButton>
               <Track.IncreaseButton>
-                <RepeatButton Name="PART_PageDownButton" Theme="{StaticResource GpuiScrollBarPageButton}" />
+                <RepeatButton Name="PART_PageDownButton" Theme="{StaticResource UIKitScrollBarPageButton}" />
               </Track.IncreaseButton>
-              <Thumb Name="PART_Thumb" Theme="{StaticResource GpuiScrollBarThumb}" MinWidth="40" Tag="horizontal" />
+              <Thumb Name="PART_Thumb" Theme="{StaticResource UIKitScrollBarThumb}" MinWidth="40" Tag="horizontal" />
             </Track>
           </Border>
         </ControlTemplate>
@@ -168,7 +168,7 @@
       </Setter>
       <Setter Property="RenderTransform" Value="translateY(16px)" />
     </Style>
-    <Style Selector="^[AllowAutoHide=True][(gpui|Scrollbars.State)=Shown] /template/ Border#PART_Root, ^[AllowAutoHide=True][(gpui|Scrollbars.State)=SlidingIn] /template/ Border#PART_Root">
+    <Style Selector="^[AllowAutoHide=True][(uikit|Scrollbars.State)=Shown] /template/ Border#PART_Root, ^[AllowAutoHide=True][(uikit|Scrollbars.State)=SlidingIn] /template/ Border#PART_Root">
       <Setter Property="Transitions">
         <Transitions>
           <DoubleTransition Property="Opacity" Duration="0:0:0.3" Easing="LinearEasing" />
@@ -176,12 +176,12 @@
       </Setter>
       <Setter Property="Opacity" Value="1" />
     </Style>
-    <Style Selector="^[AllowAutoHide=True][(gpui|Scrollbars.State)=Shown] /template/ Track#PART_Track">
+    <Style Selector="^[AllowAutoHide=True][(uikit|Scrollbars.State)=Shown] /template/ Track#PART_Track">
       <Setter Property="Transitions" Value="{x:Null}" />
       <Setter Property="RenderTransform" Value="none" />
     </Style>
     <!-- Pointed at straight on the thumb, a hidden bar slides in from its edge over the enter time (ease-out-cubic). -->
-    <Style Selector="^[AllowAutoHide=True][(gpui|Scrollbars.State)=SlidingIn] /template/ Track#PART_Track">
+    <Style Selector="^[AllowAutoHide=True][(uikit|Scrollbars.State)=SlidingIn] /template/ Track#PART_Track">
       <Setter Property="Transitions">
         <Transitions>
           <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.3" Easing="CubicEaseOut" />

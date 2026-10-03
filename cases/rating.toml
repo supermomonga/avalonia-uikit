@@ -1,4 +1,4 @@
-# GPUI Kit Rating -> gpui:Rating: five stars, each a 16px icon with 2px of
+# GPUI Kit Rating -> uikit:Rating: five stars, each a 16px icon with 2px of
 # padding (20px apart at medium). Star n's center at medium: x = 16 + 20n - 10.
 component = "rating"
 viewport = [168, 48]

@@ -1,4 +1,4 @@
-# GPUI Kit Skeleton -> gpui:Skeleton: a 16px bar in the skeleton color that
+# GPUI Kit Skeleton -> uikit:Skeleton: a 16px bar in the skeleton color that
 # pulses 1 -> 0.5 -> 1 (bounce of ease-in-out) every two seconds.
 component = "skeleton"
 viewport = [272, 72]

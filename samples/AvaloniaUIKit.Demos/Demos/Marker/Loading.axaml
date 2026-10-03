@@ -1,10 +1,10 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:gpui="using:AvaloniaUIKit"
+             xmlns:uikit="using:AvaloniaUIKit"
              x:Class="AvaloniaUIKit.Demos.MarkerLoading">
   <StackPanel Spacing="16" Width="320" HorizontalAlignment="Left">
-    <gpui:Marker Content="Thinking" IsLoading="True" />
-    <gpui:Marker Classes="shimmer" Content="Thinking" IsLoading="True" />
-    <gpui:Marker Classes="separator" Content="Loading older messages" IsLoading="True" />
+    <uikit:Marker Content="Thinking" IsLoading="True" />
+    <uikit:Marker Classes="shimmer" Content="Thinking" IsLoading="True" />
+    <uikit:Marker Classes="separator" Content="Loading older messages" IsLoading="True" />
   </StackPanel>
 </UserControl>

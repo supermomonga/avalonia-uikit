@@ -9,7 +9,7 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <ControlTheme x:Key="{x:Type HyperlinkButton}" TargetType="HyperlinkButton">
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.Link}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.Link}" />
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="Padding" Value="0" />
     <Setter Property="FontSize" Value="16" />
@@ -32,7 +32,7 @@
               <Setter Property="TextDecorations">
                 <TextDecorationCollection>
                   <TextDecoration Location="Underline" StrokeThickness="1" StrokeThicknessUnit="Pixel"
-                                  Stroke="{DynamicResource Gpui.Link.Underline}" />
+                                  Stroke="{DynamicResource UIKit.Link.Underline}" />
                 </TextDecorationCollection>
               </Setter>
             </Style>
@@ -40,7 +40,7 @@
               <Setter Property="TextDecorations">
                 <TextDecorationCollection>
                   <TextDecoration Location="Underline" StrokeThickness="1" StrokeThicknessUnit="Pixel"
-                                  Stroke="{DynamicResource Gpui.Link}" />
+                                  Stroke="{DynamicResource UIKit.Link}" />
                 </TextDecorationCollection>
               </Setter>
             </Style>
@@ -49,10 +49,10 @@
       </ControlTemplate>
     </Setter>
     <Style Selector="^:pointerover">
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Link.Hover}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Link.Hover}" />
     </Style>
     <Style Selector="^:pressed">
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Link.Pressed}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Link.Pressed}" />
     </Style>
   </ControlTheme>
 </ResourceDictionary>

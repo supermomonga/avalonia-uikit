@@ -1,13 +1,13 @@
 <!--
-  GPUI Kit Form / Field (crates/component/src/form) -> gpui:Form with
-  gpui:FormField (the content is the input):
+  GPUI Kit Form / Field (crates/component/src/form) -> uikit:Form with
+  uikit:FormField (the content is the input):
 
-    <gpui:Form Columns="2" LabelOrientation="Vertical">
-      <gpui:FormField Label="Email" IsRequired="True" Description="Used for sign in.">
+    <uikit:Form Columns="2" LabelOrientation="Vertical">
+      <uikit:FormField Label="Email" IsRequired="True" Description="Used for sign in.">
         <TextBox />
-      </gpui:FormField>
-      <gpui:Form.Footer><Button Classes="primary" Content="Save" /></gpui:Form.Footer>
-    </gpui:Form>
+      </uikit:FormField>
+      <uikit:Form.Footer><Button Classes="primary" Content="Save" /></uikit:Form.Footer>
+    </uikit:Form>
 
   Rows 8px apart and columns 24px (three times; small 6 / 18, large 12 / 36).
   A field is a column 2px apart (4 at large): the label (text_sm medium, a
@@ -18,18 +18,18 @@
 -->
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:gpui="using:AvaloniaUIKit"
+        xmlns:uikit="using:AvaloniaUIKit"
         xmlns:gconv="using:AvaloniaUIKit.Converters">
   <Styles.Resources>
-  <gconv:AffineConverter x:Key="Gpui.Form.Half" Scale="0.5" />
-  <gconv:AffineConverter x:Key="Gpui.Form.Triple" Scale="3" />
+  <gconv:AffineConverter x:Key="UIKit.Form.Half" Scale="0.5" />
+  <gconv:AffineConverter x:Key="UIKit.Form.Triple" Scale="3" />
 
-  <ControlTheme x:Key="{x:Type gpui:Form}" TargetType="gpui:Form">
+  <ControlTheme x:Key="{x:Type uikit:Form}" TargetType="uikit:Form">
     <Setter Property="ItemsPanel">
       <ItemsPanelTemplate>
-        <gpui:FormPanel Columns="{Binding $parent[gpui:Form].Columns}"
-                        RowSpacing="{Binding $parent[gpui:Form].Gap}"
-                        ColumnSpacing="{Binding $parent[gpui:Form].Gap, Converter={StaticResource Gpui.Form.Triple}}" />
+        <uikit:FormPanel Columns="{Binding $parent[uikit:Form].Columns}"
+                        RowSpacing="{Binding $parent[uikit:Form].Gap}"
+                        ColumnSpacing="{Binding $parent[uikit:Form].Gap, Converter={StaticResource UIKit.Form.Triple}}" />
       </ItemsPanelTemplate>
     </Setter>
     <Setter Property="Template">
@@ -47,39 +47,39 @@
     </Style>
     <Style Selector="^.large">
       <Setter Property="Gap" Value="12" />
-      <Setter Property="gpui:Form.FieldGap" Value="8" />
+      <Setter Property="uikit:Form.FieldGap" Value="8" />
     </Style>
   </ControlTheme>
 
-  <ControlTheme x:Key="{x:Type gpui:FormField}" TargetType="gpui:FormField">
+  <ControlTheme x:Key="{x:Type uikit:FormField}" TargetType="uikit:FormField">
     <Setter Property="Template">
       <ControlTemplate>
         <Grid Name="PART_Grid" RowDefinitions="Auto,Auto,Auto,Auto" ColumnDefinitions="Auto,*">
           <StackPanel Name="PART_Label" Orientation="Horizontal" Spacing="4" Grid.ColumnSpan="2">
             <ContentPresenter Content="{TemplateBinding Label}" FontSize="14" FontWeight="Medium" LineHeight="22.5" ClipToBounds="True" />
-            <TextBlock Text="*" FontSize="14" FontWeight="Medium" LineHeight="22.5" Foreground="{DynamicResource Gpui.Danger}"
+            <TextBlock Text="*" FontSize="14" FontWeight="Medium" LineHeight="22.5" Foreground="{DynamicResource UIKit.Danger}"
                        IsVisible="{TemplateBinding IsRequired}" />
           </StackPanel>
           <ContentPresenter Name="PART_ContentPresenter" Grid.Row="1" Grid.ColumnSpan="2"
                             Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" />
           <ContentPresenter Name="PART_Description" Grid.Row="2" Grid.ColumnSpan="2"
                             Content="{TemplateBinding Description}" FontSize="12" LineHeight="19.5"
-                            Foreground="{DynamicResource Gpui.MutedForeground}"
-                            Margin="{Binding $parent[gpui:FormField].(gpui:Form.FieldGap), Converter={x:Static gconv:FormConverters.HalfTop}}" />
+                            Foreground="{DynamicResource UIKit.MutedForeground}"
+                            Margin="{Binding $parent[uikit:FormField].(uikit:Form.FieldGap), Converter={x:Static gconv:FormConverters.HalfTop}}" />
         </Grid>
       </ControlTemplate>
     </Setter>
     <!-- Bindings in the template would outrank the styles; the label's gap comes from styles. -->
     <Style Selector="^ /template/ StackPanel#PART_Label">
-      <Setter Property="Margin" Value="{Binding $parent[gpui:FormField].(gpui:Form.FieldGap), Converter={x:Static gconv:FormConverters.LabelGap}}" />
+      <Setter Property="Margin" Value="{Binding $parent[uikit:FormField].(uikit:Form.FieldGap), Converter={x:Static gconv:FormConverters.LabelGap}}" />
     </Style>
     <!-- Horizontal: the label beside the input, the description under the input. -->
     <Style Selector="^:horizontal /template/ StackPanel#PART_Label">
       <Setter Property="Grid.ColumnSpan" Value="1" />
       <Setter Property="Grid.RowSpan" Value="2" />
       <Setter Property="VerticalAlignment" Value="Center" />
-      <Setter Property="Width" Value="{Binding $parent[gpui:FormField].(gpui:Form.LabelWidth)}" />
-      <Setter Property="Margin" Value="{Binding $parent[gpui:FormField].(gpui:Form.FieldGap), Converter={x:Static gconv:FormConverters.LabelBeside}}" />
+      <Setter Property="Width" Value="{Binding $parent[uikit:FormField].(uikit:Form.LabelWidth)}" />
+      <Setter Property="Margin" Value="{Binding $parent[uikit:FormField].(uikit:Form.FieldGap), Converter={x:Static gconv:FormConverters.LabelBeside}}" />
     </Style>
     <Style Selector="^:horizontal /template/ ContentPresenter#PART_ContentPresenter">
       <Setter Property="Grid.Row" Value="0" />
@@ -95,7 +95,7 @@
   </Styles.Resources>
 
   <!-- field.rs: the input sits in a full-width box, which stretches a block child. -->
-  <Style Selector="gpui|FormField > :is(Control)">
+  <Style Selector="uikit|FormField > :is(Control)">
     <Setter Property="HorizontalAlignment" Value="Stretch" />
   </Style>
 </Styles>

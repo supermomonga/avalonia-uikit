@@ -1,16 +1,16 @@
 <!--
-  GPUI Kit Kbd (crates/component/src/kbd.rs) -> gpui:Kbd.
+  GPUI Kit Kbd (crates/component/src/kbd.rs) -> uikit:Kbd.
   Muted text_xs on a 12px line, centered on a key cap at least 20px wide with
   4x2 padding and half the theme radius; the outline class adds a 1px border
   on the background.
 -->
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:gpui="using:AvaloniaUIKit">
-  <ControlTheme x:Key="{x:Type gpui:Kbd}" TargetType="gpui:Kbd">
-    <Setter Property="Background" Value="{DynamicResource Gpui.Muted}" />
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.MutedForeground}" />
-    <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Border}" />
+                    xmlns:uikit="using:AvaloniaUIKit">
+  <ControlTheme x:Key="{x:Type uikit:Kbd}" TargetType="uikit:Kbd">
+    <Setter Property="Background" Value="{DynamicResource UIKit.Muted}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.MutedForeground}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Border}" />
     <Setter Property="BorderThickness" Value="0" />
     <Setter Property="CornerRadius" Value="3" />
     <Setter Property="Padding" Value="4,2" />
@@ -27,12 +27,12 @@
                 CornerRadius="{TemplateBinding CornerRadius}"
                 Padding="{TemplateBinding Padding}">
           <TextBlock Text="{TemplateBinding Text}" LineHeight="12" TextAlignment="Center"
-                     ClipToBounds="False" gpui:TextLines.CentersTallGlyphs="True" />
+                     ClipToBounds="False" uikit:TextLines.CentersTallGlyphs="True" />
         </Border>
       </ControlTemplate>
     </Setter>
     <Style Selector="^.outline">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Background}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Background}" />
       <Setter Property="BorderThickness" Value="1" />
       <Setter Property="CornerRadius" Value="2.5" />
     </Style>

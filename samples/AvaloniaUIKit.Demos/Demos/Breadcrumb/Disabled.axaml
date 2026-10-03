@@ -1,12 +1,12 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:gpui="using:AvaloniaUIKit"
+             xmlns:uikit="using:AvaloniaUIKit"
              x:Class="AvaloniaUIKit.Demos.BreadcrumbDisabled">
-  <gpui:Breadcrumb HorizontalAlignment="Left">
-    <gpui:BreadcrumbItem Content="Workspace" />
-    <gpui:BreadcrumbItem Content="Archive" IsEnabled="False" />
-    <gpui:BreadcrumbItem Content="2025" />
-    <gpui:BreadcrumbItem Content="Avalonia UI Kit" />
-    <gpui:BreadcrumbItem Content="Report" />
-  </gpui:Breadcrumb>
+  <uikit:Breadcrumb HorizontalAlignment="Left">
+    <uikit:BreadcrumbItem Content="Workspace" />
+    <uikit:BreadcrumbItem Content="Archive" IsEnabled="False" />
+    <uikit:BreadcrumbItem Content="2025" />
+    <uikit:BreadcrumbItem Content="Avalonia UI Kit" />
+    <uikit:BreadcrumbItem Content="Report" />
+  </uikit:Breadcrumb>
 </UserControl>

@@ -15,7 +15,7 @@
 -->
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:gpui="using:AvaloniaUIKit"
+        xmlns:uikit="using:AvaloniaUIKit"
         xmlns:gconv="using:AvaloniaUIKit.Converters">
   <Styles.Resources>
     <!--
@@ -23,12 +23,12 @@
       8 + 3s. Layout rounding snaps its width and inset to device pixels as GPUI
       snaps every edge.
     -->
-    <gconv:AffineConverter x:Key="Gpui.Slider.RingWidth" Scale="3" />
-    <gconv:AffineConverter x:Key="Gpui.Slider.RingInset" Scale="-3" />
-    <gconv:AffineConverter x:Key="Gpui.Slider.RingRadius" Scale="1.5" Offset="8" />
+    <gconv:AffineConverter x:Key="UIKit.Slider.RingWidth" Scale="3" />
+    <gconv:AffineConverter x:Key="UIKit.Slider.RingInset" Scale="-3" />
+    <gconv:AffineConverter x:Key="UIKit.Slider.RingRadius" Scale="1.5" Offset="8" />
 
     <!-- A track half: the whole band takes presses, the fill shows on one side. -->
-    <ControlTheme x:Key="GpuiSliderTrackButton" TargetType="RepeatButton">
+    <ControlTheme x:Key="UIKitSliderTrackButton" TargetType="RepeatButton">
       <Setter Property="Background" Value="Transparent" />
       <!-- The fill reaches 8px past its half, under the thumb. -->
       <Setter Property="ClipToBounds" Value="False" />
@@ -44,29 +44,29 @@
       </Setter>
     </ControlTheme>
 
-    <ControlTheme x:Key="GpuiSliderThumb" TargetType="Thumb">
+    <ControlTheme x:Key="UIKitSliderThumb" TargetType="Thumb">
       <Setter Property="Width" Value="16" />
       <Setter Property="Height" Value="16" />
       <Setter Property="ClipToBounds" Value="False" />
       <Setter Property="Template">
         <ControlTemplate>
           <Panel>
-            <Border Name="PART_Edge" CornerRadius="8" Background="{DynamicResource Gpui.Slider.Thumb.Edge}" />
+            <Border Name="PART_Edge" CornerRadius="8" Background="{DynamicResource UIKit.Slider.Thumb.Edge}" />
             <Border Name="PART_Ring"
-                    gpui:Motion.Spring="{StaticResource Gpui.Spring.Control}"
-                    gpui:Motion.SpringTarget="0"
-                    Opacity="{Binding $self.(gpui:Motion.SpringValue)}"
-                    BorderThickness="{Binding $self.(gpui:Motion.SpringValue), Converter={StaticResource Gpui.Slider.RingWidth}}"
-                    Margin="{Binding $self.(gpui:Motion.SpringValue), Converter={StaticResource Gpui.Slider.RingInset}}"
-                    CornerRadius="{Binding $self.(gpui:Motion.SpringValue), Converter={StaticResource Gpui.Slider.RingRadius}}"
-                    BorderBrush="{DynamicResource Gpui.Slider.Ring}"
+                    uikit:Motion.Spring="{StaticResource UIKit.Spring.Control}"
+                    uikit:Motion.SpringTarget="0"
+                    Opacity="{Binding $self.(uikit:Motion.SpringValue)}"
+                    BorderThickness="{Binding $self.(uikit:Motion.SpringValue), Converter={StaticResource UIKit.Slider.RingWidth}}"
+                    Margin="{Binding $self.(uikit:Motion.SpringValue), Converter={StaticResource UIKit.Slider.RingInset}}"
+                    CornerRadius="{Binding $self.(uikit:Motion.SpringValue), Converter={StaticResource UIKit.Slider.RingRadius}}"
+                    BorderBrush="{DynamicResource UIKit.Slider.Ring}"
                     IsHitTestVisible="False" />
-            <Border Name="PART_Face" Margin="1" CornerRadius="7" Background="{DynamicResource Gpui.SliderThumb}" />
+            <Border Name="PART_Face" Margin="1" CornerRadius="7" Background="{DynamicResource UIKit.SliderThumb}" />
           </Panel>
         </ControlTemplate>
       </Setter>
       <Style Selector="^:pointerover /template/ Border#PART_Ring, ^:pressed /template/ Border#PART_Ring">
-        <Setter Property="gpui:Motion.SpringTarget" Value="1" />
+        <Setter Property="uikit:Motion.SpringTarget" Value="1" />
       </Style>
     </ControlTheme>
 
@@ -76,11 +76,11 @@
       <Setter Property="Template">
         <ControlTemplate>
           <Panel Name="PART_Root" Background="{TemplateBinding Background}">
-            <Border Name="PART_Bar" CornerRadius="3" Background="{DynamicResource Gpui.Slider.Track}" />
+            <Border Name="PART_Bar" CornerRadius="3" Background="{DynamicResource UIKit.Slider.Track}" />
             <TickBar Name="PART_TopTickBar"
                      IsVisible="False"
                      Placement="Top"
-                     Fill="{DynamicResource Gpui.MutedForeground}"
+                     Fill="{DynamicResource UIKit.MutedForeground}"
                      Ticks="{TemplateBinding Ticks}"
                      TickFrequency="{TemplateBinding TickFrequency}"
                      Orientation="{TemplateBinding Orientation}"
@@ -91,7 +91,7 @@
             <TickBar Name="PART_BottomTickBar"
                      IsVisible="False"
                      Placement="Bottom"
-                     Fill="{DynamicResource Gpui.MutedForeground}"
+                     Fill="{DynamicResource UIKit.MutedForeground}"
                      Ticks="{TemplateBinding Ticks}"
                      TickFrequency="{TemplateBinding TickFrequency}"
                      Orientation="{TemplateBinding Orientation}"
@@ -110,16 +110,16 @@
                    Value="{Binding Value, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
                    IsDirectionReversed="{TemplateBinding IsDirectionReversed}">
               <Track.DecreaseButton>
-                <RepeatButton Name="PART_DecreaseButton" Theme="{StaticResource GpuiSliderTrackButton}">
-                  <Border Name="PART_DecreaseFill" CornerRadius="3" Background="{DynamicResource Gpui.SliderBar}" />
+                <RepeatButton Name="PART_DecreaseButton" Theme="{StaticResource UIKitSliderTrackButton}">
+                  <Border Name="PART_DecreaseFill" CornerRadius="3" Background="{DynamicResource UIKit.SliderBar}" />
                 </RepeatButton>
               </Track.DecreaseButton>
               <Track.IncreaseButton>
-                <RepeatButton Name="PART_IncreaseButton" Theme="{StaticResource GpuiSliderTrackButton}">
-                  <Border Name="PART_IncreaseFill" CornerRadius="3" Background="{DynamicResource Gpui.SliderBar}" IsVisible="False" />
+                <RepeatButton Name="PART_IncreaseButton" Theme="{StaticResource UIKitSliderTrackButton}">
+                  <Border Name="PART_IncreaseFill" CornerRadius="3" Background="{DynamicResource UIKit.SliderBar}" IsVisible="False" />
                 </RepeatButton>
               </Track.IncreaseButton>
-              <Thumb Name="PART_Thumb" Theme="{StaticResource GpuiSliderThumb}" />
+              <Thumb Name="PART_Thumb" Theme="{StaticResource UIKitSliderThumb}" />
             </Track>
           </Panel>
         </ControlTemplate>
@@ -218,6 +218,6 @@
     keeps the ring up: GPUI finds the thumb hovered again once it has moved.
   -->
   <Style Selector="Slider:pressed /template/ Thumb#PART_Thumb /template/ Border#PART_Ring">
-    <Setter Property="gpui:Motion.SpringTarget" Value="1" />
+    <Setter Property="uikit:Motion.SpringTarget" Value="1" />
   </Style>
 </Styles>

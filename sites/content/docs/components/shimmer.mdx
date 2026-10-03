@@ -1,13 +1,13 @@
 ---
 title: "Shimmer"
-description: "Text with GPUI Kit's highlight sweeping across it."
+description: "Text with a highlight sweeping across it."
 ---
 
 <Demo name="shimmer/demo" />
 
 ## Usage
 
-`gpui:ShimmerText` shows its `Text` with a highlight sweeping across it. As in GPUI Kit, the glyphs are painted again twelve times, each clipped to a narrower band around the sweep's center, in a color mixed from the text color toward the theme's background (the foreground on a dark theme). The text's size and color are the app's: set `FontSize` and `Foreground` as on a `TextBlock`. Each instance runs its own clock.
+`uikit:ShimmerText` shows its `Text` with a highlight sweeping across it. The glyphs are painted again twelve times, each clipped to a narrower band around the sweep's center, in a color mixed from the text color toward the theme's background (the foreground on a dark theme). The text's size and color are the app's: set `FontSize` and `Foreground` as on a `TextBlock`. Each instance runs its own clock.
 
 | Property | Meaning |
 | --- | --- |
@@ -26,5 +26,5 @@ The default sweep, a muted text, a reversed sweep, a 14px text, and a faster and
 
 ## Not covered
 
-- Synchronizing the sweep of several texts on one clock (`repeat_synced`).
+- Synchronizing the sweep of several texts on one clock.
 - An absolute band width.

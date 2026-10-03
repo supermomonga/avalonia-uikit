@@ -21,7 +21,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <!-- A page draws nothing of its own: the window paints the background. -->
   <ControlTheme x:Key="{x:Type ContentPage}" TargetType="ContentPage">
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
     <Setter Property="Template">
       <ControlTemplate>
         <DockPanel>
@@ -44,10 +44,10 @@
   </ControlTheme>
 
   <ControlTheme x:Key="{x:Type DrawerPage}" TargetType="DrawerPage">
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
     <Setter Property="DrawerLength" Value="255" />
     <Setter Property="CompactDrawerLength" Value="48" />
-    <Setter Property="BackdropBrush" Value="{DynamicResource Gpui.Overlay}" />
+    <Setter Property="BackdropBrush" Value="{DynamicResource UIKit.Overlay}" />
     <Setter Property="Template">
       <ControlTemplate>
         <SplitView Name="PART_SplitView"
@@ -80,7 +80,7 @@
                                 AutomationProperties.Name="Toggle navigation drawer">
                     <Panel>
                       <PathIcon Name="PART_CompactPaneIcon"
-                                Data="{StaticResource Gpui.Icon.PanelLeftClose}"
+                                Data="{StaticResource UIKit.Icon.PanelLeftClose}"
                                 IsVisible="{Binding DrawerIcon, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static ObjectConverters.IsNull}}" />
                       <ContentPresenter Name="PART_CompactPaneIconPresenter"
                                         Content="{TemplateBinding DrawerIcon}"
@@ -97,7 +97,7 @@
                                 IsVisible="False"
                                 IsChecked="{Binding #PART_SplitView.IsPaneOpen, Mode=TwoWay}"
                                 AutomationProperties.Name="Close">
-                    <PathIcon Data="{StaticResource Gpui.Icon.Close}" />
+                    <PathIcon Data="{StaticResource UIKit.Icon.Close}" />
                   </ToggleButton>
                   <ContentPresenter Name="PART_DrawerHeader"
                                     VerticalAlignment="Center"
@@ -120,8 +120,8 @@
                       DockPanel.Dock="Top"
                       Height="34"
                       Padding="8,0"
-                      Background="{DynamicResource Gpui.TitleBar}"
-                      BorderBrush="{DynamicResource Gpui.TitleBarBorder}"
+                      Background="{DynamicResource UIKit.TitleBar}"
+                      BorderBrush="{DynamicResource UIKit.TitleBarBorder}"
                       BorderThickness="0,0,0,1">
                 <DockPanel>
                   <ToggleButton Name="PART_PaneButton"
@@ -133,7 +133,7 @@
                                 AutomationProperties.Name="Toggle navigation drawer">
                     <Panel>
                       <PathIcon Name="PART_PaneIcon"
-                                Data="{StaticResource Gpui.Icon.PanelLeftOpen}"
+                                Data="{StaticResource UIKit.Icon.PanelLeftOpen}"
                                 IsVisible="{Binding DrawerIcon, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static ObjectConverters.IsNull}}" />
                       <ContentPresenter Name="PART_PaneIconPresenter"
                                         Content="{TemplateBinding DrawerIcon}"
@@ -206,16 +206,16 @@
       </Style>
     </Style>
     <Style Selector="^[IsOpen=False] /template/ PathIcon#PART_CompactPaneIcon">
-      <Setter Property="Data" Value="{StaticResource Gpui.Icon.PanelLeftOpen}" />
+      <Setter Property="Data" Value="{StaticResource UIKit.Icon.PanelLeftOpen}" />
     </Style>
     <Style Selector="^:placement-right /template/ PathIcon#PART_CompactPaneIcon">
-      <Setter Property="Data" Value="{StaticResource Gpui.Icon.PanelRightClose}" />
+      <Setter Property="Data" Value="{StaticResource UIKit.Icon.PanelRightClose}" />
     </Style>
     <Style Selector="^:placement-right[IsOpen=False] /template/ PathIcon#PART_CompactPaneIcon">
-      <Setter Property="Data" Value="{StaticResource Gpui.Icon.PanelRightOpen}" />
+      <Setter Property="Data" Value="{StaticResource UIKit.Icon.PanelRightOpen}" />
     </Style>
     <Style Selector="^:placement-right /template/ PathIcon#PART_PaneIcon">
-      <Setter Property="Data" Value="{StaticResource Gpui.Icon.PanelRightOpen}" />
+      <Setter Property="Data" Value="{StaticResource UIKit.Icon.PanelRightOpen}" />
     </Style>
     <Style Selector="^:placement-right /template/ ToggleButton#PART_PaneButton">
       <Setter Property="DockPanel.Dock" Value="Right" />

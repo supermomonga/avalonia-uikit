@@ -1,13 +1,13 @@
 ---
 title: "Accordion"
-description: "Expanders stacked in GPUI Kit's accordion frame, opening and closing on its spring."
+description: "Expanders stacked in an accordion frame, opening and closing on a spring."
 ---
 
 <Demo name="accordion/demo" />
 
 ## Usage
 
-An `Expander` is one accordion item: a medium-weight title row with a 12px muted chevron (turned up while open, gone while disabled) over the content, on the accordion background. Stack the items in a `StackPanel Classes="accordion"`, which gives every item but the last GPUI Kit's 1px separator, inside a `Border Classes="accordion"` for the card around them. Opening and closing reveal the content at its natural height on `Gpui.Spring.Control`, clipped from the bottom; a toggle midway keeps the velocity. Items open independently, as GPUI Kit's `multiple(true)`, and the title row has no hover look and no focus ring. Sizes on the items: `xsmall`, `small`, `large` (medium is the default).
+An `Expander` is one accordion item: a medium-weight title row with a 12px muted chevron (turned up while open, gone while disabled) over the content, on the accordion background. Stack the items in a `StackPanel Classes="accordion"`, which gives every item but the last a 1px separator, inside a `Border Classes="accordion"` for the card around them. Opening and closing reveal the content at its natural height on `UIKit.Spring.Control`, clipped from the bottom; a toggle midway keeps the velocity. Items open independently, and the title row has no hover look and no focus ring. Sizes on the items: `xsmall`, `small`, `large` (medium is the default).
 
 ## Examples
 

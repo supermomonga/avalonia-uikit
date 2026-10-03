@@ -1,13 +1,13 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:gpui="using:AvaloniaUIKit"
+             xmlns:uikit="using:AvaloniaUIKit"
              x:Class="AvaloniaUIKit.Demos.AvatarDemo">
   <StackPanel Orientation="Horizontal" Spacing="12" HorizontalAlignment="Left">
-    <gpui:Avatar UserName="Jason Lee" />
-    <gpui:Avatar UserName="Alice" />
-    <gpui:Avatar UserName="Bob" />
-    <gpui:Avatar UserName="Carol" />
-    <gpui:Avatar />
-    <gpui:Avatar UserName="Jason Lee" Source="avares://AvaloniaUIKit.Demos/Assets/small-48x48.png" />
+    <uikit:Avatar UserName="Jason Lee" />
+    <uikit:Avatar UserName="Alice" />
+    <uikit:Avatar UserName="Bob" />
+    <uikit:Avatar UserName="Carol" />
+    <uikit:Avatar />
+    <uikit:Avatar UserName="Jason Lee" Source="avares://AvaloniaUIKit.Demos/Assets/small-48x48.png" />
   </StackPanel>
 </UserControl>

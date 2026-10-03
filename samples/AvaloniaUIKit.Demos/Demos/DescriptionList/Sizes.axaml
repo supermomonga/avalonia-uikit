@@ -1,17 +1,17 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:gpui="using:AvaloniaUIKit"
+             xmlns:uikit="using:AvaloniaUIKit"
              x:Class="AvaloniaUIKit.Demos.DescriptionListSizes">
   <StackPanel Spacing="24" HorizontalAlignment="Left">
-    <gpui:DescriptionList Classes="small" Width="600">
-      <gpui:DescriptionItem Label="Name" Value="GPUI Kit" />
-      <gpui:DescriptionItem Label="Version" Value="0.1.0" />
-      <gpui:DescriptionItem Label="License" Value="MIT" />
-    </gpui:DescriptionList>
-    <gpui:DescriptionList Classes="large" Columns="2" LabelWidth="100" Width="600">
-      <gpui:DescriptionItem Label="Name" Value="GPUI Kit" />
-      <gpui:DescriptionItem Label="Version" Value="0.1.0" />
-      <gpui:DescriptionItem Label="License" Value="MIT" />
-    </gpui:DescriptionList>
+    <uikit:DescriptionList Classes="small" Width="600">
+      <uikit:DescriptionItem Label="Name" Value="Avalonia UIKit" />
+      <uikit:DescriptionItem Label="Version" Value="0.1.0" />
+      <uikit:DescriptionItem Label="License" Value="MIT" />
+    </uikit:DescriptionList>
+    <uikit:DescriptionList Classes="large" Columns="2" LabelWidth="100" Width="600">
+      <uikit:DescriptionItem Label="Name" Value="Avalonia UIKit" />
+      <uikit:DescriptionItem Label="Version" Value="0.1.0" />
+      <uikit:DescriptionItem Label="License" Value="MIT" />
+    </uikit:DescriptionList>
   </StackPanel>
 </UserControl>

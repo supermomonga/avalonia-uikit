@@ -1,11 +1,11 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:gpui="using:AvaloniaUIKit"
+             xmlns:uikit="using:AvaloniaUIKit"
              x:Class="AvaloniaUIKit.Demos.RatingSizes">
   <StackPanel Spacing="8" HorizontalAlignment="Left">
-    <gpui:Rating Classes="xsmall" Value="3" />
-    <gpui:Rating Classes="small" Value="3" />
-    <gpui:Rating Value="3" />
-    <gpui:Rating Classes="large" Value="3" />
+    <uikit:Rating Classes="xsmall" Value="3" />
+    <uikit:Rating Classes="small" Value="3" />
+    <uikit:Rating Value="3" />
+    <uikit:Rating Classes="large" Value="3" />
   </StackPanel>
 </UserControl>

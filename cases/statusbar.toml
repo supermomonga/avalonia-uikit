@@ -1,4 +1,4 @@
-# GPUI Kit StatusBar -> gpui:StatusBar, 400px wide. Each region is a row of
+# GPUI Kit StatusBar -> uikit:StatusBar, 400px wide. Each region is a row of
 # texts 8px apart; the center aligns by which ends are pinned.
 component = "statusbar"
 viewport = [432, 56]

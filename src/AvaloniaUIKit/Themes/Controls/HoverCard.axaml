@@ -1,10 +1,10 @@
 <!--
-  GPUI Kit HoverCard (crates/component/src/hover_card.rs) -> gpui:HoverCard:
+  GPUI Kit HoverCard (crates/component/src/hover_card.rs) -> uikit:HoverCard:
 
-    <gpui:HoverCard Placement="Bottom">
+    <uikit:HoverCard Placement="Bottom">
       <TextBlock Text="@huacnlee" />
-      <gpui:HoverCard.Card>...</gpui:HoverCard.Card>
-    </gpui:HoverCard>
+      <uikit:HoverCard.Card>...</uikit:HoverCard.Card>
+    </uikit:HoverCard>
 
   The card is the popover surface (the FlyoutPresenter theme: background,
   ring, shadow-md, 12px padding, 4px from the trigger). GPUI never flips it:
@@ -12,8 +12,8 @@
 -->
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:gpui="using:AvaloniaUIKit">
-  <ControlTheme x:Key="{x:Type gpui:HoverCard}" TargetType="gpui:HoverCard">
+                    xmlns:uikit="using:AvaloniaUIKit">
+  <ControlTheme x:Key="{x:Type uikit:HoverCard}" TargetType="uikit:HoverCard">
     <Setter Property="HorizontalAlignment" Value="Left" />
     <Setter Property="VerticalAlignment" Value="Top" />
     <Setter Property="Template">

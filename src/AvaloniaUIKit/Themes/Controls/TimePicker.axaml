@@ -17,7 +17,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:gconv="using:AvaloniaUIKit.Converters">
   <!-- The field: the frame around the segments; no hover or pressed look. -->
-  <ControlTheme x:Key="GpuiTimePickerButton" TargetType="Button">
+  <ControlTheme x:Key="UIKitTimePickerButton" TargetType="Button">
     <Setter Property="Template">
       <ControlTemplate>
         <ContentPresenter Name="PART_ContentPresenter"
@@ -36,9 +36,9 @@
   </ControlTheme>
 
   <ControlTheme x:Key="{x:Type TimePicker}" TargetType="TimePicker">
-    <Setter Property="Background" Value="{DynamicResource Gpui.InputBackground}" />
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
-    <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Input}" />
+    <Setter Property="Background" Value="{DynamicResource UIKit.InputBackground}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Input}" />
     <Setter Property="BorderThickness" Value="1" />
     <Setter Property="CornerRadius" Value="5.5" />
     <Setter Property="Padding" Value="4,0" />
@@ -54,9 +54,9 @@
         <Panel>
           <!-- focus_ring (styled.rs): a 3px band outside the border, in ring at 50%. -->
           <Border Name="PART_FocusRing" Margin="-3" BorderThickness="3" CornerRadius="7.5"
-                  BorderBrush="{DynamicResource Gpui.FocusRing}" IsVisible="False" IsHitTestVisible="False" />
+                  BorderBrush="{DynamicResource UIKit.FocusRing}" IsVisible="False" IsHitTestVisible="False" />
           <Button Name="PART_FlyoutButton"
-                  Theme="{StaticResource GpuiTimePickerButton}"
+                  Theme="{StaticResource UIKitTimePickerButton}"
                   Background="{TemplateBinding Background}"
                   BorderBrush="{TemplateBinding BorderBrush}"
                   BorderThickness="{TemplateBinding BorderThickness}"
@@ -135,34 +135,34 @@
     </Style>
 
     <Style Selector="^:focus-within">
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Ring}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Ring}" />
     </Style>
     <Style Selector="^:focus-within /template/ Border#PART_FocusRing">
       <Setter Property="IsVisible" Value="True" />
     </Style>
     <Style Selector="^:focus-within /template/ Border#PART_HourSegment">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Selection}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Selection}" />
     </Style>
     <!-- After focus: an invalid field keeps the danger border inside the ring band. -->
     <Style Selector="^:error">
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Danger}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Danger}" />
     </Style>
     <Style Selector="^:disabled">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Number.Disabled.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.MutedForeground}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Number.Disabled.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.MutedForeground}" />
     </Style>
     <Style Selector="^:disabled /template/ Button#PART_FlyoutButton">
       <Setter Property="Opacity" Value="0.5" />
     </Style>
     <Style Selector="^:hasnotime /template/ Button#PART_FlyoutButton">
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.MutedForeground}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.MutedForeground}" />
     </Style>
   </ControlTheme>
 
   <!-- The presenter's rows: GPUI's menu rows. -->
-  <ControlTheme x:Key="GpuiDateTimePickerItem" TargetType="ListBoxItem">
+  <ControlTheme x:Key="UIKitDateTimePickerItem" TargetType="ListBoxItem">
     <Setter Property="Background" Value="Transparent" />
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.PopoverForeground}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.PopoverForeground}" />
     <Setter Property="CornerRadius" Value="6" />
     <Setter Property="HorizontalContentAlignment" Value="Center" />
     <Setter Property="VerticalContentAlignment" Value="Center" />
@@ -179,14 +179,14 @@
       </ControlTemplate>
     </Setter>
     <Style Selector="^:pointerover">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Accent}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.AccentForeground}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Accent}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.AccentForeground}" />
     </Style>
   </ControlTheme>
 
-  <ControlTheme x:Key="GpuiDateTimePickerStepButton" TargetType="RepeatButton">
-    <Setter Property="Background" Value="{DynamicResource Gpui.Popover}" />
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.MutedForeground}" />
+  <ControlTheme x:Key="UIKitDateTimePickerStepButton" TargetType="RepeatButton">
+    <Setter Property="Background" Value="{DynamicResource UIKit.Popover}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.MutedForeground}" />
     <Setter Property="Height" Value="24" />
     <Setter Property="HorizontalAlignment" Value="Stretch" />
     <Setter Property="Focusable" Value="False" />
@@ -199,87 +199,87 @@
       </ControlTemplate>
     </Setter>
     <Style Selector="^:pointerover">
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.PopoverForeground}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.PopoverForeground}" />
     </Style>
   </ControlTheme>
 
   <ControlTheme x:Key="{x:Type TimePickerPresenter}" TargetType="TimePickerPresenter">
     <Setter Property="Width" Value="242" />
     <Setter Property="MaxHeight" Value="296" />
-    <Setter Property="Background" Value="{DynamicResource Gpui.Popover}" />
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.PopoverForeground}" />
+    <Setter Property="Background" Value="{DynamicResource UIKit.Popover}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.PopoverForeground}" />
     <Setter Property="FontSize" Value="14" />
     <Setter Property="ClipToBounds" Value="False" />
     <Setter Property="Template">
       <ControlTemplate>
         <Panel Margin="0,4,0,0">
-          <Border Margin="-1" CornerRadius="6" Background="{DynamicResource Gpui.PopoverRing}" IsHitTestVisible="False" />
+          <Border Margin="-1" CornerRadius="6" Background="{DynamicResource UIKit.PopoverRing}" IsHitTestVisible="False" />
           <Border Background="{TemplateBinding Background}" CornerRadius="6" Padding="4"
-                  BoxShadow="{StaticResource Gpui.Shadow.Popover}">
+                  BoxShadow="{StaticResource UIKit.Shadow.Popover}">
             <Grid RowDefinitions="*,Auto">
               <Grid Name="PART_PickerContainer">
                 <Grid.Styles>
                   <Style Selector="DateTimePickerPanel > ListBoxItem">
-                    <Setter Property="Theme" Value="{StaticResource GpuiDateTimePickerItem}" />
+                    <Setter Property="Theme" Value="{StaticResource UIKitDateTimePickerItem}" />
                   </Style>
                 </Grid.Styles>
                 <Panel Name="PART_HourHost" Grid.Column="0">
                   <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
                     <DateTimePickerPanel Name="PART_HourSelector" PanelType="Hour" ShouldLoop="True" ItemHeight="32" />
                   </ScrollViewer>
-                  <RepeatButton Name="PART_HourUpButton" VerticalAlignment="Top" Theme="{StaticResource GpuiDateTimePickerStepButton}">
-                    <PathIcon Width="14" Height="14" Data="{StaticResource Gpui.Icon.ChevronUp}" />
+                  <RepeatButton Name="PART_HourUpButton" VerticalAlignment="Top" Theme="{StaticResource UIKitDateTimePickerStepButton}">
+                    <PathIcon Width="14" Height="14" Data="{StaticResource UIKit.Icon.ChevronUp}" />
                   </RepeatButton>
-                  <RepeatButton Name="PART_HourDownButton" VerticalAlignment="Bottom" Theme="{StaticResource GpuiDateTimePickerStepButton}">
-                    <PathIcon Width="14" Height="14" Data="{StaticResource Gpui.Icon.ChevronDown}" />
+                  <RepeatButton Name="PART_HourDownButton" VerticalAlignment="Bottom" Theme="{StaticResource UIKitDateTimePickerStepButton}">
+                    <PathIcon Width="14" Height="14" Data="{StaticResource UIKit.Icon.ChevronDown}" />
                   </RepeatButton>
                 </Panel>
                 <Panel Name="PART_MinuteHost" Grid.Column="2">
                   <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
                     <DateTimePickerPanel Name="PART_MinuteSelector" PanelType="Minute" ShouldLoop="True" ItemHeight="32" />
                   </ScrollViewer>
-                  <RepeatButton Name="PART_MinuteUpButton" VerticalAlignment="Top" Theme="{StaticResource GpuiDateTimePickerStepButton}">
-                    <PathIcon Width="14" Height="14" Data="{StaticResource Gpui.Icon.ChevronUp}" />
+                  <RepeatButton Name="PART_MinuteUpButton" VerticalAlignment="Top" Theme="{StaticResource UIKitDateTimePickerStepButton}">
+                    <PathIcon Width="14" Height="14" Data="{StaticResource UIKit.Icon.ChevronUp}" />
                   </RepeatButton>
-                  <RepeatButton Name="PART_MinuteDownButton" VerticalAlignment="Bottom" Theme="{StaticResource GpuiDateTimePickerStepButton}">
-                    <PathIcon Width="14" Height="14" Data="{StaticResource Gpui.Icon.ChevronDown}" />
+                  <RepeatButton Name="PART_MinuteDownButton" VerticalAlignment="Bottom" Theme="{StaticResource UIKitDateTimePickerStepButton}">
+                    <PathIcon Width="14" Height="14" Data="{StaticResource UIKit.Icon.ChevronDown}" />
                   </RepeatButton>
                 </Panel>
                 <Panel Name="PART_SecondHost" Grid.Column="4">
                   <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
                     <DateTimePickerPanel Name="PART_SecondSelector" PanelType="Second" ShouldLoop="True" ItemHeight="32" />
                   </ScrollViewer>
-                  <RepeatButton Name="PART_SecondUpButton" VerticalAlignment="Top" Theme="{StaticResource GpuiDateTimePickerStepButton}">
-                    <PathIcon Width="14" Height="14" Data="{StaticResource Gpui.Icon.ChevronUp}" />
+                  <RepeatButton Name="PART_SecondUpButton" VerticalAlignment="Top" Theme="{StaticResource UIKitDateTimePickerStepButton}">
+                    <PathIcon Width="14" Height="14" Data="{StaticResource UIKit.Icon.ChevronUp}" />
                   </RepeatButton>
-                  <RepeatButton Name="PART_SecondDownButton" VerticalAlignment="Bottom" Theme="{StaticResource GpuiDateTimePickerStepButton}">
-                    <PathIcon Width="14" Height="14" Data="{StaticResource Gpui.Icon.ChevronDown}" />
+                  <RepeatButton Name="PART_SecondDownButton" VerticalAlignment="Bottom" Theme="{StaticResource UIKitDateTimePickerStepButton}">
+                    <PathIcon Width="14" Height="14" Data="{StaticResource UIKit.Icon.ChevronDown}" />
                   </RepeatButton>
                 </Panel>
                 <Panel Name="PART_PeriodHost" Grid.Column="6">
                   <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
                     <DateTimePickerPanel Name="PART_PeriodSelector" PanelType="TimePeriod" ShouldLoop="False" ItemHeight="32" />
                   </ScrollViewer>
-                  <RepeatButton Name="PART_PeriodUpButton" VerticalAlignment="Top" Theme="{StaticResource GpuiDateTimePickerStepButton}">
-                    <PathIcon Width="14" Height="14" Data="{StaticResource Gpui.Icon.ChevronUp}" />
+                  <RepeatButton Name="PART_PeriodUpButton" VerticalAlignment="Top" Theme="{StaticResource UIKitDateTimePickerStepButton}">
+                    <PathIcon Width="14" Height="14" Data="{StaticResource UIKit.Icon.ChevronUp}" />
                   </RepeatButton>
-                  <RepeatButton Name="PART_PeriodDownButton" VerticalAlignment="Bottom" Theme="{StaticResource GpuiDateTimePickerStepButton}">
-                    <PathIcon Width="14" Height="14" Data="{StaticResource Gpui.Icon.ChevronDown}" />
+                  <RepeatButton Name="PART_PeriodDownButton" VerticalAlignment="Bottom" Theme="{StaticResource UIKitDateTimePickerStepButton}">
+                    <PathIcon Width="14" Height="14" Data="{StaticResource UIKit.Icon.ChevronDown}" />
                   </RepeatButton>
                 </Panel>
                 <!-- The selected row: the selection's band, behind the rows. -->
                 <Border ZIndex="-1" Grid.ColumnSpan="7" Height="32" VerticalAlignment="Center" CornerRadius="6"
-                        Background="{DynamicResource Gpui.Accent}" />
-                <Rectangle Name="PART_FirstSpacer" Grid.Column="1" Width="1" HorizontalAlignment="Center" Fill="{DynamicResource Gpui.Border}" />
-                <Rectangle Name="PART_SecondSpacer" Grid.Column="3" Width="1" HorizontalAlignment="Center" Fill="{DynamicResource Gpui.Border}" />
-                <Rectangle Name="PART_ThirdSpacer" Grid.Column="5" Width="1" HorizontalAlignment="Center" Fill="{DynamicResource Gpui.Border}" />
+                        Background="{DynamicResource UIKit.Accent}" />
+                <Rectangle Name="PART_FirstSpacer" Grid.Column="1" Width="1" HorizontalAlignment="Center" Fill="{DynamicResource UIKit.Border}" />
+                <Rectangle Name="PART_SecondSpacer" Grid.Column="3" Width="1" HorizontalAlignment="Center" Fill="{DynamicResource UIKit.Border}" />
+                <Rectangle Name="PART_ThirdSpacer" Grid.Column="5" Width="1" HorizontalAlignment="Center" Fill="{DynamicResource UIKit.Border}" />
               </Grid>
               <Grid Grid.Row="1" ColumnDefinitions="*,*" ColumnSpacing="4" Margin="0,4,0,0">
                 <Button Name="PART_AcceptButton" Classes="ghost small" HorizontalAlignment="Stretch">
-                  <PathIcon Data="{StaticResource Gpui.Icon.Check}" />
+                  <PathIcon Data="{StaticResource UIKit.Icon.Check}" />
                 </Button>
                 <Button Name="PART_DismissButton" Grid.Column="1" Classes="ghost small" HorizontalAlignment="Stretch">
-                  <PathIcon Data="{StaticResource Gpui.Icon.Close}" />
+                  <PathIcon Data="{StaticResource UIKit.Icon.Close}" />
                 </Button>
               </Grid>
             </Grid>

@@ -1,9 +1,9 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:gpui="using:AvaloniaUIKit"
+             xmlns:uikit="using:AvaloniaUIKit"
              x:Class="AvaloniaUIKit.Demos.ScrollableDemo">
-  <!-- AllowAutoHide False keeps the scrollbar shown (GPUI's ScrollbarMode::Always). -->
-  <Border BorderBrush="{DynamicResource Gpui.Border}" BorderThickness="1" CornerRadius="5.5" Width="320" Height="160" HorizontalAlignment="Left">
+  <!-- AllowAutoHide False keeps the scrollbar shown. -->
+  <Border BorderBrush="{DynamicResource UIKit.Border}" BorderThickness="1" CornerRadius="5.5" Width="320" Height="160" HorizontalAlignment="Left">
     <ScrollViewer AllowAutoHide="False">
       <StackPanel Spacing="8" Margin="12">
         <TextBlock Text="v0.9.0 · Stepper and Form" />

@@ -1,18 +1,18 @@
 ---
 title: "Hover Card"
-description: "A card that opens next to its content on hover, with GPUI Kit's delays and popover surface."
+description: "A card that opens next to its content on hover, after a delay, on the popover surface."
 ---
 
 <Demo name="hover-card/demo" />
 
 ## Usage
 
-`gpui:HoverCard` wraps the trigger as its content; `HoverCard.Card` is what opens. The card has the popover surface (the background, ring and shadow, 12px of padding, 4px from the trigger) and, like the popover, slides to stay on screen instead of flipping. Entering the trigger schedules the open and leaving it schedules the close; the card keeps itself open while the pointer is on it.
+`uikit:HoverCard` wraps the trigger as its content; `HoverCard.Card` is what opens. The card has the popover surface (the background, ring and shadow, 12px of padding, 4px from the trigger) and, like the popover, slides to stay on screen instead of flipping. Entering the trigger schedules the open and leaving it schedules the close; the card keeps itself open while the pointer is on it.
 
 | Property | Meaning |
 | --- | --- |
 | `Card` | The card's content. |
-| `Placement` | Where the card opens, a `PlacementMode`; `Bottom` by default. GPUI Kit's anchors map as for the Popover. |
+| `Placement` | Where the card opens, a `PlacementMode`; `Bottom` by default. |
 | `OpenDelay` | How long the pointer rests on the trigger before the card opens; 600ms. |
 | `CloseDelay` | How long the card stays after the pointer leaves the trigger and the card; 300ms. |
 | `IsOpen` | Whether the card is open. |
@@ -25,5 +25,5 @@ description: "A card that opens next to its content on hover, with GPUI Kit's de
 
 ## Not covered
 
-- Opening on tap (`tap_to_open`).
-- Turning the surface off (`appearance(false)`).
+- Opening on tap.
+- Turning the surface off.

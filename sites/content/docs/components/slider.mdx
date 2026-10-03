@@ -1,6 +1,6 @@
 ---
 title: "Slider"
-description: "GPUI Kit's slider, with the thumb's ring on hover and drag."
+description: "A pill track filled up to the value, with a ring around the thumb on hover and drag."
 ---
 
 <Demo name="slider/demo" />
@@ -9,7 +9,7 @@ description: "GPUI Kit's slider, with the thumb's ring on hover and drag."
 
 The theme covers `Slider` with its `Track`, `Thumb` and `TickBar`s: a 6px pill filled up to the value in a 24px band, and a 16px thumb centred on the value that overhangs the ends by half its width, so leave a margin around the control. A 3px ring springs around the thumb while it or the slider is hovered or pressed, and fades when released.
 
-`Orientation="Vertical"` makes it 24px wide and 120px tall by default, filling from the bottom; `Classes="reverse"` fills from the thumb to the end instead. Disabled, the thumb is not drawn and the fill keeps its length. There is one size, as in GPUI. Ticks (`TickPlacement`, `TickFrequency`) are Avalonia's own, drawn as muted 1px lines at the band's edges.
+`Orientation="Vertical"` makes it 24px wide and 120px tall by default, filling from the bottom; `Classes="reverse"` fills from the thumb to the end instead. Disabled, the thumb is not drawn and the fill keeps its length. There is one size. Ticks (`TickPlacement`, `TickFrequency`) are Avalonia's own, drawn as muted 1px lines at the band's edges.
 
 ## Examples
 
@@ -28,4 +28,4 @@ Disabled sliders keep their fill but draw no thumb.
 ## Not covered
 
 - A range slider with two thumbs.
-- The active color while pressing the track (GPUI's thumb moves first, so it is not drawn either).
+- The active color while pressing the track: a press moves the thumb under the pointer first.

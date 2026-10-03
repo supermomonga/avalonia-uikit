@@ -1,7 +1,7 @@
 # GPUI Kit TitleBar -> WindowDrawnDecorations (its title bar).
 # Rendered on macOS by the reference: a 34px bar (33 + the 1px border), an 80px
 # left inset for the traffic lights and no window controls. The Avalonia test
-# hosts the decorations template with Gpui.TitleBar.Padding at 80 and the caption
+# hosts the decorations template with UIKit.TitleBar.Padding at 80 and the caption
 # buttons hidden; the buttons are checked by Avalonia-side assertions.
 component = "titlebar"
 viewport = [480, 34]

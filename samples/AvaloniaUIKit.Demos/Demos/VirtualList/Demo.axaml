@@ -1,6 +1,6 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:gpui="using:AvaloniaUIKit"
+             xmlns:uikit="using:AvaloniaUIKit"
              xmlns:local="using:AvaloniaUIKit.Demos"
              x:Class="AvaloniaUIKit.Demos.VirtualListDemo">
   <ListBox Width="240" Height="240" HorizontalAlignment="Left"
@@ -8,7 +8,7 @@
     <ListBox.ItemTemplate>
       <DataTemplate x:DataType="local:VirtualRow">
         <StackPanel Orientation="Horizontal" Spacing="8">
-          <TextBlock Text="{Binding Number}" Width="48" Foreground="{DynamicResource Gpui.MutedForeground}" />
+          <TextBlock Text="{Binding Number}" Width="48" Foreground="{DynamicResource UIKit.MutedForeground}" />
           <TextBlock Text="{Binding Title}" />
         </StackPanel>
       </DataTemplate>

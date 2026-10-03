@@ -1,17 +1,17 @@
 ---
 title: "List"
-description: "GPUI Kit's list rows: hover, selection and the overlay scrollbar, as ListBox."
+description: "List rows with hover, selection and the overlay scrollbar, as ListBox."
 ---
 
 <Demo name="list/demo" />
 
 ## Usage
 
-The theme covers `ListBox` and `ListBoxItem`: 34px rows of 16px text with 12×4 padding, square and full width, with no chrome of the list's own. A hovered row takes GPUI Kit's list hover color, the selected row its active color (hovering adds nothing), and a disabled item shows muted text; the scrollbar overlays the rows, from the `ScrollViewer` theme. Put a row's content in the `ItemTemplate`. The items panel stays virtualizing, so a long list is the same control: see [Virtual List](/docs/components/virtual-list).
+The theme covers `ListBox` and `ListBoxItem`: 34px rows of 16px text with 12×4 padding, square and full width, with no chrome of the list's own. A hovered row takes the list hover color (`UIKit.ListHover`), the selected row the active color (`UIKit.ListActive`; hovering adds nothing), and a disabled item shows muted text; the scrollbar overlays the rows, from the `ScrollViewer` theme. Put a row's content in the `ItemTemplate`. The items panel stays virtualizing, so a long list is the same control: see [Virtual List](/docs/components/virtual-list).
 
 ## Examples
 
-An empty list shows GPUI Kit's 48px Inbox icon, centered; there is nothing to add for it.
+An empty list shows a 48px Inbox icon, centered; there is nothing to add for it.
 
 <Demo name="list/empty" title="Empty" />
 

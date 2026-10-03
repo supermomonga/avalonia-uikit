@@ -1,4 +1,4 @@
-# GPUI Kit ShimmerText -> gpui:ShimmerText. The cases sweep once (GPUI's
+# GPUI Kit ShimmerText -> uikit:ShimmerText. The cases sweep once (GPUI's
 # repeating sweep follows the app's clock, not the element's); at rest the
 # text is plain.
 component = "shimmer"

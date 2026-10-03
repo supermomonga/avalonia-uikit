@@ -1,6 +1,6 @@
 <!--
   GPUI Kit Progress -> ProgressBar (crates/component/src/progress/progress.rs)
-  GPUI Kit Spinner -> ProgressBar with Theme="{StaticResource GpuiSpinner}"
+  GPUI Kit Spinner -> ProgressBar with Theme="{StaticResource UIKitSpinner}"
   (crates/component/src/spinner.rs).
   Classes: xsmall small large (medium is the default).
 
@@ -17,11 +17,11 @@
 -->
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:gpui="using:AvaloniaUIKit"
+                    xmlns:uikit="using:AvaloniaUIKit"
                     xmlns:gconv="using:AvaloniaUIKit.Converters">
   <ControlTheme x:Key="{x:Type ProgressBar}" TargetType="ProgressBar">
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.ProgressBar}" />
-    <Setter Property="Background" Value="{DynamicResource Gpui.Progress.Track}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.ProgressBar}" />
+    <Setter Property="Background" Value="{DynamicResource UIKit.Progress.Track}" />
     <Setter Property="Height" Value="8" />
     <Setter Property="MinWidth" Value="0" />
     <Setter Property="CornerRadius" Value="4" />
@@ -33,11 +33,11 @@
             <Border Name="PART_Indicator" HorizontalAlignment="Left" VerticalAlignment="Stretch"
                     Background="{TemplateBinding Foreground}" CornerRadius="{TemplateBinding CornerRadius}">
               <!-- Value changes animate; the width the bar first settles into does not. -->
-              <gpui:Motion.SettledTransitions>
+              <uikit:Motion.SettledTransitions>
                 <Transitions>
                   <DoubleTransition Property="Width" Duration="0:0:0.18" Easing="0.2,0,0,1" />
                 </Transitions>
-              </gpui:Motion.SettledTransitions>
+              </uikit:Motion.SettledTransitions>
             </Border>
             <Border Name="PART_IndeterminateClip" HorizontalAlignment="Right"
                     CornerRadius="{TemplateBinding CornerRadius}" ClipToBounds="True" IsVisible="False">
@@ -115,10 +115,10 @@
 
   <!-- Spinner: the Lucide loader at the size's icon size, one turn per 0.8s with
        a quadratic ease-in-out applied to each turn. It takes the text color. -->
-  <ControlTheme x:Key="GpuiSpinner" TargetType="ProgressBar">
+  <ControlTheme x:Key="UIKitSpinner" TargetType="ProgressBar">
     <Setter Property="IsIndeterminate" Value="True" />
     <Setter Property="Background" Value="Transparent" />
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
     <Setter Property="Width" Value="16" />
     <Setter Property="Height" Value="16" />
     <Setter Property="MinWidth" Value="0" />
@@ -129,7 +129,7 @@
       <ControlTemplate>
         <Panel>
           <Border Name="PART_Indicator" IsVisible="False" />
-          <PathIcon Name="PART_Icon" Data="{StaticResource Gpui.Icon.Loader}"
+          <PathIcon Name="PART_Icon" Data="{StaticResource UIKit.Icon.Loader}"
                     Width="{TemplateBinding Width}" Height="{TemplateBinding Height}"
                     Foreground="{TemplateBinding Foreground}" RenderTransformOrigin="50%,50%">
             <PathIcon.RenderTransform>
@@ -166,7 +166,7 @@
   </ControlTheme>
 
   <!--
-    GPUI Kit ProgressCircle -> ProgressBar with Theme="{StaticResource GpuiProgressCircle}"
+    GPUI Kit ProgressCircle -> ProgressBar with Theme="{StaticResource UIKitProgressCircle}"
     (crates/component/src/progress/progress_circle.rs).
     Classes: xsmall small large (medium is the default); any other Width/Height works.
 
@@ -176,11 +176,11 @@
     Indeterminate, a 1s cycle: at phase d the arc spans [e(max(0, 2d - 1)), e(d)]
     of a turn, e the quadratic ease-in-out, keyframed exactly by quadratic splines.
   -->
-  <gconv:AffineConverter x:Key="Gpui.ProgressCircle.Degrees" Scale="3.6" />
-  <gconv:AffineConverter x:Key="Gpui.ProgressCircle.Stroke" Scale="0.15" Maximum="5" />
-  <ControlTheme x:Key="GpuiProgressCircle" TargetType="ProgressBar">
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.ProgressBar}" />
-    <Setter Property="Background" Value="{DynamicResource Gpui.Progress.Track}" />
+  <gconv:AffineConverter x:Key="UIKit.ProgressCircle.Degrees" Scale="3.6" />
+  <gconv:AffineConverter x:Key="UIKit.ProgressCircle.Stroke" Scale="0.15" Maximum="5" />
+  <ControlTheme x:Key="UIKitProgressCircle" TargetType="ProgressBar">
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.ProgressBar}" />
+    <Setter Property="Background" Value="{DynamicResource UIKit.Progress.Track}" />
     <Setter Property="Width" Value="16" />
     <Setter Property="Height" Value="16" />
     <Setter Property="MinWidth" Value="0" />
@@ -193,19 +193,19 @@
         <Panel Background="Transparent">
           <Border Name="PART_Indicator" IsVisible="False" />
           <Ellipse Name="PART_Ring" Stroke="{TemplateBinding Background}"
-                   StrokeThickness="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource Gpui.ProgressCircle.Stroke}}" />
+                   StrokeThickness="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource UIKit.ProgressCircle.Stroke}}" />
           <Arc Name="PART_Arc" Stroke="{TemplateBinding Foreground}" StartAngle="-90"
-               StrokeThickness="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource Gpui.ProgressCircle.Stroke}}"
-               SweepAngle="{Binding Percentage, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource Gpui.ProgressCircle.Degrees}}">
+               StrokeThickness="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource UIKit.ProgressCircle.Stroke}}"
+               SweepAngle="{Binding Percentage, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource UIKit.ProgressCircle.Degrees}}">
             <!-- Value changes sweep; the angle the arc first settles into does not. -->
-            <gpui:Motion.SettledTransitions>
+            <uikit:Motion.SettledTransitions>
               <Transitions>
                 <DoubleTransition Property="SweepAngle" Duration="0:0:0.18" Easing="0.2,0,0,1" />
               </Transitions>
-            </gpui:Motion.SettledTransitions>
+            </uikit:Motion.SettledTransitions>
           </Arc>
           <Arc Name="PART_IndeterminateArc" Stroke="{TemplateBinding Foreground}" IsVisible="False"
-               StrokeThickness="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource Gpui.ProgressCircle.Stroke}}" />
+               StrokeThickness="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource UIKit.ProgressCircle.Stroke}}" />
         </Panel>
       </ControlTemplate>
     </Setter>

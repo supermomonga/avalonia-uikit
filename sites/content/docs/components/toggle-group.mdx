@@ -7,7 +7,7 @@ description: "Toggles that select one or several items, as a ListBox with the to
 
 ## Usage
 
-`ListBox Classes="toggle-group"` lays its `ListBoxItem`s out in a row, 8px apart, and draws each as a toggle: ghost by default, selected and hovered items in the accent. The selection rule is the app's `SelectionMode`: `Multiple,Toggle` lets every item flip on its own, which is GPUI Kit's group; `Toggle` (or `Single`) keeps at most one item selected. `IsSelected` on an item, or `SelectedItems` on the list, is the state. A group holds a handful of items, so the list does not virtualize.
+`ListBox Classes="toggle-group"` lays its `ListBoxItem`s out in a row, 8px apart, and draws each as a toggle: ghost by default, selected and hovered items in the accent. The selection rule is the app's `SelectionMode`: `Multiple,Toggle` lets every item flip on its own; `Toggle` (or `Single`) keeps at most one item selected. `IsSelected` on an item, or `SelectedItems` on the list, is the state. A group holds a handful of items, so the list does not virtualize.
 
 | Class | Effect |
 | --- | --- |
@@ -31,4 +31,4 @@ A `PathIcon` as an item's content; the icon follows the group's size.
 
 ## Not covered
 
-- GPUI Kit's selection rules: the app sets `SelectionMode`.
+- A selection rule built into the group: the app sets `SelectionMode`.

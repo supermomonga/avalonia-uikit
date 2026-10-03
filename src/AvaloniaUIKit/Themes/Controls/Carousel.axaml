@@ -2,7 +2,7 @@
   GPUI Kit Carousel (crates/component/src/carousel) -> Carousel.
 
   The carousel shows one page at a time, clipped to its bounds, and changes
-  pages on GPUI's spring_move (gpui:SpringSlide): both pages ride one track
+  pages on GPUI's spring_move (uikit:SpringSlide): both pages ride one track
   16px apart. Keyboard focus rings the pages (a 1px ring border and the 3px
   band); the carousel takes focus only where the app sets Focusable="True"
   (GPUI's carousel is a tab stop, and Avalonia's handles the arrow keys then).
@@ -14,16 +14,16 @@
 -->
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:gpui="using:AvaloniaUIKit">
+                    xmlns:uikit="using:AvaloniaUIKit">
   <!-- carousel.rs: spring_move with a 0.5px epsilon. -->
-  <gpui:Spring x:Key="Gpui.Spring.CarouselSnap" Response="0:0:0.28" Damping="0.85" Epsilon="0.5" />
+  <uikit:Spring x:Key="UIKit.Spring.CarouselSnap" Response="0:0:0.28" Damping="0.85" Epsilon="0.5" />
 
   <ControlTheme x:Key="{x:Type Carousel}" TargetType="Carousel">
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="CornerRadius" Value="5.5" />
     <Setter Property="ClipToBounds" Value="False" />
     <Setter Property="PageTransition">
-      <gpui:SpringSlide Spring="{StaticResource Gpui.Spring.CarouselSnap}" Gap="16" />
+      <uikit:SpringSlide Spring="{StaticResource UIKit.Spring.CarouselSnap}" Gap="16" />
     </Setter>
     <Setter Property="Template">
       <ControlTemplate>
@@ -39,11 +39,11 @@
           </ScrollViewer>
           <!-- focus_ring_style (styled.rs): the 3px band in ring at 50% around radius + 3, then the 1px ring border. -->
           <Border Name="PART_FocusRing" Margin="-3" BorderThickness="3" CornerRadius="7.5"
-                  BorderBrush="{DynamicResource Gpui.FocusRing}"
+                  BorderBrush="{DynamicResource UIKit.FocusRing}"
                   IsVisible="False" IsHitTestVisible="False" />
           <Border Name="PART_FocusBorder" BorderThickness="1"
                   CornerRadius="{TemplateBinding CornerRadius}"
-                  BorderBrush="{DynamicResource Gpui.Ring}"
+                  BorderBrush="{DynamicResource UIKit.Ring}"
                   IsVisible="False" IsHitTestVisible="False" />
         </Panel>
       </ControlTemplate>

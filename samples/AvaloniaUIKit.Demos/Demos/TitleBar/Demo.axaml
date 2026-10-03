@@ -1,6 +1,6 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:gpui="using:AvaloniaUIKit"
+             xmlns:uikit="using:AvaloniaUIKit"
              x:Class="AvaloniaUIKit.Demos.TitleBarDemo">
   <!--
     The theme draws the title bar as part of the window's decorations
@@ -8,33 +8,33 @@
     built from the theme's resources: the gradient, the rule, the caption buttons.
   -->
   <Border Width="480" Height="140" HorizontalAlignment="Left" BorderThickness="1"
-          BorderBrush="{DynamicResource Gpui.WindowFrame}" Background="{DynamicResource Gpui.Background}">
+          BorderBrush="{DynamicResource UIKit.WindowFrame}" Background="{DynamicResource UIKit.Background}">
     <DockPanel>
       <Border DockPanel.Dock="Top" Height="34" BackgroundSizing="OuterBorderEdge" BorderThickness="0,0,0,1"
-              BorderBrush="{DynamicResource Gpui.TitleBarBorder}">
+              BorderBrush="{DynamicResource UIKit.TitleBarBorder}">
         <Border.Background>
           <LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,100%">
-            <GradientStop Offset="0" Color="{DynamicResource Gpui.TitleBar.GradientTop.Color}" />
-            <GradientStop Offset="1" Color="{DynamicResource Gpui.TitleBar.Color}" />
+            <GradientStop Offset="0" Color="{DynamicResource UIKit.TitleBar.GradientTop.Color}" />
+            <GradientStop Offset="1" Color="{DynamicResource UIKit.TitleBar.Color}" />
           </LinearGradientBrush>
         </Border.Background>
         <DockPanel>
           <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
-            <Button Theme="{StaticResource GpuiCaptionButton}">
-              <PathIcon Width="14" Height="14" Data="{StaticResource Gpui.Icon.WindowMinimize}" />
+            <Button Theme="{StaticResource UIKitCaptionButton}">
+              <PathIcon Width="14" Height="14" Data="{StaticResource UIKit.Icon.WindowMinimize}" />
             </Button>
-            <Button Theme="{StaticResource GpuiCaptionButton}">
-              <PathIcon Width="14" Height="14" Data="{StaticResource Gpui.Icon.WindowMaximize}" />
+            <Button Theme="{StaticResource UIKitCaptionButton}">
+              <PathIcon Width="14" Height="14" Data="{StaticResource UIKit.Icon.WindowMaximize}" />
             </Button>
-            <Button Theme="{StaticResource GpuiCaptionButton}" Classes="close">
-              <PathIcon Width="14" Height="14" Data="{StaticResource Gpui.Icon.WindowClose}" />
+            <Button Theme="{StaticResource UIKitCaptionButton}" Classes="close">
+              <PathIcon Width="14" Height="14" Data="{StaticResource UIKit.Icon.WindowClose}" />
             </Button>
           </StackPanel>
-          <TextBlock Text="My Application" Margin="{DynamicResource Gpui.TitleBar.Padding}" VerticalAlignment="Center"
+          <TextBlock Text="My Application" Margin="{DynamicResource UIKit.TitleBar.Padding}" VerticalAlignment="Center"
                      FontSize="14" FontWeight="Medium" LineHeight="22.5" />
         </DockPanel>
       </Border>
-      <TextBlock Text="Window content" Margin="16" Foreground="{DynamicResource Gpui.MutedForeground}" />
+      <TextBlock Text="Window content" Margin="16" Foreground="{DynamicResource UIKit.MutedForeground}" />
     </DockPanel>
   </Border>
 </UserControl>

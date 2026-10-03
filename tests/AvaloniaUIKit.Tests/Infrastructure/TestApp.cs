@@ -17,10 +17,10 @@ public sealed class TestApp : Application
 
     public override void Initialize()
     {
-        Styles.Add(new GpuiTheme());
-        Styles.Add(new GpuiColorPickerTheme());
-        Styles.Add(new GpuiDataGridTheme());
-        Resources["Gpui.FontFamily"] = new FontFamily(FontFamilyName);
+        Styles.Add(new NovaTheme());
+        Styles.Add(new NovaColorPickerTheme());
+        Styles.Add(new NovaDataGridTheme());
+        Resources["UIKit.FontFamily"] = new FontFamily(FontFamilyName);
         // GPUI opens a submenu as soon as its item is hovered (usage contract, docs/testing.md).
         Avalonia.Controls.Platform.DefaultMenuInteractionHandler.MenuShowDelay = TimeSpan.Zero;
     }

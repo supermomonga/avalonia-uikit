@@ -1,4 +1,4 @@
-# GPUI Kit Icon -> PathIcon with the theme's Lucide geometry (Gpui.Icon.*).
+# GPUI Kit Icon -> PathIcon with the theme's Lucide geometry (UIKit.Icon.*).
 component = "icon"
 viewport = [40, 40]
 anchor = [8, 8]

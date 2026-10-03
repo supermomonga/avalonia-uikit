@@ -1,4 +1,4 @@
-# GPUI Kit DescriptionList -> gpui:DescriptionList, 760px wide, three columns
+# GPUI Kit DescriptionList -> uikit:DescriptionList, 760px wide, three columns
 # by default: rows fill up to the columns' spans; a short row's items grow to
 # share it. Bordered by default; labels 120px wide in the horizontal layout.
 component = "descriptionlist"

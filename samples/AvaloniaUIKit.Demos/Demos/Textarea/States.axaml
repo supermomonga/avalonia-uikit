@@ -1,6 +1,6 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:gpui="using:AvaloniaUIKit"
+             xmlns:uikit="using:AvaloniaUIKit"
              x:Class="AvaloniaUIKit.Demos.TextareaStates">
   <StackPanel Spacing="12" Width="280" HorizontalAlignment="Left">
     <TextBox AcceptsReturn="True" MinLines="3" MaxLines="3" Text="Read only&#10;notes" IsReadOnly="True" />

@@ -332,15 +332,15 @@ public class BehaviorTests
         Avalonia.Media.Color Brush(string key) => ((Avalonia.Media.ISolidColorBrush)host.Window.FindResource(host.Window.ActualThemeVariant, key)!).Color;
         Avalonia.Media.Color? Fill(Button b) => (b.Background as Avalonia.Media.ISolidColorBrush)?.Color;
         host.Drive(golden, "at-463-16");
-        await Assert.That(Fill(buttons[2])).IsEqualTo(Brush("Gpui.Danger"));
+        await Assert.That(Fill(buttons[2])).IsEqualTo(Brush("UIKit.Danger"));
         host.Drive(golden, "at-429-16");
-        await Assert.That(Fill(buttons[1])).IsEqualTo(Brush("Gpui.SecondaryHover"));
+        await Assert.That(Fill(buttons[1])).IsEqualTo(Brush("UIKit.SecondaryHover"));
         await Assert.That(Fill(buttons[2])).IsEqualTo(Avalonia.Media.Colors.Transparent);
 
         var icon = buttons[1].GetVisualDescendants().OfType<PathIcon>().Single();
-        await Assert.That(ReferenceEquals(icon.Data, host.Window.FindResource("Gpui.Icon.WindowMaximize"))).IsTrue();
+        await Assert.That(ReferenceEquals(icon.Data, host.Window.FindResource("UIKit.Icon.WindowMaximize"))).IsTrue();
         states.Set(":maximized", true);
-        await Assert.That(ReferenceEquals(icon.Data, host.Window.FindResource("Gpui.Icon.WindowRestore"))).IsTrue();
+        await Assert.That(ReferenceEquals(icon.Data, host.Window.FindResource("UIKit.Icon.WindowRestore"))).IsTrue();
     }
 
     // ColorPicker's popover (color_picker.rs): 288px wide, 4px below the swatch from

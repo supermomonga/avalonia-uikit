@@ -1,6 +1,6 @@
 ---
 title: "Installation"
-description: "Add the AvaloniaUIKit package and the GpuiTheme to your App.axaml."
+description: "Add the AvaloniaUIKit package and the NovaTheme to your App.axaml."
 ---
 
 ## Package
@@ -24,7 +24,7 @@ The library targets the current Avalonia 12 release and the latest .NET SDK.
 
 ## Theme
 
-Add `GpuiTheme` to the application's styles. It is a `Styles` theme, like `FluentTheme`, and works on its own: it also themes the window, popups, the adorner layer and the focus ring, as GPUI draws them.
+Add `NovaTheme` to the application's styles. It is a `Styles` theme, like `FluentTheme`, and works on its own: it also themes the window, popups, the adorner layer and the focus ring.
 
 ```xml title="App.axaml"
 <Application xmlns="https://github.com/avaloniaui"
@@ -32,12 +32,12 @@ Add `GpuiTheme` to the application's styles. It is a `Styles` theme, like `Fluen
              xmlns:uikit="clr-namespace:AvaloniaUIKit;assembly=AvaloniaUIKit"
              x:Class="MyApp.App">
   <Application.Styles>
-    <uikit:GpuiTheme />
+    <uikit:NovaTheme />
   </Application.Styles>
 </Application>
 ```
 
-The optional packages add a theme each, after `GpuiTheme`:
+The optional packages add a theme each, after `NovaTheme`:
 
 ```xml title="App.axaml"
 <Application xmlns="https://github.com/avaloniaui"
@@ -47,9 +47,9 @@ The optional packages add a theme each, after `GpuiTheme`:
              xmlns:uikitgrid="clr-namespace:AvaloniaUIKit;assembly=AvaloniaUIKit.DataGrid"
              x:Class="MyApp.App">
   <Application.Styles>
-    <uikit:GpuiTheme />
-    <uikitcolor:GpuiColorPickerTheme />
-    <uikitgrid:GpuiDataGridTheme />
+    <uikit:NovaTheme />
+    <uikitcolor:NovaColorPickerTheme />
+    <uikitgrid:NovaDataGridTheme />
   </Application.Styles>
 </Application>
 ```
@@ -57,17 +57,17 @@ The optional packages add a theme each, after `GpuiTheme`:
 In XAML that uses the new controls, map the namespace with `using:`:
 
 ```xml
-xmlns:gpui="using:AvaloniaUIKit"
+xmlns:uikit="using:AvaloniaUIKit"
 ```
 
 ### On top of FluentTheme
 
-`GpuiTheme` only themes the controls on the [Compatibility](/docs/compatibility) page. To keep a look for the others, add `FluentTheme` first; the later theme wins, and the themed controls look the same with or without Fluent underneath.
+`NovaTheme` only themes the controls on the [Compatibility](/docs/compatibility) page. To keep a look for the others, add `FluentTheme` first; the later theme wins, and the themed controls look the same with or without Fluent underneath.
 
 ```xml title="App.axaml"
 <Application.Styles>
   <FluentTheme />
-  <uikit:GpuiTheme />
+  <uikit:NovaTheme />
 </Application.Styles>
 ```
 

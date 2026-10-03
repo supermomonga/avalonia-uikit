@@ -1,28 +1,15 @@
 ---
 title: "Popover"
-description: "GPUI Kit's popover surface, with its arrow or without any surface, as Avalonia's Flyout."
+description: "The popover surface, with an arrow or without any surface, as Avalonia's Flyout."
 ---
 
 <Demo name="popover/demo" />
 
 ## Usage
 
-The theme covers `Flyout` and `FlyoutPresenter`: the popover background on the theme radius, a 1px ring and GPUI Kit's shadow, about 12px of padding, and a 4px gap from the trigger on whichever side the flyout opens. GPUI Kit never flips a popover, so give every flyout `PlacementConstraintAdjustment="SlideX, SlideY"`; an offset of n in GPUI Kit is a `HorizontalOffset` or `VerticalOffset` of n − 4, as the theme adds the gap. The popover opens in place, as GPUI Kit's does.
+The theme covers `Flyout` and `FlyoutPresenter`: the popover background on the theme radius, a 1px ring and a shadow, about 12px of padding, and a 4px gap from the trigger on whichever side the flyout opens. A popover slides to stay on screen rather than flipping to the other side, so give every flyout `PlacementConstraintAdjustment="SlideX, SlideY"`. The theme adds the gap, so a `HorizontalOffset` or `VerticalOffset` moves the flyout further than it. The popover opens in place, without an animation.
 
-GPUI Kit's anchors map to `Placement` as follows.
-
-| GPUI Kit anchor | `Placement` |
-| --- | --- |
-| TopLeft | `BottomEdgeAlignedLeft` |
-| TopCenter | `Bottom` |
-| TopRight | `BottomEdgeAlignedRight` |
-| BottomLeft | `TopEdgeAlignedLeft` |
-| BottomCenter | `Top` |
-| BottomRight | `TopEdgeAlignedRight` |
-| LeftCenter | `Right` |
-| RightCenter | `Left` |
-
-`FlyoutPresenterClasses` picks the look: `arrow` adds GPUI Kit's 6px arrow toward the trigger (the gap grows by its depth), and `plain` is `appearance(false)`: no surface and no padding, only the content.
+`FlyoutPresenterClasses` picks the look: `arrow` adds a 6px arrow toward the trigger (the gap grows by its depth), and `plain` draws no surface and no padding, only the content.
 
 ## Examples
 

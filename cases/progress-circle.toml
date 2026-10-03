@@ -1,4 +1,4 @@
-# GPUI Kit ProgressCircle -> ProgressBar with the GpuiProgressCircle theme.
+# GPUI Kit ProgressCircle -> ProgressBar with the UIKitProgressCircle theme.
 component = "progress-circle"
 viewport = [52, 36]
 anchor = [16, 8]

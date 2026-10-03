@@ -8,22 +8,22 @@
   GPUI's edge snapping renders as a 28.5px bubble: the line is 22.5 here). It keeps a 12px
   margin (m_3) and opens above its trigger, centered, 10.5px from it as GPUI
   places it. It fades in and slides up 4px over 150ms with ease-out-cubic.
-  GPUI shows a tooltip after 500ms; GpuiTheme sets ToolTip.ShowDelay and the
+  GPUI shows a tooltip after 500ms; NovaTheme sets ToolTip.ShowDelay and the
   placement on every control.
 -->
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-  <BoxShadows x:Key="Gpui.Shadow.Md">0 4 19.0526 -1 #1A000000, 0 2 12.1244 -2 #1A000000</BoxShadows>
+  <BoxShadows x:Key="UIKit.Shadow.Md">0 4 19.0526 -1 #1A000000, 0 2 12.1244 -2 #1A000000</BoxShadows>
 
   <ControlTheme x:Key="{x:Type ToolTip}" TargetType="ToolTip">
-    <Setter Property="Background" Value="{DynamicResource Gpui.Popover}" />
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.PopoverForeground}" />
-    <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Border}" />
+    <Setter Property="Background" Value="{DynamicResource UIKit.Popover}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.PopoverForeground}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Border}" />
     <Setter Property="BorderThickness" Value="1" />
     <Setter Property="CornerRadius" Value="5.5" />
     <Setter Property="Padding" Value="8,2" />
     <Setter Property="FontSize" Value="14" />
-    <Setter Property="FontFamily" Value="{DynamicResource Gpui.FontFamily}" />
+    <Setter Property="FontFamily" Value="{DynamicResource UIKit.FontFamily}" />
     <Setter Property="ClipToBounds" Value="False" />
     <Setter Property="Template">
       <ControlTemplate>
@@ -31,7 +31,7 @@
           <Panel.RenderTransform>
             <TranslateTransform />
           </Panel.RenderTransform>
-          <Border Name="PART_Shadow" CornerRadius="6" BoxShadow="{StaticResource Gpui.Shadow.Md}" IsHitTestVisible="False" />
+          <Border Name="PART_Shadow" CornerRadius="6" BoxShadow="{StaticResource UIKit.Shadow.Md}" IsHitTestVisible="False" />
           <Border Name="PART_LayoutRoot"
                   BackgroundSizing="OuterBorderEdge"
                   Background="{TemplateBinding Background}"

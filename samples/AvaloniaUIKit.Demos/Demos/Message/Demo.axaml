@@ -1,23 +1,23 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:gpui="using:AvaloniaUIKit"
+             xmlns:uikit="using:AvaloniaUIKit"
              x:Class="AvaloniaUIKit.Demos.MessageDemo">
   <StackPanel Width="420" Spacing="16" HorizontalAlignment="Left">
-    <gpui:Message Footer="Read">
-      <gpui:Message.Avatar>
-        <gpui:Avatar UserName="Alice" Width="32" Height="32" />
-      </gpui:Message.Avatar>
-      <gpui:Message.Header>
+    <uikit:Message Footer="Read">
+      <uikit:Message.Avatar>
+        <uikit:Avatar UserName="Alice" Width="32" Height="32" />
+      </uikit:Message.Avatar>
+      <uikit:Message.Header>
         <StackPanel Orientation="Horizontal" Spacing="4">
           <TextBlock Text="Alice" />
           <TextBlock Text="10:24 AM" />
         </StackPanel>
-      </gpui:Message.Header>
-      <gpui:Bubble Classes="secondary" Content="Hi there!" />
-      <gpui:Bubble Classes="secondary" Content="Can you review this draft?" />
-    </gpui:Message>
-    <gpui:Message Classes="end" Footer="Delivered">
-      <gpui:Bubble Content="Looks good to me." />
-    </gpui:Message>
+      </uikit:Message.Header>
+      <uikit:Bubble Classes="secondary" Content="Hi there!" />
+      <uikit:Bubble Classes="secondary" Content="Can you review this draft?" />
+    </uikit:Message>
+    <uikit:Message Classes="end" Footer="Delivered">
+      <uikit:Bubble Content="Looks good to me." />
+    </uikit:Message>
   </StackPanel>
 </UserControl>

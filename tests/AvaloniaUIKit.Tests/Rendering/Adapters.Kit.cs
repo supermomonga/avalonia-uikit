@@ -41,7 +41,7 @@ public static partial class Adapters
         var side = c.Str("size", "medium") switch { "large" => 48, "small" or "xsmall" => 24, _ => 32 };
         var badge = Sized(new Badge
         {
-            Content = new Border { Width = side, Height = side, CornerRadius = new Avalonia.CornerRadius(6), Background = ThemeBrush(c, "Gpui.Secondary") },
+            Content = new Border { Width = side, Height = side, CornerRadius = new Avalonia.CornerRadius(6), Background = ThemeBrush(c, "UIKit.Secondary") },
             HorizontalAlignment = HorizontalAlignment.Left,
             VerticalAlignment = VerticalAlignment.Top,
         }, c);
@@ -63,7 +63,7 @@ public static partial class Adapters
         }
         if (c.Str("color") is { Length: > 0 } color)
         {
-            badge.BadgeBackground = ThemeBrush(c, "Gpui." + char.ToUpperInvariant(color[0]) + color[1..]);
+            badge.BadgeBackground = ThemeBrush(c, "UIKit." + char.ToUpperInvariant(color[0]) + color[1..]);
         }
         return badge;
     }
@@ -204,7 +204,7 @@ public static partial class Adapters
         }, c);
         if (c.Str("color") == "red")
         {
-            rating.ActiveBrush = ThemeBrush(c, "Gpui.Red");
+            rating.ActiveBrush = ThemeBrush(c, "UIKit.Red");
         }
         return rating;
     }
@@ -408,14 +408,14 @@ public static partial class Adapters
             "bottom-center" => Avalonia.Controls.PlacementMode.Top,
             _ => Avalonia.Controls.PlacementMode.Bottom,
         },
-        Content = new TextBlock { Text = "Hover over me", FontSize = 14, LineHeight = 22.5, Foreground = ThemeBrush(c, "Gpui.Primary") },
+        Content = new TextBlock { Text = "Hover over me", FontSize = 14, LineHeight = 22.5, Foreground = ThemeBrush(c, "UIKit.Primary") },
         Card = new StackPanel
         {
             Spacing = 8,
             Children =
             {
                 new TextBlock { Text = c.Str("title", "This is a hover card"), FontSize = 14, LineHeight = 22.5, FontWeight = FontWeight.SemiBold },
-                new TextBlock { Text = c.Str("body", "Rich content on hover."), FontSize = 14, LineHeight = 22.5, Foreground = ThemeBrush(c, "Gpui.MutedForeground") },
+                new TextBlock { Text = c.Str("body", "Rich content on hover."), FontSize = 14, LineHeight = 22.5, Foreground = ThemeBrush(c, "UIKit.MutedForeground") },
             },
         },
     };
@@ -436,7 +436,7 @@ public static partial class Adapters
         }
         if (c.Str("color") == "muted")
         {
-            shimmer.Foreground = ThemeBrush(c, "Gpui.MutedForeground");
+            shimmer.Foreground = ThemeBrush(c, "UIKit.MutedForeground");
         }
         return shimmer;
     }

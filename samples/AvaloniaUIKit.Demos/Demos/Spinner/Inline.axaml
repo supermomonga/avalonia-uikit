@@ -1,19 +1,19 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:gpui="using:AvaloniaUIKit"
+             xmlns:uikit="using:AvaloniaUIKit"
              x:Class="AvaloniaUIKit.Demos.SpinnerInline">
   <StackPanel Spacing="12" HorizontalAlignment="Left">
     <StackPanel Orientation="Horizontal" Spacing="8">
-      <ProgressBar Theme="{StaticResource GpuiSpinner}" VerticalAlignment="Center" />
+      <ProgressBar Theme="{StaticResource UIKitSpinner}" VerticalAlignment="Center" />
       <TextBlock Text="Loading…" VerticalAlignment="Center" />
     </StackPanel>
     <StackPanel Orientation="Horizontal" Spacing="8">
-      <ProgressBar Theme="{StaticResource GpuiSpinner}" Classes="small" Foreground="{DynamicResource Gpui.MutedForeground}" VerticalAlignment="Center" />
-      <TextBlock Text="Syncing 3 files" Foreground="{DynamicResource Gpui.MutedForeground}" VerticalAlignment="Center" />
+      <ProgressBar Theme="{StaticResource UIKitSpinner}" Classes="small" Foreground="{DynamicResource UIKit.MutedForeground}" VerticalAlignment="Center" />
+      <TextBlock Text="Syncing 3 files" Foreground="{DynamicResource UIKit.MutedForeground}" VerticalAlignment="Center" />
     </StackPanel>
     <Button Classes="primary" IsEnabled="False" HorizontalAlignment="Left">
       <StackPanel Orientation="Horizontal" Spacing="8">
-        <ProgressBar Theme="{StaticResource GpuiSpinner}" Classes="small" Foreground="{DynamicResource Gpui.PrimaryForeground}" VerticalAlignment="Center" />
+        <ProgressBar Theme="{StaticResource UIKitSpinner}" Classes="small" Foreground="{DynamicResource UIKit.PrimaryForeground}" VerticalAlignment="Center" />
         <TextBlock Text="Please wait" VerticalAlignment="Center" />
       </StackPanel>
     </Button>

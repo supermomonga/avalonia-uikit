@@ -13,9 +13,9 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <!-- Transparent like a ghost button, tinted with `input` on hover and press. -->
-  <ControlTheme x:Key="GpuiSpinnerRepeatButton" TargetType="RepeatButton">
+  <ControlTheme x:Key="UIKitSpinnerRepeatButton" TargetType="RepeatButton">
     <Setter Property="Background" Value="Transparent" />
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.SecondaryForeground}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.SecondaryForeground}" />
     <Setter Property="MinWidth" Value="32" />
     <Setter Property="Padding" Value="0" />
     <Setter Property="Focusable" Value="False" />
@@ -31,10 +31,10 @@
       </ControlTemplate>
     </Setter>
     <Style Selector="^:pointerover">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Number.Button.Hover}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Number.Button.Hover}" />
     </Style>
     <Style Selector="^:pressed">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Number.Button.Pressed}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Number.Button.Pressed}" />
     </Style>
     <Style Selector="^:disabled">
       <Setter Property="Background" Value="Transparent" />
@@ -42,13 +42,13 @@
   </ControlTheme>
 
   <!-- The text field without appearance: no frame of its own, text centered on a 1.25rem line. -->
-  <ControlTheme x:Key="GpuiNumericTextBox" TargetType="TextBox">
+  <ControlTheme x:Key="UIKitNumericTextBox" TargetType="TextBox">
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="BorderThickness" Value="0" />
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
-    <Setter Property="CaretBrush" Value="{DynamicResource Gpui.Caret}" />
-    <Setter Property="SelectionBrush" Value="{DynamicResource Gpui.Selection}" />
-    <Setter Property="PlaceholderForeground" Value="{DynamicResource Gpui.MutedForeground}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
+    <Setter Property="CaretBrush" Value="{DynamicResource UIKit.Caret}" />
+    <Setter Property="SelectionBrush" Value="{DynamicResource UIKit.Selection}" />
+    <Setter Property="PlaceholderForeground" Value="{DynamicResource UIKit.MutedForeground}" />
     <Setter Property="TextAlignment" Value="Center" />
     <Setter Property="VerticalContentAlignment" Value="Center" />
     <Setter Property="LineHeight" Value="20" />
@@ -81,7 +81,7 @@
     </Setter>
     <!-- A disabled field fades its text to half, inside the frame's own fade. -->
     <Style Selector="^:disabled">
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Number.Disabled.Text}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Number.Disabled.Text}" />
     </Style>
   </ControlTheme>
 
@@ -96,16 +96,16 @@
                 BackgroundSizing="OuterBorderEdge">
           <DockPanel>
             <RepeatButton Name="PART_DecreaseButton" DockPanel.Dock="Left"
-                          Theme="{StaticResource GpuiSpinnerRepeatButton}"
+                          Theme="{StaticResource UIKitSpinnerRepeatButton}"
                           IsVisible="{TemplateBinding ShowButtonSpinner}"
                           CornerRadius="5,0,0,5">
-              <PathIcon Name="PART_DecreaseIcon" Data="{StaticResource Gpui.Icon.Minus}" />
+              <PathIcon Name="PART_DecreaseIcon" Data="{StaticResource UIKit.Icon.Minus}" />
             </RepeatButton>
             <RepeatButton Name="PART_IncreaseButton" DockPanel.Dock="Right"
-                          Theme="{StaticResource GpuiSpinnerRepeatButton}"
+                          Theme="{StaticResource UIKitSpinnerRepeatButton}"
                           IsVisible="{TemplateBinding ShowButtonSpinner}"
                           CornerRadius="0,5,5,0">
-              <PathIcon Name="PART_IncreaseIcon" Data="{StaticResource Gpui.Icon.Plus}" />
+              <PathIcon Name="PART_IncreaseIcon" Data="{StaticResource UIKit.Icon.Plus}" />
             </RepeatButton>
             <ContentPresenter Name="PART_ContentPresenter"
                               Content="{TemplateBinding Content}"
@@ -139,11 +139,11 @@
   </ControlTheme>
 
   <ControlTheme x:Key="{x:Type NumericUpDown}" TargetType="NumericUpDown">
-    <Setter Property="Background" Value="{DynamicResource Gpui.InputBackground}" />
-    <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Input}" />
+    <Setter Property="Background" Value="{DynamicResource UIKit.InputBackground}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Input}" />
     <Setter Property="BorderThickness" Value="1" />
     <Setter Property="CornerRadius" Value="5.5" />
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
     <Setter Property="FontSize" Value="14" />
     <Setter Property="Height" Value="32" />
     <Setter Property="Padding" Value="10,0" />
@@ -155,7 +155,7 @@
       <ControlTemplate>
         <Panel>
           <Border Name="PART_FocusRing" Margin="-3" BorderThickness="3" CornerRadius="7.5"
-                  BorderBrush="{DynamicResource Gpui.FocusRing}" IsVisible="False" IsHitTestVisible="False" />
+                  BorderBrush="{DynamicResource UIKit.FocusRing}" IsVisible="False" IsHitTestVisible="False" />
           <ButtonSpinner Name="PART_Spinner"
                          Background="{TemplateBinding Background}"
                          BorderBrush="{TemplateBinding BorderBrush}"
@@ -165,7 +165,7 @@
                          ShowButtonSpinner="{TemplateBinding ShowButtonSpinner}"
                          IsTabStop="False">
             <TextBox Name="PART_TextBox"
-                     Theme="{StaticResource GpuiNumericTextBox}"
+                     Theme="{StaticResource UIKitNumericTextBox}"
                      Padding="{TemplateBinding Padding}"
                      Foreground="{TemplateBinding Foreground}"
                      IsReadOnly="{TemplateBinding IsReadOnly}"
@@ -204,14 +204,14 @@
     </Style>
 
     <Style Selector="^:focus-within">
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Ring}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Ring}" />
     </Style>
     <Style Selector="^:focus-within /template/ Border#PART_FocusRing">
       <Setter Property="IsVisible" Value="True" />
     </Style>
     <Style Selector="^:disabled">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Number.Disabled.Background}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Number.Disabled.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Number.Disabled.Background}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Number.Disabled.Border}" />
       <Setter Property="Opacity" Value="0.5" />
     </Style>
   </ControlTheme>

@@ -13,10 +13,10 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <Styles.Resources>
-    <ControlTheme x:Key="GpuiToggleGroupItem" TargetType="ListBoxItem">
+    <ControlTheme x:Key="UIKitToggleGroupItem" TargetType="ListBoxItem">
       <Setter Property="Background" Value="Transparent" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Border}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Border}" />
       <Setter Property="BorderThickness" Value="0" />
       <Setter Property="CornerRadius" Value="6" />
       <!-- Size::Medium: min_w_8 h_8 px_2 text_sm. -->
@@ -46,13 +46,13 @@
       </Setter>
     </ControlTheme>
 
-    <ControlTheme x:Key="GpuiToggleGroup" TargetType="ListBox">
+    <ControlTheme x:Key="UIKitToggleGroup" TargetType="ListBox">
       <Setter Property="Background" Value="Transparent" />
       <Setter Property="BorderThickness" Value="0" />
       <Setter Property="Padding" Value="0" />
       <Setter Property="HorizontalAlignment" Value="Left" />
       <Setter Property="VerticalAlignment" Value="Top" />
-      <Setter Property="ItemContainerTheme" Value="{StaticResource GpuiToggleGroupItem}" />
+      <Setter Property="ItemContainerTheme" Value="{StaticResource UIKitToggleGroupItem}" />
       <!-- h_flex gap_2: a toggle group holds a handful of items, so no virtualization. -->
       <Setter Property="ItemsPanel">
         <ItemsPanelTemplate>
@@ -70,7 +70,7 @@
   </Styles.Resources>
 
   <Style Selector="ListBox.toggle-group">
-    <Setter Property="Theme" Value="{StaticResource GpuiToggleGroup}" />
+    <Setter Property="Theme" Value="{StaticResource UIKitToggleGroup}" />
   </Style>
   <Style Selector="ListBox.toggle-group.segmented">
     <Setter Property="ItemsPanel">
@@ -122,7 +122,7 @@
   <Style Selector="ListBox.toggle-group.outline > ListBoxItem">
     <Setter Property="BorderThickness" Value="1" />
     <Setter Property="CornerRadius" Value="5.5" />
-    <Setter Property="Background" Value="{DynamicResource Gpui.Background}" />
+    <Setter Property="Background" Value="{DynamicResource UIKit.Background}" />
   </Style>
 
   <!-- Segmented: the outer corners only, and one shared edge (the left item's right edge). -->
@@ -147,7 +147,7 @@
 
   <!-- Checked (selected) and hovered toggles show the accent. -->
   <Style Selector="ListBox.toggle-group > ListBoxItem:pointerover, ListBox.toggle-group > ListBoxItem:selected">
-    <Setter Property="Background" Value="{DynamicResource Gpui.Accent}" />
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.AccentForeground}" />
+    <Setter Property="Background" Value="{DynamicResource UIKit.Accent}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.AccentForeground}" />
   </Style>
 </Styles>

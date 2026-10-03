@@ -1,6 +1,6 @@
 # テストと一致検証
 
-GpuiTheme が GPUI Kit と同じ見た目・動きになっていることを、GPUI Kit 自身が描いた参照データとの比較で検証する。この文書は、検証の仕組み、許容値、許容値を緩めた理由（緩和 ID）、テーマの利用側に求める約束をまとめる。
+NovaTheme が GPUI Kit と同じ見た目・動きになっていることを、GPUI Kit 自身が描いた参照データとの比較で検証する。この文書は、検証の仕組み、許容値、許容値を緩めた理由（緩和 ID）、テーマの利用側に求める約束をまとめる。
 
 - 移植元: gpui-kit [`2c5162f8c5b0c7fcec066ed53125d304c632bfe2`](https://github.com/longbridge/gpui-kit/tree/2c5162f8c5b0c7fcec066ed53125d304c632bfe2)（gpui-pre 0.3.7）
 - 移植先: Avalonia 12.1.3（別パッケージは `Avalonia.Controls.ColorPicker` 12.1.3、`Avalonia.Controls.DataGrid` 12.1.2）、.NET 10、TUnit 1.72.16
@@ -88,7 +88,7 @@ GpuiTheme が GPUI Kit と同じ見た目・動きになっていることを、
 | DataTable → TableView | 44 | 4 サイズ、行の hover / 選択、stripe、borderless、固定列、行が埋まる / 埋まらない |
 | ColorPicker / ColorSelect → ColorPicker（別パッケージ） | 42 | スウォッチ 4 サイズ、ラベル、ツールチップ、field 4 サイズ、focus、値 |
 | Pagination → PipsPager | 42 | サイズ、compact、両端、ページの hover / 押下 / クリック、disabled |
-| ProgressCircle → ProgressBar（GpuiProgressCircle） | 42（2） | 4 サイズ × 値、大きさ指定、値の変化、不定値 |
+| ProgressCircle → ProgressBar（UIKitProgressCircle） | 42（2） | 4 サイズ × 値、大きさ指定、値の変化、不定値 |
 | Textarea → TextBox | 42 | 行数、placeholder、折り返し、読み取り専用、自動の高さ |
 | Label → TextBlock.label、Label | 40 | サイズ、補足、太さ、揃え、折り返し、色 |
 | Popover → Flyout | 38（1） | 8 つのアンカー、複数行、offset、plain、閉じる操作、開く動き |
@@ -103,16 +103,16 @@ GpuiTheme が GPUI Kit と同じ見た目・動きになっていることを、
 | Progress → ProgressBar | 24（2） | 4 サイズ × 値 0 / 40 / 100 |
 | Carousel → Carousel、PipsPager.carousel | 22（2） | ナビゲーションの hover / 押下、サイズ、focus、ページ送り |
 | Sidebar → SplitView、DrawerPage | 22（5） | icon / offcanvas / none、左右、既定の幅、DrawerPage、開閉 |
-| Table → TableView（GpuiTable） | 22 | サイズ、枠付き、stripe、固定幅、行の hover / クリック |
+| Table → TableView（UIKitTable） | 22 | サイズ、枠付き、stripe、固定幅、行の hover / クリック |
 | Tree → TreeView | 22 | 行の hover / クリック / キー、選択、角丸 |
 | img() → Image | 20 | ObjectFit 5 種、小さい画像、角丸、元の大きさ |
-| Collapsible → Expander（GpuiCollapsible） | 16（4） | 開閉、内容が上、hover / focus、開閉と途中の反転 |
+| Collapsible → Expander（UIKitCollapsible） | 16（4） | 開閉、内容が上、hover / focus、開閉と途中の反転 |
 | Scrollbar → ScrollViewer | 16（7） | Always / Hover / Scrolling モード、つまみの hover |
 | VirtualList → ListBox | 12 | 可変・均一の行の高さ、スクロール、深い位置 |
 | DropdownMenu → MenuFlyout | 10 | 開いた状態、各項目の hover、サブメニュー |
 | GroupBox | 10 | normal / fill / outline、タイトルの有無 |
 | Separator | 8 | 横 / 縦 × 実線 / 破線 |
-| Spinner → ProgressBar（GpuiSpinner） | 8（1） | 4 サイズ |
+| Spinner → ProgressBar（UIKitSpinner） | 8（1） | 4 サイズ |
 | Link → HyperlinkButton | 6 | normal / hover / pressed |
 | TitleBar → WindowDrawnDecorations | 6 | バー、タイトル、hover |
 | AppMenuBar → Menu | 4 | 通常、項目の hover |
@@ -151,7 +151,7 @@ GpuiTheme が GPUI Kit と同じ見た目・動きになっていることを、
 
 ### 1. トークン
 
-`Gpui.*` の色リソースが、GPUI Kit の Default Light / Default Dark で解決した値と 8bit で完全一致すること。GPUI にない色がテーマに定義されていないこと。
+`UIKit.*` の色リソースが、GPUI Kit の Default Light / Default Dark で解決した値と 8bit で完全一致すること。GPUI にない色がテーマに定義されていないこと。
 
 ### 2. 構造
 
@@ -236,7 +236,7 @@ GPUI 側は仮想時計で 1 フレームずつ記録する（R15）。Avalonia 
 | Accordion / Collapsible の開閉 | 自然な高さ × ばね（MotionReveal） | Canvas が内容を測り、`RevealConverters` で高さを掛ける |
 | Notification の入退場 | 96px のスライドと 400ms のフェード、退場 200ms | キーフレーム、`Notifications.FromBottom` で向きを選ぶ |
 | Resizable の pill | 120ms で長さと濃さ | Transition、`Splitters.IsDragging` |
-| Carousel のページ送り | spring_move で 2 ページが 16px 離れて動く | `gpui:SpringSlide`（PageSlide の派生） |
+| Carousel のページ送り | spring_move で 2 ページが 16px 離れて動く | `uikit:SpringSlide`（PageSlide の派生） |
 | Sidebar の開閉 | 200ms、ease-in-out-cubic でクリップの幅、中身は即時 | PART_PaneRoot の Width の Transition |
 | Sheet の表示 | 150ms、linear で 100px 滑り込む | キーフレーム |
 | Skeleton の明滅 | 2 秒周期、bounce(ease_in_out) で 1 → 0.5 → 1 | 1 秒の Alternate のキーフレーム、QuadraticEaseInOut（テンプレートの Border を動かす） |
@@ -299,14 +299,14 @@ Avalonia には時刻を指定する公開 API がないので、テストに限
 | | `CalendarGrid.Columns` | 月のグリッドを 3 列に並べ替え、列の端をデバイス px に丸める |
 | | `TextLines.RoundsWidthUp` | 文字の幅を論理 px に切り上げる（GPUI と同じ） |
 | | `TextLines.CentersTallGlyphs` | 行より高い文字を行の中央に置く |
-| | `gpui:SpringSlide` | Carousel のページ送り |
+| | `uikit:SpringSlide` | Carousel のページ送り |
 | 値の受け渡し（ADR 17） | `Tables.CellPadding` / `CellVerticalAlignment` / `RowHeight` / `ShowsResizeHandles`、`Notifications.FromBottom` | コードで作られる子に、親の見た目を渡す |
 | Converter | `AffineConverter`、`ThicknessWhenConverter`、`ThicknessFilterConverter`、`AboveConverter`、`FirstNonNullConverter` | 数値・余白の変換 |
 | | `PlacementConverter` | Popover の配置から間隔と矢印 |
 | | `RevealConverters`、`FadedShadowConverter` | 開閉の高さ、影のフェード |
 | | `RoundedClipConverter` | Image の角丸 |
 | | `CalendarConverters`、`TimeConverters`、`TableConverters` | 月名・年・時刻の表示、縞の詰め物行 |
-| | `GpuiColorConverters`（ColorPicker） | GPUI の darken / lighten と 16 進 |
+| | `ColorPickerConverters`（ColorPicker） | GPUI の darken / lighten と 16 進 |
 | | `LinearThicknessConverter`、`AvatarConverters`、`StepperConverters`、`FormConverters` | Badge のずれ、円の角丸、Stepper の線、Form の間隔 |
 
 新しいコントロール（ADR 19、`src/AvaloniaUIKit/Controls/`）は、プロパティ・疑似クラス・テンプレートの部品と、そのコンポーネント自身の操作だけを持つ: `Badge`、`TagLabel`、`Alert`、`Skeleton`、`StatusBar`、`Breadcrumb` / `BreadcrumbItem`、`Kbd`、`Clipboard`、`Rating` / `RatingStar`、`Avatar`、`AvatarGroup`、`EmptyState`、`DescriptionList` / `DescriptionItem` / `DescriptionSeparator`、`Stepper` / `StepperItem`、`Form` / `FormField`、`HoverCard`、`ShimmerText`、`Marker`、`Bubble`、`Message`。補助として、GPUI の色の選び方（`FxHash`: rustc-hash 2.1 の FxHasher、`OkLab`: mix_oklab）と、長さを分け合うパネル（`DescriptionRowPanel`、`StepperPanel`、`FormPanel`、`MarkerPanel`。辺をデバイス px に丸める `LayoutSnap`）を持つ。
@@ -360,9 +360,9 @@ GPUI と同じ見た目・挙動にするため、アプリ側で次の設定を
 | --- | --- | --- |
 | サブメニューの表示 | `DefaultMenuInteractionHandler.MenuShowDelay = TimeSpan.Zero` | GPUI は hover するとすぐにサブメニューを開く。 |
 | MenuFlyout の配置 | `Placement="BottomEdgeAlignedLeft"`（SplitButton は `BottomEdgeAlignedRight`） | テーマが GPUI のトリガーとの間隔 4px を付ける。ContextMenu はポインター位置に開く。 |
-| フォント | `Gpui.FontFamily` リソースを差し替える | 既定はシステム UI フォント（GPUI の `.SystemUIFont` と同じ）。検証と同じ Inter にする場合は差し替える。 |
+| フォント | `UIKit.FontFamily` リソースを差し替える | 既定はシステム UI フォント（GPUI の `.SystemUIFont` と同じ）。検証と同じ Inter にする場合は差し替える。 |
 | NumericUpDown | `ButtonSpinnerLocation` は効かない | GPUI と同じく [−] 値 [+] の順に固定。 |
-| スクロールバーの表示モード | `ScrollViewer.AllowAutoHide` と `gpui:Scrollbars.ShowOnHover` | False / – が Always、True / True（既定）が Hover、True / False が Scrolling。 |
+| スクロールバーの表示モード | `ScrollViewer.AllowAutoHide` と `uikit:Scrollbars.ShowOnHover` | False / – が Always、True / True（既定）が Hover、True / False が Scrolling。 |
 | ButtonGroup | `StackPanel Classes="button-group"`、Spacing 0 | 中の Button の角と境界を GPUI のグループにする。 |
 | ToggleGroup | `ListBox Classes="toggle-group"`、`SelectionMode="Multiple,Toggle"`（単一選択なら `Single`） | 選択の規則はアプリが決める。`segmented` で角をつなぐ。 |
 | Label | `TextBlock Classes="label"`、補足は `Run Classes="secondary"` | TextBlock の既定テーマは置かない（全テンプレートの文字に効くため）。 |
@@ -374,20 +374,20 @@ GPUI と同じ見た目・挙動にするため、アプリ側で次の設定を
 | Tabs | `TabStrip` / `TabControl` に `outline` `pill` `segmented` `underline`、アイコンだけのタブに `icon-only` | – |
 | Toolbar | `CommandBar` の `DefaultLabelPosition` は Right のまま、サイズは `xsmall`（既定 small）`medium` | GPUI の toolbar は small。 |
 | Accordion | `StackPanel Classes="accordion"` に Expander を並べ、枠は `Border Classes="accordion"` | 項目の区切りと外枠。 |
-| Collapsible | `Theme="{StaticResource GpuiCollapsible}"`、動きは `reveal` クラス | GPUI の motion_id。 |
+| Collapsible | `Theme="{StaticResource UIKitCollapsible}"`、動きは `reveal` クラス | GPUI の motion_id。 |
 | Notification | `WindowNotificationManager(topLevel)`、`MaxItems = 10`、期限 5.4 秒、文字列だけの通知は `classes: ["plain"]` | GPUI の上限と自動で消えるまでの時間。 |
 | Resizable | `GridSplitter` の `ResizeDirection` を `Columns` / `Rows` で明示し、1px の定義に置く。GPUI と同じ配置にするなら 2 枚目のセルの先頭に `PreviousAndCurrent`、各パネルに MinWidth 100 | テーマは向きを ResizeDirection で決める。 |
 | Image | ObjectFit = Stretch: Fill = Fill、Contain = Uniform、Cover = UniformToFill、ScaleDown = Uniform + `StretchDirection="DownOnly"`、None = None + 左上寄せ。角丸は `rounded` `rounded-lg` `rounded-full` | – |
 | Calendar / DatePicker | DatePicker は `SelectedDateFormat="Custom"`、`CustomDateFormatString="yyyy/MM/dd"`、`PlaceholderText="Select date"`。サイズのクラスはポップアップのカレンダーにも効く | GPUI の書式と placeholder。 |
 | TimeField | `TimePicker` の `ClockIdentifier`、`UseSeconds` | 閉じた欄が GPUI の TimeField。開いたピッカーは Avalonia のもの。 |
-| Table | `TableView Theme="{StaticResource GpuiTable}"`、枠付きは `BorderThickness="1" CornerRadius="5.5"`、右寄せは列の `HorizontalContentAlignment` | 既定のテーマは DataTable。 |
+| Table | `TableView Theme="{StaticResource UIKitTable}"`、枠付きは `BorderThickness="1" CornerRadius="5.5"`、右寄せは列の `HorizontalContentAlignment` | 既定のテーマは DataTable。 |
 | DataTable（TableView） | サイズ `xsmall` `small` `large`、`stripe`、`borderless`。列幅はピクセルで | GPUI の列はピクセル幅。 |
-| DataTable（DataGrid） | `GpuiDataGridTheme` を追加、`CanUserResizeColumns="True"`、表示だけなら `IsReadOnly="True"`、右寄せの列は `CellStyleClasses="text-right"` と右寄せの見出し | DataGrid の既定はリサイズ不可、クリックで編集に入る。 |
+| DataTable（DataGrid） | `NovaDataGridTheme` を追加、`CanUserResizeColumns="True"`、表示だけなら `IsReadOnly="True"`、右寄せの列は `CellStyleClasses="text-right"` と右寄せの見出し | DataGrid の既定はリサイズ不可、クリックで編集に入る。 |
 | Carousel | `Focusable="True"`（GPUI はタブ停止）。前後のボタンは `Button Classes="outline icon-only rounded-full"` を 16px 外側、ページ番号は `PipsPager Classes="carousel"` を 16px 下に置き、`SelectedPageIndex` と `SelectedIndex` を双方向に | テーマはフォーカス可能性を変えない。 |
 | Sidebar | Icon = `SplitView` の `CompactInline`、Offcanvas = `Inline`、折り畳めない = `Inline` + `IsPaneOpen="True"`。`DrawerPage` なら `Locked` / `CompactInline` / `Split` | 幅は OpenPaneLength（既定 255）。 |
-| Sheet | `DrawerPage Classes="sheet" DrawerBehavior="Flyout"`、暗転なしは `BackdropBrush="{x:Null}"`、GPUI の 34px のタイトルバーの下に出すなら `Gpui.Sheet.Margin` | – |
-| TitleBar | `Gpui.TitleBar.Padding`（既定 12） | Avalonia が装飾を描く OS（Windows の拡張、X11、Wayland）でだけ使われる。 |
-| ColorPicker | `GpuiColorPickerTheme` を追加、ColorSelect は `Classes="field"` | パレットは標準の FluentColorPalette（`Palette` で変える）。 |
+| Sheet | `DrawerPage Classes="sheet" DrawerBehavior="Flyout"`、暗転なしは `BackdropBrush="{x:Null}"`、GPUI の 34px のタイトルバーの下に出すなら `UIKit.Sheet.Margin` | – |
+| TitleBar | `UIKit.TitleBar.Padding`（既定 12） | Avalonia が装飾を描く OS（Windows の拡張、X11、Wayland）でだけ使われる。 |
+| ColorPicker | `NovaColorPickerTheme` を追加、ColorSelect は `Classes="field"` | パレットは標準の FluentColorPalette（`Palette` で変える）。 |
 | Badge | `Count` / `Maximum` / `IsDot` / `Icon`、色は `BadgeBackground`、サイズは `small` `large` | 色を Background にすると中身の背景と区別できない。 |
 | TagLabel | 色はクラス（`primary` 既定、`secondary` `danger` `success` `warning` `info`、19 のパレット色）、`outline`、`xsmall` `small` `large`、`rounded-full` | GPUI の Tag。Avalonia の `Control.Tag` と同名になるため改名。 |
 | Alert | 種類は `info` `success` `warning` `error`、`banner`、サイズのクラス。`IsClosable` と `CloseRequested` で隠すのはアプリ | GPUI の on_close も隠さない。 |

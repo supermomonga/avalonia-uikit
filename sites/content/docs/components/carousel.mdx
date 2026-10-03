@@ -1,15 +1,15 @@
 ---
 title: "Carousel"
-description: "One page at a time, sliding on GPUI Kit's spring, with its dots as a PipsPager."
+description: "One page at a time, sliding on a spring, with dots as a PipsPager."
 ---
 
 <Demo name="carousel/demo" />
 
 ## Usage
 
-The theme covers `Carousel`: it shows one page at a time, clipped to its bounds, and its `PageTransition` is `gpui:SpringSlide`, on which both pages ride one track 16px apart on GPUI Kit's `spring_move`. Set `Focusable="True"` so the carousel is a tab stop as GPUI Kit's is (Avalonia then handles the arrow keys); keyboard focus rings the pages.
+The theme covers `Carousel`: it shows one page at a time, clipped to its bounds, and its `PageTransition` is `uikit:SpringSlide`, on which both pages ride one track 16px apart on a spring. Set `Focusable="True"` to make the carousel a tab stop (Avalonia then handles the arrow keys); keyboard focus rings the pages.
 
-The rest of GPUI Kit's carousel is the app's: Previous and Next are `Button Classes="outline icon-only rounded-full"` with a chevron, 16px outside the pages and centered on them, whose `Click` handlers call the carousel's `Previous()` and `Next()`; the dots are a `PipsPager Classes="carousel"` 16px below, with `SelectedPageIndex` bound two-way to the carousel's `SelectedIndex`.
+The app adds the controls around the pages: Previous and Next are `Button Classes="outline icon-only rounded-full"` with a chevron, 16px outside the pages and centered on them, whose `Click` handlers call the carousel's `Previous()` and `Next()`; the dots are a `PipsPager Classes="carousel"` 16px below, with `SelectedPageIndex` bound two-way to the carousel's `SelectedIndex`.
 
 ## Examples
 

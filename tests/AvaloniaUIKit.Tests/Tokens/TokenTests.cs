@@ -57,13 +57,13 @@ public class TokenTests
                 expected.Add(ResourceKey(name));
             }
         }
-        var colors = Application.Current!.Styles.OfType<GpuiTheme>().Single().Resources;
+        var colors = Application.Current!.Styles.OfType<NovaTheme>().Single().Resources;
         var extra = new List<string>();
         foreach (var dictionary in Dictionaries(colors))
         {
             foreach (var key in dictionary.Keys.OfType<string>())
             {
-                if (dictionary.TryGetValue(key, out var value) && value is ISolidColorBrush && key.StartsWith("Gpui.", StringComparison.Ordinal) && !expected.Contains(key))
+                if (dictionary.TryGetValue(key, out var value) && value is ISolidColorBrush && key.StartsWith("UIKit.", StringComparison.Ordinal) && !expected.Contains(key))
                 {
                     extra.Add(key);
                 }
@@ -94,6 +94,6 @@ public class TokenTests
 
     /// <summary>The key reference/src/tokens.rs gives a dumped color name.</summary>
     public static string ResourceKey(string name) =>
-        "Gpui." + string.Join('.', name.Split('.').Select(segment =>
+        "UIKit." + string.Join('.', name.Split('.').Select(segment =>
             string.Concat(segment.Split('_', '-').Where(p => p.Length > 0).Select(p => char.ToUpperInvariant(p[0]) + p[1..]))));
 }

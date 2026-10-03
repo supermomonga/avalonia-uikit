@@ -1,9 +1,9 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:gpui="using:AvaloniaUIKit"
+             xmlns:uikit="using:AvaloniaUIKit"
              x:Class="AvaloniaUIKit.Demos.RatingColor">
   <StackPanel Spacing="8" HorizontalAlignment="Left">
-    <gpui:Rating Value="4" ActiveBrush="{DynamicResource Gpui.Red}" />
-    <gpui:Rating Value="4" ActiveBrush="{DynamicResource Gpui.Primary}" />
+    <uikit:Rating Value="4" ActiveBrush="{DynamicResource UIKit.Red}" />
+    <uikit:Rating Value="4" ActiveBrush="{DynamicResource UIKit.Primary}" />
   </StackPanel>
 </UserControl>

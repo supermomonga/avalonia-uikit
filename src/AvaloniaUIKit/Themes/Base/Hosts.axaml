@@ -9,9 +9,9 @@
     <Setter Property="ClipToBounds" Value="False" />
     <Setter Property="Background" Value="{x:Null}" />
     <Setter Property="TransparencyLevelHint" Value="Transparent" />
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
-    <Setter Property="FontFamily" Value="{DynamicResource Gpui.FontFamily}" />
-    <Setter Property="FontSize" Value="{DynamicResource Gpui.FontSize}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
+    <Setter Property="FontFamily" Value="{DynamicResource UIKit.FontFamily}" />
+    <Setter Property="FontSize" Value="{DynamicResource UIKit.FontSize}" />
     <Setter Property="FontWeight" Value="Normal" />
     <Setter Property="FontStyle" Value="Normal" />
     <Setter Property="Template">
@@ -35,9 +35,9 @@
   <ControlTheme x:Key="{x:Type OverlayPopupHost}" TargetType="OverlayPopupHost">
     <!-- Shadows and rings paint outside the bounds. -->
     <Setter Property="ClipToBounds" Value="False" />
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
-    <Setter Property="FontFamily" Value="{DynamicResource Gpui.FontFamily}" />
-    <Setter Property="FontSize" Value="{DynamicResource Gpui.FontSize}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
+    <Setter Property="FontFamily" Value="{DynamicResource UIKit.FontFamily}" />
+    <Setter Property="FontSize" Value="{DynamicResource UIKit.FontSize}" />
     <Setter Property="FontWeight" Value="Normal" />
     <Setter Property="FontStyle" Value="Normal" />
     <Setter Property="Template">

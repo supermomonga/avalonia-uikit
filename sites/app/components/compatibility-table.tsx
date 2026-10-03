@@ -9,7 +9,6 @@ export function CompatibilityTable() {
         <thead>
           <tr>
             <th>Component</th>
-            <th>GPUI Kit</th>
             <th>Avalonia</th>
             <th>Status</th>
             <th>Package</th>
@@ -21,7 +20,6 @@ export function CompatibilityTable() {
               <td>
                 <a href={`/docs/components/${entry.slug}`}>{entry.title}</a>
               </td>
-              <td>{entry.gpui}</td>
               <td>
                 {entry.avalonia.map((control, index) => (
                   <>
@@ -42,7 +40,7 @@ export function CompatibilityTable() {
   )
 }
 
-/** GPUI Kit components the library does not port. */
+/** Components the library does not cover. */
 export function UncoveredList() {
   return (
     <ul>

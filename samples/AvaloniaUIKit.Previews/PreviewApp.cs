@@ -4,7 +4,7 @@ using AvaloniaUIKit.Demos;
 
 namespace AvaloniaUIKit.Previews;
 
-/// <summary>The headless application the previews render in: the GPUI themes, Skia, the bundled Inter.</summary>
+/// <summary>The headless application the previews render in: the themes, Skia, the bundled Inter.</summary>
 public sealed class PreviewApp : Application
 {
     public override void Initialize() => DemoApp.ApplyTheme(this);

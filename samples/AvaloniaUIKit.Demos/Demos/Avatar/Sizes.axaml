@@ -1,14 +1,14 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:gpui="using:AvaloniaUIKit"
+             xmlns:uikit="using:AvaloniaUIKit"
              x:Class="AvaloniaUIKit.Demos.AvatarSizes">
   <StackPanel Orientation="Horizontal" Spacing="12" HorizontalAlignment="Left">
-    <gpui:Avatar Classes="xsmall" UserName="Jason Lee" />
-    <gpui:Avatar Classes="small" UserName="Jason Lee" />
-    <gpui:Avatar UserName="Jason Lee" />
-    <gpui:Avatar Classes="large" UserName="Jason Lee" />
-    <gpui:Avatar Classes="small" />
-    <gpui:Avatar />
-    <gpui:Avatar Classes="large" />
+    <uikit:Avatar Classes="xsmall" UserName="Jason Lee" />
+    <uikit:Avatar Classes="small" UserName="Jason Lee" />
+    <uikit:Avatar UserName="Jason Lee" />
+    <uikit:Avatar Classes="large" UserName="Jason Lee" />
+    <uikit:Avatar Classes="small" />
+    <uikit:Avatar />
+    <uikit:Avatar Classes="large" />
   </StackPanel>
 </UserControl>

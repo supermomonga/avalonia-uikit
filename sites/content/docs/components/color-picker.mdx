@@ -1,31 +1,31 @@
 ---
 title: "Color Picker"
-description: "Avalonia's ColorPicker in GPUI Kit's input frame and popover, from the AvaloniaUIKit.ColorPicker package."
+description: "Avalonia's ColorPicker as a swatch or an input field with a popover, from the AvaloniaUIKit.ColorPicker package."
 ---
 
 <Demo name="color-picker/demo" />
 
 ## Usage
 
-Avalonia's `ColorPicker` is a separate package, so its theme is too: add `AvaloniaUIKit.ColorPicker` and put `GpuiColorPickerTheme` after `GpuiTheme` in the application's styles.
+Avalonia's `ColorPicker` is a separate package, so its theme is too: add `AvaloniaUIKit.ColorPicker` and put `NovaColorPickerTheme` after `NovaTheme` in the application's styles.
 
 ```xml title="App.axaml"
 <Application xmlns="https://github.com/avaloniaui"
              xmlns:uikit="clr-namespace:AvaloniaUIKit;assembly=AvaloniaUIKit"
              xmlns:uikitcolor="clr-namespace:AvaloniaUIKit;assembly=AvaloniaUIKit.ColorPicker">
   <Application.Styles>
-    <uikit:GpuiTheme />
-    <uikitcolor:GpuiColorPickerTheme />
+    <uikit:NovaTheme />
+    <uikitcolor:NovaColorPickerTheme />
   </Application.Styles>
 </Application>
 ```
 
-`ColorPicker` with a `Color` is GPUI Kit's ColorPicker: a square swatch of the color with a border of the color darkened 30% and its hex as a tooltip; `Content` puts a label 8px after it. `Classes="field"` is GPUI Kit's ColorSelect: an input frame with a small swatch, the hex and a caret, ringed while focused. Both open a 288px popover below with the palette (the control's `Palette`, Avalonia's `FluentColorPalette` by default) and the color's components on two segmented tabs, and the color with its editable hex under them.
+`ColorPicker` with a `Color` is a square swatch of the color with a border of the color darkened 30% and its hex as a tooltip; `Content` puts a label 8px after it. `Classes="field"` makes it an input frame with a small swatch, the hex and a caret, ringed while focused. Both open a 288px popover below with the palette (the control's `Palette`, Avalonia's `FluentColorPalette` by default) and the color's components on two segmented tabs, and the color with its editable hex under them.
 
 | Class | Effect |
 | --- | --- |
 | `xsmall`, `small`, `large` | A swatch of 16, 20 and 44px; medium, the default, is 32px |
-| `field` | The ColorSelect field instead of the swatch |
+| `field` | An input field instead of the swatch |
 
 ## Examples
 
@@ -33,11 +33,11 @@ The four swatch sizes.
 
 <Demo name="color-picker/sizes" title="Sizes" />
 
-The `field` class, GPUI Kit's ColorSelect, in a column of 200px fields.
+The `field` class in a column of 200px fields.
 
 <Demo name="color-picker/field" title="Field" />
 
 ## Not covered
 
-- GPUI Kit's own palette, featured row and HSL sliders; Avalonia's `FluentColorPalette` and RGB / HSV components are used instead.
+- A palette with a featured row, and HSL sliders; Avalonia's `FluentColorPalette` and RGB / HSV components are used instead.
 - A placeholder for no color: `Color` always has a value.
