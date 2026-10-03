@@ -144,7 +144,7 @@ public static class MotionProbes
     public static IMotionProbe For(GoldenCase golden) => (golden.Component, golden.Motion!.Name) switch
     {
         ("switch", _) => new SwitchThumb(),
-        ("checkbox", _) => new CheckMark(),
+        ("checkbox" or "radio", _) => new CheckMark(),
         ("progress", "value") => new ProgressValue(),
         ("progress", "loading") => new ProgressLoading(),
         ("spinner", _) => new SpinnerTurn(),
@@ -155,7 +155,7 @@ public static class MotionProbes
     };
 
     public static bool Has(GoldenCase golden) =>
-        golden.Component is "switch" or "checkbox" or "progress" or "spinner" or "tooltip" or "scroll";
+        golden.Component is "switch" or "checkbox" or "radio" or "progress" or "spinner" or "tooltip" or "scroll";
 
     public static T Part<T>(Visual root, string name) where T : Control =>
         root.GetVisualDescendants().OfType<T>().First(c => c.Name == name);

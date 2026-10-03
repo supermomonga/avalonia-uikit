@@ -13,3 +13,11 @@ states = ["normal", "hover", "focus", "disabled"]
 name = "bare"
 matrix = { size = ["small", "medium"], checked = [false, true] }
 states = ["normal", "disabled"]
+
+# The mark fades in with spring_control, as the checkbox's does (checkbox_check_icon).
+[[motion]]
+name = "check"
+params = { label = "Express" }
+trigger = "click"
+samples_ms = [0, 16, 33, 50, 66, 83, 100, 133, 166, 200, 266, 333]
+themes = ["light"]

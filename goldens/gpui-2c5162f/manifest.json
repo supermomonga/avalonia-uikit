@@ -28587,6 +28587,109 @@
       "png_sha256": "dc2d0d5d1afa30c05b98990d1862daebf9f0103df02e39edfd60b0c93b7684a4"
     },
     {
+      "id": "radio/motion.check/click/light",
+      "component": "radio",
+      "group": "motion.check",
+      "params": {
+        "label": "Express"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        128.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        77.0,
+        18.0
+      ],
+      "motion": {
+        "name": "check",
+        "trigger": "click",
+        "from": "normal",
+        "frames": [
+          {
+            "t_ms": 0,
+            "png": "png/radio/motion.check/click/light/0000ms.png",
+            "scene": "scenes/radio/motion.check/click/light/0000ms.json",
+            "png_sha256": "e4f905ae27f87a5c40684aad392d58a2fff6443e615617749c19287b98f9e16f"
+          },
+          {
+            "t_ms": 16,
+            "png": "png/radio/motion.check/click/light/0016ms.png",
+            "scene": "scenes/radio/motion.check/click/light/0016ms.json",
+            "png_sha256": "ff1d0ec37de53a9ef88518ca0e69acf1d0730b42cc8544e94f32d100fc778a6d"
+          },
+          {
+            "t_ms": 33,
+            "png": "png/radio/motion.check/click/light/0033ms.png",
+            "scene": "scenes/radio/motion.check/click/light/0033ms.json",
+            "png_sha256": "ba247f64de2f18aa04742625c56266bfe24339371d3fc68521908d85f2e3e9ca"
+          },
+          {
+            "t_ms": 50,
+            "png": "png/radio/motion.check/click/light/0050ms.png",
+            "scene": "scenes/radio/motion.check/click/light/0050ms.json",
+            "png_sha256": "715bb6c4b8cbe50af11ef06d6b6931113f17ae006f4246ad6ec4df9716de421f"
+          },
+          {
+            "t_ms": 66,
+            "png": "png/radio/motion.check/click/light/0066ms.png",
+            "scene": "scenes/radio/motion.check/click/light/0066ms.json",
+            "png_sha256": "a7e00cba7f83ae81229e61120cb518e0ba8bf63273df5225fbd9846b0625a578"
+          },
+          {
+            "t_ms": 83,
+            "png": "png/radio/motion.check/click/light/0083ms.png",
+            "scene": "scenes/radio/motion.check/click/light/0083ms.json",
+            "png_sha256": "514e2d0ab43a89d913e880ff1f13f2004a8864e35ccd3ef90c4d3c3d0e22d3aa"
+          },
+          {
+            "t_ms": 100,
+            "png": "png/radio/motion.check/click/light/0100ms.png",
+            "scene": "scenes/radio/motion.check/click/light/0100ms.json",
+            "png_sha256": "1004d27ac803ff9f8da22c8299857b95ae56bc4974f233e768f153f915f85954"
+          },
+          {
+            "t_ms": 133,
+            "png": "png/radio/motion.check/click/light/0133ms.png",
+            "scene": "scenes/radio/motion.check/click/light/0133ms.json",
+            "png_sha256": "d0bab922a8c34fa261fc6415c6d2f01139212e674b625e4c1553306e01eac80a"
+          },
+          {
+            "t_ms": 166,
+            "png": "png/radio/motion.check/click/light/0166ms.png",
+            "scene": "scenes/radio/motion.check/click/light/0166ms.json",
+            "png_sha256": "d73e6f97ce98a35666d58a13e9b2e4a82b02052a1ccb94ec3f4e5953ba2536fb"
+          },
+          {
+            "t_ms": 200,
+            "png": "png/radio/motion.check/click/light/0200ms.png",
+            "scene": "scenes/radio/motion.check/click/light/0200ms.json",
+            "png_sha256": "5a08904c176006acac5856e3adb867bb028547ecfb3806ac6595acf7959c7c81"
+          },
+          {
+            "t_ms": 266,
+            "png": "png/radio/motion.check/click/light/0266ms.png",
+            "scene": "scenes/radio/motion.check/click/light/0266ms.json",
+            "png_sha256": "cda59873096bb2821ec821a67ba59b773971211180149b7c06b216c5521f9735"
+          },
+          {
+            "t_ms": 333,
+            "png": "png/radio/motion.check/click/light/0333ms.png",
+            "scene": "scenes/radio/motion.check/click/light/0333ms.json",
+            "png_sha256": "cda59873096bb2821ec821a67ba59b773971211180149b7c06b216c5521f9735"
+          }
+        ]
+      }
+    },
+    {
       "id": "scroll/always.base/at-164-20+wait-400ms/dark",
       "component": "scroll",
       "group": "always",
