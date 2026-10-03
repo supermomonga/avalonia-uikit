@@ -39,6 +39,7 @@ public static class Adapters
         "spinner" => Spinner(c),
         "tooltip" => Tooltip(c),
         "scroll" => Scroll(c),
+        "icon" => IconCase(c),
         _ => throw new NotSupportedException($"no adapter for {c.Component}"),
     };
 
@@ -83,6 +84,26 @@ public static class Adapters
         };
         Scrollbars.SetShowOnHover(viewer, mode != "scrolling");
         return viewer;
+    }
+
+    /// <summary>A PathIcon with the theme's geometry, size class, color and rotation.</summary>
+    private static PathIcon IconCase(GoldenCase c)
+    {
+        var icon = Icon(c.Str("icon"));
+        if (c.Has("size"))
+        {
+            ClassFrom(icon, c, "size", "medium");
+        }
+        if (c.Has("color"))
+        {
+            var key = "Gpui." + string.Concat(c.Str("color").Split('-').Select(p => char.ToUpperInvariant(p[0]) + p[1..]));
+            icon.Foreground = (Avalonia.Media.IBrush)Avalonia.Application.Current!.FindResource(c.IsDark ? Avalonia.Styling.ThemeVariant.Dark : Avalonia.Styling.ThemeVariant.Light, key)!;
+        }
+        if (c.Has("rotate"))
+        {
+            icon.RenderTransform = new Avalonia.Media.RotateTransform(c.Num("rotate", 0));
+        }
+        return icon;
     }
 
     /// <summary>A Lucide icon from the theme, as an app would put one in content.</summary>

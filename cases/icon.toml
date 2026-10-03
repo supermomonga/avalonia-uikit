@@ -1,0 +1,28 @@
+# GPUI Kit Icon -> PathIcon with the theme's Lucide geometry (Gpui.Icon.*).
+component = "icon"
+viewport = [40, 40]
+anchor = [8, 8]
+
+# The icons the controls use, at every Size (12/14/16/24px), in the text color.
+[[group]]
+name = "lucide"
+matrix = { icon = ["check", "minus", "plus", "chevron-down", "chevron-right", "chevron-up", "chevron-left", "loader", "copy", "external-link"], size = ["xsmall", "small", "medium", "large"] }
+
+[[group]]
+name = "more"
+matrix = { icon = ["chevrons-up-down", "close", "eye", "eye-off", "calendar", "inbox", "info", "circle-check", "triangle-alert", "circle-x", "panel-left-open", "panel-left-close", "window-minimize", "window-maximize", "window-restore", "window-close"], size = ["small", "medium"] }
+
+# No Size: GPUI takes the text size (16px here); PathIcon's default is 16.
+[[group]]
+name = "inherit"
+params = { icon = "check" }
+
+[[group]]
+name = "color"
+params = { icon = "copy", size = "large" }
+matrix = { color = ["muted-foreground", "primary", "danger"] }
+
+# Icon::rotate: a paint-time turn about the center.
+[[group]]
+name = "rotate"
+params = { icon = "chevron-right", size = "large", rotate = 90 }

@@ -71,7 +71,9 @@ public sealed class CaseHost : IDisposable
     public Rect ControlBounds()
     {
         Flush();
-        var origin = Control.TranslatePoint(default, Window) ?? default;
+        // The laid-out box: the control's own RenderTransform (a rotated icon) does not move it.
+        var parent = Control.GetVisualParent() ?? Window;
+        var origin = parent.TranslatePoint(Control.Bounds.Position, Window) ?? default;
         return new Rect(origin, Control.Bounds.Size);
     }
 

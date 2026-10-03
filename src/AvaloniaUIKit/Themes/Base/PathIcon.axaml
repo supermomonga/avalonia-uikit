@@ -2,7 +2,8 @@
   PathIcon draws the Lucide outlines in Icons/Lucide.g.axaml. Their geometry
   spans the full 24x24 icon box, so the Viewbox scales them exactly as GPUI
   scales an icon's SVG (crates/component/src/icon.rs). The default size is
-  16px, GPUI's Size::Medium icon.
+  16px, GPUI's Size::Medium icon; the classes xsmall, small and large give
+  Icon::xsmall/small/large (12, 14 and 24px). The color is the Foreground.
 -->
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
@@ -18,5 +19,17 @@
         </Border>
       </ControlTemplate>
     </Setter>
+    <Style Selector="^.xsmall">
+      <Setter Property="Width" Value="12" />
+      <Setter Property="Height" Value="12" />
+    </Style>
+    <Style Selector="^.small">
+      <Setter Property="Width" Value="14" />
+      <Setter Property="Height" Value="14" />
+    </Style>
+    <Style Selector="^.large">
+      <Setter Property="Width" Value="24" />
+      <Setter Property="Height" Value="24" />
+    </Style>
   </ControlTheme>
 </ResourceDictionary>
