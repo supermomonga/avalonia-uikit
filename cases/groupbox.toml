@@ -1,0 +1,14 @@
+# GPUI Kit GroupBox -> GroupBox.
+component = "groupbox"
+viewport = [272, 140]
+anchor = [16, 8]
+
+[[group]]
+name = "titled"
+params = { title = "Account", content = "Content" }
+matrix = { variant = ["normal", "fill", "outline"] }
+
+[[group]]
+name = "untitled"
+params = { content = "Content" }
+matrix = { variant = ["fill", "outline"] }

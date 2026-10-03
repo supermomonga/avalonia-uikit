@@ -496,7 +496,10 @@
       "number.button.pressed": "#e5e5e599",
       "number.disabled.background": "#e5e5e5cc",
       "number.disabled.border": "#e5e5e580",
-      "number.disabled.text": "#0a0a0a80"
+      "number.disabled.text": "#0a0a0a80",
+      "link.underline": "#17171780",
+      "link.hover": "#171717cc",
+      "link.pressed": "#17171799"
     },
     "derived_float": {
       "button.default.normal.background": [
@@ -2616,6 +2619,24 @@
         0.039000000804662704,
         0.039000000804662704,
         0.5
+      ],
+      "link.underline": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        0.5
+      ],
+      "link.hover": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        0.800000011920929
+      ],
+      "link.pressed": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        0.6000000238418579
       ]
     },
     "scalars": {
@@ -3123,7 +3144,10 @@
       "number.button.pressed": "#2f2f2f99",
       "number.disabled.background": "#2f2f2fcc",
       "number.disabled.border": "#2f2f2f80",
-      "number.disabled.text": "#fafafa80"
+      "number.disabled.text": "#fafafa80",
+      "link.underline": "#fafafa80",
+      "link.hover": "#fafafacc",
+      "link.pressed": "#fafafa99"
     },
     "derived_float": {
       "button.default.normal.background": [
@@ -5243,6 +5267,24 @@
         0.9800000190734863,
         0.9800000190734863,
         0.5
+      ],
+      "link.underline": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        0.5
+      ],
+      "link.hover": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        0.800000011920929
+      ],
+      "link.pressed": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        0.6000000238418579
       ]
     },
     "scalars": {

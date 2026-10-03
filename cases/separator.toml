@@ -1,0 +1,9 @@
+# GPUI Kit Separator -> Separator.
+component = "separator"
+viewport = [192, 64]
+anchor = [16, 16]
+
+[[group]]
+name = "line"
+matrix = { vertical = [false, true], dashed = [false, true] }
+params = { length = 32 }

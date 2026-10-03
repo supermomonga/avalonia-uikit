@@ -1,0 +1,122 @@
+{
+  "quads": [
+    {
+      "order": 1,
+      "bounds": [
+        0.0,
+        0.0,
+        192.0,
+        64.0
+      ],
+      "clip": [
+        0.0,
+        0.0,
+        192.0,
+        64.0
+      ],
+      "background": {
+        "kind": "solid",
+        "rgba": [
+          0.039,
+          0.039,
+          0.039,
+          1.0
+        ]
+      },
+      "border_color": [
+        0.039,
+        0.039,
+        0.039,
+        0.0
+      ],
+      "border_widths": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "corner_radii": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "border_style": "Solid"
+    },
+    {
+      "order": 2,
+      "bounds": [
+        0.0,
+        0.0,
+        192.0,
+        64.0
+      ],
+      "clip": [
+        0.0,
+        0.0,
+        192.0,
+        64.0
+      ],
+      "background": {
+        "kind": "solid",
+        "rgba": [
+          0.039,
+          0.039,
+          0.039,
+          1.0
+        ]
+      },
+      "border_color": [
+        0.039,
+        0.039,
+        0.039,
+        0.0
+      ],
+      "border_widths": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "corner_radii": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "border_style": "Solid"
+    }
+  ],
+  "shadows": [],
+  "underlines": [],
+  "mono_sprites": [],
+  "subpixel_sprites": [],
+  "poly_sprites": [],
+  "paths": [
+    {
+      "order": 3,
+      "bounds": [
+        15.5,
+        16.0,
+        1.0,
+        32.0
+      ],
+      "clip": [
+        0.0,
+        0.0,
+        192.0,
+        64.0
+      ],
+      "color": {
+        "kind": "solid",
+        "rgba": [
+          0.149,
+          0.149,
+          0.149,
+          1.0
+        ]
+      },
+      "vertices": 36
+    }
+  ]
+}

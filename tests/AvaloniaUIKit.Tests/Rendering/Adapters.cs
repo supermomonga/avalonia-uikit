@@ -30,6 +30,9 @@ public static class Adapters
         "split" => Split(c),
         "menubar" => MenuBar(),
         "number" => Number(c),
+        "groupbox" => GroupBox(c),
+        "separator" => Separator(c),
+        "link" => new HyperlinkButton { Content = c.Str("label", "Documentation") },
         _ => throw new NotSupportedException($"no adapter for {c.Component}"),
     };
 
@@ -84,6 +87,34 @@ public static class Adapters
         new MenuItem { Header = "Rename", IsEnabled = false },
         new MenuItem { Header = "Edit", ItemsSource = new List<Control> { new MenuItem { Header = "Copy" }, new MenuItem { Header = "Paste" } } },
     ];
+
+    private static GroupBox GroupBox(GoldenCase c)
+    {
+        var group = new GroupBox { Content = c.Str("content", "Content"), Width = c.Num("width", 240) };
+        if (c.Has("title"))
+        {
+            group.Header = c.Str("title");
+        }
+        ClassFrom(group, c, "variant", "normal");
+        return group;
+    }
+
+    private static Separator Separator(GoldenCase c)
+    {
+        var separator = new Separator();
+        var length = c.Num("length", 160);
+        if (c.Bool("vertical"))
+        {
+            separator.Classes.Add("vertical");
+            separator.Height = length;
+        }
+        else
+        {
+            separator.Width = length;
+        }
+        FlagClass(separator, c, "dashed");
+        return separator;
+    }
 
     private static NumericUpDown Number(GoldenCase c)
     {

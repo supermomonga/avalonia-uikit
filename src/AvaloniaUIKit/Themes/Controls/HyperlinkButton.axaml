@@ -1,0 +1,58 @@
+<!--
+  GPUI Kit Link -> HyperlinkButton (crates/component/src/link.rs).
+  The text is the link color with a 1px underline at half strength; hovered,
+  the text fades to 80% and the underline turns solid; pressed, the text fades
+  to 60%. The text keeps GPUI's default line height, phi (1.618) of its size.
+  The underline's distance from the baseline comes from the font in Avalonia
+  and from 0.618 of the descent in GPUI (R18).
+-->
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ControlTheme x:Key="{x:Type HyperlinkButton}" TargetType="HyperlinkButton">
+    <Setter Property="Foreground" Value="{DynamicResource Gpui.Link}" />
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Padding" Value="0" />
+    <Setter Property="FontSize" Value="16" />
+    <Setter Property="Cursor" Value="Hand" />
+    <Setter Property="HorizontalAlignment" Value="Left" />
+    <Setter Property="VerticalAlignment" Value="Top" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <ContentPresenter Name="PART_ContentPresenter"
+                          Background="{TemplateBinding Background}"
+                          Padding="{TemplateBinding Padding}"
+                          Content="{TemplateBinding Content}"
+                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                          Foreground="{TemplateBinding Foreground}"
+                          LineHeight="25.8885"
+                          TextWrapping="NoWrap"
+                          RecognizesAccessKey="True">
+          <ContentPresenter.Styles>
+            <Style Selector="AccessText, TextBlock">
+              <Setter Property="TextDecorations">
+                <TextDecorationCollection>
+                  <TextDecoration Location="Underline" StrokeThickness="1" StrokeThicknessUnit="Pixel"
+                                  Stroke="{DynamicResource Gpui.Link.Underline}" />
+                </TextDecorationCollection>
+              </Setter>
+            </Style>
+            <Style Selector="HyperlinkButton:pointerover AccessText, HyperlinkButton:pointerover TextBlock, HyperlinkButton:pressed AccessText, HyperlinkButton:pressed TextBlock">
+              <Setter Property="TextDecorations">
+                <TextDecorationCollection>
+                  <TextDecoration Location="Underline" StrokeThickness="1" StrokeThicknessUnit="Pixel"
+                                  Stroke="{DynamicResource Gpui.Link}" />
+                </TextDecorationCollection>
+              </Setter>
+            </Style>
+          </ContentPresenter.Styles>
+        </ContentPresenter>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^:pointerover">
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.Link.Hover}" />
+    </Style>
+    <Style Selector="^:pressed">
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.Link.Pressed}" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

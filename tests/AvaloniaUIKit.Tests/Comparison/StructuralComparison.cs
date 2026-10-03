@@ -286,6 +286,10 @@ public static class StructuralComparison
             {
                 case TextBlock t when !string.IsNullOrEmpty(t.Text) && Solid(t.Foreground, opacity) is { } c:
                     actual.Add(c);
+                    foreach (var decoration in t.TextDecorations ?? [])
+                    {
+                        actual.Add(Solid(decoration.Stroke, opacity) ?? c);
+                    }
                     break;
                 case TextPresenter p when !string.IsNullOrEmpty(p.Text) && Solid(p.Foreground, opacity) is { } c:
                     actual.Add(c);

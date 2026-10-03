@@ -991,6 +991,12 @@
       <SolidColorBrush x:Key="Gpui.Number.Disabled.Border" Color="#80E5E5E5" />
       <Color x:Key="Gpui.Number.Disabled.Text.Color">#800A0A0A</Color>
       <SolidColorBrush x:Key="Gpui.Number.Disabled.Text" Color="#800A0A0A" />
+      <Color x:Key="Gpui.Link.Underline.Color">#80171717</Color>
+      <SolidColorBrush x:Key="Gpui.Link.Underline" Color="#80171717" />
+      <Color x:Key="Gpui.Link.Hover.Color">#CC171717</Color>
+      <SolidColorBrush x:Key="Gpui.Link.Hover" Color="#CC171717" />
+      <Color x:Key="Gpui.Link.Pressed.Color">#99171717</Color>
+      <SolidColorBrush x:Key="Gpui.Link.Pressed" Color="#99171717" />
     </ResourceDictionary>
     <ResourceDictionary x:Key="Dark">
       <Color x:Key="Gpui.Accent.Color">#FF262626</Color>
@@ -1977,6 +1983,12 @@
       <SolidColorBrush x:Key="Gpui.Number.Disabled.Border" Color="#802F2F2F" />
       <Color x:Key="Gpui.Number.Disabled.Text.Color">#80FAFAFA</Color>
       <SolidColorBrush x:Key="Gpui.Number.Disabled.Text" Color="#80FAFAFA" />
+      <Color x:Key="Gpui.Link.Underline.Color">#80FAFAFA</Color>
+      <SolidColorBrush x:Key="Gpui.Link.Underline" Color="#80FAFAFA" />
+      <Color x:Key="Gpui.Link.Hover.Color">#CCFAFAFA</Color>
+      <SolidColorBrush x:Key="Gpui.Link.Hover" Color="#CCFAFAFA" />
+      <Color x:Key="Gpui.Link.Pressed.Color">#99FAFAFA</Color>
+      <SolidColorBrush x:Key="Gpui.Link.Pressed" Color="#99FAFAFA" />
     </ResourceDictionary>
   </ResourceDictionary.ThemeDictionaries>
 </ResourceDictionary>

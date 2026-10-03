@@ -21,7 +21,9 @@ public static class VisualAssert
         var bounds = host.ControlBounds();
         var failures = new List<string>();
         var textRuns = host.Control.GetSelfAndVisualDescendants().OfType<Avalonia.Controls.TextBlock>().Count(t => !string.IsNullOrEmpty(t.Text));
-        if (!Near(bounds, golden.ComponentBounds) && !NearWithTextRounding(golden.ComponentBounds, bounds, Math.Max(1, textRuns)))
+        // A zero-area GPUI box (a separator's flex container) has no Avalonia counterpart to compare.
+        var comparable = golden.ComponentBounds.Width > 0 && golden.ComponentBounds.Height > 0;
+        if (comparable && !Near(bounds, golden.ComponentBounds) && !NearWithTextRounding(golden.ComponentBounds, bounds, Math.Max(1, textRuns)))
         {
             failures.Add($"bounds {Fmt(bounds)} != gpui {Fmt(golden.ComponentBounds)}");
         }

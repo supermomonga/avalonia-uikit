@@ -13,6 +13,7 @@ use std::time::Duration;
 
 mod button;
 mod check;
+mod display;
 pub mod menu;
 mod number;
 mod surface;
@@ -32,6 +33,9 @@ pub fn builder(case: &Case) -> Result<Builder> {
         "split" => menu::split(&params),
         "menubar" => menu::menubar(&params),
         "number" => number::builder(&params),
+        "groupbox" => display::group_box(&params),
+        "separator" => display::separator(&params),
+        "link" => display::link(&params),
         other => bail!("unknown component {other}"),
     }
 }
@@ -146,6 +150,7 @@ pub fn derived_colors(theme: &gpui_kit::component::Theme, out: &mut Vec<(String,
     check::derived_colors(theme, out);
     menu::derived_colors(theme, out);
     number::derived_colors(theme, out);
+    display::derived_colors(theme, out);
 }
 
 pub fn disabled(params: &Params) -> bool {

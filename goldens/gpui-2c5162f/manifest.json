@@ -24038,6 +24038,454 @@
       "png_sha256": "977d4c40c2b89db915c53dddb1a234109902a87eae6b8f201957ef9dac05e212"
     },
     {
+      "id": "groupbox/titled.fill/normal/dark",
+      "component": "groupbox",
+      "group": "titled",
+      "params": {
+        "title": "Account",
+        "content": "Content",
+        "variant": "fill"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        272.0,
+        140.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        240.0,
+        90.0
+      ],
+      "png": "png/groupbox/titled.fill/normal/dark.png",
+      "scene": "scenes/groupbox/titled.fill/normal/dark.json",
+      "png_sha256": "aca6d9185ee5c8fc0b0413f4f9688c9fc31440a687f3f3f95fddfb62a069dec5"
+    },
+    {
+      "id": "groupbox/titled.fill/normal/light",
+      "component": "groupbox",
+      "group": "titled",
+      "params": {
+        "title": "Account",
+        "content": "Content",
+        "variant": "fill"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        272.0,
+        140.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        240.0,
+        90.0
+      ],
+      "png": "png/groupbox/titled.fill/normal/light.png",
+      "scene": "scenes/groupbox/titled.fill/normal/light.json",
+      "png_sha256": "7878e3a224a70473d148ef453dec10ae6eadcdb0ea95cd85792d00708fe2ff45"
+    },
+    {
+      "id": "groupbox/titled.normal/normal/dark",
+      "component": "groupbox",
+      "group": "titled",
+      "params": {
+        "title": "Account",
+        "content": "Content",
+        "variant": "normal"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        272.0,
+        140.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        240.0,
+        62.0
+      ],
+      "png": "png/groupbox/titled.normal/normal/dark.png",
+      "scene": "scenes/groupbox/titled.normal/normal/dark.json",
+      "png_sha256": "ef2842e2dac5fa11422339568ddc89ba8ee10ded85cc6eeff73360e0b2387b3e"
+    },
+    {
+      "id": "groupbox/titled.normal/normal/light",
+      "component": "groupbox",
+      "group": "titled",
+      "params": {
+        "title": "Account",
+        "content": "Content",
+        "variant": "normal"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        272.0,
+        140.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        240.0,
+        62.0
+      ],
+      "png": "png/groupbox/titled.normal/normal/light.png",
+      "scene": "scenes/groupbox/titled.normal/normal/light.json",
+      "png_sha256": "ed91cd2c8e4f1782dcf94acff366d810657eb6ec17432fd6aaee925bf7bdb4c5"
+    },
+    {
+      "id": "groupbox/titled.outline/normal/dark",
+      "component": "groupbox",
+      "group": "titled",
+      "params": {
+        "title": "Account",
+        "content": "Content",
+        "variant": "outline"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        272.0,
+        140.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        240.0,
+        92.0
+      ],
+      "png": "png/groupbox/titled.outline/normal/dark.png",
+      "scene": "scenes/groupbox/titled.outline/normal/dark.json",
+      "png_sha256": "d37bab2dfc4e6f38bcb7e225cd008333ac36bb5bbe8254e127076b636a33565a"
+    },
+    {
+      "id": "groupbox/titled.outline/normal/light",
+      "component": "groupbox",
+      "group": "titled",
+      "params": {
+        "title": "Account",
+        "content": "Content",
+        "variant": "outline"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        272.0,
+        140.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        240.0,
+        92.0
+      ],
+      "png": "png/groupbox/titled.outline/normal/light.png",
+      "scene": "scenes/groupbox/titled.outline/normal/light.json",
+      "png_sha256": "765776c0143e4f841fd56e02ddf4a9a18030b84d6350782e3925bda25aca6411"
+    },
+    {
+      "id": "groupbox/untitled.fill/normal/dark",
+      "component": "groupbox",
+      "group": "untitled",
+      "params": {
+        "content": "Content",
+        "variant": "fill"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        272.0,
+        140.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        240.0,
+        58.0
+      ],
+      "png": "png/groupbox/untitled.fill/normal/dark.png",
+      "scene": "scenes/groupbox/untitled.fill/normal/dark.json",
+      "png_sha256": "0e4aa33ea26bcd3e4c43bb3cafe40d7b3f67c77b3971622a66da570c99c86e4d"
+    },
+    {
+      "id": "groupbox/untitled.fill/normal/light",
+      "component": "groupbox",
+      "group": "untitled",
+      "params": {
+        "content": "Content",
+        "variant": "fill"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        272.0,
+        140.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        240.0,
+        58.0
+      ],
+      "png": "png/groupbox/untitled.fill/normal/light.png",
+      "scene": "scenes/groupbox/untitled.fill/normal/light.json",
+      "png_sha256": "9ee8092c2f8bcc9ff12291aeffa4a5186b94f0243b2793d6073130b538169eed"
+    },
+    {
+      "id": "groupbox/untitled.outline/normal/dark",
+      "component": "groupbox",
+      "group": "untitled",
+      "params": {
+        "content": "Content",
+        "variant": "outline"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        272.0,
+        140.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        240.0,
+        60.0
+      ],
+      "png": "png/groupbox/untitled.outline/normal/dark.png",
+      "scene": "scenes/groupbox/untitled.outline/normal/dark.json",
+      "png_sha256": "f07ec63fc2abcfd2e7d10fd85b699c1468fef61f58cef0541130d05875da80cd"
+    },
+    {
+      "id": "groupbox/untitled.outline/normal/light",
+      "component": "groupbox",
+      "group": "untitled",
+      "params": {
+        "content": "Content",
+        "variant": "outline"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        272.0,
+        140.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        240.0,
+        60.0
+      ],
+      "png": "png/groupbox/untitled.outline/normal/light.png",
+      "scene": "scenes/groupbox/untitled.outline/normal/light.json",
+      "png_sha256": "a07425955b9645f1783ce441bd897e0af9987a594e92c81bef26eda62330b239"
+    },
+    {
+      "id": "link/text.base/hover/dark",
+      "component": "link",
+      "group": "text",
+      "params": {
+        "label": "Documentation"
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        180.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        115.0,
+        26.0
+      ],
+      "png": "png/link/text.base/hover/dark.png",
+      "scene": "scenes/link/text.base/hover/dark.json",
+      "png_sha256": "b8fef905d9ce5acddb3c3f230dc85e89dcb947584cfe0730dfd5019e5a6f99f4"
+    },
+    {
+      "id": "link/text.base/hover/light",
+      "component": "link",
+      "group": "text",
+      "params": {
+        "label": "Documentation"
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        180.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        115.0,
+        26.0
+      ],
+      "png": "png/link/text.base/hover/light.png",
+      "scene": "scenes/link/text.base/hover/light.json",
+      "png_sha256": "2bed83eba2836196a08c470df5b197b9afbe8f9369582de711f8937db64bd9fa"
+    },
+    {
+      "id": "link/text.base/normal/dark",
+      "component": "link",
+      "group": "text",
+      "params": {
+        "label": "Documentation"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        180.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        115.0,
+        26.0
+      ],
+      "png": "png/link/text.base/normal/dark.png",
+      "scene": "scenes/link/text.base/normal/dark.json",
+      "png_sha256": "4d66e97d22e0cd8b6775a8180bf88d0861dc79a6c737adf3474f8846d75de2fa"
+    },
+    {
+      "id": "link/text.base/normal/light",
+      "component": "link",
+      "group": "text",
+      "params": {
+        "label": "Documentation"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        180.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        115.0,
+        26.0
+      ],
+      "png": "png/link/text.base/normal/light.png",
+      "scene": "scenes/link/text.base/normal/light.json",
+      "png_sha256": "3d656ce9dc9c1d33deb69bf642a2dbed2abb6177d761617d929012767dc199b4"
+    },
+    {
+      "id": "link/text.base/pressed/dark",
+      "component": "link",
+      "group": "text",
+      "params": {
+        "label": "Documentation"
+      },
+      "state": "pressed",
+      "theme": "dark",
+      "viewport": [
+        180.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        115.0,
+        26.0
+      ],
+      "png": "png/link/text.base/pressed/dark.png",
+      "scene": "scenes/link/text.base/pressed/dark.json",
+      "png_sha256": "96b02db62841964bd1476b56d808a9a31b2a6063b7b191c723ec15043d034e3e"
+    },
+    {
+      "id": "link/text.base/pressed/light",
+      "component": "link",
+      "group": "text",
+      "params": {
+        "label": "Documentation"
+      },
+      "state": "pressed",
+      "theme": "light",
+      "viewport": [
+        180.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        115.0,
+        26.0
+      ],
+      "png": "png/link/text.base/pressed/light.png",
+      "scene": "scenes/link/text.base/pressed/light.json",
+      "png_sha256": "adbf5f3376c2433e7471c0f5ec337a331029ee8ba0e594af3e4978ea808377c7"
+    },
+    {
       "id": "menubar/bar.base/at-20-20/dark",
       "component": "menubar",
       "group": "bar",
@@ -27256,6 +27704,238 @@
       "png": "png/radio/label.xsmall/normal/light.png",
       "scene": "scenes/radio/label.xsmall/normal/light.json",
       "png_sha256": "dc2d0d5d1afa30c05b98990d1862daebf9f0103df02e39edfd60b0c93b7684a4"
+    },
+    {
+      "id": "separator/line.base/normal/dark",
+      "component": "separator",
+      "group": "line",
+      "params": {
+        "length": 32,
+        "vertical": false,
+        "dashed": false
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        192.0,
+        64.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        32.0,
+        0.0
+      ],
+      "png": "png/separator/line.base/normal/dark.png",
+      "scene": "scenes/separator/line.base/normal/dark.json",
+      "png_sha256": "aefa3df2beefc4b2fac87584c50585af7901491b2ea7b55e1f44ab83400720d7"
+    },
+    {
+      "id": "separator/line.base/normal/light",
+      "component": "separator",
+      "group": "line",
+      "params": {
+        "length": 32,
+        "vertical": false,
+        "dashed": false
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        192.0,
+        64.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        32.0,
+        0.0
+      ],
+      "png": "png/separator/line.base/normal/light.png",
+      "scene": "scenes/separator/line.base/normal/light.json",
+      "png_sha256": "dfa77ddf102c9699d3db38f4e68da83f7f9ce3189564ce9d4f0c9405452653fd"
+    },
+    {
+      "id": "separator/line.dashed/normal/dark",
+      "component": "separator",
+      "group": "line",
+      "params": {
+        "length": 32,
+        "vertical": false,
+        "dashed": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        192.0,
+        64.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        32.0,
+        0.0
+      ],
+      "png": "png/separator/line.dashed/normal/dark.png",
+      "scene": "scenes/separator/line.dashed/normal/dark.json",
+      "png_sha256": "4aec87a8fd446c2b91dc590fc65f6b05a5745496c23e844f4dff360d0689f79a"
+    },
+    {
+      "id": "separator/line.dashed/normal/light",
+      "component": "separator",
+      "group": "line",
+      "params": {
+        "length": 32,
+        "vertical": false,
+        "dashed": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        192.0,
+        64.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        32.0,
+        0.0
+      ],
+      "png": "png/separator/line.dashed/normal/light.png",
+      "scene": "scenes/separator/line.dashed/normal/light.json",
+      "png_sha256": "2b6b6efe79da4ffd0bfc692cded63952b898f2c76174b84ef3f171621e5bb42a"
+    },
+    {
+      "id": "separator/line.vertical.dashed/normal/dark",
+      "component": "separator",
+      "group": "line",
+      "params": {
+        "length": 32,
+        "vertical": true,
+        "dashed": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        192.0,
+        64.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        0.0,
+        32.0
+      ],
+      "png": "png/separator/line.vertical.dashed/normal/dark.png",
+      "scene": "scenes/separator/line.vertical.dashed/normal/dark.json",
+      "png_sha256": "383059602d53267a056bd0940591eb0f8ec9a75984e4e91165f4e5c6d8df8408"
+    },
+    {
+      "id": "separator/line.vertical.dashed/normal/light",
+      "component": "separator",
+      "group": "line",
+      "params": {
+        "length": 32,
+        "vertical": true,
+        "dashed": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        192.0,
+        64.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        0.0,
+        32.0
+      ],
+      "png": "png/separator/line.vertical.dashed/normal/light.png",
+      "scene": "scenes/separator/line.vertical.dashed/normal/light.json",
+      "png_sha256": "1e0e3e6a2d88bff2178f5e02bd04386285a2d30e50e6d4a00c0d8496e584e7b8"
+    },
+    {
+      "id": "separator/line.vertical/normal/dark",
+      "component": "separator",
+      "group": "line",
+      "params": {
+        "length": 32,
+        "vertical": true,
+        "dashed": false
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        192.0,
+        64.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        0.0,
+        32.0
+      ],
+      "png": "png/separator/line.vertical/normal/dark.png",
+      "scene": "scenes/separator/line.vertical/normal/dark.json",
+      "png_sha256": "7cb626253d8eb72a726e02efa940194201e61b5d21a5a31421f21f395401af4e"
+    },
+    {
+      "id": "separator/line.vertical/normal/light",
+      "component": "separator",
+      "group": "line",
+      "params": {
+        "length": 32,
+        "vertical": true,
+        "dashed": false
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        192.0,
+        64.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        0.0,
+        32.0
+      ],
+      "png": "png/separator/line.vertical/normal/light.png",
+      "scene": "scenes/separator/line.vertical/normal/light.json",
+      "png_sha256": "d6472b7196bb9537d97c06b8c90794a13dcc32e62e416de8a8289557ac7a74b2"
     },
     {
       "id": "split/label.danger.large/disabled/dark",

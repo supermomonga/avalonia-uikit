@@ -1,0 +1,9 @@
+# GPUI Kit Link -> HyperlinkButton.
+component = "link"
+viewport = [180, 48]
+anchor = [16, 8]
+
+[[group]]
+name = "text"
+params = { label = "Documentation" }
+states = ["normal", "hover", "pressed"]
