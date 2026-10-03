@@ -8,11 +8,13 @@ GPUI Kit の見た目を、Avalonia の既存コントロールに適用する�
 
 ボタン、入力欄、選択欄、タブ、メニュー、カレンダー、一覧、表、通知などは対象にできる。標準に存在しないコンポーネントや、標準を超える検索・選択・ドッキング・編集機能は実装しない。対応表の「部分対応」は、記載した部分だけをテーマ化する意味であり、残りの機能を後から自作する予定を意味しない。
 
-この資料はもともと、移植範囲を決めるためのソース・資料調査として作った。その後、「対応」とした 16 行はテーマとして実装し、GPUI Kit との一致を自動テストで検証した（[実装状況](#実装状況)）。「部分対応」の行はまだ実装していないので、その判定は調査の結果のままである。
+この資料はもともと、移植範囲を決めるためのソース・資料調査として作った。その後、「対応」の 16 行と「部分対応」の 34 行（DataTable は `TableView` と DataGrid の 2 行）をテーマとして実装し、GPUI Kit との一致を自動テストで検証した（[実装状況](#実装状況)）。「部分対応」の各行に書いた範囲と対象外は、実装後もそのまま有効である。見た目だけのコードを認めた方針の改定（ADR 15）で対象に戻した動き（タブのインジケーター、自然高の reveal など）は、行の説明も改めた。
 
 ## 実装状況
 
-2026-10-03 時点。「対応」の全 16 行を `GpuiTheme`（`src/AvaloniaUIKit`）として実装し、GPUI Kit `2c5162f` が描いた参照データと比べて、Light / Dark、各 Variant・サイズ・状態、動きが一致することを自動テストで確かめた。全 1440 件のテストが成功している。検証の方法、許容値、緩和 ID の意味は [テストと一致検証](../testing.md) にまとめた。
+2026-10-04 時点。「対応」と「部分対応」の全 50 行を実装し、GPUI Kit `2c5162f` が描いた参照データと比べて、Light / Dark、各 Variant・サイズ・状態、動きが一致することを自動テストで確かめた。本体のコントロールは `GpuiTheme`（`src/AvaloniaUIKit`）、公式の別パッケージのコントロールは別のアセンブリ（`src/AvaloniaUIKit.ColorPicker`、`src/AvaloniaUIKit.DataGrid`。ADR 16）にある。全 3125 件のテストが成功している。検証の方法、許容値、緩和 ID の意味、利用側の約束は [テストと一致検証](../testing.md) にまとめた。
+
+### 対応
 
 | GPUI Kit | Avalonia | 静止ケース | 動き（フレームごとの比較） | 固有の緩和 | 対象外とした機能 |
 | --- | --- | --- | --- | --- | --- |
@@ -33,10 +35,54 @@ GPUI Kit の見た目を、Avalonia の既存コントロールに適用する�
 | Menu / ContextMenu / DropdownMenu | `ContextMenu`、`MenuFlyout`、`MenuItem` | 14 | – | R12、R22、R28 | link 項目 |
 | AppMenuBar | `Menu` | 4 | – | R28 | – |
 
+### 部分対応
+
+「対象外とした機能」には、各行の説明で対象外とした機能に加えて、実装で扱えなかったものを書く。
+
+| GPUI Kit | Avalonia | 静止ケース | 動き（フレームごとの比較） | 固有の緩和 | 対象外とした機能 |
+| --- | --- | --- | --- | --- | --- |
+| ButtonGroup | `StackPanel Classes="button-group"` の `Button` | 86 | – | R27 | グループ単位の操作 API |
+| ToggleGroup | `ListBox Classes="toggle-group"` | 76 | – | – | GPUI の選択ルール（`SelectionMode` でアプリが決める） |
+| Input | `TextBox` | 80 | – | R24、R25 | GPUI の検証・マスク構文、Esc でのクリア、インライントークン |
+| Textarea | `TextBox`（`AcceptsReturn`） | 42 | – | R25 | 検索 UI、インライントークン |
+| InputGroup | `TextBox Classes="group"` | 54 | フォーカスの色（HSLA の補間） | R25 | `BlockStart` / `BlockEnd` |
+| Slider | `Slider` | 52 | つまみのリングの表示・消去・途中で戻したとき | R30 | Range Slider。トラックを押している間の active 色（GPUI もつまみが先に動くので描かない） |
+| Select | `ComboBox` | 68 | 開くとき（スライドとフェード） | R5、R12 | ポップアップ内の検索欄、グループ、クリア |
+| Combobox | `ComboBox Classes="combobox"`、`AutoCompleteBox` | 24 | 開くとき | R5、R12 | 複数選択とチップ、独自の検索 |
+| List | `ListBox` | 24 | – | R29 | 内蔵検索、追加取得、並べ替えの D&D |
+| Tree | `TreeView` | 22 | – | – | GPUI のデータモデルと仮想化 |
+| Calendar | `Calendar` | 52 | – | R7（「今日」の固定） | 複数月の表示、20 年の年グリッド（Avalonia は 12 年）、月ごとに 4〜6 行の週（Avalonia は常に 6 行） |
+| DatePicker | `CalendarDatePicker` | 60 | 開くとき | R5、R7、R12 | 日付の範囲、プリセット、時刻の同時編集 |
+| TimeField | `TimePicker` | 46 | – | – | 欄内のセグメントの直接編集（フォーカスで時を選んだ見た目だけ付ける）。開いたピッカーは Avalonia のもの |
+| Table | `TableView`（`Theme="{StaticResource GpuiTable}"`） | 22 | – | – | `TableFooter` / `TableCaption` |
+| DataTable | `TableView` | 44 | – | – | ソート、列の移動・固定、セル範囲選択、無限読み込み。右クリックした行の枠（Avalonia は右ボタンで行を選択する） |
+| VirtualList | `ListBox`、`VirtualizingStackPanel` | 12 | – | – | スクロールハンドル、二次元の仮想化 |
+| Tabs / TabBar / Tab | `TabStrip`、`TabControl` | 100 | pill / segmented / underline のインジケーター、途中で戻したとき（`TabControl` も） | R8 | タブを閉じる操作、D&D |
+| Accordion | `Expander`、`StackPanel Classes="accordion"` | 32 | 開く・閉じる・途中で戻したとき | R8 | 常に 1 項目だけを開く排他制御 |
+| Collapsible | `Expander`（`Theme="{StaticResource GpuiCollapsible}"`） | 16 | 開く・閉じる・即時・途中で戻したとき | R8 | – |
+| Carousel | `Carousel`、`PipsPager Classes="carousel"` | 22 | 次・前のページ送り（`gpui:SpringSlide`） | R8 | ページ番号での複数ページ飛び、途中での反転、ループ、ドラッグ・ホイール |
+| Pagination | `PipsPager` | 42 | – | – | 省略記号付きの番号生成 |
+| Resizable | `GridSplitter` | 30 | pill の hover・離脱・押下・ドラッグ・解放 | R30 | パネルの登録・保存・復元 |
+| Sidebar | `SplitView`、`DrawerPage` | 22 | icon の折り畳み・展開（左右）、offcanvas の折り畳み・展開 | – | SidebarMenu、バッジ、途中で戻したときに GPUI が前の目標へ飛ぶ動き、offcanvas の 200ms 後のアンマウント |
+| Sheet | `DrawerPage Classes="sheet"` | 28 | 4 方向の滑り込み | – | 複数の sheet、ドラッグでのサイズ変更 |
+| Toolbar | `CommandBar` | 50 | – | – | 任意の要素と伸縮スペーサー、`ToolbarGroup` |
+| Label | `TextBlock Classes="label"`、`Label` | 40 | – | R10（解消） | 検索一致の強調、マスク |
+| Icon | `PathIcon`（37 個の Lucide アイコン） | 154 | – | – | 任意 SVG の読み込み、`IconName` 互換 API |
+| Image | `Image` | 20 | – | R31 | URL の取得、失敗時の画像、枠より縦長の画像（GPUI が枠に収めない） |
+| ProgressCircle | `ProgressBar`（`Theme="{StaticResource GpuiProgressCircle}"`） | 42 | 値の変化、不定値 | – | 色の変更、中央のコンテンツ |
+| Popover | `Flyout`、`FlyoutPresenter` | 38 | 開くとき | R12 | 閉じるアニメーション |
+| Notification | `WindowNotificationManager`、`NotificationCard` | 34 | 入場・退場 | R3、R5、R30 | 通知ごとの配置、重複排除、重なりの展開と並べ直し |
+| TitleBar / WindowBorder | `WindowDrawnDecorations` | 6 | – | R7、R14、R32 | 任意のコンテンツ、OS が描く装飾 |
+| ColorPicker | `ColorPicker`（`GpuiColorPickerTheme`） | 42 | – | – | GPUI 独自のパレット・featured 行・HSL スライダー（標準の `FluentColorPalette` と RGB / HSV の成分）。ポップオーバーは挙動テストで確かめる |
+| DataTable | `DataGrid`（`GpuiDataGridTheme`） | 36 | – | R28 | セル範囲選択、無限取得。DataGrid 本体がトリム非対応なので NativeAOT は保証しない |
+
+### 共通
+
 - 全コンポーネントに共通の緩和: R1（文字のラスタライズ）、R2（縁の AA）、R3（影）、R4（アイコン）、R7（仮想時計がない）、R9（レイアウトの丸め）、R11（色の量子化）、R13（システムフォント）、R14（参照データは macOS で生成）、R15（参照生成器の時計パッチ）、R17（rem は 16 固定）。
 - 静止ケースはすべて Light / Dark の両方で比べる（Tooltip のサイズ違いを除く）。テーマを FluentTheme の上に重ねても同じ見た目になることも確かめている。
 - テーマの既定フォントはシステム UI フォント。検証は同梱の Inter で行っている（R13）。
-- NativeAOT で publish したギャラリー（`samples/AvaloniaUIKit.AotSmoke`）で、全コントロールが警告なしにビルドでき、描画できることを確かめている。
+- NativeAOT で publish したギャラリー（`samples/AvaloniaUIKit.AotSmoke`）で、DataGrid を除く全コントロールが警告なしにビルドでき、描画できることを確かめている。
+- テーマで書けない見た目と動きは、見た目だけを動かす Behavior と値変換で補った（ADR 15、ADR 17）。一覧は [テストと一致検証](../testing.md#見た目だけのコード) にある。
 
 ## 調査対象と判定基準
 
@@ -109,10 +155,10 @@ GPUI Kit の見た目を、Avalonia の既存コントロールに適用する�
 
 | GPUI Kit | 判定 | Avalonia の対応先 | テーマで移植する範囲／対象外 |
 | --- | --- | --- | --- |
-| [Tabs / TabBar / Tab][gp-tabs] | 部分対応 | [`TabControl`][av-tabs] / `TabItem`、[`TabStrip`][av-tabstrip] / `TabStripItem` | タブと内容を持つ場合は `TabControl`、選択列だけなら `TabStrip`。下線・pill・segment 等の外観。タブの閉じる処理、D&D 移動、GPUI のメニュー API、選択項目間を追従する共有インジケーターは追加しない。 |
+| [Tabs / TabBar / Tab][gp-tabs] | 部分対応 | [`TabControl`][av-tabs] / `TabItem`、[`TabStrip`][av-tabstrip] / `TabStripItem` | タブと内容を持つ場合は `TabControl`、選択列だけなら `TabStrip`。下線・pill・segment 等の外観。選択に付いていくインジケーターは、見た目だけを動かす Behavior（`Tabs.Indicator`）で GPUI と同じばねで動かす（2026-10-03 の方針改定後）。タブの閉じる処理、D&D 移動、GPUI のメニュー API は追加しない。 |
 | [Accordion / AccordionItem][gp-accordion] | 部分対応 | [`Expander`][av-expander] | 個々の開閉項目、見出し、境界線、矢印。複数の Expander は独立に開閉する。常に一項目だけを開く Accordion 全体の排他制御は非対応。 |
-| [Collapsible][gp-collapsible] | 部分対応 | `Expander` | 一つの領域を展開・折り畳みする表示。`ContentTransition` と標準のアニメーションを使う。GPUI の自然高を測定した可逆なばねアニメーションそのものは移植しない。 |
-| [Carousel][gp-carousel] | 部分対応 | [`Carousel`][av-carousel]、`PipsPager` | ページ表示と `PageTransition`、標準の `IsSwipeEnabled` / `ViewportFraction` / `WrapSelection` を使用。隣接ページの表示と循環も 12.1.3 の既存機能内で扱う。GPUI の任意の item 幅、トラックレイアウト、トラックパッドの慣性・スナップ規則の一致は保証しない。 |
+| [Collapsible][gp-collapsible] | 部分対応 | `Expander` | 一つの領域を展開・折り畳みする表示。GPUI の自然高を測定した可逆なばねアニメーション（`MotionReveal`）は、内容を自然な高さで測る `Canvas` と表示専用の値変換（`RevealConverters`）、`Motion.Spring` で再現する（2026-10-03 の方針改定後）。Accordion の各項目も同じ。 |
+| [Carousel][gp-carousel] | 部分対応 | [`Carousel`][av-carousel]、`PipsPager` | ページ表示と `PageTransition`、標準の `IsSwipeEnabled` / `ViewportFraction` / `WrapSelection` を使用。ページ送りは `PageSlide` の派生（`gpui:SpringSlide`）で、GPUI と同じく 2 ページを 16px 離してばねで動かす。隣接ページの表示と循環も 12.1.3 の既存機能内で扱う。GPUI の任意の item 幅、トラックレイアウト、トラックパッドの慣性・スナップ規則の一致は保証しない。 |
 | [Pagination][gp-pagination] | 部分対応 | [`PipsPager`][av-pips-pager] | 前後ボタン、選択状態、ページ項目。`TemplateSettings.Pips` に 1 始まりの番号があるので、点を番号表示へ差し替えられる。省略記号付きの番号生成やサーバーのページ取得は追加しない。 |
 | [GroupBox][gp-group-box] | 対応 | [`GroupBox`][av-groupbox] | 見出し、内容、背景、outline / fill、余白・角丸。枠の外に置く GPUI の `footer` は標準に該当する領域がないので追加しない。 |
 | [Resizable][gp-resizable] | 部分対応 | [`GridSplitter`][av-grid-splitter] と `Grid` | 通常の行・列分割、仕切りの太さ・色・hover・ドラッグ表示。パネルの登録・保存・復元 API は作らない。 |
@@ -131,10 +177,10 @@ GPUI Kit の見た目を、Avalonia の既存コントロールに適用する�
 | [Icon][gp-icon] | 部分対応 | [`PathIcon`][av-pathicon]、`Path` / `DrawingImage` | テンプレートで必要なアイコン形状・色・線幅・サイズをリソース化。Lucide は別のアセットであり、Avalonia に同梱されているとは扱わない。任意 SVG の読み込み器や `IconName` 互換 API は追加しない。 |
 | [Image][gp-image] | 部分対応 | [`Image`][av-image] | 標準が読める画像の配置、拡縮、周囲の余白。URL 取得、非同期状態、失敗画像の差し替え、任意 SVG 対応は移植しない。`Image` 自体はテンプレートを持たないので `Style` を使う。 |
 | [Progress][gp-progress] | 対応 | [`ProgressBar`][av-progress] | 横・縦のバー、トラック、確定値／不定値、色・角丸・値の変化。元コントロールの値と範囲の意味を維持する。 |
-| [ProgressCircle][gp-progress-circle-source]（Progress の子部品） | 部分対応 | `ProgressBar` の専用テンプレート、[`Arc`][av-arc] | 進捗の値・範囲・不定値は既存の ProgressBar に任せ、円形の描画を差し替える。不定値は標準の Animation で表現可能。確定値は `Percentage × 3.6` を `SweepAngle` に渡す**表示専用の値変換が必要**で、Setter の差し替えだけでは完結しない。新しい進捗管理型や GPUI の任意の中央コンテンツ API は追加しない。 |
+| [ProgressCircle][gp-progress-circle-source]（Progress の子部品） | 部分対応 | `ProgressBar` の専用テンプレート、[`Arc`][av-arc] | 進捗の値・範囲・不定値は既存の ProgressBar に任せ、円形の描画を差し替える。不定値は標準の Animation で表現可能。確定値は `Percentage × 3.6` を `SweepAngle` に渡す表示専用の値変換（`AffineConverter`。2026-10-03 の方針改定で許可）を使う。新しい進捗管理型や GPUI の任意の中央コンテンツ API は追加しない。 |
 | [Spinner][gp-spinner] | 対応 | `ProgressBar`（`IsIndeterminate=true`）の専用テーマ | 回転するローディング記号として表現する。Avalonia の同名 `Spinner` / `ButtonSpinner` は数値の増減用であり、ローディングの対応先ではない。 |
 | [Tooltip][gp-tooltip] | 対応 | [`ToolTip`][av-tooltip] | 背景、枠、影、文字、余白、標準の表示遅延。GPUI の Action からキー表示を自動解決する機能は移植しない。 |
-| [Popover][gp-popover] | 部分対応 | [`Flyout`][av-flyout] / `FlyoutPresenter` | アンカーに対する配置、`HorizontalOffset` / `VerticalOffset` による間隔、内容、枠・影、開くときの表示。論理的な開閉は標準 Flyout が担当。配置した辺に合わせて描く矢印（`arrow`）と、閉じるアニメーションを待って Popup を破棄する制御は追加しない。 |
+| [Popover][gp-popover] | 部分対応 | [`Flyout`][av-flyout] / `FlyoutPresenter` | アンカーに対する配置、`HorizontalOffset` / `VerticalOffset` による間隔、内容、枠・影、開くときの表示。論理的な開閉は標準 Flyout が担当。配置した辺に合わせて描く矢印（`arrow` クラス）は、`Placement` から間隔と矢印の位置を求める値変換（`PlacementConverter`）で描く。閉じるアニメーションを待って Popup を破棄する制御は追加しない。 |
 | [Menu / ContextMenu / DropdownMenu][gp-menu] | 対応 | [`ContextMenu`][av-contextmenu]、[`MenuFlyout`][av-menu-flyout]、[`MenuItem`][av-menu-item] | 項目、チェック、サブメニュー、アイコン、ショートカット表示、区切り、hover / disabled。クリック型トリガーには標準 `DropDownButton` も使える。 |
 | AppMenuBar（menu の公開型） | 対応 | [`Menu`][av-menu] | アプリ内に描画するメニューバーと項目。OS のネイティブメニューとは分ける。 |
 | [Notification][gp-notification] | 部分対応 | [`WindowNotificationManager`][av-notification-manager] / [`NotificationCard`][av-notification-card] | アプリ内通知の色、アイコン、内容、`Position` の 6 種の位置、標準の自動消去と入退場表示。GPUI の通知ごとの配置指定と左右中央の配置、重複排除 ID、重なりを hover で展開するスタックやばねによる並べ直しは移植しない。 |
@@ -220,13 +266,14 @@ GPUI Kit の見た目を、Avalonia の既存コントロールに適用する�
 | hover / pressed / checked の色・透明度変化 | 対応 | `BrushTransition`、`DoubleTransition` 等。対象プロパティの型に合う Transition を使う。 |
 | つまみ移動、記号の回転・拡縮 | 対応 | `TransformOperationsTransition` またはキーフレーム。操作中の Slider の値やつまみを遅らせず、描画側の状態に適用する。 |
 | Spinner・不定値 Progress の繰り返し | 対応 | テンプレート内の Shape / アイコンに `Animation` を適用する。新しい進捗管理型は不要。 |
-| Carousel のページ切り替え | 対応 | 標準 `PageSlide` / `CrossFade` 等を `PageTransition` に指定する。 |
-| Expander / Sheet の開閉 | 部分対応 | `ContentTransition`、DrawerPage / SplitView の既存状態・テンプレートを使用する。GPUI の自然高測定とばね運動の再現は含めない。 |
+| Carousel のページ切り替え | 対応 | `PageTransition` に指定する `PageSlide` の派生（`gpui:SpringSlide`）で、GPUI と同じばねで動かす。 |
+| Expander / Sheet / Sidebar の開閉 | 対応（2026-10-03 の方針改定後） | DrawerPage / SplitView の既存状態・テンプレートに Transition とキーフレームを付ける。Expander の自然高の reveal は下の行。 |
 | Popup / Flyout / Menu / Tooltip の入退場 | 部分対応 | 内容が生存する間の表示開始アニメーションは可能。非表示・破棄後は描画できないので、閉じるアニメーションのために独自の表示寿命管理を追加しない。 |
 | Notification の入退場 | 対応範囲あり | `NotificationCard` は `IsClosing` / `IsClosed` を持ち、標準テーマがアニメーションと閉じる完了を結び付けている。この契約を維持して外観と時間を変更する。 |
 | 途中で反転しても速度を維持する spring | 対応（2026-10-03 の方針改定後） | Avalonia の `SpringEasing` は速度を持たないので、見た目だけを動かす Behavior（`Motion.Spring`）で GPUI と同じ式を使う。 |
-| 選択タブを追いかける下線、通知の重なり・並べ直し | 非対応 | 別要素間の位置計測や専用の状態管理が必要。各項目内の選択表示は対象だが、共有する可動インジケーター等は追加しない。 |
-| 自然高を計測し、レイアウト高も滑らかに変える reveal | 完全再現は非対応 | `Height=Auto` と数値の遷移だけでは GPUI の `MotionReveal` に相当しない。ScaleY も親のレイアウト高を変えないため、同じ効果とは扱わない。 |
+| 選択タブを追いかける下線 | 対応（2026-10-03 の方針改定後） | 選択項目の位置と幅を読んでインジケーターだけを動かす Behavior（`Tabs.Indicator`）。 |
+| 通知の重なり・並べ直し | 非対応 | 通知の並びと寿命の管理が必要で、見た目だけのコードの範囲を超える。 |
+| 自然高を計測し、レイアウト高も滑らかに変える reveal | 対応（2026-10-03 の方針改定後） | `Height=Auto` と数値の遷移だけでは GPUI の `MotionReveal` に相当しないので、内容を自然な高さで測る `Canvas` と値変換（`RevealConverters`）で、高さ ＝ 自然高 × ばねの値にする。 |
 | OS の reduced-motion 設定との同一連動 | 未保証 | GPUI の低減処理をそのまま移植しない。今回確認した Avalonia の公開 [`IPlatformSettings`][av-platform-settings] には同等の共通設定取得契約がない。テーマの動きの定義と OS の設定検出は別に評価する。 |
 
 共通の時間・曲線は、GPUI の [`MotionTokens`][gp-motion] を出発点にできる。
@@ -251,7 +298,7 @@ GPUI Kit の見た目を、Avalonia の既存コントロールに適用する�
 3. Light / Dark、通常・hover・押下・フォーカス・無効・選択・検証エラーを比較する。GPUI に存在しない状態も、Avalonia が持つ状態は読める表示を保つ。
 4. アニメーションを短時間に反転させた場合、Popup が閉じる場合、Notification が削除される場合を確認する。標準の処理が支えない効果は対象外のままにする。
 5. DPI、長い文字列、キーボード操作、フォーカス表示、各 OS のウィンドウ装飾を実画面で確認する。実装前の本資料を、見た目が一致したという検証結果として扱わない。
-6. 円形 Progress は `PART_Indicator` 等の既存契約、Percentage の更新、0 / 100 %・任意の Minimum / Maximum を確認する。標準側の横幅計算と円弧の配置が干渉しないテンプレートを検証する。表示専用の値変換を許さず XAML の既存機構だけに限定する場合は、確定値の円形表示を対象から外す。
+6. 円形 Progress は `PART_Indicator` 等の既存契約、Percentage の更新、0 / 100 %・任意の Minimum / Maximum を確認する。標準側の横幅計算と円弧の配置が干渉しないテンプレートを検証する。確定値の円形表示には表示専用の値変換を使う（2026-10-03 の方針改定で許可）。
 
 ## 根拠の参照方法
 

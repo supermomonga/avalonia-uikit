@@ -13,3 +13,6 @@
 * [13. Bundle Lucide icons as geometry with their license](0013-bundle-lucide-icons-as-geometry-with-their-license.md)
 * [14. Run Avalonia on a virtual clock in tests](0014-run-avalonia-on-a-virtual-clock-in-tests.md)
 * [15. Allow presentation-only code alongside the theme](0015-allow-presentation-only-code-alongside-the-theme.md)
+* [16. Ship themes for optional packages as separate assemblies](0016-ship-themes-for-optional-packages-as-separate-assemblies.md)
+* [17. Hand a control's look to code-built parts through inherited values](0017-hand-a-control-s-look-to-code-built-parts-through-inherited-values.md)
+* [18. Normalize what each renderer draws differently before comparing](0018-normalize-what-each-renderer-draws-differently-before-comparing.md)

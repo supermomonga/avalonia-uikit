@@ -1,6 +1,8 @@
 # GPUI Kit List + ListItem -> ListBox / ListBoxItem.
 # Rows are 34px (py 4, 16px text on a 26px line), padded 12px, with no list
 # padding: at y 8/42/76/110/144. Row 1 is selected; row 3 (Grape) is disabled.
+# Pointers stay off the 16px scrollbar strip at the right edge: GPUI hovers the
+# row under the strip, where Avalonia's ScrollBar takes the pointer (R29).
 component = "list"
 viewport = [300, 240]
 anchor = [16, 8]
