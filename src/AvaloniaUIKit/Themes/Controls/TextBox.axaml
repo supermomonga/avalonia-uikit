@@ -1,0 +1,201 @@
+<!--
+  GPUI Kit Input (crates/component/src/input/input.rs) -> TextBox (MaskedTextBox
+  shares the theme). Classes: xsmall small large (medium is the default);
+  revealPasswordButton (GPUI's mask_toggle: an eye button that shows the text).
+
+  The frame: input_h (20/24/32/44), the theme radius, the input background and a
+  1px `input` border that turns to `ring`, with the ring band, while the field or
+  anything in it has focus (GPUI makes no pointer/keyboard distinction). The
+  text sits on a 20px line centered in the frame, input_px from the border.
+  InnerLeftContent / InnerRightContent are GPUI's prefix and suffix, a size's gap
+  (6/4/6/8) from the text. No hover look. A disabled field fills with the
+  disabled background and draws its text, placeholder and inner content at half
+  strength. GPUI shows a selection only while focused, so an unfocused TextBox
+  hides it (IsInactiveSelectionHighlightEnabled=False). Apps mask a password
+  with PasswordChar="•" (U+2022, GPUI's mask character).
+-->
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <!-- Button::text().xsmall() with an eye icon: shows the masked text while checked. -->
+  <ControlTheme x:Key="GpuiRevealPasswordToggle" TargetType="ToggleButton">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Text.Normal.Foreground}" />
+    <Setter Property="Padding" Value="0" />
+    <Setter Property="Focusable" Value="False" />
+    <Setter Property="Cursor" Value="Hand" />
+    <Setter Property="VerticalAlignment" Value="Center" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Background="{TemplateBinding Background}" CornerRadius="6">
+          <Panel>
+            <PathIcon Name="PART_Masked" Classes="xsmall" Data="{StaticResource Gpui.Icon.Eye}" Foreground="{TemplateBinding Foreground}" />
+            <PathIcon Name="PART_Revealed" Classes="xsmall" Data="{StaticResource Gpui.Icon.EyeOff}" Foreground="{TemplateBinding Foreground}" IsVisible="False" />
+          </Panel>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^:pointerover">
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Text.Hover.Foreground}" />
+    </Style>
+    <Style Selector="^:pressed">
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Text.Pressed.Foreground}" />
+    </Style>
+    <Style Selector="^:checked /template/ PathIcon#PART_Masked">
+      <Setter Property="IsVisible" Value="False" />
+    </Style>
+    <Style Selector="^:checked /template/ PathIcon#PART_Revealed">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type TextBox}" TargetType="TextBox">
+    <Setter Property="Background" Value="{DynamicResource Gpui.InputBackground}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Input}" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="CornerRadius" Value="5.5" />
+    <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+    <Setter Property="CaretBrush" Value="{DynamicResource Gpui.Caret}" />
+    <Setter Property="SelectionBrush" Value="{DynamicResource Gpui.Selection}" />
+    <Setter Property="PlaceholderForeground" Value="{DynamicResource Gpui.MutedForeground}" />
+    <Setter Property="IsInactiveSelectionHighlightEnabled" Value="False" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="LineHeight" Value="20" />
+    <Setter Property="Height" Value="32" />
+    <Setter Property="Padding" Value="10,0" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="HorizontalAlignment" Value="Left" />
+    <Setter Property="VerticalAlignment" Value="Top" />
+    <Setter Property="ClipToBounds" Value="False" />
+    <Setter Property="FocusAdorner" Value="{x:Null}" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Panel>
+          <Border Name="PART_BorderElement"
+                  Background="{TemplateBinding Background}"
+                  BorderBrush="{TemplateBinding BorderBrush}"
+                  BorderThickness="{TemplateBinding BorderThickness}"
+                  CornerRadius="{TemplateBinding CornerRadius}"
+                  BackgroundSizing="OuterBorderEdge" />
+          <!-- focus_ring (styled.rs): a 3px band outside the border, in ring at 50%. -->
+          <Border Name="PART_FocusRing" Margin="-3" BorderThickness="3" CornerRadius="7.5"
+                  BorderBrush="{DynamicResource Gpui.FocusRing}" IsVisible="False" IsHitTestVisible="False" />
+          <Border Margin="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}">
+            <Grid ColumnDefinitions="Auto,*,Auto">
+              <ContentPresenter Name="PART_InnerLeftContent" Grid.Column="0" Margin="0,0,6,0"
+                                VerticalAlignment="Center"
+                                VerticalContentAlignment="Center"
+                                Content="{TemplateBinding InnerLeftContent}"
+                                IsVisible="{TemplateBinding InnerLeftContent, Converter={x:Static ObjectConverters.IsNotNull}}" />
+              <ScrollViewer Name="PART_ScrollViewer" Grid.Column="1"
+                            HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
+                            VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}"
+                            IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
+                            AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
+                            BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}">
+                <Panel>
+                  <TextBlock Name="PART_Placeholder"
+                             Foreground="{TemplateBinding PlaceholderForeground}"
+                             Text="{TemplateBinding PlaceholderText}"
+                             TextAlignment="{TemplateBinding TextAlignment}"
+                             TextWrapping="{TemplateBinding TextWrapping}"
+                             LineHeight="{TemplateBinding LineHeight}"
+                             HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                             VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                    <TextBlock.IsVisible>
+                      <MultiBinding Converter="{x:Static BoolConverters.And}">
+                        <Binding ElementName="PART_TextPresenter" Path="PreeditText" Converter="{x:Static StringConverters.IsNullOrEmpty}" />
+                        <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="Text" Converter="{x:Static StringConverters.IsNullOrEmpty}" />
+                      </MultiBinding>
+                    </TextBlock.IsVisible>
+                  </TextBlock>
+                  <TextPresenter Name="PART_TextPresenter"
+                                 Text="{TemplateBinding Text, Mode=TwoWay}"
+                                 CaretBlinkInterval="{TemplateBinding CaretBlinkInterval}"
+                                 CaretIndex="{TemplateBinding CaretIndex}"
+                                 SelectionStart="{TemplateBinding SelectionStart}"
+                                 SelectionEnd="{TemplateBinding SelectionEnd}"
+                                 TextAlignment="{TemplateBinding TextAlignment}"
+                                 TextWrapping="{TemplateBinding TextWrapping}"
+                                 LineHeight="{TemplateBinding LineHeight}"
+                                 LetterSpacing="{TemplateBinding LetterSpacing}"
+                                 PasswordChar="{TemplateBinding PasswordChar}"
+                                 RevealPassword="{TemplateBinding RevealPassword}"
+                                 SelectionBrush="{TemplateBinding SelectionBrush}"
+                                 SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
+                                 CaretBrush="{TemplateBinding CaretBrush}"
+                                 HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                 VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                </Panel>
+              </ScrollViewer>
+              <ContentPresenter Name="PART_InnerRightContent" Grid.Column="2" Margin="6,0,0,0"
+                                VerticalAlignment="Center"
+                                VerticalContentAlignment="Center"
+                                Content="{TemplateBinding InnerRightContent}"
+                                IsVisible="{TemplateBinding InnerRightContent, Converter={x:Static ObjectConverters.IsNotNull}}" />
+            </Grid>
+          </Border>
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+
+    <!-- Sizes (sizing.rs): input_h, input_px, text size; the inner gap per size (input.rs). -->
+    <Style Selector="^.xsmall">
+      <Setter Property="Height" Value="20" />
+      <Setter Property="Padding" Value="4,0" />
+      <Setter Property="FontSize" Value="12" />
+    </Style>
+    <Style Selector="^.small">
+      <Setter Property="Height" Value="24" />
+      <Setter Property="Padding" Value="8,0" />
+    </Style>
+    <Style Selector="^.small /template/ ContentPresenter#PART_InnerLeftContent">
+      <Setter Property="Margin" Value="0,0,4,0" />
+    </Style>
+    <Style Selector="^.small /template/ ContentPresenter#PART_InnerRightContent">
+      <Setter Property="Margin" Value="4,0,0,0" />
+    </Style>
+    <Style Selector="^.large">
+      <Setter Property="Height" Value="44" />
+      <Setter Property="Padding" Value="12,0" />
+      <Setter Property="FontSize" Value="16" />
+    </Style>
+    <Style Selector="^.large /template/ ContentPresenter#PART_InnerLeftContent">
+      <Setter Property="Margin" Value="0,0,8,0" />
+    </Style>
+    <Style Selector="^.large /template/ ContentPresenter#PART_InnerRightContent">
+      <Setter Property="Margin" Value="8,0,0,0" />
+    </Style>
+
+    <!-- Multi-line text has no fixed height (Textarea). -->
+    <Style Selector="^[AcceptsReturn=True]">
+      <Setter Property="Height" Value="NaN" />
+    </Style>
+
+    <Style Selector="^:focus-within">
+      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Ring}" />
+    </Style>
+    <Style Selector="^:focus-within /template/ Border#PART_FocusRing">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+
+    <Style Selector="^:disabled">
+      <Setter Property="Background" Value="{DynamicResource Gpui.Input.Disabled.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.Input.Disabled.Text}" />
+      <Setter Property="PlaceholderForeground" Value="{DynamicResource Gpui.Input.Disabled.Placeholder}" />
+    </Style>
+    <!-- The prefix and suffix fade to half as wholes; their text keeps its own color. -->
+    <Style Selector="^:disabled /template/ ContentPresenter#PART_InnerLeftContent, ^:disabled /template/ ContentPresenter#PART_InnerRightContent">
+      <Setter Property="Opacity" Value="0.5" />
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+    </Style>
+
+    <Style Selector="^.revealPasswordButton[AcceptsReturn=False]">
+      <Setter Property="InnerRightContent">
+        <Template>
+          <ToggleButton Theme="{StaticResource GpuiRevealPasswordToggle}"
+                        IsChecked="{Binding $parent[TextBox].RevealPassword, Mode=TwoWay}" />
+        </Template>
+      </Setter>
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

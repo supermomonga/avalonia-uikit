@@ -42,6 +42,7 @@ public static class Adapters
         "scroll" => Scroll(c),
         "icon" => IconCase(c),
         "label" => LabelCase(c),
+        "input" => Input(c),
         _ => throw new NotSupportedException($"no adapter for {c.Component}"),
     };
 
@@ -67,7 +68,15 @@ public static class Adapters
         }
         foreach (var box in host.Window.GetVisualDescendants().OfType<TextBox>())
         {
-            box.ClearSelection();
+            // R24: Tab selects all of a single-line TextBox's text, GPUI selects nothing.
+            if (c.Bool("select_all"))
+            {
+                box.SelectAll();
+            }
+            else
+            {
+                box.ClearSelection();
+            }
             box.CaretBrush = Avalonia.Media.Brushes.Transparent;
         }
         host.Flush();
@@ -86,6 +95,39 @@ public static class Adapters
         };
         Scrollbars.SetShowOnHover(viewer, mode != "scrolling");
         return viewer;
+    }
+
+    /// <summary>A TextBox as GPUI's Input: value or placeholder, prefix icon, suffix button, masking.</summary>
+    private static TextBox Input(GoldenCase c)
+    {
+        var box = new TextBox
+        {
+            Text = c.Has("value") ? c.Str("value") : null,
+            PlaceholderText = c.Has("placeholder") ? c.Str("placeholder") : null,
+            Width = c.Num("width", 200),
+            IsEnabled = !c.Bool("disabled"),
+            IsReadOnly = c.Bool("readonly"),
+        };
+        ClassFrom(box, c, "size", "medium");
+        if (c.Bool("masked"))
+        {
+            box.PasswordChar = '•';
+        }
+        if (c.Bool("mask_toggle"))
+        {
+            box.Classes.Add("revealPasswordButton");
+        }
+        if (c.Has("prefix"))
+        {
+            var icon = Icon(c.Str("prefix"));
+            icon.Classes.Add("small");
+            box.InnerLeftContent = icon;
+        }
+        if (c.Has("suffix"))
+        {
+            box.InnerRightContent = new Button { Classes = { "ghost", "xsmall", "icon-only" }, Content = Icon(c.Str("suffix")) };
+        }
+        return box;
     }
 
     /// <summary>Text as GPUI's Label: TextBlock.label, SelectableTextBlock.label or a Label.</summary>

@@ -1,0 +1,52 @@
+# GPUI Kit Input -> TextBox (MaskedTextBox shares the theme).
+component = "input"
+viewport = [240, 68]
+anchor = [16, 12]
+
+[[group]]
+name = "value"
+params = { value = "Hello world", width = 200 }
+matrix = { size = ["xsmall", "small", "medium", "large"] }
+states = ["normal", "focus", "disabled"]
+
+# GPUI has no hover look.
+[[group]]
+name = "hover"
+params = { value = "Hello world", width = 200 }
+states = ["hover"]
+
+[[group]]
+name = "placeholder"
+params = { placeholder = "Enter your name...", width = 200 }
+matrix = { size = ["small", "medium"] }
+states = ["normal", "focus", "disabled"]
+
+[[group]]
+name = "readonly"
+params = { value = "Read only", readonly = true, width = 200 }
+states = ["normal", "focus"]
+
+[[group]]
+name = "prefix"
+params = { value = "Search", prefix = "search", width = 200 }
+matrix = { size = ["xsmall", "small", "medium", "large"] }
+states = ["normal", "focus", "disabled"]
+
+# A ghost xsmall icon button as the suffix.
+[[group]]
+name = "suffix"
+params = { value = "Hello", suffix = "info", width = 200 }
+states = ["normal", "disabled"]
+
+[[group]]
+name = "masked"
+params = { value = "password123", masked = true, width = 200 }
+matrix = { mask_toggle = [false, true] }
+states = ["normal", "focus"]
+
+# The window active so GPUI paints the selection; 600ms after focus GPUI's
+# caret is in its hidden phase.
+[[group]]
+name = "selection"
+params = { value = "Hello world", select_all = true, width = 200 }
+states = ["activate+focus+wait-600ms"]

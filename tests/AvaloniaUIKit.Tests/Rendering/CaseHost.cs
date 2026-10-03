@@ -93,6 +93,8 @@ public sealed class CaseHost : IDisposable
             {
                 case "normal":
                 case "disabled":
+                // GPUI's harness activates its window so it paints carets and selections; Avalonia's is active.
+                case "activate":
                     break;
                 case var w when w.StartsWith("wait-", StringComparison.Ordinal):
                     var ms = int.Parse(w["wait-".Length..].Replace("ms", "", StringComparison.Ordinal), System.Globalization.CultureInfo.InvariantCulture);

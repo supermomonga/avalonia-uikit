@@ -295,6 +295,12 @@ impl Harness {
         self.mouse_up(window, position, button)
     }
 
+    /// Activates the window, which the test platform does not do on its own.
+    pub fn activate(&mut self, window: &CaseWindow) -> Result<()> {
+        self.cx.update_window(window.handle, |_, window, _| window.activate_window())?;
+        self.render(window)
+    }
+
     /// Moves keyboard focus forward, as Tab does. Tab only reaches Root's
     /// binding once something inside it holds focus, so the first stop calls
     /// `focus_next` directly (as gpui-kit's own rendering tests do).

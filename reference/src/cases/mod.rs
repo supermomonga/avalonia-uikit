@@ -18,6 +18,7 @@ pub mod menu;
 mod number;
 mod progress;
 mod icon;
+mod input;
 mod label;
 mod scroll;
 mod surface;
@@ -48,6 +49,7 @@ pub fn builder(case: &Case) -> Result<Builder> {
         "scroll" => scroll::builder(&params),
         "icon" => icon::builder(&params),
         "label" => label::builder(&params),
+        "input" => input::builder(&params),
         other => bail!("unknown component {other}"),
     }
 }
@@ -83,6 +85,8 @@ pub fn drive(harness: &mut Harness, window: &CaseWindow, case: &Case, state: &st
                 harness.mouse_down(window, at, MouseButton::Left)?;
             }
             "focus" => harness.tab(window)?,
+            // Makes the window active: GPUI paints a caret and a selection only then.
+            "activate" => harness.activate(window)?,
             "click" => {
                 let at = pointer(harness, window, &params)?;
                 harness.click(window, at, MouseButton::Left)?;
@@ -158,6 +162,14 @@ pub fn icon(name: &str) -> Option<IconName> {
         "chevron-down" => IconName::ChevronDown,
         "chevron-right" => IconName::ChevronRight,
         "copy" => IconName::Copy,
+        "search" => IconName::Search,
+        "info" => IconName::Info,
+        "eye" => IconName::Eye,
+        "eye-off" => IconName::EyeOff,
+        "close" => IconName::Close,
+        "chevron-left" => IconName::ChevronLeft,
+        "chevron-up" => IconName::ChevronUp,
+        "calendar" => IconName::Calendar,
         "loader" => IconName::Loader,
         _ => return None,
     })
@@ -168,6 +180,7 @@ pub fn derived_colors(theme: &gpui_kit::component::Theme, out: &mut Vec<(String,
     check::derived_colors(theme, out);
     menu::derived_colors(theme, out);
     number::derived_colors(theme, out);
+    input::derived_colors(theme, out);
     display::derived_colors(theme, out);
     progress::derived_colors(theme, out);
 }
