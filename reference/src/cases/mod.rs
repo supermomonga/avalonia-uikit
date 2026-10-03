@@ -22,6 +22,7 @@ mod input;
 mod label;
 mod list;
 mod scroll;
+mod select;
 mod surface;
 mod toggle;
 
@@ -55,6 +56,7 @@ pub fn builder(case: &Case) -> Result<Builder> {
         "input-group" => input::input_group(&params),
         "list" => list::builder(&params),
         "virtual" => list::virtual_list(&params),
+        "select" => select::builder(&params),
         other => bail!("unknown component {other}"),
     }
 }
@@ -187,6 +189,7 @@ pub fn derived_colors(theme: &gpui_kit::component::Theme, out: &mut Vec<(String,
     number::derived_colors(theme, out);
     input::derived_colors(theme, out);
     list::derived_colors(theme, out);
+    select::derived_colors(theme, out);
     display::derived_colors(theme, out);
     progress::derived_colors(theme, out);
 }

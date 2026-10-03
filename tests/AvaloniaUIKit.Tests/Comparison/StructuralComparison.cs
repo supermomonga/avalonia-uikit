@@ -199,7 +199,11 @@ public static class StructuralComparison
             var radii = new CornerRadius(
                 Math.Max(0, baseRadii.TopLeft + s.Spread), Math.Max(0, baseRadii.TopRight + s.Spread),
                 Math.Max(0, baseRadii.BottomRight + s.Spread), Math.Max(0, baseRadii.BottomLeft + s.Spread));
-            list.Add(new Primitive(PrimitiveKind.Shadow, shadowRect, Clamp(radii, shadowRect), default, sigma, Rgba.From(s.Color, opacity), name));
+            // A shadow faded below half an 8-bit step paints nothing (GPUI skips it).
+            if (Rgba.From(s.Color, opacity) is { IsTransparent: false } color)
+            {
+                list.Add(new Primitive(PrimitiveKind.Shadow, shadowRect, Clamp(radii, shadowRect), default, sigma, color, name));
+            }
         }
     }
 

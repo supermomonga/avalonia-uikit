@@ -505,6 +505,9 @@
       "input-group.invalid.ring": "#ef444433",
       "input-group.button.hover": "#f5f5f5ff",
       "list.empty": "#73737399",
+      "select.row.hover": "#f5f5f5b3",
+      "select.empty": "#73737399",
+      "select.disabled.background": "#e5e5e5cc",
       "link.underline": "#17171780",
       "link.hover": "#171717cc",
       "link.pressed": "#17171799",
@@ -2677,6 +2680,24 @@
         0.4509999752044678,
         0.6000000238418579
       ],
+      "select.row.hover": [
+        0.9609999656677246,
+        0.9609999656677246,
+        0.9609999656677246,
+        0.699999988079071
+      ],
+      "select.empty": [
+        0.4509999752044678,
+        0.4509999752044678,
+        0.4509999752044678,
+        0.6000000238418579
+      ],
+      "select.disabled.background": [
+        0.898000180721283,
+        0.8980000615119934,
+        0.8980000615119934,
+        0.800000011920929
+      ],
       "link.underline": [
         0.09000000357627869,
         0.09000000357627869,
@@ -3216,6 +3237,9 @@
       "input-group.invalid.ring": "#f8717166",
       "input-group.button.hover": "#26262680",
       "list.empty": "#a3a3a399",
+      "select.row.hover": "#262626b3",
+      "select.empty": "#a3a3a399",
+      "select.disabled.background": "#2f2f2fcc",
       "link.underline": "#fafafa80",
       "link.hover": "#fafafacc",
       "link.pressed": "#fafafa99",
@@ -5387,6 +5411,24 @@
         0.6389999985694885,
         0.6389999985694885,
         0.6000000238418579
+      ],
+      "select.row.hover": [
+        0.14899998903274536,
+        0.14899998903274536,
+        0.14899998903274536,
+        0.699999988079071
+      ],
+      "select.empty": [
+        0.6389999985694885,
+        0.6389999985694885,
+        0.6389999985694885,
+        0.6000000238418579
+      ],
+      "select.disabled.background": [
+        0.18431371450424194,
+        0.18431374430656433,
+        0.18431365489959717,
+        0.800000011920929
       ],
       "link.underline": [
         0.9800000190734863,

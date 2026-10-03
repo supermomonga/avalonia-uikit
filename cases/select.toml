@@ -1,0 +1,65 @@
+# GPUI Kit Select -> ComboBox / ComboBoxItem.
+# The popup opens 6px below the trigger and fades/slides in over 150ms, so
+# open states wait 200ms.
+component = "select"
+viewport = [320, 260]
+anchor = [16, 8]
+
+[[group]]
+name = "closed"
+params = { width = 200, selected = 1 }
+matrix = { size = ["xsmall", "small", "medium", "large"] }
+states = ["normal", "focus", "disabled"]
+
+[[group]]
+name = "placeholder"
+params = { width = 200, placeholder = "Select a fruit" }
+matrix = { size = ["xsmall", "large"] }
+states = ["normal", "disabled"]
+
+[[group]]
+name = "pointer"
+params = { width = 200, selected = 1 }
+states = ["hover", "pressed"]
+
+[[group]]
+name = "open"
+params = { width = 200, selected = 1, disabled_row = 3 }
+matrix = { size = ["xsmall", "small", "medium", "large"] }
+states = ["click+wait-200ms", "click+wait-200ms+at-60-64"]
+
+[[group]]
+name = "rows"
+params = { width = 200, selected = 1, disabled_row = 3 }
+states = ["click+wait-200ms+at-60-156", "click+wait-200ms+key-down", "focus+key-enter+wait-200ms"]
+
+[[group]]
+name = "openplaceholder"
+params = { width = 200 }
+states = ["click+wait-200ms"]
+
+# Closed again with the trigger focused (the ring), as GPUI refocuses it on every close.
+[[group]]
+name = "closedafter"
+params = { width = 200, selected = 1 }
+states = ["click+wait-200ms+click-at-60-65", "click+wait-200ms+key-escape"]
+
+# A list longer than 320px scrolls. (Scrolled, GPUI rounds the thumb's length
+# down to a whole pixel and Avalonia to the nearest device pixel.)
+[[group]]
+name = "scroll"
+viewport = [320, 420]
+params = { width = 200, count = 12, selected = 2 }
+states = ["click+wait-200ms"]
+
+[[group]]
+name = "empty"
+params = { width = 200, count = 0 }
+states = ["click+wait-200ms"]
+
+[[motion]]
+name = "enter"
+params = { width = 200, selected = 1 }
+trigger = "click"
+samples_ms = [0, 16, 33, 50, 75, 100, 125, 150, 200]
+themes = ["light"]

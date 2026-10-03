@@ -1,0 +1,261 @@
+<!--
+  GPUI Kit Select (crates/component/src/select.rs) -> ComboBox / ComboBoxItem.
+  Classes: xsmall small large (medium is the default).
+
+  The trigger is the input frame (input_h, input_px, the input border and
+  background) with the title or the muted placeholder and a muted chevron 4px
+  after it. It shows the ring while focused or open; GPUI refocuses the
+  trigger after every close, so the ring stays after a mouse selection too.
+  Disabled, the frame fades to half.
+
+  The popup opens 6px below the trigger (or above it when it flips), as wide as
+  the trigger and at most 320px tall: the popover surface with its ring and
+  two shadows, 4px of padding around rows rounded with the theme radius. The
+  row under the keyboard cursor (Avalonia's focused item, the selected one
+  when the popup opens) shows the accent, a hovered row the accent at 70%;
+  the selected row has a check mark. On every open the popup slides 8px down
+  and fades in over 150ms (ease-out-cubic); its ring and shadows fade by the
+  fourth power of the progress (dropdown_popup in popover.rs). While open, the
+  trigger shows the item under the cursor, as GPUI titles it from the list's
+  cursor (Selects.CursorItem).
+-->
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:gpui="using:AvaloniaUIKit"
+                    xmlns:gconv="using:AvaloniaUIKit.Converters">
+  <ControlTheme x:Key="{x:Type ComboBox}" TargetType="ComboBox">
+    <Setter Property="Background" Value="{DynamicResource Gpui.InputBackground}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Input}" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="CornerRadius" Value="5.5" />
+    <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+    <Setter Property="PlaceholderForeground" Value="{DynamicResource Gpui.MutedForeground}" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="Height" Value="32" />
+    <Setter Property="Padding" Value="10,0" />
+    <Setter Property="MaxDropDownHeight" Value="320" />
+    <Setter Property="HorizontalAlignment" Value="Left" />
+    <Setter Property="VerticalAlignment" Value="Top" />
+    <Setter Property="ClipToBounds" Value="False" />
+    <Setter Property="FocusAdorner" Value="{x:Null}" />
+    <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
+    <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+    <!-- While open, the trigger shows the item under the cursor (Selects). -->
+    <Setter Property="gpui:Selects.TracksCursor" Value="True" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Panel>
+          <Border Name="PART_FocusRing" Margin="-3" BorderThickness="3" CornerRadius="7.5"
+                  BorderBrush="{DynamicResource Gpui.FocusRing}" IsVisible="False" IsHitTestVisible="False" />
+          <Border Name="PART_Background"
+                  Background="{TemplateBinding Background}"
+                  BorderBrush="{TemplateBinding BorderBrush}"
+                  BorderThickness="{TemplateBinding BorderThickness}"
+                  CornerRadius="{TemplateBinding CornerRadius}"
+                  BackgroundSizing="OuterBorderEdge"
+                  Padding="{TemplateBinding Padding}">
+            <Grid ColumnDefinitions="*,Auto" ColumnSpacing="4">
+              <TextBlock Name="PlaceholderTextBlock"
+                         VerticalAlignment="Center"
+                         Foreground="{TemplateBinding PlaceholderForeground}"
+                         Text="{TemplateBinding PlaceholderText}"
+                         LineHeight="22.5"
+                         TextTrimming="CharacterEllipsis"
+                         IsVisible="{TemplateBinding SelectionBoxItem, Converter={x:Static ObjectConverters.IsNull}}" />
+              <ContentPresenter Name="ContentPresenter"
+                                VerticalAlignment="Center"
+                                ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                                LineHeight="22.5"
+                                TextTrimming="CharacterEllipsis">
+                <ContentPresenter.Content>
+                  <MultiBinding Converter="{x:Static gconv:FirstNonNullConverter.Instance}">
+                    <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="(gpui:Selects.CursorItem)" />
+                    <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="SelectionBoxItem" />
+                  </MultiBinding>
+                </ContentPresenter.Content>
+              </ContentPresenter>
+              <PathIcon Name="PART_Caret" Grid.Column="1" VerticalAlignment="Center"
+                        Data="{StaticResource Gpui.Icon.ChevronDown}" Foreground="{DynamicResource Gpui.MutedForeground}" />
+            </Grid>
+          </Border>
+          <Popup Name="PART_Popup"
+                 IsOpen="{TemplateBinding IsDropDownOpen, Mode=TwoWay}"
+                 PlacementTarget="PART_Background"
+                 Placement="BottomEdgeAlignedLeft"
+                 IsLightDismissEnabled="True"
+                 WindowManagerAddShadowHint="False"
+                 InheritsTransform="True">
+            <!-- 6px either side of the trigger: Avalonia keeps an offset's sign when the popup flips. -->
+            <Border Padding="0,6" ClipToBounds="False">
+            <Panel Name="PART_PopupMotion"
+                   Width="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}">
+              <Panel.RenderTransform>
+                <TranslateTransform />
+              </Panel.RenderTransform>
+              <Border Name="PART_PopupRing" Margin="-1" CornerRadius="6"
+                      Background="{DynamicResource Gpui.PopoverRing}" IsHitTestVisible="False" />
+              <Border Name="PART_PopupShadow" CornerRadius="6"
+                      BoxShadow="{StaticResource Gpui.Shadow.Popover}" IsHitTestVisible="False" />
+              <Border Name="PART_PopupSurface" CornerRadius="6" ClipToBounds="True"
+                      Background="{DynamicResource Gpui.Popover}"
+                      TextElement.Foreground="{DynamicResource Gpui.PopoverForeground}"
+                      MaxHeight="{TemplateBinding MaxDropDownHeight}">
+                <Panel>
+                  <ScrollViewer HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
+                                VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}"
+                                IsDeferredScrollingEnabled="{TemplateBinding (ScrollViewer.IsDeferredScrollingEnabled)}">
+                    <ItemsPresenter Name="PART_ItemsPresenter" Margin="4" ItemsPanel="{TemplateBinding ItemsPanel}" />
+                  </ScrollViewer>
+                  <!-- select.rs: an empty list shows a 28px Inbox icon in 24px of padding. -->
+                  <Panel Name="PART_Empty" Height="76" IsVisible="False">
+                    <PathIcon Width="28" Height="28" HorizontalAlignment="Center" VerticalAlignment="Center"
+                              Data="{StaticResource Gpui.Icon.Inbox}" Foreground="{DynamicResource Gpui.Select.Empty}" />
+                  </Panel>
+                </Panel>
+              </Border>
+            </Panel>
+            </Border>
+          </Popup>
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+
+    <Style Selector="^:empty /template/ Panel#PART_Empty">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+    <Style Selector="^:empty /template/ ItemsPresenter#PART_ItemsPresenter">
+      <Setter Property="IsVisible" Value="False" />
+    </Style>
+
+    <!-- Sizes (sizing.rs): input_h, input_px, text size and line, caret 12/14/16/16. -->
+    <Style Selector="^ /template/ PathIcon#PART_Caret">
+      <Setter Property="Width" Value="16" />
+      <Setter Property="Height" Value="16" />
+    </Style>
+    <Style Selector="^.xsmall">
+      <Setter Property="Height" Value="20" />
+      <Setter Property="Padding" Value="4,0" />
+      <Setter Property="FontSize" Value="12" />
+    </Style>
+    <Style Selector="^.xsmall /template/ PathIcon#PART_Caret">
+      <Setter Property="Width" Value="12" />
+      <Setter Property="Height" Value="12" />
+    </Style>
+    <Style Selector="^.xsmall /template/ TextBlock#PlaceholderTextBlock, ^.xsmall /template/ ContentPresenter#ContentPresenter">
+      <Setter Property="TextBlock.LineHeight" Value="19.5" />
+    </Style>
+    <Style Selector="^.small">
+      <Setter Property="Height" Value="24" />
+      <Setter Property="Padding" Value="8,0" />
+    </Style>
+    <Style Selector="^.small /template/ PathIcon#PART_Caret">
+      <Setter Property="Width" Value="14" />
+      <Setter Property="Height" Value="14" />
+    </Style>
+    <Style Selector="^.large">
+      <Setter Property="Height" Value="44" />
+      <Setter Property="Padding" Value="12,0" />
+      <Setter Property="FontSize" Value="16" />
+    </Style>
+    <Style Selector="^.large /template/ TextBlock#PlaceholderTextBlock, ^.large /template/ ContentPresenter#ContentPresenter">
+      <Setter Property="TextBlock.LineHeight" Value="26" />
+    </Style>
+
+    <Style Selector="^:focus, ^:dropdownopen">
+      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Ring}" />
+    </Style>
+    <Style Selector="^:focus /template/ Border#PART_FocusRing, ^:dropdownopen /template/ Border#PART_FocusRing">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+    <Style Selector="^:disabled">
+      <Setter Property="Background" Value="{DynamicResource Gpui.Select.Disabled.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.MutedForeground}" />
+      <Setter Property="Opacity" Value="0.5" />
+    </Style>
+    <Style Selector="^:error">
+      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Danger}" />
+    </Style>
+
+    <!--
+      dropdown_popup: 8px down and a fade over 150ms. GPUI scales the ring and
+      shadow inks by the cube of the progress and then fades them with the rest,
+      so they follow the fourth power: here the cube on the layers inside the
+      panel's fade.
+    -->
+    <Style Selector="^:dropdownopen /template/ Panel#PART_PopupMotion">
+      <Style.Animations>
+        <Animation Duration="0:0:0.15" Easing="CubicEaseOut">
+          <KeyFrame Cue="0%">
+            <Setter Property="Opacity" Value="0" />
+            <Setter Property="TranslateTransform.Y" Value="-8" />
+          </KeyFrame>
+          <KeyFrame Cue="100%">
+            <Setter Property="Opacity" Value="1" />
+            <Setter Property="TranslateTransform.Y" Value="0" />
+          </KeyFrame>
+        </Animation>
+      </Style.Animations>
+    </Style>
+    <Style Selector="^:dropdownopen /template/ Border#PART_PopupRing, ^:dropdownopen /template/ Border#PART_PopupShadow">
+      <Style.Animations>
+        <Animation Duration="0:0:0.15" Easing="CubicEaseOut">
+          <KeyFrame Cue="0%"><Setter Property="Opacity" Value="0" /></KeyFrame>
+          <KeyFrame Cue="10%"><Setter Property="Opacity" Value="0.001" /></KeyFrame>
+          <KeyFrame Cue="20%"><Setter Property="Opacity" Value="0.008" /></KeyFrame>
+          <KeyFrame Cue="30%"><Setter Property="Opacity" Value="0.027" /></KeyFrame>
+          <KeyFrame Cue="40%"><Setter Property="Opacity" Value="0.064" /></KeyFrame>
+          <KeyFrame Cue="50%"><Setter Property="Opacity" Value="0.125" /></KeyFrame>
+          <KeyFrame Cue="60%"><Setter Property="Opacity" Value="0.216" /></KeyFrame>
+          <KeyFrame Cue="70%"><Setter Property="Opacity" Value="0.343" /></KeyFrame>
+          <KeyFrame Cue="80%"><Setter Property="Opacity" Value="0.512" /></KeyFrame>
+          <KeyFrame Cue="90%"><Setter Property="Opacity" Value="0.729" /></KeyFrame>
+          <KeyFrame Cue="100%"><Setter Property="Opacity" Value="1" /></KeyFrame>
+        </Animation>
+      </Style.Animations>
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type ComboBoxItem}" TargetType="ComboBoxItem">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+    <Setter Property="CornerRadius" Value="6" />
+    <Setter Property="Padding" Value="7,4" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="FocusAdorner" Value="{x:Null}" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}" Padding="{TemplateBinding Padding}">
+          <Grid ColumnDefinitions="*,Auto" ColumnSpacing="4">
+            <ContentPresenter Name="PART_ContentPresenter"
+                              Content="{TemplateBinding Content}"
+                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                              Foreground="{TemplateBinding Foreground}"
+                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                              VerticalAlignment="Center"
+                              LineHeight="22.5"
+                              TextTrimming="CharacterEllipsis" />
+            <!-- The check keeps its 12px slot when hidden. -->
+            <PathIcon Name="PART_Check" Grid.Column="1" Classes="xsmall" VerticalAlignment="Center"
+                      Data="{StaticResource Gpui.Icon.Check}" Foreground="{DynamicResource Gpui.Foreground}" Opacity="0" />
+          </Grid>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^:pointerover">
+      <Setter Property="Background" Value="{DynamicResource Gpui.Select.Row.Hover}" />
+    </Style>
+    <Style Selector="^:focus">
+      <Setter Property="Background" Value="{DynamicResource Gpui.Accent}" />
+    </Style>
+    <Style Selector="^:selected /template/ PathIcon#PART_Check">
+      <Setter Property="Opacity" Value="1" />
+    </Style>
+    <Style Selector="^:disabled">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.MutedForeground}" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

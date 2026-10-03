@@ -48,6 +48,7 @@ public static class Adapters
         "input-group" => InputGroup(c),
         "list" => List(c),
         "virtual" => VirtualList(c),
+        "select" => Select(c),
         _ => throw new NotSupportedException($"no adapter for {c.Component}"),
     };
 
@@ -242,6 +243,29 @@ public static class Adapters
             };
         }
         return list;
+    }
+
+    /// <summary>A ComboBox as GPUI's Select: fruits, a selected and a disabled one, a placeholder.</summary>
+    private static ComboBox Select(GoldenCase c)
+    {
+        var box = new ComboBox
+        {
+            Width = c.Num("width", 200),
+            PlaceholderText = c.Str("placeholder", "Select a fruit"),
+            IsEnabled = !c.Bool("disabled"),
+        };
+        ClassFrom(box, c, "size", "medium");
+        var disabled = (int)c.Num("disabled_row", -1);
+        var i = 0;
+        foreach (var name in Names((int)c.Num("count", 4)))
+        {
+            box.Items.Add(new ComboBoxItem { Content = name, IsEnabled = i++ != disabled });
+        }
+        if (c.Num("selected", -1) is var selected and >= 0)
+        {
+            box.SelectedIndex = (int)selected;
+        }
+        return box;
     }
 
     /// <summary>A TextBox.group as GPUI's InputGroup: addons before and after the text.</summary>

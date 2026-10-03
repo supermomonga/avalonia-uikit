@@ -9,6 +9,7 @@ public static class MotionTolerance
     public static PixelTolerance? For(GoldenCase golden, GoldenScene scene) => golden.Component switch
     {
         "tooltip" when Fading(golden, scene) => FadingGroup,
+        "select" when FadingBelow(golden, scene) => FadingGroup,
         "progress" when golden.Motion!.Name == "loading" && NarrowBar(golden, scene) => NarrowPill,
         _ => null,
     };
@@ -25,6 +26,11 @@ public static class MotionTolerance
     private static bool Fading(GoldenCase golden, GoldenScene scene) =>
         scene.Quads.Where(q => q.SolidBackground && q.Bounds.Bottom <= golden.ComponentBounds.Top)
             .OrderBy(q => q.Order).FirstOrDefault() is { } bubble && bubble.Background.A < 0.999;
+
+    // A dropdown below its trigger: the popover surface while it fades in.
+    private static bool FadingBelow(GoldenCase golden, GoldenScene scene) =>
+        scene.Quads.Where(q => q.SolidBackground && q.Bounds.Top >= golden.ComponentBounds.Bottom && q.Bounds.Width >= golden.ComponentBounds.Width - 0.5)
+            .OrderBy(q => q.Order).FirstOrDefault() is { } surface && surface.Background.A < 0.999;
 
     private static bool NarrowBar(GoldenCase golden, GoldenScene scene)
     {

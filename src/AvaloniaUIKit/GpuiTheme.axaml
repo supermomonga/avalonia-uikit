@@ -21,6 +21,7 @@
         <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/NumericUpDown.axaml" />
         <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/TextBox.axaml" />
         <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/ListBox.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/ComboBox.axaml" />
         <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/GroupBox.axaml" />
         <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/HyperlinkButton.axaml" />
         <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/ProgressBar.axaml" />
@@ -77,6 +78,25 @@
     own look (input.rs). Avalonia disables the buttons inside too, so the ghost
     and text buttons GPUI uses there keep their normal colors.
   -->
+  <!-- Select rows by the ComboBox's size (list_size, input_text_size). -->
+  <Style Selector="ComboBox.xsmall ComboBoxItem">
+    <Setter Property="Padding" Value="1,4" />
+    <Setter Property="FontSize" Value="12" />
+  </Style>
+  <Style Selector="ComboBox.xsmall ComboBoxItem /template/ ContentPresenter#PART_ContentPresenter">
+    <Setter Property="LineHeight" Value="19.5" />
+  </Style>
+  <Style Selector="ComboBox.small ComboBoxItem">
+    <Setter Property="Padding" Value="5,2" />
+  </Style>
+  <Style Selector="ComboBox.large ComboBoxItem">
+    <Setter Property="Padding" Value="9,8" />
+    <Setter Property="FontSize" Value="16" />
+  </Style>
+  <Style Selector="ComboBox.large ComboBoxItem /template/ ContentPresenter#PART_ContentPresenter">
+    <Setter Property="LineHeight" Value="26" />
+  </Style>
+
   <!-- InputGroupButton: the buttons in an input group's addons. -->
   <Style Selector="TextBox.group Button">
     <Setter Property="Theme" Value="{StaticResource GpuiInputGroupButton}" />
