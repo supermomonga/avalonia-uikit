@@ -39,6 +39,7 @@ pub fn builder(case: &Case) -> Result<Builder> {
         "link" => display::link(&params),
         "progress" => progress::progress(&params),
         "spinner" => progress::spinner(&params),
+        "tooltip" => button::tooltip(&params),
         other => bail!("unknown component {other}"),
     }
 }

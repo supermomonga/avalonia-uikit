@@ -41057,6 +41057,206 @@
       "png": "png/toggle/label.outline.xsmall/normal/light.png",
       "scene": "scenes/toggle/label.outline.xsmall/normal/light.json",
       "png_sha256": "d6b4e6175e8a971d9b1fb7842597fb2fba09403c876a4ce65f54aaa2235323f8"
+    },
+    {
+      "id": "tooltip/motion.enter/wait-1ms/light",
+      "component": "tooltip",
+      "group": "motion.enter",
+      "params": {
+        "label": "Hover me",
+        "tip": "Tooltip text"
+      },
+      "state": "hover+wait-499ms",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        130.0
+      ],
+      "anchor": [
+        56.0,
+        80.0
+      ],
+      "component_bounds": [
+        56.0,
+        80.0,
+        86.0,
+        32.0
+      ],
+      "motion": {
+        "name": "enter",
+        "trigger": "wait-1ms",
+        "from": "hover+wait-499ms",
+        "frames": [
+          {
+            "t_ms": 0,
+            "png": "png/tooltip/motion.enter/wait-1ms/light/0000ms.png",
+            "scene": "scenes/tooltip/motion.enter/wait-1ms/light/0000ms.json",
+            "png_sha256": "8f118f05d3df3b7a08e00ffef73613164a32c99576bc80d387f17edffff78363"
+          },
+          {
+            "t_ms": 16,
+            "png": "png/tooltip/motion.enter/wait-1ms/light/0016ms.png",
+            "scene": "scenes/tooltip/motion.enter/wait-1ms/light/0016ms.json",
+            "png_sha256": "a2f06f3788881fe5ca9a9ed54831400809961c0bc66a6784fba50d9ee9b55d60"
+          },
+          {
+            "t_ms": 33,
+            "png": "png/tooltip/motion.enter/wait-1ms/light/0033ms.png",
+            "scene": "scenes/tooltip/motion.enter/wait-1ms/light/0033ms.json",
+            "png_sha256": "6a9966ccca7c412a9fe911ba701bc346d7611c5f3dc4230a10a78d19d847c70c"
+          },
+          {
+            "t_ms": 50,
+            "png": "png/tooltip/motion.enter/wait-1ms/light/0050ms.png",
+            "scene": "scenes/tooltip/motion.enter/wait-1ms/light/0050ms.json",
+            "png_sha256": "a8863e2edc5fb33177a9462151ad50937a4c522280300f6dff82b26991462ab3"
+          },
+          {
+            "t_ms": 75,
+            "png": "png/tooltip/motion.enter/wait-1ms/light/0075ms.png",
+            "scene": "scenes/tooltip/motion.enter/wait-1ms/light/0075ms.json",
+            "png_sha256": "28659b28cf44496b5d64c52d63e5dffcaf25cb55ff227a65390df71c645ee9e1"
+          },
+          {
+            "t_ms": 100,
+            "png": "png/tooltip/motion.enter/wait-1ms/light/0100ms.png",
+            "scene": "scenes/tooltip/motion.enter/wait-1ms/light/0100ms.json",
+            "png_sha256": "16fcc102fc4da336ded2e1151e2e1602c2cab108d50c4677ea8fb94586a9a12a"
+          },
+          {
+            "t_ms": 125,
+            "png": "png/tooltip/motion.enter/wait-1ms/light/0125ms.png",
+            "scene": "scenes/tooltip/motion.enter/wait-1ms/light/0125ms.json",
+            "png_sha256": "873779034b21f662e1b706e65d928c6361c9a89ba7f43ad7694b7c2f74673482"
+          },
+          {
+            "t_ms": 150,
+            "png": "png/tooltip/motion.enter/wait-1ms/light/0150ms.png",
+            "scene": "scenes/tooltip/motion.enter/wait-1ms/light/0150ms.json",
+            "png_sha256": "102e39e29139838a02da46ec003fab4f6a204062e54521edb3fc40553e341e43"
+          },
+          {
+            "t_ms": 200,
+            "png": "png/tooltip/motion.enter/wait-1ms/light/0200ms.png",
+            "scene": "scenes/tooltip/motion.enter/wait-1ms/light/0200ms.json",
+            "png_sha256": "102e39e29139838a02da46ec003fab4f6a204062e54521edb3fc40553e341e43"
+          }
+        ]
+      }
+    },
+    {
+      "id": "tooltip/sizes.large/hover+wait-800ms/light",
+      "component": "tooltip",
+      "group": "sizes",
+      "params": {
+        "label": "Hover me",
+        "tip": "Another tip",
+        "size": "large"
+      },
+      "state": "hover+wait-800ms",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        130.0
+      ],
+      "anchor": [
+        56.0,
+        80.0
+      ],
+      "component_bounds": [
+        56.0,
+        80.0,
+        100.0,
+        32.0
+      ],
+      "png": "png/tooltip/sizes.large/hover+wait-800ms/light.png",
+      "scene": "scenes/tooltip/sizes.large/hover+wait-800ms/light.json",
+      "png_sha256": "69e21d9a3123c3c413a511ab45181f758040b42b36480d8156fcc4efd41cad34"
+    },
+    {
+      "id": "tooltip/sizes.small/hover+wait-800ms/light",
+      "component": "tooltip",
+      "group": "sizes",
+      "params": {
+        "label": "Hover me",
+        "tip": "Another tip",
+        "size": "small"
+      },
+      "state": "hover+wait-800ms",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        130.0
+      ],
+      "anchor": [
+        56.0,
+        80.0
+      ],
+      "component_bounds": [
+        56.0,
+        80.0,
+        82.0,
+        24.0
+      ],
+      "png": "png/tooltip/sizes.small/hover+wait-800ms/light.png",
+      "scene": "scenes/tooltip/sizes.small/hover+wait-800ms/light.json",
+      "png_sha256": "94a97af710ff47e5efc871f628bd4f470056aa631dfe0f0a637242ec01d1c3b2"
+    },
+    {
+      "id": "tooltip/text.base/hover+wait-800ms/dark",
+      "component": "tooltip",
+      "group": "text",
+      "params": {
+        "label": "Hover me",
+        "tip": "Tooltip text"
+      },
+      "state": "hover+wait-800ms",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        130.0
+      ],
+      "anchor": [
+        56.0,
+        80.0
+      ],
+      "component_bounds": [
+        56.0,
+        80.0,
+        86.0,
+        32.0
+      ],
+      "png": "png/tooltip/text.base/hover+wait-800ms/dark.png",
+      "scene": "scenes/tooltip/text.base/hover+wait-800ms/dark.json",
+      "png_sha256": "3064a1ddc90308574c63745fd22be4f19f01ca6df58c28371ec43e08ae9fbe9d"
+    },
+    {
+      "id": "tooltip/text.base/hover+wait-800ms/light",
+      "component": "tooltip",
+      "group": "text",
+      "params": {
+        "label": "Hover me",
+        "tip": "Tooltip text"
+      },
+      "state": "hover+wait-800ms",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        130.0
+      ],
+      "anchor": [
+        56.0,
+        80.0
+      ],
+      "component_bounds": [
+        56.0,
+        80.0,
+        86.0,
+        32.0
+      ],
+      "png": "png/tooltip/text.base/hover+wait-800ms/light.png",
+      "scene": "scenes/tooltip/text.base/hover+wait-800ms/light.json",
+      "png_sha256": "102e39e29139838a02da46ec003fab4f6a204062e54521edb3fc40553e341e43"
     }
   ]
 }

@@ -22,9 +22,20 @@
         <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/GroupBox.axaml" />
         <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/HyperlinkButton.axaml" />
         <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/ProgressBar.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/ToolTip.axaml" />
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
   </Styles.Resources>
+
+  <!-- GPUI tooltips (crates/base/src/tooltip.rs): shown after 500ms, kept for a
+       300ms grace while moving to another trigger, above the trigger. -->
+  <Style Selector=":is(Control)">
+    <Setter Property="ToolTip.ShowDelay" Value="500" />
+    <Setter Property="ToolTip.BetweenShowDelay" Value="300" />
+    <Setter Property="ToolTip.Placement" Value="Top" />
+    <Setter Property="ToolTip.HorizontalOffset" Value="0" />
+    <Setter Property="ToolTip.VerticalOffset" Value="1.5" />
+  </Style>
 
   <!-- Icons inside a button take the button's icon size (Size -> icon_size, icon.rs). -->
   <Style Selector="Button.xsmall PathIcon">

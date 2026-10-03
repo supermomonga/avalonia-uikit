@@ -308,3 +308,17 @@ pub fn derived_colors(theme: &Theme, out: &mut Vec<(String, Hsla)>) {
     // The focus ring band and the dropdown caret.
     out.push(("focus-ring".into(), theme.ring.alpha(0.5)));
 }
+
+/// A button with a tooltip (tooltip.rs), placed so the tooltip fits above it.
+pub fn tooltip(params: &Params) -> Result<Builder> {
+    let label = param_str(params, "label", "Hover me").to_string();
+    let tip = param_str(params, "tip", "Tooltip text").to_string();
+    let size = super::size(params);
+    Ok(Rc::new(move |_, _, _| {
+        Button::new("case")
+            .with_size(size)
+            .label(label.clone())
+            .tooltip(tip.clone())
+            .into_any_element()
+    }))
+}

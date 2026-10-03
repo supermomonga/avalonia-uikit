@@ -75,6 +75,20 @@ public sealed class CaseHost : IDisposable
         }
     }
 
+    /// <summary>Runs the dispatcher loop, timers included, for <paramref name="duration"/> of real time.</summary>
+    public static void Pump(TimeSpan duration)
+    {
+        if (duration <= TimeSpan.Zero)
+        {
+            return;
+        }
+        var frame = new DispatcherFrame();
+        var timer = new DispatcherTimer(duration, DispatcherPriority.Send, (_, _) => frame.Continue = false);
+        timer.Start();
+        Dispatcher.UIThread.PushFrame(frame);
+        timer.Stop();
+    }
+
     public void Flush()
     {
         Dispatcher.UIThread.RunJobs();
@@ -108,7 +122,9 @@ public sealed class CaseHost : IDisposable
                 case "disabled":
                     break;
                 case var w when w.StartsWith("wait-", StringComparison.Ordinal):
-                    // Time is the motion tests' business; a static capture does not wait.
+                    // Real time passes, so timers (a tooltip's show delay) run out.
+                    var ms = int.Parse(w["wait-".Length..].Replace("ms", "", StringComparison.Ordinal), System.Globalization.CultureInfo.InvariantCulture);
+                    Pump(TimeSpan.FromMilliseconds(ms));
                     break;
                 case "hover":
                     Window.MouseMove(at);

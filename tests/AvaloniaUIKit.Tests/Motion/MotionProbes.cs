@@ -144,11 +144,12 @@ public static class MotionProbes
         ("progress", "value") => new ProgressValue(),
         ("progress", "loading") => new ProgressLoading(),
         ("spinner", _) => new SpinnerTurn(),
+        ("tooltip", _) => new TooltipEnter(),
         _ => throw new NotSupportedException($"no motion probe for {golden.Id}"),
     };
 
     public static bool Has(GoldenCase golden) =>
-        golden.Component is "switch" or "checkbox" or "progress" or "spinner";
+        golden.Component is "switch" or "checkbox" or "progress" or "spinner" or "tooltip";
 
     public static T Part<T>(Visual root, string name) where T : Control =>
         root.GetVisualDescendants().OfType<T>().First(c => c.Name == name);
@@ -320,6 +321,66 @@ public static class MotionProbes
                 var right = Bar.ValueAt(t) + Width;
                 // A bar narrower than nothing paints nothing; GPUI reports no indicator then.
                 return right - left <= 0.001 ? [0, 0] : [left, right];
+            }
+        }
+    }
+
+    /// <summary>tooltip.rs: the enter effect, a fade from 0 and a 4px slide up over 150ms (ease-out-cubic).</summary>
+    private sealed class TooltipEnter : IMotionProbe
+    {
+        // Alpha to one 8-bit step; the bubble's position to GPUI's half-pixel snapping.
+        public double Tolerance => 0.26;
+
+        public double[] FromGpui(GoldenScene scene, GoldenCase golden)
+        {
+            var bubble = scene.Quads.Where(q => q.SolidBackground && q.Bounds.Bottom <= golden.ComponentBounds.Top && q.Bounds.Width < golden.Viewport.Width)
+                .OrderBy(q => q.Order).First();
+            var restingTop = golden.ComponentBounds.Top - 10.5 - bubble.Bounds.Height;
+            return [bubble.Background.A, bubble.Bounds.Top - restingTop];
+        }
+
+        public IDeclaredMotion Declared(CaseHost host, GoldenCase golden)
+        {
+            var theme = (ControlTheme)Avalonia.Application.Current!.FindResource(typeof(ToolTip))!;
+            var animation = Flatten(theme).OfType<Style>()
+                .First(s => s.Selector?.ToString()?.Contains("#PART_Motion", StringComparison.Ordinal) == true && s.Animations.Count > 0)
+                .Animations.Cast<Animation>().First();
+            return new Enter(animation);
+        }
+
+        public void Apply(CaseHost host, double[] values)
+        {
+            ToolTip.SetIsOpen(host.Control, true);
+            host.Flush();
+            var motion = Part<Panel>(host.Window, "PART_Motion");
+            motion.Opacity = values[0];
+            ((TranslateTransform)motion.RenderTransform!).Y = values[1];
+            host.Flush();
+        }
+
+        public double[] Live(CaseHost host)
+        {
+            var motion = Part<Panel>(host.Window, "PART_Motion");
+            return [motion.Opacity, ((TranslateTransform)motion.RenderTransform!).Y];
+        }
+
+        // R5: GPUI fades each primitive, so the two shadow layers (10% black each)
+        // show through a fading bubble by up to alpha * (1 - alpha) * 10% each:
+        // at most 0.25 * 0.1 * 255 * 2 = 12.75 steps. Avalonia fades the composed group.
+        public Comparison.PixelTolerance? PixelToleranceFor(CaseHost host, double[] values) =>
+            values[0] < 1 ? Comparison.PixelTolerance.Default with { FlatMax = 13, InkMean = 24 } : null;
+
+        private sealed record Enter(Animation Animation) : IDeclaredMotion
+        {
+            public TimeSpan Settle => Animation.Duration;
+
+            public double[] ValueAt(TimeSpan t)
+            {
+                var progress = Math.Clamp(t / Animation.Duration, 0, 1);
+                var eased = Animation.Easing.Ease(progress);
+                var from = Animation.Children[0].Setters.Cast<Setter>().ToDictionary(x => x.Property!.Name, x => Convert.ToDouble(x.Value, System.Globalization.CultureInfo.InvariantCulture));
+                var to = Animation.Children[^1].Setters.Cast<Setter>().ToDictionary(x => x.Property!.Name, x => Convert.ToDouble(x.Value, System.Globalization.CultureInfo.InvariantCulture));
+                return [from["Opacity"] + (to["Opacity"] - from["Opacity"]) * eased, from["Y"] + (to["Y"] - from["Y"]) * eased];
             }
         }
     }

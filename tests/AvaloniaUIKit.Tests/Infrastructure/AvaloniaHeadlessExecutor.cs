@@ -4,6 +4,7 @@ using TUnit.Core.Interfaces;
 
 [assembly: TUnit.Core.Executors.TestExecutor<AvaloniaUIKit.Tests.Infrastructure.AvaloniaHeadlessExecutor>]
 [assembly: NotInParallel]
+[assembly: Timeout(120_000)]
 
 namespace AvaloniaUIKit.Tests.Infrastructure;
 

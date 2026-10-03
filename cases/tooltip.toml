@@ -1,0 +1,24 @@
+# GPUI Kit Tooltip -> ToolTip, on a Button.
+component = "tooltip"
+viewport = [200, 130]
+anchor = [56, 80]
+
+[[group]]
+name = "text"
+params = { label = "Hover me", tip = "Tooltip text" }
+states = ["hover+wait-800ms"]
+
+[[motion]]
+name = "enter"
+params = { label = "Hover me", tip = "Tooltip text" }
+from = "hover+wait-499ms"
+trigger = "wait-1ms"
+samples_ms = [0, 16, 33, 50, 75, 100, 125, 150, 200]
+themes = ["light"]
+
+[[group]]
+name = "sizes"
+params = { label = "Hover me", tip = "Another tip" }
+matrix = { size = ["small", "large"] }
+states = ["hover+wait-800ms"]
+themes = ["light"]

@@ -35,6 +35,7 @@ public static class Adapters
         "link" => new HyperlinkButton { Content = c.Str("label", "Documentation") },
         "progress" => Progress(c),
         "spinner" => Spinner(c),
+        "tooltip" => Tooltip(c),
         _ => throw new NotSupportedException($"no adapter for {c.Component}"),
     };
 
@@ -104,6 +105,14 @@ public static class Adapters
         // The case's click switches the value, as the GPUI case's wrapper does.
         progress.PointerReleased += (_, _) => progress.Value = progress.Value == value ? valueTo : value;
         return progress;
+    }
+
+    private static Button Tooltip(GoldenCase c)
+    {
+        var button = new Button { Content = c.Str("label", "Hover me") };
+        ClassFrom(button, c, "size", "medium");
+        ToolTip.SetTip(button, c.Str("tip", "Tooltip text"));
+        return button;
     }
 
     private static ProgressBar Spinner(GoldenCase c)
