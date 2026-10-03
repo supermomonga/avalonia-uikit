@@ -1,0 +1,16 @@
+# GPUI Kit NumberInput -> NumericUpDown.
+component = "number"
+viewport = [200, 60]
+anchor = [16, 8]
+
+[[group]]
+name = "value"
+params = { value = "42" }
+matrix = { size = ["xsmall", "small", "medium", "large"] }
+states = ["normal", "disabled"]
+
+[[group]]
+name = "buttons"
+params = { value = "42" }
+matrix = { size = ["small", "medium"] }
+states = ["at-30-24", "at-30-24+pressed-at-30-24", "at-160-24"]

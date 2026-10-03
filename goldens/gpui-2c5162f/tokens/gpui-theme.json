@@ -491,7 +491,12 @@
       "button.link.caret": "#171717bf",
       "button.link.outline.caret": "#171717bf",
       "button.text.caret": "#0a0a0aac",
-      "button.text.outline.caret": "#0a0a0aac"
+      "button.text.outline.caret": "#0a0a0aac",
+      "number.button.hover": "#e5e5e566",
+      "number.button.pressed": "#e5e5e599",
+      "number.disabled.background": "#e5e5e5cc",
+      "number.disabled.border": "#e5e5e580",
+      "number.disabled.text": "#0a0a0a80"
     },
     "derived_float": {
       "button.default.normal.background": [
@@ -2581,6 +2586,36 @@
         0.039000000804662704,
         0.039000000804662704,
         0.6749999523162842
+      ],
+      "number.button.hover": [
+        0.8980000019073486,
+        0.8980000019073486,
+        0.8980000019073486,
+        0.4000000059604645
+      ],
+      "number.button.pressed": [
+        0.8980000019073486,
+        0.8980000019073486,
+        0.8980000019073486,
+        0.6000000238418579
+      ],
+      "number.disabled.background": [
+        0.898000180721283,
+        0.8980000615119934,
+        0.8980000615119934,
+        0.800000011920929
+      ],
+      "number.disabled.border": [
+        0.8980000019073486,
+        0.8980000019073486,
+        0.8980000019073486,
+        0.5
+      ],
+      "number.disabled.text": [
+        0.039000000804662704,
+        0.039000000804662704,
+        0.039000000804662704,
+        0.5
       ]
     },
     "scalars": {
@@ -3083,7 +3118,12 @@
       "button.link.caret": "#fafafabf",
       "button.link.outline.caret": "#fafafabf",
       "button.text.caret": "#fafafaac",
-      "button.text.outline.caret": "#fafafaac"
+      "button.text.outline.caret": "#fafafaac",
+      "number.button.hover": "#2f2f2f66",
+      "number.button.pressed": "#2f2f2f99",
+      "number.disabled.background": "#2f2f2fcc",
+      "number.disabled.border": "#2f2f2f80",
+      "number.disabled.text": "#fafafa80"
     },
     "derived_float": {
       "button.default.normal.background": [
@@ -5173,6 +5213,36 @@
         0.9800000190734863,
         0.9800000190734863,
         0.6749999523162842
+      ],
+      "number.button.hover": [
+        0.18431372940540314,
+        0.18431372940540314,
+        0.18431372940540314,
+        0.4000000059604645
+      ],
+      "number.button.pressed": [
+        0.18431372940540314,
+        0.18431372940540314,
+        0.18431372940540314,
+        0.6000000238418579
+      ],
+      "number.disabled.background": [
+        0.18431371450424194,
+        0.18431374430656433,
+        0.18431365489959717,
+        0.800000011920929
+      ],
+      "number.disabled.border": [
+        0.18431372940540314,
+        0.18431372940540314,
+        0.18431372940540314,
+        0.5
+      ],
+      "number.disabled.text": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        0.5
       ]
     },
     "scalars": {

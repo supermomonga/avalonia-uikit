@@ -1,0 +1,218 @@
+<!--
+  GPUI Kit NumberInput -> NumericUpDown, ButtonSpinner
+  (crates/component/src/input/number_input.rs; layout in crates/base/src/number_input.rs).
+  Classes: xsmall small large (medium is the default).
+
+  The frame is the input frame: input_h (20/24/32/44), the theme radius, the
+  input background and a 1px `input` border that turns to `ring` (with the
+  ring band) while focused. Inside it: the decrease button, the text centered
+  between them, and the increase button. GPUI places the buttons on either
+  side; ButtonSpinnerLocation does not move them.
+  A disabled NumberInput fades as a whole to 50%.
+-->
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <!-- Transparent like a ghost button, tinted with `input` on hover and press. -->
+  <ControlTheme x:Key="GpuiSpinnerRepeatButton" TargetType="RepeatButton">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Foreground" Value="{DynamicResource Gpui.SecondaryForeground}" />
+    <Setter Property="MinWidth" Value="32" />
+    <Setter Property="Padding" Value="0" />
+    <Setter Property="Focusable" Value="False" />
+    <Setter Property="VerticalAlignment" Value="Stretch" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <ContentPresenter Name="PART_ContentPresenter"
+                          Background="{TemplateBinding Background}"
+                          CornerRadius="{TemplateBinding CornerRadius}"
+                          Content="{TemplateBinding Content}"
+                          HorizontalContentAlignment="Center"
+                          VerticalContentAlignment="Center" />
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^:pointerover">
+      <Setter Property="Background" Value="{DynamicResource Gpui.Number.Button.Hover}" />
+    </Style>
+    <Style Selector="^:pressed">
+      <Setter Property="Background" Value="{DynamicResource Gpui.Number.Button.Pressed}" />
+    </Style>
+    <Style Selector="^:disabled">
+      <Setter Property="Background" Value="Transparent" />
+    </Style>
+  </ControlTheme>
+
+  <!-- The text field without appearance: no frame of its own, text centered on a 1.25rem line. -->
+  <ControlTheme x:Key="GpuiNumericTextBox" TargetType="TextBox">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="BorderThickness" Value="0" />
+    <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+    <Setter Property="CaretBrush" Value="{DynamicResource Gpui.Caret}" />
+    <Setter Property="SelectionBrush" Value="{DynamicResource Gpui.Selection}" />
+    <Setter Property="PlaceholderForeground" Value="{DynamicResource Gpui.MutedForeground}" />
+    <Setter Property="TextAlignment" Value="Center" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="LineHeight" Value="20" />
+    <Setter Property="Padding" Value="10,0" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
+          <Panel VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+            <TextBlock Name="PART_Placeholder"
+                       Foreground="{TemplateBinding PlaceholderForeground}"
+                       Text="{TemplateBinding PlaceholderText}"
+                       TextAlignment="{TemplateBinding TextAlignment}"
+                       LineHeight="{TemplateBinding LineHeight}"
+                       IsVisible="{TemplateBinding Text, Converter={x:Static StringConverters.IsNullOrEmpty}}" />
+            <TextPresenter Name="PART_TextPresenter"
+                           CaretBlinkInterval="{TemplateBinding CaretBlinkInterval}"
+                           CaretBrush="{TemplateBinding CaretBrush}"
+                           CaretIndex="{TemplateBinding CaretIndex}"
+                           LineHeight="{TemplateBinding LineHeight}"
+                           SelectionBrush="{TemplateBinding SelectionBrush}"
+                           SelectionEnd="{TemplateBinding SelectionEnd}"
+                           SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
+                           SelectionStart="{TemplateBinding SelectionStart}"
+                           Text="{TemplateBinding Text, Mode=TwoWay}"
+                           TextAlignment="{TemplateBinding TextAlignment}"
+                           TextWrapping="NoWrap" />
+          </Panel>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+    <!-- A disabled field fades its text to half, inside the frame's own fade. -->
+    <Style Selector="^:disabled">
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.Number.Disabled.Text}" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type ButtonSpinner}" TargetType="ButtonSpinner">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                CornerRadius="{TemplateBinding CornerRadius}"
+                BackgroundSizing="OuterBorderEdge">
+          <DockPanel>
+            <RepeatButton Name="PART_DecreaseButton" DockPanel.Dock="Left"
+                          Theme="{StaticResource GpuiSpinnerRepeatButton}"
+                          IsVisible="{TemplateBinding ShowButtonSpinner}"
+                          CornerRadius="5,0,0,5">
+              <PathIcon Name="PART_DecreaseIcon" Data="{StaticResource Gpui.Icon.Minus}" />
+            </RepeatButton>
+            <RepeatButton Name="PART_IncreaseButton" DockPanel.Dock="Right"
+                          Theme="{StaticResource GpuiSpinnerRepeatButton}"
+                          IsVisible="{TemplateBinding ShowButtonSpinner}"
+                          CornerRadius="0,5,5,0">
+              <PathIcon Name="PART_IncreaseIcon" Data="{StaticResource Gpui.Icon.Plus}" />
+            </RepeatButton>
+            <ContentPresenter Name="PART_ContentPresenter"
+                              Content="{TemplateBinding Content}"
+                              HorizontalContentAlignment="Stretch"
+                              VerticalContentAlignment="Stretch" />
+          </DockPanel>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+
+    <!-- Step buttons: min_w_6 for XSmall and Small, min_w_8 otherwise; the icons take the control size. -->
+    <Style Selector="^ /template/ PathIcon">
+      <Setter Property="Width" Value="16" />
+      <Setter Property="Height" Value="16" />
+    </Style>
+    <Style Selector="^[Tag=xsmall] /template/ RepeatButton, ^[Tag=small] /template/ RepeatButton">
+      <Setter Property="MinWidth" Value="24" />
+    </Style>
+    <Style Selector="^[Tag=xsmall] /template/ PathIcon">
+      <Setter Property="Width" Value="12" />
+      <Setter Property="Height" Value="12" />
+    </Style>
+    <Style Selector="^[Tag=small] /template/ PathIcon">
+      <Setter Property="Width" Value="14" />
+      <Setter Property="Height" Value="14" />
+    </Style>
+    <Style Selector="^[Tag=large] /template/ PathIcon">
+      <Setter Property="Width" Value="24" />
+      <Setter Property="Height" Value="24" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type NumericUpDown}" TargetType="NumericUpDown">
+    <Setter Property="Background" Value="{DynamicResource Gpui.InputBackground}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Input}" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="CornerRadius" Value="5.5" />
+    <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="Height" Value="32" />
+    <Setter Property="Padding" Value="10,0" />
+    <Setter Property="TextAlignment" Value="Center" />
+    <Setter Property="ClipToBounds" Value="False" />
+    <Setter Property="HorizontalAlignment" Value="Left" />
+    <Setter Property="VerticalAlignment" Value="Top" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Panel>
+          <Border Name="PART_FocusRing" Margin="-3" BorderThickness="3" CornerRadius="7.5"
+                  BorderBrush="{DynamicResource Gpui.FocusRing}" IsVisible="False" IsHitTestVisible="False" />
+          <ButtonSpinner Name="PART_Spinner"
+                         Background="{TemplateBinding Background}"
+                         BorderBrush="{TemplateBinding BorderBrush}"
+                         BorderThickness="{TemplateBinding BorderThickness}"
+                         CornerRadius="{TemplateBinding CornerRadius}"
+                         AllowSpin="{TemplateBinding AllowSpin}"
+                         ShowButtonSpinner="{TemplateBinding ShowButtonSpinner}"
+                         IsTabStop="False">
+            <TextBox Name="PART_TextBox"
+                     Theme="{StaticResource GpuiNumericTextBox}"
+                     Padding="{TemplateBinding Padding}"
+                     Foreground="{TemplateBinding Foreground}"
+                     IsReadOnly="{TemplateBinding IsReadOnly}"
+                     Text="{TemplateBinding Text}"
+                     TextAlignment="{TemplateBinding TextAlignment}"
+                     PlaceholderText="{TemplateBinding PlaceholderText}"
+                     AcceptsReturn="False" />
+          </ButtonSpinner>
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+
+    <Style Selector="^.xsmall">
+      <Setter Property="Height" Value="20" />
+      <Setter Property="Padding" Value="4,0" />
+      <Setter Property="FontSize" Value="12" />
+    </Style>
+    <Style Selector="^.small">
+      <Setter Property="Height" Value="24" />
+      <Setter Property="Padding" Value="8,0" />
+    </Style>
+    <Style Selector="^.large">
+      <Setter Property="Height" Value="44" />
+      <Setter Property="Padding" Value="12,0" />
+      <Setter Property="FontSize" Value="16" />
+    </Style>
+    <!-- The spinner sizes its buttons and icons by Tag (a theme cannot reach into a nested template). -->
+    <Style Selector="^.xsmall /template/ ButtonSpinner#PART_Spinner">
+      <Setter Property="Tag" Value="xsmall" />
+    </Style>
+    <Style Selector="^.small /template/ ButtonSpinner#PART_Spinner">
+      <Setter Property="Tag" Value="small" />
+    </Style>
+    <Style Selector="^.large /template/ ButtonSpinner#PART_Spinner">
+      <Setter Property="Tag" Value="large" />
+    </Style>
+
+    <Style Selector="^:focus-within">
+      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Ring}" />
+    </Style>
+    <Style Selector="^:focus-within /template/ Border#PART_FocusRing">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+    <Style Selector="^:disabled">
+      <Setter Property="Background" Value="{DynamicResource Gpui.Number.Disabled.Background}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Number.Disabled.Border}" />
+      <Setter Property="Opacity" Value="0.5" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

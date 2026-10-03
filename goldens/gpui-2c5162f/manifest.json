@@ -24138,6 +24138,798 @@
       "png_sha256": "ffcbf8fc97c3616bf11a9a30062b218c2e9a9577d6fd70e0fed20b2e132dc287"
     },
     {
+      "id": "number/buttons.medium/at-160-24/dark",
+      "component": "number",
+      "group": "buttons",
+      "params": {
+        "value": "42",
+        "size": "medium"
+      },
+      "state": "at-160-24",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        32.0
+      ],
+      "png": "png/number/buttons.medium/at-160-24/dark.png",
+      "scene": "scenes/number/buttons.medium/at-160-24/dark.json",
+      "png_sha256": "64d1713e936c02aeff03c619ad0a337ade5d8f8d0a6672ae8401dbba8903bf2a"
+    },
+    {
+      "id": "number/buttons.medium/at-160-24/light",
+      "component": "number",
+      "group": "buttons",
+      "params": {
+        "value": "42",
+        "size": "medium"
+      },
+      "state": "at-160-24",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        32.0
+      ],
+      "png": "png/number/buttons.medium/at-160-24/light.png",
+      "scene": "scenes/number/buttons.medium/at-160-24/light.json",
+      "png_sha256": "e49ca82de0b2ddadcf98f4c3a93e3ac4d69165f111c46d7ebc18e975a87a4bd9"
+    },
+    {
+      "id": "number/buttons.medium/at-30-24+pressed-at-30-24/dark",
+      "component": "number",
+      "group": "buttons",
+      "params": {
+        "value": "42",
+        "size": "medium"
+      },
+      "state": "at-30-24+pressed-at-30-24",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        32.0
+      ],
+      "png": "png/number/buttons.medium/at-30-24+pressed-at-30-24/dark.png",
+      "scene": "scenes/number/buttons.medium/at-30-24+pressed-at-30-24/dark.json",
+      "png_sha256": "eab7ce6bd73d8934c78ec34e32dee0922c6b30f57875536cd75af7c1deff2168"
+    },
+    {
+      "id": "number/buttons.medium/at-30-24+pressed-at-30-24/light",
+      "component": "number",
+      "group": "buttons",
+      "params": {
+        "value": "42",
+        "size": "medium"
+      },
+      "state": "at-30-24+pressed-at-30-24",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        32.0
+      ],
+      "png": "png/number/buttons.medium/at-30-24+pressed-at-30-24/light.png",
+      "scene": "scenes/number/buttons.medium/at-30-24+pressed-at-30-24/light.json",
+      "png_sha256": "93bf87898f9fc53dcb37e017233ca9692c1be9920977d1a8c2c008a061161c45"
+    },
+    {
+      "id": "number/buttons.medium/at-30-24/dark",
+      "component": "number",
+      "group": "buttons",
+      "params": {
+        "value": "42",
+        "size": "medium"
+      },
+      "state": "at-30-24",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        32.0
+      ],
+      "png": "png/number/buttons.medium/at-30-24/dark.png",
+      "scene": "scenes/number/buttons.medium/at-30-24/dark.json",
+      "png_sha256": "45f9fdc0a43a20eb966d3b2bac11517c3b7f59464a78b01e4ee19cc3258d0ebe"
+    },
+    {
+      "id": "number/buttons.medium/at-30-24/light",
+      "component": "number",
+      "group": "buttons",
+      "params": {
+        "value": "42",
+        "size": "medium"
+      },
+      "state": "at-30-24",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        32.0
+      ],
+      "png": "png/number/buttons.medium/at-30-24/light.png",
+      "scene": "scenes/number/buttons.medium/at-30-24/light.json",
+      "png_sha256": "07384e8cd77c5190105e8abe8cd25b8ea91cce8348cd3208bbb547e446e9b25b"
+    },
+    {
+      "id": "number/buttons.small/at-160-24/dark",
+      "component": "number",
+      "group": "buttons",
+      "params": {
+        "value": "42",
+        "size": "small"
+      },
+      "state": "at-160-24",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        24.0
+      ],
+      "png": "png/number/buttons.small/at-160-24/dark.png",
+      "scene": "scenes/number/buttons.small/at-160-24/dark.json",
+      "png_sha256": "731114382fac0175d18af41d8db98f9dc65c99b7b59f846f37aefbe674788fc7"
+    },
+    {
+      "id": "number/buttons.small/at-160-24/light",
+      "component": "number",
+      "group": "buttons",
+      "params": {
+        "value": "42",
+        "size": "small"
+      },
+      "state": "at-160-24",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        24.0
+      ],
+      "png": "png/number/buttons.small/at-160-24/light.png",
+      "scene": "scenes/number/buttons.small/at-160-24/light.json",
+      "png_sha256": "cd51c618a1152e4e27be702a72d7bb28a40e76535f11203db87c476d0cf5c5de"
+    },
+    {
+      "id": "number/buttons.small/at-30-24+pressed-at-30-24/dark",
+      "component": "number",
+      "group": "buttons",
+      "params": {
+        "value": "42",
+        "size": "small"
+      },
+      "state": "at-30-24+pressed-at-30-24",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        24.0
+      ],
+      "png": "png/number/buttons.small/at-30-24+pressed-at-30-24/dark.png",
+      "scene": "scenes/number/buttons.small/at-30-24+pressed-at-30-24/dark.json",
+      "png_sha256": "558323823c41cca14aa7ff91f239ae9bfba22d2f1786fa2e104e8661e08c01e1"
+    },
+    {
+      "id": "number/buttons.small/at-30-24+pressed-at-30-24/light",
+      "component": "number",
+      "group": "buttons",
+      "params": {
+        "value": "42",
+        "size": "small"
+      },
+      "state": "at-30-24+pressed-at-30-24",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        24.0
+      ],
+      "png": "png/number/buttons.small/at-30-24+pressed-at-30-24/light.png",
+      "scene": "scenes/number/buttons.small/at-30-24+pressed-at-30-24/light.json",
+      "png_sha256": "30b3ecc1a8ab056fa029d62f8434f133cd057cda49affc67fa84cace0f7efff3"
+    },
+    {
+      "id": "number/buttons.small/at-30-24/dark",
+      "component": "number",
+      "group": "buttons",
+      "params": {
+        "value": "42",
+        "size": "small"
+      },
+      "state": "at-30-24",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        24.0
+      ],
+      "png": "png/number/buttons.small/at-30-24/dark.png",
+      "scene": "scenes/number/buttons.small/at-30-24/dark.json",
+      "png_sha256": "e4942d7e1cb9b2ae86330a05c5a0009f3a3f642a088052464c35f9b77c610b71"
+    },
+    {
+      "id": "number/buttons.small/at-30-24/light",
+      "component": "number",
+      "group": "buttons",
+      "params": {
+        "value": "42",
+        "size": "small"
+      },
+      "state": "at-30-24",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        24.0
+      ],
+      "png": "png/number/buttons.small/at-30-24/light.png",
+      "scene": "scenes/number/buttons.small/at-30-24/light.json",
+      "png_sha256": "a077048eb124db21b3607a4f7e829cdd7d422761b0a329eaa79ad570cf34ad4b"
+    },
+    {
+      "id": "number/value.large/disabled/dark",
+      "component": "number",
+      "group": "value",
+      "params": {
+        "value": "42",
+        "size": "large",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        44.0
+      ],
+      "png": "png/number/value.large/disabled/dark.png",
+      "scene": "scenes/number/value.large/disabled/dark.json",
+      "png_sha256": "8003b3aec9a13d4ad1f3f76f5187dc23704d27c3e3d182f528b31a129f1dfbc8"
+    },
+    {
+      "id": "number/value.large/disabled/light",
+      "component": "number",
+      "group": "value",
+      "params": {
+        "value": "42",
+        "size": "large",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        44.0
+      ],
+      "png": "png/number/value.large/disabled/light.png",
+      "scene": "scenes/number/value.large/disabled/light.json",
+      "png_sha256": "0a5d8e7b961dc61f19ab496bddb07469b16a51a915f74b2ff911188ab8489c9f"
+    },
+    {
+      "id": "number/value.large/normal/dark",
+      "component": "number",
+      "group": "value",
+      "params": {
+        "value": "42",
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        44.0
+      ],
+      "png": "png/number/value.large/normal/dark.png",
+      "scene": "scenes/number/value.large/normal/dark.json",
+      "png_sha256": "7429a7d8cfd372deb75342143970d7ca2080a042860885db7ad28e4e3ef6e73c"
+    },
+    {
+      "id": "number/value.large/normal/light",
+      "component": "number",
+      "group": "value",
+      "params": {
+        "value": "42",
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        44.0
+      ],
+      "png": "png/number/value.large/normal/light.png",
+      "scene": "scenes/number/value.large/normal/light.json",
+      "png_sha256": "d798909fe01990c9c07224e6a61d57a3ce14a19d57a03fd2cbf2dd134917c362"
+    },
+    {
+      "id": "number/value.medium/disabled/dark",
+      "component": "number",
+      "group": "value",
+      "params": {
+        "value": "42",
+        "size": "medium",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        32.0
+      ],
+      "png": "png/number/value.medium/disabled/dark.png",
+      "scene": "scenes/number/value.medium/disabled/dark.json",
+      "png_sha256": "29dc7dd869341055c30fcc6e7b400955479f49120606d085ceda424b9fd8ec09"
+    },
+    {
+      "id": "number/value.medium/disabled/light",
+      "component": "number",
+      "group": "value",
+      "params": {
+        "value": "42",
+        "size": "medium",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        32.0
+      ],
+      "png": "png/number/value.medium/disabled/light.png",
+      "scene": "scenes/number/value.medium/disabled/light.json",
+      "png_sha256": "1b85e8cbb027f789df9305544325a5de9d79ea00968d7bdb2f42919784b80afc"
+    },
+    {
+      "id": "number/value.medium/normal/dark",
+      "component": "number",
+      "group": "value",
+      "params": {
+        "value": "42",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        32.0
+      ],
+      "png": "png/number/value.medium/normal/dark.png",
+      "scene": "scenes/number/value.medium/normal/dark.json",
+      "png_sha256": "d0ca1dc36a8f3105339b89fd5a1a12ae3f4498d427d2dd6c092c8fd1e05da6f7"
+    },
+    {
+      "id": "number/value.medium/normal/light",
+      "component": "number",
+      "group": "value",
+      "params": {
+        "value": "42",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        32.0
+      ],
+      "png": "png/number/value.medium/normal/light.png",
+      "scene": "scenes/number/value.medium/normal/light.json",
+      "png_sha256": "73de0dba88e2ea962e0a09e209cb352530b5f14ecee72886f77abbb4839b4fd9"
+    },
+    {
+      "id": "number/value.small/disabled/dark",
+      "component": "number",
+      "group": "value",
+      "params": {
+        "value": "42",
+        "size": "small",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        24.0
+      ],
+      "png": "png/number/value.small/disabled/dark.png",
+      "scene": "scenes/number/value.small/disabled/dark.json",
+      "png_sha256": "6b5f40fe2822ed62c24de7ccad0524039b94445ba5b548d76bd8d1d5057c1284"
+    },
+    {
+      "id": "number/value.small/disabled/light",
+      "component": "number",
+      "group": "value",
+      "params": {
+        "value": "42",
+        "size": "small",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        24.0
+      ],
+      "png": "png/number/value.small/disabled/light.png",
+      "scene": "scenes/number/value.small/disabled/light.json",
+      "png_sha256": "adc174478b4d65a7a5d9b54157586394e3a172b32c275b02cac5e698dff7c865"
+    },
+    {
+      "id": "number/value.small/normal/dark",
+      "component": "number",
+      "group": "value",
+      "params": {
+        "value": "42",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        24.0
+      ],
+      "png": "png/number/value.small/normal/dark.png",
+      "scene": "scenes/number/value.small/normal/dark.json",
+      "png_sha256": "bb3396ba4ab9a7b91178bff06c5d915e9c5169f7e240efcdd6e3d79deda4af5a"
+    },
+    {
+      "id": "number/value.small/normal/light",
+      "component": "number",
+      "group": "value",
+      "params": {
+        "value": "42",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        24.0
+      ],
+      "png": "png/number/value.small/normal/light.png",
+      "scene": "scenes/number/value.small/normal/light.json",
+      "png_sha256": "ff3ba85fbeec98df9f25769e2b081bdd9070e53681ac5ba00dad3c6150b676e6"
+    },
+    {
+      "id": "number/value.xsmall/disabled/dark",
+      "component": "number",
+      "group": "value",
+      "params": {
+        "value": "42",
+        "size": "xsmall",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        20.0
+      ],
+      "png": "png/number/value.xsmall/disabled/dark.png",
+      "scene": "scenes/number/value.xsmall/disabled/dark.json",
+      "png_sha256": "56667ace8a47ced4f5f0ee9563e91c4d026de4f62ade524854b931398e9876e9"
+    },
+    {
+      "id": "number/value.xsmall/disabled/light",
+      "component": "number",
+      "group": "value",
+      "params": {
+        "value": "42",
+        "size": "xsmall",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        20.0
+      ],
+      "png": "png/number/value.xsmall/disabled/light.png",
+      "scene": "scenes/number/value.xsmall/disabled/light.json",
+      "png_sha256": "22ebf29600c7d0a10dc53d106d390938afdfbc9943a48d9663c13a4425e17552"
+    },
+    {
+      "id": "number/value.xsmall/normal/dark",
+      "component": "number",
+      "group": "value",
+      "params": {
+        "value": "42",
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        20.0
+      ],
+      "png": "png/number/value.xsmall/normal/dark.png",
+      "scene": "scenes/number/value.xsmall/normal/dark.json",
+      "png_sha256": "0a8660883ac5ae3e49b8dd0f63f538edddd44dba433652584a55d4fea6af72d2"
+    },
+    {
+      "id": "number/value.xsmall/normal/light",
+      "component": "number",
+      "group": "value",
+      "params": {
+        "value": "42",
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        20.0
+      ],
+      "png": "png/number/value.xsmall/normal/light.png",
+      "scene": "scenes/number/value.xsmall/normal/light.json",
+      "png_sha256": "c818366162e527a2035e3eb901b282176cb5359d6eca411f3f86575d7a785bc2"
+    },
+    {
       "id": "radio/bare.medium.checked/disabled/dark",
       "component": "radio",
       "group": "bare",

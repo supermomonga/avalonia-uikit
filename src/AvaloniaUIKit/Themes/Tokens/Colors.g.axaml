@@ -981,6 +981,16 @@
       <SolidColorBrush x:Key="Gpui.Button.Text.Caret" Color="#AC0A0A0A" />
       <Color x:Key="Gpui.Button.Text.Outline.Caret.Color">#AC0A0A0A</Color>
       <SolidColorBrush x:Key="Gpui.Button.Text.Outline.Caret" Color="#AC0A0A0A" />
+      <Color x:Key="Gpui.Number.Button.Hover.Color">#66E5E5E5</Color>
+      <SolidColorBrush x:Key="Gpui.Number.Button.Hover" Color="#66E5E5E5" />
+      <Color x:Key="Gpui.Number.Button.Pressed.Color">#99E5E5E5</Color>
+      <SolidColorBrush x:Key="Gpui.Number.Button.Pressed" Color="#99E5E5E5" />
+      <Color x:Key="Gpui.Number.Disabled.Background.Color">#CCE5E5E5</Color>
+      <SolidColorBrush x:Key="Gpui.Number.Disabled.Background" Color="#CCE5E5E5" />
+      <Color x:Key="Gpui.Number.Disabled.Border.Color">#80E5E5E5</Color>
+      <SolidColorBrush x:Key="Gpui.Number.Disabled.Border" Color="#80E5E5E5" />
+      <Color x:Key="Gpui.Number.Disabled.Text.Color">#800A0A0A</Color>
+      <SolidColorBrush x:Key="Gpui.Number.Disabled.Text" Color="#800A0A0A" />
     </ResourceDictionary>
     <ResourceDictionary x:Key="Dark">
       <Color x:Key="Gpui.Accent.Color">#FF262626</Color>
@@ -1957,6 +1967,16 @@
       <SolidColorBrush x:Key="Gpui.Button.Text.Caret" Color="#ACFAFAFA" />
       <Color x:Key="Gpui.Button.Text.Outline.Caret.Color">#ACFAFAFA</Color>
       <SolidColorBrush x:Key="Gpui.Button.Text.Outline.Caret" Color="#ACFAFAFA" />
+      <Color x:Key="Gpui.Number.Button.Hover.Color">#662F2F2F</Color>
+      <SolidColorBrush x:Key="Gpui.Number.Button.Hover" Color="#662F2F2F" />
+      <Color x:Key="Gpui.Number.Button.Pressed.Color">#992F2F2F</Color>
+      <SolidColorBrush x:Key="Gpui.Number.Button.Pressed" Color="#992F2F2F" />
+      <Color x:Key="Gpui.Number.Disabled.Background.Color">#CC2F2F2F</Color>
+      <SolidColorBrush x:Key="Gpui.Number.Disabled.Background" Color="#CC2F2F2F" />
+      <Color x:Key="Gpui.Number.Disabled.Border.Color">#802F2F2F</Color>
+      <SolidColorBrush x:Key="Gpui.Number.Disabled.Border" Color="#802F2F2F" />
+      <Color x:Key="Gpui.Number.Disabled.Text.Color">#80FAFAFA</Color>
+      <SolidColorBrush x:Key="Gpui.Number.Disabled.Text" Color="#80FAFAFA" />
     </ResourceDictionary>
   </ResourceDictionary.ThemeDictionaries>
 </ResourceDictionary>

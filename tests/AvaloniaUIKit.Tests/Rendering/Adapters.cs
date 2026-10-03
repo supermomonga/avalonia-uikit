@@ -1,6 +1,7 @@
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using Avalonia.Input;
+using Avalonia.VisualTree;
 using AvaloniaUIKit.Tests.Golden;
 
 namespace AvaloniaUIKit.Tests.Rendering;
@@ -28,8 +29,25 @@ public static class Adapters
         "context" => ContextArea(),
         "split" => Split(c),
         "menubar" => MenuBar(),
+        "number" => Number(c),
         _ => throw new NotSupportedException($"no adapter for {c.Component}"),
     };
+
+    /// <summary>
+    /// Undoes behavior of a control's own logic that the theme does not own and
+    /// GPUI does not have (R24): NumericUpDown selects its text when a press on a
+    /// step button focuses it. The caret is hidden: its blink phase at capture
+    /// time is not part of the look (R25).
+    /// </summary>
+    public static void AfterDrive(GoldenCase c, CaseHost host)
+    {
+        foreach (var box in host.Window.GetVisualDescendants().OfType<TextBox>())
+        {
+            box.ClearSelection();
+            box.CaretBrush = Avalonia.Media.Brushes.Transparent;
+        }
+        host.Flush();
+    }
 
     /// <summary>A Lucide icon from the theme, as an app would put one in content.</summary>
     public static PathIcon Icon(string name)
@@ -66,6 +84,18 @@ public static class Adapters
         new MenuItem { Header = "Rename", IsEnabled = false },
         new MenuItem { Header = "Edit", ItemsSource = new List<Control> { new MenuItem { Header = "Copy" }, new MenuItem { Header = "Paste" } } },
     ];
+
+    private static NumericUpDown Number(GoldenCase c)
+    {
+        var number = new NumericUpDown
+        {
+            Value = decimal.Parse(c.Str("value", "42"), System.Globalization.CultureInfo.InvariantCulture),
+            Width = c.Num("width", 160),
+            IsEnabled = !c.Bool("disabled"),
+        };
+        ClassFrom(number, c, "size", "medium");
+        return number;
+    }
 
     private static Border ContextArea()
     {

@@ -17,6 +17,7 @@ public static class VisualAssert
         using var host = CaseHost.Open(golden, Adapters.Create(golden));
         configure?.Invoke(host);
         host.Drive(golden, golden.State);
+        Adapters.AfterDrive(golden, host);
         var bounds = host.ControlBounds();
         var failures = new List<string>();
         var textRuns = host.Control.GetSelfAndVisualDescendants().OfType<Avalonia.Controls.TextBlock>().Count(t => !string.IsNullOrEmpty(t.Text));

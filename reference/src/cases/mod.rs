@@ -14,6 +14,7 @@ use std::time::Duration;
 mod button;
 mod check;
 pub mod menu;
+mod number;
 mod surface;
 mod toggle;
 
@@ -30,6 +31,7 @@ pub fn builder(case: &Case) -> Result<Builder> {
         "context" => menu::context(&params),
         "split" => menu::split(&params),
         "menubar" => menu::menubar(&params),
+        "number" => number::builder(&params),
         other => bail!("unknown component {other}"),
     }
 }
@@ -88,6 +90,12 @@ pub fn drive(harness: &mut Harness, window: &CaseWindow, case: &Case, state: &st
             }
             // Absolute window positions: "at-X-Y" moves the pointer there,
             // "click-at-X-Y" and "right-click-at-X-Y" also click.
+            other if other.starts_with("pressed-at-") => {
+                let (x, y) = other["pressed-at-".len()..].split_once('-').expect("pressed-at-X-Y");
+                let at = gpui_kit::point(gpui_kit::px(x.parse()?), gpui_kit::px(y.parse()?));
+                harness.mouse_move(window, at, None)?;
+                harness.mouse_down(window, at, MouseButton::Left)?;
+            }
             other if other.starts_with("at-") || other.starts_with("click-at-") || other.starts_with("right-click-at-") => {
                 let (kind, coords) = other.split_once("at-").expect("prefix checked");
                 let (x, y) = coords.split_once('-').expect("at-X-Y");
@@ -137,6 +145,7 @@ pub fn derived_colors(theme: &gpui_kit::component::Theme, out: &mut Vec<(String,
     button::derived_colors(theme, out);
     check::derived_colors(theme, out);
     menu::derived_colors(theme, out);
+    number::derived_colors(theme, out);
 }
 
 pub fn disabled(params: &Params) -> bool {

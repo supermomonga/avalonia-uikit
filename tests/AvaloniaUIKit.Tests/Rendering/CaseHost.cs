@@ -128,6 +128,12 @@ public sealed class CaseHost : IDisposable
                     var b = ControlBounds();
                     Window.MouseMove(new Point(b.Right + 40, b.Bottom + 40));
                     break;
+                case var p when p.StartsWith("pressed-at-", StringComparison.Ordinal):
+                    var pxy = p["pressed-at-".Length..].Split('-');
+                    var pressAt = new Point(double.Parse(pxy[0], System.Globalization.CultureInfo.InvariantCulture), double.Parse(pxy[1], System.Globalization.CultureInfo.InvariantCulture));
+                    Window.MouseMove(pressAt);
+                    Window.MouseDown(pressAt, MouseButton.Left);
+                    break;
                 case var p when p.StartsWith("at-", StringComparison.Ordinal) || p.StartsWith("click-at-", StringComparison.Ordinal) || p.StartsWith("right-click-at-", StringComparison.Ordinal):
                     var split = p.IndexOf("at-", StringComparison.Ordinal);
                     var kind = p[..split];
