@@ -69,6 +69,31 @@ public class BehaviorTests
         await Assert.That(RingVisible(host)).IsTrue();
     }
 
+    // GPUI's switch has no drag; Avalonia's does. The spring must not hold the
+    // thumb back while the pointer moves it, and travels on from the release.
+    [Test]
+    public async Task A_dragged_switch_thumb_follows_the_pointer_at_once()
+    {
+        var golden = Case("switch/label.medium/normal/light");
+        using var host = CaseHost.Open(golden, Adapters.Create(golden));
+        var thumb = host.Part<Border>("PART_Thumb");
+        double ThumbX() => thumb.TranslatePoint(default, host.Window)!.Value.X;
+        var start = ThumbX();
+        var at = new Point(start + 8, thumb.TranslatePoint(new Point(0, 8), host.Window)!.Value.Y);
+        host.Window.MouseMove(at);
+        host.Window.MouseDown(at, MouseButton.Left);
+        host.Window.MouseMove(at + new Point(10, 0));
+        host.Flush();
+        await Assert.That(ThumbX()).IsEqualTo(start + 10);
+        host.Window.MouseUp(at + new Point(10, 0), MouseButton.Left);
+        host.Flush();
+        await Assert.That(((ToggleSwitch)host.Control).IsChecked == true).IsTrue();
+        await Assert.That(ThumbX()).IsEqualTo(start + 10);
+        VirtualTime.Advance(TimeSpan.FromMilliseconds(600));
+        host.Flush();
+        await Assert.That(ThumbX()).IsEqualTo(start + 16);
+    }
+
     [Test]
     public async Task A_disabled_button_ignores_a_click()
     {

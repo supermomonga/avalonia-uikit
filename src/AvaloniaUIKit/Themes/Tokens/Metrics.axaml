@@ -4,7 +4,11 @@
   sizes live with each control theme and cite their source.
 -->
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:gpui="using:AvaloniaUIKit">
+  <!-- MotionTokens::spring_control and spring_move (crates/component/src/theme/motion.rs). -->
+  <gpui:Spring x:Key="Gpui.Spring.Control" Response="0:0:0.18" Damping="1" Epsilon="0.001" />
+  <gpui:Spring x:Key="Gpui.Spring.Move" Response="0:0:0.28" Damping="0.85" Epsilon="0.1" />
   <!-- Theme.font_family is ".SystemUIFont": the platform UI font. -->
   <FontFamily x:Key="Gpui.FontFamily">$Default</FontFamily>
   <!-- Theme.font_size (crates/component/src/theme/mod.rs). -->

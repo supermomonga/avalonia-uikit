@@ -5,7 +5,8 @@
   Classes: xsmall small large (medium is the default).
 -->
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:gpui="using:AvaloniaUIKit">
   <ControlTheme x:Key="{x:Type CheckBox}" TargetType="CheckBox">
     <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
     <Setter Property="Background" Value="Transparent" />
@@ -27,16 +28,9 @@
                   Background="{DynamicResource Gpui.InputBackground}" BorderBrush="{DynamicResource Gpui.Input}">
             <PathIcon Name="PART_Mark" Width="12" Height="12" Margin="1"
                       HorizontalAlignment="Left" VerticalAlignment="Top"
-                      Data="{StaticResource Gpui.Icon.Check}" Foreground="{DynamicResource Gpui.PrimaryForeground}" Opacity="0">
-              <PathIcon.Transitions>
-                <Transitions>
-                  <DoubleTransition Property="Opacity" Duration="0:0:0.265">
-                    <DoubleTransition.Easing>
-                      <SpringEasing Mass="1" Stiffness="85.5670" Damping="18.5005" />
-                    </DoubleTransition.Easing>
-                  </DoubleTransition>
-                </Transitions>
-              </PathIcon.Transitions>
+                      Data="{StaticResource Gpui.Icon.Check}" Foreground="{DynamicResource Gpui.PrimaryForeground}"
+                      gpui:Motion.Spring="{StaticResource Gpui.Spring.Control}" gpui:Motion.SpringTarget="0"
+                      Opacity="{Binding $self.(gpui:Motion.SpringValue)}">
             </PathIcon>
           </Border>
           <ContentPresenter Name="PART_ContentPresenter" Grid.Column="1" Margin="8,0,0,0"
@@ -114,7 +108,7 @@
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Primary}" />
     </Style>
     <Style Selector="^:checked /template/ PathIcon#PART_Mark">
-      <Setter Property="Opacity" Value="1" />
+      <Setter Property="gpui:Motion.SpringTarget" Value="1" />
     </Style>
     <Style Selector="^:disabled">
       <Setter Property="Foreground" Value="{DynamicResource Gpui.MutedForeground}" />
@@ -136,7 +130,7 @@
     </Style>
     <Style Selector="^:indeterminate /template/ PathIcon#PART_Mark">
       <Setter Property="Data" Value="{StaticResource Gpui.Icon.Minus}" />
-      <Setter Property="Opacity" Value="1" />
+      <Setter Property="gpui:Motion.SpringTarget" Value="1" />
     </Style>
     <!-- Keyboard focus only: GPUI prevents a pointer press from focusing the control. -->
     <Style Selector="^:focus-visible /template/ Border#PART_FocusRing">

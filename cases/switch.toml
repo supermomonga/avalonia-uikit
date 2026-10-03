@@ -20,3 +20,11 @@ params = { size = "medium" }
 trigger = "click"
 samples_ms = [0, 16, 33, 50, 66, 83, 100, 116, 133, 166, 200, 233, 266, 300, 333]
 themes = ["light"]
+
+# Toggled back 120ms into the move: the thumb decelerates and turns around.
+[[motion]]
+name = "reverse"
+params = { size = "medium" }
+trigger = "click+wait-120ms+click"
+samples_ms = [0, 16, 33, 50, 66, 83, 100, 116, 133, 166, 200, 233, 266, 300, 333, 400]
+themes = ["light"]

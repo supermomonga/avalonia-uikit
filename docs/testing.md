@@ -113,8 +113,8 @@ GPUI 側は仮想時計で 1 フレームずつ記録する（R15）。Avalonia 
 
 | 動き | GPUI | Avalonia |
 | --- | --- | --- |
-| Checkbox / Radio のチェック | spring_control で不透明度 | SpringEasing（D=265ms） |
-| Switch のつまみ | spring_move で位置 | KnobTransitions の SpringEasing（D=234/271/302ms） |
+| Checkbox / Radio のチェック、途中で戻したとき | spring_control で不透明度 | `Motion.Spring`（GPUI と同じばねの式で、速度を引き継ぐ） |
+| Switch のつまみ、途中で戻したとき | spring_move で位置 | `Motion.Spring`（Canvas.Left の変化をばねで見せる） |
 | Progress の値 | 180ms、easing_move | Width の Transition、SplineEasing(0.2,0,0,1)。最初に収まる幅は動かさない |
 | 不定値 Progress | 1 秒周期の左右端 | 幅のキーフレーム + KeySpline |
 | Spinner | 0.8 秒で 1 回転 | RotateTransform のキーフレーム |
@@ -153,9 +153,9 @@ Avalonia には時刻を指定する公開 API がないので、テストに限
 | R3 | 影のぼかしの近似が異なる。spread 付きの影の角丸は、GPUI では要素のまま、Skia では spread 分だけ大きくなる。 | σ を Blur に変換（σ = 0.288675 × Blur + 0.5）し、Shadow 領域の最大値と影の角丸を緩める。 |
 | R4 | SVG アイコンのラスタライズが異なる（resvg と Skia の Path）。 | R1 と同じく Ink 領域で比べる。 |
 | R5 | 不透明度のかけ方が異なる。GPUI は図形ごと、Avalonia はグループ全体にかける。重なった影がフェード中だけ違って見える。 | Tooltip の表示途中だけ Flat を 13 に緩める（理論上の最大 12.75）。 |
-| R6 | spring の途中で目標が変わったときの速度の引き継ぎ。Avalonia の Transition は速度 0 から始まる。 | 検証の対象外。動きは開始から終了までを比べる。 |
+| R6 | spring の途中で目標が変わったときの速度の引き継ぎ。Avalonia の Transition は速度 0 から始まる。 | 解消済み。`Motion.Spring` が GPUI と同じ式で速度を引き継ぐ。途中で戻す動きも比べる。 |
 | R7 | Avalonia に時刻を指定する公開 API がない。 | テストに限り、内部の時計と Dispatcher の時刻を差し替える（[時刻](#時刻)）。Avalonia の内部に依存する。 |
-| R8 | spring の終端で GPUI は ε（0.1px）以内になると止める。Avalonia の SpringEasing は終了時刻に目標へ合わせる。 | 動きのフレームの位置の許容値 ±0.51px に含める。 |
+| R8 | spring は ε 以内で止まる。止まるかどうかを調べる時刻が、GPUI は描画のたび、`Motion.Spring` は 1ms ごとで異なる。 | 差は ε（つまみで 0.1px）以内。動きのフレームの位置の許容値 ±0.51px に含める。 |
 | R9 | レイアウトの丸めが異なる。GPUI は文字幅を論理 px に切り上げ、端をデバイス px に丸める。Avalonia はデバイス px に丸める。 | 位置 ±0.26px、文字を含む箱の幅、Edge / Ink の近傍比較。 |
 | R10 | 行の高さがフォント本来の高さより小さいときの文字の寄せ方。 | 今回のケースでは差が出なかった。予備の ID。 |
 | R11 | 色の量子化（GPUI は float の HSLA、Avalonia は 8bit）。 | 色と Flat 領域で ±1/255。 |

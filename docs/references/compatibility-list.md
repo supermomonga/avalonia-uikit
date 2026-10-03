@@ -19,9 +19,9 @@ GPUI Kit の見た目を、Avalonia の既存コントロールに適用する�
 | Button | `Button` | 720 | – | R27 | loading、Custom variant、通常の Button への dropdown_caret、toggled |
 | DropdownButton | `SplitButton` | 150 | – | R12、R28 | Button と同じ |
 | Toggle | `ToggleButton` | 160 | – | – | – |
-| Checkbox | `CheckBox` | 80 | チェック記号のフェード（spring） | R6、R16、R27 | – |
-| Radio | `RadioButton` | 80 | チェック記号のフェード（spring） | R6、R27 | – |
-| Switch | `ToggleSwitch` | 88 | つまみの移動（spring） | R6、R8 | 色の変更（`color()`） |
+| Checkbox | `CheckBox` | 80 | チェック記号のフェード（spring）、途中で戻したとき | R16、R27 | – |
+| Radio | `RadioButton` | 80 | チェック記号のフェード（spring） | R27 | – |
+| Switch | `ToggleSwitch` | 88 | つまみの移動（spring）、途中で戻したとき | R8 | 色の変更（`color()`） |
 | NumberInput | `NumericUpDown`、`ButtonSpinner` | 28 | – | R24、R25 | `ButtonSpinnerLocation`（GPUI と同じ [−] 値 [+] に固定） |
 | GroupBox | `GroupBox` | 10 | – | – | footer |
 | Scrollable / Scrollbar | `ScrollViewer`、`ScrollBar`、`Thumb` | 12 | 表示、2 秒後の消去、つまみの拡大 | R20 | Scrolling モード、隠れたバーのつまみを直接指したときのスライド入場 |
@@ -83,7 +83,7 @@ GPUI Kit の見た目を、Avalonia の既存コントロールに適用する�
 | ToggleGroup（Toggle の子部品） | 部分対応 | [`ListBox`][av-listbox] / `ListBoxItem` | 標準の単一・複数選択を使うボタン状の項目表示。GPUI のグループ API や選択ルールは移植しない。 |
 | [Checkbox][gp-checkbox] | 対応 | [`CheckBox`][av-checkbox] | チェック記号、ラベル、枠、状態表示。標準の `IsThreeState` / `IsChecked` を使用する。 |
 | [Radio / RadioGroup][gp-radio] | 対応 | [`RadioButton`][av-radio] | 円形マークとラベル。グループ選択は標準の `GroupName` に従い、専用 RadioGroup 型は追加しない。 |
-| [Switch][gp-switch] | 対応 | [`ToggleSwitch`][av-switch] | トラック、つまみ、ラベル、checked / disabled、フォーカス表示、つまみの移動。つまみの移動は `SpringEasing` で GPUI のばね運動と同じ曲線にする。途中で反転したときの速度の引き継ぎは再現しない。 |
+| [Switch][gp-switch] | 対応 | [`ToggleSwitch`][av-switch] | トラック、つまみ、ラベル、checked / disabled、フォーカス表示、つまみの移動。つまみの移動は GPUI と同じばねの式で動かし、途中で反転しても速度を引き継ぐ（`Motion.Spring`）。 |
 | [Input][gp-input] | 部分対応 | [`TextBox`][av-textbox]、[`MaskedTextBox`][av-masked-textbox] | 枠、placeholder、選択色、キャレット、read-only / disabled、`PasswordChar` / `RevealPassword`、左右の内容領域。入力マスクは Avalonia の書式に従う。GPUI の検証・マスク構文、Esc でクリアする契約、mention 等のインライントークンなどは追加しない。 |
 | [Textarea][gp-textarea] | 部分対応 | `TextBox` | `AcceptsReturn`、`TextWrapping`、`MinLines` / `MaxLines` による複数行・高さ制限、スクロール部分をテーマ化。検索 UI、インライントークン、GPUI の編集 API は対象外。 |
 | [InputGroup][gp-input-group] | 部分対応 | `TextBox` の `InnerLeftContent` / `InnerRightContent` | 入力欄の前後に置く文字・アイコン・ボタンと入力欄を一つの枠で囲む外観。複数行は `AcceptsReturn` の `TextBox` を使い、無効・read-only・検証エラーは標準の状態で表示する。入力行の上下に置く `BlockStart` / `BlockEnd` の領域や専用のグループ型は追加しない。 |
@@ -224,7 +224,7 @@ GPUI Kit の見た目を、Avalonia の既存コントロールに適用する�
 | Expander / Sheet の開閉 | 部分対応 | `ContentTransition`、DrawerPage / SplitView の既存状態・テンプレートを使用する。GPUI の自然高測定とばね運動の再現は含めない。 |
 | Popup / Flyout / Menu / Tooltip の入退場 | 部分対応 | 内容が生存する間の表示開始アニメーションは可能。非表示・破棄後は描画できないので、閉じるアニメーションのために独自の表示寿命管理を追加しない。 |
 | Notification の入退場 | 対応範囲あり | `NotificationCard` は `IsClosing` / `IsClosed` を持ち、標準テーマがアニメーションと閉じる完了を結び付けている。この契約を維持して外観と時間を変更する。 |
-| 途中で反転しても速度を維持する spring | 完全再現は非対応 | Avalonia の `SpringEasing` は利用できるが、GPUI の状態を持つ spring と同一の仕組みではない。通常の Transition / Easing で表せる動きまでに限定する。 |
+| 途中で反転しても速度を維持する spring | 対応（2026-10-03 の方針改定後） | Avalonia の `SpringEasing` は速度を持たないので、見た目だけを動かす Behavior（`Motion.Spring`）で GPUI と同じ式を使う。 |
 | 選択タブを追いかける下線、通知の重なり・並べ直し | 非対応 | 別要素間の位置計測や専用の状態管理が必要。各項目内の選択表示は対象だが、共有する可動インジケーター等は追加しない。 |
 | 自然高を計測し、レイアウト高も滑らかに変える reveal | 完全再現は非対応 | `Height=Auto` と数値の遷移だけでは GPUI の `MotionReveal` に相当しない。ScaleY も親のレイアウト高を変えないため、同じ効果とは扱わない。 |
 | OS の reduced-motion 設定との同一連動 | 未保証 | GPUI の低減処理をそのまま移植しない。今回確認した Avalonia の公開 [`IPlatformSettings`][av-platform-settings] には同等の共通設定取得契約がない。テーマの動きの定義と OS の設定検出は別に評価する。 |

@@ -6,12 +6,14 @@
   padding around the thumb. PART_SwitchKnob is the thumb's travel (track width
   - thumb - 4), so ToggleSwitch moves PART_MovingKnobs to 0 or the travel.
   The thumb moves with GPUI's `spring_move` (response 280ms, damping 0.85,
-  epsilon 0.1px): Avalonia's SpringEasing runs over the time that spring needs
-  to settle for each travel (12/16/20px -> 234/271/302ms).
+  epsilon 0.1px) through Motion.Spring, which keeps its velocity when the
+  switch is toggled back mid-flight. While the thumb is dragged it follows the
+  pointer at once (Spring::with_travel(false) in GPUI's terms).
   Unlike a button, a pointer press focuses a switch, so its ring shows on :focus.
 -->
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:gpui="using:AvaloniaUIKit">
   <ControlTheme x:Key="{x:Type ToggleSwitch}" TargetType="ToggleSwitch">
     <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
     <Setter Property="Background" Value="Transparent" />
@@ -19,14 +21,9 @@
     <Setter Property="ClipToBounds" Value="False" />
     <Setter Property="HorizontalAlignment" Value="Left" />
     <Setter Property="VerticalAlignment" Value="Top" />
+    <!-- The thumb moves through Motion.Spring instead (see PART_MovingKnobs). -->
     <Setter Property="KnobTransitions">
-      <Transitions>
-        <DoubleTransition Property="Canvas.Left" Duration="0:0:0.271">
-          <DoubleTransition.Easing>
-            <SpringEasing Mass="1" Stiffness="36.9813" Damping="10.3381" />
-          </DoubleTransition.Easing>
-        </DoubleTransition>
-      </Transitions>
+      <Transitions />
     </Setter>
     <Setter Property="Template">
       <ControlTemplate>
@@ -38,7 +35,8 @@
                     CornerRadius="9.5" BackgroundSizing="OuterBorderEdge"
                     BorderBrush="Transparent" Background="{DynamicResource Gpui.Switch}">
               <Canvas Name="PART_SwitchKnob" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <Panel Name="PART_MovingKnobs" Width="16" Height="16">
+                <Panel Name="PART_MovingKnobs" Width="16" Height="16"
+                       gpui:Motion.Spring="{StaticResource Gpui.Spring.Move}" gpui:Motion.SpringsCanvasLeft="True">
                   <Border Name="PART_Thumb" CornerRadius="8" Background="{DynamicResource Gpui.SwitchThumb}" />
                 </Panel>
               </Canvas>
@@ -54,15 +52,6 @@
 
     <!-- Size::XSmall and Size::Small share the 28x16 track; the label text differs. -->
     <Style Selector="^.xsmall, ^.small">
-      <Setter Property="KnobTransitions">
-        <Transitions>
-          <DoubleTransition Property="Canvas.Left" Duration="0:0:0.234">
-            <DoubleTransition.Easing>
-              <SpringEasing Mass="1" Stiffness="27.5725" Damping="8.9266" />
-            </DoubleTransition.Easing>
-          </DoubleTransition>
-        </Transitions>
-      </Setter>
     </Style>
     <Style Selector="^.xsmall">
       <Setter Property="FontSize" Value="12" />
@@ -92,15 +81,6 @@
 
     <Style Selector="^.large">
       <Setter Property="FontSize" Value="16" />
-      <Setter Property="KnobTransitions">
-        <Transitions>
-          <DoubleTransition Property="Canvas.Left" Duration="0:0:0.302">
-            <DoubleTransition.Easing>
-              <SpringEasing Mass="1" Stiffness="45.9259" Damping="11.5207" />
-            </DoubleTransition.Easing>
-          </DoubleTransition>
-        </Transitions>
-      </Setter>
     </Style>
     <Style Selector="^.large /template/ Border#PART_Track">
       <Setter Property="Width" Value="44" />
@@ -150,6 +130,9 @@
     </Style>
     <Style Selector="^:focus /template/ Border#PART_FocusRing">
       <Setter Property="IsVisible" Value="True" />
+    </Style>
+    <Style Selector="^:dragging /template/ Panel#PART_MovingKnobs">
+      <Setter Property="gpui:Motion.SpringTravel" Value="False" />
     </Style>
   </ControlTheme>
 </ResourceDictionary>

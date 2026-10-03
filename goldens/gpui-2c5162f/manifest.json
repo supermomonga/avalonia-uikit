@@ -23668,6 +23668,109 @@
       }
     },
     {
+      "id": "checkbox/motion.reverse/click+wait-80ms+click/light",
+      "component": "checkbox",
+      "group": "motion.reverse",
+      "params": {
+        "label": "Accept"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        128.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        71.0,
+        18.0
+      ],
+      "motion": {
+        "name": "reverse",
+        "trigger": "click+wait-80ms+click",
+        "from": "normal",
+        "frames": [
+          {
+            "t_ms": 0,
+            "png": "png/checkbox/motion.reverse/click+wait-80ms+click/light/0000ms.png",
+            "scene": "scenes/checkbox/motion.reverse/click+wait-80ms+click/light/0000ms.json",
+            "png_sha256": "ced8118925c77ed4004543548985ca2723a30ac08493091a17d5d34004adcd77"
+          },
+          {
+            "t_ms": 16,
+            "png": "png/checkbox/motion.reverse/click+wait-80ms+click/light/0016ms.png",
+            "scene": "scenes/checkbox/motion.reverse/click+wait-80ms+click/light/0016ms.json",
+            "png_sha256": "ced8118925c77ed4004543548985ca2723a30ac08493091a17d5d34004adcd77"
+          },
+          {
+            "t_ms": 33,
+            "png": "png/checkbox/motion.reverse/click+wait-80ms+click/light/0033ms.png",
+            "scene": "scenes/checkbox/motion.reverse/click+wait-80ms+click/light/0033ms.json",
+            "png_sha256": "abf7994bf193fe58bfef165111a8784d493d09f037f40a28ae6ea934152c1234"
+          },
+          {
+            "t_ms": 50,
+            "png": "png/checkbox/motion.reverse/click+wait-80ms+click/light/0050ms.png",
+            "scene": "scenes/checkbox/motion.reverse/click+wait-80ms+click/light/0050ms.json",
+            "png_sha256": "48a653871e1e716e8f39a3624bf71add78f615e0bb4a4e399bda9f889336489a"
+          },
+          {
+            "t_ms": 66,
+            "png": "png/checkbox/motion.reverse/click+wait-80ms+click/light/0066ms.png",
+            "scene": "scenes/checkbox/motion.reverse/click+wait-80ms+click/light/0066ms.json",
+            "png_sha256": "b4e1b29784c80438f3f1c144b6eedd5c9705cce2d1381917d42291e8babc551a"
+          },
+          {
+            "t_ms": 83,
+            "png": "png/checkbox/motion.reverse/click+wait-80ms+click/light/0083ms.png",
+            "scene": "scenes/checkbox/motion.reverse/click+wait-80ms+click/light/0083ms.json",
+            "png_sha256": "b4e1b29784c80438f3f1c144b6eedd5c9705cce2d1381917d42291e8babc551a"
+          },
+          {
+            "t_ms": 100,
+            "png": "png/checkbox/motion.reverse/click+wait-80ms+click/light/0100ms.png",
+            "scene": "scenes/checkbox/motion.reverse/click+wait-80ms+click/light/0100ms.json",
+            "png_sha256": "4d743dcbcb82ea18f0f332d5e7b31ee7087ef2e214124153bc7b32c7cffe144b"
+          },
+          {
+            "t_ms": 133,
+            "png": "png/checkbox/motion.reverse/click+wait-80ms+click/light/0133ms.png",
+            "scene": "scenes/checkbox/motion.reverse/click+wait-80ms+click/light/0133ms.json",
+            "png_sha256": "e7283e7d35de4d1dc7cd5331027ce42c6d818b77939e4e69722b9cba6b1a139c"
+          },
+          {
+            "t_ms": 166,
+            "png": "png/checkbox/motion.reverse/click+wait-80ms+click/light/0166ms.png",
+            "scene": "scenes/checkbox/motion.reverse/click+wait-80ms+click/light/0166ms.json",
+            "png_sha256": "e7283e7d35de4d1dc7cd5331027ce42c6d818b77939e4e69722b9cba6b1a139c"
+          },
+          {
+            "t_ms": 200,
+            "png": "png/checkbox/motion.reverse/click+wait-80ms+click/light/0200ms.png",
+            "scene": "scenes/checkbox/motion.reverse/click+wait-80ms+click/light/0200ms.json",
+            "png_sha256": "e7283e7d35de4d1dc7cd5331027ce42c6d818b77939e4e69722b9cba6b1a139c"
+          },
+          {
+            "t_ms": 266,
+            "png": "png/checkbox/motion.reverse/click+wait-80ms+click/light/0266ms.png",
+            "scene": "scenes/checkbox/motion.reverse/click+wait-80ms+click/light/0266ms.json",
+            "png_sha256": "e7283e7d35de4d1dc7cd5331027ce42c6d818b77939e4e69722b9cba6b1a139c"
+          },
+          {
+            "t_ms": 333,
+            "png": "png/checkbox/motion.reverse/click+wait-80ms+click/light/0333ms.png",
+            "scene": "scenes/checkbox/motion.reverse/click+wait-80ms+click/light/0333ms.json",
+            "png_sha256": "e7283e7d35de4d1dc7cd5331027ce42c6d818b77939e4e69722b9cba6b1a139c"
+          }
+        ]
+      }
+    },
+    {
       "id": "context/menu.base/right-click+at-110-77/dark",
       "component": "context",
       "group": "menu",
@@ -36786,6 +36889,133 @@
       "png": "png/switch/label.xsmall/normal/light.png",
       "scene": "scenes/switch/label.xsmall/normal/light.json",
       "png_sha256": "5597ce53d513591e8db15856f5f4e4e7ed4f953d125b8192020e2c1a3dd6faf2"
+    },
+    {
+      "id": "switch/motion.reverse/click+wait-120ms+click/light",
+      "component": "switch",
+      "group": "motion.reverse",
+      "params": {
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        128.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        36.0,
+        20.0
+      ],
+      "motion": {
+        "name": "reverse",
+        "trigger": "click+wait-120ms+click",
+        "from": "normal",
+        "frames": [
+          {
+            "t_ms": 0,
+            "png": "png/switch/motion.reverse/click+wait-120ms+click/light/0000ms.png",
+            "scene": "scenes/switch/motion.reverse/click+wait-120ms+click/light/0000ms.json",
+            "png_sha256": "ae71b92abf25bb226fa02d22f833b7e3bb1abe4978d79318511382e2f89a290f"
+          },
+          {
+            "t_ms": 16,
+            "png": "png/switch/motion.reverse/click+wait-120ms+click/light/0016ms.png",
+            "scene": "scenes/switch/motion.reverse/click+wait-120ms+click/light/0016ms.json",
+            "png_sha256": "0709df328b13ea1f628476fe9d56f477c7f08af9627b3b77be90b1299c93f84e"
+          },
+          {
+            "t_ms": 33,
+            "png": "png/switch/motion.reverse/click+wait-120ms+click/light/0033ms.png",
+            "scene": "scenes/switch/motion.reverse/click+wait-120ms+click/light/0033ms.json",
+            "png_sha256": "442cff4c45b4e9494e1849454ba79e127ad438bb28d6e9869840814d2b47c602"
+          },
+          {
+            "t_ms": 50,
+            "png": "png/switch/motion.reverse/click+wait-120ms+click/light/0050ms.png",
+            "scene": "scenes/switch/motion.reverse/click+wait-120ms+click/light/0050ms.json",
+            "png_sha256": "1285c8e79ea59e6e8f1fae81b1590843ff948a8962bad0ab2c19529f458b3c1b"
+          },
+          {
+            "t_ms": 66,
+            "png": "png/switch/motion.reverse/click+wait-120ms+click/light/0066ms.png",
+            "scene": "scenes/switch/motion.reverse/click+wait-120ms+click/light/0066ms.json",
+            "png_sha256": "23e0e34d5821290c3dd7540d6ed2ccfdedefeaea66fbf395363d5c001ed6cdb5"
+          },
+          {
+            "t_ms": 83,
+            "png": "png/switch/motion.reverse/click+wait-120ms+click/light/0083ms.png",
+            "scene": "scenes/switch/motion.reverse/click+wait-120ms+click/light/0083ms.json",
+            "png_sha256": "eb144ed7d54f84abfdc3f4dfd85d454915732077156a2849478255d4b911cbe0"
+          },
+          {
+            "t_ms": 100,
+            "png": "png/switch/motion.reverse/click+wait-120ms+click/light/0100ms.png",
+            "scene": "scenes/switch/motion.reverse/click+wait-120ms+click/light/0100ms.json",
+            "png_sha256": "d4c79c05c6479be4a8b7483d80cbb7e3379052da126b78a3d34cf69ab36b4b4d"
+          },
+          {
+            "t_ms": 116,
+            "png": "png/switch/motion.reverse/click+wait-120ms+click/light/0116ms.png",
+            "scene": "scenes/switch/motion.reverse/click+wait-120ms+click/light/0116ms.json",
+            "png_sha256": "6cd22a22c8b11d0e6242312521ce455d7fdadb18e0cd0f6c6d276b16bb653f99"
+          },
+          {
+            "t_ms": 133,
+            "png": "png/switch/motion.reverse/click+wait-120ms+click/light/0133ms.png",
+            "scene": "scenes/switch/motion.reverse/click+wait-120ms+click/light/0133ms.json",
+            "png_sha256": "d5b4e9fd9bbd8cb29f606acc784bfb6738bb83d932dd506f0e3daa50db0c3716"
+          },
+          {
+            "t_ms": 166,
+            "png": "png/switch/motion.reverse/click+wait-120ms+click/light/0166ms.png",
+            "scene": "scenes/switch/motion.reverse/click+wait-120ms+click/light/0166ms.json",
+            "png_sha256": "c6775af94f9747aa0d5d306f4a51f33f573638b205853e70a50fa7903ce35a21"
+          },
+          {
+            "t_ms": 200,
+            "png": "png/switch/motion.reverse/click+wait-120ms+click/light/0200ms.png",
+            "scene": "scenes/switch/motion.reverse/click+wait-120ms+click/light/0200ms.json",
+            "png_sha256": "32584e4badd1b4ad3dfeeef394ee4c1cfcfa776a55e5fb6406a75fca64ffebc3"
+          },
+          {
+            "t_ms": 233,
+            "png": "png/switch/motion.reverse/click+wait-120ms+click/light/0233ms.png",
+            "scene": "scenes/switch/motion.reverse/click+wait-120ms+click/light/0233ms.json",
+            "png_sha256": "32584e4badd1b4ad3dfeeef394ee4c1cfcfa776a55e5fb6406a75fca64ffebc3"
+          },
+          {
+            "t_ms": 266,
+            "png": "png/switch/motion.reverse/click+wait-120ms+click/light/0266ms.png",
+            "scene": "scenes/switch/motion.reverse/click+wait-120ms+click/light/0266ms.json",
+            "png_sha256": "32584e4badd1b4ad3dfeeef394ee4c1cfcfa776a55e5fb6406a75fca64ffebc3"
+          },
+          {
+            "t_ms": 300,
+            "png": "png/switch/motion.reverse/click+wait-120ms+click/light/0300ms.png",
+            "scene": "scenes/switch/motion.reverse/click+wait-120ms+click/light/0300ms.json",
+            "png_sha256": "32584e4badd1b4ad3dfeeef394ee4c1cfcfa776a55e5fb6406a75fca64ffebc3"
+          },
+          {
+            "t_ms": 333,
+            "png": "png/switch/motion.reverse/click+wait-120ms+click/light/0333ms.png",
+            "scene": "scenes/switch/motion.reverse/click+wait-120ms+click/light/0333ms.json",
+            "png_sha256": "32584e4badd1b4ad3dfeeef394ee4c1cfcfa776a55e5fb6406a75fca64ffebc3"
+          },
+          {
+            "t_ms": 400,
+            "png": "png/switch/motion.reverse/click+wait-120ms+click/light/0400ms.png",
+            "scene": "scenes/switch/motion.reverse/click+wait-120ms+click/light/0400ms.json",
+            "png_sha256": "32584e4badd1b4ad3dfeeef394ee4c1cfcfa776a55e5fb6406a75fca64ffebc3"
+          }
+        ]
+      }
     },
     {
       "id": "switch/motion.toggle/click/light",

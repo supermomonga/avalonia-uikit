@@ -21,14 +21,9 @@ SIZES = {
 RING = 3.0
 ROOT_RADIUS = 3.0  # radius * 0.5 (checkbox.rs / radio.rs root)
 
-# spring_control: response 180ms, critically damped, epsilon 0.001. Avalonia's
-# SpringEasing maps progress to time, so the spring is scaled by the duration
-# after which GPUI's spring is settled (264.5ms). See docs/adr (motion mapping).
+# spring_control: response 180ms, critically damped, epsilon 0.001 (theme/motion.rs),
+# run by Motion.Spring so a mark reversed mid-fade keeps its velocity as GPUI's does.
 import math
-D = 0.265
-OMEGA = 2 * math.pi / 0.18
-STIFFNESS = (OMEGA * D) ** 2
-DAMPING = 2 * 1.0 * OMEGA * D
 
 
 def snapped(v: float) -> float:
@@ -70,16 +65,9 @@ def theme(target: str, round_box: bool, disabled_checked_bg: str) -> list[str]:
     w('                  Background="{DynamicResource Gpui.InputBackground}" BorderBrush="{DynamicResource Gpui.Input}">')
     w(f'            <PathIcon Name="PART_Mark" Width="{mark}" Height="{mark}" Margin="1"')
     w('                      HorizontalAlignment="Left" VerticalAlignment="Top"')
-    w('                      Data="{StaticResource Gpui.Icon.Check}" Foreground="{DynamicResource Gpui.PrimaryForeground}" Opacity="0">')
-    w('              <PathIcon.Transitions>')
-    w('                <Transitions>')
-    w(f'                  <DoubleTransition Property="Opacity" Duration="0:0:{D}">')
-    w('                    <DoubleTransition.Easing>')
-    w(f'                      <SpringEasing Mass="1" Stiffness="{STIFFNESS:.4f}" Damping="{DAMPING:.4f}" />')
-    w('                    </DoubleTransition.Easing>')
-    w('                  </DoubleTransition>')
-    w('                </Transitions>')
-    w('              </PathIcon.Transitions>')
+    w('                      Data="{StaticResource Gpui.Icon.Check}" Foreground="{DynamicResource Gpui.PrimaryForeground}"')
+    w('                      gpui:Motion.Spring="{StaticResource Gpui.Spring.Control}" gpui:Motion.SpringTarget="0"')
+    w('                      Opacity="{Binding $self.(gpui:Motion.SpringValue)}">')
     w('            </PathIcon>')
     w('          </Border>')
     w('          <ContentPresenter Name="PART_ContentPresenter" Grid.Column="1" Margin="8,0,0,0"')
@@ -123,7 +111,7 @@ def theme(target: str, round_box: bool, disabled_checked_bg: str) -> list[str]:
     w('      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Primary}" />')
     w('    </Style>')
     w('    <Style Selector="^:checked /template/ PathIcon#PART_Mark">')
-    w('      <Setter Property="Opacity" Value="1" />')
+    w('      <Setter Property="gpui:Motion.SpringTarget" Value="1" />')
     w('    </Style>')
     w('    <Style Selector="^:disabled">')
     w('      <Setter Property="Foreground" Value="{DynamicResource Gpui.MutedForeground}" />')
@@ -145,7 +133,7 @@ def theme(target: str, round_box: bool, disabled_checked_bg: str) -> list[str]:
     w('    </Style>')
     w('    <Style Selector="^:indeterminate /template/ PathIcon#PART_Mark">')
     w('      <Setter Property="Data" Value="{StaticResource Gpui.Icon.Minus}" />')
-    w('      <Setter Property="Opacity" Value="1" />')
+    w('      <Setter Property="gpui:Motion.SpringTarget" Value="1" />')
     w('    </Style>')
     w('    <!-- Keyboard focus only: GPUI prevents a pointer press from focusing the control. -->')
     w('    <Style Selector="^:focus-visible /template/ Border#PART_FocusRing">')
@@ -167,7 +155,8 @@ for target, round_box, name, source in [
         "  Classes: xsmall small large (medium is the default).",
         "-->",
         '<ResourceDictionary xmlns="https://github.com/avaloniaui"',
-        '                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">',
+        '                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"',
+        '                    xmlns:gpui="using:AvaloniaUIKit">',
     ]
     lines += theme(target, round_box, "Gpui.Check.Disabled.Checked")
     lines.append("</ResourceDictionary>")
