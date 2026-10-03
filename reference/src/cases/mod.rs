@@ -31,6 +31,7 @@ mod scroll;
 mod select;
 mod slider;
 mod surface;
+mod table;
 mod tabs;
 pub mod time;
 mod toolbar;
@@ -73,6 +74,8 @@ pub fn builder(case: &Case) -> Result<Builder> {
         "combobox" => select::combobox(&params),
         "tree" => tree::builder(&params),
         "tabs" => tabs::builder(&params),
+        "table" => table::builder(&params),
+        "datatable" => table::data_table(&params),
         "toolbar" => toolbar::builder(&params),
         "popover" => popover::popover(&params),
         "accordion" => accordion::builder(&params),

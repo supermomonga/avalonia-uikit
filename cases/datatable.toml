@@ -1,0 +1,41 @@
+# GPUI Kit DataTable -> TableView (its default theme).
+# Name 120 / Email 140 / Amount 80 (right-aligned) x 5 rows in a 360px box,
+# as tall as the header, the rows and 10px more (the rows do not fill it).
+# Medium and bordered: the header is y 17-49, row k y 49+32k (centers 65, 97,
+# 129, 161, 193); the columns are x 17-137, 137-277, 277-357.
+component = "datatable"
+viewport = [392, 288]
+anchor = [16, 16]
+
+[[group]]
+name = "size"
+matrix = { size = ["xsmall", "small", "medium", "large"] }
+
+# Hover, click-select, selected with another row hovered, the keyboard focus
+# ring (no selection), a keyboard selection, and the resize band of a column
+# boundary: its inner half lights the hairline, the next column's half does not.
+# The harness's "focus" moves focus without a key, so a key shows the ring.
+[[group]]
+name = "medium"
+states = ["at-80-97", "click-at-80-97", "click-at-80-97+at-80-161", "focus+key-escape",
+          "click-at-80-65+at-200-270+key-down", "at-135-33", "at-139-33"]
+
+[[group]]
+name = "small"
+params = { size = "small" }
+states = ["at-80-92", "click-at-80-92"]
+
+[[group]]
+name = "stripe"
+params = { stripe = true }
+states = ["normal", "at-80-97", "click-at-80-97"]
+
+[[group]]
+name = "borderless"
+params = { borderless = true }
+states = ["normal", "focus+key-escape"]
+
+# Columns that cannot be resized show no hairlines.
+[[group]]
+name = "fixed-columns"
+params = { fixed_columns = true }

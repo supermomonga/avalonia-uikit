@@ -1,0 +1,30 @@
+# GPUI Kit Table -> TableView (Theme="{StaticResource GpuiTable}").
+# Invoice / Method / Amount (right-aligned) x 5 rows in a 360px wide box.
+component = "table"
+viewport = [392, 272]
+anchor = [16, 16]
+
+[[group]]
+name = "size"
+matrix = { size = ["xsmall", "small", "medium", "large"] }
+
+# The story's Bordered table: border_1, the border color, rounded(radius).
+[[group]]
+name = "bordered"
+params = { bordered = true }
+matrix = { size = ["small", "medium", "large"] }
+
+# Every other body row filled with table_even (app styling in GPUI, the stripe class here).
+[[group]]
+name = "stripe"
+params = { bordered = true, stripe = true }
+
+# All columns fixed (100/120/100, 320 <= 360: none shrinks) <-> pixel column widths.
+[[group]]
+name = "fixed"
+params = { fixed_widths = true }
+
+# GPUI's Table has no hover or selection: pointing at a row and clicking it change nothing.
+[[group]]
+name = "pointer"
+states = ["at-80-94", "click-at-80-94"]

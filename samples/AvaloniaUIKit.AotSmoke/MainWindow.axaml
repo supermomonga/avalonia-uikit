@@ -1,5 +1,6 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="using:AvaloniaUIKit.AotSmoke"
         x:Class="AvaloniaUIKit.AotSmoke.MainWindow"
         Title="AvaloniaUIKit gallery" Width="760" Height="860">
   <DockPanel>
@@ -120,6 +121,24 @@
                             CustomDateFormatString="yyyy/MM/dd" PlaceholderText="Select date" />
 
         <TimePicker SelectedTime="09:30" ClockIdentifier="24HourClock" />
+
+        <TextBlock Text="Table" Foreground="{DynamicResource Gpui.MutedForeground}" />
+        <TableView Theme="{StaticResource GpuiTable}" Classes="stripe" Width="360" HorizontalAlignment="Left"
+                   ItemsSource="{x:Static local:Invoice.Samples}">
+          <TableView.Columns>
+            <TableViewColumn Header="Invoice" Binding="{Binding Id}" />
+            <TableViewColumn Header="Method" Binding="{Binding Method}" />
+            <TableViewColumn Header="Amount" Binding="{Binding Amount}" HorizontalContentAlignment="Right" />
+          </TableView.Columns>
+        </TableView>
+        <TableView Classes="small" Width="360" Height="124" HorizontalAlignment="Left"
+                   ItemsSource="{x:Static local:Invoice.Samples}">
+          <TableView.Columns>
+            <TableViewColumn Header="Invoice" Binding="{Binding Id}" Width="120" />
+            <TableViewColumn Header="Method" Binding="{Binding Method}" Width="140" />
+            <TableViewColumn Header="Amount" Binding="{Binding Amount}" Width="80" HorizontalContentAlignment="Right" />
+          </TableView.Columns>
+        </TableView>
 
         <TextBlock Text="Popover" Foreground="{DynamicResource Gpui.MutedForeground}" />
         <Button Classes="outline" Content="Open" HorizontalAlignment="Left">

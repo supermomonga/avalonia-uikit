@@ -26,13 +26,16 @@ public static class TextLines
     /// <summary>
     /// Rounds the width of TextBlocks (inherited: every one below the element)
     /// up to whole logical pixels, as GPUI sizes a text element, through the
-    /// TextBlock's MinWidth at style priority.
+    /// TextBlock's MinWidth at style priority. A stretched text wider than the
+    /// room it is arranged in keeps Avalonia's own width, so it overflows from
+    /// its start (or trims) rather than centering on the room.
     /// </summary>
     public static readonly AttachedProperty<bool> RoundsWidthUpProperty =
         AvaloniaProperty.RegisterAttached<Control, bool>("RoundsWidthUp", typeof(TextLines), inherits: true);
 
     private static readonly AttachedProperty<IDisposable?> RoundedWidthProperty =
         AvaloniaProperty.RegisterAttached<TextBlock, IDisposable?>("RoundedWidth", typeof(TextLines));
+
 
     static TextLines()
     {
@@ -75,10 +78,24 @@ public static class TextLines
     public static void SetRoundsWidthUp(Control element, bool value) => element.SetValue(RoundsWidthUpProperty, value);
 
     // The text's own width, before layout rounding, and up to whole pixels.
-    private static void OnSizeChanged(object? sender, SizeChangedEventArgs e)
+    private static void OnSizeChanged(object? sender, SizeChangedEventArgs e) => Round((TextBlock)sender!);
+
+    private static void Round(TextBlock text)
     {
-        var text = (TextBlock)sender!;
-        var width = Math.Ceiling(text.TextLayout.WidthIncludingTrailingWhitespace - 1e-4) + text.Padding.Left + text.Padding.Right;
+        var padding = text.Padding.Left + text.Padding.Right;
+        var natural = text.TextLayout.WidthIncludingTrailingWhitespace + padding;
+        var width = Math.Ceiling(natural - padding - 1e-4) + padding;
+        // A stretched text wider than its slot overflows (or trims) at Avalonia's own
+        // width: held at its rounded width, it would center on the slot instead. One
+        // aligned to a side overflows from that side either way.
+        var slot = LayoutInformation.GetPreviousArrangeBounds(text) is { } arranged
+            ? arranged.Width - text.Margin.Left - text.Margin.Right
+            : double.PositiveInfinity;
+        if (natural > slot + 1e-4 && text.HorizontalAlignment == HorizontalAlignment.Stretch)
+        {
+            Unround(text);
+            return;
+        }
         if (text.MinWidth != width && width > 0)
         {
             Unround(text);
@@ -95,6 +112,12 @@ public static class TextLines
             e.Property == TextBlock.FontStretchProperty || e.Property == TextBlock.LetterSpacingProperty)
         {
             Unround((TextBlock)sender!);
+        }
+        // Moved without resizing: held wider than a room that shrank, it now centers there.
+        else if (e.Property == Visual.BoundsProperty &&
+                 e.GetOldValue<Rect>().Size == e.GetNewValue<Rect>().Size)
+        {
+            Round((TextBlock)sender!);
         }
     }
 

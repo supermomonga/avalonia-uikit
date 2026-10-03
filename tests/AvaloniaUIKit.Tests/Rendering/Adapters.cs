@@ -66,6 +66,8 @@ public static class Adapters
         "timefield" => TimeField(c),
         "collapsible" => Collapsible(c),
         "slider" => Slider(c),
+        "table" => Table(c),
+        "datatable" => DataTable(c),
         _ => throw new NotSupportedException($"no adapter for {c.Component}"),
     };
 
@@ -735,6 +737,95 @@ public static class Adapters
             calendar.DisplayMode = CalendarMode.Year;
         }
         return calendar;
+    }
+
+    /// <summary>reference/src/cases/table.rs: the story's invoices.</summary>
+    public sealed record Invoice(string Id, string Method, string Amount);
+
+    public static readonly Invoice[] Invoices =
+    [
+        new("INV001", "Credit Card", "$250.00"),
+        new("INV002", "PayPal", "$150.00"),
+        new("INV003", "Bank Transfer", "$350.00"),
+        new("INV004", "Credit Card", "$450.00"),
+        new("INV005", "PayPal", "$550.00"),
+    ];
+
+    // GPUI's cells without a width share the row equally (star columns); fixed_widths
+    // gives every column a width that fits, so none shrinks (pixel columns).
+    private static TableView Table(GoldenCase c)
+    {
+        var fixedWidths = c.Bool("fixed_widths");
+        GridLength Width(double px) => fixedWidths ? new GridLength(px) : new GridLength(1, GridUnitType.Star);
+        var table = new TableView
+        {
+            Theme = (ControlTheme)Avalonia.Application.Current!.FindResource("GpuiTable")!,
+            Width = c.Num("width", 360),
+            ItemsSource = Invoices,
+            Columns =
+            {
+                new TableViewColumn { Header = "Invoice", Width = Width(100), Binding = Avalonia.Data.CompiledBinding.Create<Invoice, string>(r => r.Id) },
+                new TableViewColumn { Header = "Method", Width = Width(120), Binding = Avalonia.Data.CompiledBinding.Create<Invoice, string>(r => r.Method) },
+                new TableViewColumn
+                {
+                    Header = "Amount",
+                    Width = Width(100),
+                    HorizontalContentAlignment = HorizontalAlignment.Right,
+                    Binding = Avalonia.Data.CompiledBinding.Create<Invoice, string>(r => r.Amount),
+                },
+            },
+        };
+        ClassFrom(table, c, "size", "medium");
+        FlagClass(table, c, "stripe");
+        if (c.Bool("bordered"))
+        {
+            table.BorderThickness = new Avalonia.Thickness(1);
+            table.CornerRadius = new Avalonia.CornerRadius(5.5);
+        }
+        return table;
+    }
+
+    /// <summary>reference/src/cases/table.rs: the DataTable's people.</summary>
+    public sealed record Person(string Name, string Email, string Amount);
+
+    public static readonly Person[] People =
+    [
+        new("Ada", "ada@example.com", "$250.00"),
+        new("Grace", "grace@example.com", "$150.00"),
+        new("Linus", "linus@example.com", "$350.00"),
+        new("Ken", "ken@example.com", "$450.00"),
+        new("Barbara", "barbara@example.com", "$550.00"),
+    ];
+
+    // As tall as GPUI's box: the header, the rows and `extra` below them.
+    private static TableView DataTable(GoldenCase c)
+    {
+        var size = c.Str("size", "medium");
+        double row = size switch { "xsmall" => 26, "small" => 30, "large" => 40, _ => 32 };
+        var bordered = !c.Bool("borderless");
+        var table = new TableView
+        {
+            Width = c.Num("width", 360),
+            Height = (bordered ? 2 : 0) + row * (People.Length + 1) + c.Num("extra", 10),
+            ItemsSource = People,
+            CanUserResizeColumns = !c.Bool("fixed_columns"),
+            Columns =
+            {
+                new TableViewColumn { Header = "Name", Width = new GridLength(120), Binding = Avalonia.Data.CompiledBinding.Create<Person, string>(r => r.Name) },
+                new TableViewColumn { Header = "Email", Width = new GridLength(140), Binding = Avalonia.Data.CompiledBinding.Create<Person, string>(r => r.Email) },
+                new TableViewColumn
+                {
+                    Header = "Amount",
+                    Width = new GridLength(80),
+                    HorizontalContentAlignment = HorizontalAlignment.Right,
+                    Binding = Avalonia.Data.CompiledBinding.Create<Person, string>(r => r.Amount),
+                },
+            },
+        };
+        ClassFrom(table, c, "size", "medium");
+        FlagClass(table, c, "stripe");
+        FlagClass(table, c, "borderless");
+        return table;
     }
 
     // GPUI's img() box is the element; Avalonia's Image takes the fitted size, so the

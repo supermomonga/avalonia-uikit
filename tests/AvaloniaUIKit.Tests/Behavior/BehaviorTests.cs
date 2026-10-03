@@ -233,4 +233,43 @@ public class BehaviorTests
         await Assert.That(card.IsClosed).IsTrue();
         await Assert.That(host.Window.GetVisualDescendants().OfType<Avalonia.Controls.Notifications.NotificationCard>()).IsEmpty();
     }
+
+    // GPUI rings a DataTable while it is focused and the last input was a key:
+    // a click focuses without the ring, a key after it shows it (Avalonia moves
+    // focus between rows, so Tables.ShowsFocusRing follows the input instead).
+    [Test]
+    public async Task A_data_table_shows_the_focus_ring_after_keys_only()
+    {
+        var golden = Case("datatable/size.medium/normal/light");
+        using var host = CaseHost.Open(golden, Adapters.Create(golden));
+        host.Drive(golden, "click-at-80-65");
+        await Assert.That(RingVisible(host)).IsFalse();
+        host.Drive(golden, "key-down");
+        await Assert.That(RingVisible(host)).IsTrue();
+        host.Drive(golden, "click-at-80-129");
+        await Assert.That(RingVisible(host)).IsFalse();
+        host.Drive(golden, "focus");
+        await Assert.That(RingVisible(host)).IsTrue();
+    }
+
+    // A cell's text overflows from the side it is aligned to when its column
+    // narrows (GPUI justifies an overflowing text to that side), rather than
+    // centering on the cell at its rounded width.
+    [Test]
+    public async Task A_narrowed_column_keeps_its_text_at_its_side()
+    {
+        var golden = Case("datatable/size.medium/normal/light");
+        using var host = CaseHost.Open(golden, Adapters.Create(golden));
+        var table = (TableView)host.Control;
+        table.Columns[0].Width = new GridLength(40);
+        table.Columns[2].Width = new GridLength(40);
+        host.Flush();
+        var texts = host.Window.GetVisualDescendants().OfType<TextBlock>().ToList();
+        var name = texts.Single(t => t.Text == "Barbara");
+        var amount = texts.Single(t => t.Text == "$250.00");
+        var nameCell = name.FindAncestorOfType<TableViewCell>()!;
+        var amountCell = amount.FindAncestorOfType<TableViewCell>()!;
+        await Assert.That(name.TranslatePoint(default, nameCell)!.Value.X).IsEqualTo(8);
+        await Assert.That(amount.TranslatePoint(new Point(amount.Bounds.Width, 0), amountCell)!.Value.X).IsEqualTo(32);
+    }
 }
