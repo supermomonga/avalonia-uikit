@@ -1,0 +1,7 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.AlertDemo">
+  <gpui:Alert Classes="info" Title="Heads up!" Content="You can add components to your app using the CLI."
+              IsClosable="True" CloseRequested="OnClose" Width="420" HorizontalAlignment="Left" />
+</UserControl>

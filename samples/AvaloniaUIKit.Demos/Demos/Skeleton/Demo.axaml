@@ -1,0 +1,12 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.SkeletonDemo">
+  <StackPanel Orientation="Horizontal" Spacing="12" HorizontalAlignment="Left">
+    <gpui:Skeleton Width="40" Height="40" CornerRadius="20" />
+    <StackPanel Spacing="8" VerticalAlignment="Center">
+      <gpui:Skeleton Width="200" />
+      <gpui:Skeleton Classes="secondary" Width="140" />
+    </StackPanel>
+  </StackPanel>
+</UserControl>

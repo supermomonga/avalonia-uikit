@@ -1,0 +1,31 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.AccordionSizes">
+  <WrapPanel ItemSpacing="16" LineSpacing="16">
+    <Border Classes="accordion" Width="280">
+      <StackPanel Classes="accordion">
+        <Expander Classes="xsmall" Header="Extra small" Content="Yes, it is." IsExpanded="True" />
+        <Expander Classes="xsmall" Header="Is it styled?" Content="Yes, by the theme." />
+      </StackPanel>
+    </Border>
+    <Border Classes="accordion" Width="280">
+      <StackPanel Classes="accordion">
+        <Expander Classes="small" Header="Small" Content="Yes, it is." IsExpanded="True" />
+        <Expander Classes="small" Header="Is it styled?" Content="Yes, by the theme." />
+      </StackPanel>
+    </Border>
+    <Border Classes="accordion" Width="280">
+      <StackPanel Classes="accordion">
+        <Expander Header="Medium" Content="Yes, it is." IsExpanded="True" />
+        <Expander Header="Is it styled?" Content="Yes, by the theme." />
+      </StackPanel>
+    </Border>
+    <Border Classes="accordion" Width="280">
+      <StackPanel Classes="accordion">
+        <Expander Classes="large" Header="Large" Content="Yes, it is." IsExpanded="True" />
+        <Expander Classes="large" Header="Is it styled?" Content="Yes, by the theme." />
+      </StackPanel>
+    </Border>
+  </WrapPanel>
+</UserControl>

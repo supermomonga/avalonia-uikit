@@ -1,0 +1,13 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.ProgressCircleSizes">
+  <StackPanel Orientation="Horizontal" Spacing="16" HorizontalAlignment="Left">
+    <ProgressBar Theme="{StaticResource GpuiProgressCircle}" Classes="xsmall" Value="60" VerticalAlignment="Center" />
+    <ProgressBar Theme="{StaticResource GpuiProgressCircle}" Classes="small" Value="60" VerticalAlignment="Center" />
+    <ProgressBar Theme="{StaticResource GpuiProgressCircle}" Value="60" VerticalAlignment="Center" />
+    <ProgressBar Theme="{StaticResource GpuiProgressCircle}" Classes="large" Value="60" VerticalAlignment="Center" />
+    <!-- Any size works: the stroke is 15% of the width, at most 5px. -->
+    <ProgressBar Theme="{StaticResource GpuiProgressCircle}" Width="80" Height="80" Value="60" VerticalAlignment="Center" />
+  </StackPanel>
+</UserControl>

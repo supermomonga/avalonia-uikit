@@ -1,0 +1,14 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.NotificationTypes">
+  <Panel MinWidth="600" MinHeight="260">
+    <WrapPanel ItemSpacing="8" LineSpacing="8" HorizontalAlignment="Left" VerticalAlignment="Top">
+      <Button Classes="outline" Content="Information" Tag="information" Click="OnShow" />
+      <Button Classes="outline" Content="Success" Tag="success" Click="OnShow" />
+      <Button Classes="outline" Content="Warning" Tag="warning" Click="OnShow" />
+      <Button Classes="outline" Content="Error" Tag="error" Click="OnShow" />
+      <Button Classes="outline" Content="Plain" Tag="plain" Click="OnShow" />
+    </WrapPanel>
+  </Panel>
+</UserControl>

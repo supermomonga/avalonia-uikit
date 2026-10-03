@@ -1,0 +1,10 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.ProgressCircleIndeterminate">
+  <StackPanel Orientation="Horizontal" Spacing="16" HorizontalAlignment="Left">
+    <ProgressBar Theme="{StaticResource GpuiProgressCircle}" IsIndeterminate="True" VerticalAlignment="Center" />
+    <ProgressBar Theme="{StaticResource GpuiProgressCircle}" Classes="large" IsIndeterminate="True" VerticalAlignment="Center" />
+    <ProgressBar Theme="{StaticResource GpuiProgressCircle}" Width="40" Height="40" IsIndeterminate="True" VerticalAlignment="Center" />
+  </StackPanel>
+</UserControl>

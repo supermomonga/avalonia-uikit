@@ -1,0 +1,50 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.PopoverPlacements">
+  <Panel MinWidth="640" MinHeight="300">
+    <Grid ColumnDefinitions="Auto,Auto,Auto" RowDefinitions="Auto,Auto,Auto" ColumnSpacing="8" RowSpacing="8"
+          HorizontalAlignment="Center" VerticalAlignment="Center">
+      <Button Classes="outline" Content="Top start" HorizontalAlignment="Stretch">
+        <Button.Flyout>
+          <Flyout Placement="TopEdgeAlignedLeft" PlacementConstraintAdjustment="SlideX, SlideY" Content="Popover content" />
+        </Button.Flyout>
+      </Button>
+      <Button Grid.Column="1" Classes="outline" Content="Top" HorizontalAlignment="Stretch">
+        <Button.Flyout>
+          <Flyout Placement="Top" PlacementConstraintAdjustment="SlideX, SlideY" Content="Popover content" />
+        </Button.Flyout>
+      </Button>
+      <Button Grid.Column="2" Classes="outline" Content="Top end" HorizontalAlignment="Stretch">
+        <Button.Flyout>
+          <Flyout Placement="TopEdgeAlignedRight" PlacementConstraintAdjustment="SlideX, SlideY" Content="Popover content" />
+        </Button.Flyout>
+      </Button>
+      <Button Grid.Row="1" Classes="outline" Content="Left" HorizontalAlignment="Stretch">
+        <Button.Flyout>
+          <Flyout Placement="Left" PlacementConstraintAdjustment="SlideX, SlideY" Content="Popover content" />
+        </Button.Flyout>
+      </Button>
+      <Button Grid.Row="1" Grid.Column="2" Classes="outline" Content="Right" HorizontalAlignment="Stretch">
+        <Button.Flyout>
+          <Flyout Placement="Right" PlacementConstraintAdjustment="SlideX, SlideY" Content="Popover content" />
+        </Button.Flyout>
+      </Button>
+      <Button Grid.Row="2" Classes="outline" Content="Bottom start" HorizontalAlignment="Stretch">
+        <Button.Flyout>
+          <Flyout Placement="BottomEdgeAlignedLeft" PlacementConstraintAdjustment="SlideX, SlideY" Content="Popover content" />
+        </Button.Flyout>
+      </Button>
+      <Button Grid.Row="2" Grid.Column="1" Classes="outline" Content="Bottom" HorizontalAlignment="Stretch">
+        <Button.Flyout>
+          <Flyout Placement="Bottom" PlacementConstraintAdjustment="SlideX, SlideY" Content="Popover content" />
+        </Button.Flyout>
+      </Button>
+      <Button Grid.Row="2" Grid.Column="2" Classes="outline" Content="Bottom end" HorizontalAlignment="Stretch">
+        <Button.Flyout>
+          <Flyout Placement="BottomEdgeAlignedRight" PlacementConstraintAdjustment="SlideX, SlideY" Content="Popover content" />
+        </Button.Flyout>
+      </Button>
+    </Grid>
+  </Panel>
+</UserControl>

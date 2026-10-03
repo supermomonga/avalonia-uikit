@@ -1,0 +1,40 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.TitleBarDemo">
+  <!--
+    The theme draws the title bar as part of the window's decorations
+    (WindowDrawnDecorations), which a page cannot host; this is the same bar
+    built from the theme's resources: the gradient, the rule, the caption buttons.
+  -->
+  <Border Width="480" Height="140" HorizontalAlignment="Left" BorderThickness="1"
+          BorderBrush="{DynamicResource Gpui.WindowFrame}" Background="{DynamicResource Gpui.Background}">
+    <DockPanel>
+      <Border DockPanel.Dock="Top" Height="34" BackgroundSizing="OuterBorderEdge" BorderThickness="0,0,0,1"
+              BorderBrush="{DynamicResource Gpui.TitleBarBorder}">
+        <Border.Background>
+          <LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,100%">
+            <GradientStop Offset="0" Color="{DynamicResource Gpui.TitleBar.GradientTop.Color}" />
+            <GradientStop Offset="1" Color="{DynamicResource Gpui.TitleBar.Color}" />
+          </LinearGradientBrush>
+        </Border.Background>
+        <DockPanel>
+          <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
+            <Button Theme="{StaticResource GpuiCaptionButton}">
+              <PathIcon Width="14" Height="14" Data="{StaticResource Gpui.Icon.WindowMinimize}" />
+            </Button>
+            <Button Theme="{StaticResource GpuiCaptionButton}">
+              <PathIcon Width="14" Height="14" Data="{StaticResource Gpui.Icon.WindowMaximize}" />
+            </Button>
+            <Button Theme="{StaticResource GpuiCaptionButton}" Classes="close">
+              <PathIcon Width="14" Height="14" Data="{StaticResource Gpui.Icon.WindowClose}" />
+            </Button>
+          </StackPanel>
+          <TextBlock Text="My Application" Margin="{DynamicResource Gpui.TitleBar.Padding}" VerticalAlignment="Center"
+                     FontSize="14" FontWeight="Medium" LineHeight="22.5" />
+        </DockPanel>
+      </Border>
+      <TextBlock Text="Window content" Margin="16" Foreground="{DynamicResource Gpui.MutedForeground}" />
+    </DockPanel>
+  </Border>
+</UserControl>

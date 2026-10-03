@@ -1,0 +1,11 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.AlertSizes">
+  <StackPanel Spacing="12" Width="420" HorizontalAlignment="Left">
+    <gpui:Alert Classes="info xsmall" Title="Extra small" Content="You can add components to your app using the CLI." IsClosable="True" />
+    <gpui:Alert Classes="info small" Title="Small" Content="You can add components to your app using the CLI." IsClosable="True" />
+    <gpui:Alert Classes="info" Title="Medium" Content="You can add components to your app using the CLI." IsClosable="True" />
+    <gpui:Alert Classes="info large" Title="Large" Content="You can add components to your app using the CLI." IsClosable="True" />
+  </StackPanel>
+</UserControl>

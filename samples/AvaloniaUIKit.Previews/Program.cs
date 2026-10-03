@@ -144,14 +144,21 @@ internal static class Program
         window.SetRenderScaling(scale);
     }
 
-    /// <summary>Runs layout, timers and a few frames, so transitions that start on load have settled.</summary>
+    /// <summary>
+    /// Runs layout, timers and frames for about 600 ms of real time, so the
+    /// transitions that start on load (a notification card's entrance, a
+    /// sheet sliding in, a spring settling) have finished before the capture.
+    /// </summary>
     private static void Tick()
     {
-        for (var i = 0; i < 4; i++)
+        for (var i = 0; i < 7; i++)
         {
             AvaloniaHeadlessPlatform.ForceRenderTimerTick();
             Dispatcher.UIThread.RunJobs();
+            Thread.Sleep(100);
         }
+        AvaloniaHeadlessPlatform.ForceRenderTimerTick();
+        Dispatcher.UIThread.RunJobs();
     }
 
     private static void Capture(Window window, string path)

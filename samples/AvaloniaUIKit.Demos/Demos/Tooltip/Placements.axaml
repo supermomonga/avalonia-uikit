@@ -1,0 +1,13 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.TooltipPlacements">
+  <Panel MinWidth="520" MinHeight="170">
+    <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Center" VerticalAlignment="Center">
+      <Button Classes="outline" Content="Top" ToolTip.Tip="Above the trigger" />
+      <Button Classes="outline" Content="Bottom" ToolTip.Tip="Below the trigger" ToolTip.Placement="Bottom" />
+      <Button Classes="outline" Content="Left" ToolTip.Tip="On the left" ToolTip.Placement="Left" />
+      <Button Classes="outline" Content="Right" ToolTip.Tip="On the right" ToolTip.Placement="Right" />
+    </StackPanel>
+  </Panel>
+</UserControl>

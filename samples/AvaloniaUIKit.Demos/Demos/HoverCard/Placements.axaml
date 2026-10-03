@@ -1,0 +1,33 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.HoverCardPlacements">
+  <Panel MinWidth="520" MinHeight="220">
+    <StackPanel Orientation="Horizontal" Spacing="32" HorizontalAlignment="Center" VerticalAlignment="Center">
+      <gpui:HoverCard Placement="Top">
+        <TextBlock Text="Top" Foreground="{DynamicResource Gpui.Primary}" />
+        <gpui:HoverCard.Card>
+          <TextBlock Text="Opens above the trigger" />
+        </gpui:HoverCard.Card>
+      </gpui:HoverCard>
+      <gpui:HoverCard Placement="Bottom">
+        <TextBlock Text="Bottom" Foreground="{DynamicResource Gpui.Primary}" />
+        <gpui:HoverCard.Card>
+          <TextBlock Text="Opens below the trigger" />
+        </gpui:HoverCard.Card>
+      </gpui:HoverCard>
+      <gpui:HoverCard Placement="BottomEdgeAlignedLeft">
+        <TextBlock Text="Bottom start" Foreground="{DynamicResource Gpui.Primary}" />
+        <gpui:HoverCard.Card>
+          <TextBlock Text="Aligned to the trigger's left edge" />
+        </gpui:HoverCard.Card>
+      </gpui:HoverCard>
+      <gpui:HoverCard Placement="Right">
+        <TextBlock Text="Right" Foreground="{DynamicResource Gpui.Primary}" />
+        <gpui:HoverCard.Card>
+          <TextBlock Text="Opens to the right" />
+        </gpui:HoverCard.Card>
+      </gpui:HoverCard>
+    </StackPanel>
+  </Panel>
+</UserControl>
