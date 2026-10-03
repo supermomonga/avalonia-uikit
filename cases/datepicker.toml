@@ -1,0 +1,37 @@
+# GPUI Kit DatePicker -> CalendarDatePicker. Field 220 wide; the popup opens 6px below, left-aligned.
+component = "datepicker"
+viewport = [252, 60]
+anchor = [16, 8]
+
+[[group]]
+name = "field"
+params = { width = 220 }
+matrix = { size = ["xsmall", "small", "medium", "large"], date = ["none", "2025-03-14"] }
+states = ["normal", "focus", "disabled"]
+
+[[group]]
+name = "hover"
+params = { width = 220, date = "2025-03-14" }
+states = ["hover"]
+
+# Opened from the calendar icon; 200ms lets the 150ms enter motion finish.
+[[group]]
+name = "open"
+viewport = [340, 420]
+params = { width = 220, date = "2025-03-14", pointer_x = 0.9318 }
+matrix = { size = ["xsmall", "small", "medium", "large"] }
+states = ["click+wait-200ms"]
+
+[[group]]
+name = "open-hover"
+viewport = [340, 420]
+params = { width = 220, date = "2025-03-14", pointer_x = 0.9318 }
+states = ["click+wait-200ms+at-108-172"]
+
+[[motion]]
+name = "enter"
+viewport = [340, 420]
+params = { width = 220, date = "2025-03-14", pointer_x = 0.9318 }
+trigger = "click"
+samples_ms = [0, 16, 33, 50, 75, 100, 125, 150, 200]
+themes = ["light"]

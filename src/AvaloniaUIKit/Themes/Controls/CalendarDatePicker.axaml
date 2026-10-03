@@ -1,0 +1,224 @@
+<!--
+  GPUI Kit DatePicker (crates/component/src/time/date_picker.rs) ->
+  CalendarDatePicker:
+
+    <CalendarDatePicker SelectedDateFormat="Custom" CustomDateFormatString="yyyy/MM/dd"
+                        PlaceholderText="Select date" Classes="small" />
+
+  An input-styled field (the input border and background, radius 6) with the
+  date or the muted placeholder and a 12px muted calendar icon at its end; the
+  border turns ring with the focus band while it has the focus or its calendar
+  is open. The calendar (the Calendar theme, without its card) opens 6px below
+  on GPUI's popover surface, sliding 8px down and fading in over 150ms. Sizes:
+  xsmall small large (medium is the default); the popup calendar is small for
+  small, large for large. Disabled, the field fades to half without the icon.
+  GPUI's text format and placeholder are the app's: set SelectedDateFormat,
+  CustomDateFormatString and PlaceholderText (they also govern parsing).
+-->
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <!-- The text without a field of its own: the picker's frame is the field. -->
+  <ControlTheme x:Key="GpuiBareTextBox" TargetType="TextBox">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="BorderThickness" Value="0" />
+    <Setter Property="CaretBrush" Value="{DynamicResource Gpui.Caret}" />
+    <Setter Property="SelectionBrush" Value="{DynamicResource Gpui.Selection}" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
+          <Panel VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+            <TextBlock Name="PART_Placeholder"
+                       Foreground="{TemplateBinding PlaceholderForeground}"
+                       Text="{TemplateBinding PlaceholderText}"
+                       TextAlignment="{TemplateBinding TextAlignment}"
+                       LineHeight="{TemplateBinding LineHeight}"
+                       TextTrimming="CharacterEllipsis"
+                       IsVisible="{TemplateBinding Text, Converter={x:Static StringConverters.IsNullOrEmpty}}" />
+            <TextPresenter Name="PART_TextPresenter"
+                           CaretBlinkInterval="{TemplateBinding CaretBlinkInterval}"
+                           CaretBrush="{TemplateBinding CaretBrush}"
+                           CaretIndex="{TemplateBinding CaretIndex}"
+                           LineHeight="{TemplateBinding LineHeight}"
+                           SelectionBrush="{TemplateBinding SelectionBrush}"
+                           SelectionEnd="{TemplateBinding SelectionEnd}"
+                           SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
+                           SelectionStart="{TemplateBinding SelectionStart}"
+                           Text="{TemplateBinding Text, Mode=TwoWay}"
+                           TextAlignment="{TemplateBinding TextAlignment}"
+                           TextWrapping="NoWrap" />
+          </Panel>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+
+  <!-- The calendar icon: no look of its own. -->
+  <ControlTheme x:Key="GpuiDatePickerIconButton" TargetType="Button">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Focusable" Value="False" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <ContentPresenter Background="{TemplateBinding Background}" Content="{TemplateBinding Content}"
+                          VerticalAlignment="Center" />
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type CalendarDatePicker}" TargetType="CalendarDatePicker">
+    <Setter Property="Background" Value="{DynamicResource Gpui.InputBackground}" />
+    <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Input}" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="CornerRadius" Value="5.5" />
+    <Setter Property="PlaceholderForeground" Value="{DynamicResource Gpui.MutedForeground}" />
+    <!-- GPUI's calendar always marks today. -->
+    <Setter Property="IsTodayHighlighted" Value="True" />
+    <Setter Property="Height" Value="32" />
+    <Setter Property="Padding" Value="10,0" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="TextBlock.LineHeight" Value="22.5" />
+    <Setter Property="HorizontalAlignment" Value="Stretch" />
+    <Setter Property="VerticalAlignment" Value="Top" />
+    <Setter Property="ClipToBounds" Value="False" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Panel>
+          <!-- focus_ring (styled.rs): a 3px band outside the border, in ring at 50%. -->
+          <Border Name="PART_FocusRing" Margin="-3" BorderThickness="3" CornerRadius="7.5"
+                  BorderBrush="{DynamicResource Gpui.FocusRing}" IsVisible="False" IsHitTestVisible="False" />
+          <Border Name="PART_Frame"
+                  BackgroundSizing="OuterBorderEdge"
+                  Background="{TemplateBinding Background}"
+                  BorderBrush="{TemplateBinding BorderBrush}"
+                  BorderThickness="{TemplateBinding BorderThickness}"
+                  CornerRadius="{TemplateBinding CornerRadius}"
+                  Padding="{TemplateBinding Padding}">
+            <Grid ColumnDefinitions="*,Auto" ColumnSpacing="4">
+              <TextBox Name="PART_TextBox"
+                       Theme="{StaticResource GpuiBareTextBox}"
+                       Foreground="{TemplateBinding Foreground}"
+                       PlaceholderText="{TemplateBinding PlaceholderText}"
+                       PlaceholderForeground="{TemplateBinding PlaceholderForeground}"
+                       LineHeight="{TemplateBinding TextBlock.LineHeight}"
+                       TextAlignment="Left" />
+              <Button Name="PART_Button" Grid.Column="1" Theme="{StaticResource GpuiDatePickerIconButton}">
+                <PathIcon Width="12" Height="12" Data="{StaticResource Gpui.Icon.Calendar}"
+                          Foreground="{DynamicResource Gpui.MutedForeground}" />
+              </Button>
+            </Grid>
+          </Border>
+          <Popup Name="PART_Popup"
+                 PlacementTarget="PART_Frame"
+                 Placement="BottomEdgeAlignedLeft"
+                 IsLightDismissEnabled="True"
+                 WindowManagerAddShadowHint="False">
+            <!-- dropdown_positioner: 6px below the field. -->
+            <Border Padding="0,6,0,0" ClipToBounds="False">
+              <Panel Name="PART_PopupMotion">
+                <Border Name="PART_PopupRing" Margin="-1" CornerRadius="6"
+                        Background="{DynamicResource Gpui.PopoverRing}" IsHitTestVisible="False" />
+                <Border Name="PART_PopupShadow" CornerRadius="6"
+                        BoxShadow="{StaticResource Gpui.Shadow.Popover}" IsHitTestVisible="False" />
+                <Border Name="PART_PopupSurface" CornerRadius="6" Padding="12"
+                        Background="{DynamicResource Gpui.Popover}">
+                  <Calendar Name="PART_Calendar"
+                            Width="224"
+                            BorderThickness="0" Padding="0" CornerRadius="0"
+                            Foreground="{DynamicResource Gpui.PopoverForeground}"
+                            FirstDayOfWeek="{TemplateBinding FirstDayOfWeek}"
+                            IsTodayHighlighted="{TemplateBinding IsTodayHighlighted}"
+                            SelectedDate="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SelectedDate, Mode=TwoWay}"
+                            DisplayDate="{TemplateBinding DisplayDate}"
+                            DisplayDateStart="{TemplateBinding DisplayDateStart}"
+                            DisplayDateEnd="{TemplateBinding DisplayDateEnd}" />
+                </Border>
+              </Panel>
+            </Border>
+          </Popup>
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+
+    <Style Selector="^.xsmall">
+      <Setter Property="Height" Value="20" />
+      <Setter Property="Padding" Value="4,0" />
+      <Setter Property="FontSize" Value="12" />
+      <Setter Property="TextBlock.LineHeight" Value="19.5" />
+    </Style>
+    <Style Selector="^.small">
+      <Setter Property="Height" Value="24" />
+      <Setter Property="Padding" Value="8,0" />
+    </Style>
+    <Style Selector="^.large">
+      <Setter Property="Height" Value="44" />
+      <Setter Property="Padding" Value="12,0" />
+      <Setter Property="FontSize" Value="16" />
+      <Setter Property="TextBlock.LineHeight" Value="26" />
+    </Style>
+    <Style Selector="^.small /template/ Calendar#PART_Calendar">
+      <Setter Property="Width" Value="196" />
+    </Style>
+    <Style Selector="^.large /template/ Calendar#PART_Calendar">
+      <Setter Property="Width" Value="280" />
+    </Style>
+
+    <!-- Focused, or its calendar open (focus moves into the popup): ring border and band. -->
+    <Style Selector="^:focus-within, ^:flyout-open">
+      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Ring}" />
+    </Style>
+    <Style Selector="^:focus-within /template/ Border#PART_FocusRing, ^:flyout-open /template/ Border#PART_FocusRing">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+
+    <!-- input_style(disabled): the disabled input background, muted text, all at half. -->
+    <Style Selector="^:disabled">
+      <Setter Property="Background" Value="{DynamicResource Gpui.Number.Disabled.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.MutedForeground}" />
+    </Style>
+    <Style Selector="^:disabled /template/ Border#PART_Frame">
+      <Setter Property="Opacity" Value="0.5" />
+    </Style>
+    <Style Selector="^:disabled /template/ Button#PART_Button">
+      <Setter Property="IsVisible" Value="False" />
+    </Style>
+
+    <!--
+      dropdown_popup: 8px down and a fade over 150ms; the ring and shadow inks
+      ramp by the cube of the progress inside the panel's fade (ComboBox.axaml).
+      The slide moves the layout (a margin), so its position snaps to device
+      pixels as GPUI's top offset does.
+    -->
+    <Style Selector="^:flyout-open /template/ Panel#PART_PopupMotion">
+      <Style.Animations>
+        <Animation Duration="0:0:0.15" Easing="CubicEaseOut">
+          <KeyFrame Cue="0%">
+            <Setter Property="Opacity" Value="0" />
+            <Setter Property="Margin" Value="0,-8,0,8" />
+          </KeyFrame>
+          <KeyFrame Cue="100%">
+            <Setter Property="Opacity" Value="1" />
+            <Setter Property="Margin" Value="0" />
+          </KeyFrame>
+        </Animation>
+      </Style.Animations>
+    </Style>
+    <Style Selector="^:flyout-open /template/ Border#PART_PopupRing, ^:flyout-open /template/ Border#PART_PopupShadow">
+      <Style.Animations>
+        <Animation Duration="0:0:0.15" Easing="CubicEaseOut">
+          <KeyFrame Cue="0%"><Setter Property="Opacity" Value="0" /></KeyFrame>
+          <KeyFrame Cue="10%"><Setter Property="Opacity" Value="0.001" /></KeyFrame>
+          <KeyFrame Cue="20%"><Setter Property="Opacity" Value="0.008" /></KeyFrame>
+          <KeyFrame Cue="30%"><Setter Property="Opacity" Value="0.027" /></KeyFrame>
+          <KeyFrame Cue="40%"><Setter Property="Opacity" Value="0.064" /></KeyFrame>
+          <KeyFrame Cue="50%"><Setter Property="Opacity" Value="0.125" /></KeyFrame>
+          <KeyFrame Cue="60%"><Setter Property="Opacity" Value="0.216" /></KeyFrame>
+          <KeyFrame Cue="70%"><Setter Property="Opacity" Value="0.343" /></KeyFrame>
+          <KeyFrame Cue="80%"><Setter Property="Opacity" Value="0.512" /></KeyFrame>
+          <KeyFrame Cue="90%"><Setter Property="Opacity" Value="0.729" /></KeyFrame>
+          <KeyFrame Cue="100%"><Setter Property="Opacity" Value="1" /></KeyFrame>
+        </Animation>
+      </Style.Animations>
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

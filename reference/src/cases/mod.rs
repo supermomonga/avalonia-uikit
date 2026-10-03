@@ -80,6 +80,7 @@ pub fn builder(case: &Case) -> Result<Builder> {
         "resizable" => resizable::builder(&params),
         "image" => image::builder(&params),
         "calendar" => time::calendar(&params),
+        "datepicker" => time::date_picker(&params),
         "collapsible" => accordion::collapsible(&params),
         "slider" => slider::builder(&params),
         other => bail!("unknown component {other}"),

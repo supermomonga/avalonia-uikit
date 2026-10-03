@@ -1,17 +1,18 @@
 //! `Calendar` (crates/component/src/time/calendar.rs) over a `CalendarState`
 //! whose "today" the case pins (reference patch: test_clock::set_today).
-use super::size;
+use super::{disabled, size};
 use crate::{
     harness::Builder,
-    manifest::{Params, param_str},
+    manifest::{Params, param_f32, param_str},
 };
 use anyhow::Result;
 use chrono::{NaiveDate, Weekday};
 use gpui_kit::{
-    AppContext as _, IntoElement as _,
+    AppContext as _, IntoElement as _, Styled as _, px,
     component::{
-        Sizable as _,
+        Disableable as _, Sizable as _,
         calendar::{Calendar, CalendarState, Date, Matcher},
+        date_picker::{DatePicker, DatePickerState},
     },
 };
 use std::rc::Rc;
@@ -58,6 +59,36 @@ pub fn calendar(params: &Params) -> Result<Builder> {
             .and_then(|e| e.downcast::<CalendarState>().ok())
             .expect("calendar state");
         Calendar::new(&state).with_size(size).first_day_of_week(first_day).into_any_element()
+    }))
+}
+
+/// `DatePicker` (crates/component/src/time/date_picker.rs): the field, and its
+/// calendar popup once opened.
+pub fn date_picker(params: &Params) -> Result<Builder> {
+    let size = size(params);
+    let disabled = disabled(params);
+    let selected = date(params, "date", "none");
+    let today = date(params, "today", "2025-06-10").expect("today");
+    let width = param_f32(params, "width", 220.);
+    Ok(Rc::new(move |view, window, cx| {
+        if view.state.entity.is_none() {
+            gpui_base::test_clock::set_today(Some(today));
+            let state = cx.new(|cx| {
+                let mut s = DatePickerState::new(window, cx);
+                if let Some(d) = selected {
+                    s.set_date(d, window, cx);
+                }
+                s
+            });
+            view.state.entity = Some(state.into());
+        }
+        let state = view
+            .state
+            .entity
+            .clone()
+            .and_then(|e| e.downcast::<DatePickerState>().ok())
+            .expect("date picker state");
+        DatePicker::new(&state).with_size(size).disabled(disabled).w(px(width)).into_any_element()
     }))
 }
 

@@ -62,6 +62,7 @@ public static class Adapters
         "resizable" => Resizable(c),
         "image" => ImageCase(c),
         "calendar" => CalendarCase(c),
+        "datepicker" => DatePicker(c),
         "collapsible" => Collapsible(c),
         "slider" => Slider(c),
         _ => throw new NotSupportedException($"no adapter for {c.Component}"),
@@ -77,7 +78,7 @@ public static class Adapters
     {
         // The case's "today" (GPUI's is pinned by the reference patch); Avalonia reads
         // DateTime.Today whenever it lays out a month, so pin it after the last step.
-        if (c.Component == "calendar" && Date(c, "today", "2025-06-10") is { } today)
+        if (c.Component is "calendar" or "datepicker" && Date(c, "today", "2025-06-10") is { } today)
         {
             foreach (var day in host.Window.GetVisualDescendants().OfType<Avalonia.Controls.Primitives.CalendarDayButton>())
             {
@@ -677,6 +678,24 @@ public static class Adapters
     private static DateTime? Date(GoldenCase c, string key, string fallback) =>
         DateTime.TryParseExact(c.Str(key, fallback), "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture,
             System.Globalization.DateTimeStyles.None, out var d) ? d : null;
+
+    // GPUI's text and placeholder are the app's to set (usage contract).
+    private static CalendarDatePicker DatePicker(GoldenCase c)
+    {
+        var picker = new CalendarDatePicker
+        {
+            Width = c.Num("width", 220),
+            HorizontalAlignment = HorizontalAlignment.Left,
+            SelectedDateFormat = CalendarDatePickerFormat.Custom,
+            CustomDateFormatString = "yyyy/MM/dd",
+            PlaceholderText = "Select date",
+            FirstDayOfWeek = DayOfWeek.Sunday,
+            SelectedDate = Date(c, "date", "none"),
+            IsEnabled = !c.Bool("disabled"),
+        };
+        ClassFrom(picker, c, "size", "medium");
+        return picker;
+    }
 
     private static Calendar CalendarCase(GoldenCase c)
     {

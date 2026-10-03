@@ -238,55 +238,55 @@
   </Style>
   <!-- Decade mode disables the header button; it keeps its look. -->
 
-  <!-- small: 28px cells, radius 3, 12px days. -->
-  <Style Selector="Calendar.small CalendarDayButton, Calendar.small TextBlock.gpui-calendar-weekday">
+  <!-- small: 28px cells, radius 3, 12px days (also a small date picker's calendar). -->
+  <Style Selector="Calendar.small CalendarDayButton, Calendar.small TextBlock.gpui-calendar-weekday, CalendarDatePicker.small CalendarDayButton, CalendarDatePicker.small TextBlock.gpui-calendar-weekday">
     <Setter Property="Width" Value="28" />
     <Setter Property="Height" Value="28" />
   </Style>
-  <Style Selector="Calendar.small TextBlock.gpui-calendar-weekday">
+  <Style Selector="Calendar.small TextBlock.gpui-calendar-weekday, CalendarDatePicker.small TextBlock.gpui-calendar-weekday">
     <Setter Property="LineHeight" Value="28" />
   </Style>
-  <Style Selector="Calendar.small CalendarDayButton">
+  <Style Selector="Calendar.small CalendarDayButton, CalendarDatePicker.small CalendarDayButton">
     <Setter Property="CornerRadius" Value="3" />
     <Setter Property="FontSize" Value="12" />
     <Setter Property="TextBlock.LineHeight" Value="19.5" />
   </Style>
-  <Style Selector="Calendar.small CalendarButton">
+  <Style Selector="Calendar.small CalendarButton, CalendarDatePicker.small CalendarButton">
     <Setter Property="Height" Value="28" />
     <Setter Property="CornerRadius" Value="3" />
   </Style>
-  <Style Selector="Calendar.small CalendarItem Button">
+  <Style Selector="Calendar.small CalendarItem Button, CalendarDatePicker.small CalendarItem Button">
     <Setter Property="CornerRadius" Value="3" />
   </Style>
-  <Style Selector="Calendar.small CalendarItem Button#PART_PreviousButton, Calendar.small CalendarItem Button#PART_NextButton">
+  <Style Selector="Calendar.small CalendarItem Button#PART_PreviousButton, Calendar.small CalendarItem Button#PART_NextButton, CalendarDatePicker.small CalendarItem Button#PART_PreviousButton, CalendarDatePicker.small CalendarItem Button#PART_NextButton">
     <Setter Property="Width" Value="28" />
     <Setter Property="Height" Value="28" />
   </Style>
-  <Style Selector="Calendar.small Button /template/ Border#PART_MonthPill, Calendar.small Button /template/ Border#PART_YearPill">
+  <Style Selector="Calendar.small Button /template/ Border#PART_MonthPill, Calendar.small Button /template/ Border#PART_YearPill, CalendarDatePicker.small Button /template/ Border#PART_MonthPill, CalendarDatePicker.small Button /template/ Border#PART_YearPill">
     <Setter Property="Height" Value="28" />
     <Setter Property="CornerRadius" Value="3" />
   </Style>
   <!-- large: 40px cells, radius 12. -->
-  <Style Selector="Calendar.large CalendarDayButton, Calendar.large TextBlock.gpui-calendar-weekday">
+  <Style Selector="Calendar.large CalendarDayButton, Calendar.large TextBlock.gpui-calendar-weekday, CalendarDatePicker.large CalendarDayButton, CalendarDatePicker.large TextBlock.gpui-calendar-weekday">
     <Setter Property="Width" Value="40" />
     <Setter Property="Height" Value="40" />
   </Style>
-  <Style Selector="Calendar.large TextBlock.gpui-calendar-weekday">
+  <Style Selector="Calendar.large TextBlock.gpui-calendar-weekday, CalendarDatePicker.large TextBlock.gpui-calendar-weekday">
     <Setter Property="LineHeight" Value="40" />
   </Style>
-  <Style Selector="Calendar.large CalendarDayButton">
+  <Style Selector="Calendar.large CalendarDayButton, CalendarDatePicker.large CalendarDayButton">
     <Setter Property="CornerRadius" Value="12" />
   </Style>
-  <Style Selector="Calendar.large CalendarButton">
+  <Style Selector="Calendar.large CalendarButton, CalendarDatePicker.large CalendarButton">
     <Setter Property="Height" Value="40" />
     <Setter Property="CornerRadius" Value="12" />
   </Style>
-  <Style Selector="Calendar.large CalendarItem Button#PART_PreviousButton, Calendar.large CalendarItem Button#PART_NextButton">
+  <Style Selector="Calendar.large CalendarItem Button#PART_PreviousButton, Calendar.large CalendarItem Button#PART_NextButton, CalendarDatePicker.large CalendarItem Button#PART_PreviousButton, CalendarDatePicker.large CalendarItem Button#PART_NextButton">
     <Setter Property="Width" Value="40" />
     <Setter Property="Height" Value="40" />
     <Setter Property="CornerRadius" Value="12" />
   </Style>
-  <Style Selector="Calendar.large Button /template/ Border#PART_MonthPill, Calendar.large Button /template/ Border#PART_YearPill">
+  <Style Selector="Calendar.large Button /template/ Border#PART_MonthPill, Calendar.large Button /template/ Border#PART_YearPill, CalendarDatePicker.large Button /template/ Border#PART_MonthPill, CalendarDatePicker.large Button /template/ Border#PART_YearPill">
     <Setter Property="Height" Value="40" />
     <Setter Property="CornerRadius" Value="12" />
   </Style>

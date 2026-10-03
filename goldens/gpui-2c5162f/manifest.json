@@ -30673,6 +30673,1855 @@
       "png_sha256": "397be430333670a703e9d22ea4f45aabca2f1c1e2dd48f0edb33d3c500365a2d"
     },
     {
+      "id": "datepicker/field.large.2025-03-14/disabled/dark",
+      "component": "datepicker",
+      "group": "field",
+      "params": {
+        "width": 220,
+        "size": "large",
+        "date": "2025-03-14",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        252.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        44.0
+      ],
+      "png": "png/datepicker/field.large.2025-03-14/disabled/dark.png",
+      "scene": "scenes/datepicker/field.large.2025-03-14/disabled/dark.json",
+      "png_sha256": "3453845d165a5092796dc2749a1766c7cb662df3ae68843eb5aa918c590fa980"
+    },
+    {
+      "id": "datepicker/field.large.2025-03-14/disabled/light",
+      "component": "datepicker",
+      "group": "field",
+      "params": {
+        "width": 220,
+        "size": "large",
+        "date": "2025-03-14",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        252.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        44.0
+      ],
+      "png": "png/datepicker/field.large.2025-03-14/disabled/light.png",
+      "scene": "scenes/datepicker/field.large.2025-03-14/disabled/light.json",
+      "png_sha256": "733129afa42494dfd62e3f78162513ddd22b9879878c4886715bf8c4d3678420"
+    },
+    {
+      "id": "datepicker/field.large.2025-03-14/focus/dark",
+      "component": "datepicker",
+      "group": "field",
+      "params": {
+        "width": 220,
+        "size": "large",
+        "date": "2025-03-14"
+      },
+      "state": "focus",
+      "theme": "dark",
+      "viewport": [
+        252.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        44.0
+      ],
+      "png": "png/datepicker/field.large.2025-03-14/focus/dark.png",
+      "scene": "scenes/datepicker/field.large.2025-03-14/focus/dark.json",
+      "png_sha256": "58e0875c65e55117273ea1f5ae2fc931a3e79d81583701034cf987b097f31be4"
+    },
+    {
+      "id": "datepicker/field.large.2025-03-14/focus/light",
+      "component": "datepicker",
+      "group": "field",
+      "params": {
+        "width": 220,
+        "size": "large",
+        "date": "2025-03-14"
+      },
+      "state": "focus",
+      "theme": "light",
+      "viewport": [
+        252.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        44.0
+      ],
+      "png": "png/datepicker/field.large.2025-03-14/focus/light.png",
+      "scene": "scenes/datepicker/field.large.2025-03-14/focus/light.json",
+      "png_sha256": "a355d06d5056453b43fca3b88827bf8be07fb410a05ec28987af018b7d157b9a"
+    },
+    {
+      "id": "datepicker/field.large.2025-03-14/normal/dark",
+      "component": "datepicker",
+      "group": "field",
+      "params": {
+        "width": 220,
+        "size": "large",
+        "date": "2025-03-14"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        252.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        44.0
+      ],
+      "png": "png/datepicker/field.large.2025-03-14/normal/dark.png",
+      "scene": "scenes/datepicker/field.large.2025-03-14/normal/dark.json",
+      "png_sha256": "088aa1f6c0f4762605049c8880f3318828dfa9f5ff9bbb83b5b3ec9912e1f245"
+    },
+    {
+      "id": "datepicker/field.large.2025-03-14/normal/light",
+      "component": "datepicker",
+      "group": "field",
+      "params": {
+        "width": 220,
+        "size": "large",
+        "date": "2025-03-14"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        252.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        44.0
+      ],
+      "png": "png/datepicker/field.large.2025-03-14/normal/light.png",
+      "scene": "scenes/datepicker/field.large.2025-03-14/normal/light.json",
+      "png_sha256": "403867a3be4b32ba10ce71512f22a3a2e6e73a8ab997f6694f85927e12ffdafc"
+    },
+    {
+      "id": "datepicker/field.large.none/disabled/dark",
+      "component": "datepicker",
+      "group": "field",
+      "params": {
+        "width": 220,
+        "size": "large",
+        "date": "none",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        252.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        44.0
+      ],
+      "png": "png/datepicker/field.large.none/disabled/dark.png",
+      "scene": "scenes/datepicker/field.large.none/disabled/dark.json",
+      "png_sha256": "e2822f226128779ac1fe8c4e5d2d579a9a2e13d4fb73b5fe99e89fbc0c18bb23"
+    },
+    {
+      "id": "datepicker/field.large.none/disabled/light",
+      "component": "datepicker",
+      "group": "field",
+      "params": {
+        "width": 220,
+        "size": "large",
+        "date": "none",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        252.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        44.0
+      ],
+      "png": "png/datepicker/field.large.none/disabled/light.png",
+      "scene": "scenes/datepicker/field.large.none/disabled/light.json",
+      "png_sha256": "30e99a0270bcde4db5f57c5a4eede47b7a8a2ab7b24461032ba934662e83b338"
+    },
+    {
+      "id": "datepicker/field.large.none/focus/dark",
+      "component": "datepicker",
+      "group": "field",
+      "params": {
+        "width": 220,
+        "size": "large",
+        "date": "none"
+      },
+      "state": "focus",
+      "theme": "dark",
+      "viewport": [
+        252.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        44.0
+      ],
+      "png": "png/datepicker/field.large.none/focus/dark.png",
+      "scene": "scenes/datepicker/field.large.none/focus/dark.json",
+      "png_sha256": "6815418bac34a4ba392672dc539db9a06e6cf6cbae006f332808d4b2413d334f"
+    },
+    {
+      "id": "datepicker/field.large.none/focus/light",
+      "component": "datepicker",
+      "group": "field",
+      "params": {
+        "width": 220,
+        "size": "large",
+        "date": "none"
+      },
+      "state": "focus",
+      "theme": "light",
+      "viewport": [
+        252.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        44.0
+      ],
+      "png": "png/datepicker/field.large.none/focus/light.png",
+      "scene": "scenes/datepicker/field.large.none/focus/light.json",
+      "png_sha256": "7cd311244f1cb5a4ea9ce7c9823a48b1836b55a39fe64302d209f007a4ecb36e"
+    },
+    {
+      "id": "datepicker/field.large.none/normal/dark",
+      "component": "datepicker",
+      "group": "field",
+      "params": {
+        "width": 220,
+        "size": "large",
+        "date": "none"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        252.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        44.0
+      ],
+      "png": "png/datepicker/field.large.none/normal/dark.png",
+      "scene": "scenes/datepicker/field.large.none/normal/dark.json",
+      "png_sha256": "6b102bdfdd2bb5a80a2ff5d921f452a9b9c0a07c4d83ab8013f7b40136a0df03"
+    },
+    {
+      "id": "datepicker/field.large.none/normal/light",
+      "component": "datepicker",
+      "group": "field",
+      "params": {
+        "width": 220,
+        "size": "large",
+        "date": "none"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        252.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        44.0
+      ],
+      "png": "png/datepicker/field.large.none/normal/light.png",
+      "scene": "scenes/datepicker/field.large.none/normal/light.json",
+      "png_sha256": "15d7aaac5ce2a2fd1e4e4c14a46cfe2afe6c6e8476ea3d1d4303bb8f8b31665b"
+    },
+    {
+      "id": "datepicker/field.medium.2025-03-14/disabled/dark",
+      "component": "datepicker",
+      "group": "field",
+      "params": {
+        "width": 220,
+        "size": "medium",
+        "date": "2025-03-14",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        252.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        32.0
+      ],
+      "png": "png/datepicker/field.medium.2025-03-14/disabled/dark.png",
+      "scene": "scenes/datepicker/field.medium.2025-03-14/disabled/dark.json",
+      "png_sha256": "8e1ce153d20462961a7f6c16c3c75ec4702d0544bc2381f1ea5b6b8c1e9f68f0"
+    },
+    {
+      "id": "datepicker/field.medium.2025-03-14/disabled/light",
+      "component": "datepicker",
+      "group": "field",
+      "params": {
+        "width": 220,
+        "size": "medium",
+        "date": "2025-03-14",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        252.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        32.0
+      ],
+      "png": "png/datepicker/field.medium.2025-03-14/disabled/light.png",
+      "scene": "scenes/datepicker/field.medium.2025-03-14/disabled/light.json",
+      "png_sha256": "562cf7d8fd2c1a7766fe7bad1ba559245519d83bdff2296f9faba420da8d8f0a"
+    },
+    {
+      "id": "datepicker/field.medium.2025-03-14/focus/dark",
+      "component": "datepicker",
+      "group": "field",
+      "params": {
+        "width": 220,
+        "size": "medium",
+        "date": "2025-03-14"
+      },
+      "state": "focus",
+      "theme": "dark",
+      "viewport": [
+        252.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        32.0
+      ],
+      "png": "png/datepicker/field.medium.2025-03-14/focus/dark.png",
+      "scene": "scenes/datepicker/field.medium.2025-03-14/focus/dark.json",
+      "png_sha256": "6490bc7a34ec0281b8762e147af6ae9974e638e6706f1ae0e9d7c342e1304cf0"
+    },
+    {
+      "id": "datepicker/field.medium.2025-03-14/focus/light",
+      "component": "datepicker",
+      "group": "field",
+      "params": {
+        "width": 220,
+        "size": "medium",
+        "date": "2025-03-14"
+      },
+      "state": "focus",
+      "theme": "light",
+      "viewport": [
+        252.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        32.0
+      ],
+      "png": "png/datepicker/field.medium.2025-03-14/focus/light.png",
+      "scene": "scenes/datepicker/field.medium.2025-03-14/focus/light.json",
+      "png_sha256": "708c001e8b9ccae4a3aa158b5cdea10c30b418e4e6904b6b888afaff98d3eb4e"
+    },
+    {
+      "id": "datepicker/field.medium.2025-03-14/normal/dark",
+      "component": "datepicker",
+      "group": "field",
+      "params": {
+        "width": 220,
+        "size": "medium",
+        "date": "2025-03-14"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        252.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        32.0
+      ],
+      "png": "png/datepicker/field.medium.2025-03-14/normal/dark.png",
+      "scene": "scenes/datepicker/field.medium.2025-03-14/normal/dark.json",
+      "png_sha256": "1cc4b6294bbce7844ce39843c05a0c8cfcb99cd47e40d44a2e902a89e23e0ac4"
+    },
+    {
+      "id": "datepicker/field.medium.2025-03-14/normal/light",
+      "component": "datepicker",
+      "group": "field",
+      "params": {
+        "width": 220,
+        "size": "medium",
+        "date": "2025-03-14"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        252.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        32.0
+      ],
+      "png": "png/datepicker/field.medium.2025-03-14/normal/light.png",
+      "scene": "scenes/datepicker/field.medium.2025-03-14/normal/light.json",
+      "png_sha256": "558a2ab4b1f7e8a18aafe3b0e8b0b797d7ab4b0288f4d8453f88cb5db460350f"
+    },
+    {
+      "id": "datepicker/field.medium.none/disabled/dark",
+      "component": "datepicker",
+      "group": "field",
+      "params": {
+        "width": 220,
+        "size": "medium",
+        "date": "none",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        252.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        32.0
+      ],
+      "png": "png/datepicker/field.medium.none/disabled/dark.png",
+      "scene": "scenes/datepicker/field.medium.none/disabled/dark.json",
+      "png_sha256": "b4c7514d18ec1ad113ad2eea2627e6d3402f9a0bc944c49939c15226a4591cfa"
+    },
+    {
+      "id": "datepicker/field.medium.none/disabled/light",
+      "component": "datepicker",
+      "group": "field",
+      "params": {
+        "width": 220,
+        "size": "medium",
+        "date": "none",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        252.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        32.0
+      ],
+      "png": "png/datepicker/field.medium.none/disabled/light.png",
+      "scene": "scenes/datepicker/field.medium.none/disabled/light.json",
+      "png_sha256": "a5cc7b52c6ae8d45a6309653d57f09cd23c8ca346885fbca3fa8c3068632e629"
+    },
+    {
+      "id": "datepicker/field.medium.none/focus/dark",
+      "component": "datepicker",
+      "group": "field",
+      "params": {
+        "width": 220,
+        "size": "medium",
+        "date": "none"
+      },
+      "state": "focus",
+      "theme": "dark",
+      "viewport": [
+        252.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        32.0
+      ],
+      "png": "png/datepicker/field.medium.none/focus/dark.png",
+      "scene": "scenes/datepicker/field.medium.none/focus/dark.json",
+      "png_sha256": "447340e24a5b1d582d3295becce1a37ca9daef099eaaeca32d9f2a308b2ccf58"
+    },
+    {
+      "id": "datepicker/field.medium.none/focus/light",
+      "component": "datepicker",
+      "group": "field",
+      "params": {
+        "width": 220,
+        "size": "medium",
+        "date": "none"
+      },
+      "state": "focus",
+      "theme": "light",
+      "viewport": [
+        252.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        32.0
+      ],
+      "png": "png/datepicker/field.medium.none/focus/light.png",
+      "scene": "scenes/datepicker/field.medium.none/focus/light.json",
+      "png_sha256": "aebd06f403e90de293203dfd08eed4d97941a006c8ea626990cbb426c36a9bca"
+    },
+    {
+      "id": "datepicker/field.medium.none/normal/dark",
+      "component": "datepicker",
+      "group": "field",
+      "params": {
+        "width": 220,
+        "size": "medium",
+        "date": "none"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        252.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        32.0
+      ],
+      "png": "png/datepicker/field.medium.none/normal/dark.png",
+      "scene": "scenes/datepicker/field.medium.none/normal/dark.json",
+      "png_sha256": "359c15e2fe2e26105df7b8eea0e19e369ab47ed4062b2a60e81df36cae0507e9"
+    },
+    {
+      "id": "datepicker/field.medium.none/normal/light",
+      "component": "datepicker",
+      "group": "field",
+      "params": {
+        "width": 220,
+        "size": "medium",
+        "date": "none"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        252.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        32.0
+      ],
+      "png": "png/datepicker/field.medium.none/normal/light.png",
+      "scene": "scenes/datepicker/field.medium.none/normal/light.json",
+      "png_sha256": "70dcb2c59a23d8e7fdb4fbf693098ecdaafa2b220e34f76d460f9868c3685144"
+    },
+    {
+      "id": "datepicker/field.small.2025-03-14/disabled/dark",
+      "component": "datepicker",
+      "group": "field",
+      "params": {
+        "width": 220,
+        "size": "small",
+        "date": "2025-03-14",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        252.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        24.0
+      ],
+      "png": "png/datepicker/field.small.2025-03-14/disabled/dark.png",
+      "scene": "scenes/datepicker/field.small.2025-03-14/disabled/dark.json",
+      "png_sha256": "eb2f8844e0af8f724cd5e34f103c556f78397684661156c1b07e1a984d88779d"
+    },
+    {
+      "id": "datepicker/field.small.2025-03-14/disabled/light",
+      "component": "datepicker",
+      "group": "field",
+      "params": {
+        "width": 220,
+        "size": "small",
+        "date": "2025-03-14",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        252.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        24.0
+      ],
+      "png": "png/datepicker/field.small.2025-03-14/disabled/light.png",
+      "scene": "scenes/datepicker/field.small.2025-03-14/disabled/light.json",
+      "png_sha256": "6e7e1c3d44c1b3d5b8f594981b79575ea013d1eb6205d1c204dfdd7f69a69579"
+    },
+    {
+      "id": "datepicker/field.small.2025-03-14/focus/dark",
+      "component": "datepicker",
+      "group": "field",
+      "params": {
+        "width": 220,
+        "size": "small",
+        "date": "2025-03-14"
+      },
+      "state": "focus",
+      "theme": "dark",
+      "viewport": [
+        252.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        24.0
+      ],
+      "png": "png/datepicker/field.small.2025-03-14/focus/dark.png",
+      "scene": "scenes/datepicker/field.small.2025-03-14/focus/dark.json",
+      "png_sha256": "3831e379cab2e51dfd5e124efa337c8dc8b8491238f987f4cc6a35f5ca47db3a"
+    },
+    {
+      "id": "datepicker/field.small.2025-03-14/focus/light",
+      "component": "datepicker",
+      "group": "field",
+      "params": {
+        "width": 220,
+        "size": "small",
+        "date": "2025-03-14"
+      },
+      "state": "focus",
+      "theme": "light",
+      "viewport": [
+        252.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        24.0
+      ],
+      "png": "png/datepicker/field.small.2025-03-14/focus/light.png",
+      "scene": "scenes/datepicker/field.small.2025-03-14/focus/light.json",
+      "png_sha256": "0c8ed09bb99eda8bf1939e67edd5a81717019768edb79f32ed94add3c639decc"
+    },
+    {
+      "id": "datepicker/field.small.2025-03-14/normal/dark",
+      "component": "datepicker",
+      "group": "field",
+      "params": {
+        "width": 220,
+        "size": "small",
+        "date": "2025-03-14"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        252.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        24.0
+      ],
+      "png": "png/datepicker/field.small.2025-03-14/normal/dark.png",
+      "scene": "scenes/datepicker/field.small.2025-03-14/normal/dark.json",
+      "png_sha256": "4553d1f90b88fcda19a1c9092fe3f88a8dfca121b455d5f041628d692787d722"
+    },
+    {
+      "id": "datepicker/field.small.2025-03-14/normal/light",
+      "component": "datepicker",
+      "group": "field",
+      "params": {
+        "width": 220,
+        "size": "small",
+        "date": "2025-03-14"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        252.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        24.0
+      ],
+      "png": "png/datepicker/field.small.2025-03-14/normal/light.png",
+      "scene": "scenes/datepicker/field.small.2025-03-14/normal/light.json",
+      "png_sha256": "2600eab209557383afd02d78c2c261bf4a7941cb606111ea75360ed51618e205"
+    },
+    {
+      "id": "datepicker/field.small.none/disabled/dark",
+      "component": "datepicker",
+      "group": "field",
+      "params": {
+        "width": 220,
+        "size": "small",
+        "date": "none",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        252.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        24.0
+      ],
+      "png": "png/datepicker/field.small.none/disabled/dark.png",
+      "scene": "scenes/datepicker/field.small.none/disabled/dark.json",
+      "png_sha256": "e2c570d0acf4ef94f08b4e14ba8989dd2eb6aa788675a5ee6629c566dce2456d"
+    },
+    {
+      "id": "datepicker/field.small.none/disabled/light",
+      "component": "datepicker",
+      "group": "field",
+      "params": {
+        "width": 220,
+        "size": "small",
+        "date": "none",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        252.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        24.0
+      ],
+      "png": "png/datepicker/field.small.none/disabled/light.png",
+      "scene": "scenes/datepicker/field.small.none/disabled/light.json",
+      "png_sha256": "d05021a896ad1c9fe79d0fd0b6bb159773d9c7f72d5840782e0724ca65518577"
+    },
+    {
+      "id": "datepicker/field.small.none/focus/dark",
+      "component": "datepicker",
+      "group": "field",
+      "params": {
+        "width": 220,
+        "size": "small",
+        "date": "none"
+      },
+      "state": "focus",
+      "theme": "dark",
+      "viewport": [
+        252.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        24.0
+      ],
+      "png": "png/datepicker/field.small.none/focus/dark.png",
+      "scene": "scenes/datepicker/field.small.none/focus/dark.json",
+      "png_sha256": "f39ed150d4b8b049c2188cf286903713e735781c0809ef5e7f437d04d718fe6f"
+    },
+    {
+      "id": "datepicker/field.small.none/focus/light",
+      "component": "datepicker",
+      "group": "field",
+      "params": {
+        "width": 220,
+        "size": "small",
+        "date": "none"
+      },
+      "state": "focus",
+      "theme": "light",
+      "viewport": [
+        252.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        24.0
+      ],
+      "png": "png/datepicker/field.small.none/focus/light.png",
+      "scene": "scenes/datepicker/field.small.none/focus/light.json",
+      "png_sha256": "8c94c2181155dda50d615d5c5c415581f7411f3c587f118c5f93f85bcdb44079"
+    },
+    {
+      "id": "datepicker/field.small.none/normal/dark",
+      "component": "datepicker",
+      "group": "field",
+      "params": {
+        "width": 220,
+        "size": "small",
+        "date": "none"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        252.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        24.0
+      ],
+      "png": "png/datepicker/field.small.none/normal/dark.png",
+      "scene": "scenes/datepicker/field.small.none/normal/dark.json",
+      "png_sha256": "35e0fe6a6f923d2ea41213dce327fe9fc0dae7d353c31a8639cf1d1fe903c71e"
+    },
+    {
+      "id": "datepicker/field.small.none/normal/light",
+      "component": "datepicker",
+      "group": "field",
+      "params": {
+        "width": 220,
+        "size": "small",
+        "date": "none"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        252.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        24.0
+      ],
+      "png": "png/datepicker/field.small.none/normal/light.png",
+      "scene": "scenes/datepicker/field.small.none/normal/light.json",
+      "png_sha256": "124142451b4acab8deda853ec6d07d0a2c313e6432dac10860934760edce9c12"
+    },
+    {
+      "id": "datepicker/field.xsmall.2025-03-14/disabled/dark",
+      "component": "datepicker",
+      "group": "field",
+      "params": {
+        "width": 220,
+        "size": "xsmall",
+        "date": "2025-03-14",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        252.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        20.0
+      ],
+      "png": "png/datepicker/field.xsmall.2025-03-14/disabled/dark.png",
+      "scene": "scenes/datepicker/field.xsmall.2025-03-14/disabled/dark.json",
+      "png_sha256": "91a52f7f1d5fd66d2663f7301d7ec021b2ba6aeb1a0d0c0aa4a3fd1b154cc4c5"
+    },
+    {
+      "id": "datepicker/field.xsmall.2025-03-14/disabled/light",
+      "component": "datepicker",
+      "group": "field",
+      "params": {
+        "width": 220,
+        "size": "xsmall",
+        "date": "2025-03-14",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        252.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        20.0
+      ],
+      "png": "png/datepicker/field.xsmall.2025-03-14/disabled/light.png",
+      "scene": "scenes/datepicker/field.xsmall.2025-03-14/disabled/light.json",
+      "png_sha256": "d691640db98d7a7f009901ced83381603f3ba74643e04264bf874a4c0016db3c"
+    },
+    {
+      "id": "datepicker/field.xsmall.2025-03-14/focus/dark",
+      "component": "datepicker",
+      "group": "field",
+      "params": {
+        "width": 220,
+        "size": "xsmall",
+        "date": "2025-03-14"
+      },
+      "state": "focus",
+      "theme": "dark",
+      "viewport": [
+        252.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        20.0
+      ],
+      "png": "png/datepicker/field.xsmall.2025-03-14/focus/dark.png",
+      "scene": "scenes/datepicker/field.xsmall.2025-03-14/focus/dark.json",
+      "png_sha256": "b2e3c1d5b57138b4d90a9b296e972a804a050dd8fbd37b325535fd85d17f8ad5"
+    },
+    {
+      "id": "datepicker/field.xsmall.2025-03-14/focus/light",
+      "component": "datepicker",
+      "group": "field",
+      "params": {
+        "width": 220,
+        "size": "xsmall",
+        "date": "2025-03-14"
+      },
+      "state": "focus",
+      "theme": "light",
+      "viewport": [
+        252.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        20.0
+      ],
+      "png": "png/datepicker/field.xsmall.2025-03-14/focus/light.png",
+      "scene": "scenes/datepicker/field.xsmall.2025-03-14/focus/light.json",
+      "png_sha256": "d4a7624888d9e624330cc061f208c127e22e98ae0368494b1b5f33d5c62bb833"
+    },
+    {
+      "id": "datepicker/field.xsmall.2025-03-14/normal/dark",
+      "component": "datepicker",
+      "group": "field",
+      "params": {
+        "width": 220,
+        "size": "xsmall",
+        "date": "2025-03-14"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        252.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        20.0
+      ],
+      "png": "png/datepicker/field.xsmall.2025-03-14/normal/dark.png",
+      "scene": "scenes/datepicker/field.xsmall.2025-03-14/normal/dark.json",
+      "png_sha256": "bad306865657d21479ab3e27045805a0eddb4b44dd5f63a0c29b3a7151307012"
+    },
+    {
+      "id": "datepicker/field.xsmall.2025-03-14/normal/light",
+      "component": "datepicker",
+      "group": "field",
+      "params": {
+        "width": 220,
+        "size": "xsmall",
+        "date": "2025-03-14"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        252.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        20.0
+      ],
+      "png": "png/datepicker/field.xsmall.2025-03-14/normal/light.png",
+      "scene": "scenes/datepicker/field.xsmall.2025-03-14/normal/light.json",
+      "png_sha256": "5c216b89f1b8eb3b4315420a9c1382fc200a985eb0cdc40d267fb129d909f079"
+    },
+    {
+      "id": "datepicker/field.xsmall.none/disabled/dark",
+      "component": "datepicker",
+      "group": "field",
+      "params": {
+        "width": 220,
+        "size": "xsmall",
+        "date": "none",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        252.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        20.0
+      ],
+      "png": "png/datepicker/field.xsmall.none/disabled/dark.png",
+      "scene": "scenes/datepicker/field.xsmall.none/disabled/dark.json",
+      "png_sha256": "5216cce0ccf3607464d5806ee1ac5879451729ca059ea7a41502b5aa11feb13b"
+    },
+    {
+      "id": "datepicker/field.xsmall.none/disabled/light",
+      "component": "datepicker",
+      "group": "field",
+      "params": {
+        "width": 220,
+        "size": "xsmall",
+        "date": "none",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        252.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        20.0
+      ],
+      "png": "png/datepicker/field.xsmall.none/disabled/light.png",
+      "scene": "scenes/datepicker/field.xsmall.none/disabled/light.json",
+      "png_sha256": "e432da782db47c2b7d85dc269748ebe3ad16e7b28586ef5d2d1d40b1dd4e1198"
+    },
+    {
+      "id": "datepicker/field.xsmall.none/focus/dark",
+      "component": "datepicker",
+      "group": "field",
+      "params": {
+        "width": 220,
+        "size": "xsmall",
+        "date": "none"
+      },
+      "state": "focus",
+      "theme": "dark",
+      "viewport": [
+        252.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        20.0
+      ],
+      "png": "png/datepicker/field.xsmall.none/focus/dark.png",
+      "scene": "scenes/datepicker/field.xsmall.none/focus/dark.json",
+      "png_sha256": "4af1c2a38584f9a1b516feb1a1ad62c90303e0288d43cb5b87291fab60ae2b9f"
+    },
+    {
+      "id": "datepicker/field.xsmall.none/focus/light",
+      "component": "datepicker",
+      "group": "field",
+      "params": {
+        "width": 220,
+        "size": "xsmall",
+        "date": "none"
+      },
+      "state": "focus",
+      "theme": "light",
+      "viewport": [
+        252.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        20.0
+      ],
+      "png": "png/datepicker/field.xsmall.none/focus/light.png",
+      "scene": "scenes/datepicker/field.xsmall.none/focus/light.json",
+      "png_sha256": "0f3e900e74e00eaf0926a81027742a0249c006bee906dfe4c5359439c7a8457d"
+    },
+    {
+      "id": "datepicker/field.xsmall.none/normal/dark",
+      "component": "datepicker",
+      "group": "field",
+      "params": {
+        "width": 220,
+        "size": "xsmall",
+        "date": "none"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        252.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        20.0
+      ],
+      "png": "png/datepicker/field.xsmall.none/normal/dark.png",
+      "scene": "scenes/datepicker/field.xsmall.none/normal/dark.json",
+      "png_sha256": "82c4f7b0592ee9051c8d1be8d7a97ea866cb6f4ed6547a9e498de493ce8ef313"
+    },
+    {
+      "id": "datepicker/field.xsmall.none/normal/light",
+      "component": "datepicker",
+      "group": "field",
+      "params": {
+        "width": 220,
+        "size": "xsmall",
+        "date": "none"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        252.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        20.0
+      ],
+      "png": "png/datepicker/field.xsmall.none/normal/light.png",
+      "scene": "scenes/datepicker/field.xsmall.none/normal/light.json",
+      "png_sha256": "f54c2bb9e4128f7f96f746c23192f34ede96960d18f84e1248b78a5fc2004e1c"
+    },
+    {
+      "id": "datepicker/hover.base/hover/dark",
+      "component": "datepicker",
+      "group": "hover",
+      "params": {
+        "width": 220,
+        "date": "2025-03-14"
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        252.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        32.0
+      ],
+      "png": "png/datepicker/hover.base/hover/dark.png",
+      "scene": "scenes/datepicker/hover.base/hover/dark.json",
+      "png_sha256": "1cc4b6294bbce7844ce39843c05a0c8cfcb99cd47e40d44a2e902a89e23e0ac4"
+    },
+    {
+      "id": "datepicker/hover.base/hover/light",
+      "component": "datepicker",
+      "group": "hover",
+      "params": {
+        "width": 220,
+        "date": "2025-03-14"
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        252.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        32.0
+      ],
+      "png": "png/datepicker/hover.base/hover/light.png",
+      "scene": "scenes/datepicker/hover.base/hover/light.json",
+      "png_sha256": "558a2ab4b1f7e8a18aafe3b0e8b0b797d7ab4b0288f4d8453f88cb5db460350f"
+    },
+    {
+      "id": "datepicker/motion.enter/click/light",
+      "component": "datepicker",
+      "group": "motion.enter",
+      "params": {
+        "width": 220,
+        "date": "2025-03-14",
+        "pointer_x": 0.9318
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        340.0,
+        420.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        32.0
+      ],
+      "motion": {
+        "name": "enter",
+        "trigger": "click",
+        "from": "normal",
+        "frames": [
+          {
+            "t_ms": 0,
+            "png": "png/datepicker/motion.enter/click/light/0000ms.png",
+            "scene": "scenes/datepicker/motion.enter/click/light/0000ms.json",
+            "png_sha256": "11ebfd635f6d8c3023152a247063f3c9ca8fa80bcc1058a9baf832347c09f484"
+          },
+          {
+            "t_ms": 16,
+            "png": "png/datepicker/motion.enter/click/light/0016ms.png",
+            "scene": "scenes/datepicker/motion.enter/click/light/0016ms.json",
+            "png_sha256": "b37028972f2a99c79d7f6e12d26fc6c0a9eee9d4aa3214c6b8c7a787d977eccc"
+          },
+          {
+            "t_ms": 33,
+            "png": "png/datepicker/motion.enter/click/light/0033ms.png",
+            "scene": "scenes/datepicker/motion.enter/click/light/0033ms.json",
+            "png_sha256": "4ea718a21a1d89fe479ff27fe8d26344b50a1746ca52e9be0d299ec85b67c1a4"
+          },
+          {
+            "t_ms": 50,
+            "png": "png/datepicker/motion.enter/click/light/0050ms.png",
+            "scene": "scenes/datepicker/motion.enter/click/light/0050ms.json",
+            "png_sha256": "7dfc62514679b034a09f924fea293671f6540bb15029ef0d1a276af01c363e02"
+          },
+          {
+            "t_ms": 75,
+            "png": "png/datepicker/motion.enter/click/light/0075ms.png",
+            "scene": "scenes/datepicker/motion.enter/click/light/0075ms.json",
+            "png_sha256": "1c2393106bf4ea98fe30a3f9f7ce3be5b33fb9646ccd7acff71b2068cc5f431b"
+          },
+          {
+            "t_ms": 100,
+            "png": "png/datepicker/motion.enter/click/light/0100ms.png",
+            "scene": "scenes/datepicker/motion.enter/click/light/0100ms.json",
+            "png_sha256": "13bd78883292ca08a161e614c8d699b54caead836d554cafeea4df4c75775387"
+          },
+          {
+            "t_ms": 125,
+            "png": "png/datepicker/motion.enter/click/light/0125ms.png",
+            "scene": "scenes/datepicker/motion.enter/click/light/0125ms.json",
+            "png_sha256": "51a3bb4a0162319041710218ec060d55d850dcbbf08749736878fdd90d426d4e"
+          },
+          {
+            "t_ms": 150,
+            "png": "png/datepicker/motion.enter/click/light/0150ms.png",
+            "scene": "scenes/datepicker/motion.enter/click/light/0150ms.json",
+            "png_sha256": "398f5c1d6d0f333b001bfb04f9c123c76e294d0f21c60b894ea392a9124165f8"
+          },
+          {
+            "t_ms": 200,
+            "png": "png/datepicker/motion.enter/click/light/0200ms.png",
+            "scene": "scenes/datepicker/motion.enter/click/light/0200ms.json",
+            "png_sha256": "398f5c1d6d0f333b001bfb04f9c123c76e294d0f21c60b894ea392a9124165f8"
+          }
+        ]
+      }
+    },
+    {
+      "id": "datepicker/open-hover.base/click+wait-200ms+at-108-172/dark",
+      "component": "datepicker",
+      "group": "open-hover",
+      "params": {
+        "width": 220,
+        "date": "2025-03-14",
+        "pointer_x": 0.9318
+      },
+      "state": "click+wait-200ms+at-108-172",
+      "theme": "dark",
+      "viewport": [
+        340.0,
+        420.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        32.0
+      ],
+      "png": "png/datepicker/open-hover.base/click+wait-200ms+at-108-172/dark.png",
+      "scene": "scenes/datepicker/open-hover.base/click+wait-200ms+at-108-172/dark.json",
+      "png_sha256": "93f503bdcb8bd2c7d29f7d9c1055de781a3672358824e09f854bed232ee38b23"
+    },
+    {
+      "id": "datepicker/open-hover.base/click+wait-200ms+at-108-172/light",
+      "component": "datepicker",
+      "group": "open-hover",
+      "params": {
+        "width": 220,
+        "date": "2025-03-14",
+        "pointer_x": 0.9318
+      },
+      "state": "click+wait-200ms+at-108-172",
+      "theme": "light",
+      "viewport": [
+        340.0,
+        420.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        32.0
+      ],
+      "png": "png/datepicker/open-hover.base/click+wait-200ms+at-108-172/light.png",
+      "scene": "scenes/datepicker/open-hover.base/click+wait-200ms+at-108-172/light.json",
+      "png_sha256": "e166e8e799d3a3b02fee2678d19cade3283a799a58e453009dc5543656f1a2cd"
+    },
+    {
+      "id": "datepicker/open.large/click+wait-200ms/dark",
+      "component": "datepicker",
+      "group": "open",
+      "params": {
+        "width": 220,
+        "date": "2025-03-14",
+        "pointer_x": 0.9318,
+        "size": "large"
+      },
+      "state": "click+wait-200ms",
+      "theme": "dark",
+      "viewport": [
+        340.0,
+        420.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        44.0
+      ],
+      "png": "png/datepicker/open.large/click+wait-200ms/dark.png",
+      "scene": "scenes/datepicker/open.large/click+wait-200ms/dark.json",
+      "png_sha256": "6b4db864165b3c6acb7a20704622a3f9734e372433d3640efee44748e0f0d95f"
+    },
+    {
+      "id": "datepicker/open.large/click+wait-200ms/light",
+      "component": "datepicker",
+      "group": "open",
+      "params": {
+        "width": 220,
+        "date": "2025-03-14",
+        "pointer_x": 0.9318,
+        "size": "large"
+      },
+      "state": "click+wait-200ms",
+      "theme": "light",
+      "viewport": [
+        340.0,
+        420.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        44.0
+      ],
+      "png": "png/datepicker/open.large/click+wait-200ms/light.png",
+      "scene": "scenes/datepicker/open.large/click+wait-200ms/light.json",
+      "png_sha256": "61ac2a76fc0b6a257de9fdfbe4a84c140d12a5a09abeec2bc93d524390c8118b"
+    },
+    {
+      "id": "datepicker/open.medium/click+wait-200ms/dark",
+      "component": "datepicker",
+      "group": "open",
+      "params": {
+        "width": 220,
+        "date": "2025-03-14",
+        "pointer_x": 0.9318,
+        "size": "medium"
+      },
+      "state": "click+wait-200ms",
+      "theme": "dark",
+      "viewport": [
+        340.0,
+        420.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        32.0
+      ],
+      "png": "png/datepicker/open.medium/click+wait-200ms/dark.png",
+      "scene": "scenes/datepicker/open.medium/click+wait-200ms/dark.json",
+      "png_sha256": "d0de37644130a390397c03412aeff5933531c7ad4bd2573055b7939086e28608"
+    },
+    {
+      "id": "datepicker/open.medium/click+wait-200ms/light",
+      "component": "datepicker",
+      "group": "open",
+      "params": {
+        "width": 220,
+        "date": "2025-03-14",
+        "pointer_x": 0.9318,
+        "size": "medium"
+      },
+      "state": "click+wait-200ms",
+      "theme": "light",
+      "viewport": [
+        340.0,
+        420.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        32.0
+      ],
+      "png": "png/datepicker/open.medium/click+wait-200ms/light.png",
+      "scene": "scenes/datepicker/open.medium/click+wait-200ms/light.json",
+      "png_sha256": "398f5c1d6d0f333b001bfb04f9c123c76e294d0f21c60b894ea392a9124165f8"
+    },
+    {
+      "id": "datepicker/open.small/click+wait-200ms/dark",
+      "component": "datepicker",
+      "group": "open",
+      "params": {
+        "width": 220,
+        "date": "2025-03-14",
+        "pointer_x": 0.9318,
+        "size": "small"
+      },
+      "state": "click+wait-200ms",
+      "theme": "dark",
+      "viewport": [
+        340.0,
+        420.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        24.0
+      ],
+      "png": "png/datepicker/open.small/click+wait-200ms/dark.png",
+      "scene": "scenes/datepicker/open.small/click+wait-200ms/dark.json",
+      "png_sha256": "ad6e25a21a40ccea488f86be488246d91f7d33dae14d4356f49c416537e7990b"
+    },
+    {
+      "id": "datepicker/open.small/click+wait-200ms/light",
+      "component": "datepicker",
+      "group": "open",
+      "params": {
+        "width": 220,
+        "date": "2025-03-14",
+        "pointer_x": 0.9318,
+        "size": "small"
+      },
+      "state": "click+wait-200ms",
+      "theme": "light",
+      "viewport": [
+        340.0,
+        420.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        24.0
+      ],
+      "png": "png/datepicker/open.small/click+wait-200ms/light.png",
+      "scene": "scenes/datepicker/open.small/click+wait-200ms/light.json",
+      "png_sha256": "aa6c88a69d1c269830a20b2c73f989191c230037b4a62d16666e0aa2546b1ea7"
+    },
+    {
+      "id": "datepicker/open.xsmall/click+wait-200ms/dark",
+      "component": "datepicker",
+      "group": "open",
+      "params": {
+        "width": 220,
+        "date": "2025-03-14",
+        "pointer_x": 0.9318,
+        "size": "xsmall"
+      },
+      "state": "click+wait-200ms",
+      "theme": "dark",
+      "viewport": [
+        340.0,
+        420.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        20.0
+      ],
+      "png": "png/datepicker/open.xsmall/click+wait-200ms/dark.png",
+      "scene": "scenes/datepicker/open.xsmall/click+wait-200ms/dark.json",
+      "png_sha256": "30516f124ecd21d62a7ad4d1746b000d4a54537d00b1698b981ba8a579307343"
+    },
+    {
+      "id": "datepicker/open.xsmall/click+wait-200ms/light",
+      "component": "datepicker",
+      "group": "open",
+      "params": {
+        "width": 220,
+        "date": "2025-03-14",
+        "pointer_x": 0.9318,
+        "size": "xsmall"
+      },
+      "state": "click+wait-200ms",
+      "theme": "light",
+      "viewport": [
+        340.0,
+        420.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        220.0,
+        20.0
+      ],
+      "png": "png/datepicker/open.xsmall/click+wait-200ms/light.png",
+      "scene": "scenes/datepicker/open.xsmall/click+wait-200ms/light.json",
+      "png_sha256": "4d25fb9be38ffcc4472d5162449e8a4f4d6f3cf839016e433374b0f41071b462"
+    },
+    {
       "id": "dropdown/menu.base/click+at-60-117/dark",
       "component": "dropdown",
       "group": "menu",
