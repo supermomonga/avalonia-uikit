@@ -16,7 +16,8 @@
   stays put. The visible bar is where the two meet, with both ends rounded.
 -->
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:gpui="using:AvaloniaUIKit">
   <ControlTheme x:Key="{x:Type ProgressBar}" TargetType="ProgressBar">
     <Setter Property="Foreground" Value="{DynamicResource Gpui.ProgressBar}" />
     <Setter Property="Background" Value="{DynamicResource Gpui.Progress.Track}" />
@@ -30,11 +31,12 @@
           <Panel>
             <Border Name="PART_Indicator" HorizontalAlignment="Left" VerticalAlignment="Stretch"
                     Background="{TemplateBinding Foreground}" CornerRadius="{TemplateBinding CornerRadius}">
-              <Border.Transitions>
+              <!-- Value changes animate; the width the bar first settles into does not. -->
+              <gpui:Motion.SettledTransitions>
                 <Transitions>
                   <DoubleTransition Property="Width" Duration="0:0:0.18" Easing="0.2,0,0,1" />
                 </Transitions>
-              </Border.Transitions>
+              </gpui:Motion.SettledTransitions>
             </Border>
             <Border Name="PART_IndeterminateClip" HorizontalAlignment="Right"
                     CornerRadius="{TemplateBinding CornerRadius}" ClipToBounds="True" IsVisible="False">

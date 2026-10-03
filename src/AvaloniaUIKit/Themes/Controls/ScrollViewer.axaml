@@ -134,39 +134,44 @@
       in where it stands; leaving, it slides a strip's width out to its edge as
       it fades (both ease-in-cubic, VisibilityAnimation in scrollbar.rs). The
       track slides, not the strip, which keeps taking the pointer where it is.
+      Each state sets its transitions before the value they animate, so the
+      change runs on the new state's transition.
     -->
     <Style Selector="^[AllowAutoHide=True] /template/ Border#PART_Root">
-      <Setter Property="Opacity" Value="0" />
       <Setter Property="Transitions">
         <Transitions>
           <DoubleTransition Property="Opacity" Duration="0:0:0.5" Easing="CubicEaseIn" />
         </Transitions>
       </Setter>
+      <Setter Property="Opacity" Value="0" />
     </Style>
-    <Style Selector="^[AllowAutoHide=True] /template/ Track#PART_Track">
+    <Style Selector="^[AllowAutoHide=True]:vertical /template/ Track#PART_Track">
       <Setter Property="Transitions">
         <Transitions>
           <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.5" Easing="CubicEaseIn" />
         </Transitions>
       </Setter>
-    </Style>
-    <Style Selector="^[AllowAutoHide=True]:vertical /template/ Track#PART_Track">
       <Setter Property="RenderTransform" Value="translateX(16px)" />
     </Style>
     <Style Selector="^[AllowAutoHide=True]:horizontal /template/ Track#PART_Track">
+      <Setter Property="Transitions">
+        <Transitions>
+          <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.5" Easing="CubicEaseIn" />
+        </Transitions>
+      </Setter>
       <Setter Property="RenderTransform" Value="translateY(16px)" />
     </Style>
     <Style Selector="^[AllowAutoHide=True][IsExpanded=True] /template/ Border#PART_Root">
-      <Setter Property="Opacity" Value="1" />
       <Setter Property="Transitions">
         <Transitions>
           <DoubleTransition Property="Opacity" Duration="0:0:0.3" Easing="LinearEasing" />
         </Transitions>
       </Setter>
+      <Setter Property="Opacity" Value="1" />
     </Style>
     <Style Selector="^[AllowAutoHide=True][IsExpanded=True] /template/ Track#PART_Track">
-      <Setter Property="RenderTransform" Value="none" />
       <Setter Property="Transitions" Value="{x:Null}" />
+      <Setter Property="RenderTransform" Value="none" />
     </Style>
   </ControlTheme>
 
