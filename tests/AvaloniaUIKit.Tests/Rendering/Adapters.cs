@@ -49,6 +49,7 @@ public static class Adapters
         "list" => List(c),
         "virtual" => VirtualList(c),
         "select" => Select(c),
+        "combobox" => Select(c, "combobox"),
         _ => throw new NotSupportedException($"no adapter for {c.Component}"),
     };
 
@@ -246,7 +247,7 @@ public static class Adapters
     }
 
     /// <summary>A ComboBox as GPUI's Select: fruits, a selected and a disabled one, a placeholder.</summary>
-    private static ComboBox Select(GoldenCase c)
+    private static ComboBox Select(GoldenCase c, string? look = null)
     {
         var box = new ComboBox
         {
@@ -255,6 +256,10 @@ public static class Adapters
             IsEnabled = !c.Bool("disabled"),
         };
         ClassFrom(box, c, "size", "medium");
+        if (look is not null)
+        {
+            box.Classes.Add(look);
+        }
         var disabled = (int)c.Num("disabled_row", -1);
         var i = 0;
         foreach (var name in Names((int)c.Num("count", 4)))

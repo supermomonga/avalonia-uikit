@@ -1,0 +1,34 @@
+# GPUI Kit Combobox (single select, not searchable) -> ComboBox with the Select
+# theme. Open states wait out the 150ms enter motion.
+component = "combobox"
+viewport = [320, 260]
+anchor = [16, 8]
+
+[[group]]
+name = "closed"
+params = { width = 200, selected = 1 }
+matrix = { size = ["small", "medium"] }
+states = ["normal", "focus", "disabled"]
+
+[[group]]
+name = "placeholder"
+params = { width = 200, placeholder = "Select a fruit" }
+states = ["normal"]
+
+[[group]]
+name = "open"
+params = { width = 200, selected = 1, disabled_row = 3 }
+states = ["click+wait-200ms", "click+wait-200ms+at-60-64", "click+wait-200ms+key-down"]
+
+# The trigger closes the popup again; an item click closes it too.
+[[group]]
+name = "close"
+params = { width = 200, selected = 1 }
+states = ["click+wait-200ms+click", "click+wait-200ms+click-at-60-65"]
+
+[[motion]]
+name = "enter"
+params = { width = 200, selected = 1 }
+trigger = "click"
+samples_ms = [0, 16, 33, 50, 75, 100, 125, 150, 200]
+themes = ["light"]

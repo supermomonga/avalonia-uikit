@@ -23,17 +23,26 @@ public static class Selects
     public static readonly AttachedProperty<object?> CursorItemProperty =
         AvaloniaProperty.RegisterAttached<ComboBox, object?>("CursorItem", typeof(Selects));
 
+    private static readonly AttachedProperty<bool> HandlersProperty =
+        AvaloniaProperty.RegisterAttached<ComboBox, bool>("Handlers", typeof(Selects));
+
     static Selects()
     {
         TracksCursorProperty.Changed.AddClassHandler<ComboBox>((box, e) =>
         {
             if (!e.GetNewValue<bool>())
             {
+                box.ClearValue(CursorItemProperty);
                 return;
             }
+            if (box.GetValue(HandlersProperty))
+            {
+                return;
+            }
+            box.SetValue(HandlersProperty, true);
             box.AddHandler(InputElement.GotFocusEvent, (_, args) =>
             {
-                if (box.IsDropDownOpen && args.Source is Visual source &&
+                if (GetTracksCursor(box) && box.IsDropDownOpen && args.Source is Visual source &&
                     source.FindAncestorOfType<ComboBoxItem>(includeSelf: true) is { } item &&
                     box.IndexFromContainer(item) >= 0)
                 {

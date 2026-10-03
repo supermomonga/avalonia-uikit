@@ -9,7 +9,7 @@ public static class MotionTolerance
     public static PixelTolerance? For(GoldenCase golden, GoldenScene scene) => golden.Component switch
     {
         "tooltip" when Fading(golden, scene) => FadingGroup,
-        "select" when FadingBelow(golden, scene) => FadingGroup,
+        "select" or "combobox" when FadingBelow(golden, scene) => FadingGroup,
         "progress" when golden.Motion!.Name == "loading" && NarrowBar(golden, scene) => NarrowPill,
         _ => null,
     };

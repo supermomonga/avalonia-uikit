@@ -9,6 +9,7 @@ use gpui_kit::{
     AppContext as _, IntoElement as _, SharedString, Styled as _, px,
     component::{
         Colorize as _, Disableable as _, IndexPath, Sizable as _, Theme,
+        combobox::{Combobox, ComboboxState},
         select::{Select, SelectItem, SelectState},
     },
 };
@@ -62,6 +63,41 @@ pub fn builder(params: &Params) -> Result<Builder> {
             .and_then(|e| e.downcast::<SelectState<Vec<Fruit>>>().ok())
             .expect("select state");
         Select::new(&state)
+            .placeholder(placeholder.clone())
+            .with_size(size)
+            .disabled(disabled)
+            .w(px(width))
+            .into_any_element()
+    }))
+}
+
+/// `Combobox` (crates/component/src/combobox.rs), single select and not searchable.
+pub fn combobox(params: &Params) -> Result<Builder> {
+    let size = size(params);
+    let disabled = disabled(params);
+    let selected = param_f32(params, "selected", -1.) as i32;
+    let disabled_row = param_f32(params, "disabled_row", -1.) as i32;
+    let count = param_f32(params, "count", 4.) as usize;
+    let width = param_f32(params, "width", 200.);
+    let placeholder = param_str(params, "placeholder", "Select a fruit").to_string();
+    Ok(Rc::new(move |view, window, cx| {
+        if view.state.entity.is_none() {
+            let items: Vec<Fruit> = super::list::names(count)
+                .into_iter()
+                .enumerate()
+                .map(|(i, title)| Fruit { title, disabled: i as i32 == disabled_row })
+                .collect();
+            let ix: Vec<IndexPath> = if selected >= 0 { vec![IndexPath::new(selected as usize)] } else { vec![] };
+            let state = cx.new(|cx| ComboboxState::new(items, ix, window, cx));
+            view.state.entity = Some(state.into());
+        }
+        let state = view
+            .state
+            .entity
+            .clone()
+            .and_then(|e| e.downcast::<ComboboxState<Vec<Fruit>>>().ok())
+            .expect("combobox state");
+        Combobox::new(&state)
             .placeholder(placeholder.clone())
             .with_size(size)
             .disabled(disabled)

@@ -108,6 +108,37 @@ public class BehaviorTests
         await Assert.That(host.Window.GetVisualDescendants().OfType<ListBoxItem>().Count()).IsLessThan(20);
     }
 
+    // GPUI Kit has no AutoCompleteBox; its suggestions use the Select dropdown's
+    // geometry (select/combobox goldens): 6px below the field, as wide as it,
+    // 4px of padding, 30.5px medium rows rounded with the theme radius.
+    [Test]
+    public async Task AutoCompleteBox_suggestions_open_as_the_select_dropdown()
+    {
+        var golden = Case("select/open.medium/click+wait-200ms/light");
+        var box = new AutoCompleteBox
+        {
+            Width = 200,
+            ItemsSource = Adapters.Names(4).ToList(),
+            FilterMode = AutoCompleteFilterMode.None,
+            MinimumPrefixLength = 0,
+        };
+        using var host = CaseHost.Open(golden, box);
+        box.IsDropDownOpen = true;
+        VirtualTime.Advance(TimeSpan.FromMilliseconds(200));
+        host.Flush();
+        var field = box.GetVisualDescendants().OfType<TextBox>().First();
+        var fieldBounds = new Rect(field.TranslatePoint(default, host.Window)!.Value, field.Bounds.Size);
+        var popup = box.GetVisualDescendants().OfType<Avalonia.Controls.Primitives.Popup>().First();
+        var surface = ((Control)popup.Child!).GetVisualDescendants().OfType<Border>().First(b => b.Name == "PART_PopupSurface");
+        var items = surface.GetVisualDescendants().OfType<ListBoxItem>().ToList();
+        await Assert.That(fieldBounds.Height).IsEqualTo(32);
+        await Assert.That(surface.Bounds.Width).IsEqualTo(200);
+        await Assert.That(items.Count).IsEqualTo(4);
+        await Assert.That(items[0].Bounds.Height).IsEqualTo(30.5);
+        await Assert.That(items[0].CornerRadius.TopLeft).IsEqualTo(6);
+        await Assert.That(surface.Bounds.Height).IsEqualTo(4 * 30.5 + 8);
+    }
+
     [Test]
     public async Task A_disabled_button_ignores_a_click()
     {

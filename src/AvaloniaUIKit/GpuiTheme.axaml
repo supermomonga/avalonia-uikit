@@ -22,6 +22,7 @@
         <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/TextBox.axaml" />
         <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/ListBox.axaml" />
         <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/ComboBox.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/AutoCompleteBox.axaml" />
         <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/GroupBox.axaml" />
         <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/HyperlinkButton.axaml" />
         <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/ProgressBar.axaml" />
@@ -95,6 +96,19 @@
   </Style>
   <Style Selector="ComboBox.large ComboBoxItem /template/ ContentPresenter#PART_ContentPresenter">
     <Setter Property="LineHeight" Value="26" />
+  </Style>
+
+  <!-- AutoCompleteBox suggestion rows by its size, as Select rows. -->
+  <Style Selector="AutoCompleteBox.xsmall ListBoxItem">
+    <Setter Property="Padding" Value="1,4" />
+    <Setter Property="FontSize" Value="12" />
+  </Style>
+  <Style Selector="AutoCompleteBox.small ListBoxItem">
+    <Setter Property="Padding" Value="5,2" />
+  </Style>
+  <Style Selector="AutoCompleteBox.large ListBoxItem">
+    <Setter Property="Padding" Value="9,8" />
+    <Setter Property="FontSize" Value="16" />
   </Style>
 
   <!-- InputGroupButton: the buttons in an input group's addons. -->

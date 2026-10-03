@@ -1,6 +1,7 @@
 <!--
   GPUI Kit Select (crates/component/src/select.rs) -> ComboBox / ComboBoxItem.
-  Classes: xsmall small large (medium is the default).
+  Classes: xsmall small large (medium is the default); combobox (GPUI Kit's
+  Combobox, combobox.rs: the same look, titled with the committed item only).
 
   The trigger is the input frame (input_h, input_px, the input border and
   background) with the title or the muted placeholder and a muted chevron 4px
@@ -119,6 +120,11 @@
         </Panel>
       </ControlTemplate>
     </Setter>
+
+    <!-- GPUI Kit's Combobox titles the trigger with the committed item only. -->
+    <Style Selector="^.combobox">
+      <Setter Property="gpui:Selects.TracksCursor" Value="False" />
+    </Style>
 
     <Style Selector="^:empty /template/ Panel#PART_Empty">
       <Setter Property="IsVisible" Value="True" />

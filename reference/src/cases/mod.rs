@@ -57,6 +57,7 @@ pub fn builder(case: &Case) -> Result<Builder> {
         "list" => list::builder(&params),
         "virtual" => list::virtual_list(&params),
         "select" => select::builder(&params),
+        "combobox" => select::combobox(&params),
         other => bail!("unknown component {other}"),
     }
 }
