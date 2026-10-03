@@ -3,6 +3,9 @@ number: 13
 title: Bundle Lucide icons as geometry with their license
 status: accepted
 date: 2026-10-03
+links:
+- target: 21
+  kind: amendedby
 ---
 
 # Bundle Lucide icons as geometry with their license

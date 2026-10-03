@@ -3,6 +3,9 @@ number: 6
 title: Generate color tokens from the resolved GPUI Kit theme
 status: accepted
 date: 2026-10-03
+links:
+- target: 21
+  kind: amendedby
 ---
 
 # Generate color tokens from the resolved GPUI Kit theme

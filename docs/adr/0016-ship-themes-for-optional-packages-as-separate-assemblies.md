@@ -3,6 +3,9 @@ number: 16
 title: Ship themes for optional packages as separate assemblies
 status: accepted
 date: 2026-10-04
+links:
+- target: 21
+  kind: amendedby
 ---
 
 # Ship themes for optional packages as separate assemblies
