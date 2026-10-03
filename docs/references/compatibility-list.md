@@ -6,7 +6,7 @@
 
 GPUI Kit の見た目を、Avalonia の既存コントロールに適用するテーマとして移植することは可能。配色だけでなく、`ControlTheme` と `ControlTemplate` を差し替えることで、余白、輪郭、内部の配置、状態表示、アニメーションも変更できる。ただし、**対応する既存コントロールの機能が上限**となる。
 
-ボタン、入力欄、選択欄、タブ、メニュー、カレンダー、一覧、表、通知などは対象にできる。標準に存在しないコンポーネントや、標準を超える検索・選択・ドッキング・編集機能は実装しない。対応表の「部分対応」は、記載した部分だけをテーマ化する意味であり、残りの機能を後から自作する予定を意味しない。
+ボタン、入力欄、選択欄、タブ、メニュー、カレンダー、一覧、表、通知などは対象にできる。標準に存在しないコンポーネントのうち、見た目が中心で小さく作れるもの（Badge、Tag、Alert など）は新しいコントロールとして実装する（ADR 19）。標準を超える検索・選択・ドッキング・編集機能や、モーダル・可視化の仕組みは実装しない。対応表の「部分対応」は、記載した部分だけをテーマ化する意味であり、残りの機能を後から自作する予定を意味しない。
 
 この資料はもともと、移植範囲を決めるためのソース・資料調査として作った。その後、「対応」の 16 行と「部分対応」の 34 行（DataTable は `TableView` と DataGrid の 2 行）をテーマとして実装し、GPUI Kit との一致を自動テストで検証した（[実装状況](#実装状況)）。「部分対応」の各行に書いた範囲と対象外は、実装後もそのまま有効である。見た目だけのコードを認めた方針の改定（ADR 15）で対象に戻した動き（タブのインジケーター、自然高の reveal など）は、行の説明も改めた。
 
@@ -100,18 +100,18 @@ GPUI Kit の見た目を、Avalonia の既存コントロールに適用する�
 | --- | --- |
 | Avalonia 本体 | `Avalonia.Controls` と標準の描画・レイアウト・アニメーション機構。テーマの基本対象。`Primitives`、`Notifications`、`Chrome` 名前空間の公開型も含む。 |
 | 公式の別パッケージ | `Avalonia.Controls.ColorPicker`、`Avalonia.Controls.DataGrid`。既存コントロールへのテーマ適用は可能だが、追加参照が必要なため別表に記載する。 |
-| 本体・上記の公式別パッケージにないもの | 非対応。FluentAvalonia、第三者製コントロール、Avalonia Pro の Charts / TreeDataGrid / Markdown 等を導入して対象を広げない。公式サイトに紹介ページがあることだけでは、本体標準とは判定しない。 |
+| 本体・上記の公式別パッケージにないもの | 原則として非対応。見た目が中心で小さく作れるものだけ、新規実装として新しいコントロールを作る（ADR 19）。FluentAvalonia、第三者製コントロール、Avalonia Pro の Charts / TreeDataGrid / Markdown 等を導入して対象を広げない。公式サイトに紹介ページがあることだけでは、本体標準とは判定しない。 |
 
-判定は **対応**、**部分対応**、**非対応** の三つ。前二つがテーマの対象、最後が対象外となる。
+判定は **対応**、**部分対応**、**新規実装**、**非対応** の四つ。前二つは既存のコントロールのテーマ、新規実装は新しいコントロール（2026-10-04 に追加。ADR 19）、最後が対象外となる。
 
 - `Style` は既存プロパティと状態ごとの外観を、`ControlTheme` は型ごとの外観一式を、`ControlTemplate` はコントロール内部の表示構造を変更するものとして使う。
 - テンプレート内の `Border`、`Path`、`TextBlock` 等の利用は可能。既存の状態・プロパティ・テンプレート部品に結び付ける。
 - 見た目だけを変えるコードは使える（2026-10-03 に改定。ADR 15）。
   - 使えるもの: 状態を持たない値変換（Converter）と、既存のコントロールの状態やイベントを読んで見た目のプロパティだけを動かす添付プロパティ型の Behavior。どちらもテーマのスタイルから適用し、アプリはテーマを追加するだけで使える。
-  - 作らないもの: 新規コントロール、コントロールの論理的な状態や操作を変える処理（ポップアップを閉じるのを遅らせる等）、選択・検索・データ管理の機能。
+  - 作らないもの: 新規コントロール（2026-10-04 から、小さなコンポーネントに限って新規実装として作る。ADR 19）、コントロールの論理的な状態や操作を変える処理（ポップアップを閉じるのを遅らせる等）、選択・検索・データ管理の機能。
   - 条件: NativeAOT で動き、リフレクションを使わず、参照データとの比較テストで検証する。
   - 改定前は「独自のアニメーション処理を作らない」としていたため、ばねの途中反転やスクロール中だけ表示するスクロールバーを対象外にしていた。各行の「対象外」のうち、この条件で表せる見た目・動きは対象に戻す。
-- `Border` や `ItemsControl` を組み合わせれば描ける、という理由だけで標準に存在すると判定しない。たとえば `Badge` や `Breadcrumb` 専用の構成・契約を新設することは対象外。
+- `Border` や `ItemsControl` を組み合わせれば描ける、という理由だけで標準に存在すると判定しない。`Badge` や `Breadcrumb` のような専用の構成は、既存のコントロールの対応ではなく、新規実装として扱う。
 - アプリによる通常のデータバインディング、コマンド、内容の指定は必要。テーマがアプリのデータ取得や業務処理を代行するものではない。
 
 根拠: [Avalonia の ControlTheme][av-doc-themes]、[本体のコントロール実装][av-controls]、[Fluent の標準テンプレート][av-fluent]。
@@ -197,41 +197,48 @@ GPUI Kit の見た目を、Avalonia の既存コントロールに適用する�
 
 根拠: [ColorPicker の追加参照と再テンプレート化][av-doc-colorpicker]、[DataGrid の配布条件・非推奨の案内][av-doc-datagrid]。公式の別パッケージがあることと、本体に機能を新設せず使えることは両立するが、必要な依存は明示する。
 
+## 新しいコントロールとして実装するもの
+
+Avalonia に対応するコントロールがないコンポーネントのうち、見た目が中心で小さく作れるものは、新しいコントロールとして `GpuiTheme` に含める（2026-10-04 に決定。ADR 19）。判定は **新規実装**。コントロールはプロパティ・疑似クラス・テンプレートの部品だけを持ち、処理はそのコンポーネント自身の操作に限る。名前は GPUI に合わせ、Avalonia のメンバーとぶつかるものや意味が広すぎるものだけ変える。
+
+| GPUI Kit | 判定 | Avalonia の新しいコントロール | 移植する範囲／対象外 |
+| --- | --- | --- | --- |
+| [Badge][gp-badge] | 新規実装（第 1 弾） | `Badge`（`ContentControl`） | 内容の右上に重ねる数・点・アイコン、上限、色。 |
+| [Tag][gp-tag] | 新規実装（第 1 弾） | `TagLabel`（`Control.Tag` と同名を避ける） | 意味別の色、outline、角丸、サイズ。 |
+| [Alert][gp-alert] | 新規実装（第 1 弾） | `Alert` | 種類ごとの色とアイコン、タイトル、banner 表示、閉じるボタン（押したときのイベントだけを出し、隠すのはアプリ）。 |
+| [Skeleton][gp-skeleton] | 新規実装（第 1 弾） | `Skeleton` | 読み込み中の代替表示と明滅のアニメーション。 |
+| [StatusBar][gp-status-bar] | 新規実装（第 1 弾） | `StatusBar` | 左・中央・右の 3 領域を持つ下部バー。 |
+| [Breadcrumb / BreadcrumbItem][gp-breadcrumb-source]（公開モジュール） | 新規実装（第 1 弾） | `Breadcrumb`、`BreadcrumbItem` | 項目と区切り、クリック、無効、現在地。遷移はアプリのコマンドに任せる。 |
+| [Kbd][gp-kbd] | 新規実装（第 1 弾） | `Kbd` | キーキャップの表示と GPUI の OS ごとの表記。Action からのキーの解決は対象外。 |
+| [Clipboard][gp-clipboard] | 新規実装（第 1 弾） | `Clipboard` | コピーボタンと、コピー後の一時的な完了表示。値はアプリが渡す。 |
+| [Rating][gp-rating] | 新規実装（第 1 弾） | `Rating` | 星の表示、hover での予告、クリックでの値の変更、無効、サイズ。 |
+| [Avatar / AvatarGroup][gp-avatar] | 新規実装（第 1 弾） | `Avatar`、`AvatarGroup` | 頭文字と名前から決まる色、画像、代わりのアイコン、サイズ、重ねた集合表示と上限。画像の取得は標準の `Image` の範囲。 |
+| [Empty][gp-empty] と子部品 | 新規実装（第 1 弾） | `EmptyState` | 空状態の画像・タイトル・説明・操作の配置。 |
+| [DescriptionList][gp-description-list] / DescriptionItem | 新規実装（第 2 弾） | `DescriptionList`、`DescriptionItem` | ラベルと値、列数、項目の結合、縦横の配置、枠。 |
+| [Stepper][gp-stepper] / StepperItem / StepperTrigger | 新規実装（第 2 弾） | `Stepper`、`StepperItem` | 完了・現在・未到達の表示、区切りの線、縦向き、クリックでの選択。 |
+| [Form][gp-form] / Field | 新規実装（第 2 弾） | `Form`、`FormField` | ラベル・説明・必須表示と入力欄の配置、列。検証は標準の `DataValidationErrors` に任せ、フォームの値の管理はしない。 |
+| [HoverCard][gp-hover-card] | 新規実装（第 2 弾） | `HoverCard` | hover で開き、カードの上にポインターがある間は開いたままにする開閉と、その遅延。 |
+| [Shimmer / ShimmerText][gp-shimmer] | 新規実装（第 2 弾） | `ShimmerText` | 文字の上を流れるハイライトのアニメーション。 |
+| [Marker][gp-marker] と子部品 | 新規実装（第 2 弾） | `Marker` | 会話やタイムラインの区切りのアイコン・内容・線、読み込み中の表示。 |
+| [Bubble][gp-bubble] と子部品 | 新規実装（第 2 弾） | `Bubble` | メッセージの吹き出しと reaction 領域。 |
+| [Message][gp-message] / MessageGroup と子部品 | 新規実装（第 2 弾） | `Message`、`MessageGroup` | アバター・ヘッダー・本文・フッターの配置と左右の寄せ。会話の末尾への追従（MessageScroller）は対象外。 |
+
 ## 対応する標準コンポーネントがないもの
 
-以下は非対応。近い部品が存在する場合も、組み合わせて新しいコンポーネントを提供することはしない。対応済みのボタン・文字等をアプリ側で使った結果として外観の一部が揃うことは、ここでのコンポーネント対応には数えない。
+以下は非対応。モーダル、検索、ドッキング、編集、可視化などの仕組みそのものが要り、新しいコントロールを足しても小さく収まらない（ADR 19）。対応済みのボタン・文字等をアプリ側で使った結果として外観の一部が揃うことは、ここでのコンポーネント対応には数えない。
 
 | GPUI Kit | 非対応とする理由 |
 | --- | --- |
-| [Alert][gp-alert] | インラインの警告・バナー専用コントロールがない。通知カードとは用途と表示管理が異なる。 |
 | [Dialog][gp-dialog] / [AlertDialog][gp-alert-dialog] と子部品 | 同一画面内のモーダル、背景 overlay、標準アクションを備えた対応コントロールがない。`Window.ShowDialog` は別ウィンドウであり、Popover 用 Popup も同等のモーダル機構ではない。 |
 | [Attachment][gp-attachment] と子部品 | 添付ファイルの preview・metadata・actions・状態表示という専用の構成がない。アップロード状態の管理もテーマの範囲外。 |
-| [Avatar / AvatarGroup][gp-avatar] | 頭文字表示、画像なし時の表示、重なった集合表示を持つ専用型がない。単なる画像のテーマとは分ける。 |
-| [Badge][gp-badge] | カウント・dot・アイコンを他の要素に重ねる専用型がない。 |
-| [Breadcrumb / BreadcrumbItem][gp-breadcrumb-source]（公開モジュール） | パンくずナビゲーションの専用型がない。リンク列を組み立てる機能は追加しない。 |
-| [Bubble][gp-bubble] と子部品 | メッセージの吹き出し・reaction 領域の専用型がない。 |
-| [Clipboard][gp-clipboard] | Avalonia の Clipboard はサービス API。コピー操作と一時的な完了表示を持つコントロールはない。Button のテーマからコピー処理を追加しない。 |
 | [Command][gp-command] / CommandGroup / CommandItem | コマンドパレットとしての検索・項目管理・キー表示を持つ標準型がない。標準 `CommandBar` はツールバーであり対応先ではない。 |
-| [DescriptionList][gp-description-list] / DescriptionItem | ラベル・値・列数・セル結合を扱う専用型がない。Grid による新規実装は行わない。 |
 | [Dock][gp-dock] / DockArea / Panel / TabPanel | ドッキング、タブの移動、分離、配置の保存・復元を持つ標準型がない。標準 `DockPanel` は子を辺に配置するレイアウトであり、ドッキング機構ではない。 |
 | [Editor][gp-editor] | シンタックスハイライト、LSP、折り畳み、補完、巨大テキストの編集エンジンは TextBox のテーマでは追加できない。 |
-| [Empty][gp-empty] と子部品 | 空状態の media・title・description・actions をまとめる専用型がない。 |
-| [Form][gp-form] / Field | フォーム・フィールドのレイアウトと説明をまとめる標準の Form / Field 型がない。`DataValidationErrors` の外観は入力コントロールのテーマの一部として扱えるが、フォーム機構は作らない。 |
-| [HoverCard][gp-hover-card] | trigger からカードにマウスを移した間の開閉維持など、操作可能な hover card の標準型がない。説明表示の ToolTip と同一視しない。 |
-| [Kbd][gp-kbd] | キーキャップ表示・OS ごとの記号整形・Action からの解決を持つ専用型がない。MenuItem の標準ショートカット表示は Menu の対象範囲。 |
-| [Marker][gp-marker] と子部品 | 会話やタイムラインの区切りにアイコン・内容・線を配置する専用型がない。Separator 単体と分ける。 |
-| [Message][gp-message] / MessageGroup と子部品 | avatar・header・content・footer・配置をまとめる会話 UI の専用型がない。 |
 | [MessageScroller][gp-message-scroller] | 会話の末尾追従・アンカー保持を管理する専用型がない。通常の ScrollViewer のテーマに追従処理は追加しない。 |
 | [OtpInput][gp-otp-input] | 複数桁に分離した入力欄、貼り付け時の配分、桁間移動の標準型がない。MaskedTextBox と同一視しない。 |
 | [Questionnaire][gp-questionnaire] と子部品 | 設問の順序、回答・検証状態、前後の移動、選択肢のショートカットを管理する標準型がない。含まれる RadioButton・CheckBox・TextBox・Button だけがテーマの対象になる。 |
-| [Rating][gp-rating] | 星による評価入力の標準型がない。Slider に評価選択の操作を追加しない。 |
 | [Settings][gp-settings] / SettingPage / SettingGroup / SettingItem | 設定画面の構成・フィールド生成・reset 管理を持つ標準型がない。含まれる通常の入力コントロールだけがテーマの対象になる。 |
-| [Skeleton][gp-skeleton] | 読み込み中の代替表示を表す専用型がない。描画用 Border があることを Skeleton の標準対応とは数えない。 |
-| [Shimmer / ShimmerText][gp-shimmer] | テキスト上のハイライト移動を提供する標準型がない。専用マスク・描画機能は作らない。 |
 | [Speech][gp-speech] | 音声の取り込み・認識と入力レベルの波形表示を持つ標準型がない。開始・停止ボタンの外観を ToggleButton 等で揃えても、録音・認識処理はテーマで追加しない。 |
-| [StatusBar][gp-status-bar] | ステータスバー専用型がない。任意の下部レイアウトを新しいコンポーネントとして提供しない。 |
-| [Stepper][gp-stepper] / StepperItem / StepperTrigger | 工程の完了・現在・未到達を示す標準型がない。ページ番号を選ぶ PipsPager とは異なる。 |
-| [Tag][gp-tag] | 意味別のラベル・チップを表す専用型がない。 |
 | [TextView / Markdown / HTML][gp-text-view] | Markdown / HTML の解析・レイアウト・装飾を行う本体標準型がない。TextBlock の Inlines は markup parser の代わりにならない。 |
 | [Chart][gp-chart] | Line / Bar / Area / Pie / Radar / Candlestick / Sankey の各 Chart は本体標準にない。Avalonia Pro の Charts は本件の標準範囲に含めない。 |
 | [Plot][gp-plot] | ScaleLinear / ScaleBand / ScalePoint / ScaleOrdinal、Bar / Line / Area / Pie / Arc / Stack / PlotAxis 等のデータ可視化基盤はない。標準 Shape の Arc とプロット用のスケール・軸は別物。 |

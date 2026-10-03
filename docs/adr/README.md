@@ -16,3 +16,4 @@
 * [16. Ship themes for optional packages as separate assemblies](0016-ship-themes-for-optional-packages-as-separate-assemblies.md)
 * [17. Hand a control's look to code-built parts through inherited values](0017-hand-a-control-s-look-to-code-built-parts-through-inherited-values.md)
 * [18. Normalize what each renderer draws differently before comparing](0018-normalize-what-each-renderer-draws-differently-before-comparing.md)
+* [19. Add controls for small GPUI Kit components that Avalonia lacks](0019-add-controls-for-small-gpui-kit-components-that-avalonia-lacks.md)

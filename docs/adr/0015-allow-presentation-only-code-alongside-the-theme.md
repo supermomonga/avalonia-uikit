@@ -3,6 +3,9 @@ number: 15
 title: Allow presentation-only code alongside the theme
 status: accepted
 date: 2026-10-03
+links:
+- target: 19
+  kind: amendedby
 ---
 
 # Allow presentation-only code alongside the theme
