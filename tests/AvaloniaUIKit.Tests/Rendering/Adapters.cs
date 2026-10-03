@@ -36,13 +36,7 @@ public static class Adapters
         "progress" => Progress(c),
         "spinner" => Spinner(c),
         "tooltip" => Tooltip(c),
-        "scroll" => new ScrollViewer
-        {
-            Width = c.Num("width", 160),
-            Height = c.Num("height", 100),
-            AllowAutoHide = c.Str("scrollbar_mode", "hover") != "always",
-            Content = new Border { Width = c.Num("width", 160), Height = c.Num("content", 400) },
-        },
+        "scroll" => Scroll(c),
         _ => throw new NotSupportedException($"no adapter for {c.Component}"),
     };
 
@@ -72,6 +66,21 @@ public static class Adapters
             box.CaretBrush = Avalonia.Media.Brushes.Transparent;
         }
         host.Flush();
+    }
+
+    /// <summary>ScrollbarMode::Always / Hover / Scrolling.</summary>
+    private static ScrollViewer Scroll(GoldenCase c)
+    {
+        var mode = c.Str("scrollbar_mode", "hover");
+        var viewer = new ScrollViewer
+        {
+            Width = c.Num("width", 160),
+            Height = c.Num("height", 100),
+            AllowAutoHide = mode != "always",
+            Content = new Border { Width = c.Num("width", 160), Height = c.Num("content", 400) },
+        };
+        Scrollbars.SetShowOnHover(viewer, mode != "scrolling");
+        return viewer;
     }
 
     /// <summary>A Lucide icon from the theme, as an app would put one in content.</summary>

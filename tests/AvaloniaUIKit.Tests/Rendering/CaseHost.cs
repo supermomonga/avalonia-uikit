@@ -121,6 +121,13 @@ public sealed class CaseHost : IDisposable
                     var b = ControlBounds();
                     Window.MouseMove(new Point(b.Right + 40, b.Bottom + 40));
                     break;
+                case var p when p.StartsWith("wheel-at-", StringComparison.Ordinal):
+                    // Scrolls the content under the point down by 40px (50px per wheel step).
+                    var wxy = p["wheel-at-".Length..].Split('-');
+                    var wheelAt = new Point(double.Parse(wxy[0], System.Globalization.CultureInfo.InvariantCulture), double.Parse(wxy[1], System.Globalization.CultureInfo.InvariantCulture));
+                    Window.MouseMove(wheelAt);
+                    Window.MouseWheel(wheelAt, new Vector(0, -0.8));
+                    break;
                 case var p when p.StartsWith("pressed-at-", StringComparison.Ordinal):
                     var pxy = p["pressed-at-".Length..].Split('-');
                     var pressAt = new Point(double.Parse(pxy[0], System.Globalization.CultureInfo.InvariantCulture), double.Parse(pxy[1], System.Globalization.CultureInfo.InvariantCulture));

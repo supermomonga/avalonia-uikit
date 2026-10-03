@@ -4,7 +4,7 @@ use anyhow::{Context as _, Result};
 use gpui_kit::{
     AnyElement, AnyWindowHandle, AppContext, InputEvent as _, Bounds, Context, DevicePixels, HeadlessAppContext,
     InteractiveElement as _, IntoElement, KeyDownEvent, KeyUpEvent, Keystroke, MouseButton,
-    MouseDownEvent, MouseMoveEvent, MouseUpEvent, ParentElement as _, PlatformAtlas,
+    MouseDownEvent, MouseMoveEvent, MouseUpEvent, ParentElement as _, PlatformAtlas, ScrollDelta, ScrollWheelEvent,
     PlatformHeadlessRenderer, Pixels, Point, Render, Scene, Size, Styled as _, Window, div,
     point, px, size,
     assets::Assets,
@@ -263,6 +263,24 @@ impl Harness {
                     position,
                     modifiers: Default::default(),
                     click_count: 1,
+                }
+                .to_platform_input(),
+                cx,
+            );
+        })?;
+        self.render(window)
+    }
+
+    /// Scrolls the content under `position` down by `by` pixels, as a trackpad does.
+    pub fn wheel(&mut self, window: &CaseWindow, position: Point<Pixels>, by: f32) -> Result<()> {
+        self.mouse_move(window, position, None)?;
+        self.sync_clock();
+        self.cx.update_window(window.handle, |_, window, cx| {
+            window.dispatch_event(
+                ScrollWheelEvent {
+                    position,
+                    delta: ScrollDelta::Pixels(point(px(0.), px(-by))),
+                    ..Default::default()
                 }
                 .to_platform_input(),
                 cx,

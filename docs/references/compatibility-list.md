@@ -24,7 +24,7 @@ GPUI Kit の見た目を、Avalonia の既存コントロールに適用する�
 | Switch | `ToggleSwitch` | 88 | つまみの移動（spring）、途中で戻したとき | R8 | 色の変更（`color()`） |
 | NumberInput | `NumericUpDown`、`ButtonSpinner` | 28 | – | R24、R25 | `ButtonSpinnerLocation`（GPUI と同じ [−] 値 [+] に固定） |
 | GroupBox | `GroupBox` | 10 | – | – | footer |
-| Scrollable / Scrollbar | `ScrollViewer`、`ScrollBar`、`Thumb` | 12 | 表示、2 秒後の消去、つまみの拡大 | R20 | Scrolling モード、隠れたバーのつまみを直接指したときのスライド入場 |
+| Scrollable / Scrollbar | `ScrollViewer`、`ScrollBar`、`Thumb` | 16 | 表示、2 秒後の消去、つまみの拡大、スクロールでの表示、Scrolling モード、つまみを直接指したときのスライド入場 | – | – |
 | Separator | `Separator` | 8 | – | – | label |
 | Link | `HyperlinkButton` | 6 | – | R18 | – |
 | Progress | `ProgressBar` | 24 | 値の変化、不定値の繰り返し | R19 | 色の変更（`color()`） |
@@ -119,7 +119,7 @@ GPUI Kit の見た目を、Avalonia の既存コントロールに適用する�
 | [Sidebar][gp-sidebar] | 部分対応 | [`SplitView`][av-splitview]、[`DrawerPage`][av-drawer-page] | 側面の領域、境界線、展開・縮小・overlay。`DrawerPage` なら標準の header / footer 領域も使用できる。SidebarMenu 等の専用型、階層ナビゲーションモデル、バッジは追加しない。 |
 | [Sheet][gp-sheet] | 部分対応 | `DrawerPage` | 左右上下の引き出し、背景の暗転、標準の開閉・外側クリック・Esc とその外観。GPUI の root layer、複数 sheet 管理、ドラッグによるサイズ変更は移植しない。`SplitView` 単体と `DrawerPage` の機能を混同しない。 |
 | [Toolbar][gp-toolbar] | 部分対応 | [`CommandBar`][av-commandbar]、`CommandBarButton`、`CommandBarToggleButton`、`CommandBarSeparator` | 背景・枠のない横並びのコマンド列、アイコン・ラベル付きの ghost 風ボタン、区切り、`Content` 領域の文字・任意の内容、hover / pressed / checked、高さ・余白のサイズ。コマンド列には標準の `ICommandBarElement` だけを置き、任意の要素や伸縮スペーサーを挟む配置、`ToolbarGroup` の名前付きグループは追加しない。矢印キーでの移動は標準の `KeyboardNavigation` / `XYFocus` の設定で表せる範囲に限る。GPUI にないオーバーフローは `OverflowButtonVisibility` で隠す。 |
-| [Scrollable / Scrollbar][gp-scrollable] | 対応 | [`ScrollViewer`][av-scrollviewer]、[`ScrollBar`][av-scrollbar]、`Thumb` | トラック、つまみ、余白、標準の表示条件・拡張状態に対応する外観と遷移。GPUI 固有の idle 時間や表示判定のためにタイマー・入力監視を追加しない。 |
+| [Scrollable / Scrollbar][gp-scrollable] | 対応 | [`ScrollViewer`][av-scrollviewer]、[`ScrollBar`][av-scrollbar]、`Thumb` | トラック、つまみ、余白、表示条件と遷移。Always / Hover / Scrolling の 3 モード（`AllowAutoHide` と `gpui:Scrollbars.ShowOnHover`）。スクロール後の表示と idle 時間は見た目だけを動かす Behavior（`Scrollbars`）で再現する。 |
 | [Separator][gp-separator-source]（公開モジュール） | 対応 | [`Separator`][av-separator] | 線の色・太さ・余白。メニュー中の区切りも同様。 |
 
 ### テキスト・画像・フィードバック・メニュー

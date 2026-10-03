@@ -29293,6 +29293,218 @@
       }
     },
     {
+      "id": "scroll/motion.linger/wheel-at-60-50+wait-500ms+at-164-90+wait-2500ms+at-60-50/light",
+      "component": "scroll",
+      "group": "motion.linger",
+      "params": {
+        "scrollbar_mode": "scrolling"
+      },
+      "state": "at-60-50",
+      "theme": "light",
+      "viewport": [
+        192.0,
+        116.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        100.0
+      ],
+      "motion": {
+        "name": "linger",
+        "trigger": "wheel-at-60-50+wait-500ms+at-164-90+wait-2500ms+at-60-50",
+        "from": "at-60-50",
+        "frames": [
+          {
+            "t_ms": 0,
+            "png": "png/scroll/motion.linger/wheel-at-60-50+wait-500ms+at-164-90+wait-2500ms+at-60-50/light/0000ms.png",
+            "scene": "scenes/scroll/motion.linger/wheel-at-60-50+wait-500ms+at-164-90+wait-2500ms+at-60-50/light/0000ms.json",
+            "png_sha256": "c05446fb9e0c4cec2644a4e042c6d1ef60c5e493edee9b83b58ba69c7d709076"
+          },
+          {
+            "t_ms": 1000,
+            "png": "png/scroll/motion.linger/wheel-at-60-50+wait-500ms+at-164-90+wait-2500ms+at-60-50/light/1000ms.png",
+            "scene": "scenes/scroll/motion.linger/wheel-at-60-50+wait-500ms+at-164-90+wait-2500ms+at-60-50/light/1000ms.json",
+            "png_sha256": "c05446fb9e0c4cec2644a4e042c6d1ef60c5e493edee9b83b58ba69c7d709076"
+          },
+          {
+            "t_ms": 1990,
+            "png": "png/scroll/motion.linger/wheel-at-60-50+wait-500ms+at-164-90+wait-2500ms+at-60-50/light/1990ms.png",
+            "scene": "scenes/scroll/motion.linger/wheel-at-60-50+wait-500ms+at-164-90+wait-2500ms+at-60-50/light/1990ms.json",
+            "png_sha256": "c05446fb9e0c4cec2644a4e042c6d1ef60c5e493edee9b83b58ba69c7d709076"
+          },
+          {
+            "t_ms": 2000,
+            "png": "png/scroll/motion.linger/wheel-at-60-50+wait-500ms+at-164-90+wait-2500ms+at-60-50/light/2000ms.png",
+            "scene": "scenes/scroll/motion.linger/wheel-at-60-50+wait-500ms+at-164-90+wait-2500ms+at-60-50/light/2000ms.json",
+            "png_sha256": "c05446fb9e0c4cec2644a4e042c6d1ef60c5e493edee9b83b58ba69c7d709076"
+          },
+          {
+            "t_ms": 2100,
+            "png": "png/scroll/motion.linger/wheel-at-60-50+wait-500ms+at-164-90+wait-2500ms+at-60-50/light/2100ms.png",
+            "scene": "scenes/scroll/motion.linger/wheel-at-60-50+wait-500ms+at-164-90+wait-2500ms+at-60-50/light/2100ms.json",
+            "png_sha256": "0e4e6aba152745162f8e20835ca06cdb2c4b8c4a3666379364661908e89c12fb"
+          },
+          {
+            "t_ms": 2300,
+            "png": "png/scroll/motion.linger/wheel-at-60-50+wait-500ms+at-164-90+wait-2500ms+at-60-50/light/2300ms.png",
+            "scene": "scenes/scroll/motion.linger/wheel-at-60-50+wait-500ms+at-164-90+wait-2500ms+at-60-50/light/2300ms.json",
+            "png_sha256": "72371e71ae9c02b34232969abdc8b598eda49b1cb7d8614b50939c4340efc350"
+          },
+          {
+            "t_ms": 2500,
+            "png": "png/scroll/motion.linger/wheel-at-60-50+wait-500ms+at-164-90+wait-2500ms+at-60-50/light/2500ms.png",
+            "scene": "scenes/scroll/motion.linger/wheel-at-60-50+wait-500ms+at-164-90+wait-2500ms+at-60-50/light/2500ms.json",
+            "png_sha256": "1ca0ca463f67014ff80675d4291972a79e30e2e484ea764db20ac3148de9d7ed"
+          },
+          {
+            "t_ms": 2600,
+            "png": "png/scroll/motion.linger/wheel-at-60-50+wait-500ms+at-164-90+wait-2500ms+at-60-50/light/2600ms.png",
+            "scene": "scenes/scroll/motion.linger/wheel-at-60-50+wait-500ms+at-164-90+wait-2500ms+at-60-50/light/2600ms.json",
+            "png_sha256": "1ca0ca463f67014ff80675d4291972a79e30e2e484ea764db20ac3148de9d7ed"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scroll/motion.scrolling/wheel-at-60-50/light",
+      "component": "scroll",
+      "group": "motion.scrolling",
+      "params": {
+        "scrollbar_mode": "scrolling"
+      },
+      "state": "at-60-50",
+      "theme": "light",
+      "viewport": [
+        192.0,
+        116.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        100.0
+      ],
+      "motion": {
+        "name": "scrolling",
+        "trigger": "wheel-at-60-50",
+        "from": "at-60-50",
+        "frames": [
+          {
+            "t_ms": 0,
+            "png": "png/scroll/motion.scrolling/wheel-at-60-50/light/0000ms.png",
+            "scene": "scenes/scroll/motion.scrolling/wheel-at-60-50/light/0000ms.json",
+            "png_sha256": "1ca0ca463f67014ff80675d4291972a79e30e2e484ea764db20ac3148de9d7ed"
+          },
+          {
+            "t_ms": 50,
+            "png": "png/scroll/motion.scrolling/wheel-at-60-50/light/0050ms.png",
+            "scene": "scenes/scroll/motion.scrolling/wheel-at-60-50/light/0050ms.json",
+            "png_sha256": "ad29e63dcb635356f41fba2ad96d4b1daa09c96c73d27300f901aa5f70c5ca11"
+          },
+          {
+            "t_ms": 100,
+            "png": "png/scroll/motion.scrolling/wheel-at-60-50/light/0100ms.png",
+            "scene": "scenes/scroll/motion.scrolling/wheel-at-60-50/light/0100ms.json",
+            "png_sha256": "f7ae5a65edd6f1d9573761277fb72e76745db4a8be0b7b66bbff9746f9673878"
+          },
+          {
+            "t_ms": 150,
+            "png": "png/scroll/motion.scrolling/wheel-at-60-50/light/0150ms.png",
+            "scene": "scenes/scroll/motion.scrolling/wheel-at-60-50/light/0150ms.json",
+            "png_sha256": "c196eb39c0a3aa38839235e9ac319c15101c045d304418d5662ed6bd3345c4a1"
+          },
+          {
+            "t_ms": 200,
+            "png": "png/scroll/motion.scrolling/wheel-at-60-50/light/0200ms.png",
+            "scene": "scenes/scroll/motion.scrolling/wheel-at-60-50/light/0200ms.json",
+            "png_sha256": "98da1a9c8fef1d22c3a899a18a74bf2b89117585c2b7918a0dcb89dd0622c581"
+          },
+          {
+            "t_ms": 250,
+            "png": "png/scroll/motion.scrolling/wheel-at-60-50/light/0250ms.png",
+            "scene": "scenes/scroll/motion.scrolling/wheel-at-60-50/light/0250ms.json",
+            "png_sha256": "b048d98a3421ca2b5112ddcdf1e2ec30da9ac252d4bfdbd48e7349e36133e2a4"
+          },
+          {
+            "t_ms": 300,
+            "png": "png/scroll/motion.scrolling/wheel-at-60-50/light/0300ms.png",
+            "scene": "scenes/scroll/motion.scrolling/wheel-at-60-50/light/0300ms.json",
+            "png_sha256": "c05446fb9e0c4cec2644a4e042c6d1ef60c5e493edee9b83b58ba69c7d709076"
+          },
+          {
+            "t_ms": 350,
+            "png": "png/scroll/motion.scrolling/wheel-at-60-50/light/0350ms.png",
+            "scene": "scenes/scroll/motion.scrolling/wheel-at-60-50/light/0350ms.json",
+            "png_sha256": "c05446fb9e0c4cec2644a4e042c6d1ef60c5e493edee9b83b58ba69c7d709076"
+          },
+          {
+            "t_ms": 1000,
+            "png": "png/scroll/motion.scrolling/wheel-at-60-50/light/1000ms.png",
+            "scene": "scenes/scroll/motion.scrolling/wheel-at-60-50/light/1000ms.json",
+            "png_sha256": "c05446fb9e0c4cec2644a4e042c6d1ef60c5e493edee9b83b58ba69c7d709076"
+          },
+          {
+            "t_ms": 1990,
+            "png": "png/scroll/motion.scrolling/wheel-at-60-50/light/1990ms.png",
+            "scene": "scenes/scroll/motion.scrolling/wheel-at-60-50/light/1990ms.json",
+            "png_sha256": "c05446fb9e0c4cec2644a4e042c6d1ef60c5e493edee9b83b58ba69c7d709076"
+          },
+          {
+            "t_ms": 2000,
+            "png": "png/scroll/motion.scrolling/wheel-at-60-50/light/2000ms.png",
+            "scene": "scenes/scroll/motion.scrolling/wheel-at-60-50/light/2000ms.json",
+            "png_sha256": "c05446fb9e0c4cec2644a4e042c6d1ef60c5e493edee9b83b58ba69c7d709076"
+          },
+          {
+            "t_ms": 2100,
+            "png": "png/scroll/motion.scrolling/wheel-at-60-50/light/2100ms.png",
+            "scene": "scenes/scroll/motion.scrolling/wheel-at-60-50/light/2100ms.json",
+            "png_sha256": "0e4e6aba152745162f8e20835ca06cdb2c4b8c4a3666379364661908e89c12fb"
+          },
+          {
+            "t_ms": 2200,
+            "png": "png/scroll/motion.scrolling/wheel-at-60-50/light/2200ms.png",
+            "scene": "scenes/scroll/motion.scrolling/wheel-at-60-50/light/2200ms.json",
+            "png_sha256": "869a0e64b3cc6780fd0075f635b52673d38dd2ed7ba453c926f1641cbfc0bc03"
+          },
+          {
+            "t_ms": 2300,
+            "png": "png/scroll/motion.scrolling/wheel-at-60-50/light/2300ms.png",
+            "scene": "scenes/scroll/motion.scrolling/wheel-at-60-50/light/2300ms.json",
+            "png_sha256": "72371e71ae9c02b34232969abdc8b598eda49b1cb7d8614b50939c4340efc350"
+          },
+          {
+            "t_ms": 2400,
+            "png": "png/scroll/motion.scrolling/wheel-at-60-50/light/2400ms.png",
+            "scene": "scenes/scroll/motion.scrolling/wheel-at-60-50/light/2400ms.json",
+            "png_sha256": "4aa2ff93316717d9b67f1a9a3f3cb7e364974bed3c3170e84d15c96ba01f2bf2"
+          },
+          {
+            "t_ms": 2500,
+            "png": "png/scroll/motion.scrolling/wheel-at-60-50/light/2500ms.png",
+            "scene": "scenes/scroll/motion.scrolling/wheel-at-60-50/light/2500ms.json",
+            "png_sha256": "1ca0ca463f67014ff80675d4291972a79e30e2e484ea764db20ac3148de9d7ed"
+          },
+          {
+            "t_ms": 2600,
+            "png": "png/scroll/motion.scrolling/wheel-at-60-50/light/2600ms.png",
+            "scene": "scenes/scroll/motion.scrolling/wheel-at-60-50/light/2600ms.json",
+            "png_sha256": "1ca0ca463f67014ff80675d4291972a79e30e2e484ea764db20ac3148de9d7ed"
+          }
+        ]
+      }
+    },
+    {
       "id": "scroll/motion.show/at-164-90/light",
       "component": "scroll",
       "group": "motion.show",
@@ -29370,6 +29582,326 @@
           }
         ]
       }
+    },
+    {
+      "id": "scroll/motion.slide/at-169-20/light",
+      "component": "scroll",
+      "group": "motion.slide",
+      "params": {
+        "scrollbar_mode": "hover"
+      },
+      "state": "at-60-50",
+      "theme": "light",
+      "viewport": [
+        192.0,
+        116.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        100.0
+      ],
+      "motion": {
+        "name": "slide",
+        "trigger": "at-169-20",
+        "from": "at-60-50",
+        "frames": [
+          {
+            "t_ms": 0,
+            "png": "png/scroll/motion.slide/at-169-20/light/0000ms.png",
+            "scene": "scenes/scroll/motion.slide/at-169-20/light/0000ms.json",
+            "png_sha256": "1ca0ca463f67014ff80675d4291972a79e30e2e484ea764db20ac3148de9d7ed"
+          },
+          {
+            "t_ms": 50,
+            "png": "png/scroll/motion.slide/at-169-20/light/0050ms.png",
+            "scene": "scenes/scroll/motion.slide/at-169-20/light/0050ms.json",
+            "png_sha256": "8bd34f497ff0a5c564dd760b28e387d2e93ca02a894de5b6fd037c145fb32feb"
+          },
+          {
+            "t_ms": 100,
+            "png": "png/scroll/motion.slide/at-169-20/light/0100ms.png",
+            "scene": "scenes/scroll/motion.slide/at-169-20/light/0100ms.json",
+            "png_sha256": "e2b7e21525809e2e77d88d5927f126e2f9c46ef87ca57b8c22e3b273a5348d30"
+          },
+          {
+            "t_ms": 150,
+            "png": "png/scroll/motion.slide/at-169-20/light/0150ms.png",
+            "scene": "scenes/scroll/motion.slide/at-169-20/light/0150ms.json",
+            "png_sha256": "dcf322dce9ddb17772cdf83a988cd136d539fdd180abda4f7e103c4ea36aee96"
+          },
+          {
+            "t_ms": 200,
+            "png": "png/scroll/motion.slide/at-169-20/light/0200ms.png",
+            "scene": "scenes/scroll/motion.slide/at-169-20/light/0200ms.json",
+            "png_sha256": "ba302041f31283b0b86b658a4afcc92cb5726e26a876b138e5d652dc3eb4f540"
+          },
+          {
+            "t_ms": 250,
+            "png": "png/scroll/motion.slide/at-169-20/light/0250ms.png",
+            "scene": "scenes/scroll/motion.slide/at-169-20/light/0250ms.json",
+            "png_sha256": "6c5dd91ffe564d705e8108b4dc282b6bb56d4fa5350044a8b94f9156479d5bd6"
+          },
+          {
+            "t_ms": 300,
+            "png": "png/scroll/motion.slide/at-169-20/light/0300ms.png",
+            "scene": "scenes/scroll/motion.slide/at-169-20/light/0300ms.json",
+            "png_sha256": "02cb85537d5495126377e44681b06c43af7ae34ba1d8b7d727b3f473a25fee2c"
+          },
+          {
+            "t_ms": 350,
+            "png": "png/scroll/motion.slide/at-169-20/light/0350ms.png",
+            "scene": "scenes/scroll/motion.slide/at-169-20/light/0350ms.json",
+            "png_sha256": "02cb85537d5495126377e44681b06c43af7ae34ba1d8b7d727b3f473a25fee2c"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scroll/motion.wheel/wheel-at-60-50/light",
+      "component": "scroll",
+      "group": "motion.wheel",
+      "params": {
+        "scrollbar_mode": "hover"
+      },
+      "state": "at-60-50",
+      "theme": "light",
+      "viewport": [
+        192.0,
+        116.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        100.0
+      ],
+      "motion": {
+        "name": "wheel",
+        "trigger": "wheel-at-60-50",
+        "from": "at-60-50",
+        "frames": [
+          {
+            "t_ms": 0,
+            "png": "png/scroll/motion.wheel/wheel-at-60-50/light/0000ms.png",
+            "scene": "scenes/scroll/motion.wheel/wheel-at-60-50/light/0000ms.json",
+            "png_sha256": "1ca0ca463f67014ff80675d4291972a79e30e2e484ea764db20ac3148de9d7ed"
+          },
+          {
+            "t_ms": 50,
+            "png": "png/scroll/motion.wheel/wheel-at-60-50/light/0050ms.png",
+            "scene": "scenes/scroll/motion.wheel/wheel-at-60-50/light/0050ms.json",
+            "png_sha256": "ad29e63dcb635356f41fba2ad96d4b1daa09c96c73d27300f901aa5f70c5ca11"
+          },
+          {
+            "t_ms": 100,
+            "png": "png/scroll/motion.wheel/wheel-at-60-50/light/0100ms.png",
+            "scene": "scenes/scroll/motion.wheel/wheel-at-60-50/light/0100ms.json",
+            "png_sha256": "f7ae5a65edd6f1d9573761277fb72e76745db4a8be0b7b66bbff9746f9673878"
+          },
+          {
+            "t_ms": 150,
+            "png": "png/scroll/motion.wheel/wheel-at-60-50/light/0150ms.png",
+            "scene": "scenes/scroll/motion.wheel/wheel-at-60-50/light/0150ms.json",
+            "png_sha256": "c196eb39c0a3aa38839235e9ac319c15101c045d304418d5662ed6bd3345c4a1"
+          },
+          {
+            "t_ms": 200,
+            "png": "png/scroll/motion.wheel/wheel-at-60-50/light/0200ms.png",
+            "scene": "scenes/scroll/motion.wheel/wheel-at-60-50/light/0200ms.json",
+            "png_sha256": "98da1a9c8fef1d22c3a899a18a74bf2b89117585c2b7918a0dcb89dd0622c581"
+          },
+          {
+            "t_ms": 250,
+            "png": "png/scroll/motion.wheel/wheel-at-60-50/light/0250ms.png",
+            "scene": "scenes/scroll/motion.wheel/wheel-at-60-50/light/0250ms.json",
+            "png_sha256": "b048d98a3421ca2b5112ddcdf1e2ec30da9ac252d4bfdbd48e7349e36133e2a4"
+          },
+          {
+            "t_ms": 300,
+            "png": "png/scroll/motion.wheel/wheel-at-60-50/light/0300ms.png",
+            "scene": "scenes/scroll/motion.wheel/wheel-at-60-50/light/0300ms.json",
+            "png_sha256": "c05446fb9e0c4cec2644a4e042c6d1ef60c5e493edee9b83b58ba69c7d709076"
+          },
+          {
+            "t_ms": 350,
+            "png": "png/scroll/motion.wheel/wheel-at-60-50/light/0350ms.png",
+            "scene": "scenes/scroll/motion.wheel/wheel-at-60-50/light/0350ms.json",
+            "png_sha256": "c05446fb9e0c4cec2644a4e042c6d1ef60c5e493edee9b83b58ba69c7d709076"
+          },
+          {
+            "t_ms": 1000,
+            "png": "png/scroll/motion.wheel/wheel-at-60-50/light/1000ms.png",
+            "scene": "scenes/scroll/motion.wheel/wheel-at-60-50/light/1000ms.json",
+            "png_sha256": "c05446fb9e0c4cec2644a4e042c6d1ef60c5e493edee9b83b58ba69c7d709076"
+          },
+          {
+            "t_ms": 1990,
+            "png": "png/scroll/motion.wheel/wheel-at-60-50/light/1990ms.png",
+            "scene": "scenes/scroll/motion.wheel/wheel-at-60-50/light/1990ms.json",
+            "png_sha256": "c05446fb9e0c4cec2644a4e042c6d1ef60c5e493edee9b83b58ba69c7d709076"
+          },
+          {
+            "t_ms": 2000,
+            "png": "png/scroll/motion.wheel/wheel-at-60-50/light/2000ms.png",
+            "scene": "scenes/scroll/motion.wheel/wheel-at-60-50/light/2000ms.json",
+            "png_sha256": "c05446fb9e0c4cec2644a4e042c6d1ef60c5e493edee9b83b58ba69c7d709076"
+          },
+          {
+            "t_ms": 2100,
+            "png": "png/scroll/motion.wheel/wheel-at-60-50/light/2100ms.png",
+            "scene": "scenes/scroll/motion.wheel/wheel-at-60-50/light/2100ms.json",
+            "png_sha256": "0e4e6aba152745162f8e20835ca06cdb2c4b8c4a3666379364661908e89c12fb"
+          },
+          {
+            "t_ms": 2200,
+            "png": "png/scroll/motion.wheel/wheel-at-60-50/light/2200ms.png",
+            "scene": "scenes/scroll/motion.wheel/wheel-at-60-50/light/2200ms.json",
+            "png_sha256": "869a0e64b3cc6780fd0075f635b52673d38dd2ed7ba453c926f1641cbfc0bc03"
+          },
+          {
+            "t_ms": 2300,
+            "png": "png/scroll/motion.wheel/wheel-at-60-50/light/2300ms.png",
+            "scene": "scenes/scroll/motion.wheel/wheel-at-60-50/light/2300ms.json",
+            "png_sha256": "72371e71ae9c02b34232969abdc8b598eda49b1cb7d8614b50939c4340efc350"
+          },
+          {
+            "t_ms": 2400,
+            "png": "png/scroll/motion.wheel/wheel-at-60-50/light/2400ms.png",
+            "scene": "scenes/scroll/motion.wheel/wheel-at-60-50/light/2400ms.json",
+            "png_sha256": "4aa2ff93316717d9b67f1a9a3f3cb7e364974bed3c3170e84d15c96ba01f2bf2"
+          },
+          {
+            "t_ms": 2500,
+            "png": "png/scroll/motion.wheel/wheel-at-60-50/light/2500ms.png",
+            "scene": "scenes/scroll/motion.wheel/wheel-at-60-50/light/2500ms.json",
+            "png_sha256": "1ca0ca463f67014ff80675d4291972a79e30e2e484ea764db20ac3148de9d7ed"
+          },
+          {
+            "t_ms": 2600,
+            "png": "png/scroll/motion.wheel/wheel-at-60-50/light/2600ms.png",
+            "scene": "scenes/scroll/motion.wheel/wheel-at-60-50/light/2600ms.json",
+            "png_sha256": "1ca0ca463f67014ff80675d4291972a79e30e2e484ea764db20ac3148de9d7ed"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scroll/scrolling.base/at-164-90+wait-400ms/dark",
+      "component": "scroll",
+      "group": "scrolling",
+      "params": {
+        "scrollbar_mode": "scrolling"
+      },
+      "state": "at-164-90+wait-400ms",
+      "theme": "dark",
+      "viewport": [
+        192.0,
+        116.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        100.0
+      ],
+      "png": "png/scroll/scrolling.base/at-164-90+wait-400ms/dark.png",
+      "scene": "scenes/scroll/scrolling.base/at-164-90+wait-400ms/dark.json",
+      "png_sha256": "9e535bc3b1b7258b3e773fd6b3e03fbf6f162c8e95cfd532b49cc0a8734350ba"
+    },
+    {
+      "id": "scroll/scrolling.base/at-164-90+wait-400ms/light",
+      "component": "scroll",
+      "group": "scrolling",
+      "params": {
+        "scrollbar_mode": "scrolling"
+      },
+      "state": "at-164-90+wait-400ms",
+      "theme": "light",
+      "viewport": [
+        192.0,
+        116.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        100.0
+      ],
+      "png": "png/scroll/scrolling.base/at-164-90+wait-400ms/light.png",
+      "scene": "scenes/scroll/scrolling.base/at-164-90+wait-400ms/light.json",
+      "png_sha256": "1ca0ca463f67014ff80675d4291972a79e30e2e484ea764db20ac3148de9d7ed"
+    },
+    {
+      "id": "scroll/scrolling.base/normal/dark",
+      "component": "scroll",
+      "group": "scrolling",
+      "params": {
+        "scrollbar_mode": "scrolling"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        192.0,
+        116.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        100.0
+      ],
+      "png": "png/scroll/scrolling.base/normal/dark.png",
+      "scene": "scenes/scroll/scrolling.base/normal/dark.json",
+      "png_sha256": "9e535bc3b1b7258b3e773fd6b3e03fbf6f162c8e95cfd532b49cc0a8734350ba"
+    },
+    {
+      "id": "scroll/scrolling.base/normal/light",
+      "component": "scroll",
+      "group": "scrolling",
+      "params": {
+        "scrollbar_mode": "scrolling"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        192.0,
+        116.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        100.0
+      ],
+      "png": "png/scroll/scrolling.base/normal/light.png",
+      "scene": "scenes/scroll/scrolling.base/normal/light.json",
+      "png_sha256": "1ca0ca463f67014ff80675d4291972a79e30e2e484ea764db20ac3148de9d7ed"
     },
     {
       "id": "separator/line.base/normal/dark",

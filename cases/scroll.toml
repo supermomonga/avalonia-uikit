@@ -17,6 +17,13 @@ name = "hover"
 params = { scrollbar_mode = "hover" }
 states = ["normal", "at-164-90+wait-400ms", "at-164-20+wait-400ms"]
 
+# ScrollbarMode::Scrolling <-> Scrollbars.ShowOnHover=False: the strip shows
+# only after a scroll, so pointing at it changes nothing.
+[[group]]
+name = "scrolling"
+params = { scrollbar_mode = "scrolling" }
+states = ["normal", "at-164-90+wait-400ms"]
+
 [[motion]]
 name = "show"
 params = { scrollbar_mode = "hover" }
@@ -42,4 +49,42 @@ params = { scrollbar_mode = "hover" }
 from = "at-164-90+wait-400ms"
 trigger = "at-60-50"
 samples_ms = [0, 1000, 1990, 2000, 2050, 2100, 2200, 2300, 2400, 2500, 2600]
+themes = ["light"]
+
+# A scroll reveals the bar in every mode: it fades in, holds for the 2s idle
+# time, then fades and slides out.
+[[motion]]
+name = "wheel"
+params = { scrollbar_mode = "hover" }
+from = "at-60-50"
+trigger = "wheel-at-60-50"
+samples_ms = [0, 50, 100, 150, 200, 250, 300, 350, 1000, 1990, 2000, 2100, 2200, 2300, 2400, 2500, 2600]
+themes = ["light"]
+
+[[motion]]
+name = "scrolling"
+params = { scrollbar_mode = "scrolling" }
+from = "at-60-50"
+trigger = "wheel-at-60-50"
+samples_ms = [0, 50, 100, 150, 200, 250, 300, 350, 1000, 1990, 2000, 2100, 2200, 2300, 2400, 2500, 2600]
+themes = ["light"]
+
+# In Scrolling mode the pointer over a shown strip keeps it; leaving starts the
+# 2s idle hold again.
+[[motion]]
+name = "linger"
+params = { scrollbar_mode = "scrolling" }
+from = "at-60-50"
+trigger = "wheel-at-60-50+wait-500ms+at-164-90+wait-2500ms+at-60-50"
+samples_ms = [0, 1000, 1990, 2000, 2100, 2300, 2500, 2600]
+themes = ["light"]
+
+# In Hover mode, pointing straight at a hidden bar's thumb slides the bar in
+# from its edge as it fades in (ScrollbarEntrance::SlideAndFade).
+[[motion]]
+name = "slide"
+params = { scrollbar_mode = "hover" }
+from = "at-60-50"
+trigger = "at-169-20"
+samples_ms = [0, 50, 100, 150, 200, 250, 300, 350]
 themes = ["light"]

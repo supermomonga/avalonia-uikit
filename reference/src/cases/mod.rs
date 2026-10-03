@@ -116,6 +116,12 @@ pub fn drive(harness: &mut Harness, window: &CaseWindow, case: &Case, state: &st
                     _ => harness.mouse_move(window, at, None)?,
                 }
             }
+            // "wheel-at-X-Y" scrolls the content under that point down by 40px.
+            other if other.starts_with("wheel-at-") => {
+                let (x, y) = other["wheel-at-".len()..].split_once('-').expect("wheel-at-X-Y");
+                let at = gpui_kit::point(gpui_kit::px(x.parse()?), gpui_kit::px(y.parse()?));
+                harness.wheel(window, at, 40.)?;
+            }
             other if other.starts_with("wait-") => {
                 let ms: u64 = other["wait-".len()..].trim_end_matches("ms").parse()?;
                 harness.advance(window, Duration::from_millis(ms))?;

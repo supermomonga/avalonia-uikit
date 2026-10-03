@@ -8,16 +8,20 @@
   turns to scrollbar_thumb_hover at once and widens to 8px over 300ms
   (ease-out-cubic).
 
-  ScrollViewer.AllowAutoHide picks the GPUI mode:
-  - False is ScrollbarMode::Always: the scrollbar always shows.
-  - True is ScrollbarMode::Hover: it shows when the pointer enters the strip
-    (fading in over 300ms, linearly) and hides 2s after it leaves (fading out
-    and sliding out to its edge over 500ms, ease-in-cubic).
-  ScrollbarMode::Scrolling (show while scrolling) and the slide-in GPUI plays
-  when the pointer lands on the thumb of a hidden bar are out of scope (R20).
+  ScrollViewer.AllowAutoHide and gpui:Scrollbars.ShowOnHover pick the GPUI mode:
+  - AllowAutoHide=False is ScrollbarMode::Always: the scrollbar always shows.
+  - AllowAutoHide=True is ScrollbarMode::Hover: it shows when the pointer
+    enters the strip or the content scrolls (fading in over 300ms, linearly)
+    and hides 2s after the pointer leaves or the scrolling stops (fading out
+    and sliding out to its edge over 500ms, ease-in-cubic). Pointed at straight
+    on the thumb, a hidden bar slides in from its edge as it fades in.
+  - AllowAutoHide=True with Scrollbars.ShowOnHover=False is
+    ScrollbarMode::Scrolling: it shows only after a scroll, and stays while
+    the pointer moves over it.
 -->
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:gpui="using:AvaloniaUIKit">
   <ControlTheme x:Key="GpuiScrollBarPageButton" TargetType="RepeatButton">
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="Focusable" Value="False" />
@@ -48,7 +52,8 @@
         </Border>
       </ControlTemplate>
     </Setter>
-    <Style Selector="^:pointerover, ^:pressed">
+    <!-- Hovered where it rests (Scrollbars.IsThumbHovered), or dragged. -->
+    <Style Selector="^[(gpui|Scrollbars.IsThumbHovered)=True], ^:pressed">
       <Setter Property="Background" Value="{DynamicResource Gpui.ScrollbarThumbHover}" />
     </Style>
     <!-- Vertical: 6px (8px when active) wide, 4px in from the right edge. -->
@@ -57,7 +62,7 @@
       <Setter Property="HorizontalAlignment" Value="Right" />
       <Setter Property="Margin" Value="0,0,4,0" />
     </Style>
-    <Style Selector="^[Tag=vertical]:pointerover /template/ Border#PART_Pill, ^[Tag=vertical]:pressed /template/ Border#PART_Pill">
+    <Style Selector="^[Tag=vertical][(gpui|Scrollbars.IsThumbHovered)=True] /template/ Border#PART_Pill, ^[Tag=vertical]:pressed /template/ Border#PART_Pill">
       <Setter Property="Width" Value="8" />
     </Style>
     <Style Selector="^[Tag=horizontal] /template/ Border#PART_Pill">
@@ -65,7 +70,7 @@
       <Setter Property="VerticalAlignment" Value="Bottom" />
       <Setter Property="Margin" Value="0,0,0,4" />
     </Style>
-    <Style Selector="^[Tag=horizontal]:pointerover /template/ Border#PART_Pill, ^[Tag=horizontal]:pressed /template/ Border#PART_Pill">
+    <Style Selector="^[Tag=horizontal][(gpui|Scrollbars.IsThumbHovered)=True] /template/ Border#PART_Pill, ^[Tag=horizontal]:pressed /template/ Border#PART_Pill">
       <Setter Property="Height" Value="8" />
     </Style>
   </ControlTheme>
@@ -74,6 +79,8 @@
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="ShowDelay" Value="0:0:0" />
     <Setter Property="HideDelay" Value="0:0:2" />
+    <!-- A scroll reveals the bar too, and Scrollbars.ShowOnHover picks Hover or Scrolling mode. -->
+    <Setter Property="gpui:Scrollbars.TracksScrolling" Value="True" />
     <Setter Property="Focusable" Value="False" />
     <Style Selector="^:vertical">
       <Setter Property="Width" Value="16" />
@@ -161,7 +168,7 @@
       </Setter>
       <Setter Property="RenderTransform" Value="translateY(16px)" />
     </Style>
-    <Style Selector="^[AllowAutoHide=True][IsExpanded=True] /template/ Border#PART_Root">
+    <Style Selector="^[AllowAutoHide=True][(gpui|Scrollbars.State)=Shown] /template/ Border#PART_Root, ^[AllowAutoHide=True][(gpui|Scrollbars.State)=SlidingIn] /template/ Border#PART_Root">
       <Setter Property="Transitions">
         <Transitions>
           <DoubleTransition Property="Opacity" Duration="0:0:0.3" Easing="LinearEasing" />
@@ -169,8 +176,17 @@
       </Setter>
       <Setter Property="Opacity" Value="1" />
     </Style>
-    <Style Selector="^[AllowAutoHide=True][IsExpanded=True] /template/ Track#PART_Track">
+    <Style Selector="^[AllowAutoHide=True][(gpui|Scrollbars.State)=Shown] /template/ Track#PART_Track">
       <Setter Property="Transitions" Value="{x:Null}" />
+      <Setter Property="RenderTransform" Value="none" />
+    </Style>
+    <!-- Pointed at straight on the thumb, a hidden bar slides in from its edge over the enter time (ease-out-cubic). -->
+    <Style Selector="^[AllowAutoHide=True][(gpui|Scrollbars.State)=SlidingIn] /template/ Track#PART_Track">
+      <Setter Property="Transitions">
+        <Transitions>
+          <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.3" Easing="CubicEaseOut" />
+        </Transitions>
+      </Setter>
       <Setter Property="RenderTransform" Value="none" />
     </Style>
   </ControlTheme>

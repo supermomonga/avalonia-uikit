@@ -53,7 +53,7 @@ GpuiTheme が GPUI Kit と同じ見た目・動きになっていることを、
 | Checkbox → CheckBox | 80 | 同上 |
 | NumberInput → NumericUpDown | 28 | 4 サイズ × disabled、増減ボタンの hover / 押下 |
 | Progress → ProgressBar | 24 | 4 サイズ × 値 0 / 40 / 100 |
-| Scrollbar → ScrollViewer | 12 | Always / Hover モード、つまみの hover |
+| Scrollbar → ScrollViewer | 16 | Always / Hover / Scrolling モード、つまみの hover |
 | GroupBox | 10 | normal / fill / outline、タイトルの有無 |
 | DropdownMenu → MenuFlyout | 10 | 開いた状態、各項目の hover、サブメニュー |
 | Spinner → ProgressBar（GpuiSpinner） | 8 | 4 サイズ |
@@ -121,6 +121,8 @@ GPUI 側は仮想時計で 1 フレームずつ記録する（R15）。Avalonia 
 | Tooltip の表示 | 500ms 待ってから 150ms、ease-out-cubic でフェードと 4px | ShowDelay と、Opacity / TranslateTransform のアニメーション |
 | スクロールバーの表示 | 300ms、linear | Opacity の Transition |
 | スクロールバーの消去 | 2 秒待ってから 500ms、ease-in-cubic でフェードと 16px のスライド | ScrollBar の `HideDelay` と、Opacity / Track の RenderTransform の Transition |
+| スクロールで表示（Hover / Scrolling モード） | スクロールから 2 秒表示して消える。Scrolling モードは帯の上で動かしたポインターがある間は残る | `Scrollbars` の Behavior（`Scrollbars.State`） |
+| つまみを直接指したときの入場 | 300ms、ease-out-cubic で端から滑り込みながらフェード | `Scrollbars.State=SlidingIn` の Transition |
 | つまみの拡大 | 300ms、ease-out-cubic で 6→8px | Width の Transition |
 
 ### 時刻
@@ -167,7 +169,7 @@ Avalonia には時刻を指定する公開 API がないので、テストに限
 | R17 | rem は 16px に固定。 | GPUI の rem を変える設定は対象外。 |
 | R18 | 下線の位置と太さ。GPUI は descent の 0.618 倍、Avalonia はフォントの値を使う。 | Ink 領域として比べる。 |
 | R19 | クリップされた図形の輪郭はクリップ側になる。不定値 Progress で角丸より細いバーは、GPUI では幅 2r の pill、Avalonia では 2 つの丸い端が重なった形になる。 | 構造比較でクリップ側の角丸を認め、該当フレームの画素の許容値を緩める。 |
-| R20 | スクロールバーの Scrolling モード（スクロール中だけ表示）と、Hover モードで隠れたバーのつまみを直接指したときのスライド入場（SlideAndFade）。 | 対象外。Always と Hover を移植し、Hover は帯に入ったときのフェード入場と、離れたときのフェード・スライド退場を再現した。 |
+| R20 | スクロールバーの Scrolling モード（スクロール中だけ表示）と、Hover モードで隠れたバーのつまみを直接指したときのスライド入場（SlideAndFade）。 | 解消済み。`Scrollbars` の Behavior がスクロールと帯の上のポインターを追い、表示状態を 1 つのプロパティにまとめてテーマに渡す。 |
 | R21 | Tooltip の閉じる前の猶予と、隣への切り替えスライド。 | 対象外。 |
 | R22 | ショートカットの表記は OS ごとに異なる。 | 修飾キーのないショートカット（F5）だけを比べる。 |
 | R23 | 欠番。 | – |
@@ -187,6 +189,7 @@ GPUI と同じ見た目・挙動にするため、アプリ側で次の設定を
 | MenuFlyout の配置 | `Placement="BottomEdgeAlignedLeft"`（SplitButton は `BottomEdgeAlignedRight`） | テーマが GPUI のトリガーとの間隔 4px を付ける。ContextMenu はポインター位置に開く。 |
 | フォント | `Gpui.FontFamily` リソースを差し替える | 既定はシステム UI フォント（GPUI の `.SystemUIFont` と同じ）。検証と同じ Inter にする場合は差し替える。 |
 | NumericUpDown | `ButtonSpinnerLocation` は効かない | GPUI と同じく [−] 値 [+] の順に固定。 |
+| スクロールバーの表示モード | `ScrollViewer.AllowAutoHide` と `gpui:Scrollbars.ShowOnHover` | False / – が Always、True / True（既定）が Hover、True / False が Scrolling。 |
 
 Tooltip の表示遅延（500ms）、間隔（300ms）、配置（上）は、テーマがすべてのコントロールに設定する。
 
