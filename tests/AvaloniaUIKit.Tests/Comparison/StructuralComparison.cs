@@ -19,6 +19,8 @@ public enum PrimitiveKind
     Shadow,
     /// <summary>A raster image where it is drawn (its color is not compared).</summary>
     Image,
+    /// <summary>A filled rounded rectangle with a two-stop linear gradient: Color to EndColor at Angle.</summary>
+    Gradient,
 }
 
 /// <summary>
@@ -30,6 +32,12 @@ public sealed record Primitive(PrimitiveKind Kind, Rect Bounds, CornerRadius Rad
     /// <summary>Cut by a clipping ancestor: its outline there is the clip's, not its own (R19).</summary>
     public bool Clipped { get; init; }
 
+    /// <summary>A gradient's color at its end (Color is its start).</summary>
+    public Rgba EndColor { get; init; }
+
+    /// <summary>A gradient's direction, in CSS degrees (0 runs bottom to top, 180 top to bottom).</summary>
+    public double Angle { get; init; }
+
     public override string ToString()
     {
         var text = FormattableString.Invariant($"{Kind} {VisualAssert.Fmt(Bounds)} r=({Radii.TopLeft:0.##},{Radii.TopRight:0.##},{Radii.BottomRight:0.##},{Radii.BottomLeft:0.##})");
@@ -40,6 +48,10 @@ public sealed record Primitive(PrimitiveKind Kind, Rect Bounds, CornerRadius Rad
         if (Kind == PrimitiveKind.Shadow)
         {
             text += FormattableString.Invariant($" sigma={Sigma:0.###}");
+        }
+        if (Kind == PrimitiveKind.Gradient)
+        {
+            text += FormattableString.Invariant($" {Angle:0.#}deg to {EndColor}");
         }
         return text + $" {Color} [{Source}]";
     }
@@ -70,6 +82,14 @@ public static class StructuralComparison
             if (q.SolidBackground && !q.Background.IsTransparent)
             {
                 list.Add(new Primitive(PrimitiveKind.Fill, q.Bounds, Clamp(q.Radii, q.Bounds), default, 0, q.Background, $"quad#{q.Order}"));
+            }
+            if (q.Gradient is { } g && !(g.Start.IsTransparent && g.End.IsTransparent))
+            {
+                list.Add(new Primitive(PrimitiveKind.Gradient, q.Bounds, Clamp(q.Radii, q.Bounds), default, 0, g.Start, $"quad#{q.Order}")
+                {
+                    EndColor = g.End,
+                    Angle = g.Angle,
+                });
             }
             if (q.BorderWidths != default && !q.BorderColor.IsTransparent && !FadedHairline(q))
             {
@@ -213,7 +233,8 @@ public static class StructuralComparison
             outer = cr;
         }
 
-        if (Solid(background, opacity) is { } fill && !fill.IsTransparent)
+        var gradient = Gradient(background, opacity);
+        if ((gradient?.Start ?? Solid(background, opacity)) is { } fill && !(fill.IsTransparent && (gradient?.End.IsTransparent ?? true)))
         {
             Rect fillRect = rect;
             CornerRadius fillRadii = outer;
@@ -232,7 +253,9 @@ public static class StructuralComparison
                     Math.Max(0, cr.BottomRight - Math.Max(t.Right, t.Bottom) / 2),
                     Math.Max(0, cr.BottomLeft - Math.Max(t.Left, t.Bottom) / 2));
             }
-            list.Add(new Primitive(PrimitiveKind.Fill, fillRect, Clamp(fillRadii, fillRect), default, 0, fill, name));
+            list.Add(gradient is { } g
+                ? new Primitive(PrimitiveKind.Gradient, fillRect, Clamp(fillRadii, fillRect), default, 0, g.Start, name) { EndColor = g.End, Angle = g.Angle }
+                : new Primitive(PrimitiveKind.Fill, fillRect, Clamp(fillRadii, fillRect), default, 0, fill, name));
         }
         if (t != default && Solid(borderBrush, opacity) is { } band && !band.IsTransparent)
         {
@@ -288,6 +311,20 @@ public static class StructuralComparison
 
     private static Rgba? Solid(IBrush? brush, double opacity) =>
         brush is ISolidColorBrush s ? Rgba.From(s.Color, s.Opacity * opacity) : null;
+
+    // A two-stop linear gradient across the box (relative points), as GPUI's linear_gradient.
+    private static SceneGradient? Gradient(IBrush? brush, double opacity)
+    {
+        if (brush is not ILinearGradientBrush { GradientStops: [{ Offset: 0 } first, { Offset: 1 } last] } linear ||
+            linear.StartPoint.Unit != RelativeUnit.Relative || linear.EndPoint.Unit != RelativeUnit.Relative)
+        {
+            return null;
+        }
+        var dx = linear.EndPoint.Point.X - linear.StartPoint.Point.X;
+        var dy = linear.EndPoint.Point.Y - linear.StartPoint.Point.Y;
+        var angle = (Math.Atan2(dx, -dy) * 180 / Math.PI + 360) % 360;
+        return new SceneGradient(angle, Rgba.From(first.Color, linear.Opacity * opacity), Rgba.From(last.Color, linear.Opacity * opacity));
+    }
 
     private static double EffectiveOpacity(Visual visual, Visual root)
     {
@@ -355,7 +392,8 @@ public static class StructuralComparison
         Near(a.Widths.Left, b.Widths.Left, 0.001) && Near(a.Widths.Top, b.Widths.Top, 0.001) &&
         Near(a.Widths.Right, b.Widths.Right, 0.001) && Near(a.Widths.Bottom, b.Widths.Bottom, 0.001) &&
         Near(a.Sigma, b.Sigma, 0.02) &&
-        a.Color.Distance(b.Color) <= color;
+        a.Color.Distance(b.Color) <= color &&
+        (a.Kind != PrimitiveKind.Gradient || (a.EndColor.Distance(b.EndColor) <= color && Near(a.Angle, b.Angle, 0.5)));
 
     private static bool SameRadii(Primitive a, Primitive b, double tolerance) =>
         Near(a.Radii.TopLeft, b.Radii.TopLeft, tolerance) && Near(a.Radii.TopRight, b.Radii.TopRight, tolerance) &&

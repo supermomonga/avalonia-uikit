@@ -33,7 +33,10 @@ public readonly record struct Rgba(double R, double G, double B, double A)
     private static int To8(double v) => (int)Math.Round(Math.Clamp(v, 0, 1) * 255);
 }
 
-public sealed record SceneQuad(int Order, Rect Bounds, Rect Clip, Rgba Background, bool SolidBackground, Rgba BorderColor, Thickness BorderWidths, CornerRadius Radii);
+public sealed record SceneQuad(int Order, Rect Bounds, Rect Clip, Rgba Background, bool SolidBackground, Rgba BorderColor, Thickness BorderWidths, CornerRadius Radii, SceneGradient? Gradient = null);
+
+/// <summary>A two-stop linear gradient: its CSS angle (180 runs top to bottom) and the colors at 0 and 1.</summary>
+public sealed record SceneGradient(double Angle, Rgba Start, Rgba End);
 
 public sealed record SceneShadow(int Order, Rect Bounds, Rect Clip, CornerRadius Radii, double Sigma, Rgba Color, bool Inset, Rect ElementBounds, CornerRadius ElementRadii);
 
@@ -64,6 +67,12 @@ public sealed record GoldenScene(
             var solid = (string)bg["kind"]! == "solid";
             var w = q["border_widths"]!.AsArray();
             var r = q["corner_radii"]!.AsArray();
+            SceneGradient? gradient = null;
+            if ((string)bg["kind"]! == "linear" && bg["stops"] is JsonArray { Count: 2 } stops &&
+                D(stops[0]!["percentage"]) == 0 && D(stops[1]!["percentage"]) == 1)
+            {
+                gradient = new SceneGradient(D(bg["angle"]), Rgba.From(stops[0]!["rgba"]), Rgba.From(stops[1]!["rgba"]));
+            }
             return new SceneQuad(
                 (int)q["order"]!.GetValue<double>(),
                 GoldenManifest.ReadRect(q["bounds"]),
@@ -72,7 +81,8 @@ public sealed record GoldenScene(
                 solid,
                 Rgba.From(q["border_color"]),
                 new Thickness(D(w[3]), D(w[0]), D(w[1]), D(w[2])),
-                new CornerRadius(D(r[0]), D(r[1]), D(r[2]), D(r[3])));
+                new CornerRadius(D(r[0]), D(r[1]), D(r[2]), D(r[3])),
+                gradient);
         }).ToList();
         var shadows = root["shadows"]!.AsArray().Select(n =>
         {

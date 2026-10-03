@@ -71,6 +71,14 @@ public static class Adapters
         "carousel" => CarouselCase(c),
         "sidebar" => c.Str("host", "splitview") == "drawer" ? SidebarDrawer(c) : Sidebar(c),
         "sheet" => Sheet(c),
+        "titlebar" => new DecorationsHost(c.Params.ContainsKey("title") ? c.Str("title", "") : null)
+        {
+            Width = c.Num("width", 480),
+            Height = 34,
+            HidesCaptionButtons = true,
+            // macOS: GPUI keeps 80px for the traffic lights.
+            Resources = { ["Gpui.TitleBar.Padding"] = new Avalonia.Thickness(80, 0, 0, 1) },
+        },
         _ => throw new NotSupportedException($"no adapter for {c.Component}"),
     };
 

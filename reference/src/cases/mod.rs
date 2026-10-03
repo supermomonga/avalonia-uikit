@@ -37,6 +37,7 @@ mod surface;
 mod table;
 mod tabs;
 pub mod time;
+mod title_bar;
 mod toolbar;
 mod toggle;
 mod tree;
@@ -81,6 +82,7 @@ pub fn builder(case: &Case) -> Result<Builder> {
         "carousel" => carousel::builder(&params),
         "sidebar" => sidebar::builder(&params),
         "sheet" => sheet::builder(&params),
+        "titlebar" => title_bar::builder(&params),
         "datatable" => table::data_table(&params),
         "toolbar" => toolbar::builder(&params),
         "popover" => popover::popover(&params),
@@ -249,6 +251,7 @@ pub fn derived_colors(theme: &gpui_kit::component::Theme, out: &mut Vec<(String,
     tabs::derived_colors(theme, out);
     slider::derived_colors(theme, out);
     time::derived_colors(theme, out);
+    title_bar::derived_colors(theme, out);
 }
 
 pub fn disabled(params: &Params) -> bool {

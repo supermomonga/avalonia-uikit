@@ -307,4 +307,37 @@ public class BehaviorTests
             await Assert.That(RingVisible(host, carousel)).IsTrue();
         }
     }
+
+    // TitleBar's caption buttons (title_bar.rs ControlIcon): 34 x 33 at the bar's
+    // right end with 14px icons, secondary when hovered, danger for close, and
+    // restore in place of maximize while maximized. GPUI on macOS draws none, so
+    // no golden shows them.
+    [Test]
+    public async Task Caption_buttons_take_gpui_sizes_and_colors()
+    {
+        var golden = Case("titlebar/bar.base/normal/light");
+        var bar = new DecorationsHost(null) { Width = 480, Height = 34 };
+        using var host = CaseHost.Open(golden, bar);
+        var states = (IPseudoClasses)bar.Decorations.Classes;
+        states.Set(":has-minimize", true);
+        states.Set(":has-maximize", true);
+        host.Flush();
+        var buttons = bar.GetVisualDescendants().OfType<Button>().Where(b => b.IsEffectivelyVisible).ToList();
+        await Assert.That(string.Join(",", buttons.Select(b => b.Name))).IsEqualTo("PART_MinimizeButton,PART_MaximizeButton,PART_CloseButton");
+        await Assert.That(buttons.Select(b => new Rect(b.TranslatePoint(default, bar)!.Value, b.Bounds.Size))).IsEquivalentTo([new Rect(378, 0, 34, 33), new Rect(412, 0, 34, 33), new Rect(446, 0, 34, 33)]);
+        await Assert.That(buttons.SelectMany(b => b.GetVisualDescendants().OfType<PathIcon>()).All(i => i.Bounds.Size == new Size(14, 14))).IsTrue();
+
+        Avalonia.Media.Color Brush(string key) => ((Avalonia.Media.ISolidColorBrush)host.Window.FindResource(host.Window.ActualThemeVariant, key)!).Color;
+        Avalonia.Media.Color? Fill(Button b) => (b.Background as Avalonia.Media.ISolidColorBrush)?.Color;
+        host.Drive(golden, "at-463-16");
+        await Assert.That(Fill(buttons[2])).IsEqualTo(Brush("Gpui.Danger"));
+        host.Drive(golden, "at-429-16");
+        await Assert.That(Fill(buttons[1])).IsEqualTo(Brush("Gpui.SecondaryHover"));
+        await Assert.That(Fill(buttons[2])).IsEqualTo(Avalonia.Media.Colors.Transparent);
+
+        var icon = buttons[1].GetVisualDescendants().OfType<PathIcon>().Single();
+        await Assert.That(ReferenceEquals(icon.Data, host.Window.FindResource("Gpui.Icon.WindowMaximize"))).IsTrue();
+        states.Set(":maximized", true);
+        await Assert.That(ReferenceEquals(icon.Data, host.Window.FindResource("Gpui.Icon.WindowRestore"))).IsTrue();
+    }
 }

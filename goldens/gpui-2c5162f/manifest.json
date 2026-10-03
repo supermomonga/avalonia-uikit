@@ -78298,6 +78298,172 @@
       "png_sha256": "46a1365748a50b54fa4be5ac4838b75fae811cd49ef9e78950a7856582471659"
     },
     {
+      "id": "titlebar/bar.base/normal/dark",
+      "component": "titlebar",
+      "group": "bar",
+      "params": {
+        "width": 480
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        480.0,
+        34.0
+      ],
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "component_bounds": [
+        0.0,
+        0.0,
+        480.0,
+        34.0
+      ],
+      "png": "png/titlebar/bar.base/normal/dark.png",
+      "scene": "scenes/titlebar/bar.base/normal/dark.json",
+      "png_sha256": "58f80f53ee483d33c0e79cb08bb4236ca42a720e1ede8b04fcfd0a98aadb3fb4"
+    },
+    {
+      "id": "titlebar/bar.base/normal/light",
+      "component": "titlebar",
+      "group": "bar",
+      "params": {
+        "width": 480
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        480.0,
+        34.0
+      ],
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "component_bounds": [
+        0.0,
+        0.0,
+        480.0,
+        34.0
+      ],
+      "png": "png/titlebar/bar.base/normal/light.png",
+      "scene": "scenes/titlebar/bar.base/normal/light.json",
+      "png_sha256": "af622218b266e75897be4455b454d7f8a282a0b138b7b906ac32623ee76c9952"
+    },
+    {
+      "id": "titlebar/title.base/at-240-17/dark",
+      "component": "titlebar",
+      "group": "title",
+      "params": {
+        "width": 480,
+        "title": "My Application"
+      },
+      "state": "at-240-17",
+      "theme": "dark",
+      "viewport": [
+        480.0,
+        34.0
+      ],
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "component_bounds": [
+        0.0,
+        0.0,
+        480.0,
+        34.0
+      ],
+      "png": "png/titlebar/title.base/at-240-17/dark.png",
+      "scene": "scenes/titlebar/title.base/at-240-17/dark.json",
+      "png_sha256": "6eb8d54c262de90cdb3eddb5306a5caa8b1e129eedfbb32106fb20f2c0d4f723"
+    },
+    {
+      "id": "titlebar/title.base/at-240-17/light",
+      "component": "titlebar",
+      "group": "title",
+      "params": {
+        "width": 480,
+        "title": "My Application"
+      },
+      "state": "at-240-17",
+      "theme": "light",
+      "viewport": [
+        480.0,
+        34.0
+      ],
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "component_bounds": [
+        0.0,
+        0.0,
+        480.0,
+        34.0
+      ],
+      "png": "png/titlebar/title.base/at-240-17/light.png",
+      "scene": "scenes/titlebar/title.base/at-240-17/light.json",
+      "png_sha256": "8bc942e8c954ea6d11ca31ea0799e35c5a214efc81da4f325ec1e41fe32aa623"
+    },
+    {
+      "id": "titlebar/title.base/normal/dark",
+      "component": "titlebar",
+      "group": "title",
+      "params": {
+        "width": 480,
+        "title": "My Application"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        480.0,
+        34.0
+      ],
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "component_bounds": [
+        0.0,
+        0.0,
+        480.0,
+        34.0
+      ],
+      "png": "png/titlebar/title.base/normal/dark.png",
+      "scene": "scenes/titlebar/title.base/normal/dark.json",
+      "png_sha256": "6eb8d54c262de90cdb3eddb5306a5caa8b1e129eedfbb32106fb20f2c0d4f723"
+    },
+    {
+      "id": "titlebar/title.base/normal/light",
+      "component": "titlebar",
+      "group": "title",
+      "params": {
+        "width": 480,
+        "title": "My Application"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        480.0,
+        34.0
+      ],
+      "anchor": [
+        0.0,
+        0.0
+      ],
+      "component_bounds": [
+        0.0,
+        0.0,
+        480.0,
+        34.0
+      ],
+      "png": "png/titlebar/title.base/normal/light.png",
+      "scene": "scenes/titlebar/title.base/normal/light.json",
+      "png_sha256": "8bc942e8c954ea6d11ca31ea0799e35c5a214efc81da4f325ec1e41fe32aa623"
+    },
+    {
       "id": "toggle/icon.ghost.large.checked/hover/dark",
       "component": "toggle",
       "group": "icon",

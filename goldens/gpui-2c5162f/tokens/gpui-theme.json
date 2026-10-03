@@ -519,7 +519,9 @@
       "slider.thumb.edge": "#17171780",
       "slider.ring": "#a3a3a380",
       "calendar.weekday": "#73737380",
-      "calendar.disabled": "#73737380"
+      "calendar.disabled": "#73737380",
+      "title-bar.gradient-top": "#fbfbfbff",
+      "window-frame": "#ccccccff"
     },
     "derived_float": {
       "button.default.normal.background": [
@@ -2777,6 +2779,18 @@
         0.4509999752044678,
         0.4509999752044678,
         0.5
+      ],
+      "title-bar.gradient-top": [
+        0.9849019646644592,
+        0.9849019646644592,
+        0.9849019646644592,
+        1.0
+      ],
+      "window-frame": [
+        0.800000011920929,
+        0.800000011920929,
+        0.800000011920929,
+        1.0
       ]
     },
     "scalars": {
@@ -3307,7 +3321,9 @@
       "slider.thumb.edge": "#fafafa80",
       "slider.ring": "#73737380",
       "calendar.weekday": "#a3a3a380",
-      "calendar.disabled": "#a3a3a380"
+      "calendar.disabled": "#a3a3a380",
+      "title-bar.gradient-top": "#111111ff",
+      "window-frame": "#333333ff"
     },
     "derived_float": {
       "button.default.normal.background": [
@@ -5565,6 +5581,18 @@
         0.6389999985694885,
         0.6389999985694885,
         0.5
+      ],
+      "title-bar.gradient-top": [
+        0.06715784966945648,
+        0.06715784966945648,
+        0.06715784966945648,
+        1.0
+      ],
+      "window-frame": [
+        0.20000000298023224,
+        0.20000000298023224,
+        0.20000000298023224,
+        1.0
       ]
     },
     "scalars": {

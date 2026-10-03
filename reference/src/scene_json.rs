@@ -3,7 +3,7 @@
 //! Every coordinate is converted from scaled (device) pixels to logical pixels
 //! by dividing by the window scale, and every color is converted with GPUI's own
 //! `Rgba::from(Hsla)`, so the values are exactly what the Metal shaders receive.
-use gpui_kit::{Background, Bounds, Corners, Edges, Hsla, Rgba, Scene, ScaledPixels};
+use gpui_kit::{Background, Bounds, Corners, Edges, Hsla, LinearColorStop, Rgba, Scene, ScaledPixels};
 use serde_json::{Value, json};
 
 fn rgba(color: Hsla) -> Value {
@@ -47,10 +47,27 @@ fn edges(edges: &Edges<ScaledPixels>, scale: f32) -> Value {
 }
 
 fn background(background: &Background) -> Value {
-    match background.as_solid() {
-        Some(color) => json!({ "kind": "solid", "rgba": rgba(color) }),
-        None => json!({ "kind": "other", "debug": format!("{background:?}") }),
+    if let Some(color) = background.as_solid() {
+        return json!({ "kind": "solid", "rgba": rgba(color) });
     }
+    // Background keeps its fields crate-private but serializes them all.
+    let raw = serde_json::to_value(background).unwrap_or(Value::Null);
+    if raw["tag"] == "LinearGradient" {
+        let stops: Vec<Value> = raw["colors"]
+            .as_array()
+            .into_iter()
+            .flatten()
+            .filter_map(|stop| serde_json::from_value::<LinearColorStop>(stop.clone()).ok())
+            .map(|stop| json!({ "rgba": rgba(stop.color), "percentage": stop.percentage }))
+            .collect();
+        return json!({
+            "kind": "linear",
+            "angle": raw["gradient_angle_or_pattern_height"],
+            "color_space": raw["color_space"],
+            "stops": stops,
+        });
+    }
+    json!({ "kind": "other", "debug": format!("{background:?}") })
 }
 
 /// Converts a painted scene to JSON. `scale` is the window scale factor.

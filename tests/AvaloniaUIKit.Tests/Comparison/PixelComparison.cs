@@ -33,6 +33,11 @@ public enum Region : byte
     /// its edges where Skia clamps (R31). Geometry is the structure's to check.
     /// </summary>
     ImageEdge,
+    /// <summary>
+    /// Inside a gradient fill: GPUI's shader dithers a gradient by up to two
+    /// 8-bit steps per channel against banding, Skia does not (R32).
+    /// </summary>
+    Gradient,
 }
 
 /// <summary>
@@ -52,7 +57,9 @@ public sealed record PixelTolerance(
     double InkMassFloor = 200,
     double ShadowMax = 12,
     double ImageMean = 3,
-    double ImageEdgeMean = 12)
+    double ImageEdgeMean = 12,
+    double GradientMax = 3,
+    double GradientMean = 1)
 {
     public static PixelTolerance Default { get; } = new();
 }
@@ -189,6 +196,10 @@ public static class PixelComparison
                 return false;
             }, area);
         }
+        foreach (var q in scene.Quads.Where(q => q.Gradient is not null))
+        {
+            Mark(Region.Gradient, (x, y) => RoundedRectDistance(q.Bounds, q.Radii, x, y) < 0, q.Bounds.Intersect(q.Clip));
+        }
         foreach (var image in scene.Images)
         {
             var drawn = image.Bounds.Intersect(image.Clip);
@@ -222,11 +233,12 @@ public static class PixelComparison
     private static int Priority(Region r) => r switch
     {
         Region.Flat => 0,
-        Region.Shadow => 1,
-        Region.Image => 2,
-        Region.ImageEdge => 3,
-        Region.Edge => 4,
-        Region.Ink => 5,
+        Region.Gradient => 1,
+        Region.Shadow => 2,
+        Region.Image => 3,
+        Region.ImageEdge => 4,
+        Region.Edge => 5,
+        Region.Ink => 6,
         _ => 0,
     };
 
@@ -335,6 +347,8 @@ public static class PixelComparison
         }
         Check(stats[Region.Image].Mean <= tolerance.ImageMean, $"image mean {stats[Region.Image].Mean:0.##} > {tolerance.ImageMean}");
         Check(stats[Region.ImageEdge].Mean <= tolerance.ImageEdgeMean, $"image edge mean {stats[Region.ImageEdge].Mean:0.##} > {tolerance.ImageEdgeMean}");
+        Check(stats[Region.Gradient].Max <= tolerance.GradientMax, $"gradient max {stats[Region.Gradient].Max} > {tolerance.GradientMax} at ({stats[Region.Gradient].MaxX},{stats[Region.Gradient].MaxY})");
+        Check(stats[Region.Gradient].Mean <= tolerance.GradientMean, $"gradient mean {stats[Region.Gradient].Mean:0.##} > {tolerance.GradientMean}");
         Check(stats[Region.Shadow].Max <= tolerance.ShadowMax, $"shadow max {stats[Region.Shadow].Max} > {tolerance.ShadowMax} at ({stats[Region.Shadow].MaxX},{stats[Region.Shadow].MaxY})");
         return new PixelReport { Stats = stats, Failures = failures };
 
@@ -401,6 +415,7 @@ public static class PixelComparison
                         Region.Shadow => ((byte)160, (byte)0, (byte)255),
                         Region.Image => ((byte)0, (byte)200, (byte)120),
                         Region.ImageEdge => ((byte)0, (byte)120, (byte)80),
+                        Region.Gradient => ((byte)200, (byte)200, (byte)120),
                         _ => ((byte)230, (byte)230, (byte)230),
                     };
                     m[3] = 255;

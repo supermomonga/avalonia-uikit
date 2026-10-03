@@ -1,0 +1,19 @@
+# GPUI Kit TitleBar -> WindowDrawnDecorations (its title bar).
+# Rendered on macOS by the reference: a 34px bar (33 + the 1px border), an 80px
+# left inset for the traffic lights and no window controls. The Avalonia test
+# hosts the decorations template with Gpui.TitleBar.Padding at 80 and the caption
+# buttons hidden; the buttons are checked by Avalonia-side assertions.
+component = "titlebar"
+viewport = [480, 34]
+anchor = [0, 0]
+
+# The empty bar: a gradient from 55% title_bar + 45% background to title_bar.
+[[group]]
+name = "bar"
+params = { width = 480 }
+
+# With the story's title (text_sm, medium). Hovering the bar changes nothing.
+[[group]]
+name = "title"
+params = { width = 480, title = "My Application" }
+states = ["normal", "at-240-17"]
