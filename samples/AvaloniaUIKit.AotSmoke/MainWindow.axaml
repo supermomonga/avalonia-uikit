@@ -140,6 +140,32 @@
           </TableView.Columns>
         </TableView>
 
+        <TextBlock Text="Carousel" Foreground="{DynamicResource Gpui.MutedForeground}" />
+        <StackPanel Spacing="16" Width="240" Margin="48,0" HorizontalAlignment="Left">
+          <Panel>
+            <Carousel Name="Slides" Focusable="True">
+              <Border Height="120" CornerRadius="7.5" BorderThickness="1" BackgroundSizing="OuterBorderEdge"
+                      Background="{DynamicResource Gpui.Muted}" BorderBrush="{DynamicResource Gpui.Border}">
+                <TextBlock Text="1" FontSize="24" FontWeight="SemiBold" HorizontalAlignment="Center" VerticalAlignment="Center" />
+              </Border>
+              <Border Height="120" CornerRadius="7.5" BorderThickness="1" BackgroundSizing="OuterBorderEdge"
+                      Background="{DynamicResource Gpui.Muted}" BorderBrush="{DynamicResource Gpui.Border}">
+                <TextBlock Text="2" FontSize="24" FontWeight="SemiBold" HorizontalAlignment="Center" VerticalAlignment="Center" />
+              </Border>
+            </Carousel>
+            <Button Classes="outline icon-only rounded-full" Margin="-48,0,0,0" HorizontalAlignment="Left"
+                    VerticalAlignment="Center" Click="OnPreviousSlide">
+              <PathIcon Data="{StaticResource Gpui.Icon.ChevronLeft}" />
+            </Button>
+            <Button Classes="outline icon-only rounded-full" Margin="0,0,-48,0" HorizontalAlignment="Right"
+                    VerticalAlignment="Center" Click="OnNextSlide">
+              <PathIcon Data="{StaticResource Gpui.Icon.ChevronRight}" />
+            </Button>
+          </Panel>
+          <PipsPager Classes="carousel" NumberOfPages="2" HorizontalAlignment="Center"
+                     SelectedPageIndex="{Binding #Slides.SelectedIndex, Mode=TwoWay}" />
+        </StackPanel>
+
         <TextBlock Text="Popover" Foreground="{DynamicResource Gpui.MutedForeground}" />
         <Button Classes="outline" Content="Open" HorizontalAlignment="Left">
           <Button.Flyout>

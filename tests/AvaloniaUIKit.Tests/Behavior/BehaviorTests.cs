@@ -286,4 +286,25 @@ public class BehaviorTests
         host.Flush();
         await Assert.That(Tables.GetIsFilled(table)).IsFalse();
     }
+
+    // GPUI rings a focused carousel unless a pointer press focused it.
+    [Test]
+    public async Task A_carousel_shows_the_focus_ring_on_keyboard_focus_only()
+    {
+        var golden = Case("carousel/nav.selected-1/normal/light");
+        using (var host = CaseHost.Open(golden, Adapters.Create(golden)))
+        {
+            var carousel = host.Window.GetVisualDescendants().OfType<Carousel>().Single();
+            host.Drive(golden, "click-at-184-76");
+            await Assert.That(carousel.IsFocused).IsTrue();
+            await Assert.That(RingVisible(host, carousel)).IsFalse();
+        }
+        using (var host = CaseHost.Open(golden, Adapters.Create(golden)))
+        {
+            var carousel = host.Window.GetVisualDescendants().OfType<Carousel>().Single();
+            host.Drive(golden, "focus");
+            await Assert.That(carousel.IsFocused).IsTrue();
+            await Assert.That(RingVisible(host, carousel)).IsTrue();
+        }
+    }
 }

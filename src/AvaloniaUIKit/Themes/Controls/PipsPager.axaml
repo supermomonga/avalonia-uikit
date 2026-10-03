@@ -12,6 +12,9 @@
   applies: PipsPager sizes its page list from the first realized page.
   GPUI's ellipsis menu has no counterpart: past MaxVisiblePips, PipsPager
   scrolls its pages instead.
+
+  The class carousel is GPUI Kit's CarouselPagination instead: the pages
+  alone as default compact xsmall buttons, the current one selected.
 -->
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
@@ -97,6 +100,77 @@
         <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Default.Outline.Disabled.Border}" />
       </Style>
       <!-- Keyboard focus: the border turns to ring, and the ring band shows. -->
+      <Style Selector="^:focus-visible">
+        <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Ring}" />
+      </Style>
+      <Style Selector="^:focus-visible /template/ Border#PART_FocusRing">
+        <Setter Property="IsVisible" Value="True" />
+      </Style>
+    </ControlTheme>
+
+    <!--
+      A carousel page (CarouselPaginationItem): a default compact xsmall
+      button, 8px from the next, selected for the current page (hovering a
+      selected button changes nothing).
+    -->
+    <ControlTheme x:Key="GpuiCarouselPip" TargetType="ListBoxItem">
+      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Default.Normal.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Default.Normal.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Default.Normal.Border}" />
+      <Setter Property="BorderThickness" Value="1" />
+      <Setter Property="CornerRadius" Value="5.5" />
+      <Setter Property="Margin" Value="4,0" />
+      <Setter Property="Height" Value="20" />
+      <Setter Property="MinWidth" Value="20" />
+      <Setter Property="Padding" Value="4,0" />
+      <Setter Property="FontSize" Value="12" />
+      <Setter Property="TextBlock.LineHeight" Value="15" />
+      <Setter Property="ClipToBounds" Value="False" />
+      <Setter Property="HorizontalContentAlignment" Value="Center" />
+      <Setter Property="VerticalContentAlignment" Value="Center" />
+      <Setter Property="Template">
+        <ControlTemplate>
+          <Panel>
+            <ContentPresenter Name="PART_ContentPresenter"
+                              BackgroundSizing="OuterBorderEdge"
+                              Background="{TemplateBinding Background}"
+                              BorderBrush="{TemplateBinding BorderBrush}"
+                              BorderThickness="{TemplateBinding BorderThickness}"
+                              CornerRadius="{TemplateBinding CornerRadius}"
+                              Padding="{TemplateBinding Padding}"
+                              Content="{TemplateBinding Content}"
+                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                              Foreground="{TemplateBinding Foreground}"
+                              TextWrapping="NoWrap" />
+            <Border Name="PART_FocusRing" Margin="-3" BorderThickness="3"
+                    CornerRadius="7.5"
+                    BorderBrush="{DynamicResource Gpui.FocusRing}"
+                    IsVisible="False" IsHitTestVisible="False" />
+          </Panel>
+        </ControlTemplate>
+      </Setter>
+      <Style Selector="^:pointerover">
+        <Setter Property="Background" Value="{DynamicResource Gpui.Button.Default.Hover.Background}" />
+        <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Default.Hover.Foreground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Default.Hover.Border}" />
+      </Style>
+      <Style Selector="^:pressed">
+        <Setter Property="Background" Value="{DynamicResource Gpui.Button.Default.Pressed.Background}" />
+        <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Default.Pressed.Foreground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Default.Pressed.Border}" />
+      </Style>
+      <Style Selector="^:selected, ^:selected:pointerover, ^:selected:pressed">
+        <Setter Property="Background" Value="{DynamicResource Gpui.Button.Default.Selected.Background}" />
+        <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Default.Selected.Foreground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Default.Selected.Border}" />
+      </Style>
+      <Style Selector="^:disabled">
+        <Setter Property="Background" Value="{DynamicResource Gpui.Button.Default.Disabled.Background}" />
+        <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Default.Disabled.Foreground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Default.Disabled.Border}" />
+      </Style>
       <Style Selector="^:focus-visible">
         <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Ring}" />
       </Style>
@@ -219,6 +293,18 @@
       <Style Selector="^.large /template/ PathIcon">
         <Setter Property="Width" Value="16" />
         <Setter Property="Height" Value="16" />
+      </Style>
+
+      <!-- carousel: CarouselPagination, the pages alone (no end buttons), 8px apart. -->
+      <Style Selector="^.carousel">
+        <Setter Property="Padding" Value="0" />
+      </Style>
+      <Style Selector="^.carousel /template/ Button">
+        <Setter Property="IsVisible" Value="False" />
+      </Style>
+      <Style Selector="^.carousel /template/ ListBox#PART_PipsPagerList">
+        <Setter Property="ItemContainerTheme" Value="{StaticResource GpuiCarouselPip}" />
+        <Setter Property="Margin" Value="-4,0" />
       </Style>
 
       <!-- compact: the chevrons alone, as icon buttons with the button's icon size. -->

@@ -5,7 +5,7 @@
   Classes: variant  primary secondary danger warning success info ghost link text
            modifier outline compact selected icon-only
            size     xsmall small large (medium is the default)
-           corners  rounded-none rounded-small rounded-large
+           corners  rounded-none rounded-small rounded-large rounded-full
   The focus ring shows on keyboard focus only (:focus-visible), as GPUI Kit
   prevents a pointer press from focusing a button.
 -->
@@ -168,6 +168,18 @@
     <Style Selector="^.rounded-large">
       <Setter Property="CornerRadius" Value="11.5" />
     </Style>
+    <Style Selector="^.rounded-full">
+      <Setter Property="CornerRadius" Value="15.5" />
+    </Style>
+    <Style Selector="^.rounded-full.xsmall">
+      <Setter Property="CornerRadius" Value="9.5" />
+    </Style>
+    <Style Selector="^.rounded-full.small">
+      <Setter Property="CornerRadius" Value="11.5" />
+    </Style>
+    <Style Selector="^.rounded-full.large">
+      <Setter Property="CornerRadius" Value="15.5" />
+    </Style>
     <!-- default outline -->
     <Style Selector="^.outline">
       <Setter Property="Background" Value="{DynamicResource Gpui.Button.Default.Outline.Normal.Background}" />
@@ -204,6 +216,18 @@
     </Style>
     <Style Selector="^.outline.rounded-large">
       <Setter Property="CornerRadius" Value="11.5" />
+    </Style>
+    <Style Selector="^.outline.rounded-full">
+      <Setter Property="CornerRadius" Value="15.5" />
+    </Style>
+    <Style Selector="^.outline.rounded-full.xsmall">
+      <Setter Property="CornerRadius" Value="9.5" />
+    </Style>
+    <Style Selector="^.outline.rounded-full.small">
+      <Setter Property="CornerRadius" Value="11.5" />
+    </Style>
+    <Style Selector="^.outline.rounded-full.large">
+      <Setter Property="CornerRadius" Value="15.5" />
     </Style>
     <!-- primary -->
     <Style Selector="^.primary">
@@ -242,6 +266,18 @@
     <Style Selector="^.primary.rounded-large">
       <Setter Property="CornerRadius" Value="12" />
     </Style>
+    <Style Selector="^.primary.rounded-full">
+      <Setter Property="CornerRadius" Value="16" />
+    </Style>
+    <Style Selector="^.primary.rounded-full.xsmall">
+      <Setter Property="CornerRadius" Value="10" />
+    </Style>
+    <Style Selector="^.primary.rounded-full.small">
+      <Setter Property="CornerRadius" Value="12" />
+    </Style>
+    <Style Selector="^.primary.rounded-full.large">
+      <Setter Property="CornerRadius" Value="16" />
+    </Style>
     <!-- primary outline -->
     <Style Selector="^.primary.outline">
       <Setter Property="Background" Value="{DynamicResource Gpui.Button.Primary.Outline.Normal.Background}" />
@@ -278,6 +314,18 @@
     </Style>
     <Style Selector="^.primary.outline.rounded-large">
       <Setter Property="CornerRadius" Value="11.5" />
+    </Style>
+    <Style Selector="^.primary.outline.rounded-full">
+      <Setter Property="CornerRadius" Value="15.5" />
+    </Style>
+    <Style Selector="^.primary.outline.rounded-full.xsmall">
+      <Setter Property="CornerRadius" Value="9.5" />
+    </Style>
+    <Style Selector="^.primary.outline.rounded-full.small">
+      <Setter Property="CornerRadius" Value="11.5" />
+    </Style>
+    <Style Selector="^.primary.outline.rounded-full.large">
+      <Setter Property="CornerRadius" Value="15.5" />
     </Style>
     <!-- secondary -->
     <Style Selector="^.secondary">
@@ -316,6 +364,18 @@
     <Style Selector="^.secondary.rounded-large">
       <Setter Property="CornerRadius" Value="12" />
     </Style>
+    <Style Selector="^.secondary.rounded-full">
+      <Setter Property="CornerRadius" Value="16" />
+    </Style>
+    <Style Selector="^.secondary.rounded-full.xsmall">
+      <Setter Property="CornerRadius" Value="10" />
+    </Style>
+    <Style Selector="^.secondary.rounded-full.small">
+      <Setter Property="CornerRadius" Value="12" />
+    </Style>
+    <Style Selector="^.secondary.rounded-full.large">
+      <Setter Property="CornerRadius" Value="16" />
+    </Style>
     <!-- secondary outline -->
     <Style Selector="^.secondary.outline">
       <Setter Property="Background" Value="{DynamicResource Gpui.Button.Secondary.Outline.Normal.Background}" />
@@ -352,6 +412,18 @@
     </Style>
     <Style Selector="^.secondary.outline.rounded-large">
       <Setter Property="CornerRadius" Value="11.5" />
+    </Style>
+    <Style Selector="^.secondary.outline.rounded-full">
+      <Setter Property="CornerRadius" Value="15.5" />
+    </Style>
+    <Style Selector="^.secondary.outline.rounded-full.xsmall">
+      <Setter Property="CornerRadius" Value="9.5" />
+    </Style>
+    <Style Selector="^.secondary.outline.rounded-full.small">
+      <Setter Property="CornerRadius" Value="11.5" />
+    </Style>
+    <Style Selector="^.secondary.outline.rounded-full.large">
+      <Setter Property="CornerRadius" Value="15.5" />
     </Style>
     <!-- danger -->
     <Style Selector="^.danger">
@@ -390,6 +462,18 @@
     <Style Selector="^.danger.rounded-large">
       <Setter Property="CornerRadius" Value="12" />
     </Style>
+    <Style Selector="^.danger.rounded-full">
+      <Setter Property="CornerRadius" Value="16" />
+    </Style>
+    <Style Selector="^.danger.rounded-full.xsmall">
+      <Setter Property="CornerRadius" Value="10" />
+    </Style>
+    <Style Selector="^.danger.rounded-full.small">
+      <Setter Property="CornerRadius" Value="12" />
+    </Style>
+    <Style Selector="^.danger.rounded-full.large">
+      <Setter Property="CornerRadius" Value="16" />
+    </Style>
     <!-- danger outline -->
     <Style Selector="^.danger.outline">
       <Setter Property="Background" Value="{DynamicResource Gpui.Button.Danger.Outline.Normal.Background}" />
@@ -426,6 +510,18 @@
     </Style>
     <Style Selector="^.danger.outline.rounded-large">
       <Setter Property="CornerRadius" Value="11.5" />
+    </Style>
+    <Style Selector="^.danger.outline.rounded-full">
+      <Setter Property="CornerRadius" Value="15.5" />
+    </Style>
+    <Style Selector="^.danger.outline.rounded-full.xsmall">
+      <Setter Property="CornerRadius" Value="9.5" />
+    </Style>
+    <Style Selector="^.danger.outline.rounded-full.small">
+      <Setter Property="CornerRadius" Value="11.5" />
+    </Style>
+    <Style Selector="^.danger.outline.rounded-full.large">
+      <Setter Property="CornerRadius" Value="15.5" />
     </Style>
     <!-- warning -->
     <Style Selector="^.warning">
@@ -464,6 +560,18 @@
     <Style Selector="^.warning.rounded-large">
       <Setter Property="CornerRadius" Value="12" />
     </Style>
+    <Style Selector="^.warning.rounded-full">
+      <Setter Property="CornerRadius" Value="16" />
+    </Style>
+    <Style Selector="^.warning.rounded-full.xsmall">
+      <Setter Property="CornerRadius" Value="10" />
+    </Style>
+    <Style Selector="^.warning.rounded-full.small">
+      <Setter Property="CornerRadius" Value="12" />
+    </Style>
+    <Style Selector="^.warning.rounded-full.large">
+      <Setter Property="CornerRadius" Value="16" />
+    </Style>
     <!-- warning outline -->
     <Style Selector="^.warning.outline">
       <Setter Property="Background" Value="{DynamicResource Gpui.Button.Warning.Outline.Normal.Background}" />
@@ -500,6 +608,18 @@
     </Style>
     <Style Selector="^.warning.outline.rounded-large">
       <Setter Property="CornerRadius" Value="11.5" />
+    </Style>
+    <Style Selector="^.warning.outline.rounded-full">
+      <Setter Property="CornerRadius" Value="15.5" />
+    </Style>
+    <Style Selector="^.warning.outline.rounded-full.xsmall">
+      <Setter Property="CornerRadius" Value="9.5" />
+    </Style>
+    <Style Selector="^.warning.outline.rounded-full.small">
+      <Setter Property="CornerRadius" Value="11.5" />
+    </Style>
+    <Style Selector="^.warning.outline.rounded-full.large">
+      <Setter Property="CornerRadius" Value="15.5" />
     </Style>
     <!-- success -->
     <Style Selector="^.success">
@@ -538,6 +658,18 @@
     <Style Selector="^.success.rounded-large">
       <Setter Property="CornerRadius" Value="12" />
     </Style>
+    <Style Selector="^.success.rounded-full">
+      <Setter Property="CornerRadius" Value="16" />
+    </Style>
+    <Style Selector="^.success.rounded-full.xsmall">
+      <Setter Property="CornerRadius" Value="10" />
+    </Style>
+    <Style Selector="^.success.rounded-full.small">
+      <Setter Property="CornerRadius" Value="12" />
+    </Style>
+    <Style Selector="^.success.rounded-full.large">
+      <Setter Property="CornerRadius" Value="16" />
+    </Style>
     <!-- success outline -->
     <Style Selector="^.success.outline">
       <Setter Property="Background" Value="{DynamicResource Gpui.Button.Success.Outline.Normal.Background}" />
@@ -574,6 +706,18 @@
     </Style>
     <Style Selector="^.success.outline.rounded-large">
       <Setter Property="CornerRadius" Value="11.5" />
+    </Style>
+    <Style Selector="^.success.outline.rounded-full">
+      <Setter Property="CornerRadius" Value="15.5" />
+    </Style>
+    <Style Selector="^.success.outline.rounded-full.xsmall">
+      <Setter Property="CornerRadius" Value="9.5" />
+    </Style>
+    <Style Selector="^.success.outline.rounded-full.small">
+      <Setter Property="CornerRadius" Value="11.5" />
+    </Style>
+    <Style Selector="^.success.outline.rounded-full.large">
+      <Setter Property="CornerRadius" Value="15.5" />
     </Style>
     <!-- info -->
     <Style Selector="^.info">
@@ -612,6 +756,18 @@
     <Style Selector="^.info.rounded-large">
       <Setter Property="CornerRadius" Value="12" />
     </Style>
+    <Style Selector="^.info.rounded-full">
+      <Setter Property="CornerRadius" Value="16" />
+    </Style>
+    <Style Selector="^.info.rounded-full.xsmall">
+      <Setter Property="CornerRadius" Value="10" />
+    </Style>
+    <Style Selector="^.info.rounded-full.small">
+      <Setter Property="CornerRadius" Value="12" />
+    </Style>
+    <Style Selector="^.info.rounded-full.large">
+      <Setter Property="CornerRadius" Value="16" />
+    </Style>
     <!-- info outline -->
     <Style Selector="^.info.outline">
       <Setter Property="Background" Value="{DynamicResource Gpui.Button.Info.Outline.Normal.Background}" />
@@ -648,6 +804,18 @@
     </Style>
     <Style Selector="^.info.outline.rounded-large">
       <Setter Property="CornerRadius" Value="11.5" />
+    </Style>
+    <Style Selector="^.info.outline.rounded-full">
+      <Setter Property="CornerRadius" Value="15.5" />
+    </Style>
+    <Style Selector="^.info.outline.rounded-full.xsmall">
+      <Setter Property="CornerRadius" Value="9.5" />
+    </Style>
+    <Style Selector="^.info.outline.rounded-full.small">
+      <Setter Property="CornerRadius" Value="11.5" />
+    </Style>
+    <Style Selector="^.info.outline.rounded-full.large">
+      <Setter Property="CornerRadius" Value="15.5" />
     </Style>
     <!-- ghost -->
     <Style Selector="^.ghost">
@@ -686,6 +854,18 @@
     <Style Selector="^.ghost.rounded-large">
       <Setter Property="CornerRadius" Value="12" />
     </Style>
+    <Style Selector="^.ghost.rounded-full">
+      <Setter Property="CornerRadius" Value="16" />
+    </Style>
+    <Style Selector="^.ghost.rounded-full.xsmall">
+      <Setter Property="CornerRadius" Value="10" />
+    </Style>
+    <Style Selector="^.ghost.rounded-full.small">
+      <Setter Property="CornerRadius" Value="12" />
+    </Style>
+    <Style Selector="^.ghost.rounded-full.large">
+      <Setter Property="CornerRadius" Value="16" />
+    </Style>
     <!-- ghost outline -->
     <Style Selector="^.ghost.outline">
       <Setter Property="Background" Value="{DynamicResource Gpui.Button.Ghost.Outline.Normal.Background}" />
@@ -722,6 +902,18 @@
     </Style>
     <Style Selector="^.ghost.outline.rounded-large">
       <Setter Property="CornerRadius" Value="11.5" />
+    </Style>
+    <Style Selector="^.ghost.outline.rounded-full">
+      <Setter Property="CornerRadius" Value="15.5" />
+    </Style>
+    <Style Selector="^.ghost.outline.rounded-full.xsmall">
+      <Setter Property="CornerRadius" Value="9.5" />
+    </Style>
+    <Style Selector="^.ghost.outline.rounded-full.small">
+      <Setter Property="CornerRadius" Value="11.5" />
+    </Style>
+    <Style Selector="^.ghost.outline.rounded-full.large">
+      <Setter Property="CornerRadius" Value="15.5" />
     </Style>
     <!-- link -->
     <Style Selector="^.link">
@@ -760,6 +952,18 @@
     <Style Selector="^.link.rounded-large">
       <Setter Property="CornerRadius" Value="12" />
     </Style>
+    <Style Selector="^.link.rounded-full">
+      <Setter Property="CornerRadius" Value="16" />
+    </Style>
+    <Style Selector="^.link.rounded-full.xsmall">
+      <Setter Property="CornerRadius" Value="10" />
+    </Style>
+    <Style Selector="^.link.rounded-full.small">
+      <Setter Property="CornerRadius" Value="12" />
+    </Style>
+    <Style Selector="^.link.rounded-full.large">
+      <Setter Property="CornerRadius" Value="16" />
+    </Style>
     <!-- link outline -->
     <Style Selector="^.link.outline">
       <Setter Property="Background" Value="{DynamicResource Gpui.Button.Link.Outline.Normal.Background}" />
@@ -796,6 +1000,18 @@
     </Style>
     <Style Selector="^.link.outline.rounded-large">
       <Setter Property="CornerRadius" Value="11.5" />
+    </Style>
+    <Style Selector="^.link.outline.rounded-full">
+      <Setter Property="CornerRadius" Value="15.5" />
+    </Style>
+    <Style Selector="^.link.outline.rounded-full.xsmall">
+      <Setter Property="CornerRadius" Value="9.5" />
+    </Style>
+    <Style Selector="^.link.outline.rounded-full.small">
+      <Setter Property="CornerRadius" Value="11.5" />
+    </Style>
+    <Style Selector="^.link.outline.rounded-full.large">
+      <Setter Property="CornerRadius" Value="15.5" />
     </Style>
     <!-- text -->
     <Style Selector="^.text">
@@ -834,6 +1050,18 @@
     <Style Selector="^.text.rounded-large">
       <Setter Property="CornerRadius" Value="12" />
     </Style>
+    <Style Selector="^.text.rounded-full">
+      <Setter Property="CornerRadius" Value="16" />
+    </Style>
+    <Style Selector="^.text.rounded-full.xsmall">
+      <Setter Property="CornerRadius" Value="10" />
+    </Style>
+    <Style Selector="^.text.rounded-full.small">
+      <Setter Property="CornerRadius" Value="12" />
+    </Style>
+    <Style Selector="^.text.rounded-full.large">
+      <Setter Property="CornerRadius" Value="16" />
+    </Style>
     <!-- text outline -->
     <Style Selector="^.text.outline">
       <Setter Property="Background" Value="{DynamicResource Gpui.Button.Text.Outline.Normal.Background}" />
@@ -870,6 +1098,18 @@
     </Style>
     <Style Selector="^.text.outline.rounded-large">
       <Setter Property="CornerRadius" Value="11.5" />
+    </Style>
+    <Style Selector="^.text.outline.rounded-full">
+      <Setter Property="CornerRadius" Value="15.5" />
+    </Style>
+    <Style Selector="^.text.outline.rounded-full.xsmall">
+      <Setter Property="CornerRadius" Value="9.5" />
+    </Style>
+    <Style Selector="^.text.outline.rounded-full.small">
+      <Setter Property="CornerRadius" Value="11.5" />
+    </Style>
+    <Style Selector="^.text.outline.rounded-full.large">
+      <Setter Property="CornerRadius" Value="15.5" />
     </Style>
 
     <!-- Selected keeps its look while hovered or pressed: GPUI registers no hover style on it. -->
@@ -989,6 +1229,18 @@
     </Style>
     <Style Selector="^.rounded-large /template/ Border#PART_FocusRing">
       <Setter Property="CornerRadius" Value="13.5" />
+    </Style>
+    <Style Selector="^.rounded-full /template/ Border#PART_FocusRing">
+      <Setter Property="CornerRadius" Value="17.5" />
+    </Style>
+    <Style Selector="^.rounded-full.xsmall /template/ Border#PART_FocusRing">
+      <Setter Property="CornerRadius" Value="11.5" />
+    </Style>
+    <Style Selector="^.rounded-full.small /template/ Border#PART_FocusRing">
+      <Setter Property="CornerRadius" Value="13.5" />
+    </Style>
+    <Style Selector="^.rounded-full.large /template/ Border#PART_FocusRing">
+      <Setter Property="CornerRadius" Value="17.5" />
     </Style>
   </ControlTheme>
 </ResourceDictionary>

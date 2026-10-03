@@ -79,7 +79,7 @@ w("  GPUI Kit Button -> Button (crates/component/src/button/button.rs).")
 w("  Classes: variant  primary secondary danger warning success info ghost link text")
 w("           modifier outline compact selected icon-only")
 w("           size     xsmall small large (medium is the default)")
-w("           corners  rounded-none rounded-small rounded-large")
+w("           corners  rounded-none rounded-small rounded-large rounded-full")
 w("  The focus ring shows on keyboard focus only (:focus-visible), as GPUI Kit")
 w("  prevents a pointer press from focusing a button.")
 w("-->")
@@ -198,6 +198,12 @@ for variant in VARIANTS:
             w(f'    <Style Selector="{base}.rounded-{rounded}">')
             w(f'      <Setter Property="CornerRadius" Value="{radius(r, border)}" />')
             w('    </Style>')
+        # rounded_full_style: half the height, so a square is a circle and a wider button a pill.
+        for size, (h, *_rest) in MEDIUM_FIRST:
+            sel = f"{base}.rounded-full" if size == "medium" else f"{base}.rounded-full.{size}"
+            w(f'    <Style Selector="{sel}">')
+            w(f'      <Setter Property="CornerRadius" Value="{radius(h / 2, border)}" />')
+            w('    </Style>')
 w('')
 w('    <!-- Selected keeps its look while hovered or pressed: GPUI registers no hover style on it. -->')
 for variant in VARIANTS:
@@ -221,6 +227,11 @@ for rounded, r in ROUNDED.items():
         continue
     w(f'    <Style Selector="^.rounded-{rounded} /template/ Border#PART_FocusRing">')
     w(f'      <Setter Property="CornerRadius" Value="{num(r + RING - RING / 2)}" />')
+    w('    </Style>')
+for size, (h, *_rest) in MEDIUM_FIRST:
+    sel = "^.rounded-full" if size == "medium" else f"^.rounded-full.{size}"
+    w(f'    <Style Selector="{sel} /template/ Border#PARTX_FocusRing">'.replace("PARTX", "PART"))
+    w(f'      <Setter Property="CornerRadius" Value="{num(h / 2 + RING - RING / 2)}" />')
     w('    </Style>')
 w('  </ControlTheme>')
 w('</ResourceDictionary>')

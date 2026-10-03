@@ -1,0 +1,43 @@
+# GPUI Kit Carousel (+ Previous/Next + Pagination) -> Carousel, Buttons
+# (outline icon-only rounded-full) and PipsPager.carousel.
+# 240x120 slides; the nav buttons 16px outside the slides, the pages 16px below.
+component = "carousel"
+viewport = [368, 188]
+anchor = [64, 16]
+
+# Previous is disabled on the first slide, Next on the last.
+[[group]]
+name = "nav"
+matrix = { selected = [0, 1, 2] }
+
+# Next and Previous hovered, a page hovered, Next pressed.
+[[group]]
+name = "hover"
+params = { selected = 1 }
+states = ["at-336-76", "at-32-76", "at-212-162", "pressed-at-336-76"]
+
+[[group]]
+name = "size"
+params = { selected = 1 }
+matrix = { size = ["xsmall", "small", "large"] }
+
+# Keyboard focus on the carousel: the ring around the slides.
+[[group]]
+name = "focus"
+params = { selected = 1 }
+states = ["focus"]
+
+# Before 500ms: GPUI opens the button's tooltip 500ms after the pointer arrives.
+[[motion]]
+name = "next"
+params = { selected = 0 }
+trigger = "click-at-336-76"
+samples_ms = [0, 16, 33, 50, 66, 83, 100, 133, 166, 200, 250, 300, 350, 400, 450]
+themes = ["light"]
+
+[[motion]]
+name = "previous"
+params = { selected = 2 }
+trigger = "click-at-32-76"
+samples_ms = [0, 16, 33, 50, 66, 83, 100, 133, 166, 200, 250, 300, 350, 400, 450]
+themes = ["light"]

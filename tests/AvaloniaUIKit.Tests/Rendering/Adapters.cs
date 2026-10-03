@@ -68,6 +68,7 @@ public static class Adapters
         "slider" => Slider(c),
         "table" => Table(c),
         "datatable" => DataTable(c),
+        "carousel" => CarouselCase(c),
         _ => throw new NotSupportedException($"no adapter for {c.Component}"),
     };
 
@@ -738,6 +739,99 @@ public static class Adapters
         }
         return calendar;
     }
+
+    /// <summary>
+    /// reference/src/cases/carousel.rs: numbered slides, Previous and Next 16px
+    /// outside them, the pages 16px below (the usage the theme documents).
+    /// </summary>
+    private static StackPanel CarouselCase(GoldenCase c)
+    {
+        var count = (int)c.Num("count", 3);
+        var height = c.Num("height", 120);
+        var carousel = new Carousel
+        {
+            Width = c.Num("width", 240),
+            Focusable = true,
+            ItemsSource = Enumerable.Range(1, count).Select(i => Slide(i, height)).ToList(),
+            SelectedIndex = (int)c.Num("selected", 0),
+        };
+        var size = c.Str("size", "medium");
+        var square = size switch { "xsmall" => 20, "small" => 24, _ => 32 };
+        Button Nav(string icon, bool next)
+        {
+            var button = new Button
+            {
+                Classes = { "outline", "icon-only", "rounded-full" },
+                Content = Icon(icon),
+                HorizontalAlignment = next ? HorizontalAlignment.Right : HorizontalAlignment.Left,
+                VerticalAlignment = VerticalAlignment.Center,
+                Margin = next ? new Avalonia.Thickness(0, 0, -16 - square, 0) : new Avalonia.Thickness(-16 - square, 0, 0, 0),
+            };
+            ClassFrom(button, c, "size", "medium");
+            button.Click += (_, _) =>
+            {
+                if (next)
+                {
+                    carousel.Next();
+                }
+                else
+                {
+                    carousel.Previous();
+                }
+            };
+            return button;
+        }
+        var previous = Nav("chevron-left", next: false);
+        var nextButton = Nav("chevron-right", next: true);
+        var pager = new PipsPager
+        {
+            Classes = { "carousel" },
+            NumberOfPages = count,
+            SelectedPageIndex = carousel.SelectedIndex,
+            HorizontalAlignment = HorizontalAlignment.Center,
+        };
+        void Sync()
+        {
+            previous.IsEnabled = carousel.SelectedIndex > 0;
+            nextButton.IsEnabled = carousel.SelectedIndex < count - 1;
+            pager.SelectedPageIndex = carousel.SelectedIndex;
+        }
+        carousel.SelectionChanged += (_, _) => Sync();
+        pager.PropertyChanged += (_, e) =>
+        {
+            if (e.Property == PipsPager.SelectedPageIndexProperty)
+            {
+                carousel.SelectedIndex = pager.SelectedPageIndex;
+            }
+        };
+        Sync();
+        return new StackPanel
+        {
+            Spacing = 16,
+            Width = carousel.Width,
+            Children = { new Panel { Children = { carousel, previous, nextButton } }, pager },
+        };
+    }
+
+    // The story's slide: a muted card with its number in 24px semibold.
+    private static Border Slide(int number, double height) => new()
+    {
+        Height = height,
+        CornerRadius = new Avalonia.CornerRadius(7.5),
+        BorderThickness = new Avalonia.Thickness(1),
+        BackgroundSizing = Avalonia.Media.BackgroundSizing.OuterBorderEdge,
+        [!Border.BackgroundProperty] = new Avalonia.Markup.Xaml.MarkupExtensions.DynamicResourceExtension("Gpui.Muted"),
+        [!Border.BorderBrushProperty] = new Avalonia.Markup.Xaml.MarkupExtensions.DynamicResourceExtension("Gpui.Border"),
+        Child = new TextBlock
+        {
+            Text = number.ToString(System.Globalization.CultureInfo.InvariantCulture),
+            FontSize = 24,
+            FontWeight = Avalonia.Media.FontWeight.SemiBold,
+            LineHeight = 39,
+            HorizontalAlignment = HorizontalAlignment.Center,
+            VerticalAlignment = VerticalAlignment.Center,
+        },
+    };
 
     /// <summary>reference/src/cases/table.rs: the story's invoices.</summary>
     public sealed record Invoice(string Id, string Method, string Amount);

@@ -13,6 +13,7 @@ use std::time::Duration;
 
 mod accordion;
 mod button;
+mod carousel;
 mod check;
 mod display;
 pub mod menu;
@@ -75,6 +76,7 @@ pub fn builder(case: &Case) -> Result<Builder> {
         "tree" => tree::builder(&params),
         "tabs" => tabs::builder(&params),
         "table" => table::builder(&params),
+        "carousel" => carousel::builder(&params),
         "datatable" => table::data_table(&params),
         "toolbar" => toolbar::builder(&params),
         "popover" => popover::popover(&params),
