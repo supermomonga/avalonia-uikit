@@ -14,6 +14,7 @@ use std::time::Duration;
 mod accordion;
 mod button;
 mod carousel;
+mod color_picker;
 mod check;
 mod display;
 pub mod menu;
@@ -83,6 +84,7 @@ pub fn builder(case: &Case) -> Result<Builder> {
         "sidebar" => sidebar::builder(&params),
         "sheet" => sheet::builder(&params),
         "titlebar" => title_bar::builder(&params),
+        "color_picker" => color_picker::builder(&params),
         "datatable" => table::data_table(&params),
         "toolbar" => toolbar::builder(&params),
         "popover" => popover::popover(&params),

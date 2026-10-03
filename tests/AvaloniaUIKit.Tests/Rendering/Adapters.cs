@@ -71,6 +71,7 @@ public static class Adapters
         "carousel" => CarouselCase(c),
         "sidebar" => c.Str("host", "splitview") == "drawer" ? SidebarDrawer(c) : Sidebar(c),
         "sheet" => Sheet(c),
+        "color_picker" => ColorPickerCase(c),
         "titlebar" => new DecorationsHost(c.Params.ContainsKey("title") ? c.Str("title", "") : null)
         {
             Width = c.Num("width", 480),
@@ -748,6 +749,23 @@ public static class Adapters
             calendar.DisplayMode = CalendarMode.Year;
         }
         return calendar;
+    }
+
+    // reference/src/cases/color_picker.rs: the swatch, or ColorSelect (the field class) 200px wide.
+    private static ColorPicker ColorPickerCase(GoldenCase c)
+    {
+        var picker = new ColorPicker { Color = Avalonia.Media.Color.Parse("#" + c.Str("value", "2563EB")) };
+        if (c.Params.ContainsKey("label"))
+        {
+            picker.Content = c.Str("label", "");
+        }
+        ClassFrom(picker, c, "size", "medium");
+        if (c.Bool("field"))
+        {
+            picker.Classes.Add("field");
+            picker.Width = c.Num("width", 200);
+        }
+        return picker;
     }
 
     /// <summary>

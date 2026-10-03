@@ -1,8 +1,10 @@
 <Application xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:uikit="clr-namespace:AvaloniaUIKit;assembly=AvaloniaUIKit"
+             xmlns:uikitcolor="clr-namespace:AvaloniaUIKit;assembly=AvaloniaUIKit.ColorPicker"
              x:Class="AvaloniaUIKit.AotSmoke.App">
   <Application.Styles>
     <uikit:GpuiTheme />
+    <uikitcolor:GpuiColorPickerTheme />
   </Application.Styles>
 </Application>

@@ -1,6 +1,7 @@
 <Solution>
   <Folder Name="/src/">
     <Project Path="src/AvaloniaUIKit/AvaloniaUIKit.csproj" />
+    <Project Path="src/AvaloniaUIKit.ColorPicker/AvaloniaUIKit.ColorPicker.csproj" />
   </Folder>
   <Folder Name="/samples/">
     <Project Path="samples/AvaloniaUIKit.AotSmoke/AvaloniaUIKit.AotSmoke.csproj" />

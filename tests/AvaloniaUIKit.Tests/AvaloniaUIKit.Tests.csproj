@@ -10,6 +10,7 @@
     <PackageReference Include="Avalonia.Skia" />
     <PackageReference Include="Avalonia.Themes.Fluent" />
     <ProjectReference Include="../../src/AvaloniaUIKit/AvaloniaUIKit.csproj" />
+    <ProjectReference Include="../../src/AvaloniaUIKit.ColorPicker/AvaloniaUIKit.ColorPicker.csproj" />
     <AvaloniaResource Include="../../assets/fonts/inter/*.ttf" Link="Assets/Fonts/%(Filename)%(Extension)" />
   </ItemGroup>
 </Project>

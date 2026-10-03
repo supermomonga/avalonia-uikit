@@ -188,6 +188,12 @@
           <Border Background="{DynamicResource Gpui.Muted}" />
         </DrawerPage>
 
+        <TextBlock Text="Color picker" Foreground="{DynamicResource Gpui.MutedForeground}" />
+        <StackPanel Orientation="Horizontal" Spacing="16">
+          <ColorPicker Color="#2563EB" Content="Background" />
+          <ColorPicker Color="#F59E0B" Classes="field" Width="200" />
+        </StackPanel>
+
         <TextBlock Text="Popover" Foreground="{DynamicResource Gpui.MutedForeground}" />
         <Button Classes="outline" Content="Open" HorizontalAlignment="Left">
           <Button.Flyout>

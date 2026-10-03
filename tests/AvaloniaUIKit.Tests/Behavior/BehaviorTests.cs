@@ -340,4 +340,29 @@ public class BehaviorTests
         states.Set(":maximized", true);
         await Assert.That(ReferenceEquals(icon.Data, host.Window.FindResource("Gpui.Icon.WindowRestore"))).IsTrue();
     }
+
+    // ColorPicker's popover (color_picker.rs): 288px wide, 4px below the swatch from
+    // its left edge, with the palette, the picked color and its hex to edit.
+    [Test]
+    public async Task A_color_picker_opens_its_popover_below_the_swatch()
+    {
+        // A window wide enough for the popover (the golden case's is not).
+        var golden = Case("color_picker/swatch.medium/normal/light") with { Viewport = new Size(480, 480) };
+        using var host = CaseHost.Open(golden, Adapters.Create(golden));
+        host.Drive(golden, "click");
+        var presenter = host.Window.GetVisualDescendants().OfType<FlyoutPresenter>().Single();
+        var picker = (Avalonia.Controls.ColorPicker)host.Control;
+        var surface = presenter.GetVisualDescendants().OfType<Border>().First(b => b.Name == "PART_Surface");
+        var at = surface.TranslatePoint(default, host.Window)!.Value;
+        var swatch = picker.TranslatePoint(default, host.Window)!.Value;
+        await Assert.That(surface.Bounds.Width).IsEqualTo(288);
+        await Assert.That(at.X).IsEqualTo(swatch.X);
+        await Assert.That(at.Y).IsEqualTo(swatch.Y + picker.Bounds.Height + 4);
+        var swatches = presenter.GetVisualDescendants().OfType<ListBoxItem>().ToList();
+        await Assert.That(swatches.Count).IsEqualTo(picker.PaletteColors!.Count());
+        await Assert.That(swatches.All(i => i.Bounds.Size == new Size(20, 20))).IsTrue();
+        var hex = presenter.GetVisualDescendants().OfType<TextBox>().Single(t => t.Name == "PART_HexTextBox");
+        // ColorView writes the alpha too while it is shown (GPUI only for a translucent color).
+        await Assert.That(hex.Text).IsEqualTo("2563EBFF");
+    }
 }

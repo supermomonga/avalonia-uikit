@@ -13,5 +13,6 @@
     <PackageReference Include="Avalonia.Desktop" />
     <PackageReference Include="AvaloniaUI.DiagnosticsSupport" Condition="'$(Configuration)' == 'Debug'" />
     <ProjectReference Include="../../src/AvaloniaUIKit/AvaloniaUIKit.csproj" />
+    <ProjectReference Include="../../src/AvaloniaUIKit.ColorPicker/AvaloniaUIKit.ColorPicker.csproj" />
   </ItemGroup>
 </Project>

@@ -1,0 +1,41 @@
+# GPUI Kit ColorPicker / ColorSelect -> ColorPicker (Avalonia.Controls.ColorPicker,
+# with the AvaloniaUIKit.ColorPicker themes).
+# Only the closed triggers are compared: the open popover's featured row, HSLA
+# tab and palette have no Avalonia counterpart of the same structure.
+# Values are hex without '#'; the builder asserts GPUI's hex round trip.
+component = "color_picker"
+viewport = [248, 88]
+anchor = [16, 24]
+
+# The swatch: 16/20/32/44px, its border the value darkened 30%. Focus draws nothing.
+[[group]]
+name = "swatch"
+params = { value = "2563EB" }
+matrix = { size = ["xsmall", "small", "medium", "large"] }
+states = ["normal", "focus"]
+
+# A label beside the swatch (16px, 8px apart).
+[[group]]
+name = "label"
+params = { value = "2563EB", label = "Background" }
+
+# The hex tooltip 500ms after the pointer arrives, above the swatch.
+[[group]]
+name = "tooltip"
+params = { value = "2563EB" }
+states = ["hover+wait-800ms"]
+viewport = [248, 110]
+anchor = [100, 60]
+
+# ColorSelect: a framed field like an input, ringed while focused.
+[[group]]
+name = "field"
+params = { field = true, value = "2563EB", width = 200 }
+matrix = { size = ["xsmall", "small", "medium", "large"] }
+states = ["normal", "focus"]
+
+# Saturated, white and black values (the swatch border and the hex text).
+[[group]]
+name = "value"
+params = { field = true, width = 200 }
+matrix = { value = ["F59E0B", "FFFFFF", "000000"] }
