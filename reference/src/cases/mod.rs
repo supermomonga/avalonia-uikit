@@ -25,6 +25,7 @@ mod scroll;
 mod select;
 mod surface;
 mod toggle;
+mod tree;
 
 pub fn builder(case: &Case) -> Result<Builder> {
     let params = effective_params(case);
@@ -58,6 +59,7 @@ pub fn builder(case: &Case) -> Result<Builder> {
         "virtual" => list::virtual_list(&params),
         "select" => select::builder(&params),
         "combobox" => select::combobox(&params),
+        "tree" => tree::builder(&params),
         other => bail!("unknown component {other}"),
     }
 }

@@ -50,6 +50,7 @@ public static class Adapters
         "virtual" => VirtualList(c),
         "select" => Select(c),
         "combobox" => Select(c, "combobox"),
+        "tree" => Tree(c),
         _ => throw new NotSupportedException($"no adapter for {c.Component}"),
     };
 
@@ -244,6 +245,42 @@ public static class Adapters
             };
         }
         return list;
+    }
+
+    /// <summary>A TreeView with the tree GPUI's case shows; `selected` is a flattened row index.</summary>
+    private static TreeView Tree(GoldenCase c)
+    {
+        TreeViewItem Item(string header, bool expanded = false, bool enabled = true, params TreeViewItem[] children)
+        {
+            var item = new TreeViewItem { Header = header, IsExpanded = expanded, IsEnabled = enabled };
+            foreach (var child in children)
+            {
+                item.Items.Add(child);
+            }
+            return item;
+        }
+        var components = Item("components", true, true, Item("button.rs"), Item("tree.rs"));
+        var src = Item("src", true, true, components, Item("lib.rs"));
+        var assets = Item("assets", false, false, Item("logo.svg"));
+        var cargo = Item("Cargo.toml");
+        var tree = new TreeView { Width = c.Num("width", 240), Height = c.Num("height", 238), Items = { src, assets, cargo } };
+        TreeViewItem[] flat = [src, components, (TreeViewItem)components.Items[0]!, (TreeViewItem)components.Items[1]!, (TreeViewItem)src.Items[1]!, assets, cargo];
+        if (c.Num("selected", -1) is var selected and >= 0)
+        {
+            tree.SelectedItem = flat[(int)selected];
+        }
+        if (c.Bool("rounded"))
+        {
+            tree.Padding = new Avalonia.Thickness(4);
+            tree.BorderThickness = new Avalonia.Thickness(1);
+            tree.BorderBrush = (Avalonia.Media.IBrush)Avalonia.Application.Current!.FindResource(c.IsDark ? Avalonia.Styling.ThemeVariant.Dark : Avalonia.Styling.ThemeVariant.Light, "Gpui.Border")!;
+            tree.CornerRadius = new Avalonia.CornerRadius(5.5);
+            foreach (var item in flat)
+            {
+                item.CornerRadius = new Avalonia.CornerRadius(6);
+            }
+        }
+        return tree;
     }
 
     /// <summary>A ComboBox as GPUI's Select: fruits, a selected and a disabled one, a placeholder.</summary>

@@ -1,0 +1,31 @@
+# GPUI Kit Tree -> TreeView / TreeViewItem, with GPUI Kit's canonical row:
+# 16px text, 4px vertical padding, 12px + 16px per level, a 16px folder or
+# file icon and an 8px gap; rows 34px apart. Row centers (anchor 8): src 25,
+# components 59, button.rs 93, tree.rs 127, lib.rs 161, assets (disabled) 195,
+# Cargo.toml 229.
+component = "tree"
+viewport = [272, 254]
+anchor = [16, 8]
+
+[[group]]
+name = "rows"
+params = { width = 240, height = 238 }
+states = ["normal", "at-120-25", "at-120-93", "at-120-195", "click-at-120-93", "click-at-120-93+at-120-229"]
+
+# The press focuses the tree in both; Down moves the selection.
+[[group]]
+name = "keys"
+params = { width = 240, height = 238 }
+states = ["click-at-120-93+at-260-250+key-down"]
+
+[[group]]
+name = "selected"
+params = { width = 240, height = 238, selected = 1 }
+states = ["normal", "at-120-59"]
+
+# The story's look: rounded rows in a padded, bordered frame.
+[[group]]
+name = "rounded"
+params = { width = 240, height = 248, rounded = true, selected = 2 }
+viewport = [272, 264]
+states = ["normal", "at-120-132"]

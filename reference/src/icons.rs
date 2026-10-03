@@ -8,7 +8,7 @@ use std::{fmt::Write as _, path::Path};
 use tiny_skia_path::PathSegment;
 
 /// The icons the themes draw, by GPUI IconName file name.
-pub const ICONS: [&str; 27] = [
+pub const ICONS: [&str; 30] = [
     "check",
     "minus",
     "plus",
@@ -26,6 +26,9 @@ pub const ICONS: [&str; 27] = [
     "calendar",
     "inbox",
     "search",
+    "folder",
+    "folder-open",
+    "file",
     "info",
     "circle-check",
     "triangle-alert",
