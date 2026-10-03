@@ -23,6 +23,7 @@ pub mod popover;
 mod progress;
 mod resizable;
 mod icon;
+mod image;
 mod input;
 mod label;
 mod list;
@@ -76,6 +77,7 @@ pub fn builder(case: &Case) -> Result<Builder> {
         "accordion" => accordion::builder(&params),
         "notification" => notification::notification(&params),
         "resizable" => resizable::builder(&params),
+        "image" => image::builder(&params),
         "collapsible" => accordion::collapsible(&params),
         "slider" => slider::builder(&params),
         other => bail!("unknown component {other}"),

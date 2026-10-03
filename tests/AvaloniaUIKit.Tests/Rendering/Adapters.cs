@@ -60,6 +60,7 @@ public static class Adapters
         "accordion" => Accordion(c),
         "notification" => NotificationArea(c),
         "resizable" => Resizable(c),
+        "image" => ImageCase(c),
         "collapsible" => Collapsible(c),
         "slider" => Slider(c),
         _ => throw new NotSupportedException($"no adapter for {c.Component}"),
@@ -658,6 +659,62 @@ public static class Adapters
         }
         FlagClass(slider, c, "reverse");
         return slider;
+    }
+
+    // GPUI's img() box is the element; Avalonia's Image takes the fitted size, so the
+    // box is a panel of the case's size around it.
+    private static Control ImageCase(GoldenCase c)
+    {
+        var image = ImageOf(c);
+        if (c.Num("width", 96) is > 0 and var width && c.Num("height", 96) is > 0 and var height)
+        {
+            image.Width = double.NaN;
+            image.Height = double.NaN;
+            return new Panel { Width = width, Height = height, Children = { image } };
+        }
+        return image;
+    }
+
+    private static Image ImageOf(GoldenCase c)
+    {
+        var file = c.Str("image", "wide") switch
+        {
+            "wide" => "wide-192x96.png",
+            "tall" => "tall-96x192.png",
+            _ => "small-48x48.png",
+        };
+        var image = new Image { Source = new Avalonia.Media.Imaging.Bitmap(Path.Combine(AvaloniaUIKit.Tests.Infrastructure.Repo.Root, "assets", "images", file)) };
+        if (c.Num("width", 96) is > 0 and var width)
+        {
+            image.Width = width;
+        }
+        if (c.Num("height", 96) is > 0 and var height)
+        {
+            image.Height = height;
+        }
+        // GPUI's ObjectFit as Stretch (Image.axaml).
+        switch (c.Str("fit", "contain"))
+        {
+            case "fill":
+                image.Stretch = Avalonia.Media.Stretch.Fill;
+                break;
+            case "cover":
+                image.Stretch = Avalonia.Media.Stretch.UniformToFill;
+                break;
+            case "scale-down":
+                image.StretchDirection = Avalonia.Media.StretchDirection.DownOnly;
+                break;
+            case "none":
+                image.Stretch = Avalonia.Media.Stretch.None;
+                image.HorizontalAlignment = HorizontalAlignment.Left;
+                image.VerticalAlignment = VerticalAlignment.Top;
+                break;
+        }
+        if (c.Num("radius", 0) == 8)
+        {
+            image.Classes.Add("rounded-lg");
+        }
+        return image;
     }
 
     // Two empty panels in a Grid with a 1px definition for the splitter between them;

@@ -1,0 +1,30 @@
+# GPUI img() (GPUI Kit has no Image component) -> Avalonia Image.
+# The 96x96 box: at scale 2 the wide image under Contain maps 1:1 to device pixels.
+component = "image"
+viewport = [128, 128]
+anchor = [16, 16]
+
+# Only the wide image: GPUI lays img() out as a flex item whose automatic
+# minimum is its natural size, so a tall image keeps its 192px height in a
+# 96px box (the box is not honoured), which says nothing about the image's look.
+[[group]]
+name = "fit"
+params = { width = 96, height = 96, image = "wide" }
+matrix = { fit = ["fill", "contain", "cover", "scale-down"] }
+
+# A 48px image in a 96px box: ScaleDown keeps it at 48 centered, None puts it top-left.
+[[group]]
+name = "small"
+params = { width = 96, height = 96, image = "small" }
+matrix = { fit = ["contain", "scale-down", "none"] }
+
+# rounded(8): corners of the drawn image (Contain) vs the box (Cover).
+[[group]]
+name = "rounded"
+params = { width = 96, height = 96, radius = 8, image = "wide" }
+matrix = { fit = ["contain", "cover"] }
+
+# No size: the image's own size (48x48 logical).
+[[group]]
+name = "intrinsic"
+params = { image = "small", width = 0, height = 0 }

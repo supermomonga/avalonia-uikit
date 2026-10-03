@@ -17,6 +17,8 @@ public enum PrimitiveKind
     Band,
     /// <summary>A gaussian shadow.</summary>
     Shadow,
+    /// <summary>A raster image where it is drawn (its color is not compared).</summary>
+    Image,
 }
 
 /// <summary>
@@ -74,6 +76,14 @@ public static class StructuralComparison
                 list.Add(Band(q.Bounds, Clamp(q.Radii, q.Bounds), q.BorderWidths, q.BorderColor, $"quad#{q.Order}"));
             }
         }
+        foreach (var image in scene.Images.Where(i => i.Opacity > 0))
+        {
+            var drawn = image.Bounds.Intersect(image.Clip);
+            if (drawn.Width > 0 && drawn.Height > 0)
+            {
+                list.Add(new Primitive(PrimitiveKind.Image, drawn, Clamp(image.Radii, drawn), default, 0, default, $"image#{image.Order}"));
+            }
+        }
         return Dedupe(list);
     }
 
@@ -85,6 +95,18 @@ public static class StructuralComparison
         var w = q.BorderWidths;
         var hairline = 1 / CaseHost.Scale;
         return q.BorderColor.A < 0.05 && new[] { w.Left, w.Top, w.Right, w.Bottom }.All(e => e == 0 || Math.Abs(e - hairline) < 1e-6);
+    }
+
+    // Where an Image draws: its source scaled as Image.Render scales it, centered, within its bounds.
+    private static Rect DrawnRect(Image image)
+    {
+        if (image.Source is not { } source)
+        {
+            return default;
+        }
+        var viewport = new Rect(image.Bounds.Size);
+        var scale = image.Stretch.CalculateScaling(image.Bounds.Size, source.Size, image.StretchDirection);
+        return viewport.CenterRect(new Rect(source.Size * scale)).Intersect(viewport);
     }
 
     public static IReadOnlyList<Primitive> FromVisuals(Visual root)
@@ -124,6 +146,11 @@ public static class StructuralComparison
                     break;
                 case Panel panel when panel.Background is not null:
                     AddBox(list, rect, panel.Background, null, default, default, BackgroundSizing.CenterBorder, default, opacity, name);
+                    break;
+                case Image image when DrawnRect(image) is { Width: > 0, Height: > 0 } drawn:
+                    var radii = image.Clip is RectangleGeometry { RadiusX: var rx } && rx > 0 ? new CornerRadius(rx) : default;
+                    var drawnRect = new Rect(rect.Position + drawn.Position, drawn.Size);
+                    list.Add(new Primitive(PrimitiveKind.Image, drawnRect, Clamp(radii, drawnRect), default, 0, default, name));
                     break;
                 case Rectangle r when r.Fill is not null:
                     AddBox(list, rect, r.Fill, null, default, new CornerRadius(r.RadiusX), BackgroundSizing.CenterBorder, default, opacity, name);

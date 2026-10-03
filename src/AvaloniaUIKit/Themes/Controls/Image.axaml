@@ -1,0 +1,30 @@
+<!--
+  GPUI's img() -> Image. GPUI Kit has no Image component, so nothing is themed
+  by default: an image keeps its colors, and Stretch Uniform is GPUI's default
+  ObjectFit::Contain. The classes rounded, rounded-lg and rounded-full clip the
+  drawn image to the theme radius (6), radius_lg (8) or a pill, as
+  img().rounded(..) does (the radius clamped to half the shorter side).
+
+  ObjectFit -> Image: Fill = Stretch Fill; Contain = Uniform; Cover =
+  UniformToFill; ScaleDown = Uniform with StretchDirection DownOnly; None =
+  Stretch None with HorizontalAlignment Left and VerticalAlignment Top (GPUI
+  draws it at the top left).
+-->
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:gconv="using:AvaloniaUIKit.Converters">
+  <Styles.Resources>
+    <gconv:RoundedClipConverter x:Key="Gpui.Clip.Rounded" Radius="6" />
+    <gconv:RoundedClipConverter x:Key="Gpui.Clip.RoundedLg" Radius="8" />
+    <gconv:RoundedClipConverter x:Key="Gpui.Clip.RoundedFull" Radius="9999" />
+  </Styles.Resources>
+  <Style Selector="Image.rounded">
+    <Setter Property="Clip" Value="{Binding $self.Bounds, Converter={StaticResource Gpui.Clip.Rounded}}" />
+  </Style>
+  <Style Selector="Image.rounded-lg">
+    <Setter Property="Clip" Value="{Binding $self.Bounds, Converter={StaticResource Gpui.Clip.RoundedLg}}" />
+  </Style>
+  <Style Selector="Image.rounded-full">
+    <Setter Property="Clip" Value="{Binding $self.Bounds, Converter={StaticResource Gpui.Clip.RoundedFull}}" />
+  </Style>
+</Styles>

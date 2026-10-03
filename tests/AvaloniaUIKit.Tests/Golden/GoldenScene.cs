@@ -41,6 +41,9 @@ public sealed record SceneUnderline(int Order, Rect Bounds, double Thickness, Rg
 
 public sealed record SceneSprite(int Order, Rect Bounds, Rect Clip, Rgba Color, bool Transformed, double RotationDegrees);
 
+/// <summary>A raster image (a polychrome sprite), with its rounded corners.</summary>
+public sealed record SceneImage(int Order, Rect Bounds, Rect Clip, CornerRadius Radii, double Opacity);
+
 /// <summary>Everything GPUI painted for one frame, in logical pixels.</summary>
 public sealed record GoldenScene(
     IReadOnlyList<SceneQuad> Quads,
@@ -48,7 +51,8 @@ public sealed record GoldenScene(
     IReadOnlyList<SceneUnderline> Underlines,
     IReadOnlyList<SceneSprite> Sprites,
     IReadOnlyList<Rect> Paths,
-    IReadOnlyList<Rgba> PathColors)
+    IReadOnlyList<Rgba> PathColors,
+    IReadOnlyList<SceneImage> Images)
 {
     public static GoldenScene Load(string relativePath)
     {
@@ -105,7 +109,13 @@ public sealed record GoldenScene(
         }
         var paths = root["paths"]!.AsArray().Select(n => GoldenManifest.ReadRect(n!["bounds"])).ToList();
         var pathColors = root["paths"]!.AsArray().Select(n => Rgba.From(n!["color"]?["rgba"])).ToList();
-        return new GoldenScene(quads, shadows, underlines, sprites, paths, pathColors);
+        var images = root["poly_sprites"]!.AsArray().Select(n => new SceneImage(
+            (int)n!["order"]!.GetValue<double>(),
+            GoldenManifest.ReadRect(n["bounds"]),
+            GoldenManifest.ReadRect(n["clip"]),
+            Radii(n["corner_radii"]),
+            D(n["opacity"]))).ToList();
+        return new GoldenScene(quads, shadows, underlines, sprites, paths, pathColors, images);
     }
 
     private static double D(JsonNode? n) => n!.GetValue<double>();

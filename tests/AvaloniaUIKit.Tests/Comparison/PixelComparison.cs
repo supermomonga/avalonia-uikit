@@ -25,6 +25,14 @@ public enum Region : byte
     Ink,
     /// <summary>Gaussian shadows: GPUI's erf approximation versus Skia's blur (R3).</summary>
     Shadow,
+    /// <summary>Raster images: inside, both renderers sample alike.</summary>
+    Image,
+    /// <summary>
+    /// The rim of a raster image: GPUI samples its atlas tile with transparent
+    /// neighbours, so a magnified image fades out over half a source pixel at
+    /// its edges where Skia clamps (R31). Geometry is the structure's to check.
+    /// </summary>
+    ImageEdge,
 }
 
 /// <summary>
@@ -42,7 +50,9 @@ public sealed record PixelTolerance(
     double InkMassMin = 0.6,
     double InkMassMax = 1.6,
     double InkMassFloor = 200,
-    double ShadowMax = 12)
+    double ShadowMax = 12,
+    double ImageMean = 3,
+    double ImageEdgeMean = 12)
 {
     public static PixelTolerance Default { get; } = new();
 }
@@ -155,7 +165,7 @@ public static class PixelComparison
         // place an edge up to one device pixel away from GPUI's (R9).
         foreach (var p in actual ?? [])
         {
-            if (p.Kind == PrimitiveKind.Shadow)
+            if (p.Kind is PrimitiveKind.Shadow or PrimitiveKind.Image)
             {
                 continue;
             }
@@ -178,6 +188,14 @@ public static class PixelComparison
                 }
                 return false;
             }, area);
+        }
+        foreach (var image in scene.Images)
+        {
+            var drawn = image.Bounds.Intersect(image.Clip);
+            Mark(Region.Image, (x, y) => RoundedRectDistance(drawn, image.Radii, x, y) < -edgeReach, drawn);
+            // Half a source pixel at up to 5x: 2.5 device pixels.
+            var rim = 2.5 / scale;
+            Mark(Region.ImageEdge, (x, y) => Math.Abs(RoundedRectDistance(drawn, image.Radii, x, y)) <= rim * 1.01, drawn.Inflate(rim * 1.5));
         }
         foreach (var s in scene.Shadows)
         {
@@ -205,8 +223,10 @@ public static class PixelComparison
     {
         Region.Flat => 0,
         Region.Shadow => 1,
-        Region.Edge => 2,
-        Region.Ink => 3,
+        Region.Image => 2,
+        Region.ImageEdge => 3,
+        Region.Edge => 4,
+        Region.Ink => 5,
         _ => 0,
     };
 
@@ -288,7 +308,7 @@ public static class PixelComparison
                 // Outlines and centered text may sit one device pixel apart (R9), so
                 // edge and ink pixels are compared with the closest of GPUI's pixels
                 // around them.
-                double d = region is Region.Edge or Region.Ink ? NearestDiff(expected, actual, x, y) : Diff(expected, actual, x, y, x, y);
+                double d = region is Region.Edge or Region.Ink or Region.Image or Region.ImageEdge ? NearestDiff(expected, actual, x, y) : Diff(expected, actual, x, y, x, y);
                 var s = stats[region];
                 s.Count++;
                 s.Sum += d;
@@ -313,6 +333,8 @@ public static class PixelComparison
             Check(ratio >= tolerance.InkMassMin && ratio <= tolerance.InkMassMax,
                 $"ink mass {ratio:0.##}x GPUI's (allowed {tolerance.InkMassMin}-{tolerance.InkMassMax}): text, icon or line missing or extra");
         }
+        Check(stats[Region.Image].Mean <= tolerance.ImageMean, $"image mean {stats[Region.Image].Mean:0.##} > {tolerance.ImageMean}");
+        Check(stats[Region.ImageEdge].Mean <= tolerance.ImageEdgeMean, $"image edge mean {stats[Region.ImageEdge].Mean:0.##} > {tolerance.ImageEdgeMean}");
         Check(stats[Region.Shadow].Max <= tolerance.ShadowMax, $"shadow max {stats[Region.Shadow].Max} > {tolerance.ShadowMax} at ({stats[Region.Shadow].MaxX},{stats[Region.Shadow].MaxY})");
         return new PixelReport { Stats = stats, Failures = failures };
 
@@ -377,6 +399,8 @@ public static class PixelComparison
                         Region.Edge => ((byte)255, (byte)160, (byte)0),
                         Region.Ink => ((byte)0, (byte)120, (byte)255),
                         Region.Shadow => ((byte)160, (byte)0, (byte)255),
+                        Region.Image => ((byte)0, (byte)200, (byte)120),
+                        Region.ImageEdge => ((byte)0, (byte)120, (byte)80),
                         _ => ((byte)230, (byte)230, (byte)230),
                     };
                     m[3] = 255;
