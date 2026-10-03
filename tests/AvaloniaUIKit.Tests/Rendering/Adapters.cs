@@ -56,6 +56,7 @@ public static class Adapters
         "pagination" => Pagination(c),
         "tabs" => TabStrip(c),
         "toolbar" => Toolbar(c),
+        "popover" => Popover(c),
         "slider" => Slider(c),
         _ => throw new NotSupportedException($"no adapter for {c.Component}"),
     };
@@ -653,6 +654,63 @@ public static class Adapters
         }
         FlagClass(slider, c, "reverse");
         return slider;
+    }
+
+    private static Button Popover(GoldenCase c)
+    {
+        var anchor = c.Str("anchor", "top-left");
+        var placement = anchor switch
+        {
+            "top-center" => PlacementMode.Bottom,
+            "top-right" => PlacementMode.BottomEdgeAlignedRight,
+            "bottom-left" => PlacementMode.TopEdgeAlignedLeft,
+            "bottom-center" => PlacementMode.Top,
+            "bottom-right" => PlacementMode.TopEdgeAlignedRight,
+            "left-center" => PlacementMode.Right,
+            "right-center" => PlacementMode.Left,
+            _ => PlacementMode.BottomEdgeAlignedLeft,
+        };
+        var lines = new StackPanel();
+        foreach (var line in c.Str("content", "Popover content").Split('|'))
+        {
+            lines.Children.Add(new TextBlock { Text = line });
+        }
+        // GPUI never flips a popover; offset(n) replaces the 4px gap.
+        var flyout = new Flyout
+        {
+            Placement = placement,
+            PlacementConstraintAdjustment = Avalonia.Controls.Primitives.PopupPositioning.PopupPositionerConstraintAdjustment.SlideX |
+                Avalonia.Controls.Primitives.PopupPositioning.PopupPositionerConstraintAdjustment.SlideY,
+            Content = lines,
+        };
+        if (c.Has("offset"))
+        {
+            var extra = c.Num("offset", 4) - 4;
+            switch (anchor)
+            {
+                case "bottom-left" or "bottom-center" or "bottom-right":
+                    flyout.VerticalOffset = -extra;
+                    break;
+                case "left-center":
+                    flyout.HorizontalOffset = extra;
+                    break;
+                case "right-center":
+                    flyout.HorizontalOffset = -extra;
+                    break;
+                default:
+                    flyout.VerticalOffset = extra;
+                    break;
+            }
+        }
+        if (c.Bool("plain"))
+        {
+            flyout.FlyoutPresenterClasses.Add("plain");
+        }
+        if (c.Bool("arrow"))
+        {
+            flyout.FlyoutPresenterClasses.Add("arrow");
+        }
+        return new Button { Classes = { "outline" }, Content = c.Str("label", "Open"), Flyout = flyout };
     }
 
     private static CommandBar Toolbar(GoldenCase c)

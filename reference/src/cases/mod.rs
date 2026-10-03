@@ -17,6 +17,7 @@ mod display;
 pub mod menu;
 mod number;
 mod pagination;
+mod popover;
 mod progress;
 mod icon;
 mod input;
@@ -68,6 +69,7 @@ pub fn builder(case: &Case) -> Result<Builder> {
         "tree" => tree::builder(&params),
         "tabs" => tabs::builder(&params),
         "toolbar" => toolbar::builder(&params),
+        "popover" => popover::popover(&params),
         "slider" => slider::builder(&params),
         other => bail!("unknown component {other}"),
     }

@@ -92,6 +92,15 @@
           <TextBlock Classes="label">Company address<Run Classes="secondary"> (optional)</Run></TextBlock>
         </WrapPanel>
 
+        <TextBlock Text="Popover" Foreground="{DynamicResource Gpui.MutedForeground}" />
+        <Button Classes="outline" Content="Open" HorizontalAlignment="Left">
+          <Button.Flyout>
+            <Flyout Placement="BottomEdgeAlignedLeft" PlacementConstraintAdjustment="SlideX, SlideY" FlyoutPresenterClasses="arrow">
+              <TextBlock Text="Popover content" />
+            </Flyout>
+          </Button.Flyout>
+        </Button>
+
         <TextBlock Text="Toolbar" Foreground="{DynamicResource Gpui.MutedForeground}" />
         <CommandBar Content="Files">
           <CommandBarButton>

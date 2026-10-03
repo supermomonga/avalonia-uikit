@@ -1,0 +1,57 @@
+# GPUI Kit Popover -> Flyout / FlyoutPresenter, opened from an outline Button.
+# popover_style surface (popover bg, 6px radius, 1px ring, halved shadow-md),
+# 12px padding, 4px from the trigger. GPUI has no open or close motion.
+component = "popover"
+viewport = [400, 200]
+anchor = [170, 84]
+
+# Every anchor, opened with a click on the trigger.
+[[group]]
+name = "anchor"
+params = { label = "Open", content = "Popover content" }
+matrix = { anchor = ["top-left", "top-center", "top-right", "bottom-left", "bottom-center", "bottom-right", "left-center", "right-center"] }
+states = ["click"]
+
+# Two children stack in the column (two 26px lines). The ~305px surface needs
+# the trigger near the left edge to stay clear of the window margin.
+[[group]]
+name = "lines"
+params = { label = "Open", content = "Hello, this is a popover!|It appears when you click the button." }
+states = ["click"]
+anchor = [16, 40]
+
+# offset(12) replaces the default 4px gap.
+[[group]]
+name = "offset"
+params = { label = "Open", content = "Popover content", offset = 12 }
+matrix = { anchor = ["top-left", "bottom-center"] }
+states = ["click"]
+
+# appearance(false): no surface, no padding.
+[[group]]
+name = "plain"
+params = { label = "Open", content = "Popover content", plain = true }
+states = ["click"]
+
+# Closed; Escape closes; a press outside closes. GPUI keeps the trigger unhovered
+# after Escape until the pointer moves (the open popover occluded it), so the
+# pointer leaves first.
+[[group]]
+name = "dismiss"
+params = { label = "Open", content = "Popover content" }
+states = ["normal", "click+leave+key-escape", "click+click-at-380-190"]
+
+# The arrow aims at the trigger point the anchor names.
+[[group]]
+name = "arrow"
+params = { label = "Open", content = "Popover content", arrow = true }
+matrix = { anchor = ["top-left", "top-center", "bottom-right", "left-center"] }
+states = ["click"]
+
+# Guard: the surface is fully drawn on the first frame (no motion to port).
+[[motion]]
+name = "open"
+params = { label = "Open", content = "Popover content" }
+trigger = "click"
+samples_ms = [0, 16, 50, 150]
+themes = ["light"]

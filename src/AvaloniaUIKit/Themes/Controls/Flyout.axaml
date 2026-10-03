@@ -1,0 +1,108 @@
+<!--
+  GPUI Kit Popover (crates/component/src/popover.rs) -> Flyout / FlyoutPresenter:
+
+    <Button Content="Open">
+      <Button.Flyout>
+        <Flyout Placement="BottomEdgeAlignedLeft" PlacementConstraintAdjustment="SlideX, SlideY">
+          <TextBlock Text="Popover content" />
+        </Flyout>
+      </Button.Flyout>
+    </Button>
+
+  popover_style (styled.rs): the popover background, the theme radius, no
+  border, a 1px ring in foreground at 10% and shadow-md, around 12px of padding,
+  4px from the trigger on whichever side the flyout opens (PlacementConverter
+  reads the popup's Placement). Text takes GPUI's line (phi at 16px, 26px here,
+  exact for one or two lines). FlyoutPresenterClasses: arrow (GPUI's arrow(true):
+  a 6px arrow toward the trigger, the gap growing by its depth) and plain
+  (appearance(false): no surface, no padding). GPUI anchors map to placements:
+  TopLeft BottomEdgeAlignedLeft, TopCenter Bottom, TopRight BottomEdgeAlignedRight,
+  BottomLeft TopEdgeAlignedLeft, BottomCenter Top, BottomRight TopEdgeAlignedRight,
+  LeftCenter Right, RightCenter Left. GPUI never flips a popover: set
+  PlacementConstraintAdjustment to SlideX, SlideY. GPUI has no open motion.
+-->
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:gconv="using:AvaloniaUIKit.Converters">
+  <BoxShadows x:Key="Gpui.Shadow.None">0 0 0 0 #00000000</BoxShadows>
+  <gconv:PlacementConverter x:Key="Gpui.Popover.Gap" Part="Gap" Gap="4" />
+  <!-- With the arrow, the gap runs to its tip (offset + 0.375rem). -->
+  <gconv:PlacementConverter x:Key="Gpui.Popover.ArrowGap" Part="Gap" Gap="10" />
+  <gconv:PlacementConverter x:Key="Gpui.Popover.ArrowVisible" Part="ArrowVisible" />
+  <gconv:PlacementConverter x:Key="Gpui.Popover.ArrowHorizontalAlignment" Part="ArrowHorizontalAlignment" />
+  <gconv:PlacementConverter x:Key="Gpui.Popover.ArrowVerticalAlignment" Part="ArrowVerticalAlignment" />
+  <gconv:PlacementConverter x:Key="Gpui.Popover.ArrowMargin" Part="ArrowMargin" />
+  <gconv:PlacementConverter x:Key="Gpui.Popover.ArrowFill" Part="ArrowFill" />
+  <gconv:PlacementConverter x:Key="Gpui.Popover.ArrowStroke" Part="ArrowStroke" />
+  <gconv:PlacementConverter x:Key="Gpui.Popover.PatchWidth" Part="PatchWidth" />
+  <gconv:PlacementConverter x:Key="Gpui.Popover.PatchHeight" Part="PatchHeight" />
+
+  <ControlTheme x:Key="{x:Type FlyoutPresenter}" TargetType="FlyoutPresenter">
+    <!-- The ring, shadow and arrow paint outside the bounds. -->
+    <Setter Property="ClipToBounds" Value="False" />
+    <Setter Property="Background" Value="{DynamicResource Gpui.Popover}" />
+    <Setter Property="Foreground" Value="{DynamicResource Gpui.PopoverForeground}" />
+    <Setter Property="CornerRadius" Value="6" />
+    <Setter Property="Padding" Value="12" />
+    <Setter Property="FontSize" Value="16" />
+    <Setter Property="TextBlock.LineHeight" Value="26" />
+    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+    <Setter Property="VerticalContentAlignment" Value="Stretch" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Panel Name="PART_Gap">
+          <Border Name="PART_Ring" Margin="-1" CornerRadius="{TemplateBinding CornerRadius}"
+                  Background="{DynamicResource Gpui.PopoverRing}" IsHitTestVisible="False" />
+          <Border Name="PART_Surface"
+                  Background="{TemplateBinding Background}"
+                  CornerRadius="{TemplateBinding CornerRadius}"
+                  BoxShadow="{StaticResource Gpui.Shadow.Popover}">
+            <ContentPresenter Name="PART_ContentPresenter"
+                              Padding="{TemplateBinding Padding}"
+                              Content="{TemplateBinding Content}"
+                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+          </Border>
+          <!--
+            GPUI's arrow: the surface's fill as a triangle, a 1px-inset patch of it
+            across the edge (over the ring), then the two slopes in the ring color.
+          -->
+          <Panel Name="PART_Arrow" Width="12" Height="12" IsVisible="False" IsHitTestVisible="False"
+                 HorizontalAlignment="{Binding $parent[Popup].Placement, Converter={StaticResource Gpui.Popover.ArrowHorizontalAlignment}}"
+                 VerticalAlignment="{Binding $parent[Popup].Placement, Converter={StaticResource Gpui.Popover.ArrowVerticalAlignment}}"
+                 Margin="{Binding $parent[Popup].Placement, Converter={StaticResource Gpui.Popover.ArrowMargin}}">
+            <Path Fill="{TemplateBinding Background}"
+                  Data="{Binding $parent[Popup].Placement, Converter={StaticResource Gpui.Popover.ArrowFill}}" />
+            <Rectangle Fill="{TemplateBinding Background}" HorizontalAlignment="Center" VerticalAlignment="Center"
+                       Width="{Binding $parent[Popup].Placement, Converter={StaticResource Gpui.Popover.PatchWidth}}"
+                       Height="{Binding $parent[Popup].Placement, Converter={StaticResource Gpui.Popover.PatchHeight}}" />
+            <Path Name="PART_ArrowStroke" Stroke="{DynamicResource Gpui.PopoverRing}" StrokeThickness="1"
+                  Data="{Binding $parent[Popup].Placement, Converter={StaticResource Gpui.Popover.ArrowStroke}}" />
+          </Panel>
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+    <!-- Bindings in the template would outrank the arrow's; both gaps come from styles. -->
+    <Style Selector="^ /template/ Panel#PART_Gap">
+      <Setter Property="Margin" Value="{Binding $parent[Popup].Placement, Converter={StaticResource Gpui.Popover.Gap}}" />
+    </Style>
+    <Style Selector="^.arrow /template/ Panel#PART_Gap">
+      <Setter Property="Margin" Value="{Binding $parent[Popup].Placement, Converter={StaticResource Gpui.Popover.ArrowGap}}" />
+    </Style>
+    <Style Selector="^.arrow /template/ Panel#PART_Arrow">
+      <Setter Property="IsVisible" Value="{Binding $parent[Popup].Placement, Converter={StaticResource Gpui.Popover.ArrowVisible}}" />
+    </Style>
+    <!-- appearance(false): the content alone. -->
+    <Style Selector="^.plain">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="Padding" Value="0" />
+    </Style>
+    <Style Selector="^.plain /template/ Border#PART_Ring, ^.plain /template/ Path#PART_ArrowStroke">
+      <Setter Property="IsVisible" Value="False" />
+    </Style>
+    <Style Selector="^.plain /template/ Border#PART_Surface">
+      <Setter Property="BoxShadow" Value="{StaticResource Gpui.Shadow.None}" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>
