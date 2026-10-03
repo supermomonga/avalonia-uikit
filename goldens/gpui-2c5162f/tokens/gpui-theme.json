@@ -464,7 +464,13 @@
       "button.link.outline.group-hover.background": "#00000000",
       "button.text.group-hover.background": "#00000000",
       "button.text.outline.group-hover.background": "#00000000",
-      "focus-ring": "#a3a3a380"
+      "focus-ring": "#a3a3a380",
+      "input-background": "#ffffffff",
+      "check.disabled.border": "#e5e5e580",
+      "check.disabled.checked": "#17171780",
+      "check.disabled.mark": "#fafafa80",
+      "switch.disabled.track": "#d4d4d480",
+      "switch.disabled.checked-track": "#17171780"
     },
     "derived_float": {
       "button.default.normal.background": [
@@ -2391,6 +2397,42 @@
         0.6389999985694885,
         0.6389999985694885,
         0.6389999985694885,
+        0.5
+      ],
+      "input-background": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "check.disabled.border": [
+        0.8980000019073486,
+        0.8980000019073486,
+        0.8980000019073486,
+        0.5
+      ],
+      "check.disabled.checked": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        0.5
+      ],
+      "check.disabled.mark": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        0.5
+      ],
+      "switch.disabled.track": [
+        0.8313725590705872,
+        0.8313725590705872,
+        0.8313725590705872,
+        0.5
+      ],
+      "switch.disabled.checked-track": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
         0.5
       ]
     },
@@ -2867,7 +2909,13 @@
       "button.link.outline.group-hover.background": "#00000000",
       "button.text.group-hover.background": "#00000000",
       "button.text.outline.group-hover.background": "#00000000",
-      "focus-ring": "#73737380"
+      "focus-ring": "#73737380",
+      "input-background": "#2f2f2f4d",
+      "check.disabled.border": "#2f2f2f80",
+      "check.disabled.checked": "#fafafa80",
+      "check.disabled.mark": "#17171780",
+      "switch.disabled.track": "#40404080",
+      "switch.disabled.checked-track": "#fafafa80"
     },
     "derived_float": {
       "button.default.normal.background": [
@@ -4794,6 +4842,42 @@
         0.4509999752044678,
         0.4509999752044678,
         0.4509999752044678,
+        0.5
+      ],
+      "input-background": [
+        0.18431371450424194,
+        0.18431374430656433,
+        0.18431365489959717,
+        0.30000001192092896
+      ],
+      "check.disabled.border": [
+        0.18431372940540314,
+        0.18431372940540314,
+        0.18431372940540314,
+        0.5
+      ],
+      "check.disabled.checked": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        0.5
+      ],
+      "check.disabled.mark": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        0.5
+      ],
+      "switch.disabled.track": [
+        0.250980406999588,
+        0.250980406999588,
+        0.250980406999588,
+        0.5
+      ],
+      "switch.disabled.checked-track": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
         0.5
       ]
     },

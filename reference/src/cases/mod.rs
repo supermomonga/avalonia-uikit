@@ -12,6 +12,7 @@ use gpui_kit::{
 use std::time::Duration;
 
 mod button;
+mod check;
 mod surface;
 mod toggle;
 
@@ -21,6 +22,9 @@ pub fn builder(case: &Case) -> Result<Builder> {
         "surface" => surface::builder(&params),
         "button" => button::builder(&params),
         "toggle" => toggle::builder(&params),
+        "checkbox" => check::checkbox(&params),
+        "radio" => check::radio(&params),
+        "switch" => check::switch(&params),
         other => bail!("unknown component {other}"),
     }
 }
@@ -114,6 +118,7 @@ pub fn icon(name: &str) -> Option<IconName> {
 
 pub fn derived_colors(theme: &gpui_kit::component::Theme, out: &mut Vec<(String, gpui_kit::Hsla)>) {
     button::derived_colors(theme, out);
+    check::derived_colors(theme, out);
 }
 
 pub fn disabled(params: &Params) -> bool {

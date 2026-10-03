@@ -927,6 +927,18 @@
       <SolidColorBrush x:Key="Gpui.Button.Text.Outline.GroupHover.Background" Color="#00000000" />
       <Color x:Key="Gpui.FocusRing.Color">#80A3A3A3</Color>
       <SolidColorBrush x:Key="Gpui.FocusRing" Color="#80A3A3A3" />
+      <Color x:Key="Gpui.InputBackground.Color">#FFFFFFFF</Color>
+      <SolidColorBrush x:Key="Gpui.InputBackground" Color="#FFFFFFFF" />
+      <Color x:Key="Gpui.Check.Disabled.Border.Color">#80E5E5E5</Color>
+      <SolidColorBrush x:Key="Gpui.Check.Disabled.Border" Color="#80E5E5E5" />
+      <Color x:Key="Gpui.Check.Disabled.Checked.Color">#80171717</Color>
+      <SolidColorBrush x:Key="Gpui.Check.Disabled.Checked" Color="#80171717" />
+      <Color x:Key="Gpui.Check.Disabled.Mark.Color">#80FAFAFA</Color>
+      <SolidColorBrush x:Key="Gpui.Check.Disabled.Mark" Color="#80FAFAFA" />
+      <Color x:Key="Gpui.Switch.Disabled.Track.Color">#80D4D4D4</Color>
+      <SolidColorBrush x:Key="Gpui.Switch.Disabled.Track" Color="#80D4D4D4" />
+      <Color x:Key="Gpui.Switch.Disabled.CheckedTrack.Color">#80171717</Color>
+      <SolidColorBrush x:Key="Gpui.Switch.Disabled.CheckedTrack" Color="#80171717" />
     </ResourceDictionary>
     <ResourceDictionary x:Key="Dark">
       <Color x:Key="Gpui.Accent.Color">#FF262626</Color>
@@ -1849,6 +1861,18 @@
       <SolidColorBrush x:Key="Gpui.Button.Text.Outline.GroupHover.Background" Color="#00000000" />
       <Color x:Key="Gpui.FocusRing.Color">#80737373</Color>
       <SolidColorBrush x:Key="Gpui.FocusRing" Color="#80737373" />
+      <Color x:Key="Gpui.InputBackground.Color">#4D2F2F2F</Color>
+      <SolidColorBrush x:Key="Gpui.InputBackground" Color="#4D2F2F2F" />
+      <Color x:Key="Gpui.Check.Disabled.Border.Color">#802F2F2F</Color>
+      <SolidColorBrush x:Key="Gpui.Check.Disabled.Border" Color="#802F2F2F" />
+      <Color x:Key="Gpui.Check.Disabled.Checked.Color">#80FAFAFA</Color>
+      <SolidColorBrush x:Key="Gpui.Check.Disabled.Checked" Color="#80FAFAFA" />
+      <Color x:Key="Gpui.Check.Disabled.Mark.Color">#80171717</Color>
+      <SolidColorBrush x:Key="Gpui.Check.Disabled.Mark" Color="#80171717" />
+      <Color x:Key="Gpui.Switch.Disabled.Track.Color">#80404040</Color>
+      <SolidColorBrush x:Key="Gpui.Switch.Disabled.Track" Color="#80404040" />
+      <Color x:Key="Gpui.Switch.Disabled.CheckedTrack.Color">#80FAFAFA</Color>
+      <SolidColorBrush x:Key="Gpui.Switch.Disabled.CheckedTrack" Color="#80FAFAFA" />
     </ResourceDictionary>
   </ResourceDictionary.ThemeDictionaries>
 </ResourceDictionary>

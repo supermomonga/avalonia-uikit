@@ -1,0 +1,22 @@
+# GPUI Kit Switch -> ToggleSwitch.
+component = "switch"
+viewport = [128, 40]
+anchor = [16, 8]
+
+[[group]]
+name = "label"
+params = { label = "Wi-Fi" }
+matrix = { size = ["xsmall", "small", "medium", "large"], checked = [false, true] }
+states = ["normal", "hover", "focus", "disabled"]
+
+[[group]]
+name = "bare"
+matrix = { size = ["small", "medium", "large"], checked = [false, true] }
+states = ["normal", "disabled"]
+
+[[motion]]
+name = "toggle"
+params = { size = "medium" }
+trigger = "click"
+samples_ms = [0, 16, 33, 50, 66, 83, 100, 116, 133, 166, 200, 233, 266, 300, 333]
+themes = ["light"]

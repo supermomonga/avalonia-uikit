@@ -12,6 +12,9 @@
         <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Base/Hosts.axaml" />
         <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/Button.axaml" />
         <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/ToggleButton.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/CheckBox.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/RadioButton.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/ToggleSwitch.axaml" />
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
   </Styles.Resources>

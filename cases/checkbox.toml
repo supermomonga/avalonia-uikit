@@ -1,0 +1,22 @@
+# GPUI Kit Checkbox -> CheckBox.
+component = "checkbox"
+viewport = [128, 40]
+anchor = [16, 10]
+
+[[group]]
+name = "label"
+params = { label = "Accept" }
+matrix = { size = ["xsmall", "small", "medium", "large"], checked = [false, true] }
+states = ["normal", "hover", "focus", "disabled"]
+
+[[group]]
+name = "bare"
+matrix = { size = ["small", "medium"], checked = [false, true] }
+states = ["normal", "disabled"]
+
+[[motion]]
+name = "check"
+params = { label = "Accept" }
+trigger = "click"
+samples_ms = [0, 16, 33, 50, 66, 83, 100, 133, 166, 200, 266, 333]
+themes = ["light"]

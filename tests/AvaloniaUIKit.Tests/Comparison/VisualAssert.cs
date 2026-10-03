@@ -16,13 +16,21 @@ public static class VisualAssert
         using var host = CaseHost.Open(golden, Adapters.Create(golden));
         configure?.Invoke(host);
         host.Drive(golden, golden.State);
-        var failures = new List<string>();
-
         var bounds = host.ControlBounds();
+        var failures = new List<string>();
         if (!Near(bounds, golden.ComponentBounds) && !NearWithTextRounding(golden.ComponentBounds, bounds))
         {
             failures.Add($"bounds {Fmt(bounds)} != gpui {Fmt(golden.ComponentBounds)}");
         }
+        Compare(golden, host, tolerance, failures);
+    }
+
+    /// <summary>Compares a host the caller has already put into the frame's state.</summary>
+    public static void MatchesPosed(GoldenCase golden, CaseHost host, PixelTolerance? tolerance = null) =>
+        Compare(golden, host, tolerance, []);
+
+    private static void Compare(GoldenCase golden, CaseHost host, PixelTolerance? tolerance, List<string> failures)
+    {
 
         var actual = host.Capture();
         var expected = RgbaImage.Load(Path.Combine(Repo.Goldens, golden.Png!));

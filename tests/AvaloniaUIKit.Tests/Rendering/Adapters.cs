@@ -16,6 +16,9 @@ public static class Adapters
         "surface" => new Border { Width = 1, Height = 1 },
         "button" => Button(c),
         "toggle" => Toggle(c),
+        "checkbox" => Check(new CheckBox(), c),
+        "radio" => Check(new RadioButton(), c),
+        "switch" => Check(new ToggleSwitch(), c),
         _ => throw new NotSupportedException($"no adapter for {c.Component}"),
     };
 
@@ -42,6 +45,18 @@ public static class Adapters
         {
             control.Classes.Add(className ?? key);
         }
+    }
+
+    private static ToggleButton Check(ToggleButton control, GoldenCase c)
+    {
+        if (c.Has("label"))
+        {
+            control.Content = c.Str("label");
+        }
+        control.IsChecked = c.Bool("checked");
+        control.IsEnabled = !c.Bool("disabled");
+        ClassFrom(control, c, "size", "medium");
+        return control;
     }
 
     private static ToggleButton Toggle(GoldenCase c)

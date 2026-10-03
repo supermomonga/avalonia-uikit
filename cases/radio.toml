@@ -1,0 +1,15 @@
+# GPUI Kit Radio -> RadioButton.
+component = "radio"
+viewport = [128, 40]
+anchor = [16, 10]
+
+[[group]]
+name = "label"
+params = { label = "Express" }
+matrix = { size = ["xsmall", "small", "medium", "large"], checked = [false, true] }
+states = ["normal", "hover", "focus", "disabled"]
+
+[[group]]
+name = "bare"
+matrix = { size = ["small", "medium"], checked = [false, true] }
+states = ["normal", "disabled"]
