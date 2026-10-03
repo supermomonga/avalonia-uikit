@@ -19,7 +19,14 @@ public class MotionTests
     [MethodDataSource(nameof(All))]
     public Task Frames_match_gpui(GoldenCase golden)
     {
-        using var host = CaseHost.Open(golden, Adapters.Create(golden));
+        Play(golden, Adapters.Create);
+        return Task.CompletedTask;
+    }
+
+    /// <summary>Plays the motion on the control <paramref name="create"/> makes and compares every frame.</summary>
+    public static void Play(GoldenCase golden, Func<GoldenCase, Avalonia.Controls.Control> create)
+    {
+        using var host = CaseHost.Open(golden, create(golden));
         host.Drive(golden, golden.Motion!.From);
         host.Drive(golden, golden.Motion.Trigger);
         Adapters.AfterDrive(golden, host);
@@ -43,6 +50,5 @@ public class MotionTests
         {
             throw new VisualMismatchException(string.Join("\n", failures));
         }
-        return Task.CompletedTask;
     }
 }

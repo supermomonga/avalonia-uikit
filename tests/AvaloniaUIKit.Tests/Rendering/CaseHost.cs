@@ -48,8 +48,9 @@ public sealed class CaseHost : IDisposable
         TextOptions.SetTextRenderingMode(window, TextRenderingMode.Antialias);
         TextOptions.SetTextHintingMode(window, TextHintingMode.None);
         VirtualTime.Attach(window);
-        window.Show();
+        // Scaled from the first layout on, as GPUI lays a window out once at its scale.
         window.SetRenderScaling(Scale);
+        window.Show();
         var host = new CaseHost(window, control);
         host.Flush();
         return host;

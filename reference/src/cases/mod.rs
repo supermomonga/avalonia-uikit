@@ -25,6 +25,7 @@ mod list;
 mod scroll;
 mod select;
 mod surface;
+mod tabs;
 mod toggle;
 mod tree;
 
@@ -62,6 +63,7 @@ pub fn builder(case: &Case) -> Result<Builder> {
         "pagination" => pagination::builder(&params),
         "combobox" => select::combobox(&params),
         "tree" => tree::builder(&params),
+        "tabs" => tabs::builder(&params),
         other => bail!("unknown component {other}"),
     }
 }
@@ -197,6 +199,7 @@ pub fn derived_colors(theme: &gpui_kit::component::Theme, out: &mut Vec<(String,
     select::derived_colors(theme, out);
     display::derived_colors(theme, out);
     progress::derived_colors(theme, out);
+    tabs::derived_colors(theme, out);
 }
 
 pub fn disabled(params: &Params) -> bool {

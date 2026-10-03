@@ -511,7 +511,9 @@
       "link.underline": "#17171780",
       "link.hover": "#171717cc",
       "link.pressed": "#17171799",
-      "progress.track": "#17171733"
+      "progress.track": "#17171733",
+      "tab.pill.disabled.selected-background": "#17171780",
+      "tab.pill.disabled.selected-foreground": "#fafafa80"
     },
     "derived_float": {
       "button.default.normal.background": [
@@ -2721,6 +2723,18 @@
         0.09000000357627869,
         0.09000000357627869,
         0.20000000298023224
+      ],
+      "tab.pill.disabled.selected-background": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        0.5
+      ],
+      "tab.pill.disabled.selected-foreground": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        0.5
       ]
     },
     "scalars": {
@@ -3243,7 +3257,9 @@
       "link.underline": "#fafafa80",
       "link.hover": "#fafafacc",
       "link.pressed": "#fafafa99",
-      "progress.track": "#fafafa33"
+      "progress.track": "#fafafa33",
+      "tab.pill.disabled.selected-background": "#fafafa80",
+      "tab.pill.disabled.selected-foreground": "#17171780"
     },
     "derived_float": {
       "button.default.normal.background": [
@@ -5453,6 +5469,18 @@
         0.9800000190734863,
         0.9800000190734863,
         0.20000000298023224
+      ],
+      "tab.pill.disabled.selected-background": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        0.5
+      ],
+      "tab.pill.disabled.selected-foreground": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        0.5
       ]
     },
     "scalars": {

@@ -12,9 +12,9 @@ public static class VisualAssert
     /// <summary>Layout must agree to a quarter of a logical pixel (R9 covers rounding ties).</summary>
     public const double GeometryTolerance = 0.26;
 
-    public static void Matches(GoldenCase golden, PixelTolerance? tolerance = null, Action<CaseHost>? configure = null)
+    public static void Matches(GoldenCase golden, PixelTolerance? tolerance = null, Action<CaseHost>? configure = null, Func<GoldenCase, Avalonia.Controls.Control>? create = null)
     {
-        using var host = CaseHost.Open(golden, Adapters.Create(golden));
+        using var host = CaseHost.Open(golden, (create ?? Adapters.Create)(golden));
         configure?.Invoke(host);
         host.Drive(golden, golden.State);
         Adapters.AfterDrive(golden, host);

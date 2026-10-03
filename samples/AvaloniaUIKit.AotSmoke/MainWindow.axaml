@@ -95,7 +95,7 @@
           <TextBox Classes="group" PlaceholderText="Search" />
         </StackPanel>
 
-        <TextBlock Text="List, Select, Combobox, Tree, Pagination" Foreground="{DynamicResource Gpui.MutedForeground}" />
+        <TextBlock Text="List, Select, Combobox, Tree, Tabs, Pagination" Foreground="{DynamicResource Gpui.MutedForeground}" />
         <StackPanel Spacing="12" HorizontalAlignment="Left">
           <ListBox Width="240" Height="120">
             <ListBoxItem Content="Apple" />
@@ -117,6 +117,15 @@
             </TreeViewItem>
             <TreeViewItem Header="Cargo.toml" />
           </TreeView>
+          <TabStrip Classes="pill" SelectedIndex="0">
+            <TabStripItem Content="Account" />
+            <TabStripItem Content="Profile" />
+            <TabStripItem Content="Settings" />
+          </TabStrip>
+          <TabControl Classes="underline" Width="320" HorizontalAlignment="Left">
+            <TabItem Header="Account"><TextBlock Text="Account settings" Margin="0,8" /></TabItem>
+            <TabItem Header="Profile"><TextBlock Text="Profile" Margin="0,8" /></TabItem>
+          </TabControl>
           <PipsPager NumberOfPages="5" SelectedPageIndex="2" />
           <PipsPager Classes="compact small" NumberOfPages="5" SelectedPageIndex="0" />
         </StackPanel>

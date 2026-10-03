@@ -202,4 +202,17 @@ public class BehaviorTests
         await Assert.That(cut).IsEmpty();
         await Assert.That(visible.Any(p => p.IsSelected)).IsTrue();
     }
+
+    // GPUI tabs take no focus; Avalonia's do (arrow keys select), so they show
+    // the ring on keyboard focus only (R16).
+    [Test]
+    public async Task A_tab_shows_the_focus_ring_on_keyboard_focus_only()
+    {
+        var golden = Case("tabs/label.pill.medium/normal/light");
+        using var host = CaseHost.Open(golden, Adapters.Create(golden));
+        host.Drive(golden, "click");
+        await Assert.That(RingVisible(host)).IsFalse();
+        host.Drive(golden, "focus");
+        await Assert.That(RingVisible(host)).IsTrue();
+    }
 }

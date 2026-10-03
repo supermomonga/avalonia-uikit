@@ -8,7 +8,7 @@ use anyhow::Result;
 use gpui_kit::{
     AppContext as _, IntoElement as _, ParentElement as _, Styled as _, px,
     component::{
-        Colorize as _, Disableable as _, Icon, Sizable as _, Size, Theme,
+        Colorize as _, Icon, Sizable as _, Size, Theme,
         button::{Button, ButtonVariants as _},
         input::{
             Input, InputGroup, InputGroupAddon, InputGroupAddonAlignment, InputGroupButton, InputState, Textarea,

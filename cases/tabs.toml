@@ -1,0 +1,58 @@
+# GPUI Kit TabBar / Tab -> TabStrip / TabStripItem (and the strip of TabControl).
+# A 320px bar with three tabs: Account, Profile, Settings.
+component = "tabs"
+viewport = [352, 60]
+anchor = [16, 8]
+
+[[group]]
+name = "label"
+params = { selected = 0 }
+matrix = { variant = ["tab", "outline", "pill", "segmented", "underline"], size = ["xsmall", "small", "medium", "large"] }
+
+# Tab 1 selected, the pointer over tab 0 (12.8px from the bar's left edge).
+[[group]]
+name = "hover"
+params = { selected = 1, pointer_x = 0.04 }
+matrix = { variant = ["tab", "outline", "pill", "segmented", "underline"] }
+states = ["normal", "hover"]
+
+# Tab 2 disabled (unselected), or tab 1 disabled while selected (painted over the indicator).
+[[group]]
+name = "disabled"
+params = { selected = 1 }
+matrix = { variant = ["tab", "outline", "pill", "segmented", "underline"], disabled_index = [1, 2] }
+
+[[group]]
+name = "icon"
+params = { selected = 0, icons = true }
+matrix = { variant = ["tab", "outline", "pill", "segmented", "underline"], size = ["small", "medium"] }
+
+# Tabs 72/96/120 wide: the indicator moves and resizes. Pill: tab 2 centre x=16+236, y=8+16.
+[[motion]]
+name = "pill"
+params = { variant = "pill", selected = 0, tab_widths = [72, 96, 120] }
+trigger = "click-at-252-24"
+samples_ms = [0, 16, 33, 50, 66, 83, 100, 133, 166, 200, 250, 300, 350, 400, 500]
+themes = ["light"]
+
+[[motion]]
+name = "underline"
+params = { variant = "underline", selected = 0, tab_widths = [72, 96, 120] }
+trigger = "click-at-276-26"
+samples_ms = [0, 16, 33, 50, 66, 83, 100, 133, 166, 200, 250, 300, 350, 400, 500]
+themes = ["light"]
+
+[[motion]]
+name = "segmented"
+params = { variant = "segmented", selected = 0, tab_widths = [72, 96, 120] }
+trigger = "click-at-252-24"
+samples_ms = [0, 16, 33, 50, 66, 83, 100, 133, 166, 200, 250, 300, 350, 400, 500]
+themes = ["light"]
+
+# Back to tab 0 100ms into the slide: the indicator turns around with its velocity.
+[[motion]]
+name = "reverse"
+params = { variant = "pill", selected = 0, tab_widths = [72, 96, 120] }
+trigger = "click-at-252-24+wait-100ms+click-at-52-24"
+samples_ms = [0, 16, 33, 50, 66, 83, 100, 133, 166, 200, 250, 300, 400, 500]
+themes = ["light"]

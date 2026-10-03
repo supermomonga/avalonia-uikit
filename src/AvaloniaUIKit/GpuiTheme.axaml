@@ -1,5 +1,6 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:gpui="using:AvaloniaUIKit"
         x:Class="AvaloniaUIKit.GpuiTheme">
   <Styles.Resources>
     <ResourceDictionary>
@@ -37,6 +38,12 @@
   <StyleInclude Source="avares://AvaloniaUIKit/Themes/Controls/ToggleGroup.axaml" />
   <StyleInclude Source="avares://AvaloniaUIKit/Themes/Controls/Label.axaml" />
   <StyleInclude Source="avares://AvaloniaUIKit/Themes/Controls/PipsPager.axaml" />
+  <StyleInclude Source="avares://AvaloniaUIKit/Themes/Controls/Tabs.axaml" />
+
+  <!-- GPUI sizes a text to whole pixels, rounding its width up (text.rs). -->
+  <Style Selector=":is(TopLevel)">
+    <Setter Property="gpui:TextLines.RoundsWidthUp" Value="True" />
+  </Style>
 
   <!-- GPUI tooltips (crates/base/src/tooltip.rs): shown after 500ms, kept for a
        300ms grace while moving to another trigger, above the trigger. -->

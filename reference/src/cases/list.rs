@@ -7,7 +7,7 @@ use anyhow::Result;
 use gpui_kit::{
     App, AppContext as _, Context, IntoElement as _, ParentElement as _, Styled as _, Window, px,
     component::{
-        Colorize as _, Disableable as _, IndexPath, Theme,
+        IndexPath, Theme,
         list::{List, ListDelegate, ListItem, ListState},
     },
 };

@@ -1021,6 +1021,10 @@
       <SolidColorBrush x:Key="Gpui.Link.Pressed" Color="#99171717" />
       <Color x:Key="Gpui.Progress.Track.Color">#33171717</Color>
       <SolidColorBrush x:Key="Gpui.Progress.Track" Color="#33171717" />
+      <Color x:Key="Gpui.Tab.Pill.Disabled.SelectedBackground.Color">#80171717</Color>
+      <SolidColorBrush x:Key="Gpui.Tab.Pill.Disabled.SelectedBackground" Color="#80171717" />
+      <Color x:Key="Gpui.Tab.Pill.Disabled.SelectedForeground.Color">#80FAFAFA</Color>
+      <SolidColorBrush x:Key="Gpui.Tab.Pill.Disabled.SelectedForeground" Color="#80FAFAFA" />
     </ResourceDictionary>
     <ResourceDictionary x:Key="Dark">
       <Color x:Key="Gpui.Accent.Color">#FF262626</Color>
@@ -2037,6 +2041,10 @@
       <SolidColorBrush x:Key="Gpui.Link.Pressed" Color="#99FAFAFA" />
       <Color x:Key="Gpui.Progress.Track.Color">#33FAFAFA</Color>
       <SolidColorBrush x:Key="Gpui.Progress.Track" Color="#33FAFAFA" />
+      <Color x:Key="Gpui.Tab.Pill.Disabled.SelectedBackground.Color">#80FAFAFA</Color>
+      <SolidColorBrush x:Key="Gpui.Tab.Pill.Disabled.SelectedBackground" Color="#80FAFAFA" />
+      <Color x:Key="Gpui.Tab.Pill.Disabled.SelectedForeground.Color">#80171717</Color>
+      <SolidColorBrush x:Key="Gpui.Tab.Pill.Disabled.SelectedForeground" Color="#80171717" />
     </ResourceDictionary>
   </ResourceDictionary.ThemeDictionaries>
 </ResourceDictionary>

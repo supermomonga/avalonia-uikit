@@ -3,6 +3,7 @@ using Avalonia.Styling;
 using Avalonia.Controls.Documents;
 using Avalonia.Controls.Primitives;
 using Avalonia.Input;
+using Avalonia.Layout;
 using Avalonia.VisualTree;
 using AvaloniaUIKit.Tests.Golden;
 
@@ -52,6 +53,7 @@ public static class Adapters
         "combobox" => Select(c, "combobox"),
         "tree" => Tree(c),
         "pagination" => Pagination(c),
+        "tabs" => TabStrip(c),
         _ => throw new NotSupportedException($"no adapter for {c.Component}"),
     };
 
@@ -609,6 +611,75 @@ public static class Adapters
     }
 
     /// <summary>A ListBox.toggle-group; '1's in `checked` mark the selected items.</summary>
+    private static readonly (string Label, string Icon)[] TabContents = [("Account", "copy"), ("Profile", "plus"), ("Settings", "check")];
+
+    private static TabStrip TabStrip(GoldenCase c)
+    {
+        var strip = new TabStrip { Width = c.Num("width", 320) };
+        TabClasses(strip, c);
+        for (var i = 0; i < TabContents.Length; i++)
+        {
+            var item = new TabStripItem();
+            TabItemLook(item, c, i);
+            item.Content = c.Bool("icons") ? Icon(TabContents[i].Icon) : TabContents[i].Label;
+            strip.Items.Add(item);
+        }
+        strip.SelectedIndex = (int)c.Num("selected", 0);
+        return strip;
+    }
+
+    /// <summary>The tabs case as a TabControl whose tabs have no content: only its strip shows.</summary>
+    public static TabControl TabControl(GoldenCase c)
+    {
+        var tabs = new TabControl { Width = c.Num("width", 320), HorizontalAlignment = HorizontalAlignment.Left };
+        TabClasses(tabs, c);
+        for (var i = 0; i < TabContents.Length; i++)
+        {
+            var item = new TabItem();
+            TabItemLook(item, c, i);
+            item.Header = c.Bool("icons") ? Icon(TabContents[i].Icon) : TabContents[i].Label;
+            tabs.Items.Add(item);
+        }
+        tabs.SelectedIndex = (int)c.Num("selected", 0);
+        return tabs;
+    }
+
+    private static void TabClasses(Control control, GoldenCase c)
+    {
+        ClassFrom(control, c, "variant", "tab");
+        ClassFrom(control, c, "size", "medium");
+    }
+
+    private static void TabItemLook(Control item, GoldenCase c, int index)
+    {
+        if (c.Bool("icons"))
+        {
+            item.Classes.Add("icon-only");
+        }
+        if (c.Params["tab_widths"] is System.Text.Json.Nodes.JsonArray widths && index < widths.Count)
+        {
+            item.Width = widths[index]!.GetValue<double>();
+        }
+        if (c.Num("disabled_index", -1) != index)
+        {
+            return;
+        }
+        if (c.Num("selected", 0) != index)
+        {
+            item.IsEnabled = false;
+            return;
+        }
+        // TabStrip and TabControl always select (SelectionMode.AlwaysSelected) and move
+        // the selection off a tab that is disabled when it is realized; GPUI keeps it.
+        // A selected tab disabled later keeps the selection, so disable it once laid out.
+        void Disable(object? sender, EventArgs e)
+        {
+            item.LayoutUpdated -= Disable;
+            item.IsEnabled = false;
+        }
+        item.LayoutUpdated += Disable;
+    }
+
     private static PipsPager Pagination(GoldenCase c)
     {
         var pager = new PipsPager

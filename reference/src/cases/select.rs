@@ -8,7 +8,7 @@ use anyhow::Result;
 use gpui_kit::{
     AppContext as _, IntoElement as _, SharedString, Styled as _, px,
     component::{
-        Colorize as _, Disableable as _, IndexPath, Sizable as _, Theme,
+        Colorize as _, IndexPath, Sizable as _, Theme,
         combobox::{Combobox, ComboboxState},
         select::{Select, SelectItem, SelectState},
     },
