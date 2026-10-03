@@ -79,7 +79,7 @@
           <!-- focus_ring (styled.rs): a 3px band outside the border, in ring at 50%. -->
           <Border Name="PART_FocusRing" Margin="-3" BorderThickness="3" CornerRadius="7.5"
                   BorderBrush="{DynamicResource Gpui.FocusRing}" IsVisible="False" IsHitTestVisible="False" />
-          <Border Margin="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}">
+          <Border Name="PART_ContentBorder" Margin="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}">
             <Grid ColumnDefinitions="Auto,*,Auto">
               <ContentPresenter Name="PART_InnerLeftContent" Grid.Column="0" Margin="0,0,6,0"
                                 VerticalAlignment="Center"
@@ -92,7 +92,7 @@
                             IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
                             AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
                             BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}">
-                <Panel>
+                <Panel Name="PART_TextPanel">
                   <TextBlock Name="PART_Placeholder"
                              Foreground="{TemplateBinding PlaceholderForeground}"
                              Text="{TemplateBinding PlaceholderText}"
@@ -166,9 +166,36 @@
       <Setter Property="Margin" Value="8,0,0,0" />
     </Style>
 
-    <!-- Multi-line text has no fixed height (Textarea). -->
+    <!--
+      GPUI Kit Textarea (input/textarea.rs): multi-line text (AcceptsReturn) has
+      no fixed height (apps give rows with MinLines/MaxLines, or a Height), wraps
+      by default, and pads its text inside the scrolling area (input_px, input_py;
+      a margin on the text panel, which MinLines counts once) rather than the
+      frame, so the scrollbar overlays the whole inner frame. Lines wrap 10px
+      before the right padding (RIGHT_MARGIN).
+    -->
     <Style Selector="^[AcceptsReturn=True]">
       <Setter Property="Height" Value="NaN" />
+      <Setter Property="VerticalContentAlignment" Value="Top" />
+      <Setter Property="TextWrapping" Value="Wrap" />
+    </Style>
+    <Style Selector="^[AcceptsReturn=True] /template/ Border#PART_ContentBorder">
+      <Setter Property="Padding" Value="0" />
+    </Style>
+    <Style Selector="^[AcceptsReturn=True] /template/ Panel#PART_TextPanel">
+      <Setter Property="Margin" Value="10,8" />
+    </Style>
+    <Style Selector="^.xsmall[AcceptsReturn=True] /template/ Panel#PART_TextPanel">
+      <Setter Property="Margin" Value="4,0" />
+    </Style>
+    <Style Selector="^.small[AcceptsReturn=True] /template/ Panel#PART_TextPanel">
+      <Setter Property="Margin" Value="8,2" />
+    </Style>
+    <Style Selector="^.large[AcceptsReturn=True] /template/ Panel#PART_TextPanel">
+      <Setter Property="Margin" Value="12,10" />
+    </Style>
+    <Style Selector="^[AcceptsReturn=True][TextWrapping=Wrap] /template/ TextPresenter#PART_TextPresenter, ^[AcceptsReturn=True][TextWrapping=Wrap] /template/ TextBlock#PART_Placeholder">
+      <Setter Property="Margin" Value="0,0,10,0" />
     </Style>
 
     <Style Selector="^:focus-within">

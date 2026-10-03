@@ -43,6 +43,7 @@ public static class Adapters
         "icon" => IconCase(c),
         "label" => LabelCase(c),
         "input" => Input(c),
+        "textarea" => Textarea(c),
         _ => throw new NotSupportedException($"no adapter for {c.Component}"),
     };
 
@@ -126,6 +127,35 @@ public static class Adapters
         if (c.Has("suffix"))
         {
             box.InnerRightContent = new Button { Classes = { "ghost", "xsmall", "icon-only" }, Content = Icon(c.Str("suffix")) };
+        }
+        return box;
+    }
+
+    /// <summary>A multi-line TextBox as GPUI's Textarea: rows, auto-grow range or a fixed height.</summary>
+    private static TextBox Textarea(GoldenCase c)
+    {
+        var box = new TextBox
+        {
+            AcceptsReturn = true,
+            Text = c.Has("value") ? c.Str("value") : null,
+            PlaceholderText = c.Has("placeholder") ? c.Str("placeholder") : null,
+            Width = c.Num("width", 220),
+            IsEnabled = !c.Bool("disabled"),
+            IsReadOnly = c.Bool("readonly"),
+        };
+        ClassFrom(box, c, "size", "medium");
+        if (c.Has("max_rows"))
+        {
+            box.MinLines = (int)c.Num("min_rows", 1);
+            box.MaxLines = (int)c.Num("max_rows", 1);
+        }
+        else if (c.Has("height"))
+        {
+            box.Height = c.Num("height", 0);
+        }
+        else
+        {
+            box.MinLines = box.MaxLines = (int)c.Num("rows", 1);
         }
         return box;
     }

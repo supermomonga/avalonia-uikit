@@ -10,7 +10,7 @@ use gpui_kit::{
     component::{
         Colorize as _, Disableable as _, Icon, Sizable as _, Theme,
         button::{Button, ButtonVariants as _},
-        input::{Input, InputState},
+        input::{Input, InputState, Textarea, TextareaState},
     },
 };
 use std::rc::Rc;
@@ -63,6 +63,46 @@ pub fn builder(params: &Params) -> Result<Builder> {
             input = input.mask_toggle();
         }
         input.into_any_element()
+    }))
+}
+
+/// `Textarea` (crates/component/src/input/textarea.rs): `rows` lines, or
+/// `auto_grow(min_rows, max_rows)`, or a fixed `height`.
+pub fn textarea(params: &Params) -> Result<Builder> {
+    let disabled = disabled(params);
+    let size = size(params);
+    let readonly = param_bool(params, "readonly");
+    let value = param_str(params, "value", "").to_string();
+    let placeholder = param_str(params, "placeholder", "").to_string();
+    let rows = param_f32(params, "rows", 1.) as usize;
+    let grow = params
+        .get("max_rows")
+        .map(|_| (param_f32(params, "min_rows", 1.) as usize, param_f32(params, "max_rows", 1.) as usize));
+    let height = params.get("height").and_then(serde_json::Value::as_f64).map(|h| h as f32);
+    let width = param_f32(params, "width", 220.);
+    Ok(Rc::new(move |view, window, cx| {
+        if view.state.entity.is_none() {
+            let (value, placeholder) = (value.clone(), placeholder.clone());
+            let state = cx.new(|cx| {
+                let state = TextareaState::new(window, cx).rows(rows).placeholder(placeholder).default_value(value);
+                match grow {
+                    Some((min, max)) => state.auto_grow(min, max),
+                    None => state,
+                }
+            });
+            view.state.entity = Some(state.into());
+        }
+        let state = view
+            .state
+            .entity
+            .clone()
+            .and_then(|e| e.downcast::<TextareaState>().ok())
+            .expect("textarea state");
+        let mut textarea = Textarea::new(&state).with_size(size).disabled(disabled).readonly(readonly).w(px(width));
+        if let Some(h) = height {
+            textarea = textarea.h(px(h));
+        }
+        textarea.into_any_element()
     }))
 }
 

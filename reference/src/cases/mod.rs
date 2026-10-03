@@ -50,6 +50,7 @@ pub fn builder(case: &Case) -> Result<Builder> {
         "icon" => icon::builder(&params),
         "label" => label::builder(&params),
         "input" => input::builder(&params),
+        "textarea" => input::textarea(&params),
         other => bail!("unknown component {other}"),
     }
 }

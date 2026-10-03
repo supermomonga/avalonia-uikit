@@ -1,0 +1,45 @@
+# GPUI Kit Textarea -> TextBox (AcceptsReturn, TextWrapping, MinLines/MaxLines).
+component = "textarea"
+viewport = [260, 120]
+anchor = [16, 12]
+
+[[group]]
+name = "rows"
+params = { value = "First line\nSecond line", rows = 3, width = 220 }
+matrix = { size = ["xsmall", "small", "medium", "large"] }
+states = ["normal", "focus", "disabled"]
+
+[[group]]
+name = "placeholder"
+params = { placeholder = "Write a message", rows = 3, width = 220 }
+matrix = { size = ["small", "medium"] }
+states = ["normal", "disabled"]
+
+# Soft wrap 10px before the right padding.
+[[group]]
+name = "wrap"
+params = { value = "Label should support text wrap in default, if the text is too long, it should wrap.", rows = 4, width = 220 }
+viewport = [260, 140]
+states = ["normal"]
+
+[[group]]
+name = "readonly"
+params = { value = "Read only\nnotes", rows = 3, readonly = true, width = 220 }
+states = ["focus"]
+
+# auto_grow(2, 5) with 3 lines: 3 rows.
+[[group]]
+name = "autogrow"
+params = { value = "One\nTwo\nThree", min_rows = 2, max_rows = 5, width = 220 }
+states = ["normal"]
+
+# auto_grow(2, 4) with 7 lines: 4 rows, the top lines showing.
+[[group]]
+name = "overflow"
+params = { value = "1\n2\n3\n4\n5\n6\n7", min_rows = 2, max_rows = 4, width = 220 }
+states = ["normal"]
+
+[[group]]
+name = "height"
+params = { value = "Fixed height", height = 100, width = 220 }
+states = ["normal"]

@@ -48009,6 +48009,1274 @@
       }
     },
     {
+      "id": "textarea/autogrow.base/normal/dark",
+      "component": "textarea",
+      "group": "autogrow",
+      "params": {
+        "value": "One\nTwo\nThree",
+        "min_rows": 2,
+        "max_rows": 5,
+        "width": 220
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        260.0,
+        120.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        220.0,
+        78.0
+      ],
+      "png": "png/textarea/autogrow.base/normal/dark.png",
+      "scene": "scenes/textarea/autogrow.base/normal/dark.json",
+      "png_sha256": "9fce693ca58af747252a1c1b1b4d760d6135ca6cd7b40cb3c0968df5885a0566"
+    },
+    {
+      "id": "textarea/autogrow.base/normal/light",
+      "component": "textarea",
+      "group": "autogrow",
+      "params": {
+        "value": "One\nTwo\nThree",
+        "min_rows": 2,
+        "max_rows": 5,
+        "width": 220
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        260.0,
+        120.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        220.0,
+        78.0
+      ],
+      "png": "png/textarea/autogrow.base/normal/light.png",
+      "scene": "scenes/textarea/autogrow.base/normal/light.json",
+      "png_sha256": "1b04bfb1d0d026ec5d581b454293e28008eb5b41a3d0cf14893e31ac5668a16f"
+    },
+    {
+      "id": "textarea/height.base/normal/dark",
+      "component": "textarea",
+      "group": "height",
+      "params": {
+        "value": "Fixed height",
+        "height": 100,
+        "width": 220
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        260.0,
+        120.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        220.0,
+        100.0
+      ],
+      "png": "png/textarea/height.base/normal/dark.png",
+      "scene": "scenes/textarea/height.base/normal/dark.json",
+      "png_sha256": "68760207b2d155063d87e8737b243abbc9343946ba889c9ca489e8df2a70705c"
+    },
+    {
+      "id": "textarea/height.base/normal/light",
+      "component": "textarea",
+      "group": "height",
+      "params": {
+        "value": "Fixed height",
+        "height": 100,
+        "width": 220
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        260.0,
+        120.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        220.0,
+        100.0
+      ],
+      "png": "png/textarea/height.base/normal/light.png",
+      "scene": "scenes/textarea/height.base/normal/light.json",
+      "png_sha256": "126a2f1885af4fd7bdc939afa6ef54209e6239b4fd7ea893a8c85a99f8f0e0cf"
+    },
+    {
+      "id": "textarea/overflow.base/normal/dark",
+      "component": "textarea",
+      "group": "overflow",
+      "params": {
+        "value": "1\n2\n3\n4\n5\n6\n7",
+        "min_rows": 2,
+        "max_rows": 4,
+        "width": 220
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        260.0,
+        120.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        220.0,
+        98.0
+      ],
+      "png": "png/textarea/overflow.base/normal/dark.png",
+      "scene": "scenes/textarea/overflow.base/normal/dark.json",
+      "png_sha256": "aa58c230bf8bcadf97e307e31b241264bb4615f696023cfd893705d6c1b29d22"
+    },
+    {
+      "id": "textarea/overflow.base/normal/light",
+      "component": "textarea",
+      "group": "overflow",
+      "params": {
+        "value": "1\n2\n3\n4\n5\n6\n7",
+        "min_rows": 2,
+        "max_rows": 4,
+        "width": 220
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        260.0,
+        120.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        220.0,
+        98.0
+      ],
+      "png": "png/textarea/overflow.base/normal/light.png",
+      "scene": "scenes/textarea/overflow.base/normal/light.json",
+      "png_sha256": "db7ccf7a0754158f3413023117f335b7ca874c3c732e4f3e87b12f11f4149e30"
+    },
+    {
+      "id": "textarea/placeholder.medium/disabled/dark",
+      "component": "textarea",
+      "group": "placeholder",
+      "params": {
+        "placeholder": "Write a message",
+        "rows": 3,
+        "width": 220,
+        "size": "medium",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        260.0,
+        120.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        220.0,
+        78.0
+      ],
+      "png": "png/textarea/placeholder.medium/disabled/dark.png",
+      "scene": "scenes/textarea/placeholder.medium/disabled/dark.json",
+      "png_sha256": "e7e90cb652283b81dce247aa13965a45f455c5c740ff4ceee6eaece7487650ca"
+    },
+    {
+      "id": "textarea/placeholder.medium/disabled/light",
+      "component": "textarea",
+      "group": "placeholder",
+      "params": {
+        "placeholder": "Write a message",
+        "rows": 3,
+        "width": 220,
+        "size": "medium",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        260.0,
+        120.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        220.0,
+        78.0
+      ],
+      "png": "png/textarea/placeholder.medium/disabled/light.png",
+      "scene": "scenes/textarea/placeholder.medium/disabled/light.json",
+      "png_sha256": "d9b6007e8a57771d41ecb946b5fa9e3db13631caf256eed5660d2e5902fd193f"
+    },
+    {
+      "id": "textarea/placeholder.medium/normal/dark",
+      "component": "textarea",
+      "group": "placeholder",
+      "params": {
+        "placeholder": "Write a message",
+        "rows": 3,
+        "width": 220,
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        260.0,
+        120.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        220.0,
+        78.0
+      ],
+      "png": "png/textarea/placeholder.medium/normal/dark.png",
+      "scene": "scenes/textarea/placeholder.medium/normal/dark.json",
+      "png_sha256": "c130ce4ab2da9a8f0a4a570a97e3984fd91b2aa02af6fe1fc1f8a5b60f52e47a"
+    },
+    {
+      "id": "textarea/placeholder.medium/normal/light",
+      "component": "textarea",
+      "group": "placeholder",
+      "params": {
+        "placeholder": "Write a message",
+        "rows": 3,
+        "width": 220,
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        260.0,
+        120.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        220.0,
+        78.0
+      ],
+      "png": "png/textarea/placeholder.medium/normal/light.png",
+      "scene": "scenes/textarea/placeholder.medium/normal/light.json",
+      "png_sha256": "1ce87bf371ee109f57c73decc89584d111568cfe955b561787d6845efb0f79ee"
+    },
+    {
+      "id": "textarea/placeholder.small/disabled/dark",
+      "component": "textarea",
+      "group": "placeholder",
+      "params": {
+        "placeholder": "Write a message",
+        "rows": 3,
+        "width": 220,
+        "size": "small",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        260.0,
+        120.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        220.0,
+        66.0
+      ],
+      "png": "png/textarea/placeholder.small/disabled/dark.png",
+      "scene": "scenes/textarea/placeholder.small/disabled/dark.json",
+      "png_sha256": "50f9046cbc9a11ef6c1cad99afe104d3ccd992d6f9544a457c366e101f741112"
+    },
+    {
+      "id": "textarea/placeholder.small/disabled/light",
+      "component": "textarea",
+      "group": "placeholder",
+      "params": {
+        "placeholder": "Write a message",
+        "rows": 3,
+        "width": 220,
+        "size": "small",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        260.0,
+        120.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        220.0,
+        66.0
+      ],
+      "png": "png/textarea/placeholder.small/disabled/light.png",
+      "scene": "scenes/textarea/placeholder.small/disabled/light.json",
+      "png_sha256": "003c64cf1599fc76ecfa6caac55d63ca4d5546a7c8a78bd819ccd051cbe2a3cd"
+    },
+    {
+      "id": "textarea/placeholder.small/normal/dark",
+      "component": "textarea",
+      "group": "placeholder",
+      "params": {
+        "placeholder": "Write a message",
+        "rows": 3,
+        "width": 220,
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        260.0,
+        120.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        220.0,
+        66.0
+      ],
+      "png": "png/textarea/placeholder.small/normal/dark.png",
+      "scene": "scenes/textarea/placeholder.small/normal/dark.json",
+      "png_sha256": "e8bd58ca615ccd742140fbfae88816a3ff58691be34a50db5f5ef284be6f538d"
+    },
+    {
+      "id": "textarea/placeholder.small/normal/light",
+      "component": "textarea",
+      "group": "placeholder",
+      "params": {
+        "placeholder": "Write a message",
+        "rows": 3,
+        "width": 220,
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        260.0,
+        120.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        220.0,
+        66.0
+      ],
+      "png": "png/textarea/placeholder.small/normal/light.png",
+      "scene": "scenes/textarea/placeholder.small/normal/light.json",
+      "png_sha256": "fdea7c5d2dbc102f21779cca0fc75fa27aae307678e9edf0433310214e42a1c0"
+    },
+    {
+      "id": "textarea/readonly.base/focus/dark",
+      "component": "textarea",
+      "group": "readonly",
+      "params": {
+        "value": "Read only\nnotes",
+        "rows": 3,
+        "readonly": true,
+        "width": 220
+      },
+      "state": "focus",
+      "theme": "dark",
+      "viewport": [
+        260.0,
+        120.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        220.0,
+        78.0
+      ],
+      "png": "png/textarea/readonly.base/focus/dark.png",
+      "scene": "scenes/textarea/readonly.base/focus/dark.json",
+      "png_sha256": "4c2bf1bfbb9cd3dcfba20335e0ecfb9833e49450c2d27a97ec4d8fc335ea9901"
+    },
+    {
+      "id": "textarea/readonly.base/focus/light",
+      "component": "textarea",
+      "group": "readonly",
+      "params": {
+        "value": "Read only\nnotes",
+        "rows": 3,
+        "readonly": true,
+        "width": 220
+      },
+      "state": "focus",
+      "theme": "light",
+      "viewport": [
+        260.0,
+        120.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        220.0,
+        78.0
+      ],
+      "png": "png/textarea/readonly.base/focus/light.png",
+      "scene": "scenes/textarea/readonly.base/focus/light.json",
+      "png_sha256": "7b4b9a2ed2e8681048e67bdf1b893f8ff87f4ef7be8a6e2208970a9489c84db3"
+    },
+    {
+      "id": "textarea/rows.large/disabled/dark",
+      "component": "textarea",
+      "group": "rows",
+      "params": {
+        "value": "First line\nSecond line",
+        "rows": 3,
+        "width": 220,
+        "size": "large",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        260.0,
+        120.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        220.0,
+        82.0
+      ],
+      "png": "png/textarea/rows.large/disabled/dark.png",
+      "scene": "scenes/textarea/rows.large/disabled/dark.json",
+      "png_sha256": "ee732ada27c35eb6f7766501d80990e88c7f382c86aaa9a973ad163a5d77d675"
+    },
+    {
+      "id": "textarea/rows.large/disabled/light",
+      "component": "textarea",
+      "group": "rows",
+      "params": {
+        "value": "First line\nSecond line",
+        "rows": 3,
+        "width": 220,
+        "size": "large",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        260.0,
+        120.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        220.0,
+        82.0
+      ],
+      "png": "png/textarea/rows.large/disabled/light.png",
+      "scene": "scenes/textarea/rows.large/disabled/light.json",
+      "png_sha256": "9a22c1bd7e64577766a81f876613e4913b703b8345cc7b8ab41a3bf15c298c1d"
+    },
+    {
+      "id": "textarea/rows.large/focus/dark",
+      "component": "textarea",
+      "group": "rows",
+      "params": {
+        "value": "First line\nSecond line",
+        "rows": 3,
+        "width": 220,
+        "size": "large"
+      },
+      "state": "focus",
+      "theme": "dark",
+      "viewport": [
+        260.0,
+        120.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        220.0,
+        82.0
+      ],
+      "png": "png/textarea/rows.large/focus/dark.png",
+      "scene": "scenes/textarea/rows.large/focus/dark.json",
+      "png_sha256": "c8293f5bb696c58d9240fb565be2730ea6fd27310fc05afd3adb50b9b9e1ecda"
+    },
+    {
+      "id": "textarea/rows.large/focus/light",
+      "component": "textarea",
+      "group": "rows",
+      "params": {
+        "value": "First line\nSecond line",
+        "rows": 3,
+        "width": 220,
+        "size": "large"
+      },
+      "state": "focus",
+      "theme": "light",
+      "viewport": [
+        260.0,
+        120.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        220.0,
+        82.0
+      ],
+      "png": "png/textarea/rows.large/focus/light.png",
+      "scene": "scenes/textarea/rows.large/focus/light.json",
+      "png_sha256": "13d0ba3de10e28ea429d8368d552e99692c37a66c5489c2896f59ade767b62ad"
+    },
+    {
+      "id": "textarea/rows.large/normal/dark",
+      "component": "textarea",
+      "group": "rows",
+      "params": {
+        "value": "First line\nSecond line",
+        "rows": 3,
+        "width": 220,
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        260.0,
+        120.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        220.0,
+        82.0
+      ],
+      "png": "png/textarea/rows.large/normal/dark.png",
+      "scene": "scenes/textarea/rows.large/normal/dark.json",
+      "png_sha256": "fb7e759a23e2e421144d7ba117f34c48e7cd92d4c39e04a6ea8b5748b773df88"
+    },
+    {
+      "id": "textarea/rows.large/normal/light",
+      "component": "textarea",
+      "group": "rows",
+      "params": {
+        "value": "First line\nSecond line",
+        "rows": 3,
+        "width": 220,
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        260.0,
+        120.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        220.0,
+        82.0
+      ],
+      "png": "png/textarea/rows.large/normal/light.png",
+      "scene": "scenes/textarea/rows.large/normal/light.json",
+      "png_sha256": "1c75f480ad8d3be75466c788307630217194ef37830a7ddd4c5baa12669ce777"
+    },
+    {
+      "id": "textarea/rows.medium/disabled/dark",
+      "component": "textarea",
+      "group": "rows",
+      "params": {
+        "value": "First line\nSecond line",
+        "rows": 3,
+        "width": 220,
+        "size": "medium",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        260.0,
+        120.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        220.0,
+        78.0
+      ],
+      "png": "png/textarea/rows.medium/disabled/dark.png",
+      "scene": "scenes/textarea/rows.medium/disabled/dark.json",
+      "png_sha256": "7c2731db38f8114916c1cb15f95bed20e95fb0e60c503eb87e1a803dc6999427"
+    },
+    {
+      "id": "textarea/rows.medium/disabled/light",
+      "component": "textarea",
+      "group": "rows",
+      "params": {
+        "value": "First line\nSecond line",
+        "rows": 3,
+        "width": 220,
+        "size": "medium",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        260.0,
+        120.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        220.0,
+        78.0
+      ],
+      "png": "png/textarea/rows.medium/disabled/light.png",
+      "scene": "scenes/textarea/rows.medium/disabled/light.json",
+      "png_sha256": "cbaeefaa46abeaa09ad74a6fa43da918892867c896cb0a706d4505aac9a25064"
+    },
+    {
+      "id": "textarea/rows.medium/focus/dark",
+      "component": "textarea",
+      "group": "rows",
+      "params": {
+        "value": "First line\nSecond line",
+        "rows": 3,
+        "width": 220,
+        "size": "medium"
+      },
+      "state": "focus",
+      "theme": "dark",
+      "viewport": [
+        260.0,
+        120.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        220.0,
+        78.0
+      ],
+      "png": "png/textarea/rows.medium/focus/dark.png",
+      "scene": "scenes/textarea/rows.medium/focus/dark.json",
+      "png_sha256": "3bf1b8a96f064e9f491a03ffe8cb3b27b49f230de36eaa46caa9aceb3a4d55ec"
+    },
+    {
+      "id": "textarea/rows.medium/focus/light",
+      "component": "textarea",
+      "group": "rows",
+      "params": {
+        "value": "First line\nSecond line",
+        "rows": 3,
+        "width": 220,
+        "size": "medium"
+      },
+      "state": "focus",
+      "theme": "light",
+      "viewport": [
+        260.0,
+        120.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        220.0,
+        78.0
+      ],
+      "png": "png/textarea/rows.medium/focus/light.png",
+      "scene": "scenes/textarea/rows.medium/focus/light.json",
+      "png_sha256": "472fd0f4633bf20d2744ab39ba14e18a782596d7d410046422e19cf55419eb9d"
+    },
+    {
+      "id": "textarea/rows.medium/normal/dark",
+      "component": "textarea",
+      "group": "rows",
+      "params": {
+        "value": "First line\nSecond line",
+        "rows": 3,
+        "width": 220,
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        260.0,
+        120.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        220.0,
+        78.0
+      ],
+      "png": "png/textarea/rows.medium/normal/dark.png",
+      "scene": "scenes/textarea/rows.medium/normal/dark.json",
+      "png_sha256": "39a38bce2211c1a6036e5d592df34e94e979c422879bee6b46d5181531cf6623"
+    },
+    {
+      "id": "textarea/rows.medium/normal/light",
+      "component": "textarea",
+      "group": "rows",
+      "params": {
+        "value": "First line\nSecond line",
+        "rows": 3,
+        "width": 220,
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        260.0,
+        120.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        220.0,
+        78.0
+      ],
+      "png": "png/textarea/rows.medium/normal/light.png",
+      "scene": "scenes/textarea/rows.medium/normal/light.json",
+      "png_sha256": "fd9fc3bd8f5144ca350fac2e3f48ef06f2d269de412087da8c28f4cd03a7a2ab"
+    },
+    {
+      "id": "textarea/rows.small/disabled/dark",
+      "component": "textarea",
+      "group": "rows",
+      "params": {
+        "value": "First line\nSecond line",
+        "rows": 3,
+        "width": 220,
+        "size": "small",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        260.0,
+        120.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        220.0,
+        66.0
+      ],
+      "png": "png/textarea/rows.small/disabled/dark.png",
+      "scene": "scenes/textarea/rows.small/disabled/dark.json",
+      "png_sha256": "f6ace3e293ae9ba0bdcf2779324a3420c0a5859ece13a36dc88edb87fd449df3"
+    },
+    {
+      "id": "textarea/rows.small/disabled/light",
+      "component": "textarea",
+      "group": "rows",
+      "params": {
+        "value": "First line\nSecond line",
+        "rows": 3,
+        "width": 220,
+        "size": "small",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        260.0,
+        120.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        220.0,
+        66.0
+      ],
+      "png": "png/textarea/rows.small/disabled/light.png",
+      "scene": "scenes/textarea/rows.small/disabled/light.json",
+      "png_sha256": "fb89a49c7a53318f8921fda3f2eff29806bdf881fcd16a6df584b4e91a04ddc9"
+    },
+    {
+      "id": "textarea/rows.small/focus/dark",
+      "component": "textarea",
+      "group": "rows",
+      "params": {
+        "value": "First line\nSecond line",
+        "rows": 3,
+        "width": 220,
+        "size": "small"
+      },
+      "state": "focus",
+      "theme": "dark",
+      "viewport": [
+        260.0,
+        120.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        220.0,
+        66.0
+      ],
+      "png": "png/textarea/rows.small/focus/dark.png",
+      "scene": "scenes/textarea/rows.small/focus/dark.json",
+      "png_sha256": "cebc68b7056deef16146815f52e9455559ae6fbc05ce540c7506212c8c409663"
+    },
+    {
+      "id": "textarea/rows.small/focus/light",
+      "component": "textarea",
+      "group": "rows",
+      "params": {
+        "value": "First line\nSecond line",
+        "rows": 3,
+        "width": 220,
+        "size": "small"
+      },
+      "state": "focus",
+      "theme": "light",
+      "viewport": [
+        260.0,
+        120.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        220.0,
+        66.0
+      ],
+      "png": "png/textarea/rows.small/focus/light.png",
+      "scene": "scenes/textarea/rows.small/focus/light.json",
+      "png_sha256": "8cb9c925928c64b41603f62ef3ed2ccacc6dad4bba495d8433f6dc84c253d9b1"
+    },
+    {
+      "id": "textarea/rows.small/normal/dark",
+      "component": "textarea",
+      "group": "rows",
+      "params": {
+        "value": "First line\nSecond line",
+        "rows": 3,
+        "width": 220,
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        260.0,
+        120.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        220.0,
+        66.0
+      ],
+      "png": "png/textarea/rows.small/normal/dark.png",
+      "scene": "scenes/textarea/rows.small/normal/dark.json",
+      "png_sha256": "734f032760d9659270bf18f83f15b4d0c8e6b2f9085ed57f7ada88c54451994a"
+    },
+    {
+      "id": "textarea/rows.small/normal/light",
+      "component": "textarea",
+      "group": "rows",
+      "params": {
+        "value": "First line\nSecond line",
+        "rows": 3,
+        "width": 220,
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        260.0,
+        120.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        220.0,
+        66.0
+      ],
+      "png": "png/textarea/rows.small/normal/light.png",
+      "scene": "scenes/textarea/rows.small/normal/light.json",
+      "png_sha256": "29b5fe9a6287aa8fff6262c08a40d79d9ad966f5f0eb7c7c6d3958b228ac00be"
+    },
+    {
+      "id": "textarea/rows.xsmall/disabled/dark",
+      "component": "textarea",
+      "group": "rows",
+      "params": {
+        "value": "First line\nSecond line",
+        "rows": 3,
+        "width": 220,
+        "size": "xsmall",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        260.0,
+        120.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        220.0,
+        62.0
+      ],
+      "png": "png/textarea/rows.xsmall/disabled/dark.png",
+      "scene": "scenes/textarea/rows.xsmall/disabled/dark.json",
+      "png_sha256": "2b47250ab2abc966770389ef522eb9bbefa0a2014ac82680ba576c94911f6564"
+    },
+    {
+      "id": "textarea/rows.xsmall/disabled/light",
+      "component": "textarea",
+      "group": "rows",
+      "params": {
+        "value": "First line\nSecond line",
+        "rows": 3,
+        "width": 220,
+        "size": "xsmall",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        260.0,
+        120.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        220.0,
+        62.0
+      ],
+      "png": "png/textarea/rows.xsmall/disabled/light.png",
+      "scene": "scenes/textarea/rows.xsmall/disabled/light.json",
+      "png_sha256": "bb7c33e0e44aa83b770a30b8778bd6b24278b0243439a1b6ff4c5e35a1b2ea8a"
+    },
+    {
+      "id": "textarea/rows.xsmall/focus/dark",
+      "component": "textarea",
+      "group": "rows",
+      "params": {
+        "value": "First line\nSecond line",
+        "rows": 3,
+        "width": 220,
+        "size": "xsmall"
+      },
+      "state": "focus",
+      "theme": "dark",
+      "viewport": [
+        260.0,
+        120.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        220.0,
+        62.0
+      ],
+      "png": "png/textarea/rows.xsmall/focus/dark.png",
+      "scene": "scenes/textarea/rows.xsmall/focus/dark.json",
+      "png_sha256": "02d6bf21de89258ebda63f5e41bd6b09c9c52d4f49fcf5d8d5b317e1e65df0d8"
+    },
+    {
+      "id": "textarea/rows.xsmall/focus/light",
+      "component": "textarea",
+      "group": "rows",
+      "params": {
+        "value": "First line\nSecond line",
+        "rows": 3,
+        "width": 220,
+        "size": "xsmall"
+      },
+      "state": "focus",
+      "theme": "light",
+      "viewport": [
+        260.0,
+        120.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        220.0,
+        62.0
+      ],
+      "png": "png/textarea/rows.xsmall/focus/light.png",
+      "scene": "scenes/textarea/rows.xsmall/focus/light.json",
+      "png_sha256": "2ea3b489f784b64e0c173d97c4cbca8c6cf89d25657eb407e50448b980ff2bd7"
+    },
+    {
+      "id": "textarea/rows.xsmall/normal/dark",
+      "component": "textarea",
+      "group": "rows",
+      "params": {
+        "value": "First line\nSecond line",
+        "rows": 3,
+        "width": 220,
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        260.0,
+        120.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        220.0,
+        62.0
+      ],
+      "png": "png/textarea/rows.xsmall/normal/dark.png",
+      "scene": "scenes/textarea/rows.xsmall/normal/dark.json",
+      "png_sha256": "e93165bbf59711edb7b68043126fe1fa06a02ff668e4e662c79dbdc2135abe8d"
+    },
+    {
+      "id": "textarea/rows.xsmall/normal/light",
+      "component": "textarea",
+      "group": "rows",
+      "params": {
+        "value": "First line\nSecond line",
+        "rows": 3,
+        "width": 220,
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        260.0,
+        120.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        220.0,
+        62.0
+      ],
+      "png": "png/textarea/rows.xsmall/normal/light.png",
+      "scene": "scenes/textarea/rows.xsmall/normal/light.json",
+      "png_sha256": "23a2cb0b4926f085acf5a16d47fa14050788d4f0317d3740a34d85d155f934d8"
+    },
+    {
+      "id": "textarea/wrap.base/normal/dark",
+      "component": "textarea",
+      "group": "wrap",
+      "params": {
+        "value": "Label should support text wrap in default, if the text is too long, it should wrap.",
+        "rows": 4,
+        "width": 220
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        260.0,
+        140.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        220.0,
+        98.0
+      ],
+      "png": "png/textarea/wrap.base/normal/dark.png",
+      "scene": "scenes/textarea/wrap.base/normal/dark.json",
+      "png_sha256": "c0a9c545b5269cd8feb214f44ba6c238e1b7c277f847fef84464bb718f8d64d5"
+    },
+    {
+      "id": "textarea/wrap.base/normal/light",
+      "component": "textarea",
+      "group": "wrap",
+      "params": {
+        "value": "Label should support text wrap in default, if the text is too long, it should wrap.",
+        "rows": 4,
+        "width": 220
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        260.0,
+        140.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        220.0,
+        98.0
+      ],
+      "png": "png/textarea/wrap.base/normal/light.png",
+      "scene": "scenes/textarea/wrap.base/normal/light.json",
+      "png_sha256": "8ed4fb83c2027dab66dae829fd3d2d98aa94c78e5d609b9e897a08155e636f18"
+    },
+    {
       "id": "toggle/icon.ghost.large.checked/hover/dark",
       "component": "toggle",
       "group": "icon",
