@@ -1,0 +1,342 @@
+<!--
+  GPUI Kit Toolbar (crates/component/src/toolbar.rs) -> CommandBar,
+  CommandBarButton, CommandBarToggleButton and CommandBarSeparator:
+
+    <CommandBar Content="Files">
+      <CommandBarButton><CommandBarButton.Icon><PathIcon Data="{StaticResource Gpui.Icon.Undo2}" /></CommandBarButton.Icon></CommandBarButton>
+      <CommandBarSeparator />
+      <CommandBarButton Label="New"> ... </CommandBarButton>
+      <CommandBarToggleButton Label="B" />
+    </CommandBar>
+
+  A transparent row: the Content, then the commands, left to right. Buttons
+  are GPUI's ghost compact buttons (square without a label), toggle buttons
+  GPUI's Toggle, separators a 20px line taking no width. Sizes: xsmall, small
+  (the default, as GPUI's toolbar), medium (large is the same). Labels sit
+  right of the icons (DefaultLabelPosition Right). The arrow keys move
+  between commands (XYFocus, without GPUI's wrap-around). GPUI has no
+  overflow: the button shows only for SecondaryCommands.
+-->
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:gconv="using:AvaloniaUIKit.Converters">
+  <Styles.Resources>
+    <ControlTheme x:Key="{x:Type CommandBarButton}" TargetType="CommandBarButton">
+      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Ghost.Normal.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Ghost.Normal.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Ghost.Normal.Border}" />
+      <Setter Property="BorderThickness" Value="0" />
+      <Setter Property="CornerRadius" Value="6" />
+      <!-- Size::Small, compact: h_6 px_1p5 min_w_6, square without a label. -->
+      <Setter Property="Height" Value="24" />
+      <Setter Property="MinWidth" Value="24" />
+      <Setter Property="Padding" Value="6,0" />
+      <Setter Property="FontSize" Value="14" />
+      <Setter Property="VerticalAlignment" Value="Center" />
+      <Setter Property="ClipToBounds" Value="False" />
+      <Setter Property="Template">
+        <ControlTemplate>
+          <Panel>
+            <Border Name="PART_Border"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}">
+              <Border.Padding>
+                <MultiBinding Converter="{x:Static gconv:ThicknessWhenConverter.Instance}">
+                  <Binding ElementName="PART_Label" Path="IsVisible" />
+                  <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="Padding" />
+                </MultiBinding>
+              </Border.Padding>
+              <StackPanel Name="PART_LayoutRoot" Orientation="Horizontal" Spacing="4"
+                          HorizontalAlignment="Center" VerticalAlignment="Center">
+                <ContentPresenter Name="PART_IconPresenter"
+                                  Content="{TemplateBinding Icon}"
+                                  VerticalAlignment="Center"
+                                  IsVisible="{TemplateBinding Icon, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                <TextBlock Name="PART_Label"
+                           Text="{TemplateBinding Label}"
+                           LineHeight="17.5"
+                           VerticalAlignment="Center"
+                           TextTrimming="CharacterEllipsis"
+                           IsVisible="{TemplateBinding Label, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
+              </StackPanel>
+            </Border>
+            <!-- focus_ring (styled.rs): a 3px band outside, in ring at 50%. -->
+            <Border Name="PART_FocusRing" Margin="-3" BorderThickness="3" CornerRadius="7.5"
+                    BorderBrush="{DynamicResource Gpui.FocusRing}"
+                    IsVisible="False" IsHitTestVisible="False" />
+          </Panel>
+        </ControlTemplate>
+      </Setter>
+      <Style Selector="^:pointerover">
+        <Setter Property="Background" Value="{DynamicResource Gpui.Button.Ghost.Hover.Background}" />
+        <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Ghost.Hover.Foreground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Ghost.Hover.Border}" />
+      </Style>
+      <Style Selector="^:pressed">
+        <Setter Property="Background" Value="{DynamicResource Gpui.Button.Ghost.Pressed.Background}" />
+        <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Ghost.Pressed.Foreground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Ghost.Pressed.Border}" />
+      </Style>
+      <Style Selector="^:disabled">
+        <Setter Property="Background" Value="{DynamicResource Gpui.Button.Ghost.Disabled.Background}" />
+        <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Ghost.Disabled.Foreground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Ghost.Disabled.Border}" />
+      </Style>
+      <Style Selector="^:focus-visible /template/ Border#PART_FocusRing">
+        <Setter Property="IsVisible" Value="True" />
+      </Style>
+      <Style Selector="^[IsCompact=True] /template/ TextBlock#PART_Label">
+        <Setter Property="IsVisible" Value="False" />
+      </Style>
+      <!-- Avalonia-only label positions: under the icon, and the overflow menu's rows. -->
+      <Style Selector="^[LabelPosition=Bottom]">
+        <Setter Property="Height" Value="NaN" />
+        <Setter Property="Padding" Value="6,4" />
+      </Style>
+      <Style Selector="^[LabelPosition=Bottom] /template/ StackPanel#PART_LayoutRoot">
+        <Setter Property="Orientation" Value="Vertical" />
+        <Setter Property="Spacing" Value="2" />
+      </Style>
+      <Style Selector="^[IsInOverflow=True]">
+        <Setter Property="Height" Value="26" />
+        <Setter Property="Padding" Value="8,0" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+      </Style>
+      <Style Selector="^[IsInOverflow=True] /template/ StackPanel#PART_LayoutRoot">
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="Spacing" Value="8" />
+      </Style>
+    </ControlTheme>
+
+    <!-- GPUI's Toggle: the accent while checked or hovered, no pressed look, no ring. -->
+    <ControlTheme x:Key="{x:Type CommandBarToggleButton}" TargetType="CommandBarToggleButton">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+      <Setter Property="BorderThickness" Value="0" />
+      <Setter Property="CornerRadius" Value="6" />
+      <!-- Size::Small: min_w_6 h_6 px_1 text_sm. -->
+      <Setter Property="Height" Value="24" />
+      <Setter Property="MinWidth" Value="24" />
+      <Setter Property="Padding" Value="4,0" />
+      <Setter Property="FontSize" Value="14" />
+      <Setter Property="VerticalAlignment" Value="Center" />
+      <Setter Property="Template">
+        <ControlTemplate>
+          <Border Name="PART_Border"
+                  Background="{TemplateBinding Background}"
+                  BorderBrush="{TemplateBinding BorderBrush}"
+                  BorderThickness="{TemplateBinding BorderThickness}"
+                  CornerRadius="{TemplateBinding CornerRadius}"
+                  Padding="{TemplateBinding Padding}">
+            <StackPanel Name="PART_LayoutRoot" Orientation="Horizontal"
+                        HorizontalAlignment="Center" VerticalAlignment="Center">
+              <ContentPresenter Name="PART_IconPresenter"
+                                Content="{TemplateBinding Icon}"
+                                VerticalAlignment="Center"
+                                IsVisible="{TemplateBinding Icon, Converter={x:Static ObjectConverters.IsNotNull}}" />
+              <TextBlock Name="PART_Label"
+                         Text="{TemplateBinding Label}"
+                         LineHeight="17.5"
+                         VerticalAlignment="Center"
+                         TextTrimming="CharacterEllipsis"
+                         IsVisible="{TemplateBinding Label, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
+            </StackPanel>
+          </Border>
+        </ControlTemplate>
+      </Setter>
+      <Style Selector="^:pointerover:not(:disabled), ^:checked">
+        <Setter Property="Background" Value="{DynamicResource Gpui.Accent}" />
+        <Setter Property="Foreground" Value="{DynamicResource Gpui.AccentForeground}" />
+      </Style>
+      <Style Selector="^[IsCompact=True] /template/ TextBlock#PART_Label">
+        <Setter Property="IsVisible" Value="False" />
+      </Style>
+      <Style Selector="^[LabelPosition=Bottom]">
+        <Setter Property="Height" Value="NaN" />
+        <Setter Property="Padding" Value="4" />
+      </Style>
+      <Style Selector="^[LabelPosition=Bottom] /template/ StackPanel#PART_LayoutRoot">
+        <Setter Property="Orientation" Value="Vertical" />
+      </Style>
+      <Style Selector="^[IsInOverflow=True]">
+        <Setter Property="Height" Value="26" />
+        <Setter Property="Padding" Value="8,0" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+      </Style>
+      <Style Selector="^[IsInOverflow=True] /template/ StackPanel#PART_LayoutRoot">
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="Spacing" Value="8" />
+      </Style>
+    </ControlTheme>
+
+    <!-- Separator::vertical().h_5(): a 1px border line taking no width. -->
+    <ControlTheme x:Key="{x:Type CommandBarSeparator}" TargetType="CommandBarSeparator">
+      <Setter Property="Background" Value="{DynamicResource Gpui.Border}" />
+      <Setter Property="Width" Value="1" />
+      <Setter Property="Height" Value="20" />
+      <Setter Property="Margin" Value="-0.5,0" />
+      <Setter Property="VerticalAlignment" Value="Center" />
+      <Setter Property="Focusable" Value="False" />
+      <Setter Property="Template">
+        <ControlTemplate>
+          <Border Background="{TemplateBinding Background}" />
+        </ControlTemplate>
+      </Setter>
+      <Style Selector="^[IsInOverflow=True]">
+        <Setter Property="Width" Value="NaN" />
+        <Setter Property="Height" Value="1" />
+        <Setter Property="Margin" Value="-4,0" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+      </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type CommandBar}" TargetType="CommandBar">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+      <Setter Property="HorizontalAlignment" Value="Left" />
+      <Setter Property="DefaultLabelPosition" Value="Right" />
+      <!-- Focus rings paint outside the commands. -->
+      <Setter Property="ClipToBounds" Value="False" />
+      <!-- Size::Small: h_8 p_1 gap_1 text_sm. -->
+      <Setter Property="Height" Value="32" />
+      <Setter Property="Padding" Value="4" />
+      <Setter Property="FontSize" Value="14" />
+      <Setter Property="Template">
+        <ControlTemplate>
+          <Border Background="{TemplateBinding Background}"
+                  BorderBrush="{TemplateBinding BorderBrush}"
+                  BorderThickness="{TemplateBinding BorderThickness}"
+                  CornerRadius="{TemplateBinding CornerRadius}"
+                  Padding="{TemplateBinding Padding}">
+            <Panel>
+              <StackPanel Name="PART_Row" Orientation="Horizontal" Spacing="4">
+                <!-- Text content on GPUI's default line (phi). -->
+                <ContentPresenter Name="PART_ContentPresenter"
+                                  Content="{TemplateBinding Content}"
+                                  VerticalAlignment="Center"
+                                  LineHeight="22.6525"
+                                  IsVisible="{TemplateBinding Content, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                <ItemsControl Name="PART_PrimaryCommands"
+                              ItemsSource="{Binding VisiblePrimaryCommands, RelativeSource={RelativeSource TemplatedParent}}"
+                              VerticalAlignment="Center"
+                              ClipToBounds="False"
+                              KeyboardNavigation.TabNavigation="Once"
+                              XYFocus.NavigationModes="Keyboard">
+                  <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                      <StackPanel Name="PART_CommandsPanel" Orientation="Horizontal" Spacing="4" />
+                    </ItemsPanelTemplate>
+                  </ItemsControl.ItemsPanel>
+                </ItemsControl>
+                <Button Name="PART_OverflowButton"
+                        Classes="ghost icon-only small"
+                        VerticalAlignment="Center"
+                        IsVisible="{TemplateBinding IsOverflowButtonVisible}">
+                  <PathIcon Data="{StaticResource Gpui.Icon.Ellipsis}" />
+                </Button>
+              </StackPanel>
+              <Popup Name="PART_OverflowPopup"
+                     IsOpen="{TemplateBinding IsOpen, Mode=TwoWay}"
+                     PlacementTarget="{Binding #PART_OverflowButton}"
+                     Placement="BottomEdgeAlignedRight"
+                     IsLightDismissEnabled="True">
+                <!-- GPUI's popover surface (Menus.axaml), 4px below the button. -->
+                <Panel Margin="0,4,0,0">
+                  <Border Margin="-1" CornerRadius="6"
+                          Background="{DynamicResource Gpui.PopoverRing}" IsHitTestVisible="False" />
+                  <Border Background="{DynamicResource Gpui.Popover}" CornerRadius="6"
+                          BoxShadow="{StaticResource Gpui.Shadow.Popover}" Padding="4" MinWidth="128">
+                    <ItemsControl Name="PART_OverflowPresenter"
+                                  Foreground="{DynamicResource Gpui.PopoverForeground}"
+                                  ItemsSource="{Binding OverflowItems, RelativeSource={RelativeSource TemplatedParent}}">
+                      <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                          <StackPanel Spacing="2" />
+                        </ItemsPanelTemplate>
+                      </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                  </Border>
+                </Panel>
+              </Popup>
+            </Panel>
+          </Border>
+        </ControlTemplate>
+      </Setter>
+      <Style Selector="^.xsmall">
+        <Setter Property="Height" Value="28" />
+        <Setter Property="FontSize" Value="12" />
+      </Style>
+      <Style Selector="^.xsmall /template/ ContentPresenter#PART_ContentPresenter">
+        <Setter Property="LineHeight" Value="19.4164" />
+      </Style>
+      <Style Selector="^.xsmall /template/ Button#PART_OverflowButton">
+        <Setter Property="Width" Value="20" />
+        <Setter Property="Height" Value="20" />
+      </Style>
+      <!-- Size::Medium (and Large, which the toolbar takes as Medium): h_12 p_2 gap_2. -->
+      <Style Selector="^.medium, ^.large">
+        <Setter Property="Height" Value="48" />
+        <Setter Property="Padding" Value="8" />
+      </Style>
+      <Style Selector="^.medium /template/ StackPanel#PART_Row, ^.large /template/ StackPanel#PART_Row">
+        <Setter Property="Spacing" Value="8" />
+      </Style>
+      <Style Selector="^.medium /template/ Button#PART_OverflowButton, ^.large /template/ Button#PART_OverflowButton">
+        <Setter Property="Width" Value="32" />
+        <Setter Property="Height" Value="32" />
+      </Style>
+    </ControlTheme>
+  </Styles.Resources>
+
+  <!--
+    The commands take the bar's size (toolbar.rs prepare_for_toolbar + input_h):
+    xsmall h_5 px_1 min_w_5, medium h_8 px_2 min_w_8; a toggle px_0p5 / px_2.
+  -->
+  <Style Selector="CommandBar.medium StackPanel#PART_CommandsPanel, CommandBar.large StackPanel#PART_CommandsPanel">
+    <Setter Property="Spacing" Value="8" />
+  </Style>
+  <Style Selector="CommandBar.xsmall CommandBarButton">
+    <Setter Property="Height" Value="20" />
+    <Setter Property="MinWidth" Value="20" />
+    <Setter Property="Padding" Value="4,0" />
+    <Setter Property="FontSize" Value="12" />
+  </Style>
+  <Style Selector="CommandBar.xsmall CommandBarToggleButton">
+    <Setter Property="Height" Value="20" />
+    <Setter Property="MinWidth" Value="20" />
+    <Setter Property="Padding" Value="2,0" />
+    <Setter Property="FontSize" Value="12" />
+  </Style>
+  <Style Selector="CommandBar.xsmall CommandBarButton /template/ TextBlock#PART_Label, CommandBar.xsmall CommandBarToggleButton /template/ TextBlock#PART_Label">
+    <Setter Property="LineHeight" Value="15" />
+  </Style>
+  <Style Selector="CommandBar.medium CommandBarButton, CommandBar.large CommandBarButton">
+    <Setter Property="Height" Value="32" />
+    <Setter Property="MinWidth" Value="32" />
+    <Setter Property="Padding" Value="8,0" />
+  </Style>
+  <Style Selector="CommandBar.medium CommandBarButton /template/ StackPanel#PART_LayoutRoot, CommandBar.large CommandBarButton /template/ StackPanel#PART_LayoutRoot">
+    <Setter Property="Spacing" Value="8" />
+  </Style>
+  <Style Selector="CommandBar.medium CommandBarToggleButton, CommandBar.large CommandBarToggleButton">
+    <Setter Property="Height" Value="32" />
+    <Setter Property="MinWidth" Value="32" />
+    <Setter Property="Padding" Value="8,0" />
+  </Style>
+
+  <!-- A button's icon takes the button size, a toggle's its text size (icon.rs). -->
+  <Style Selector="CommandBarButton PathIcon, CommandBarToggleButton PathIcon">
+    <Setter Property="Width" Value="14" />
+    <Setter Property="Height" Value="14" />
+  </Style>
+  <Style Selector="CommandBar.xsmall CommandBarButton PathIcon, CommandBar.xsmall CommandBarToggleButton PathIcon">
+    <Setter Property="Width" Value="12" />
+    <Setter Property="Height" Value="12" />
+  </Style>
+  <Style Selector="CommandBar.medium CommandBarButton PathIcon, CommandBar.large CommandBarButton PathIcon">
+    <Setter Property="Width" Value="16" />
+    <Setter Property="Height" Value="16" />
+  </Style>
+</Styles>

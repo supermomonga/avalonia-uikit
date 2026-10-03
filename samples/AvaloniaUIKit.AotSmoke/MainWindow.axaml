@@ -87,6 +87,22 @@
           <TextBlock Classes="label">Company address<Run Classes="secondary"> (optional)</Run></TextBlock>
         </WrapPanel>
 
+        <TextBlock Text="Toolbar" Foreground="{DynamicResource Gpui.MutedForeground}" />
+        <CommandBar Content="Files">
+          <CommandBarButton>
+            <CommandBarButton.Icon><PathIcon Data="{StaticResource Gpui.Icon.Undo2}" /></CommandBarButton.Icon>
+          </CommandBarButton>
+          <CommandBarButton>
+            <CommandBarButton.Icon><PathIcon Data="{StaticResource Gpui.Icon.Redo2}" /></CommandBarButton.Icon>
+          </CommandBarButton>
+          <CommandBarSeparator />
+          <CommandBarButton Label="New">
+            <CommandBarButton.Icon><PathIcon Data="{StaticResource Gpui.Icon.Plus}" /></CommandBarButton.Icon>
+          </CommandBarButton>
+          <CommandBarSeparator />
+          <CommandBarToggleButton Label="B" IsChecked="True" />
+        </CommandBar>
+
         <TextBlock Text="Input, Textarea, InputGroup" Foreground="{DynamicResource Gpui.MutedForeground}" />
         <StackPanel Spacing="12" HorizontalAlignment="Left" Width="320">
           <TextBox PlaceholderText="Your name" />

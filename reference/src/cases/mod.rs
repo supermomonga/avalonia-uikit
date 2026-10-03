@@ -26,6 +26,7 @@ mod scroll;
 mod select;
 mod surface;
 mod tabs;
+mod toolbar;
 mod toggle;
 mod tree;
 
@@ -64,6 +65,7 @@ pub fn builder(case: &Case) -> Result<Builder> {
         "combobox" => select::combobox(&params),
         "tree" => tree::builder(&params),
         "tabs" => tabs::builder(&params),
+        "toolbar" => toolbar::builder(&params),
         other => bail!("unknown component {other}"),
     }
 }
@@ -185,6 +187,9 @@ pub fn icon(name: &str) -> Option<IconName> {
         "chevron-up" => IconName::ChevronUp,
         "calendar" => IconName::Calendar,
         "loader" => IconName::Loader,
+        "undo-2" => IconName::Undo2,
+        "redo-2" => IconName::Redo2,
+        "ellipsis" => IconName::Ellipsis,
         _ => return None,
     })
 }

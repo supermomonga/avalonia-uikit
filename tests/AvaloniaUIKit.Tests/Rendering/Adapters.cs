@@ -54,6 +54,7 @@ public static class Adapters
         "tree" => Tree(c),
         "pagination" => Pagination(c),
         "tabs" => TabStrip(c),
+        "toolbar" => Toolbar(c),
         _ => throw new NotSupportedException($"no adapter for {c.Component}"),
     };
 
@@ -611,6 +612,20 @@ public static class Adapters
     }
 
     /// <summary>A ListBox.toggle-group; '1's in `checked` mark the selected items.</summary>
+    private static CommandBar Toolbar(GoldenCase c)
+    {
+        var enabled = !c.Bool("disabled");
+        var bar = new CommandBar { Content = c.Has("content") ? c.Str("content") : null };
+        ClassFrom(bar, c, "size", "small");
+        bar.PrimaryCommands!.Add(new CommandBarButton { Icon = Icon("undo-2"), IsEnabled = enabled });
+        bar.PrimaryCommands.Add(new CommandBarButton { Icon = Icon("redo-2"), IsEnabled = enabled });
+        bar.PrimaryCommands.Add(new CommandBarSeparator());
+        bar.PrimaryCommands.Add(new CommandBarButton { Icon = Icon("plus"), Label = "New", IsEnabled = enabled });
+        bar.PrimaryCommands.Add(new CommandBarSeparator());
+        bar.PrimaryCommands.Add(new CommandBarToggleButton { Label = "B", IsChecked = c.Bool("checked"), IsEnabled = enabled });
+        return bar;
+    }
+
     private static readonly (string Label, string Icon)[] TabContents = [("Account", "copy"), ("Profile", "plus"), ("Settings", "check")];
 
     private static TabStrip TabStrip(GoldenCase c)

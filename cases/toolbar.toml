@@ -1,0 +1,35 @@
+# GPUI Kit Toolbar -> CommandBar / CommandBarButton / CommandBarToggleButton /
+# CommandBarSeparator. One bar: [undo] [redo] | [+ New] | [B toggle].
+component = "toolbar"
+viewport = [320, 80]
+anchor = [16, 16]
+
+[[group]]
+name = "bar"
+matrix = { size = ["xsmall", "small", "medium"], checked = [false, true] }
+
+[[group]]
+name = "small"
+params = { size = "small" }
+states = ["at-32-32", "pressed-at-32-32", "at-100-32", "pressed-at-100-32", "at-160-32", "focus", "focus+key-right"]
+
+[[group]]
+name = "xsmall"
+params = { size = "xsmall" }
+states = ["at-30-30", "pressed-at-30-30", "focus"]
+
+[[group]]
+name = "medium"
+params = { size = "medium" }
+states = ["at-40-40", "pressed-at-40-40", "focus"]
+
+[[group]]
+name = "disabled"
+matrix = { size = ["xsmall", "small", "medium"] }
+states = ["disabled"]
+
+# Leading Content: text at the bar's text size before the commands.
+[[group]]
+name = "content"
+params = { content = "Files" }
+matrix = { size = ["xsmall", "small", "medium"] }

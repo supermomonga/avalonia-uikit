@@ -8,7 +8,7 @@ use std::{fmt::Write as _, path::Path};
 use tiny_skia_path::PathSegment;
 
 /// The icons the themes draw, by GPUI IconName file name.
-pub const ICONS: [&str; 30] = [
+pub const ICONS: [&str; 33] = [
     "check",
     "minus",
     "plus",
@@ -39,6 +39,9 @@ pub const ICONS: [&str; 30] = [
     "window-maximize",
     "window-restore",
     "window-close",
+    "undo-2",
+    "redo-2",
+    "ellipsis",
 ];
 
 fn outline(svg: &[u8]) -> Result<String> {

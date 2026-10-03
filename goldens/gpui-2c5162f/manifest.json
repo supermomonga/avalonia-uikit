@@ -66344,6 +66344,1380 @@
       "png_sha256": "f7dc2ba67f3b17341e6ce4c126e16822a43cf8a667729e36884710dba524149f"
     },
     {
+      "id": "toolbar/bar.medium.checked/normal/dark",
+      "component": "toolbar",
+      "group": "bar",
+      "params": {
+        "size": "medium",
+        "checked": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        80.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        222.0,
+        48.0
+      ],
+      "png": "png/toolbar/bar.medium.checked/normal/dark.png",
+      "scene": "scenes/toolbar/bar.medium.checked/normal/dark.json",
+      "png_sha256": "ecf7ef2c110a49b323fc77ffb9581f79c99cefc87239a0e79403d19693d0b355"
+    },
+    {
+      "id": "toolbar/bar.medium.checked/normal/light",
+      "component": "toolbar",
+      "group": "bar",
+      "params": {
+        "size": "medium",
+        "checked": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        80.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        222.0,
+        48.0
+      ],
+      "png": "png/toolbar/bar.medium.checked/normal/light.png",
+      "scene": "scenes/toolbar/bar.medium.checked/normal/light.json",
+      "png_sha256": "96e59b97dc7e55946e92390f7610252fd5c7de1213c0feb4ec44df3713a3aaa3"
+    },
+    {
+      "id": "toolbar/bar.medium/normal/dark",
+      "component": "toolbar",
+      "group": "bar",
+      "params": {
+        "size": "medium",
+        "checked": false
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        80.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        222.0,
+        48.0
+      ],
+      "png": "png/toolbar/bar.medium/normal/dark.png",
+      "scene": "scenes/toolbar/bar.medium/normal/dark.json",
+      "png_sha256": "eb6bab061ee8c0e1262c2d75adacde7c740678ed9c0f3a5b63b661ae45333621"
+    },
+    {
+      "id": "toolbar/bar.medium/normal/light",
+      "component": "toolbar",
+      "group": "bar",
+      "params": {
+        "size": "medium",
+        "checked": false
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        80.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        222.0,
+        48.0
+      ],
+      "png": "png/toolbar/bar.medium/normal/light.png",
+      "scene": "scenes/toolbar/bar.medium/normal/light.json",
+      "png_sha256": "7ba3051a6a3be8e49a6ab1982c71befab1400ddd10c710f8ed7333af888b1d62"
+    },
+    {
+      "id": "toolbar/bar.small.checked/normal/dark",
+      "component": "toolbar",
+      "group": "bar",
+      "params": {
+        "size": "small",
+        "checked": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        80.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        160.0,
+        32.0
+      ],
+      "png": "png/toolbar/bar.small.checked/normal/dark.png",
+      "scene": "scenes/toolbar/bar.small.checked/normal/dark.json",
+      "png_sha256": "157abc7fee274c476e107471e8e6cece46795695b26b39610991254bc00962d5"
+    },
+    {
+      "id": "toolbar/bar.small.checked/normal/light",
+      "component": "toolbar",
+      "group": "bar",
+      "params": {
+        "size": "small",
+        "checked": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        80.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        160.0,
+        32.0
+      ],
+      "png": "png/toolbar/bar.small.checked/normal/light.png",
+      "scene": "scenes/toolbar/bar.small.checked/normal/light.json",
+      "png_sha256": "0499c5489528d61a78eac5f5ab5e3278f46d2943f802066932f04d9cfb7f7afe"
+    },
+    {
+      "id": "toolbar/bar.small/normal/dark",
+      "component": "toolbar",
+      "group": "bar",
+      "params": {
+        "size": "small",
+        "checked": false
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        80.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        160.0,
+        32.0
+      ],
+      "png": "png/toolbar/bar.small/normal/dark.png",
+      "scene": "scenes/toolbar/bar.small/normal/dark.json",
+      "png_sha256": "77990e4da6fcff0d59cd00488518761f0cf3ce7984e0dcb45d5ea343b380dad7"
+    },
+    {
+      "id": "toolbar/bar.small/normal/light",
+      "component": "toolbar",
+      "group": "bar",
+      "params": {
+        "size": "small",
+        "checked": false
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        80.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        160.0,
+        32.0
+      ],
+      "png": "png/toolbar/bar.small/normal/light.png",
+      "scene": "scenes/toolbar/bar.small/normal/light.json",
+      "png_sha256": "dfac9f00f7af1efe62a0cdd154fc85d5f4bcf2a0fc93c51f05795d70e0fff4d9"
+    },
+    {
+      "id": "toolbar/bar.xsmall.checked/normal/dark",
+      "component": "toolbar",
+      "group": "bar",
+      "params": {
+        "size": "xsmall",
+        "checked": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        80.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        138.0,
+        28.0
+      ],
+      "png": "png/toolbar/bar.xsmall.checked/normal/dark.png",
+      "scene": "scenes/toolbar/bar.xsmall.checked/normal/dark.json",
+      "png_sha256": "be666637ac9b20618f71b967de9fab77decda3f527b8a6cee2cdfe574e603689"
+    },
+    {
+      "id": "toolbar/bar.xsmall.checked/normal/light",
+      "component": "toolbar",
+      "group": "bar",
+      "params": {
+        "size": "xsmall",
+        "checked": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        80.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        138.0,
+        28.0
+      ],
+      "png": "png/toolbar/bar.xsmall.checked/normal/light.png",
+      "scene": "scenes/toolbar/bar.xsmall.checked/normal/light.json",
+      "png_sha256": "77229e3a58c6419b47ab2c1b690533935f050f4e440e88a9d0aaad2b3b92dfde"
+    },
+    {
+      "id": "toolbar/bar.xsmall/normal/dark",
+      "component": "toolbar",
+      "group": "bar",
+      "params": {
+        "size": "xsmall",
+        "checked": false
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        80.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        138.0,
+        28.0
+      ],
+      "png": "png/toolbar/bar.xsmall/normal/dark.png",
+      "scene": "scenes/toolbar/bar.xsmall/normal/dark.json",
+      "png_sha256": "6968f49c46d8f3a5fa4ee470f5ec891f3aea6e6a1e73a9eee03c8e6f370a5d11"
+    },
+    {
+      "id": "toolbar/bar.xsmall/normal/light",
+      "component": "toolbar",
+      "group": "bar",
+      "params": {
+        "size": "xsmall",
+        "checked": false
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        80.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        138.0,
+        28.0
+      ],
+      "png": "png/toolbar/bar.xsmall/normal/light.png",
+      "scene": "scenes/toolbar/bar.xsmall/normal/light.json",
+      "png_sha256": "c4b4b76144b8eb3fbd8d5676f7eb0cb3015b65fa35b9451415fe281eac57865f"
+    },
+    {
+      "id": "toolbar/content.medium/normal/dark",
+      "component": "toolbar",
+      "group": "content",
+      "params": {
+        "content": "Files",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        80.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        261.0,
+        48.0
+      ],
+      "png": "png/toolbar/content.medium/normal/dark.png",
+      "scene": "scenes/toolbar/content.medium/normal/dark.json",
+      "png_sha256": "707b8092658f842d5a7e9250d536a11c60e54cb57fd78dfe854d12c6c4e82d2f"
+    },
+    {
+      "id": "toolbar/content.medium/normal/light",
+      "component": "toolbar",
+      "group": "content",
+      "params": {
+        "content": "Files",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        80.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        261.0,
+        48.0
+      ],
+      "png": "png/toolbar/content.medium/normal/light.png",
+      "scene": "scenes/toolbar/content.medium/normal/light.json",
+      "png_sha256": "9be28557d13c2d02a0d47d0db70129b0b5ac097174249e84bb452c75cfc204b0"
+    },
+    {
+      "id": "toolbar/content.small/normal/dark",
+      "component": "toolbar",
+      "group": "content",
+      "params": {
+        "content": "Files",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        80.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        195.0,
+        32.0
+      ],
+      "png": "png/toolbar/content.small/normal/dark.png",
+      "scene": "scenes/toolbar/content.small/normal/dark.json",
+      "png_sha256": "4cfcabc0e9adc127d3ff86900ea06e1915c1e14831e3ea1be45b1b82cbff2e9c"
+    },
+    {
+      "id": "toolbar/content.small/normal/light",
+      "component": "toolbar",
+      "group": "content",
+      "params": {
+        "content": "Files",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        80.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        195.0,
+        32.0
+      ],
+      "png": "png/toolbar/content.small/normal/light.png",
+      "scene": "scenes/toolbar/content.small/normal/light.json",
+      "png_sha256": "f3616c299bb2ec630cdfadbd13c0211f57368bb8adf0a4c49b7ba0b812ee6cb7"
+    },
+    {
+      "id": "toolbar/content.xsmall/normal/dark",
+      "component": "toolbar",
+      "group": "content",
+      "params": {
+        "content": "Files",
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        80.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        169.0,
+        28.0
+      ],
+      "png": "png/toolbar/content.xsmall/normal/dark.png",
+      "scene": "scenes/toolbar/content.xsmall/normal/dark.json",
+      "png_sha256": "980855c50b239cd3f7e7c074ec04350e4eab1152a45362636e87e4d77a891eea"
+    },
+    {
+      "id": "toolbar/content.xsmall/normal/light",
+      "component": "toolbar",
+      "group": "content",
+      "params": {
+        "content": "Files",
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        80.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        169.0,
+        28.0
+      ],
+      "png": "png/toolbar/content.xsmall/normal/light.png",
+      "scene": "scenes/toolbar/content.xsmall/normal/light.json",
+      "png_sha256": "4875f959fab587194e7eb76cd581fe85d93400e1c1d08367dd698e373606dbaf"
+    },
+    {
+      "id": "toolbar/disabled.medium/disabled/dark",
+      "component": "toolbar",
+      "group": "disabled",
+      "params": {
+        "size": "medium",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        80.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        222.0,
+        48.0
+      ],
+      "png": "png/toolbar/disabled.medium/disabled/dark.png",
+      "scene": "scenes/toolbar/disabled.medium/disabled/dark.json",
+      "png_sha256": "f9923bbf9baab6cad68da4f23d595fc2d704d84019a9b6e8f4cd56b9958eab60"
+    },
+    {
+      "id": "toolbar/disabled.medium/disabled/light",
+      "component": "toolbar",
+      "group": "disabled",
+      "params": {
+        "size": "medium",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        80.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        222.0,
+        48.0
+      ],
+      "png": "png/toolbar/disabled.medium/disabled/light.png",
+      "scene": "scenes/toolbar/disabled.medium/disabled/light.json",
+      "png_sha256": "71aeb4671d891e1413f2f6aa9bb76c199414acab66d08282b028aade69a40a1e"
+    },
+    {
+      "id": "toolbar/disabled.small/disabled/dark",
+      "component": "toolbar",
+      "group": "disabled",
+      "params": {
+        "size": "small",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        80.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        160.0,
+        32.0
+      ],
+      "png": "png/toolbar/disabled.small/disabled/dark.png",
+      "scene": "scenes/toolbar/disabled.small/disabled/dark.json",
+      "png_sha256": "11597935b5dde6c5d2a4fbcb5f8b561d24decb9824988a9607f58500317704ea"
+    },
+    {
+      "id": "toolbar/disabled.small/disabled/light",
+      "component": "toolbar",
+      "group": "disabled",
+      "params": {
+        "size": "small",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        80.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        160.0,
+        32.0
+      ],
+      "png": "png/toolbar/disabled.small/disabled/light.png",
+      "scene": "scenes/toolbar/disabled.small/disabled/light.json",
+      "png_sha256": "af30e8bd4c5e8a5a2bae8f5861811fd37ed7bb0d32f6021837e71e3c00c93f46"
+    },
+    {
+      "id": "toolbar/disabled.xsmall/disabled/dark",
+      "component": "toolbar",
+      "group": "disabled",
+      "params": {
+        "size": "xsmall",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        80.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        138.0,
+        28.0
+      ],
+      "png": "png/toolbar/disabled.xsmall/disabled/dark.png",
+      "scene": "scenes/toolbar/disabled.xsmall/disabled/dark.json",
+      "png_sha256": "07252150c094665c759e2dd36cd09611367047da5f714554f64f8922d6b600c2"
+    },
+    {
+      "id": "toolbar/disabled.xsmall/disabled/light",
+      "component": "toolbar",
+      "group": "disabled",
+      "params": {
+        "size": "xsmall",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        80.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        138.0,
+        28.0
+      ],
+      "png": "png/toolbar/disabled.xsmall/disabled/light.png",
+      "scene": "scenes/toolbar/disabled.xsmall/disabled/light.json",
+      "png_sha256": "781a1bff1f015b61e445a656cf92027ca83ede72205386875688c78bc20053fd"
+    },
+    {
+      "id": "toolbar/medium.base/at-40-40/dark",
+      "component": "toolbar",
+      "group": "medium",
+      "params": {
+        "size": "medium"
+      },
+      "state": "at-40-40",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        80.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        222.0,
+        48.0
+      ],
+      "png": "png/toolbar/medium.base/at-40-40/dark.png",
+      "scene": "scenes/toolbar/medium.base/at-40-40/dark.json",
+      "png_sha256": "7cb541f64d1f7083f2d974d45db20fe9bad41c12d78add6eae2a6b2a968de0e3"
+    },
+    {
+      "id": "toolbar/medium.base/at-40-40/light",
+      "component": "toolbar",
+      "group": "medium",
+      "params": {
+        "size": "medium"
+      },
+      "state": "at-40-40",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        80.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        222.0,
+        48.0
+      ],
+      "png": "png/toolbar/medium.base/at-40-40/light.png",
+      "scene": "scenes/toolbar/medium.base/at-40-40/light.json",
+      "png_sha256": "d2136d0e4151bd5b50274416b4a11ee9d13121be36336e9533d77383c922c493"
+    },
+    {
+      "id": "toolbar/medium.base/focus/dark",
+      "component": "toolbar",
+      "group": "medium",
+      "params": {
+        "size": "medium"
+      },
+      "state": "focus",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        80.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        222.0,
+        48.0
+      ],
+      "png": "png/toolbar/medium.base/focus/dark.png",
+      "scene": "scenes/toolbar/medium.base/focus/dark.json",
+      "png_sha256": "ca6573521b9fa9ef1c0a686568bf6259d923da0d8407eba54b30b14cc34cf2da"
+    },
+    {
+      "id": "toolbar/medium.base/focus/light",
+      "component": "toolbar",
+      "group": "medium",
+      "params": {
+        "size": "medium"
+      },
+      "state": "focus",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        80.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        222.0,
+        48.0
+      ],
+      "png": "png/toolbar/medium.base/focus/light.png",
+      "scene": "scenes/toolbar/medium.base/focus/light.json",
+      "png_sha256": "edbf4862eec3246cbb8f1b9533776ba64ccfc76e1151f5436c38ff7ba16daa39"
+    },
+    {
+      "id": "toolbar/medium.base/pressed-at-40-40/dark",
+      "component": "toolbar",
+      "group": "medium",
+      "params": {
+        "size": "medium"
+      },
+      "state": "pressed-at-40-40",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        80.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        222.0,
+        48.0
+      ],
+      "png": "png/toolbar/medium.base/pressed-at-40-40/dark.png",
+      "scene": "scenes/toolbar/medium.base/pressed-at-40-40/dark.json",
+      "png_sha256": "2b84374b6f3c4228167c9ecbd7eb5845cb09ee37cf09655aa3ddb503fb552c21"
+    },
+    {
+      "id": "toolbar/medium.base/pressed-at-40-40/light",
+      "component": "toolbar",
+      "group": "medium",
+      "params": {
+        "size": "medium"
+      },
+      "state": "pressed-at-40-40",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        80.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        222.0,
+        48.0
+      ],
+      "png": "png/toolbar/medium.base/pressed-at-40-40/light.png",
+      "scene": "scenes/toolbar/medium.base/pressed-at-40-40/light.json",
+      "png_sha256": "530348d51873806348f3909c4ce9a26b97c392a2f3ddbbc098c015795d3a6e53"
+    },
+    {
+      "id": "toolbar/small.base/at-100-32/dark",
+      "component": "toolbar",
+      "group": "small",
+      "params": {
+        "size": "small"
+      },
+      "state": "at-100-32",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        80.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        160.0,
+        32.0
+      ],
+      "png": "png/toolbar/small.base/at-100-32/dark.png",
+      "scene": "scenes/toolbar/small.base/at-100-32/dark.json",
+      "png_sha256": "26b1e785a1ec4decf2daba53eb892b8de4a03a5544ac97959c2faf446d882bb1"
+    },
+    {
+      "id": "toolbar/small.base/at-100-32/light",
+      "component": "toolbar",
+      "group": "small",
+      "params": {
+        "size": "small"
+      },
+      "state": "at-100-32",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        80.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        160.0,
+        32.0
+      ],
+      "png": "png/toolbar/small.base/at-100-32/light.png",
+      "scene": "scenes/toolbar/small.base/at-100-32/light.json",
+      "png_sha256": "ea57d8d316bd12768add08e95d0d1aa336be1e8b57f7dd48725d047c4369e0aa"
+    },
+    {
+      "id": "toolbar/small.base/at-160-32/dark",
+      "component": "toolbar",
+      "group": "small",
+      "params": {
+        "size": "small"
+      },
+      "state": "at-160-32",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        80.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        160.0,
+        32.0
+      ],
+      "png": "png/toolbar/small.base/at-160-32/dark.png",
+      "scene": "scenes/toolbar/small.base/at-160-32/dark.json",
+      "png_sha256": "157abc7fee274c476e107471e8e6cece46795695b26b39610991254bc00962d5"
+    },
+    {
+      "id": "toolbar/small.base/at-160-32/light",
+      "component": "toolbar",
+      "group": "small",
+      "params": {
+        "size": "small"
+      },
+      "state": "at-160-32",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        80.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        160.0,
+        32.0
+      ],
+      "png": "png/toolbar/small.base/at-160-32/light.png",
+      "scene": "scenes/toolbar/small.base/at-160-32/light.json",
+      "png_sha256": "0499c5489528d61a78eac5f5ab5e3278f46d2943f802066932f04d9cfb7f7afe"
+    },
+    {
+      "id": "toolbar/small.base/at-32-32/dark",
+      "component": "toolbar",
+      "group": "small",
+      "params": {
+        "size": "small"
+      },
+      "state": "at-32-32",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        80.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        160.0,
+        32.0
+      ],
+      "png": "png/toolbar/small.base/at-32-32/dark.png",
+      "scene": "scenes/toolbar/small.base/at-32-32/dark.json",
+      "png_sha256": "13024c8516ed86a4dd8b8380350b58105c7a81d7d1fc8b997d5cd9ff10ddf1ea"
+    },
+    {
+      "id": "toolbar/small.base/at-32-32/light",
+      "component": "toolbar",
+      "group": "small",
+      "params": {
+        "size": "small"
+      },
+      "state": "at-32-32",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        80.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        160.0,
+        32.0
+      ],
+      "png": "png/toolbar/small.base/at-32-32/light.png",
+      "scene": "scenes/toolbar/small.base/at-32-32/light.json",
+      "png_sha256": "b089d5cd4544c3a9e5ebb97f401e4db655f1b45f2caece5eefb6917dcefa6ab7"
+    },
+    {
+      "id": "toolbar/small.base/focus+key-right/dark",
+      "component": "toolbar",
+      "group": "small",
+      "params": {
+        "size": "small"
+      },
+      "state": "focus+key-right",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        80.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        160.0,
+        32.0
+      ],
+      "png": "png/toolbar/small.base/focus+key-right/dark.png",
+      "scene": "scenes/toolbar/small.base/focus+key-right/dark.json",
+      "png_sha256": "3e21b0a82ed6219838aff03ba5fe8782e7eaf9ff24056ccb36108c3b8163eb7b"
+    },
+    {
+      "id": "toolbar/small.base/focus+key-right/light",
+      "component": "toolbar",
+      "group": "small",
+      "params": {
+        "size": "small"
+      },
+      "state": "focus+key-right",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        80.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        160.0,
+        32.0
+      ],
+      "png": "png/toolbar/small.base/focus+key-right/light.png",
+      "scene": "scenes/toolbar/small.base/focus+key-right/light.json",
+      "png_sha256": "998269f0c23e22300a91cb573eb37241ad2102301e69dbb400c3d5334dfdbc7b"
+    },
+    {
+      "id": "toolbar/small.base/focus/dark",
+      "component": "toolbar",
+      "group": "small",
+      "params": {
+        "size": "small"
+      },
+      "state": "focus",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        80.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        160.0,
+        32.0
+      ],
+      "png": "png/toolbar/small.base/focus/dark.png",
+      "scene": "scenes/toolbar/small.base/focus/dark.json",
+      "png_sha256": "43eca35e4019a82baa335fea5ea84bc3271cbc71879c7a36f8431636274f4c5c"
+    },
+    {
+      "id": "toolbar/small.base/focus/light",
+      "component": "toolbar",
+      "group": "small",
+      "params": {
+        "size": "small"
+      },
+      "state": "focus",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        80.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        160.0,
+        32.0
+      ],
+      "png": "png/toolbar/small.base/focus/light.png",
+      "scene": "scenes/toolbar/small.base/focus/light.json",
+      "png_sha256": "dac81789b09b7eee8fce170d5aed868fbde6d43eb2c5a015b51eb7100875caba"
+    },
+    {
+      "id": "toolbar/small.base/pressed-at-100-32/dark",
+      "component": "toolbar",
+      "group": "small",
+      "params": {
+        "size": "small"
+      },
+      "state": "pressed-at-100-32",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        80.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        160.0,
+        32.0
+      ],
+      "png": "png/toolbar/small.base/pressed-at-100-32/dark.png",
+      "scene": "scenes/toolbar/small.base/pressed-at-100-32/dark.json",
+      "png_sha256": "2c4b85d5036ff78f038ecc1e76f1bb17acc577367264e7fd149a47b71b87a507"
+    },
+    {
+      "id": "toolbar/small.base/pressed-at-100-32/light",
+      "component": "toolbar",
+      "group": "small",
+      "params": {
+        "size": "small"
+      },
+      "state": "pressed-at-100-32",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        80.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        160.0,
+        32.0
+      ],
+      "png": "png/toolbar/small.base/pressed-at-100-32/light.png",
+      "scene": "scenes/toolbar/small.base/pressed-at-100-32/light.json",
+      "png_sha256": "cf3efcbab12a9c7b9b7e6f75471dfd80b7d7e8bbc6496cbb3538d1585e6c0c10"
+    },
+    {
+      "id": "toolbar/small.base/pressed-at-32-32/dark",
+      "component": "toolbar",
+      "group": "small",
+      "params": {
+        "size": "small"
+      },
+      "state": "pressed-at-32-32",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        80.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        160.0,
+        32.0
+      ],
+      "png": "png/toolbar/small.base/pressed-at-32-32/dark.png",
+      "scene": "scenes/toolbar/small.base/pressed-at-32-32/dark.json",
+      "png_sha256": "7495fe57afc621f36de024cbbd9c6a47778201391c230ad982ab02bf440604b4"
+    },
+    {
+      "id": "toolbar/small.base/pressed-at-32-32/light",
+      "component": "toolbar",
+      "group": "small",
+      "params": {
+        "size": "small"
+      },
+      "state": "pressed-at-32-32",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        80.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        160.0,
+        32.0
+      ],
+      "png": "png/toolbar/small.base/pressed-at-32-32/light.png",
+      "scene": "scenes/toolbar/small.base/pressed-at-32-32/light.json",
+      "png_sha256": "29d8461e40c78606207f0e9b9eefa55d969b01599cc1b1066088165b9333b9aa"
+    },
+    {
+      "id": "toolbar/xsmall.base/at-30-30/dark",
+      "component": "toolbar",
+      "group": "xsmall",
+      "params": {
+        "size": "xsmall"
+      },
+      "state": "at-30-30",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        80.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        138.0,
+        28.0
+      ],
+      "png": "png/toolbar/xsmall.base/at-30-30/dark.png",
+      "scene": "scenes/toolbar/xsmall.base/at-30-30/dark.json",
+      "png_sha256": "bf48a74bb53dcff4cc080a2957502277eccfeeb1079e39582d7c6816aa142522"
+    },
+    {
+      "id": "toolbar/xsmall.base/at-30-30/light",
+      "component": "toolbar",
+      "group": "xsmall",
+      "params": {
+        "size": "xsmall"
+      },
+      "state": "at-30-30",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        80.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        138.0,
+        28.0
+      ],
+      "png": "png/toolbar/xsmall.base/at-30-30/light.png",
+      "scene": "scenes/toolbar/xsmall.base/at-30-30/light.json",
+      "png_sha256": "1cfa2ac87daf7891bf8b3bf59fca0113c448abfbee549559fa07e2adf2b60ba9"
+    },
+    {
+      "id": "toolbar/xsmall.base/focus/dark",
+      "component": "toolbar",
+      "group": "xsmall",
+      "params": {
+        "size": "xsmall"
+      },
+      "state": "focus",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        80.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        138.0,
+        28.0
+      ],
+      "png": "png/toolbar/xsmall.base/focus/dark.png",
+      "scene": "scenes/toolbar/xsmall.base/focus/dark.json",
+      "png_sha256": "2bccf2bb1853fd79d06585f8ad9c97b91bc9849b411f54bc6ad5af10c5e19626"
+    },
+    {
+      "id": "toolbar/xsmall.base/focus/light",
+      "component": "toolbar",
+      "group": "xsmall",
+      "params": {
+        "size": "xsmall"
+      },
+      "state": "focus",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        80.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        138.0,
+        28.0
+      ],
+      "png": "png/toolbar/xsmall.base/focus/light.png",
+      "scene": "scenes/toolbar/xsmall.base/focus/light.json",
+      "png_sha256": "62ac65638edfa5de40de5e15cc1f02e3027e503d48c17094a4e9797d3e7f2165"
+    },
+    {
+      "id": "toolbar/xsmall.base/pressed-at-30-30/dark",
+      "component": "toolbar",
+      "group": "xsmall",
+      "params": {
+        "size": "xsmall"
+      },
+      "state": "pressed-at-30-30",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        80.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        138.0,
+        28.0
+      ],
+      "png": "png/toolbar/xsmall.base/pressed-at-30-30/dark.png",
+      "scene": "scenes/toolbar/xsmall.base/pressed-at-30-30/dark.json",
+      "png_sha256": "2d51733323fd78977c899f1c672f611fcfb983cdc3cc16f3f216b449174cf396"
+    },
+    {
+      "id": "toolbar/xsmall.base/pressed-at-30-30/light",
+      "component": "toolbar",
+      "group": "xsmall",
+      "params": {
+        "size": "xsmall"
+      },
+      "state": "pressed-at-30-30",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        80.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        138.0,
+        28.0
+      ],
+      "png": "png/toolbar/xsmall.base/pressed-at-30-30/light.png",
+      "scene": "scenes/toolbar/xsmall.base/pressed-at-30-30/light.json",
+      "png_sha256": "1b926eb38e6579c08a3680ab4a16876a5e69b2b1055cda431114f27b2c38d691"
+    },
+    {
       "id": "tooltip/motion.enter/wait-1ms/light",
       "component": "tooltip",
       "group": "motion.enter",
