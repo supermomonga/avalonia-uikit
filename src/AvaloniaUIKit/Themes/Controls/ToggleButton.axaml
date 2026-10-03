@@ -1,0 +1,81 @@
+<!--
+  GPUI Kit Toggle -> ToggleButton (crates/component/src/button/toggle.rs).
+  Classes: outline (ghost is the default); xsmall small large.
+  Checked and hovered toggles show the accent; a toggle draws no focus ring.
+-->
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ControlTheme x:Key="{x:Type ToggleButton}" TargetType="ToggleButton">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Border}" />
+    <Setter Property="BorderThickness" Value="0" />
+    <Setter Property="CornerRadius" Value="6" />
+    <!-- Size::Medium: min_w_8 h_8 px_2 text_sm. -->
+    <Setter Property="Height" Value="32" />
+    <Setter Property="MinWidth" Value="32" />
+    <Setter Property="Padding" Value="8,0" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="HorizontalContentAlignment" Value="Center" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <ContentPresenter Name="PART_ContentPresenter"
+                          BackgroundSizing="OuterBorderEdge"
+                          Background="{TemplateBinding Background}"
+                          BorderBrush="{TemplateBinding BorderBrush}"
+                          BorderThickness="{TemplateBinding BorderThickness}"
+                          CornerRadius="{TemplateBinding CornerRadius}"
+                          Padding="{TemplateBinding Padding}"
+                          Content="{TemplateBinding Content}"
+                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                          HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                          Foreground="{TemplateBinding Foreground}"
+                          LineHeight="17.5"
+                          TextWrapping="NoWrap"
+                          RecognizesAccessKey="True" />
+      </ControlTemplate>
+    </Setter>
+
+    <Style Selector="^.xsmall">
+      <Setter Property="Height" Value="20" />
+      <Setter Property="MinWidth" Value="20" />
+      <Setter Property="Padding" Value="2,0" />
+      <Setter Property="FontSize" Value="12" />
+    </Style>
+    <Style Selector="^.xsmall /template/ ContentPresenter#PART_ContentPresenter">
+      <Setter Property="LineHeight" Value="15" />
+    </Style>
+    <Style Selector="^.small">
+      <Setter Property="Height" Value="24" />
+      <Setter Property="MinWidth" Value="24" />
+      <Setter Property="Padding" Value="4,0" />
+    </Style>
+    <Style Selector="^.large">
+      <Setter Property="Height" Value="36" />
+      <Setter Property="MinWidth" Value="36" />
+      <Setter Property="Padding" Value="12,0" />
+      <Setter Property="FontSize" Value="16" />
+    </Style>
+    <Style Selector="^.large /template/ ContentPresenter#PART_ContentPresenter">
+      <Setter Property="LineHeight" Value="20" />
+    </Style>
+
+    <!-- ToggleVariant::Outline: a 1px border and the background token. -->
+    <Style Selector="^.outline">
+      <Setter Property="BorderThickness" Value="1" />
+      <Setter Property="CornerRadius" Value="5.5" />
+      <Setter Property="Background" Value="{DynamicResource Gpui.Background}" />
+    </Style>
+
+    <Style Selector="^:pointerover">
+      <Setter Property="Background" Value="{DynamicResource Gpui.Accent}" />
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.AccentForeground}" />
+    </Style>
+    <Style Selector="^:checked">
+      <Setter Property="Background" Value="{DynamicResource Gpui.Accent}" />
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.AccentForeground}" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

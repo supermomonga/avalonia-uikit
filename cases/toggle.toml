@@ -1,0 +1,16 @@
+# GPUI Kit Toggle -> ToggleButton.
+component = "toggle"
+viewport = [96, 52]
+anchor = [16, 8]
+
+[[group]]
+name = "label"
+params = { label = "Bold" }
+matrix = { variant = ["ghost", "outline"], size = ["xsmall", "small", "medium", "large"], checked = [false, true] }
+states = ["normal", "hover", "disabled"]
+
+[[group]]
+name = "icon"
+params = { icon = "check" }
+matrix = { variant = ["ghost", "outline"], size = ["xsmall", "small", "medium", "large"], checked = [false, true] }
+states = ["normal", "hover"]

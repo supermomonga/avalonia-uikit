@@ -11,6 +11,7 @@
         <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Base/Window.axaml" />
         <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Base/Hosts.axaml" />
         <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/Button.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/ToggleButton.axaml" />
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
   </Styles.Resources>
@@ -27,5 +28,19 @@
   <Style Selector="Button.large PathIcon">
     <Setter Property="Width" Value="24" />
     <Setter Property="Height" Value="24" />
+  </Style>
+
+  <!-- A toggle's icon follows its text size (Icon without a size, icon.rs). -->
+  <Style Selector="ToggleButton PathIcon">
+    <Setter Property="Width" Value="14" />
+    <Setter Property="Height" Value="14" />
+  </Style>
+  <Style Selector="ToggleButton.xsmall PathIcon">
+    <Setter Property="Width" Value="12" />
+    <Setter Property="Height" Value="12" />
+  </Style>
+  <Style Selector="ToggleButton.large PathIcon">
+    <Setter Property="Width" Value="16" />
+    <Setter Property="Height" Value="16" />
   </Style>
 </Styles>

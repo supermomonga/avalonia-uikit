@@ -13,12 +13,14 @@ use std::time::Duration;
 
 mod button;
 mod surface;
+mod toggle;
 
 pub fn builder(case: &Case) -> Result<Builder> {
     let params = effective_params(case);
     match case.component.as_str() {
         "surface" => surface::builder(&params),
         "button" => button::builder(&params),
+        "toggle" => toggle::builder(&params),
         other => bail!("unknown component {other}"),
     }
 }

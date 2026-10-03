@@ -21285,6 +21285,4838 @@
       "png": "png/surface/base/normal/light.png",
       "scene": "scenes/surface/base/normal/light.json",
       "png_sha256": "814d6895ff1f9a891e99ac088478c1b1fe4108f60501233d041ebd5802db791d"
+    },
+    {
+      "id": "toggle/icon.ghost.large.checked/hover/dark",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "ghost",
+        "size": "large",
+        "checked": true
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        40.0,
+        36.0
+      ],
+      "png": "png/toggle/icon.ghost.large.checked/hover/dark.png",
+      "scene": "scenes/toggle/icon.ghost.large.checked/hover/dark.json",
+      "png_sha256": "86742927bd10a59d9ef22bc61425b2c1e1dc4cde2f42d517de38b22d13cd7593"
+    },
+    {
+      "id": "toggle/icon.ghost.large.checked/hover/light",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "ghost",
+        "size": "large",
+        "checked": true
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        40.0,
+        36.0
+      ],
+      "png": "png/toggle/icon.ghost.large.checked/hover/light.png",
+      "scene": "scenes/toggle/icon.ghost.large.checked/hover/light.json",
+      "png_sha256": "c537c3d8092dea9d801f767e0775a44a580d0514a903367d3c7518eea1b0e096"
+    },
+    {
+      "id": "toggle/icon.ghost.large.checked/normal/dark",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "ghost",
+        "size": "large",
+        "checked": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        40.0,
+        36.0
+      ],
+      "png": "png/toggle/icon.ghost.large.checked/normal/dark.png",
+      "scene": "scenes/toggle/icon.ghost.large.checked/normal/dark.json",
+      "png_sha256": "86742927bd10a59d9ef22bc61425b2c1e1dc4cde2f42d517de38b22d13cd7593"
+    },
+    {
+      "id": "toggle/icon.ghost.large.checked/normal/light",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "ghost",
+        "size": "large",
+        "checked": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        40.0,
+        36.0
+      ],
+      "png": "png/toggle/icon.ghost.large.checked/normal/light.png",
+      "scene": "scenes/toggle/icon.ghost.large.checked/normal/light.json",
+      "png_sha256": "c537c3d8092dea9d801f767e0775a44a580d0514a903367d3c7518eea1b0e096"
+    },
+    {
+      "id": "toggle/icon.ghost.large/hover/dark",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "ghost",
+        "size": "large",
+        "checked": false
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        40.0,
+        36.0
+      ],
+      "png": "png/toggle/icon.ghost.large/hover/dark.png",
+      "scene": "scenes/toggle/icon.ghost.large/hover/dark.json",
+      "png_sha256": "86742927bd10a59d9ef22bc61425b2c1e1dc4cde2f42d517de38b22d13cd7593"
+    },
+    {
+      "id": "toggle/icon.ghost.large/hover/light",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "ghost",
+        "size": "large",
+        "checked": false
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        40.0,
+        36.0
+      ],
+      "png": "png/toggle/icon.ghost.large/hover/light.png",
+      "scene": "scenes/toggle/icon.ghost.large/hover/light.json",
+      "png_sha256": "c537c3d8092dea9d801f767e0775a44a580d0514a903367d3c7518eea1b0e096"
+    },
+    {
+      "id": "toggle/icon.ghost.large/normal/dark",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "ghost",
+        "size": "large",
+        "checked": false
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        40.0,
+        36.0
+      ],
+      "png": "png/toggle/icon.ghost.large/normal/dark.png",
+      "scene": "scenes/toggle/icon.ghost.large/normal/dark.json",
+      "png_sha256": "f8f90ac2fda3628f96be8303cd22166c218e39c15b5f7f419d77af6d5940b2b9"
+    },
+    {
+      "id": "toggle/icon.ghost.large/normal/light",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "ghost",
+        "size": "large",
+        "checked": false
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        40.0,
+        36.0
+      ],
+      "png": "png/toggle/icon.ghost.large/normal/light.png",
+      "scene": "scenes/toggle/icon.ghost.large/normal/light.json",
+      "png_sha256": "f99ba5ea48aad5f159e600c8d781f24aa80e0c394655e1b37e1a98c15fd1a78c"
+    },
+    {
+      "id": "toggle/icon.ghost.medium.checked/hover/dark",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "ghost",
+        "size": "medium",
+        "checked": true
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        32.0,
+        32.0
+      ],
+      "png": "png/toggle/icon.ghost.medium.checked/hover/dark.png",
+      "scene": "scenes/toggle/icon.ghost.medium.checked/hover/dark.json",
+      "png_sha256": "375f01707983088d8e8c9c3e5bf602998eccb182b6baec546513ed8ad7bc8ec8"
+    },
+    {
+      "id": "toggle/icon.ghost.medium.checked/hover/light",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "ghost",
+        "size": "medium",
+        "checked": true
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        32.0,
+        32.0
+      ],
+      "png": "png/toggle/icon.ghost.medium.checked/hover/light.png",
+      "scene": "scenes/toggle/icon.ghost.medium.checked/hover/light.json",
+      "png_sha256": "bc40bbfebc35001fe7ad9ae994312beb70764b82829e1a02d5cab9d6f9228c11"
+    },
+    {
+      "id": "toggle/icon.ghost.medium.checked/normal/dark",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "ghost",
+        "size": "medium",
+        "checked": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        32.0,
+        32.0
+      ],
+      "png": "png/toggle/icon.ghost.medium.checked/normal/dark.png",
+      "scene": "scenes/toggle/icon.ghost.medium.checked/normal/dark.json",
+      "png_sha256": "375f01707983088d8e8c9c3e5bf602998eccb182b6baec546513ed8ad7bc8ec8"
+    },
+    {
+      "id": "toggle/icon.ghost.medium.checked/normal/light",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "ghost",
+        "size": "medium",
+        "checked": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        32.0,
+        32.0
+      ],
+      "png": "png/toggle/icon.ghost.medium.checked/normal/light.png",
+      "scene": "scenes/toggle/icon.ghost.medium.checked/normal/light.json",
+      "png_sha256": "bc40bbfebc35001fe7ad9ae994312beb70764b82829e1a02d5cab9d6f9228c11"
+    },
+    {
+      "id": "toggle/icon.ghost.medium/hover/dark",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "ghost",
+        "size": "medium",
+        "checked": false
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        32.0,
+        32.0
+      ],
+      "png": "png/toggle/icon.ghost.medium/hover/dark.png",
+      "scene": "scenes/toggle/icon.ghost.medium/hover/dark.json",
+      "png_sha256": "375f01707983088d8e8c9c3e5bf602998eccb182b6baec546513ed8ad7bc8ec8"
+    },
+    {
+      "id": "toggle/icon.ghost.medium/hover/light",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "ghost",
+        "size": "medium",
+        "checked": false
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        32.0,
+        32.0
+      ],
+      "png": "png/toggle/icon.ghost.medium/hover/light.png",
+      "scene": "scenes/toggle/icon.ghost.medium/hover/light.json",
+      "png_sha256": "bc40bbfebc35001fe7ad9ae994312beb70764b82829e1a02d5cab9d6f9228c11"
+    },
+    {
+      "id": "toggle/icon.ghost.medium/normal/dark",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "ghost",
+        "size": "medium",
+        "checked": false
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        32.0,
+        32.0
+      ],
+      "png": "png/toggle/icon.ghost.medium/normal/dark.png",
+      "scene": "scenes/toggle/icon.ghost.medium/normal/dark.json",
+      "png_sha256": "71c002b95efd066c306e59e5164a7b7d24d33d72ca4fb749ea67c82869b72f33"
+    },
+    {
+      "id": "toggle/icon.ghost.medium/normal/light",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "ghost",
+        "size": "medium",
+        "checked": false
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        32.0,
+        32.0
+      ],
+      "png": "png/toggle/icon.ghost.medium/normal/light.png",
+      "scene": "scenes/toggle/icon.ghost.medium/normal/light.json",
+      "png_sha256": "2a120b84dfddf34263a9f8dae1ec66982ae5b1a885302a76185b99966647e553"
+    },
+    {
+      "id": "toggle/icon.ghost.small.checked/hover/dark",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "ghost",
+        "size": "small",
+        "checked": true
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        24.0,
+        24.0
+      ],
+      "png": "png/toggle/icon.ghost.small.checked/hover/dark.png",
+      "scene": "scenes/toggle/icon.ghost.small.checked/hover/dark.json",
+      "png_sha256": "b905e0a448eaff264035325d39ed560e44f74c6f3fb81fab91ae803435febf20"
+    },
+    {
+      "id": "toggle/icon.ghost.small.checked/hover/light",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "ghost",
+        "size": "small",
+        "checked": true
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        24.0,
+        24.0
+      ],
+      "png": "png/toggle/icon.ghost.small.checked/hover/light.png",
+      "scene": "scenes/toggle/icon.ghost.small.checked/hover/light.json",
+      "png_sha256": "808b9489c222e09439cfe025eadf2f815f0df3e063c5fb7c668c8c71dd2152ea"
+    },
+    {
+      "id": "toggle/icon.ghost.small.checked/normal/dark",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "ghost",
+        "size": "small",
+        "checked": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        24.0,
+        24.0
+      ],
+      "png": "png/toggle/icon.ghost.small.checked/normal/dark.png",
+      "scene": "scenes/toggle/icon.ghost.small.checked/normal/dark.json",
+      "png_sha256": "b905e0a448eaff264035325d39ed560e44f74c6f3fb81fab91ae803435febf20"
+    },
+    {
+      "id": "toggle/icon.ghost.small.checked/normal/light",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "ghost",
+        "size": "small",
+        "checked": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        24.0,
+        24.0
+      ],
+      "png": "png/toggle/icon.ghost.small.checked/normal/light.png",
+      "scene": "scenes/toggle/icon.ghost.small.checked/normal/light.json",
+      "png_sha256": "808b9489c222e09439cfe025eadf2f815f0df3e063c5fb7c668c8c71dd2152ea"
+    },
+    {
+      "id": "toggle/icon.ghost.small/hover/dark",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "ghost",
+        "size": "small",
+        "checked": false
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        24.0,
+        24.0
+      ],
+      "png": "png/toggle/icon.ghost.small/hover/dark.png",
+      "scene": "scenes/toggle/icon.ghost.small/hover/dark.json",
+      "png_sha256": "b905e0a448eaff264035325d39ed560e44f74c6f3fb81fab91ae803435febf20"
+    },
+    {
+      "id": "toggle/icon.ghost.small/hover/light",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "ghost",
+        "size": "small",
+        "checked": false
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        24.0,
+        24.0
+      ],
+      "png": "png/toggle/icon.ghost.small/hover/light.png",
+      "scene": "scenes/toggle/icon.ghost.small/hover/light.json",
+      "png_sha256": "808b9489c222e09439cfe025eadf2f815f0df3e063c5fb7c668c8c71dd2152ea"
+    },
+    {
+      "id": "toggle/icon.ghost.small/normal/dark",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "ghost",
+        "size": "small",
+        "checked": false
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        24.0,
+        24.0
+      ],
+      "png": "png/toggle/icon.ghost.small/normal/dark.png",
+      "scene": "scenes/toggle/icon.ghost.small/normal/dark.json",
+      "png_sha256": "a06941843896415ad4da9f120cd5645c39a53b283fb104cf159470639429fcd0"
+    },
+    {
+      "id": "toggle/icon.ghost.small/normal/light",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "ghost",
+        "size": "small",
+        "checked": false
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        24.0,
+        24.0
+      ],
+      "png": "png/toggle/icon.ghost.small/normal/light.png",
+      "scene": "scenes/toggle/icon.ghost.small/normal/light.json",
+      "png_sha256": "85cf5cb8359270ebf03fd5c07f32e8fbab108e63cb09479b4b1d220ff7cbaf4b"
+    },
+    {
+      "id": "toggle/icon.ghost.xsmall.checked/hover/dark",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "ghost",
+        "size": "xsmall",
+        "checked": true
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        20.0,
+        20.0
+      ],
+      "png": "png/toggle/icon.ghost.xsmall.checked/hover/dark.png",
+      "scene": "scenes/toggle/icon.ghost.xsmall.checked/hover/dark.json",
+      "png_sha256": "ae37b87dcd39a99193e38da8f9312393afea8ea3da70b7670ab10ff9f9b49c33"
+    },
+    {
+      "id": "toggle/icon.ghost.xsmall.checked/hover/light",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "ghost",
+        "size": "xsmall",
+        "checked": true
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        20.0,
+        20.0
+      ],
+      "png": "png/toggle/icon.ghost.xsmall.checked/hover/light.png",
+      "scene": "scenes/toggle/icon.ghost.xsmall.checked/hover/light.json",
+      "png_sha256": "c955c9e8b927267d94cbb046c2b52db42c7a3914a2c3dc07d34180862626646b"
+    },
+    {
+      "id": "toggle/icon.ghost.xsmall.checked/normal/dark",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "ghost",
+        "size": "xsmall",
+        "checked": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        20.0,
+        20.0
+      ],
+      "png": "png/toggle/icon.ghost.xsmall.checked/normal/dark.png",
+      "scene": "scenes/toggle/icon.ghost.xsmall.checked/normal/dark.json",
+      "png_sha256": "ae37b87dcd39a99193e38da8f9312393afea8ea3da70b7670ab10ff9f9b49c33"
+    },
+    {
+      "id": "toggle/icon.ghost.xsmall.checked/normal/light",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "ghost",
+        "size": "xsmall",
+        "checked": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        20.0,
+        20.0
+      ],
+      "png": "png/toggle/icon.ghost.xsmall.checked/normal/light.png",
+      "scene": "scenes/toggle/icon.ghost.xsmall.checked/normal/light.json",
+      "png_sha256": "c955c9e8b927267d94cbb046c2b52db42c7a3914a2c3dc07d34180862626646b"
+    },
+    {
+      "id": "toggle/icon.ghost.xsmall/hover/dark",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "ghost",
+        "size": "xsmall",
+        "checked": false
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        20.0,
+        20.0
+      ],
+      "png": "png/toggle/icon.ghost.xsmall/hover/dark.png",
+      "scene": "scenes/toggle/icon.ghost.xsmall/hover/dark.json",
+      "png_sha256": "ae37b87dcd39a99193e38da8f9312393afea8ea3da70b7670ab10ff9f9b49c33"
+    },
+    {
+      "id": "toggle/icon.ghost.xsmall/hover/light",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "ghost",
+        "size": "xsmall",
+        "checked": false
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        20.0,
+        20.0
+      ],
+      "png": "png/toggle/icon.ghost.xsmall/hover/light.png",
+      "scene": "scenes/toggle/icon.ghost.xsmall/hover/light.json",
+      "png_sha256": "c955c9e8b927267d94cbb046c2b52db42c7a3914a2c3dc07d34180862626646b"
+    },
+    {
+      "id": "toggle/icon.ghost.xsmall/normal/dark",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "ghost",
+        "size": "xsmall",
+        "checked": false
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        20.0,
+        20.0
+      ],
+      "png": "png/toggle/icon.ghost.xsmall/normal/dark.png",
+      "scene": "scenes/toggle/icon.ghost.xsmall/normal/dark.json",
+      "png_sha256": "7e8bdf37cb39e95e60e866d6dc33920688edf5adf0e59d2b12630c2f17411a56"
+    },
+    {
+      "id": "toggle/icon.ghost.xsmall/normal/light",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "ghost",
+        "size": "xsmall",
+        "checked": false
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        20.0,
+        20.0
+      ],
+      "png": "png/toggle/icon.ghost.xsmall/normal/light.png",
+      "scene": "scenes/toggle/icon.ghost.xsmall/normal/light.json",
+      "png_sha256": "9c34cb7114c6c6e001a81d052a14d43bc0f0031d75d1118d2b242d3f66f720cc"
+    },
+    {
+      "id": "toggle/icon.outline.large.checked/hover/dark",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "outline",
+        "size": "large",
+        "checked": true
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        42.0,
+        36.0
+      ],
+      "png": "png/toggle/icon.outline.large.checked/hover/dark.png",
+      "scene": "scenes/toggle/icon.outline.large.checked/hover/dark.json",
+      "png_sha256": "e1523484ddf8975e531d6dca5b51dffbcce7e3ffd1e3d935c45b247b20da3a39"
+    },
+    {
+      "id": "toggle/icon.outline.large.checked/hover/light",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "outline",
+        "size": "large",
+        "checked": true
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        42.0,
+        36.0
+      ],
+      "png": "png/toggle/icon.outline.large.checked/hover/light.png",
+      "scene": "scenes/toggle/icon.outline.large.checked/hover/light.json",
+      "png_sha256": "d1f8cb963f6d56671d828707e3e2e182b49458b2ae8821672f2d48b03345955f"
+    },
+    {
+      "id": "toggle/icon.outline.large.checked/normal/dark",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "outline",
+        "size": "large",
+        "checked": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        42.0,
+        36.0
+      ],
+      "png": "png/toggle/icon.outline.large.checked/normal/dark.png",
+      "scene": "scenes/toggle/icon.outline.large.checked/normal/dark.json",
+      "png_sha256": "e1523484ddf8975e531d6dca5b51dffbcce7e3ffd1e3d935c45b247b20da3a39"
+    },
+    {
+      "id": "toggle/icon.outline.large.checked/normal/light",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "outline",
+        "size": "large",
+        "checked": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        42.0,
+        36.0
+      ],
+      "png": "png/toggle/icon.outline.large.checked/normal/light.png",
+      "scene": "scenes/toggle/icon.outline.large.checked/normal/light.json",
+      "png_sha256": "d1f8cb963f6d56671d828707e3e2e182b49458b2ae8821672f2d48b03345955f"
+    },
+    {
+      "id": "toggle/icon.outline.large/hover/dark",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "outline",
+        "size": "large",
+        "checked": false
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        42.0,
+        36.0
+      ],
+      "png": "png/toggle/icon.outline.large/hover/dark.png",
+      "scene": "scenes/toggle/icon.outline.large/hover/dark.json",
+      "png_sha256": "e1523484ddf8975e531d6dca5b51dffbcce7e3ffd1e3d935c45b247b20da3a39"
+    },
+    {
+      "id": "toggle/icon.outline.large/hover/light",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "outline",
+        "size": "large",
+        "checked": false
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        42.0,
+        36.0
+      ],
+      "png": "png/toggle/icon.outline.large/hover/light.png",
+      "scene": "scenes/toggle/icon.outline.large/hover/light.json",
+      "png_sha256": "d1f8cb963f6d56671d828707e3e2e182b49458b2ae8821672f2d48b03345955f"
+    },
+    {
+      "id": "toggle/icon.outline.large/normal/dark",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "outline",
+        "size": "large",
+        "checked": false
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        42.0,
+        36.0
+      ],
+      "png": "png/toggle/icon.outline.large/normal/dark.png",
+      "scene": "scenes/toggle/icon.outline.large/normal/dark.json",
+      "png_sha256": "96b7870a7efbe22d934cf2edc8e242a83a8a2b3a2feec54c3e90651f3f0f7a6c"
+    },
+    {
+      "id": "toggle/icon.outline.large/normal/light",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "outline",
+        "size": "large",
+        "checked": false
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        42.0,
+        36.0
+      ],
+      "png": "png/toggle/icon.outline.large/normal/light.png",
+      "scene": "scenes/toggle/icon.outline.large/normal/light.json",
+      "png_sha256": "7c026e32d7e88b39601176ab8f5a6e7828842a8dae96a00d8924ac23733fc88c"
+    },
+    {
+      "id": "toggle/icon.outline.medium.checked/hover/dark",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "outline",
+        "size": "medium",
+        "checked": true
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        32.0,
+        32.0
+      ],
+      "png": "png/toggle/icon.outline.medium.checked/hover/dark.png",
+      "scene": "scenes/toggle/icon.outline.medium.checked/hover/dark.json",
+      "png_sha256": "a436a79dc1756793c53e09edba06d02a0aee3eebf31d418b7cca23539ba372b5"
+    },
+    {
+      "id": "toggle/icon.outline.medium.checked/hover/light",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "outline",
+        "size": "medium",
+        "checked": true
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        32.0,
+        32.0
+      ],
+      "png": "png/toggle/icon.outline.medium.checked/hover/light.png",
+      "scene": "scenes/toggle/icon.outline.medium.checked/hover/light.json",
+      "png_sha256": "ab43a635e47a25b97d58925e9ac85e2179745f52aa10e316a493b291aed769e8"
+    },
+    {
+      "id": "toggle/icon.outline.medium.checked/normal/dark",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "outline",
+        "size": "medium",
+        "checked": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        32.0,
+        32.0
+      ],
+      "png": "png/toggle/icon.outline.medium.checked/normal/dark.png",
+      "scene": "scenes/toggle/icon.outline.medium.checked/normal/dark.json",
+      "png_sha256": "a436a79dc1756793c53e09edba06d02a0aee3eebf31d418b7cca23539ba372b5"
+    },
+    {
+      "id": "toggle/icon.outline.medium.checked/normal/light",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "outline",
+        "size": "medium",
+        "checked": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        32.0,
+        32.0
+      ],
+      "png": "png/toggle/icon.outline.medium.checked/normal/light.png",
+      "scene": "scenes/toggle/icon.outline.medium.checked/normal/light.json",
+      "png_sha256": "ab43a635e47a25b97d58925e9ac85e2179745f52aa10e316a493b291aed769e8"
+    },
+    {
+      "id": "toggle/icon.outline.medium/hover/dark",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "outline",
+        "size": "medium",
+        "checked": false
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        32.0,
+        32.0
+      ],
+      "png": "png/toggle/icon.outline.medium/hover/dark.png",
+      "scene": "scenes/toggle/icon.outline.medium/hover/dark.json",
+      "png_sha256": "a436a79dc1756793c53e09edba06d02a0aee3eebf31d418b7cca23539ba372b5"
+    },
+    {
+      "id": "toggle/icon.outline.medium/hover/light",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "outline",
+        "size": "medium",
+        "checked": false
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        32.0,
+        32.0
+      ],
+      "png": "png/toggle/icon.outline.medium/hover/light.png",
+      "scene": "scenes/toggle/icon.outline.medium/hover/light.json",
+      "png_sha256": "ab43a635e47a25b97d58925e9ac85e2179745f52aa10e316a493b291aed769e8"
+    },
+    {
+      "id": "toggle/icon.outline.medium/normal/dark",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "outline",
+        "size": "medium",
+        "checked": false
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        32.0,
+        32.0
+      ],
+      "png": "png/toggle/icon.outline.medium/normal/dark.png",
+      "scene": "scenes/toggle/icon.outline.medium/normal/dark.json",
+      "png_sha256": "e675a01689b30096708240da4d7fa42e277fc4c9d10aefc6afa4167ea7c3eb78"
+    },
+    {
+      "id": "toggle/icon.outline.medium/normal/light",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "outline",
+        "size": "medium",
+        "checked": false
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        32.0,
+        32.0
+      ],
+      "png": "png/toggle/icon.outline.medium/normal/light.png",
+      "scene": "scenes/toggle/icon.outline.medium/normal/light.json",
+      "png_sha256": "0589d2799eb926f1abf35a965aac0fbcab66a94d896d05f6c7c22f7056eb9d01"
+    },
+    {
+      "id": "toggle/icon.outline.small.checked/hover/dark",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "outline",
+        "size": "small",
+        "checked": true
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        24.0,
+        24.0
+      ],
+      "png": "png/toggle/icon.outline.small.checked/hover/dark.png",
+      "scene": "scenes/toggle/icon.outline.small.checked/hover/dark.json",
+      "png_sha256": "c149e662e0b5d2a598fdee30215053e72ccf04677d738a0a8f4d5e18cde23bee"
+    },
+    {
+      "id": "toggle/icon.outline.small.checked/hover/light",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "outline",
+        "size": "small",
+        "checked": true
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        24.0,
+        24.0
+      ],
+      "png": "png/toggle/icon.outline.small.checked/hover/light.png",
+      "scene": "scenes/toggle/icon.outline.small.checked/hover/light.json",
+      "png_sha256": "412df435727678577c2b8d7bdc4f0e7c76a1511d90946a7b9efb4516a083c9d5"
+    },
+    {
+      "id": "toggle/icon.outline.small.checked/normal/dark",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "outline",
+        "size": "small",
+        "checked": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        24.0,
+        24.0
+      ],
+      "png": "png/toggle/icon.outline.small.checked/normal/dark.png",
+      "scene": "scenes/toggle/icon.outline.small.checked/normal/dark.json",
+      "png_sha256": "c149e662e0b5d2a598fdee30215053e72ccf04677d738a0a8f4d5e18cde23bee"
+    },
+    {
+      "id": "toggle/icon.outline.small.checked/normal/light",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "outline",
+        "size": "small",
+        "checked": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        24.0,
+        24.0
+      ],
+      "png": "png/toggle/icon.outline.small.checked/normal/light.png",
+      "scene": "scenes/toggle/icon.outline.small.checked/normal/light.json",
+      "png_sha256": "412df435727678577c2b8d7bdc4f0e7c76a1511d90946a7b9efb4516a083c9d5"
+    },
+    {
+      "id": "toggle/icon.outline.small/hover/dark",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "outline",
+        "size": "small",
+        "checked": false
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        24.0,
+        24.0
+      ],
+      "png": "png/toggle/icon.outline.small/hover/dark.png",
+      "scene": "scenes/toggle/icon.outline.small/hover/dark.json",
+      "png_sha256": "c149e662e0b5d2a598fdee30215053e72ccf04677d738a0a8f4d5e18cde23bee"
+    },
+    {
+      "id": "toggle/icon.outline.small/hover/light",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "outline",
+        "size": "small",
+        "checked": false
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        24.0,
+        24.0
+      ],
+      "png": "png/toggle/icon.outline.small/hover/light.png",
+      "scene": "scenes/toggle/icon.outline.small/hover/light.json",
+      "png_sha256": "412df435727678577c2b8d7bdc4f0e7c76a1511d90946a7b9efb4516a083c9d5"
+    },
+    {
+      "id": "toggle/icon.outline.small/normal/dark",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "outline",
+        "size": "small",
+        "checked": false
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        24.0,
+        24.0
+      ],
+      "png": "png/toggle/icon.outline.small/normal/dark.png",
+      "scene": "scenes/toggle/icon.outline.small/normal/dark.json",
+      "png_sha256": "1002576427a44dd00f9e062c2f9b201d28e89200f66076cb7cb54952578616d7"
+    },
+    {
+      "id": "toggle/icon.outline.small/normal/light",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "outline",
+        "size": "small",
+        "checked": false
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        24.0,
+        24.0
+      ],
+      "png": "png/toggle/icon.outline.small/normal/light.png",
+      "scene": "scenes/toggle/icon.outline.small/normal/light.json",
+      "png_sha256": "14af3c11cc3aa369a91b83ea477340a6e83f8a1e3d04b2a41ce89689860da1bf"
+    },
+    {
+      "id": "toggle/icon.outline.xsmall.checked/hover/dark",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "outline",
+        "size": "xsmall",
+        "checked": true
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        20.0,
+        20.0
+      ],
+      "png": "png/toggle/icon.outline.xsmall.checked/hover/dark.png",
+      "scene": "scenes/toggle/icon.outline.xsmall.checked/hover/dark.json",
+      "png_sha256": "c375617b630204ed1592f380860a4f70d0b76454d17e38303398108460542440"
+    },
+    {
+      "id": "toggle/icon.outline.xsmall.checked/hover/light",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "outline",
+        "size": "xsmall",
+        "checked": true
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        20.0,
+        20.0
+      ],
+      "png": "png/toggle/icon.outline.xsmall.checked/hover/light.png",
+      "scene": "scenes/toggle/icon.outline.xsmall.checked/hover/light.json",
+      "png_sha256": "197971ed62bebe105ba371e34233f8755c20721a7a64ea63ccfd4b936de293cc"
+    },
+    {
+      "id": "toggle/icon.outline.xsmall.checked/normal/dark",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "outline",
+        "size": "xsmall",
+        "checked": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        20.0,
+        20.0
+      ],
+      "png": "png/toggle/icon.outline.xsmall.checked/normal/dark.png",
+      "scene": "scenes/toggle/icon.outline.xsmall.checked/normal/dark.json",
+      "png_sha256": "c375617b630204ed1592f380860a4f70d0b76454d17e38303398108460542440"
+    },
+    {
+      "id": "toggle/icon.outline.xsmall.checked/normal/light",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "outline",
+        "size": "xsmall",
+        "checked": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        20.0,
+        20.0
+      ],
+      "png": "png/toggle/icon.outline.xsmall.checked/normal/light.png",
+      "scene": "scenes/toggle/icon.outline.xsmall.checked/normal/light.json",
+      "png_sha256": "197971ed62bebe105ba371e34233f8755c20721a7a64ea63ccfd4b936de293cc"
+    },
+    {
+      "id": "toggle/icon.outline.xsmall/hover/dark",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "outline",
+        "size": "xsmall",
+        "checked": false
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        20.0,
+        20.0
+      ],
+      "png": "png/toggle/icon.outline.xsmall/hover/dark.png",
+      "scene": "scenes/toggle/icon.outline.xsmall/hover/dark.json",
+      "png_sha256": "c375617b630204ed1592f380860a4f70d0b76454d17e38303398108460542440"
+    },
+    {
+      "id": "toggle/icon.outline.xsmall/hover/light",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "outline",
+        "size": "xsmall",
+        "checked": false
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        20.0,
+        20.0
+      ],
+      "png": "png/toggle/icon.outline.xsmall/hover/light.png",
+      "scene": "scenes/toggle/icon.outline.xsmall/hover/light.json",
+      "png_sha256": "197971ed62bebe105ba371e34233f8755c20721a7a64ea63ccfd4b936de293cc"
+    },
+    {
+      "id": "toggle/icon.outline.xsmall/normal/dark",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "outline",
+        "size": "xsmall",
+        "checked": false
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        20.0,
+        20.0
+      ],
+      "png": "png/toggle/icon.outline.xsmall/normal/dark.png",
+      "scene": "scenes/toggle/icon.outline.xsmall/normal/dark.json",
+      "png_sha256": "45250d7e84f0a338e8e3feccf3bd4118cf3c32b8900b1778dd9ad985e02ba3cf"
+    },
+    {
+      "id": "toggle/icon.outline.xsmall/normal/light",
+      "component": "toggle",
+      "group": "icon",
+      "params": {
+        "icon": "check",
+        "variant": "outline",
+        "size": "xsmall",
+        "checked": false
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        20.0,
+        20.0
+      ],
+      "png": "png/toggle/icon.outline.xsmall/normal/light.png",
+      "scene": "scenes/toggle/icon.outline.xsmall/normal/light.json",
+      "png_sha256": "e3312dcc9db9dbbece25e3a3ba5cc2820d1671b2053989f6a38827a5abe62238"
+    },
+    {
+      "id": "toggle/label.ghost.large.checked/disabled/dark",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "ghost",
+        "size": "large",
+        "checked": true,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        58.0,
+        36.0
+      ],
+      "png": "png/toggle/label.ghost.large.checked/disabled/dark.png",
+      "scene": "scenes/toggle/label.ghost.large.checked/disabled/dark.json",
+      "png_sha256": "46e51986fcb311c86f43c043f1de6f5caa3f0ac2c7de1d163eeb2ea6bc790292"
+    },
+    {
+      "id": "toggle/label.ghost.large.checked/disabled/light",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "ghost",
+        "size": "large",
+        "checked": true,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        58.0,
+        36.0
+      ],
+      "png": "png/toggle/label.ghost.large.checked/disabled/light.png",
+      "scene": "scenes/toggle/label.ghost.large.checked/disabled/light.json",
+      "png_sha256": "76c9aa579cc4c8610d2744e066b0fa0bc431aa5d33d2a10ecd7bd67a289898c0"
+    },
+    {
+      "id": "toggle/label.ghost.large.checked/hover/dark",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "ghost",
+        "size": "large",
+        "checked": true
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        58.0,
+        36.0
+      ],
+      "png": "png/toggle/label.ghost.large.checked/hover/dark.png",
+      "scene": "scenes/toggle/label.ghost.large.checked/hover/dark.json",
+      "png_sha256": "46e51986fcb311c86f43c043f1de6f5caa3f0ac2c7de1d163eeb2ea6bc790292"
+    },
+    {
+      "id": "toggle/label.ghost.large.checked/hover/light",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "ghost",
+        "size": "large",
+        "checked": true
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        58.0,
+        36.0
+      ],
+      "png": "png/toggle/label.ghost.large.checked/hover/light.png",
+      "scene": "scenes/toggle/label.ghost.large.checked/hover/light.json",
+      "png_sha256": "76c9aa579cc4c8610d2744e066b0fa0bc431aa5d33d2a10ecd7bd67a289898c0"
+    },
+    {
+      "id": "toggle/label.ghost.large.checked/normal/dark",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "ghost",
+        "size": "large",
+        "checked": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        58.0,
+        36.0
+      ],
+      "png": "png/toggle/label.ghost.large.checked/normal/dark.png",
+      "scene": "scenes/toggle/label.ghost.large.checked/normal/dark.json",
+      "png_sha256": "46e51986fcb311c86f43c043f1de6f5caa3f0ac2c7de1d163eeb2ea6bc790292"
+    },
+    {
+      "id": "toggle/label.ghost.large.checked/normal/light",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "ghost",
+        "size": "large",
+        "checked": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        58.0,
+        36.0
+      ],
+      "png": "png/toggle/label.ghost.large.checked/normal/light.png",
+      "scene": "scenes/toggle/label.ghost.large.checked/normal/light.json",
+      "png_sha256": "76c9aa579cc4c8610d2744e066b0fa0bc431aa5d33d2a10ecd7bd67a289898c0"
+    },
+    {
+      "id": "toggle/label.ghost.large/disabled/dark",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "ghost",
+        "size": "large",
+        "checked": false,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        58.0,
+        36.0
+      ],
+      "png": "png/toggle/label.ghost.large/disabled/dark.png",
+      "scene": "scenes/toggle/label.ghost.large/disabled/dark.json",
+      "png_sha256": "22c6e272f6a0062e4dc0367995f51a15aae2a029170d7d7b1fe5b6fb346627ec"
+    },
+    {
+      "id": "toggle/label.ghost.large/disabled/light",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "ghost",
+        "size": "large",
+        "checked": false,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        58.0,
+        36.0
+      ],
+      "png": "png/toggle/label.ghost.large/disabled/light.png",
+      "scene": "scenes/toggle/label.ghost.large/disabled/light.json",
+      "png_sha256": "2386d56afe486ae4c562a9cc09b046d9c0aab891c12f6f5beabb02820ae98166"
+    },
+    {
+      "id": "toggle/label.ghost.large/hover/dark",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "ghost",
+        "size": "large",
+        "checked": false
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        58.0,
+        36.0
+      ],
+      "png": "png/toggle/label.ghost.large/hover/dark.png",
+      "scene": "scenes/toggle/label.ghost.large/hover/dark.json",
+      "png_sha256": "46e51986fcb311c86f43c043f1de6f5caa3f0ac2c7de1d163eeb2ea6bc790292"
+    },
+    {
+      "id": "toggle/label.ghost.large/hover/light",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "ghost",
+        "size": "large",
+        "checked": false
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        58.0,
+        36.0
+      ],
+      "png": "png/toggle/label.ghost.large/hover/light.png",
+      "scene": "scenes/toggle/label.ghost.large/hover/light.json",
+      "png_sha256": "76c9aa579cc4c8610d2744e066b0fa0bc431aa5d33d2a10ecd7bd67a289898c0"
+    },
+    {
+      "id": "toggle/label.ghost.large/normal/dark",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "ghost",
+        "size": "large",
+        "checked": false
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        58.0,
+        36.0
+      ],
+      "png": "png/toggle/label.ghost.large/normal/dark.png",
+      "scene": "scenes/toggle/label.ghost.large/normal/dark.json",
+      "png_sha256": "22c6e272f6a0062e4dc0367995f51a15aae2a029170d7d7b1fe5b6fb346627ec"
+    },
+    {
+      "id": "toggle/label.ghost.large/normal/light",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "ghost",
+        "size": "large",
+        "checked": false
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        58.0,
+        36.0
+      ],
+      "png": "png/toggle/label.ghost.large/normal/light.png",
+      "scene": "scenes/toggle/label.ghost.large/normal/light.json",
+      "png_sha256": "2386d56afe486ae4c562a9cc09b046d9c0aab891c12f6f5beabb02820ae98166"
+    },
+    {
+      "id": "toggle/label.ghost.medium.checked/disabled/dark",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "ghost",
+        "size": "medium",
+        "checked": true,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        46.0,
+        32.0
+      ],
+      "png": "png/toggle/label.ghost.medium.checked/disabled/dark.png",
+      "scene": "scenes/toggle/label.ghost.medium.checked/disabled/dark.json",
+      "png_sha256": "8a559990c880b6bd082da60f0d36048103c1dec062b30f10882f392064572d4b"
+    },
+    {
+      "id": "toggle/label.ghost.medium.checked/disabled/light",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "ghost",
+        "size": "medium",
+        "checked": true,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        46.0,
+        32.0
+      ],
+      "png": "png/toggle/label.ghost.medium.checked/disabled/light.png",
+      "scene": "scenes/toggle/label.ghost.medium.checked/disabled/light.json",
+      "png_sha256": "5c3a5195fce78805d0c11e7982dd9317b23daa574a9c987a5eb77ac7899df2a4"
+    },
+    {
+      "id": "toggle/label.ghost.medium.checked/hover/dark",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "ghost",
+        "size": "medium",
+        "checked": true
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        46.0,
+        32.0
+      ],
+      "png": "png/toggle/label.ghost.medium.checked/hover/dark.png",
+      "scene": "scenes/toggle/label.ghost.medium.checked/hover/dark.json",
+      "png_sha256": "8a559990c880b6bd082da60f0d36048103c1dec062b30f10882f392064572d4b"
+    },
+    {
+      "id": "toggle/label.ghost.medium.checked/hover/light",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "ghost",
+        "size": "medium",
+        "checked": true
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        46.0,
+        32.0
+      ],
+      "png": "png/toggle/label.ghost.medium.checked/hover/light.png",
+      "scene": "scenes/toggle/label.ghost.medium.checked/hover/light.json",
+      "png_sha256": "5c3a5195fce78805d0c11e7982dd9317b23daa574a9c987a5eb77ac7899df2a4"
+    },
+    {
+      "id": "toggle/label.ghost.medium.checked/normal/dark",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "ghost",
+        "size": "medium",
+        "checked": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        46.0,
+        32.0
+      ],
+      "png": "png/toggle/label.ghost.medium.checked/normal/dark.png",
+      "scene": "scenes/toggle/label.ghost.medium.checked/normal/dark.json",
+      "png_sha256": "8a559990c880b6bd082da60f0d36048103c1dec062b30f10882f392064572d4b"
+    },
+    {
+      "id": "toggle/label.ghost.medium.checked/normal/light",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "ghost",
+        "size": "medium",
+        "checked": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        46.0,
+        32.0
+      ],
+      "png": "png/toggle/label.ghost.medium.checked/normal/light.png",
+      "scene": "scenes/toggle/label.ghost.medium.checked/normal/light.json",
+      "png_sha256": "5c3a5195fce78805d0c11e7982dd9317b23daa574a9c987a5eb77ac7899df2a4"
+    },
+    {
+      "id": "toggle/label.ghost.medium/disabled/dark",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "ghost",
+        "size": "medium",
+        "checked": false,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        46.0,
+        32.0
+      ],
+      "png": "png/toggle/label.ghost.medium/disabled/dark.png",
+      "scene": "scenes/toggle/label.ghost.medium/disabled/dark.json",
+      "png_sha256": "28323ab7ceb7482987d928abe676b727140b65d3c8f6951853936eba3ee425fb"
+    },
+    {
+      "id": "toggle/label.ghost.medium/disabled/light",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "ghost",
+        "size": "medium",
+        "checked": false,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        46.0,
+        32.0
+      ],
+      "png": "png/toggle/label.ghost.medium/disabled/light.png",
+      "scene": "scenes/toggle/label.ghost.medium/disabled/light.json",
+      "png_sha256": "11bc66e5f5dc53cdd83724cbb243df5f40a61bc4e3c3659389e75b01cd8610d3"
+    },
+    {
+      "id": "toggle/label.ghost.medium/hover/dark",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "ghost",
+        "size": "medium",
+        "checked": false
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        46.0,
+        32.0
+      ],
+      "png": "png/toggle/label.ghost.medium/hover/dark.png",
+      "scene": "scenes/toggle/label.ghost.medium/hover/dark.json",
+      "png_sha256": "8a559990c880b6bd082da60f0d36048103c1dec062b30f10882f392064572d4b"
+    },
+    {
+      "id": "toggle/label.ghost.medium/hover/light",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "ghost",
+        "size": "medium",
+        "checked": false
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        46.0,
+        32.0
+      ],
+      "png": "png/toggle/label.ghost.medium/hover/light.png",
+      "scene": "scenes/toggle/label.ghost.medium/hover/light.json",
+      "png_sha256": "5c3a5195fce78805d0c11e7982dd9317b23daa574a9c987a5eb77ac7899df2a4"
+    },
+    {
+      "id": "toggle/label.ghost.medium/normal/dark",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "ghost",
+        "size": "medium",
+        "checked": false
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        46.0,
+        32.0
+      ],
+      "png": "png/toggle/label.ghost.medium/normal/dark.png",
+      "scene": "scenes/toggle/label.ghost.medium/normal/dark.json",
+      "png_sha256": "28323ab7ceb7482987d928abe676b727140b65d3c8f6951853936eba3ee425fb"
+    },
+    {
+      "id": "toggle/label.ghost.medium/normal/light",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "ghost",
+        "size": "medium",
+        "checked": false
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        46.0,
+        32.0
+      ],
+      "png": "png/toggle/label.ghost.medium/normal/light.png",
+      "scene": "scenes/toggle/label.ghost.medium/normal/light.json",
+      "png_sha256": "11bc66e5f5dc53cdd83724cbb243df5f40a61bc4e3c3659389e75b01cd8610d3"
+    },
+    {
+      "id": "toggle/label.ghost.small.checked/disabled/dark",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "ghost",
+        "size": "small",
+        "checked": true,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        38.0,
+        24.0
+      ],
+      "png": "png/toggle/label.ghost.small.checked/disabled/dark.png",
+      "scene": "scenes/toggle/label.ghost.small.checked/disabled/dark.json",
+      "png_sha256": "4965ed95b70a58dce4c6d8020a82334f2914a3825aab67a53c7af7c4ec45b371"
+    },
+    {
+      "id": "toggle/label.ghost.small.checked/disabled/light",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "ghost",
+        "size": "small",
+        "checked": true,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        38.0,
+        24.0
+      ],
+      "png": "png/toggle/label.ghost.small.checked/disabled/light.png",
+      "scene": "scenes/toggle/label.ghost.small.checked/disabled/light.json",
+      "png_sha256": "fd3036dd7c17ff227db58e3c9b3d32898f009b93c7e0143ff969c3f8c2d9d03e"
+    },
+    {
+      "id": "toggle/label.ghost.small.checked/hover/dark",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "ghost",
+        "size": "small",
+        "checked": true
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        38.0,
+        24.0
+      ],
+      "png": "png/toggle/label.ghost.small.checked/hover/dark.png",
+      "scene": "scenes/toggle/label.ghost.small.checked/hover/dark.json",
+      "png_sha256": "4965ed95b70a58dce4c6d8020a82334f2914a3825aab67a53c7af7c4ec45b371"
+    },
+    {
+      "id": "toggle/label.ghost.small.checked/hover/light",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "ghost",
+        "size": "small",
+        "checked": true
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        38.0,
+        24.0
+      ],
+      "png": "png/toggle/label.ghost.small.checked/hover/light.png",
+      "scene": "scenes/toggle/label.ghost.small.checked/hover/light.json",
+      "png_sha256": "fd3036dd7c17ff227db58e3c9b3d32898f009b93c7e0143ff969c3f8c2d9d03e"
+    },
+    {
+      "id": "toggle/label.ghost.small.checked/normal/dark",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "ghost",
+        "size": "small",
+        "checked": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        38.0,
+        24.0
+      ],
+      "png": "png/toggle/label.ghost.small.checked/normal/dark.png",
+      "scene": "scenes/toggle/label.ghost.small.checked/normal/dark.json",
+      "png_sha256": "4965ed95b70a58dce4c6d8020a82334f2914a3825aab67a53c7af7c4ec45b371"
+    },
+    {
+      "id": "toggle/label.ghost.small.checked/normal/light",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "ghost",
+        "size": "small",
+        "checked": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        38.0,
+        24.0
+      ],
+      "png": "png/toggle/label.ghost.small.checked/normal/light.png",
+      "scene": "scenes/toggle/label.ghost.small.checked/normal/light.json",
+      "png_sha256": "fd3036dd7c17ff227db58e3c9b3d32898f009b93c7e0143ff969c3f8c2d9d03e"
+    },
+    {
+      "id": "toggle/label.ghost.small/disabled/dark",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "ghost",
+        "size": "small",
+        "checked": false,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        38.0,
+        24.0
+      ],
+      "png": "png/toggle/label.ghost.small/disabled/dark.png",
+      "scene": "scenes/toggle/label.ghost.small/disabled/dark.json",
+      "png_sha256": "9231ed25e6c17157f780a2377796847092400a93427e4264da8c018f924fc89d"
+    },
+    {
+      "id": "toggle/label.ghost.small/disabled/light",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "ghost",
+        "size": "small",
+        "checked": false,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        38.0,
+        24.0
+      ],
+      "png": "png/toggle/label.ghost.small/disabled/light.png",
+      "scene": "scenes/toggle/label.ghost.small/disabled/light.json",
+      "png_sha256": "8e0c2515fd51a05764a37df7de41b438f8e538aec7d6861627f801295e645fba"
+    },
+    {
+      "id": "toggle/label.ghost.small/hover/dark",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "ghost",
+        "size": "small",
+        "checked": false
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        38.0,
+        24.0
+      ],
+      "png": "png/toggle/label.ghost.small/hover/dark.png",
+      "scene": "scenes/toggle/label.ghost.small/hover/dark.json",
+      "png_sha256": "4965ed95b70a58dce4c6d8020a82334f2914a3825aab67a53c7af7c4ec45b371"
+    },
+    {
+      "id": "toggle/label.ghost.small/hover/light",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "ghost",
+        "size": "small",
+        "checked": false
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        38.0,
+        24.0
+      ],
+      "png": "png/toggle/label.ghost.small/hover/light.png",
+      "scene": "scenes/toggle/label.ghost.small/hover/light.json",
+      "png_sha256": "fd3036dd7c17ff227db58e3c9b3d32898f009b93c7e0143ff969c3f8c2d9d03e"
+    },
+    {
+      "id": "toggle/label.ghost.small/normal/dark",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "ghost",
+        "size": "small",
+        "checked": false
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        38.0,
+        24.0
+      ],
+      "png": "png/toggle/label.ghost.small/normal/dark.png",
+      "scene": "scenes/toggle/label.ghost.small/normal/dark.json",
+      "png_sha256": "9231ed25e6c17157f780a2377796847092400a93427e4264da8c018f924fc89d"
+    },
+    {
+      "id": "toggle/label.ghost.small/normal/light",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "ghost",
+        "size": "small",
+        "checked": false
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        38.0,
+        24.0
+      ],
+      "png": "png/toggle/label.ghost.small/normal/light.png",
+      "scene": "scenes/toggle/label.ghost.small/normal/light.json",
+      "png_sha256": "8e0c2515fd51a05764a37df7de41b438f8e538aec7d6861627f801295e645fba"
+    },
+    {
+      "id": "toggle/label.ghost.xsmall.checked/disabled/dark",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "ghost",
+        "size": "xsmall",
+        "checked": true,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        30.0,
+        20.0
+      ],
+      "png": "png/toggle/label.ghost.xsmall.checked/disabled/dark.png",
+      "scene": "scenes/toggle/label.ghost.xsmall.checked/disabled/dark.json",
+      "png_sha256": "64c2fbc4feb1e2b94e9f230dd21738778bd793e1cfe15aa93c9d9bef16dfead5"
+    },
+    {
+      "id": "toggle/label.ghost.xsmall.checked/disabled/light",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "ghost",
+        "size": "xsmall",
+        "checked": true,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        30.0,
+        20.0
+      ],
+      "png": "png/toggle/label.ghost.xsmall.checked/disabled/light.png",
+      "scene": "scenes/toggle/label.ghost.xsmall.checked/disabled/light.json",
+      "png_sha256": "f6228e62782c881a283e57fe96a4532509b6a75eb2e7e8de5536ee4d0b7d224f"
+    },
+    {
+      "id": "toggle/label.ghost.xsmall.checked/hover/dark",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "ghost",
+        "size": "xsmall",
+        "checked": true
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        30.0,
+        20.0
+      ],
+      "png": "png/toggle/label.ghost.xsmall.checked/hover/dark.png",
+      "scene": "scenes/toggle/label.ghost.xsmall.checked/hover/dark.json",
+      "png_sha256": "64c2fbc4feb1e2b94e9f230dd21738778bd793e1cfe15aa93c9d9bef16dfead5"
+    },
+    {
+      "id": "toggle/label.ghost.xsmall.checked/hover/light",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "ghost",
+        "size": "xsmall",
+        "checked": true
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        30.0,
+        20.0
+      ],
+      "png": "png/toggle/label.ghost.xsmall.checked/hover/light.png",
+      "scene": "scenes/toggle/label.ghost.xsmall.checked/hover/light.json",
+      "png_sha256": "f6228e62782c881a283e57fe96a4532509b6a75eb2e7e8de5536ee4d0b7d224f"
+    },
+    {
+      "id": "toggle/label.ghost.xsmall.checked/normal/dark",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "ghost",
+        "size": "xsmall",
+        "checked": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        30.0,
+        20.0
+      ],
+      "png": "png/toggle/label.ghost.xsmall.checked/normal/dark.png",
+      "scene": "scenes/toggle/label.ghost.xsmall.checked/normal/dark.json",
+      "png_sha256": "64c2fbc4feb1e2b94e9f230dd21738778bd793e1cfe15aa93c9d9bef16dfead5"
+    },
+    {
+      "id": "toggle/label.ghost.xsmall.checked/normal/light",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "ghost",
+        "size": "xsmall",
+        "checked": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        30.0,
+        20.0
+      ],
+      "png": "png/toggle/label.ghost.xsmall.checked/normal/light.png",
+      "scene": "scenes/toggle/label.ghost.xsmall.checked/normal/light.json",
+      "png_sha256": "f6228e62782c881a283e57fe96a4532509b6a75eb2e7e8de5536ee4d0b7d224f"
+    },
+    {
+      "id": "toggle/label.ghost.xsmall/disabled/dark",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "ghost",
+        "size": "xsmall",
+        "checked": false,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        30.0,
+        20.0
+      ],
+      "png": "png/toggle/label.ghost.xsmall/disabled/dark.png",
+      "scene": "scenes/toggle/label.ghost.xsmall/disabled/dark.json",
+      "png_sha256": "9cdc91f336b03873457ad1a0f80436a6d612f3e8b3eb61e5b454483852a679cb"
+    },
+    {
+      "id": "toggle/label.ghost.xsmall/disabled/light",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "ghost",
+        "size": "xsmall",
+        "checked": false,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        30.0,
+        20.0
+      ],
+      "png": "png/toggle/label.ghost.xsmall/disabled/light.png",
+      "scene": "scenes/toggle/label.ghost.xsmall/disabled/light.json",
+      "png_sha256": "b9ed508287e1f9324903efdf4216ee3a13acb08f1a25df106aa943193257ef0e"
+    },
+    {
+      "id": "toggle/label.ghost.xsmall/hover/dark",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "ghost",
+        "size": "xsmall",
+        "checked": false
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        30.0,
+        20.0
+      ],
+      "png": "png/toggle/label.ghost.xsmall/hover/dark.png",
+      "scene": "scenes/toggle/label.ghost.xsmall/hover/dark.json",
+      "png_sha256": "64c2fbc4feb1e2b94e9f230dd21738778bd793e1cfe15aa93c9d9bef16dfead5"
+    },
+    {
+      "id": "toggle/label.ghost.xsmall/hover/light",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "ghost",
+        "size": "xsmall",
+        "checked": false
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        30.0,
+        20.0
+      ],
+      "png": "png/toggle/label.ghost.xsmall/hover/light.png",
+      "scene": "scenes/toggle/label.ghost.xsmall/hover/light.json",
+      "png_sha256": "f6228e62782c881a283e57fe96a4532509b6a75eb2e7e8de5536ee4d0b7d224f"
+    },
+    {
+      "id": "toggle/label.ghost.xsmall/normal/dark",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "ghost",
+        "size": "xsmall",
+        "checked": false
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        30.0,
+        20.0
+      ],
+      "png": "png/toggle/label.ghost.xsmall/normal/dark.png",
+      "scene": "scenes/toggle/label.ghost.xsmall/normal/dark.json",
+      "png_sha256": "9cdc91f336b03873457ad1a0f80436a6d612f3e8b3eb61e5b454483852a679cb"
+    },
+    {
+      "id": "toggle/label.ghost.xsmall/normal/light",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "ghost",
+        "size": "xsmall",
+        "checked": false
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        30.0,
+        20.0
+      ],
+      "png": "png/toggle/label.ghost.xsmall/normal/light.png",
+      "scene": "scenes/toggle/label.ghost.xsmall/normal/light.json",
+      "png_sha256": "b9ed508287e1f9324903efdf4216ee3a13acb08f1a25df106aa943193257ef0e"
+    },
+    {
+      "id": "toggle/label.outline.large.checked/disabled/dark",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "outline",
+        "size": "large",
+        "checked": true,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        60.0,
+        36.0
+      ],
+      "png": "png/toggle/label.outline.large.checked/disabled/dark.png",
+      "scene": "scenes/toggle/label.outline.large.checked/disabled/dark.json",
+      "png_sha256": "328c328f69afeeedf100d9f5ae0bc5736f5b3e6a741377825feb58e926ec55d6"
+    },
+    {
+      "id": "toggle/label.outline.large.checked/disabled/light",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "outline",
+        "size": "large",
+        "checked": true,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        60.0,
+        36.0
+      ],
+      "png": "png/toggle/label.outline.large.checked/disabled/light.png",
+      "scene": "scenes/toggle/label.outline.large.checked/disabled/light.json",
+      "png_sha256": "f49eb3343b16472cc50a3ac5d72aa7b1ccbe1c3fd325dbee0e16d7e2a39d69af"
+    },
+    {
+      "id": "toggle/label.outline.large.checked/hover/dark",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "outline",
+        "size": "large",
+        "checked": true
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        60.0,
+        36.0
+      ],
+      "png": "png/toggle/label.outline.large.checked/hover/dark.png",
+      "scene": "scenes/toggle/label.outline.large.checked/hover/dark.json",
+      "png_sha256": "328c328f69afeeedf100d9f5ae0bc5736f5b3e6a741377825feb58e926ec55d6"
+    },
+    {
+      "id": "toggle/label.outline.large.checked/hover/light",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "outline",
+        "size": "large",
+        "checked": true
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        60.0,
+        36.0
+      ],
+      "png": "png/toggle/label.outline.large.checked/hover/light.png",
+      "scene": "scenes/toggle/label.outline.large.checked/hover/light.json",
+      "png_sha256": "f49eb3343b16472cc50a3ac5d72aa7b1ccbe1c3fd325dbee0e16d7e2a39d69af"
+    },
+    {
+      "id": "toggle/label.outline.large.checked/normal/dark",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "outline",
+        "size": "large",
+        "checked": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        60.0,
+        36.0
+      ],
+      "png": "png/toggle/label.outline.large.checked/normal/dark.png",
+      "scene": "scenes/toggle/label.outline.large.checked/normal/dark.json",
+      "png_sha256": "328c328f69afeeedf100d9f5ae0bc5736f5b3e6a741377825feb58e926ec55d6"
+    },
+    {
+      "id": "toggle/label.outline.large.checked/normal/light",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "outline",
+        "size": "large",
+        "checked": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        60.0,
+        36.0
+      ],
+      "png": "png/toggle/label.outline.large.checked/normal/light.png",
+      "scene": "scenes/toggle/label.outline.large.checked/normal/light.json",
+      "png_sha256": "f49eb3343b16472cc50a3ac5d72aa7b1ccbe1c3fd325dbee0e16d7e2a39d69af"
+    },
+    {
+      "id": "toggle/label.outline.large/disabled/dark",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "outline",
+        "size": "large",
+        "checked": false,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        60.0,
+        36.0
+      ],
+      "png": "png/toggle/label.outline.large/disabled/dark.png",
+      "scene": "scenes/toggle/label.outline.large/disabled/dark.json",
+      "png_sha256": "fc81aef58bae8b2e4a44372d87e9ae061d81ebfd94d873094b9d0628c467cf84"
+    },
+    {
+      "id": "toggle/label.outline.large/disabled/light",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "outline",
+        "size": "large",
+        "checked": false,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        60.0,
+        36.0
+      ],
+      "png": "png/toggle/label.outline.large/disabled/light.png",
+      "scene": "scenes/toggle/label.outline.large/disabled/light.json",
+      "png_sha256": "21727dcd4a725c29e68c2eb4a9815c319a0eb164965490ec5f5cb572d6651ed3"
+    },
+    {
+      "id": "toggle/label.outline.large/hover/dark",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "outline",
+        "size": "large",
+        "checked": false
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        60.0,
+        36.0
+      ],
+      "png": "png/toggle/label.outline.large/hover/dark.png",
+      "scene": "scenes/toggle/label.outline.large/hover/dark.json",
+      "png_sha256": "328c328f69afeeedf100d9f5ae0bc5736f5b3e6a741377825feb58e926ec55d6"
+    },
+    {
+      "id": "toggle/label.outline.large/hover/light",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "outline",
+        "size": "large",
+        "checked": false
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        60.0,
+        36.0
+      ],
+      "png": "png/toggle/label.outline.large/hover/light.png",
+      "scene": "scenes/toggle/label.outline.large/hover/light.json",
+      "png_sha256": "f49eb3343b16472cc50a3ac5d72aa7b1ccbe1c3fd325dbee0e16d7e2a39d69af"
+    },
+    {
+      "id": "toggle/label.outline.large/normal/dark",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "outline",
+        "size": "large",
+        "checked": false
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        60.0,
+        36.0
+      ],
+      "png": "png/toggle/label.outline.large/normal/dark.png",
+      "scene": "scenes/toggle/label.outline.large/normal/dark.json",
+      "png_sha256": "fc81aef58bae8b2e4a44372d87e9ae061d81ebfd94d873094b9d0628c467cf84"
+    },
+    {
+      "id": "toggle/label.outline.large/normal/light",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "outline",
+        "size": "large",
+        "checked": false
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        60.0,
+        36.0
+      ],
+      "png": "png/toggle/label.outline.large/normal/light.png",
+      "scene": "scenes/toggle/label.outline.large/normal/light.json",
+      "png_sha256": "21727dcd4a725c29e68c2eb4a9815c319a0eb164965490ec5f5cb572d6651ed3"
+    },
+    {
+      "id": "toggle/label.outline.medium.checked/disabled/dark",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "outline",
+        "size": "medium",
+        "checked": true,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        48.0,
+        32.0
+      ],
+      "png": "png/toggle/label.outline.medium.checked/disabled/dark.png",
+      "scene": "scenes/toggle/label.outline.medium.checked/disabled/dark.json",
+      "png_sha256": "d87d7ac22528fd1d8ef4339b3c5a5d07f8381e389f88a70ba9396edc1a817e6a"
+    },
+    {
+      "id": "toggle/label.outline.medium.checked/disabled/light",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "outline",
+        "size": "medium",
+        "checked": true,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        48.0,
+        32.0
+      ],
+      "png": "png/toggle/label.outline.medium.checked/disabled/light.png",
+      "scene": "scenes/toggle/label.outline.medium.checked/disabled/light.json",
+      "png_sha256": "e5c885f0b7047f34e65ad716b0eec67696671b794c1d06b56aba786fa7a4a58c"
+    },
+    {
+      "id": "toggle/label.outline.medium.checked/hover/dark",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "outline",
+        "size": "medium",
+        "checked": true
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        48.0,
+        32.0
+      ],
+      "png": "png/toggle/label.outline.medium.checked/hover/dark.png",
+      "scene": "scenes/toggle/label.outline.medium.checked/hover/dark.json",
+      "png_sha256": "d87d7ac22528fd1d8ef4339b3c5a5d07f8381e389f88a70ba9396edc1a817e6a"
+    },
+    {
+      "id": "toggle/label.outline.medium.checked/hover/light",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "outline",
+        "size": "medium",
+        "checked": true
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        48.0,
+        32.0
+      ],
+      "png": "png/toggle/label.outline.medium.checked/hover/light.png",
+      "scene": "scenes/toggle/label.outline.medium.checked/hover/light.json",
+      "png_sha256": "e5c885f0b7047f34e65ad716b0eec67696671b794c1d06b56aba786fa7a4a58c"
+    },
+    {
+      "id": "toggle/label.outline.medium.checked/normal/dark",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "outline",
+        "size": "medium",
+        "checked": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        48.0,
+        32.0
+      ],
+      "png": "png/toggle/label.outline.medium.checked/normal/dark.png",
+      "scene": "scenes/toggle/label.outline.medium.checked/normal/dark.json",
+      "png_sha256": "d87d7ac22528fd1d8ef4339b3c5a5d07f8381e389f88a70ba9396edc1a817e6a"
+    },
+    {
+      "id": "toggle/label.outline.medium.checked/normal/light",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "outline",
+        "size": "medium",
+        "checked": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        48.0,
+        32.0
+      ],
+      "png": "png/toggle/label.outline.medium.checked/normal/light.png",
+      "scene": "scenes/toggle/label.outline.medium.checked/normal/light.json",
+      "png_sha256": "e5c885f0b7047f34e65ad716b0eec67696671b794c1d06b56aba786fa7a4a58c"
+    },
+    {
+      "id": "toggle/label.outline.medium/disabled/dark",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "outline",
+        "size": "medium",
+        "checked": false,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        48.0,
+        32.0
+      ],
+      "png": "png/toggle/label.outline.medium/disabled/dark.png",
+      "scene": "scenes/toggle/label.outline.medium/disabled/dark.json",
+      "png_sha256": "b7fae960fc2b1326978c308ef3fe4267ff5a0b1d91a7ea510474817bc4b0f43f"
+    },
+    {
+      "id": "toggle/label.outline.medium/disabled/light",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "outline",
+        "size": "medium",
+        "checked": false,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        48.0,
+        32.0
+      ],
+      "png": "png/toggle/label.outline.medium/disabled/light.png",
+      "scene": "scenes/toggle/label.outline.medium/disabled/light.json",
+      "png_sha256": "ee06455e8c1ee4cfbc9fd58636d7a2497776dd7dc7083804740bb98757c5fb44"
+    },
+    {
+      "id": "toggle/label.outline.medium/hover/dark",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "outline",
+        "size": "medium",
+        "checked": false
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        48.0,
+        32.0
+      ],
+      "png": "png/toggle/label.outline.medium/hover/dark.png",
+      "scene": "scenes/toggle/label.outline.medium/hover/dark.json",
+      "png_sha256": "d87d7ac22528fd1d8ef4339b3c5a5d07f8381e389f88a70ba9396edc1a817e6a"
+    },
+    {
+      "id": "toggle/label.outline.medium/hover/light",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "outline",
+        "size": "medium",
+        "checked": false
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        48.0,
+        32.0
+      ],
+      "png": "png/toggle/label.outline.medium/hover/light.png",
+      "scene": "scenes/toggle/label.outline.medium/hover/light.json",
+      "png_sha256": "e5c885f0b7047f34e65ad716b0eec67696671b794c1d06b56aba786fa7a4a58c"
+    },
+    {
+      "id": "toggle/label.outline.medium/normal/dark",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "outline",
+        "size": "medium",
+        "checked": false
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        48.0,
+        32.0
+      ],
+      "png": "png/toggle/label.outline.medium/normal/dark.png",
+      "scene": "scenes/toggle/label.outline.medium/normal/dark.json",
+      "png_sha256": "b7fae960fc2b1326978c308ef3fe4267ff5a0b1d91a7ea510474817bc4b0f43f"
+    },
+    {
+      "id": "toggle/label.outline.medium/normal/light",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "outline",
+        "size": "medium",
+        "checked": false
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        48.0,
+        32.0
+      ],
+      "png": "png/toggle/label.outline.medium/normal/light.png",
+      "scene": "scenes/toggle/label.outline.medium/normal/light.json",
+      "png_sha256": "ee06455e8c1ee4cfbc9fd58636d7a2497776dd7dc7083804740bb98757c5fb44"
+    },
+    {
+      "id": "toggle/label.outline.small.checked/disabled/dark",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "outline",
+        "size": "small",
+        "checked": true,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        40.0,
+        24.0
+      ],
+      "png": "png/toggle/label.outline.small.checked/disabled/dark.png",
+      "scene": "scenes/toggle/label.outline.small.checked/disabled/dark.json",
+      "png_sha256": "19bca79a1809e69e281b615731e686fa6f408dce032c3b7e2c317c52b7366216"
+    },
+    {
+      "id": "toggle/label.outline.small.checked/disabled/light",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "outline",
+        "size": "small",
+        "checked": true,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        40.0,
+        24.0
+      ],
+      "png": "png/toggle/label.outline.small.checked/disabled/light.png",
+      "scene": "scenes/toggle/label.outline.small.checked/disabled/light.json",
+      "png_sha256": "e27e36366fe96e714cffd64338f6a4cb0210a1137e4a903b7012111f8527cb82"
+    },
+    {
+      "id": "toggle/label.outline.small.checked/hover/dark",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "outline",
+        "size": "small",
+        "checked": true
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        40.0,
+        24.0
+      ],
+      "png": "png/toggle/label.outline.small.checked/hover/dark.png",
+      "scene": "scenes/toggle/label.outline.small.checked/hover/dark.json",
+      "png_sha256": "19bca79a1809e69e281b615731e686fa6f408dce032c3b7e2c317c52b7366216"
+    },
+    {
+      "id": "toggle/label.outline.small.checked/hover/light",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "outline",
+        "size": "small",
+        "checked": true
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        40.0,
+        24.0
+      ],
+      "png": "png/toggle/label.outline.small.checked/hover/light.png",
+      "scene": "scenes/toggle/label.outline.small.checked/hover/light.json",
+      "png_sha256": "e27e36366fe96e714cffd64338f6a4cb0210a1137e4a903b7012111f8527cb82"
+    },
+    {
+      "id": "toggle/label.outline.small.checked/normal/dark",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "outline",
+        "size": "small",
+        "checked": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        40.0,
+        24.0
+      ],
+      "png": "png/toggle/label.outline.small.checked/normal/dark.png",
+      "scene": "scenes/toggle/label.outline.small.checked/normal/dark.json",
+      "png_sha256": "19bca79a1809e69e281b615731e686fa6f408dce032c3b7e2c317c52b7366216"
+    },
+    {
+      "id": "toggle/label.outline.small.checked/normal/light",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "outline",
+        "size": "small",
+        "checked": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        40.0,
+        24.0
+      ],
+      "png": "png/toggle/label.outline.small.checked/normal/light.png",
+      "scene": "scenes/toggle/label.outline.small.checked/normal/light.json",
+      "png_sha256": "e27e36366fe96e714cffd64338f6a4cb0210a1137e4a903b7012111f8527cb82"
+    },
+    {
+      "id": "toggle/label.outline.small/disabled/dark",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "outline",
+        "size": "small",
+        "checked": false,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        40.0,
+        24.0
+      ],
+      "png": "png/toggle/label.outline.small/disabled/dark.png",
+      "scene": "scenes/toggle/label.outline.small/disabled/dark.json",
+      "png_sha256": "90ccbf90461a1a8662eb0dbbd425839dcfc7f94cfcdcb68e3c83c4bd7a9af8cf"
+    },
+    {
+      "id": "toggle/label.outline.small/disabled/light",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "outline",
+        "size": "small",
+        "checked": false,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        40.0,
+        24.0
+      ],
+      "png": "png/toggle/label.outline.small/disabled/light.png",
+      "scene": "scenes/toggle/label.outline.small/disabled/light.json",
+      "png_sha256": "ff9c2bb4891358c5b1e89209649eaecd9b48e99131e736bdf3f0fc860f566a22"
+    },
+    {
+      "id": "toggle/label.outline.small/hover/dark",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "outline",
+        "size": "small",
+        "checked": false
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        40.0,
+        24.0
+      ],
+      "png": "png/toggle/label.outline.small/hover/dark.png",
+      "scene": "scenes/toggle/label.outline.small/hover/dark.json",
+      "png_sha256": "19bca79a1809e69e281b615731e686fa6f408dce032c3b7e2c317c52b7366216"
+    },
+    {
+      "id": "toggle/label.outline.small/hover/light",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "outline",
+        "size": "small",
+        "checked": false
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        40.0,
+        24.0
+      ],
+      "png": "png/toggle/label.outline.small/hover/light.png",
+      "scene": "scenes/toggle/label.outline.small/hover/light.json",
+      "png_sha256": "e27e36366fe96e714cffd64338f6a4cb0210a1137e4a903b7012111f8527cb82"
+    },
+    {
+      "id": "toggle/label.outline.small/normal/dark",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "outline",
+        "size": "small",
+        "checked": false
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        40.0,
+        24.0
+      ],
+      "png": "png/toggle/label.outline.small/normal/dark.png",
+      "scene": "scenes/toggle/label.outline.small/normal/dark.json",
+      "png_sha256": "90ccbf90461a1a8662eb0dbbd425839dcfc7f94cfcdcb68e3c83c4bd7a9af8cf"
+    },
+    {
+      "id": "toggle/label.outline.small/normal/light",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "outline",
+        "size": "small",
+        "checked": false
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        40.0,
+        24.0
+      ],
+      "png": "png/toggle/label.outline.small/normal/light.png",
+      "scene": "scenes/toggle/label.outline.small/normal/light.json",
+      "png_sha256": "ff9c2bb4891358c5b1e89209649eaecd9b48e99131e736bdf3f0fc860f566a22"
+    },
+    {
+      "id": "toggle/label.outline.xsmall.checked/disabled/dark",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "outline",
+        "size": "xsmall",
+        "checked": true,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        32.0,
+        20.0
+      ],
+      "png": "png/toggle/label.outline.xsmall.checked/disabled/dark.png",
+      "scene": "scenes/toggle/label.outline.xsmall.checked/disabled/dark.json",
+      "png_sha256": "8dbf5f178c645130c0d7b55a5a8d8a3edc07c14ab70490b8c9317f63571912e0"
+    },
+    {
+      "id": "toggle/label.outline.xsmall.checked/disabled/light",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "outline",
+        "size": "xsmall",
+        "checked": true,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        32.0,
+        20.0
+      ],
+      "png": "png/toggle/label.outline.xsmall.checked/disabled/light.png",
+      "scene": "scenes/toggle/label.outline.xsmall.checked/disabled/light.json",
+      "png_sha256": "04b190a1968fdacb86d07443cc6256e09257b390313509d9d6bc89650fec1fbf"
+    },
+    {
+      "id": "toggle/label.outline.xsmall.checked/hover/dark",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "outline",
+        "size": "xsmall",
+        "checked": true
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        32.0,
+        20.0
+      ],
+      "png": "png/toggle/label.outline.xsmall.checked/hover/dark.png",
+      "scene": "scenes/toggle/label.outline.xsmall.checked/hover/dark.json",
+      "png_sha256": "8dbf5f178c645130c0d7b55a5a8d8a3edc07c14ab70490b8c9317f63571912e0"
+    },
+    {
+      "id": "toggle/label.outline.xsmall.checked/hover/light",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "outline",
+        "size": "xsmall",
+        "checked": true
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        32.0,
+        20.0
+      ],
+      "png": "png/toggle/label.outline.xsmall.checked/hover/light.png",
+      "scene": "scenes/toggle/label.outline.xsmall.checked/hover/light.json",
+      "png_sha256": "04b190a1968fdacb86d07443cc6256e09257b390313509d9d6bc89650fec1fbf"
+    },
+    {
+      "id": "toggle/label.outline.xsmall.checked/normal/dark",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "outline",
+        "size": "xsmall",
+        "checked": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        32.0,
+        20.0
+      ],
+      "png": "png/toggle/label.outline.xsmall.checked/normal/dark.png",
+      "scene": "scenes/toggle/label.outline.xsmall.checked/normal/dark.json",
+      "png_sha256": "8dbf5f178c645130c0d7b55a5a8d8a3edc07c14ab70490b8c9317f63571912e0"
+    },
+    {
+      "id": "toggle/label.outline.xsmall.checked/normal/light",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "outline",
+        "size": "xsmall",
+        "checked": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        32.0,
+        20.0
+      ],
+      "png": "png/toggle/label.outline.xsmall.checked/normal/light.png",
+      "scene": "scenes/toggle/label.outline.xsmall.checked/normal/light.json",
+      "png_sha256": "04b190a1968fdacb86d07443cc6256e09257b390313509d9d6bc89650fec1fbf"
+    },
+    {
+      "id": "toggle/label.outline.xsmall/disabled/dark",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "outline",
+        "size": "xsmall",
+        "checked": false,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        32.0,
+        20.0
+      ],
+      "png": "png/toggle/label.outline.xsmall/disabled/dark.png",
+      "scene": "scenes/toggle/label.outline.xsmall/disabled/dark.json",
+      "png_sha256": "4def3344ad479841e13d7b47bca0dbfcf15944d3f57fd4bf32d61af1fc7bd7d0"
+    },
+    {
+      "id": "toggle/label.outline.xsmall/disabled/light",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "outline",
+        "size": "xsmall",
+        "checked": false,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        32.0,
+        20.0
+      ],
+      "png": "png/toggle/label.outline.xsmall/disabled/light.png",
+      "scene": "scenes/toggle/label.outline.xsmall/disabled/light.json",
+      "png_sha256": "d6b4e6175e8a971d9b1fb7842597fb2fba09403c876a4ce65f54aaa2235323f8"
+    },
+    {
+      "id": "toggle/label.outline.xsmall/hover/dark",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "outline",
+        "size": "xsmall",
+        "checked": false
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        32.0,
+        20.0
+      ],
+      "png": "png/toggle/label.outline.xsmall/hover/dark.png",
+      "scene": "scenes/toggle/label.outline.xsmall/hover/dark.json",
+      "png_sha256": "8dbf5f178c645130c0d7b55a5a8d8a3edc07c14ab70490b8c9317f63571912e0"
+    },
+    {
+      "id": "toggle/label.outline.xsmall/hover/light",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "outline",
+        "size": "xsmall",
+        "checked": false
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        32.0,
+        20.0
+      ],
+      "png": "png/toggle/label.outline.xsmall/hover/light.png",
+      "scene": "scenes/toggle/label.outline.xsmall/hover/light.json",
+      "png_sha256": "04b190a1968fdacb86d07443cc6256e09257b390313509d9d6bc89650fec1fbf"
+    },
+    {
+      "id": "toggle/label.outline.xsmall/normal/dark",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "outline",
+        "size": "xsmall",
+        "checked": false
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        32.0,
+        20.0
+      ],
+      "png": "png/toggle/label.outline.xsmall/normal/dark.png",
+      "scene": "scenes/toggle/label.outline.xsmall/normal/dark.json",
+      "png_sha256": "4def3344ad479841e13d7b47bca0dbfcf15944d3f57fd4bf32d61af1fc7bd7d0"
+    },
+    {
+      "id": "toggle/label.outline.xsmall/normal/light",
+      "component": "toggle",
+      "group": "label",
+      "params": {
+        "label": "Bold",
+        "variant": "outline",
+        "size": "xsmall",
+        "checked": false
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        32.0,
+        20.0
+      ],
+      "png": "png/toggle/label.outline.xsmall/normal/light.png",
+      "scene": "scenes/toggle/label.outline.xsmall/normal/light.json",
+      "png_sha256": "d6b4e6175e8a971d9b1fb7842597fb2fba09403c876a4ce65f54aaa2235323f8"
     }
   ]
 }

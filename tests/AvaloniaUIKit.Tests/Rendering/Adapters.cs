@@ -1,4 +1,5 @@
 using Avalonia.Controls;
+using Avalonia.Controls.Primitives;
 using AvaloniaUIKit.Tests.Golden;
 
 namespace AvaloniaUIKit.Tests.Rendering;
@@ -14,6 +15,7 @@ public static class Adapters
     {
         "surface" => new Border { Width = 1, Height = 1 },
         "button" => Button(c),
+        "toggle" => Toggle(c),
         _ => throw new NotSupportedException($"no adapter for {c.Component}"),
     };
 
@@ -40,6 +42,19 @@ public static class Adapters
         {
             control.Classes.Add(className ?? key);
         }
+    }
+
+    private static ToggleButton Toggle(GoldenCase c)
+    {
+        var toggle = new ToggleButton
+        {
+            Content = c.Has("label") ? c.Str("label") : Icon(c.Str("icon")),
+            IsChecked = c.Bool("checked"),
+            IsEnabled = !c.Bool("disabled"),
+        };
+        ClassFrom(toggle, c, "variant", "ghost");
+        ClassFrom(toggle, c, "size", "medium");
+        return toggle;
     }
 
     private static Button Button(GoldenCase c)
