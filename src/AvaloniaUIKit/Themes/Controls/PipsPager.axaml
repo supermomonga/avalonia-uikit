@@ -1,0 +1,286 @@
+<!--
+  GPUI Kit Pagination (crates/component/src/pagination.rs) -> PipsPager with
+  numbered pages:
+
+    <PipsPager NumberOfPages="5" SelectedPageIndex="2" Classes="small" />
+
+  Previous and Next are ghost compact buttons with a chevron and a label (the
+  resources Gpui.Pagination.Previous / Next), the pages compact buttons: the
+  current one outline, the others ghost. GPUI keeps the end buttons visible
+  and disabled. Classes: xsmall small large (medium is the default) and
+  compact (the chevrons only, as squares). Set them before the template
+  applies: PipsPager sizes its page list from the first realized page.
+  GPUI's ellipsis menu has no counterpart: past MaxVisiblePips, PipsPager
+  scrolls its pages instead.
+-->
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Styles.Resources>
+    <x:String x:Key="Gpui.Pagination.Previous">Previous</x:String>
+    <x:String x:Key="Gpui.Pagination.Next">Next</x:String>
+
+    <!-- A page: a compact button, ghost or (the current page) default outline. -->
+    <ControlTheme x:Key="GpuiPagerItem" TargetType="ListBoxItem">
+      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Ghost.Normal.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Ghost.Normal.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Ghost.Normal.Border}" />
+      <Setter Property="BorderThickness" Value="0" />
+      <Setter Property="CornerRadius" Value="6" />
+      <!-- The 4px gap, as margins: PipsPager pages by container size plus margins. -->
+      <Setter Property="Margin" Value="2,0" />
+      <Setter Property="Height" Value="32" />
+      <Setter Property="MinWidth" Value="32" />
+      <Setter Property="Padding" Value="8,0" />
+      <Setter Property="FontSize" Value="14" />
+      <Setter Property="TextBlock.LineHeight" Value="17.5" />
+      <Setter Property="ClipToBounds" Value="False" />
+      <Setter Property="HorizontalContentAlignment" Value="Center" />
+      <Setter Property="VerticalContentAlignment" Value="Center" />
+      <Setter Property="Template">
+        <ControlTemplate>
+          <Panel>
+            <ContentPresenter Name="PART_ContentPresenter"
+                              BackgroundSizing="OuterBorderEdge"
+                              Background="{TemplateBinding Background}"
+                              BorderBrush="{TemplateBinding BorderBrush}"
+                              BorderThickness="{TemplateBinding BorderThickness}"
+                              CornerRadius="{TemplateBinding CornerRadius}"
+                              Padding="{TemplateBinding Padding}"
+                              Content="{TemplateBinding Content}"
+                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                              Foreground="{TemplateBinding Foreground}"
+                              TextWrapping="NoWrap" />
+            <Border Name="PART_FocusRing" Margin="-3" BorderThickness="3"
+                    CornerRadius="7.5"
+                    BorderBrush="{DynamicResource Gpui.FocusRing}"
+                    IsVisible="False" IsHitTestVisible="False" />
+          </Panel>
+        </ControlTemplate>
+      </Setter>
+      <Style Selector="^:pointerover">
+        <Setter Property="Background" Value="{DynamicResource Gpui.Button.Ghost.Hover.Background}" />
+        <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Ghost.Hover.Foreground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Ghost.Hover.Border}" />
+      </Style>
+      <Style Selector="^:pressed">
+        <Setter Property="Background" Value="{DynamicResource Gpui.Button.Ghost.Pressed.Background}" />
+        <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Ghost.Pressed.Foreground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Ghost.Pressed.Border}" />
+      </Style>
+      <Style Selector="^:disabled">
+        <Setter Property="Background" Value="{DynamicResource Gpui.Button.Ghost.Disabled.Background}" />
+        <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Ghost.Disabled.Foreground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Ghost.Disabled.Border}" />
+      </Style>
+      <Style Selector="^:selected">
+        <Setter Property="Background" Value="{DynamicResource Gpui.Button.Default.Outline.Normal.Background}" />
+        <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Default.Outline.Normal.Foreground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Default.Outline.Normal.Border}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="5.5" />
+      </Style>
+      <Style Selector="^:selected:pointerover">
+        <Setter Property="Background" Value="{DynamicResource Gpui.Button.Default.Outline.Hover.Background}" />
+        <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Default.Outline.Hover.Foreground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Default.Outline.Hover.Border}" />
+      </Style>
+      <Style Selector="^:selected:pressed">
+        <Setter Property="Background" Value="{DynamicResource Gpui.Button.Default.Outline.Pressed.Background}" />
+        <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Default.Outline.Pressed.Foreground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Default.Outline.Pressed.Border}" />
+      </Style>
+      <Style Selector="^:selected:disabled">
+        <Setter Property="Background" Value="{DynamicResource Gpui.Button.Default.Outline.Disabled.Background}" />
+        <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Default.Outline.Disabled.Foreground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Default.Outline.Disabled.Border}" />
+      </Style>
+      <!-- Keyboard focus: the border turns to ring, and the ring band shows. -->
+      <Style Selector="^:focus-visible">
+        <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Ring}" />
+      </Style>
+      <Style Selector="^:focus-visible /template/ Border#PART_FocusRing">
+        <Setter Property="IsVisible" Value="True" />
+      </Style>
+    </ControlTheme>
+
+    <!--
+      The pages: no chrome. The viewport reaches 3px past the list on every
+      side, so the scroll clip (pages past MaxVisiblePips) spares the focus
+      band of the first and last page.
+    -->
+    <ControlTheme x:Key="GpuiPagerList" TargetType="ListBox">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="BorderThickness" Value="0" />
+      <Setter Property="ClipToBounds" Value="False" />
+      <Setter Property="Template">
+        <ControlTemplate>
+          <ScrollViewer Name="PART_ScrollViewer"
+                        Margin="-3"
+                        Background="{TemplateBinding Background}"
+                        HorizontalScrollBarVisibility="Hidden"
+                        VerticalScrollBarVisibility="Hidden">
+            <ItemsPresenter Name="PART_ItemsPresenter"
+                            ItemsPanel="{TemplateBinding ItemsPanel}"
+                            Margin="3" />
+          </ScrollViewer>
+        </ControlTemplate>
+      </Setter>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type PipsPager}" TargetType="PipsPager">
+      <Setter Property="Padding" Value="8" />
+      <Setter Property="HorizontalAlignment" Value="Left" />
+      <Setter Property="VerticalAlignment" Value="Top" />
+      <Setter Property="IsTabStop" Value="False" />
+      <Setter Property="ClipToBounds" Value="False" />
+      <Setter Property="Template">
+        <ControlTemplate>
+          <StackPanel Name="PART_RootPanel"
+                      Orientation="{TemplateBinding Orientation}"
+                      Background="{TemplateBinding Background}"
+                      Margin="{TemplateBinding Padding}"
+                      Spacing="4">
+            <Button Name="PART_PreviousButton"
+                    Classes="ghost compact"
+                    Theme="{TemplateBinding PreviousButtonTheme}"
+                    IsVisible="{TemplateBinding IsPreviousButtonVisible}"
+                    ToolTip.Tip="{DynamicResource Gpui.Pagination.Previous}">
+              <StackPanel Orientation="Horizontal" Spacing="8">
+                <PathIcon Name="PreviousIcon" Width="14" Height="14"
+                          Data="{StaticResource Gpui.Icon.ChevronLeft}" />
+                <TextBlock Name="PreviousLabel" Text="{DynamicResource Gpui.Pagination.Previous}" />
+              </StackPanel>
+            </Button>
+            <ListBox Name="PART_PipsPagerList"
+                     Theme="{StaticResource GpuiPagerList}"
+                     ItemContainerTheme="{StaticResource GpuiPagerItem}"
+                     ItemsSource="{Binding TemplateSettings.Pips, RelativeSource={RelativeSource TemplatedParent}}"
+                     SelectedIndex="{Binding SelectedPageIndex, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                     AutoScrollToSelectedItem="False"
+                     Margin="-2,0"
+                     VerticalAlignment="Center">
+              <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                  <StackPanel Orientation="{Binding Orientation, RelativeSource={RelativeSource FindAncestor, AncestorType=PipsPager}}" />
+                </ItemsPanelTemplate>
+              </ListBox.ItemsPanel>
+            </ListBox>
+            <Button Name="PART_NextButton"
+                    Classes="ghost compact"
+                    Theme="{TemplateBinding NextButtonTheme}"
+                    IsVisible="{TemplateBinding IsNextButtonVisible}"
+                    ToolTip.Tip="{DynamicResource Gpui.Pagination.Next}">
+              <StackPanel Orientation="Horizontal" Spacing="8">
+                <TextBlock Name="NextLabel" Text="{DynamicResource Gpui.Pagination.Next}" />
+                <PathIcon Name="NextIcon" Width="14" Height="14"
+                          Data="{StaticResource Gpui.Icon.ChevronRight}" />
+              </StackPanel>
+            </Button>
+          </StackPanel>
+        </ControlTemplate>
+      </Setter>
+
+      <Style Selector="^:vertical /template/ ListBox#PART_PipsPagerList">
+        <Setter Property="Margin" Value="0,-2" />
+      </Style>
+
+      <!-- GPUI lists no page for a single page. -->
+      <Style Selector="^[NumberOfPages=0] /template/ ListBox#PART_PipsPagerList, ^[NumberOfPages=1] /template/ ListBox#PART_PipsPagerList">
+        <Setter Property="IsVisible" Value="False" />
+      </Style>
+
+      <!-- Sizes: the end buttons' compact size; a label's icon follows its text size. -->
+      <Style Selector="^.xsmall /template/ Button">
+        <Setter Property="Height" Value="20" />
+        <Setter Property="MinWidth" Value="20" />
+        <Setter Property="Padding" Value="4,0" />
+        <Setter Property="FontSize" Value="12" />
+      </Style>
+      <Style Selector="^.xsmall /template/ TextBlock">
+        <Setter Property="LineHeight" Value="15" />
+      </Style>
+      <Style Selector="^.xsmall /template/ PathIcon">
+        <Setter Property="Width" Value="12" />
+        <Setter Property="Height" Value="12" />
+      </Style>
+      <Style Selector="^.small /template/ Button">
+        <Setter Property="Height" Value="24" />
+        <Setter Property="MinWidth" Value="24" />
+        <Setter Property="Padding" Value="6,0" />
+      </Style>
+      <Style Selector="^.large /template/ Button">
+        <Setter Property="FontSize" Value="16" />
+      </Style>
+      <Style Selector="^.large /template/ TextBlock">
+        <Setter Property="LineHeight" Value="20" />
+      </Style>
+      <Style Selector="^.large /template/ PathIcon">
+        <Setter Property="Width" Value="16" />
+        <Setter Property="Height" Value="16" />
+      </Style>
+
+      <!-- compact: the chevrons alone, as icon buttons with the button's icon size. -->
+      <Style Selector="^.compact /template/ ListBox#PART_PipsPagerList">
+        <Setter Property="IsVisible" Value="False" />
+      </Style>
+      <Style Selector="^.compact /template/ TextBlock">
+        <Setter Property="IsVisible" Value="False" />
+      </Style>
+      <Style Selector="^.compact /template/ Button">
+        <Setter Property="Width" Value="32" />
+        <Setter Property="Height" Value="32" />
+        <Setter Property="Padding" Value="0" />
+      </Style>
+      <Style Selector="^.compact /template/ PathIcon">
+        <Setter Property="Width" Value="16" />
+        <Setter Property="Height" Value="16" />
+      </Style>
+      <Style Selector="^.compact.xsmall /template/ Button">
+        <Setter Property="Width" Value="20" />
+        <Setter Property="Height" Value="20" />
+      </Style>
+      <Style Selector="^.compact.xsmall /template/ PathIcon">
+        <Setter Property="Width" Value="12" />
+        <Setter Property="Height" Value="12" />
+      </Style>
+      <Style Selector="^.compact.small /template/ Button">
+        <Setter Property="Width" Value="24" />
+        <Setter Property="Height" Value="24" />
+      </Style>
+      <Style Selector="^.compact.small /template/ PathIcon">
+        <Setter Property="Width" Value="14" />
+        <Setter Property="Height" Value="14" />
+      </Style>
+      <Style Selector="^.compact.large /template/ PathIcon">
+        <Setter Property="Width" Value="24" />
+        <Setter Property="Height" Value="24" />
+      </Style>
+    </ControlTheme>
+  </Styles.Resources>
+
+  <!--
+    The pages are the list's containers, not template parts, so their sizes
+    come from here: the compact button sizes again.
+  -->
+  <Style Selector="PipsPager:vertical ListBoxItem">
+    <Setter Property="Margin" Value="0,2" />
+  </Style>
+  <Style Selector="PipsPager.xsmall ListBoxItem">
+    <Setter Property="Height" Value="20" />
+    <Setter Property="MinWidth" Value="20" />
+    <Setter Property="Padding" Value="4,0" />
+    <Setter Property="FontSize" Value="12" />
+    <Setter Property="TextBlock.LineHeight" Value="15" />
+  </Style>
+  <Style Selector="PipsPager.small ListBoxItem">
+    <Setter Property="Height" Value="24" />
+    <Setter Property="MinWidth" Value="24" />
+    <Setter Property="Padding" Value="6,0" />
+  </Style>
+  <Style Selector="PipsPager.large ListBoxItem">
+    <Setter Property="FontSize" Value="16" />
+    <Setter Property="TextBlock.LineHeight" Value="20" />
+  </Style>
+</Styles>

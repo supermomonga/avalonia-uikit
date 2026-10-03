@@ -39034,6 +39034,1208 @@
       "png_sha256": "c818366162e527a2035e3eb901b282176cb5359d6eca411f3f86575d7a785bc2"
     },
     {
+      "id": "pagination/compact.large/normal/dark",
+      "component": "pagination",
+      "group": "compact",
+      "params": {
+        "total": 5,
+        "current": 3,
+        "compact": true,
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        128.0,
+        64.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        84.0,
+        48.0
+      ],
+      "png": "png/pagination/compact.large/normal/dark.png",
+      "scene": "scenes/pagination/compact.large/normal/dark.json",
+      "png_sha256": "59701f4871a929d9da79283ec60e1b87101467503eb430d17930397f44066012"
+    },
+    {
+      "id": "pagination/compact.large/normal/light",
+      "component": "pagination",
+      "group": "compact",
+      "params": {
+        "total": 5,
+        "current": 3,
+        "compact": true,
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        128.0,
+        64.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        84.0,
+        48.0
+      ],
+      "png": "png/pagination/compact.large/normal/light.png",
+      "scene": "scenes/pagination/compact.large/normal/light.json",
+      "png_sha256": "023a31344ba4c59b4186738cb8d2f460bdf0a21d9d1b8b11dd1da0a359e7b6da"
+    },
+    {
+      "id": "pagination/compact.medium/normal/dark",
+      "component": "pagination",
+      "group": "compact",
+      "params": {
+        "total": 5,
+        "current": 3,
+        "compact": true,
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        128.0,
+        64.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        84.0,
+        48.0
+      ],
+      "png": "png/pagination/compact.medium/normal/dark.png",
+      "scene": "scenes/pagination/compact.medium/normal/dark.json",
+      "png_sha256": "586de218eac2ccc7f9bcefe428eaa8a896fba7d73926b8357a26a35d3cb504e3"
+    },
+    {
+      "id": "pagination/compact.medium/normal/light",
+      "component": "pagination",
+      "group": "compact",
+      "params": {
+        "total": 5,
+        "current": 3,
+        "compact": true,
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        128.0,
+        64.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        84.0,
+        48.0
+      ],
+      "png": "png/pagination/compact.medium/normal/light.png",
+      "scene": "scenes/pagination/compact.medium/normal/light.json",
+      "png_sha256": "1b93040536461a9ca29391da4fac754bd0f69a89ae85c9c2db6ec426fc494d42"
+    },
+    {
+      "id": "pagination/compact.small/normal/dark",
+      "component": "pagination",
+      "group": "compact",
+      "params": {
+        "total": 5,
+        "current": 3,
+        "compact": true,
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        128.0,
+        64.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        68.0,
+        40.0
+      ],
+      "png": "png/pagination/compact.small/normal/dark.png",
+      "scene": "scenes/pagination/compact.small/normal/dark.json",
+      "png_sha256": "8e537de9c95c5397635bd16a54a53fee9334a223b61e5687adf04c767ddd995c"
+    },
+    {
+      "id": "pagination/compact.small/normal/light",
+      "component": "pagination",
+      "group": "compact",
+      "params": {
+        "total": 5,
+        "current": 3,
+        "compact": true,
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        128.0,
+        64.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        68.0,
+        40.0
+      ],
+      "png": "png/pagination/compact.small/normal/light.png",
+      "scene": "scenes/pagination/compact.small/normal/light.json",
+      "png_sha256": "e1727dc267cdc91b3c1ed1878e1baee05fa796192fdcec197b4ebbad23a20f83"
+    },
+    {
+      "id": "pagination/compact.xsmall/normal/dark",
+      "component": "pagination",
+      "group": "compact",
+      "params": {
+        "total": 5,
+        "current": 3,
+        "compact": true,
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        128.0,
+        64.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        60.0,
+        36.0
+      ],
+      "png": "png/pagination/compact.xsmall/normal/dark.png",
+      "scene": "scenes/pagination/compact.xsmall/normal/dark.json",
+      "png_sha256": "58674ba788552b96236889eacb361b121532ca655f3deaa165c14c4ac7b6131a"
+    },
+    {
+      "id": "pagination/compact.xsmall/normal/light",
+      "component": "pagination",
+      "group": "compact",
+      "params": {
+        "total": 5,
+        "current": 3,
+        "compact": true,
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        128.0,
+        64.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        60.0,
+        36.0
+      ],
+      "png": "png/pagination/compact.xsmall/normal/light.png",
+      "scene": "scenes/pagination/compact.xsmall/normal/light.json",
+      "png_sha256": "282a646626a20156b09172d030b114d3f4d66ab83428bccf8ef03d35a61c0510"
+    },
+    {
+      "id": "pagination/disabled.base/disabled/dark",
+      "component": "pagination",
+      "group": "disabled",
+      "params": {
+        "total": 5,
+        "current": 3,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        400.0,
+        64.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        365.0,
+        48.0
+      ],
+      "png": "png/pagination/disabled.base/disabled/dark.png",
+      "scene": "scenes/pagination/disabled.base/disabled/dark.json",
+      "png_sha256": "464565121841b2922add77c87fe80c3a5f4896c8cf0501b7f13d2b97c51f9a67"
+    },
+    {
+      "id": "pagination/disabled.base/disabled/light",
+      "component": "pagination",
+      "group": "disabled",
+      "params": {
+        "total": 5,
+        "current": 3,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        400.0,
+        64.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        365.0,
+        48.0
+      ],
+      "png": "png/pagination/disabled.base/disabled/light.png",
+      "scene": "scenes/pagination/disabled.base/disabled/light.json",
+      "png_sha256": "e134439926552e3d6125e510993ec5e385de6dbd73d69aec6e0198ffdd4cdbf5"
+    },
+    {
+      "id": "pagination/ends.current-1/normal/dark",
+      "component": "pagination",
+      "group": "ends",
+      "params": {
+        "total": 5,
+        "current": 1
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        400.0,
+        64.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        365.0,
+        48.0
+      ],
+      "png": "png/pagination/ends.current-1/normal/dark.png",
+      "scene": "scenes/pagination/ends.current-1/normal/dark.json",
+      "png_sha256": "fe32390d4ea16ad935a3934274f0d205d5c1dac5891231b3f36e7093931d9ab1"
+    },
+    {
+      "id": "pagination/ends.current-1/normal/light",
+      "component": "pagination",
+      "group": "ends",
+      "params": {
+        "total": 5,
+        "current": 1
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        400.0,
+        64.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        365.0,
+        48.0
+      ],
+      "png": "png/pagination/ends.current-1/normal/light.png",
+      "scene": "scenes/pagination/ends.current-1/normal/light.json",
+      "png_sha256": "f418ea2184b8eee14a587fbb764c4dc59e702f470196eeb4645a81cbc6ec2b58"
+    },
+    {
+      "id": "pagination/ends.current-5/normal/dark",
+      "component": "pagination",
+      "group": "ends",
+      "params": {
+        "total": 5,
+        "current": 5
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        400.0,
+        64.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        365.0,
+        48.0
+      ],
+      "png": "png/pagination/ends.current-5/normal/dark.png",
+      "scene": "scenes/pagination/ends.current-5/normal/dark.json",
+      "png_sha256": "877ac475d66071abd88af6c66ca6ebb4ea83d634f0986613688fa63c0a4d3c90"
+    },
+    {
+      "id": "pagination/ends.current-5/normal/light",
+      "component": "pagination",
+      "group": "ends",
+      "params": {
+        "total": 5,
+        "current": 5
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        400.0,
+        64.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        365.0,
+        48.0
+      ],
+      "png": "png/pagination/ends.current-5/normal/light.png",
+      "scene": "scenes/pagination/ends.current-5/normal/light.json",
+      "png_sha256": "ad7bd02e936e85d677c11aeb8e19fdec7a1efa69783ced5ac9c4f3d8cafd146a"
+    },
+    {
+      "id": "pagination/pointer.base/at-176-32/dark",
+      "component": "pagination",
+      "group": "pointer",
+      "params": {
+        "total": 5,
+        "current": 3
+      },
+      "state": "at-176-32",
+      "theme": "dark",
+      "viewport": [
+        400.0,
+        64.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        365.0,
+        48.0
+      ],
+      "png": "png/pagination/pointer.base/at-176-32/dark.png",
+      "scene": "scenes/pagination/pointer.base/at-176-32/dark.json",
+      "png_sha256": "b1136f09b701034f9307501b3431b7189f4794f1bacc4912f63487e9de12b047"
+    },
+    {
+      "id": "pagination/pointer.base/at-176-32/light",
+      "component": "pagination",
+      "group": "pointer",
+      "params": {
+        "total": 5,
+        "current": 3
+      },
+      "state": "at-176-32",
+      "theme": "light",
+      "viewport": [
+        400.0,
+        64.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        365.0,
+        48.0
+      ],
+      "png": "png/pagination/pointer.base/at-176-32/light.png",
+      "scene": "scenes/pagination/pointer.base/at-176-32/light.json",
+      "png_sha256": "f47e2458ab82626eab38d1080c1a97f3133a671a170002c34c12632eecd9b975"
+    },
+    {
+      "id": "pagination/pointer.base/at-212-32/dark",
+      "component": "pagination",
+      "group": "pointer",
+      "params": {
+        "total": 5,
+        "current": 3
+      },
+      "state": "at-212-32",
+      "theme": "dark",
+      "viewport": [
+        400.0,
+        64.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        365.0,
+        48.0
+      ],
+      "png": "png/pagination/pointer.base/at-212-32/dark.png",
+      "scene": "scenes/pagination/pointer.base/at-212-32/dark.json",
+      "png_sha256": "b4661f79b8729c0014803b9a9db53f47d9c2cf7c2630afc6dafb519d1397c974"
+    },
+    {
+      "id": "pagination/pointer.base/at-212-32/light",
+      "component": "pagination",
+      "group": "pointer",
+      "params": {
+        "total": 5,
+        "current": 3
+      },
+      "state": "at-212-32",
+      "theme": "light",
+      "viewport": [
+        400.0,
+        64.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        365.0,
+        48.0
+      ],
+      "png": "png/pagination/pointer.base/at-212-32/light.png",
+      "scene": "scenes/pagination/pointer.base/at-212-32/light.json",
+      "png_sha256": "275e48c78ea10c144e86491fcc49d07b0f005825a570e5b5e1d12c5cdab8722f"
+    },
+    {
+      "id": "pagination/pointer.base/at-338-32/dark",
+      "component": "pagination",
+      "group": "pointer",
+      "params": {
+        "total": 5,
+        "current": 3
+      },
+      "state": "at-338-32",
+      "theme": "dark",
+      "viewport": [
+        400.0,
+        64.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        365.0,
+        48.0
+      ],
+      "png": "png/pagination/pointer.base/at-338-32/dark.png",
+      "scene": "scenes/pagination/pointer.base/at-338-32/dark.json",
+      "png_sha256": "6b6f784894ffc20bb48cdb60055fd1ac3cbc777d4a3d3c62b34d405c490dbcb7"
+    },
+    {
+      "id": "pagination/pointer.base/at-338-32/light",
+      "component": "pagination",
+      "group": "pointer",
+      "params": {
+        "total": 5,
+        "current": 3
+      },
+      "state": "at-338-32",
+      "theme": "light",
+      "viewport": [
+        400.0,
+        64.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        365.0,
+        48.0
+      ],
+      "png": "png/pagination/pointer.base/at-338-32/light.png",
+      "scene": "scenes/pagination/pointer.base/at-338-32/light.json",
+      "png_sha256": "c3df18a0e8a5e71ec82c4f213384ecdd487adfd210991d889efa5ea361910e22"
+    },
+    {
+      "id": "pagination/pointer.base/at-72-32/dark",
+      "component": "pagination",
+      "group": "pointer",
+      "params": {
+        "total": 5,
+        "current": 3
+      },
+      "state": "at-72-32",
+      "theme": "dark",
+      "viewport": [
+        400.0,
+        64.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        365.0,
+        48.0
+      ],
+      "png": "png/pagination/pointer.base/at-72-32/dark.png",
+      "scene": "scenes/pagination/pointer.base/at-72-32/dark.json",
+      "png_sha256": "1059ee1dfc7161b0b56b1e4f14b283234efd0428f95bcf13c7b5aa496f662eb0"
+    },
+    {
+      "id": "pagination/pointer.base/at-72-32/light",
+      "component": "pagination",
+      "group": "pointer",
+      "params": {
+        "total": 5,
+        "current": 3
+      },
+      "state": "at-72-32",
+      "theme": "light",
+      "viewport": [
+        400.0,
+        64.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        365.0,
+        48.0
+      ],
+      "png": "png/pagination/pointer.base/at-72-32/light.png",
+      "scene": "scenes/pagination/pointer.base/at-72-32/light.json",
+      "png_sha256": "82c4a09d459f58ac1d31f0060184f9de889f7f4ed50ba178bd57aa179f409274"
+    },
+    {
+      "id": "pagination/pointer.base/click-at-176-32/dark",
+      "component": "pagination",
+      "group": "pointer",
+      "params": {
+        "total": 5,
+        "current": 3
+      },
+      "state": "click-at-176-32",
+      "theme": "dark",
+      "viewport": [
+        400.0,
+        64.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        365.0,
+        48.0
+      ],
+      "png": "png/pagination/pointer.base/click-at-176-32/dark.png",
+      "scene": "scenes/pagination/pointer.base/click-at-176-32/dark.json",
+      "png_sha256": "e8693ec1fffc587ecb17c3a4aa8060ab63c02bc830aebb9ae3171a7b11b1e6f8"
+    },
+    {
+      "id": "pagination/pointer.base/click-at-176-32/light",
+      "component": "pagination",
+      "group": "pointer",
+      "params": {
+        "total": 5,
+        "current": 3
+      },
+      "state": "click-at-176-32",
+      "theme": "light",
+      "viewport": [
+        400.0,
+        64.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        365.0,
+        48.0
+      ],
+      "png": "png/pagination/pointer.base/click-at-176-32/light.png",
+      "scene": "scenes/pagination/pointer.base/click-at-176-32/light.json",
+      "png_sha256": "6f7f880a451f4bb988a252b24985d84e2dddcb52a54b58dedcb2170126d7ef59"
+    },
+    {
+      "id": "pagination/pointer.base/click-at-72-32/dark",
+      "component": "pagination",
+      "group": "pointer",
+      "params": {
+        "total": 5,
+        "current": 3
+      },
+      "state": "click-at-72-32",
+      "theme": "dark",
+      "viewport": [
+        400.0,
+        64.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        365.0,
+        48.0
+      ],
+      "png": "png/pagination/pointer.base/click-at-72-32/dark.png",
+      "scene": "scenes/pagination/pointer.base/click-at-72-32/dark.json",
+      "png_sha256": "f1543eea832172cecb1cd41ae2819c64a7fa5e5ed313b33ea5d50c5c51c0046a"
+    },
+    {
+      "id": "pagination/pointer.base/click-at-72-32/light",
+      "component": "pagination",
+      "group": "pointer",
+      "params": {
+        "total": 5,
+        "current": 3
+      },
+      "state": "click-at-72-32",
+      "theme": "light",
+      "viewport": [
+        400.0,
+        64.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        365.0,
+        48.0
+      ],
+      "png": "png/pagination/pointer.base/click-at-72-32/light.png",
+      "scene": "scenes/pagination/pointer.base/click-at-72-32/light.json",
+      "png_sha256": "3502808deca96f8b280b16a792c6d0b7cd8e89b8e6b0ab4fe57b2cbc21a511c0"
+    },
+    {
+      "id": "pagination/pointer.base/focus/dark",
+      "component": "pagination",
+      "group": "pointer",
+      "params": {
+        "total": 5,
+        "current": 3
+      },
+      "state": "focus",
+      "theme": "dark",
+      "viewport": [
+        400.0,
+        64.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        365.0,
+        48.0
+      ],
+      "png": "png/pagination/pointer.base/focus/dark.png",
+      "scene": "scenes/pagination/pointer.base/focus/dark.json",
+      "png_sha256": "647711a27b77ee8400bd0b82073dc70d386184630272e51afcd96fa1ae844892"
+    },
+    {
+      "id": "pagination/pointer.base/focus/light",
+      "component": "pagination",
+      "group": "pointer",
+      "params": {
+        "total": 5,
+        "current": 3
+      },
+      "state": "focus",
+      "theme": "light",
+      "viewport": [
+        400.0,
+        64.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        365.0,
+        48.0
+      ],
+      "png": "png/pagination/pointer.base/focus/light.png",
+      "scene": "scenes/pagination/pointer.base/focus/light.json",
+      "png_sha256": "65f63aac9cc831ffcc1d673d8fa413f3164d1a666f62a3b6fcda93e383b37524"
+    },
+    {
+      "id": "pagination/pointer.base/pressed-at-212-32/dark",
+      "component": "pagination",
+      "group": "pointer",
+      "params": {
+        "total": 5,
+        "current": 3
+      },
+      "state": "pressed-at-212-32",
+      "theme": "dark",
+      "viewport": [
+        400.0,
+        64.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        365.0,
+        48.0
+      ],
+      "png": "png/pagination/pointer.base/pressed-at-212-32/dark.png",
+      "scene": "scenes/pagination/pointer.base/pressed-at-212-32/dark.json",
+      "png_sha256": "370b48b659aeba85f5732a610ffd33a1ebe470491e3ea8bc63de6479bc4c2831"
+    },
+    {
+      "id": "pagination/pointer.base/pressed-at-212-32/light",
+      "component": "pagination",
+      "group": "pointer",
+      "params": {
+        "total": 5,
+        "current": 3
+      },
+      "state": "pressed-at-212-32",
+      "theme": "light",
+      "viewport": [
+        400.0,
+        64.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        365.0,
+        48.0
+      ],
+      "png": "png/pagination/pointer.base/pressed-at-212-32/light.png",
+      "scene": "scenes/pagination/pointer.base/pressed-at-212-32/light.json",
+      "png_sha256": "3d09bc5deab0ac10964d633dd1930da08a46b7f41a2f23eccea3b7550030b4ab"
+    },
+    {
+      "id": "pagination/pointer.base/pressed-at-72-32/dark",
+      "component": "pagination",
+      "group": "pointer",
+      "params": {
+        "total": 5,
+        "current": 3
+      },
+      "state": "pressed-at-72-32",
+      "theme": "dark",
+      "viewport": [
+        400.0,
+        64.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        365.0,
+        48.0
+      ],
+      "png": "png/pagination/pointer.base/pressed-at-72-32/dark.png",
+      "scene": "scenes/pagination/pointer.base/pressed-at-72-32/dark.json",
+      "png_sha256": "14a034df31f7449d899e157f70ba3fb625edce952336e1c0bc92d57ad0b7e141"
+    },
+    {
+      "id": "pagination/pointer.base/pressed-at-72-32/light",
+      "component": "pagination",
+      "group": "pointer",
+      "params": {
+        "total": 5,
+        "current": 3
+      },
+      "state": "pressed-at-72-32",
+      "theme": "light",
+      "viewport": [
+        400.0,
+        64.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        365.0,
+        48.0
+      ],
+      "png": "png/pagination/pointer.base/pressed-at-72-32/light.png",
+      "scene": "scenes/pagination/pointer.base/pressed-at-72-32/light.json",
+      "png_sha256": "3da4ef0bbc14d2de5e012f73d9fc26b33b416ed1dae64fec0bcd6f2672d88ec9"
+    },
+    {
+      "id": "pagination/single.base/normal/dark",
+      "component": "pagination",
+      "group": "single",
+      "params": {
+        "total": 1,
+        "current": 1
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        400.0,
+        64.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        185.0,
+        48.0
+      ],
+      "png": "png/pagination/single.base/normal/dark.png",
+      "scene": "scenes/pagination/single.base/normal/dark.json",
+      "png_sha256": "10a4712eec2f497c4d6be6df3c4390187cd7386b8e96b52ce337e8c1c2ca3c80"
+    },
+    {
+      "id": "pagination/single.base/normal/light",
+      "component": "pagination",
+      "group": "single",
+      "params": {
+        "total": 1,
+        "current": 1
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        400.0,
+        64.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        185.0,
+        48.0
+      ],
+      "png": "png/pagination/single.base/normal/light.png",
+      "scene": "scenes/pagination/single.base/normal/light.json",
+      "png_sha256": "7cd461f3bfc4fc1cfe0233ce46805c4cfece5aba62ebb095ec1f73ec59ac368d"
+    },
+    {
+      "id": "pagination/size.large/normal/dark",
+      "component": "pagination",
+      "group": "size",
+      "params": {
+        "total": 5,
+        "current": 3,
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        400.0,
+        64.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        382.0,
+        48.0
+      ],
+      "png": "png/pagination/size.large/normal/dark.png",
+      "scene": "scenes/pagination/size.large/normal/dark.json",
+      "png_sha256": "3480ca77ef0fe56516fa57a97ef24a2c5090b74f42b063bed2311c66eecf98ac"
+    },
+    {
+      "id": "pagination/size.large/normal/light",
+      "component": "pagination",
+      "group": "size",
+      "params": {
+        "total": 5,
+        "current": 3,
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        400.0,
+        64.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        382.0,
+        48.0
+      ],
+      "png": "png/pagination/size.large/normal/light.png",
+      "scene": "scenes/pagination/size.large/normal/light.json",
+      "png_sha256": "d0db51dedf32dcda57a0ecd439bd7362055be371605b40e72116eee81f86ffb0"
+    },
+    {
+      "id": "pagination/size.medium/normal/dark",
+      "component": "pagination",
+      "group": "size",
+      "params": {
+        "total": 5,
+        "current": 3,
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        400.0,
+        64.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        365.0,
+        48.0
+      ],
+      "png": "png/pagination/size.medium/normal/dark.png",
+      "scene": "scenes/pagination/size.medium/normal/dark.json",
+      "png_sha256": "1c21ee7dfd3349f2b794e0e10a193ef466535e24f3a3ee2325bc0c605c2ae7ca"
+    },
+    {
+      "id": "pagination/size.medium/normal/light",
+      "component": "pagination",
+      "group": "size",
+      "params": {
+        "total": 5,
+        "current": 3,
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        400.0,
+        64.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        365.0,
+        48.0
+      ],
+      "png": "png/pagination/size.medium/normal/light.png",
+      "scene": "scenes/pagination/size.medium/normal/light.json",
+      "png_sha256": "676ae7692fad29c2e8354276ef9681fe24834217f42292cad5fadee67835ff90"
+    },
+    {
+      "id": "pagination/size.small/normal/dark",
+      "component": "pagination",
+      "group": "size",
+      "params": {
+        "total": 5,
+        "current": 3,
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        400.0,
+        64.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        317.0,
+        40.0
+      ],
+      "png": "png/pagination/size.small/normal/dark.png",
+      "scene": "scenes/pagination/size.small/normal/dark.json",
+      "png_sha256": "4bae431d514290ef23a927309e737b4f4df1cc99e0b11d881880efd6121a88ad"
+    },
+    {
+      "id": "pagination/size.small/normal/light",
+      "component": "pagination",
+      "group": "size",
+      "params": {
+        "total": 5,
+        "current": 3,
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        400.0,
+        64.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        317.0,
+        40.0
+      ],
+      "png": "png/pagination/size.small/normal/light.png",
+      "scene": "scenes/pagination/size.small/normal/light.json",
+      "png_sha256": "438ba0ef49adee629177212d49b01cfaad4cfaa42c43da41aaf0a5c5aa79a6fc"
+    },
+    {
+      "id": "pagination/size.xsmall/normal/dark",
+      "component": "pagination",
+      "group": "size",
+      "params": {
+        "total": 5,
+        "current": 3,
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        400.0,
+        64.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        273.0,
+        36.0
+      ],
+      "png": "png/pagination/size.xsmall/normal/dark.png",
+      "scene": "scenes/pagination/size.xsmall/normal/dark.json",
+      "png_sha256": "3849ccf407b89d4c97bd51023a9de854f2ce4d5607e02c90c1f9033ee9fc8a6b"
+    },
+    {
+      "id": "pagination/size.xsmall/normal/light",
+      "component": "pagination",
+      "group": "size",
+      "params": {
+        "total": 5,
+        "current": 3,
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        400.0,
+        64.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        273.0,
+        36.0
+      ],
+      "png": "png/pagination/size.xsmall/normal/light.png",
+      "scene": "scenes/pagination/size.xsmall/normal/light.json",
+      "png_sha256": "dbe0ba9f213d96726e9ec768fb5d92726d26aac597e026f2bd6e3a99422874ca"
+    },
+    {
       "id": "progress/motion.loading/wait-0ms/light",
       "component": "progress",
       "group": "motion.loading",

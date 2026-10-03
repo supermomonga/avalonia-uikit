@@ -36,6 +36,7 @@
   <StyleInclude Source="avares://AvaloniaUIKit/Themes/Controls/ButtonGroup.axaml" />
   <StyleInclude Source="avares://AvaloniaUIKit/Themes/Controls/ToggleGroup.axaml" />
   <StyleInclude Source="avares://AvaloniaUIKit/Themes/Controls/Label.axaml" />
+  <StyleInclude Source="avares://AvaloniaUIKit/Themes/Controls/PipsPager.axaml" />
 
   <!-- GPUI tooltips (crates/base/src/tooltip.rs): shown after 500ms, kept for a
        300ms grace while moving to another trigger, above the trigger. -->

@@ -51,6 +51,7 @@ public static class Adapters
         "select" => Select(c),
         "combobox" => Select(c, "combobox"),
         "tree" => Tree(c),
+        "pagination" => Pagination(c),
         _ => throw new NotSupportedException($"no adapter for {c.Component}"),
     };
 
@@ -608,6 +609,19 @@ public static class Adapters
     }
 
     /// <summary>A ListBox.toggle-group; '1's in `checked` mark the selected items.</summary>
+    private static PipsPager Pagination(GoldenCase c)
+    {
+        var pager = new PipsPager
+        {
+            NumberOfPages = (int)c.Num("total", 5),
+            SelectedPageIndex = (int)c.Num("current", 3) - 1,
+            IsEnabled = !c.Bool("disabled"),
+        };
+        ClassFrom(pager, c, "size", "medium");
+        FlagClass(pager, c, "compact");
+        return pager;
+    }
+
     private static ListBox ToggleGroup(GoldenCase c)
     {
         var list = new ListBox

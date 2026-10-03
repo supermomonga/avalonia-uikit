@@ -1,0 +1,41 @@
+# GPUI Kit Pagination -> PipsPager with numbered pips. total 5, current 3
+# unless noted. Ellipsis items are out of scope (PipsPager windows the pips
+# instead), so every case keeps total <= 5.
+component = "pagination"
+viewport = [400, 64]
+anchor = [16, 8]
+
+[[group]]
+name = "size"
+params = { total = 5, current = 3 }
+matrix = { size = ["xsmall", "small", "medium", "large"] }
+states = ["normal"]
+
+[[group]]
+name = "compact"
+params = { total = 5, current = 3, compact = true }
+matrix = { size = ["xsmall", "small", "medium", "large"] }
+viewport = [128, 64]
+states = ["normal"]
+
+[[group]]
+name = "ends"
+params = { total = 5 }
+matrix = { current = [1, 5] }
+states = ["normal"]
+
+[[group]]
+name = "pointer"
+params = { total = 5, current = 3 }
+states = ["at-176-32", "at-212-32", "pressed-at-212-32", "click-at-176-32",
+          "at-72-32", "pressed-at-72-32", "click-at-72-32", "at-338-32", "focus"]
+
+[[group]]
+name = "disabled"
+params = { total = 5, current = 3 }
+states = ["disabled"]
+
+[[group]]
+name = "single"
+params = { total = 1, current = 1 }
+states = ["normal"]

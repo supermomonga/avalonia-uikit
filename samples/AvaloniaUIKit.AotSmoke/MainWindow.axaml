@@ -72,6 +72,55 @@
           <ProgressBar Theme="{StaticResource GpuiSpinner}" Classes="large" />
         </StackPanel>
 
+                <TextBlock Text="ButtonGroup, ToggleGroup, Icon, Label" Foreground="{DynamicResource Gpui.MutedForeground}" />
+        <WrapPanel ItemSpacing="12" LineSpacing="8">
+          <StackPanel Classes="button-group" Orientation="Horizontal">
+            <Button Classes="outline" Content="One" />
+            <Button Classes="outline" Content="Two" />
+            <Button Classes="outline" Content="Three" />
+          </StackPanel>
+          <ListBox Classes="toggle-group" SelectionMode="Multiple,Toggle">
+            <ListBoxItem Content="Bold" />
+            <ListBoxItem Content="Italic" />
+          </ListBox>
+          <PathIcon Classes="large" Data="{StaticResource Gpui.Icon.Folder}" />
+          <TextBlock Classes="label">Company address<Run Classes="secondary"> (optional)</Run></TextBlock>
+        </WrapPanel>
+
+        <TextBlock Text="Input, Textarea, InputGroup" Foreground="{DynamicResource Gpui.MutedForeground}" />
+        <StackPanel Spacing="12" HorizontalAlignment="Left" Width="320">
+          <TextBox PlaceholderText="Your name" />
+          <TextBox Classes="revealPasswordButton" PasswordChar="•" Text="secret" />
+          <TextBox AcceptsReturn="True" MinLines="3" Text="Multi-line" />
+          <TextBox Classes="group" PlaceholderText="Search" />
+        </StackPanel>
+
+        <TextBlock Text="List, Select, Combobox, Tree, Pagination" Foreground="{DynamicResource Gpui.MutedForeground}" />
+        <StackPanel Spacing="12" HorizontalAlignment="Left">
+          <ListBox Width="240" Height="120">
+            <ListBoxItem Content="Apple" />
+            <ListBoxItem Content="Banana" />
+            <ListBoxItem Content="Cherry" />
+          </ListBox>
+          <ComboBox Width="200" PlaceholderText="Select a fruit">
+            <ComboBoxItem Content="Apple" />
+            <ComboBoxItem Content="Banana" />
+          </ComboBox>
+          <ComboBox Classes="combobox" Width="200" SelectedIndex="0">
+            <ComboBoxItem Content="Apple" />
+            <ComboBoxItem Content="Banana" />
+          </ComboBox>
+          <AutoCompleteBox Width="200" PlaceholderText="Fruit" />
+          <TreeView Width="240">
+            <TreeViewItem Header="src" IsExpanded="True">
+              <TreeViewItem Header="main.rs" />
+            </TreeViewItem>
+            <TreeViewItem Header="Cargo.toml" />
+          </TreeView>
+          <PipsPager NumberOfPages="5" SelectedPageIndex="2" />
+          <PipsPager Classes="compact small" NumberOfPages="5" SelectedPageIndex="0" />
+        </StackPanel>
+
         <TextBlock Text="GroupBox, Separator, Link" Foreground="{DynamicResource Gpui.MutedForeground}" />
         <GroupBox Classes="outline" Header="Account" Content="Content" Width="320" HorizontalAlignment="Left" />
         <Separator Width="320" HorizontalAlignment="Left" />

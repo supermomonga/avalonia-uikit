@@ -164,4 +164,42 @@ public class BehaviorTests
         host.Flush();
         await Assert.That(items.Count(Lit)).IsEqualTo(1);
     }
+
+    // GPUI focuses each page button; PipsPager's page list is one tab stop that
+    // focuses the current page. Its ring must show whole at the list's edge.
+    [Test]
+    public async Task A_focused_page_shows_its_whole_ring()
+    {
+        var golden = Case("pagination/ends.current-1/normal/light");
+        using var host = CaseHost.Open(golden, Adapters.Create(golden));
+        host.Drive(golden, "focus");
+        var page = host.Window.GetVisualDescendants().OfType<ListBoxItem>().First();
+        await Assert.That(page.IsFocused && RingVisible(host, page)).IsTrue();
+        var image = host.Capture();
+        var left = page.TranslatePoint(default, host.Window)!.Value;
+        var band = image.Pixel((int)((left.X - 1.5) * CaseHost.Scale), (int)((left.Y + page.Bounds.Height / 2) * CaseHost.Scale)).ToArray();
+        var background = image.Pixel(2, 2).ToArray();
+        await Assert.That(band.SequenceEqual(background)).IsFalse();
+    }
+
+    // Past MaxVisiblePips PipsPager scrolls its pages (GPUI shows an ellipsis
+    // instead). The window must hold whole pages: five, the current one inside.
+    [Test]
+    public async Task Pages_past_the_visible_count_scroll_whole()
+    {
+        var golden = Case("pagination/size.medium/normal/light");
+        var pager = (PipsPager)Adapters.Create(golden);
+        pager.NumberOfPages = 10;
+        pager.SelectedPageIndex = 7;
+        using var host = CaseHost.Open(golden, pager);
+        var list = host.Part<ListBox>("PART_PipsPagerList");
+        var pages = host.Window.GetVisualDescendants().OfType<ListBoxItem>().ToList();
+        var listLeft = list.TranslatePoint(default, host.Window)!.Value.X + 2;
+        double Left(ListBoxItem p) => p.TranslatePoint(default, host.Window)!.Value.X;
+        var visible = pages.Where(p => Left(p) >= listLeft - 0.01 && Left(p) + p.Bounds.Width <= listLeft + 176 + 0.01).ToList();
+        var cut = pages.Where(p => Left(p) + p.Bounds.Width > listLeft - 3 && Left(p) < listLeft + 179).Except(visible);
+        await Assert.That(visible.Count).IsEqualTo(5);
+        await Assert.That(cut).IsEmpty();
+        await Assert.That(visible.Any(p => p.IsSelected)).IsTrue();
+    }
 }

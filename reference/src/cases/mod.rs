@@ -16,6 +16,7 @@ mod check;
 mod display;
 pub mod menu;
 mod number;
+mod pagination;
 mod progress;
 mod icon;
 mod input;
@@ -58,6 +59,7 @@ pub fn builder(case: &Case) -> Result<Builder> {
         "list" => list::builder(&params),
         "virtual" => list::virtual_list(&params),
         "select" => select::builder(&params),
+        "pagination" => pagination::builder(&params),
         "combobox" => select::combobox(&params),
         "tree" => tree::builder(&params),
         other => bail!("unknown component {other}"),
