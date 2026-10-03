@@ -1,0 +1,18 @@
+---
+title: "Data Table"
+description: "GPUI Kit's data table as Avalonia's TableView, or DataGrid with the AvaloniaUIKit.DataGrid package."
+---
+
+<Demo name="data-table/demo" />
+
+## Usage
+
+`TableView` has GPUI Kit's DataTable look by default: the header row, bordered cells, striped rows, the hover and selection colors and the overlay scrollbars. For the `DataGrid` package, add `GpuiDataGridTheme`; the grid gets the same look, including sorting indicators in the headers.
+
+## Not covered
+
+- Sorting, moving and pinning columns in `TableView` (DataGrid has its own).
+- Cell range selection.
+- Infinite loading.
+- The frame around a right-clicked row (Avalonia selects the row on the right button).
+- NativeAOT with `DataGrid`, which is not trimmable itself.

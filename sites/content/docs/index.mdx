@@ -1,0 +1,27 @@
+---
+title: "Introduction"
+description: "Avalonia themes and controls that reproduce the look and motion of GPUI Kit components, verified pixel by pixel against GPUI Kit's own renders."
+---
+
+Avalonia UIKit brings the look of [GPUI Kit](https://github.com/longbridge/gpui-kit), the component library of Longbridge's GPUI apps, to [Avalonia](https://avaloniaui.net). It is two things:
+
+- **`GpuiTheme`**, a `Styles` theme for Avalonia's own controls: `Button`, `TextBox`, `ComboBox`, `TabControl`, `Calendar`, `ListBox`, `TreeView`, `TableView`, `Menu`, `ToolTip` and the rest. The theme replaces each control's `ControlTheme`, so it changes the colors, the padding, the outlines, the inner layout, the states and the animations, not just the palette.
+- **A few new controls** in the `gpui:` namespace for the small GPUI Kit components Avalonia has no counterpart for: `Badge`, `TagLabel`, `Alert`, `Avatar`, `Breadcrumb`, `Kbd`, `Clipboard`, `Rating`, `EmptyState`, `Skeleton`, `StatusBar`, `DescriptionList`, `Stepper`, `Form`, `HoverCard`, `ShimmerText`, `Marker`, `Bubble` and `Message`.
+
+Every component is checked against reference data that GPUI Kit itself rendered: Light and Dark, each variant, size and state, and the motion frame by frame. The baseline is pinned (GPUI Kit `2c5162f`, Avalonia 12.1.3), and the color tokens are generated from the theme GPUI Kit resolves, including the colors its components derive while painting.
+
+The library is built for NativeAOT. It uses compiled bindings only and bans reflection at build time, and a NativeAOT smoke test renders every control in both themes on each change.
+
+## What it is not
+
+The library ports looks, not systems. GPUI Kit components that need a modal, search, docking, editing or charting mechanism of their own are out of scope: Dialog and AlertDialog, OtpInput, Command, Dock, Settings, Questionnaire, Editor, TextView and Markdown, Chart, Plot, Speech, Attachment and MessageScroller.
+
+Where a page says a component is **partial**, the theme covers the documented part of the Avalonia control and nothing beyond it. The remaining GPUI Kit features are listed on each page under "Not covered"; there is no plan to rebuild them on top of Avalonia.
+
+## Where to go next
+
+- [Installation](/docs/installation): add the package and the theme to `App.axaml`.
+- [Theming](/docs/theming): light and dark, color tokens, fonts, sizes and variants.
+- [Icons](/docs/icons): the bundled Lucide icons.
+- [Compatibility](/docs/compatibility): every component, its Avalonia control and how far the port goes.
+- [Components](/docs/components): the demos, with their XAML.

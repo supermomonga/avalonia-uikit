@@ -20,6 +20,7 @@ HASH="$(cd "$PUB" && find . -type f ! -name '*.br' ! -name '*.gz' | LC_ALL=C sor
 rm -rf "$OUT"
 mkdir -p "$OUT/$HASH"
 cp -R "$PUB" "$OUT/$HASH/_framework"
-find "$OUT" \( -name '*.br' -o -name '*.gz' \) -delete
+# Precompressed twins (Cloudflare compresses itself) and source maps are not served.
+find "$OUT" \( -name '*.br' -o -name '*.gz' -o -name '*.map' \) -delete
 printf '{"base":"/wasm/%s"}\n' "$HASH" > "$OUT/index.json"
 echo "wasm: $OUT/$HASH ($(du -sh "$OUT/$HASH" | cut -f1))"

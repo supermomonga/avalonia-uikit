@@ -1,0 +1,7 @@
+# The WASM bundle lives in a per-build hashed directory (scripts/publish-wasm.sh).
+/wasm/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Preview images are regenerated with the demos.
+/previews/*
+  Cache-Control: public, max-age=86400

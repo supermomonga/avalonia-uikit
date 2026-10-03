@@ -1,0 +1,20 @@
+---
+title: "Compatibility"
+description: "Every GPUI Kit component, the Avalonia control that carries its look, and how far the port goes."
+---
+
+The table lists each GPUI Kit component the library ports, the Avalonia control (or the new `gpui:` control) that carries its look, and the optional package when the theme is not in `AvaloniaUIKit` itself. A control written as `TextBox.group` is the control with that style class; one written as `ProgressBar (GpuiSpinner)` is the control with that named theme.
+
+The status means:
+
+- **Full**: the control's look and motion are covered.
+- **Partial**: the documented part of the control is themed. The GPUI Kit features beyond it are listed on the component's page under "Not covered", and the theme does not try to rebuild them.
+- **New control**: a small control the library adds because Avalonia has no counterpart.
+
+<CompatibilityTable />
+
+## Not covered
+
+GPUI Kit components that need a mechanism of their own (a modal layer, search, docking, an editor, charts) are not ported:
+
+<UncoveredList />

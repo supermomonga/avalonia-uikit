@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" style="color:#0a0a0a">
+  <!-- Avalonia UIKit: a themed control (the blue square) inside Avalonia's frame. -->
+  <style>@media (prefers-color-scheme: dark) { svg { color: #fafafa } }</style>
+  <rect x="3" y="3" width="26" height="26" rx="7" fill="none" stroke="currentColor" stroke-width="2.5" />
+  <rect x="12.5" y="12.5" width="13" height="13" rx="4" fill="#2563EB" />
+</svg>

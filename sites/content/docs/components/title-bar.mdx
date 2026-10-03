@@ -1,0 +1,15 @@
+---
+title: "Title Bar"
+description: "GPUI Kit's title bar and window border, as the decorations Avalonia draws itself."
+---
+
+<Demo name="title-bar/demo" />
+
+## Usage
+
+Set `ExtendClientAreaToDecorationsHint="True"` on the window. The theme covers `WindowDrawnDecorations`: the 34px title bar with its bottom rule, the title and the minimize, maximize, restore and close buttons. Avalonia draws these on Windows, X11 and Wayland, never on macOS.
+
+## Not covered
+
+- Arbitrary content in the title bar.
+- Decorations drawn by the OS.

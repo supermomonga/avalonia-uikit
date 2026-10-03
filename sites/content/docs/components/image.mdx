@@ -1,0 +1,16 @@
+---
+title: "Image"
+description: "Avalonia's Image with GPUI Kit's rounded corners."
+---
+
+<Demo name="image/demo" />
+
+## Usage
+
+`Image` is not themed by default: it keeps its colors, and `Stretch="Uniform"` is GPUI's default object fit. The classes `rounded`, `rounded-lg` and `rounded-full` clip the drawn image to the theme radius, the large radius or a pill.
+
+## Not covered
+
+- Fetching from a URL.
+- A fallback image when loading fails.
+- Images taller than the frame, which GPUI does not fit.

@@ -1,0 +1,17 @@
+---
+title: "Carousel"
+description: "One page at a time, sliding on GPUI Kit's spring, with its dots as a PipsPager."
+---
+
+<Demo name="carousel/demo" />
+
+## Usage
+
+The theme covers `Carousel` with `PageTransition="{gpui:SpringSlide}"`-style motion on `Gpui.Spring.Move`: both pages ride one track 16px apart. A `PipsPager Classes="carousel"` bound to the carousel draws the dots.
+
+## Not covered
+
+- Jumping several pages at once by number.
+- Reversing a page change midway.
+- Looping from the last page to the first.
+- Dragging and wheel scrolling between pages.

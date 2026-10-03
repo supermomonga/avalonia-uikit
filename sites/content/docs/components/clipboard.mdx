@@ -1,0 +1,14 @@
+---
+title: "Clipboard"
+description: "A ghost icon button that copies its text and shows a check mark afterwards."
+---
+
+<Demo name="clipboard/demo" />
+
+## Usage
+
+`gpui:Clipboard` is a ghost icon-only button with the copy icon; set `Text` to what it copies. After a click it shows the check icon for a moment (the `:copied` pseudo class). Sizes: `xsmall`, `small`, `large`.
+
+## Not covered
+
+- Computing the value at click time (`value_fn`); set `Text` before the click instead.

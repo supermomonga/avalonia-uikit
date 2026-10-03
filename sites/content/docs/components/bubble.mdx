@@ -1,0 +1,14 @@
+---
+title: "Bubble"
+description: "A chat bubble: text on a rounded surface, filled, secondary or muted, aligned to a side."
+---
+
+<Demo name="bubble/demo" />
+
+## Usage
+
+`gpui:Bubble` holds the message on radius 15 with 12 by 8 padding, at most 80% of the room, stretched unless aligned to the start or the end. Variants: filled (primary), `secondary` and `muted`. A `gpui:Message` adds the header and footer around a bubble.
+
+## Not covered
+
+- The automatic rounding of Buttons placed in the reactions row (give them `rounded-full`).

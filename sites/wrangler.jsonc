@@ -1,0 +1,14 @@
+{
+  // The documentation site: static pages from `bun run build` (dist/), served
+  // as Workers static assets. There is no Worker code (docs/site.md).
+  "name": "avalonia-uikit-site",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "404-page"
+  },
+  "routes": [{ "pattern": "avalonia-uikit.omofla.sh", "custom_domain": true }],
+  "workers_dev": false,
+  "preview_urls": false,
+  "observability": { "enabled": true }
+}
