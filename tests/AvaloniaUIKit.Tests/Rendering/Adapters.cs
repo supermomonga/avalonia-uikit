@@ -36,6 +36,13 @@ public static class Adapters
         "progress" => Progress(c),
         "spinner" => Spinner(c),
         "tooltip" => Tooltip(c),
+        "scroll" => new ScrollViewer
+        {
+            Width = c.Num("width", 160),
+            Height = c.Num("height", 100),
+            AllowAutoHide = c.Str("scrollbar_mode", "hover") != "always",
+            Content = new Border { Width = c.Num("width", 160), Height = c.Num("content", 400) },
+        },
         _ => throw new NotSupportedException($"no adapter for {c.Component}"),
     };
 

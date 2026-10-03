@@ -2,6 +2,7 @@ using Avalonia;
 using Avalonia.Animation;
 using Avalonia.Animation.Easings;
 using Avalonia.Controls;
+using Avalonia.Controls.Primitives;
 using Avalonia.Media;
 using Avalonia.Styling;
 using Avalonia.VisualTree;
@@ -145,11 +146,13 @@ public static class MotionProbes
         ("progress", "loading") => new ProgressLoading(),
         ("spinner", _) => new SpinnerTurn(),
         ("tooltip", _) => new TooltipEnter(),
+        ("scroll", "expand") => new ScrollThumbWidth(),
+        ("scroll", "show") => new ScrollShow(),
         _ => throw new NotSupportedException($"no motion probe for {golden.Id}"),
     };
 
     public static bool Has(GoldenCase golden) =>
-        golden.Component is "switch" or "checkbox" or "progress" or "spinner" or "tooltip";
+        golden.Component is "switch" or "checkbox" or "progress" or "spinner" or "tooltip" or "scroll";
 
     public static T Part<T>(Visual root, string name) where T : Control =>
         root.GetVisualDescendants().OfType<T>().First(c => c.Name == name);
@@ -383,6 +386,51 @@ public static class MotionProbes
                 return [from["Opacity"] + (to["Opacity"] - from["Opacity"]) * eased, from["Y"] + (to["Y"] - from["Y"]) * eased];
             }
         }
+    }
+
+    private static SceneQuad ScrollThumb(GoldenScene scene) =>
+        scene.Quads.Where(q => q.SolidBackground && q.Bounds.Width <= 8.01 && q.Bounds.Height > 20).OrderByDescending(q => q.Order).First();
+
+    /// <summary>scrollbar.rs: the thumb widening from 6px to 8px over 300ms (ease-out-cubic).</summary>
+    private sealed class ScrollThumbWidth : IMotionProbe
+    {
+        public double Tolerance => 0.26;
+
+        public double[] FromGpui(GoldenScene scene, GoldenCase golden) => [ScrollThumb(scene).Bounds.Width];
+
+        public IDeclaredMotion Declared(CaseHost host, GoldenCase golden) =>
+            FromTransitions(Part<Border>(host.Window, "PART_Pill").Transitions, Avalonia.Layout.Layoutable.WidthProperty, 6, 8);
+
+        public void Apply(CaseHost host, double[] values) => Part<Border>(host.Window, "PART_Pill").Width = values[0];
+
+        public double[] Live(CaseHost host) => [Part<Border>(host.Window, "PART_Pill").Width];
+    }
+
+    /// <summary>scrollbar.rs (ScrollbarMode::Hover): the bar fading in over 300ms, linearly.</summary>
+    private sealed class ScrollShow : IMotionProbe
+    {
+        public double Tolerance => 0.003;
+
+        // The thumb's own color is 90% opaque; the fade multiplies it.
+        public double[] FromGpui(GoldenScene scene, GoldenCase golden)
+        {
+            var thumb = scene.Quads.Where(q => q.SolidBackground && q.Bounds.Width <= 8.01 && q.Bounds.Height > 20).ToList();
+            return [thumb.Count == 0 ? 0 : thumb.Max(q => q.Background.A) / 0.901961];
+        }
+
+        public IDeclaredMotion Declared(CaseHost host, GoldenCase golden)
+        {
+            // The transition the expanded state brings in (the fade-in).
+            var bar = Part<ScrollBar>(host.Window, "PART_VerticalScrollBar");
+            var theme = (ControlTheme)bar.FindResource(typeof(ScrollBar))!;
+            var style = Flatten(theme).OfType<Style>().First(s => s.Selector?.ToString()?.Contains("IsExpanded=True", StringComparison.Ordinal) == true);
+            var transitions = (Transitions)style.Setters.OfType<Setter>().First(s => s.Property == Animatable.TransitionsProperty).Value!;
+            return FromTransitions(transitions, Visual.OpacityProperty, 0, 1);
+        }
+
+        public void Apply(CaseHost host, double[] values) => Part<Border>(host.Window, "PART_Root").Opacity = values[0];
+
+        public double[] Live(CaseHost host) => [Part<Border>(host.Window, "PART_Root").Opacity];
     }
 
     /// <summary>spinner.rs: the icon's rotation, one eased turn per 0.8s.</summary>

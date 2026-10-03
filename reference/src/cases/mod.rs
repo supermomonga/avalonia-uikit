@@ -17,6 +17,7 @@ mod display;
 pub mod menu;
 mod number;
 mod progress;
+mod scroll;
 mod surface;
 mod toggle;
 
@@ -40,6 +41,7 @@ pub fn builder(case: &Case) -> Result<Builder> {
         "progress" => progress::progress(&params),
         "spinner" => progress::spinner(&params),
         "tooltip" => button::tooltip(&params),
+        "scroll" => scroll::builder(&params),
         other => bail!("unknown component {other}"),
     }
 }

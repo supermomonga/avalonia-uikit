@@ -28587,6 +28587,488 @@
       "png_sha256": "dc2d0d5d1afa30c05b98990d1862daebf9f0103df02e39edfd60b0c93b7684a4"
     },
     {
+      "id": "scroll/always.base/at-164-20+wait-400ms/dark",
+      "component": "scroll",
+      "group": "always",
+      "params": {
+        "scrollbar_mode": "always"
+      },
+      "state": "at-164-20+wait-400ms",
+      "theme": "dark",
+      "viewport": [
+        192.0,
+        116.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        100.0
+      ],
+      "png": "png/scroll/always.base/at-164-20+wait-400ms/dark.png",
+      "scene": "scenes/scroll/always.base/at-164-20+wait-400ms/dark.json",
+      "png_sha256": "a27e664fec4765a7d2907a5f36304570515ac3c9d04f298ec5cb1b6d7651a725"
+    },
+    {
+      "id": "scroll/always.base/at-164-20+wait-400ms/light",
+      "component": "scroll",
+      "group": "always",
+      "params": {
+        "scrollbar_mode": "always"
+      },
+      "state": "at-164-20+wait-400ms",
+      "theme": "light",
+      "viewport": [
+        192.0,
+        116.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        100.0
+      ],
+      "png": "png/scroll/always.base/at-164-20+wait-400ms/light.png",
+      "scene": "scenes/scroll/always.base/at-164-20+wait-400ms/light.json",
+      "png_sha256": "02cb85537d5495126377e44681b06c43af7ae34ba1d8b7d727b3f473a25fee2c"
+    },
+    {
+      "id": "scroll/always.base/at-60-50/dark",
+      "component": "scroll",
+      "group": "always",
+      "params": {
+        "scrollbar_mode": "always"
+      },
+      "state": "at-60-50",
+      "theme": "dark",
+      "viewport": [
+        192.0,
+        116.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        100.0
+      ],
+      "png": "png/scroll/always.base/at-60-50/dark.png",
+      "scene": "scenes/scroll/always.base/at-60-50/dark.json",
+      "png_sha256": "4a21397d0e845312f8e880f0c47246f314a943d4a115003eaa74f409760c4f58"
+    },
+    {
+      "id": "scroll/always.base/at-60-50/light",
+      "component": "scroll",
+      "group": "always",
+      "params": {
+        "scrollbar_mode": "always"
+      },
+      "state": "at-60-50",
+      "theme": "light",
+      "viewport": [
+        192.0,
+        116.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        100.0
+      ],
+      "png": "png/scroll/always.base/at-60-50/light.png",
+      "scene": "scenes/scroll/always.base/at-60-50/light.json",
+      "png_sha256": "162eeabb35ce2306363f9db6c6f875c4bcf8a2169cee1b87de7e936883658ff8"
+    },
+    {
+      "id": "scroll/always.base/normal/dark",
+      "component": "scroll",
+      "group": "always",
+      "params": {
+        "scrollbar_mode": "always"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        192.0,
+        116.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        100.0
+      ],
+      "png": "png/scroll/always.base/normal/dark.png",
+      "scene": "scenes/scroll/always.base/normal/dark.json",
+      "png_sha256": "4a21397d0e845312f8e880f0c47246f314a943d4a115003eaa74f409760c4f58"
+    },
+    {
+      "id": "scroll/always.base/normal/light",
+      "component": "scroll",
+      "group": "always",
+      "params": {
+        "scrollbar_mode": "always"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        192.0,
+        116.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        100.0
+      ],
+      "png": "png/scroll/always.base/normal/light.png",
+      "scene": "scenes/scroll/always.base/normal/light.json",
+      "png_sha256": "162eeabb35ce2306363f9db6c6f875c4bcf8a2169cee1b87de7e936883658ff8"
+    },
+    {
+      "id": "scroll/hover.base/at-164-20+wait-400ms/dark",
+      "component": "scroll",
+      "group": "hover",
+      "params": {
+        "scrollbar_mode": "hover"
+      },
+      "state": "at-164-20+wait-400ms",
+      "theme": "dark",
+      "viewport": [
+        192.0,
+        116.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        100.0
+      ],
+      "png": "png/scroll/hover.base/at-164-20+wait-400ms/dark.png",
+      "scene": "scenes/scroll/hover.base/at-164-20+wait-400ms/dark.json",
+      "png_sha256": "a27e664fec4765a7d2907a5f36304570515ac3c9d04f298ec5cb1b6d7651a725"
+    },
+    {
+      "id": "scroll/hover.base/at-164-20+wait-400ms/light",
+      "component": "scroll",
+      "group": "hover",
+      "params": {
+        "scrollbar_mode": "hover"
+      },
+      "state": "at-164-20+wait-400ms",
+      "theme": "light",
+      "viewport": [
+        192.0,
+        116.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        100.0
+      ],
+      "png": "png/scroll/hover.base/at-164-20+wait-400ms/light.png",
+      "scene": "scenes/scroll/hover.base/at-164-20+wait-400ms/light.json",
+      "png_sha256": "02cb85537d5495126377e44681b06c43af7ae34ba1d8b7d727b3f473a25fee2c"
+    },
+    {
+      "id": "scroll/hover.base/at-164-90+wait-400ms/dark",
+      "component": "scroll",
+      "group": "hover",
+      "params": {
+        "scrollbar_mode": "hover"
+      },
+      "state": "at-164-90+wait-400ms",
+      "theme": "dark",
+      "viewport": [
+        192.0,
+        116.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        100.0
+      ],
+      "png": "png/scroll/hover.base/at-164-90+wait-400ms/dark.png",
+      "scene": "scenes/scroll/hover.base/at-164-90+wait-400ms/dark.json",
+      "png_sha256": "4a21397d0e845312f8e880f0c47246f314a943d4a115003eaa74f409760c4f58"
+    },
+    {
+      "id": "scroll/hover.base/at-164-90+wait-400ms/light",
+      "component": "scroll",
+      "group": "hover",
+      "params": {
+        "scrollbar_mode": "hover"
+      },
+      "state": "at-164-90+wait-400ms",
+      "theme": "light",
+      "viewport": [
+        192.0,
+        116.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        100.0
+      ],
+      "png": "png/scroll/hover.base/at-164-90+wait-400ms/light.png",
+      "scene": "scenes/scroll/hover.base/at-164-90+wait-400ms/light.json",
+      "png_sha256": "162eeabb35ce2306363f9db6c6f875c4bcf8a2169cee1b87de7e936883658ff8"
+    },
+    {
+      "id": "scroll/hover.base/normal/dark",
+      "component": "scroll",
+      "group": "hover",
+      "params": {
+        "scrollbar_mode": "hover"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        192.0,
+        116.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        100.0
+      ],
+      "png": "png/scroll/hover.base/normal/dark.png",
+      "scene": "scenes/scroll/hover.base/normal/dark.json",
+      "png_sha256": "9e535bc3b1b7258b3e773fd6b3e03fbf6f162c8e95cfd532b49cc0a8734350ba"
+    },
+    {
+      "id": "scroll/hover.base/normal/light",
+      "component": "scroll",
+      "group": "hover",
+      "params": {
+        "scrollbar_mode": "hover"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        192.0,
+        116.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        100.0
+      ],
+      "png": "png/scroll/hover.base/normal/light.png",
+      "scene": "scenes/scroll/hover.base/normal/light.json",
+      "png_sha256": "1ca0ca463f67014ff80675d4291972a79e30e2e484ea764db20ac3148de9d7ed"
+    },
+    {
+      "id": "scroll/motion.expand/at-164-20/light",
+      "component": "scroll",
+      "group": "motion.expand",
+      "params": {
+        "scrollbar_mode": "always"
+      },
+      "state": "at-60-50",
+      "theme": "light",
+      "viewport": [
+        192.0,
+        116.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        100.0
+      ],
+      "motion": {
+        "name": "expand",
+        "trigger": "at-164-20",
+        "from": "at-60-50",
+        "frames": [
+          {
+            "t_ms": 0,
+            "png": "png/scroll/motion.expand/at-164-20/light/0000ms.png",
+            "scene": "scenes/scroll/motion.expand/at-164-20/light/0000ms.json",
+            "png_sha256": "b2b79064c7d84530e6979193e24b5d1a4bbd91400f91fa25ade31992887bfbde"
+          },
+          {
+            "t_ms": 50,
+            "png": "png/scroll/motion.expand/at-164-20/light/0050ms.png",
+            "scene": "scenes/scroll/motion.expand/at-164-20/light/0050ms.json",
+            "png_sha256": "3a3f1ac9d06179662ac053f3493d7cfef8067fae77792b6f37b8bad6223a378a"
+          },
+          {
+            "t_ms": 100,
+            "png": "png/scroll/motion.expand/at-164-20/light/0100ms.png",
+            "scene": "scenes/scroll/motion.expand/at-164-20/light/0100ms.json",
+            "png_sha256": "b6cc88f8487be4bbb1d93c20ad4897033f9cf77fa40693cabd41655a54ee19f1"
+          },
+          {
+            "t_ms": 150,
+            "png": "png/scroll/motion.expand/at-164-20/light/0150ms.png",
+            "scene": "scenes/scroll/motion.expand/at-164-20/light/0150ms.json",
+            "png_sha256": "f594ede9e6e3edaeecd69beaf6b0b52290523379475de0c10289f2de5e80726d"
+          },
+          {
+            "t_ms": 200,
+            "png": "png/scroll/motion.expand/at-164-20/light/0200ms.png",
+            "scene": "scenes/scroll/motion.expand/at-164-20/light/0200ms.json",
+            "png_sha256": "0c5b98fcf84c31c4b425d044195ca107bc3d96246ee1c536fe9b7ccda8965692"
+          },
+          {
+            "t_ms": 250,
+            "png": "png/scroll/motion.expand/at-164-20/light/0250ms.png",
+            "scene": "scenes/scroll/motion.expand/at-164-20/light/0250ms.json",
+            "png_sha256": "16f46931305d47510a97a6da714c9b3401381a229f7526b461ab61919347ec2c"
+          },
+          {
+            "t_ms": 300,
+            "png": "png/scroll/motion.expand/at-164-20/light/0300ms.png",
+            "scene": "scenes/scroll/motion.expand/at-164-20/light/0300ms.json",
+            "png_sha256": "02cb85537d5495126377e44681b06c43af7ae34ba1d8b7d727b3f473a25fee2c"
+          },
+          {
+            "t_ms": 350,
+            "png": "png/scroll/motion.expand/at-164-20/light/0350ms.png",
+            "scene": "scenes/scroll/motion.expand/at-164-20/light/0350ms.json",
+            "png_sha256": "02cb85537d5495126377e44681b06c43af7ae34ba1d8b7d727b3f473a25fee2c"
+          }
+        ]
+      }
+    },
+    {
+      "id": "scroll/motion.show/at-164-90/light",
+      "component": "scroll",
+      "group": "motion.show",
+      "params": {
+        "scrollbar_mode": "hover"
+      },
+      "state": "at-60-50",
+      "theme": "light",
+      "viewport": [
+        192.0,
+        116.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        100.0
+      ],
+      "motion": {
+        "name": "show",
+        "trigger": "at-164-90",
+        "from": "at-60-50",
+        "frames": [
+          {
+            "t_ms": 0,
+            "png": "png/scroll/motion.show/at-164-90/light/0000ms.png",
+            "scene": "scenes/scroll/motion.show/at-164-90/light/0000ms.json",
+            "png_sha256": "1ca0ca463f67014ff80675d4291972a79e30e2e484ea764db20ac3148de9d7ed"
+          },
+          {
+            "t_ms": 50,
+            "png": "png/scroll/motion.show/at-164-90/light/0050ms.png",
+            "scene": "scenes/scroll/motion.show/at-164-90/light/0050ms.json",
+            "png_sha256": "1a56080396e4fa3f53b7d281f81f3cf391a8673e696431154fe961b9fe4d7729"
+          },
+          {
+            "t_ms": 100,
+            "png": "png/scroll/motion.show/at-164-90/light/0100ms.png",
+            "scene": "scenes/scroll/motion.show/at-164-90/light/0100ms.json",
+            "png_sha256": "c231d9d5b22d46b84a7fc09d1106127bbd1e774084118b313e4756f123992f52"
+          },
+          {
+            "t_ms": 150,
+            "png": "png/scroll/motion.show/at-164-90/light/0150ms.png",
+            "scene": "scenes/scroll/motion.show/at-164-90/light/0150ms.json",
+            "png_sha256": "924554bcc7221c4641fe2b3dba1a808ddbdc9ac9f01a76b259b55f9fba4a4979"
+          },
+          {
+            "t_ms": 200,
+            "png": "png/scroll/motion.show/at-164-90/light/0200ms.png",
+            "scene": "scenes/scroll/motion.show/at-164-90/light/0200ms.json",
+            "png_sha256": "d05a1e85dce50d5a9d3bb32bb7fca73acb06d1a4b3056e0088b4181abfeafb20"
+          },
+          {
+            "t_ms": 250,
+            "png": "png/scroll/motion.show/at-164-90/light/0250ms.png",
+            "scene": "scenes/scroll/motion.show/at-164-90/light/0250ms.json",
+            "png_sha256": "597ec17367f0252ff77314e8eb222f60d3819c86bb81c3e1a174398d47e3106a"
+          },
+          {
+            "t_ms": 300,
+            "png": "png/scroll/motion.show/at-164-90/light/0300ms.png",
+            "scene": "scenes/scroll/motion.show/at-164-90/light/0300ms.json",
+            "png_sha256": "162eeabb35ce2306363f9db6c6f875c4bcf8a2169cee1b87de7e936883658ff8"
+          },
+          {
+            "t_ms": 350,
+            "png": "png/scroll/motion.show/at-164-90/light/0350ms.png",
+            "scene": "scenes/scroll/motion.show/at-164-90/light/0350ms.json",
+            "png_sha256": "162eeabb35ce2306363f9db6c6f875c4bcf8a2169cee1b87de7e936883658ff8"
+          }
+        ]
+      }
+    },
+    {
       "id": "separator/line.base/normal/dark",
       "component": "separator",
       "group": "line",

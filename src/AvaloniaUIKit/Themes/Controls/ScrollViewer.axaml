@@ -1,0 +1,170 @@
+<!--
+  GPUI Kit Scrollbar (crates/base/src/scrollbar.rs) on a scrollable area ->
+  ScrollViewer, ScrollBar, Thumb.
+
+  Scrollbars overlay the content in a 16px strip. The thumb is 6px wide, 4px
+  in from the strip's outer edge and from its ends, at least 48px long before
+  those insets, with fully rounded ends; over the thumb (or dragging it) it
+  turns to scrollbar_thumb_hover at once and widens to 8px over 300ms
+  (ease-out-cubic).
+
+  ScrollViewer.AllowAutoHide picks the GPUI mode:
+  - False is ScrollbarMode::Always: the scrollbar always shows.
+  - True is ScrollbarMode::Hover: it shows when the pointer enters the strip
+    (fading in over 300ms, linearly) and hides 2s after it leaves (fading out
+    over 500ms, ease-in-cubic).
+  ScrollbarMode::Scrolling (show while scrolling) is out of scope (R20).
+-->
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ControlTheme x:Key="GpuiScrollBarPageButton" TargetType="RepeatButton">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Focusable" Value="False" />
+    <Setter Property="Opacity" Value="0" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Background="{TemplateBinding Background}" />
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+
+  <!-- The thumb spans the strip's width, as GPUI's thumb hitbox does; the pill
+       inside it is what paints. -->
+  <ControlTheme x:Key="GpuiScrollBarThumb" TargetType="Thumb">
+    <Setter Property="Background" Value="{DynamicResource Gpui.ScrollbarThumb}" />
+    <Setter Property="CornerRadius" Value="4" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Background="Transparent">
+          <Border Name="PART_Pill" Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}">
+            <Border.Transitions>
+              <Transitions>
+                <DoubleTransition Property="Width" Duration="0:0:0.3" Easing="CubicEaseOut" />
+                <DoubleTransition Property="Height" Duration="0:0:0.3" Easing="CubicEaseOut" />
+              </Transitions>
+            </Border.Transitions>
+          </Border>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^:pointerover, ^:pressed">
+      <Setter Property="Background" Value="{DynamicResource Gpui.ScrollbarThumbHover}" />
+    </Style>
+    <!-- Vertical: 6px (8px when active) wide, 4px in from the right edge. -->
+    <Style Selector="^[Tag=vertical] /template/ Border#PART_Pill">
+      <Setter Property="Width" Value="6" />
+      <Setter Property="HorizontalAlignment" Value="Right" />
+      <Setter Property="Margin" Value="0,0,4,0" />
+    </Style>
+    <Style Selector="^[Tag=vertical]:pointerover /template/ Border#PART_Pill, ^[Tag=vertical]:pressed /template/ Border#PART_Pill">
+      <Setter Property="Width" Value="8" />
+    </Style>
+    <Style Selector="^[Tag=horizontal] /template/ Border#PART_Pill">
+      <Setter Property="Height" Value="6" />
+      <Setter Property="VerticalAlignment" Value="Bottom" />
+      <Setter Property="Margin" Value="0,0,0,4" />
+    </Style>
+    <Style Selector="^[Tag=horizontal]:pointerover /template/ Border#PART_Pill, ^[Tag=horizontal]:pressed /template/ Border#PART_Pill">
+      <Setter Property="Height" Value="8" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type ScrollBar}" TargetType="ScrollBar">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="ShowDelay" Value="0:0:0" />
+    <Setter Property="HideDelay" Value="0:0:2" />
+    <Setter Property="Focusable" Value="False" />
+    <Style Selector="^:vertical">
+      <Setter Property="Width" Value="16" />
+      <Setter Property="HorizontalAlignment" Value="Right" />
+      <Setter Property="Template">
+        <ControlTemplate>
+          <Border Name="PART_Root" Background="{TemplateBinding Background}">
+            <!-- The 4px end insets are the track's: thumb travel and length then match GPUI's
+                 ThumbGeometry, which pads a 48px minimum thumb by 4px at each end. -->
+            <Track Name="PART_Track" Margin="0,4"
+                   Minimum="{TemplateBinding Minimum}"
+                   Maximum="{TemplateBinding Maximum}"
+                   Value="{TemplateBinding Value, Mode=TwoWay}"
+                   ViewportSize="{TemplateBinding ViewportSize}"
+                   Orientation="{TemplateBinding Orientation}"
+                   DeferThumbDrag="{TemplateBinding ScrollViewer.IsDeferredScrollingEnabled}"
+                   IsDirectionReversed="True">
+              <Track.DecreaseButton>
+                <RepeatButton Name="PART_PageUpButton" Theme="{StaticResource GpuiScrollBarPageButton}" />
+              </Track.DecreaseButton>
+              <Track.IncreaseButton>
+                <RepeatButton Name="PART_PageDownButton" Theme="{StaticResource GpuiScrollBarPageButton}" />
+              </Track.IncreaseButton>
+              <Thumb Name="PART_Thumb" Theme="{StaticResource GpuiScrollBarThumb}" MinHeight="40" Tag="vertical" />
+            </Track>
+          </Border>
+        </ControlTemplate>
+      </Setter>
+    </Style>
+    <Style Selector="^:horizontal">
+      <Setter Property="Height" Value="16" />
+      <Setter Property="VerticalAlignment" Value="Bottom" />
+      <Setter Property="Template">
+        <ControlTemplate>
+          <Border Name="PART_Root" Background="{TemplateBinding Background}">
+            <Track Name="PART_Track" Margin="4,0"
+                   Minimum="{TemplateBinding Minimum}"
+                   Maximum="{TemplateBinding Maximum}"
+                   Value="{TemplateBinding Value, Mode=TwoWay}"
+                   ViewportSize="{TemplateBinding ViewportSize}"
+                   Orientation="{TemplateBinding Orientation}"
+                   DeferThumbDrag="{TemplateBinding ScrollViewer.IsDeferredScrollingEnabled}">
+              <Track.DecreaseButton>
+                <RepeatButton Name="PART_PageUpButton" Theme="{StaticResource GpuiScrollBarPageButton}" />
+              </Track.DecreaseButton>
+              <Track.IncreaseButton>
+                <RepeatButton Name="PART_PageDownButton" Theme="{StaticResource GpuiScrollBarPageButton}" />
+              </Track.IncreaseButton>
+              <Thumb Name="PART_Thumb" Theme="{StaticResource GpuiScrollBarThumb}" MinWidth="40" Tag="horizontal" />
+            </Track>
+          </Border>
+        </ControlTemplate>
+      </Setter>
+    </Style>
+
+
+    <!-- ScrollbarMode::Hover: hidden until the pointer is over the strip. -->
+    <Style Selector="^[AllowAutoHide=True] /template/ Border#PART_Root">
+      <Setter Property="Opacity" Value="0" />
+      <Setter Property="Transitions">
+        <Transitions>
+          <DoubleTransition Property="Opacity" Duration="0:0:0.5" Easing="CubicEaseIn" />
+        </Transitions>
+      </Setter>
+    </Style>
+    <Style Selector="^[AllowAutoHide=True][IsExpanded=True] /template/ Border#PART_Root">
+      <Setter Property="Opacity" Value="1" />
+      <Setter Property="Transitions">
+        <Transitions>
+          <DoubleTransition Property="Opacity" Duration="0:0:0.3" Easing="LinearEasing" />
+        </Transitions>
+      </Setter>
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type ScrollViewer}" TargetType="ScrollViewer">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Panel>
+          <ScrollContentPresenter Name="PART_ContentPresenter"
+                                  Padding="{TemplateBinding Padding}"
+                                  Background="{TemplateBinding Background}"
+                                  HorizontalSnapPointsType="{TemplateBinding HorizontalSnapPointsType}"
+                                  VerticalSnapPointsType="{TemplateBinding VerticalSnapPointsType}"
+                                  HorizontalSnapPointsAlignment="{TemplateBinding HorizontalSnapPointsAlignment}"
+                                  VerticalSnapPointsAlignment="{TemplateBinding VerticalSnapPointsAlignment}"
+                                  ScrollViewer.IsScrollInertiaEnabled="{TemplateBinding IsScrollInertiaEnabled}" />
+          <ScrollBar Name="PART_VerticalScrollBar" Orientation="Vertical" />
+          <ScrollBar Name="PART_HorizontalScrollBar" Orientation="Horizontal" />
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+</ResourceDictionary>

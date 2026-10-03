@@ -1,0 +1,34 @@
+# GPUI Kit Scrollbar on a scrollable area -> ScrollViewer / ScrollBar / Thumb.
+# The 160x100 area scrolls 400px of content; the thumb sits in a 16px strip.
+component = "scroll"
+viewport = [192, 116]
+anchor = [16, 8]
+
+# ScrollbarMode::Always <-> AllowAutoHide=False: the thumb always shows.
+[[group]]
+name = "always"
+params = { scrollbar_mode = "always" }
+states = ["normal", "at-60-50", "at-164-20+wait-400ms"]
+
+# ScrollbarMode::Hover <-> AllowAutoHide=True: the thumb shows once the pointer
+# is over the strip, and widens on the thumb itself.
+[[group]]
+name = "hover"
+params = { scrollbar_mode = "hover" }
+states = ["normal", "at-164-90+wait-400ms", "at-164-20+wait-400ms"]
+
+[[motion]]
+name = "show"
+params = { scrollbar_mode = "hover" }
+from = "at-60-50"
+trigger = "at-164-90"
+samples_ms = [0, 50, 100, 150, 200, 250, 300, 350]
+themes = ["light"]
+
+[[motion]]
+name = "expand"
+params = { scrollbar_mode = "always" }
+from = "at-60-50"
+trigger = "at-164-20"
+samples_ms = [0, 50, 100, 150, 200, 250, 300, 350]
+themes = ["light"]
