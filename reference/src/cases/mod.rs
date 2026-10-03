@@ -26,6 +26,7 @@ pub fn builder(case: &Case) -> Result<Builder> {
     match case.component.as_str() {
         "surface" => surface::builder(&params),
         "button" => button::builder(&params),
+        "buttongroup" => button::group(&params),
         "toggle" => toggle::builder(&params),
         "checkbox" => check::checkbox(&params),
         "radio" => check::radio(&params),

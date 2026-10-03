@@ -28,6 +28,8 @@
     </ResourceDictionary>
   </Styles.Resources>
 
+  <StyleInclude Source="avares://AvaloniaUIKit/Themes/Controls/ButtonGroup.axaml" />
+
   <!-- GPUI tooltips (crates/base/src/tooltip.rs): shown after 500ms, kept for a
        300ms grace while moving to another trigger, above the trigger. -->
   <Style Selector=":is(Control)">

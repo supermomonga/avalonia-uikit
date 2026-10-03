@@ -13,7 +13,11 @@ namespace AvaloniaUIKit.Tests.Comparison;
 /// </summary>
 public enum Region : byte
 {
-    /// <summary>Solid fills away from any edge: must match within color quantization (R11).</summary>
+    /// <summary>
+    /// Solid fills away from any edge: must match within color quantization
+    /// (R11). A translucent color over another fill quantizes twice (its alpha
+    /// and the blend), so the limit is two steps.
+    /// </summary>
     Flat,
     /// <summary>Within one device pixel of a rounded or straight outline: antialiasing differs (R2).</summary>
     Edge,
@@ -31,7 +35,7 @@ public enum Region : byte
 /// 0.69-1.07 (the low end in tooltip fade frames), a missing line at 0.
 /// </summary>
 public sealed record PixelTolerance(
-    double FlatMax = 1,
+    double FlatMax = 2,
     double EdgeMax = 64,
     double EdgeMean = 3,
     double InkMean = 18,

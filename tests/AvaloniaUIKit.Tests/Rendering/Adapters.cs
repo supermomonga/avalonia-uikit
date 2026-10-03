@@ -17,6 +17,7 @@ public static class Adapters
     {
         "surface" => new Border { Width = 1, Height = 1 },
         "button" => Button(c),
+        "buttongroup" => ButtonGroup(c),
         "toggle" => Toggle(c),
         "checkbox" => Check(new CheckBox(), c),
         "radio" => Check(new RadioButton(), c),
@@ -263,6 +264,37 @@ public static class Adapters
         ClassFrom(toggle, c, "variant", "ghost");
         ClassFrom(toggle, c, "size", "medium");
         return toggle;
+    }
+
+    /// <summary>A StackPanel.button-group of labelled buttons; '1's in `selected` mark selected ones.</summary>
+    private static StackPanel ButtonGroup(GoldenCase c)
+    {
+        var panel = new StackPanel
+        {
+            Orientation = c.Str("layout", "horizontal") == "vertical" ? Avalonia.Layout.Orientation.Vertical : Avalonia.Layout.Orientation.Horizontal,
+            Classes = { "button-group" },
+        };
+        var selected = c.Str("selected", "");
+        var labels = c.Str("labels", "One,Two,Three").Split(',');
+        for (var i = 0; i < labels.Length; i++)
+        {
+            var button = new Button { Content = labels[i], IsEnabled = !c.Bool("disabled") };
+            ClassFrom(button, c, "variant", "default");
+            ClassFrom(button, c, "size", "medium");
+            FlagClass(button, c, "outline");
+            FlagClass(button, c, "compact");
+            var rounded = c.Str("rounded", "medium");
+            if (rounded != "medium")
+            {
+                button.Classes.Add("rounded-" + rounded);
+            }
+            if (i < selected.Length && selected[i] == '1')
+            {
+                button.Classes.Add("selected");
+            }
+            panel.Children.Add(button);
+        }
+        return panel;
     }
 
     private static Button Button(GoldenCase c)

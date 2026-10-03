@@ -1,0 +1,66 @@
+# GPUI Kit ButtonGroup -> Buttons in a StackPanel with the button-group class.
+# Labels One, Two, Three; the first and last buttons keep the outer corners and
+# every later button drops its leading edge.
+component = "buttongroup"
+viewport = [200, 48]
+anchor = [16, 8]
+
+[[group]]
+name = "horizontal"
+params = { labels = "One,Two,Three" }
+matrix = { variant = ["default", "primary", "ghost"], outline = [false, true], size = ["small", "medium"] }
+states = ["normal"]
+
+[[group]]
+name = "sizes"
+params = { labels = "One,Two,Three" }
+matrix = { size = ["xsmall", "large"], compact = [false, true] }
+states = ["normal"]
+
+[[group]]
+name = "vertical"
+params = { labels = "One,Two,Three", layout = "vertical" }
+matrix = { variant = ["default", "primary"], outline = [false, true] }
+viewport = [96, 120]
+states = ["normal"]
+
+[[group]]
+name = "first"
+params = { labels = "One,Two,Three", outline = true, pointer_x = 0.15 }
+states = ["hover", "pressed"]
+
+[[group]]
+name = "middle"
+params = { labels = "One,Two,Three", outline = true, pointer_x = 0.5 }
+states = ["hover", "pressed"]
+
+[[group]]
+name = "last"
+params = { labels = "One,Two,Three", outline = true, pointer_x = 0.85 }
+states = ["hover", "pressed"]
+
+# Tab to the first, second and third button: the ring's far side is covered by
+# the next button, its near side covers the previous one.
+[[group]]
+name = "focus"
+params = { labels = "One,Two,Three" }
+matrix = { variant = ["default", "primary"] }
+states = ["focus", "focus+focus", "focus+focus+focus"]
+
+[[group]]
+name = "vfocus"
+params = { labels = "One,Two,Three", layout = "vertical" }
+viewport = [96, 120]
+states = ["focus+focus"]
+
+[[group]]
+name = "selected"
+params = { labels = "One,Two,Three", selected = "010" }
+matrix = { outline = [false, true] }
+states = ["normal", "disabled"]
+
+[[group]]
+name = "rounded"
+params = { labels = "One,Two,Three" }
+matrix = { rounded = ["none", "small", "large"] }
+states = ["normal", "focus"]

@@ -21237,6 +21237,2510 @@
       "png_sha256": "e9fce7793b62f91adb34d39ebe0ba4028cf7fa169302094524e8c340a1aa1ea1"
     },
     {
+      "id": "buttongroup/first.base/hover/dark",
+      "component": "buttongroup",
+      "group": "first",
+      "params": {
+        "labels": "One,Two,Three",
+        "outline": true,
+        "pointer_x": 0.15
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        159.0,
+        32.0
+      ],
+      "png": "png/buttongroup/first.base/hover/dark.png",
+      "scene": "scenes/buttongroup/first.base/hover/dark.json",
+      "png_sha256": "2d076ed0618b2c07079b83894484c3660413f5fba9932cf549778b30cdf36924"
+    },
+    {
+      "id": "buttongroup/first.base/hover/light",
+      "component": "buttongroup",
+      "group": "first",
+      "params": {
+        "labels": "One,Two,Three",
+        "outline": true,
+        "pointer_x": 0.15
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        159.0,
+        32.0
+      ],
+      "png": "png/buttongroup/first.base/hover/light.png",
+      "scene": "scenes/buttongroup/first.base/hover/light.json",
+      "png_sha256": "8c58bf5964586cb4af293cdee417969c09899e4cca0043fc24a077f212e1b2e6"
+    },
+    {
+      "id": "buttongroup/first.base/pressed/dark",
+      "component": "buttongroup",
+      "group": "first",
+      "params": {
+        "labels": "One,Two,Three",
+        "outline": true,
+        "pointer_x": 0.15
+      },
+      "state": "pressed",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        159.0,
+        32.0
+      ],
+      "png": "png/buttongroup/first.base/pressed/dark.png",
+      "scene": "scenes/buttongroup/first.base/pressed/dark.json",
+      "png_sha256": "8084559be079dca19af890b9584a632896c4dc25c5f41110924b99e9633168a4"
+    },
+    {
+      "id": "buttongroup/first.base/pressed/light",
+      "component": "buttongroup",
+      "group": "first",
+      "params": {
+        "labels": "One,Two,Three",
+        "outline": true,
+        "pointer_x": 0.15
+      },
+      "state": "pressed",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        159.0,
+        32.0
+      ],
+      "png": "png/buttongroup/first.base/pressed/light.png",
+      "scene": "scenes/buttongroup/first.base/pressed/light.json",
+      "png_sha256": "8068b07e94a0b82f1983c9b74050262473e972d0139cf80b908fa570b00be8e7"
+    },
+    {
+      "id": "buttongroup/focus.default/focus+focus+focus/dark",
+      "component": "buttongroup",
+      "group": "focus",
+      "params": {
+        "labels": "One,Two,Three",
+        "variant": "default"
+      },
+      "state": "focus+focus+focus",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        159.0,
+        32.0
+      ],
+      "png": "png/buttongroup/focus.default/focus+focus+focus/dark.png",
+      "scene": "scenes/buttongroup/focus.default/focus+focus+focus/dark.json",
+      "png_sha256": "7bd3077c6a403a15936846cf2aa202babfbcb01a402cb79e3b8b098fe7a8a509"
+    },
+    {
+      "id": "buttongroup/focus.default/focus+focus+focus/light",
+      "component": "buttongroup",
+      "group": "focus",
+      "params": {
+        "labels": "One,Two,Three",
+        "variant": "default"
+      },
+      "state": "focus+focus+focus",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        159.0,
+        32.0
+      ],
+      "png": "png/buttongroup/focus.default/focus+focus+focus/light.png",
+      "scene": "scenes/buttongroup/focus.default/focus+focus+focus/light.json",
+      "png_sha256": "af2472350346d314330f09682fe5d8d271b01eadaeb8976e4d21622eed7adc01"
+    },
+    {
+      "id": "buttongroup/focus.default/focus+focus/dark",
+      "component": "buttongroup",
+      "group": "focus",
+      "params": {
+        "labels": "One,Two,Three",
+        "variant": "default"
+      },
+      "state": "focus+focus",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        159.0,
+        32.0
+      ],
+      "png": "png/buttongroup/focus.default/focus+focus/dark.png",
+      "scene": "scenes/buttongroup/focus.default/focus+focus/dark.json",
+      "png_sha256": "0ca45e7c24ecfe6e6f0a5389dfc66481f81a55e39175d9cbbac7a25cfeb72e5c"
+    },
+    {
+      "id": "buttongroup/focus.default/focus+focus/light",
+      "component": "buttongroup",
+      "group": "focus",
+      "params": {
+        "labels": "One,Two,Three",
+        "variant": "default"
+      },
+      "state": "focus+focus",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        159.0,
+        32.0
+      ],
+      "png": "png/buttongroup/focus.default/focus+focus/light.png",
+      "scene": "scenes/buttongroup/focus.default/focus+focus/light.json",
+      "png_sha256": "67827587a58ef8d21b668472e38118dbdb0b8dad9d5a8032265ebc27d15e3fec"
+    },
+    {
+      "id": "buttongroup/focus.default/focus/dark",
+      "component": "buttongroup",
+      "group": "focus",
+      "params": {
+        "labels": "One,Two,Three",
+        "variant": "default"
+      },
+      "state": "focus",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        159.0,
+        32.0
+      ],
+      "png": "png/buttongroup/focus.default/focus/dark.png",
+      "scene": "scenes/buttongroup/focus.default/focus/dark.json",
+      "png_sha256": "3002641e9e92b7e67677a71960545b2ab7b7b1b772f9987bee3ccadaa732282a"
+    },
+    {
+      "id": "buttongroup/focus.default/focus/light",
+      "component": "buttongroup",
+      "group": "focus",
+      "params": {
+        "labels": "One,Two,Three",
+        "variant": "default"
+      },
+      "state": "focus",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        159.0,
+        32.0
+      ],
+      "png": "png/buttongroup/focus.default/focus/light.png",
+      "scene": "scenes/buttongroup/focus.default/focus/light.json",
+      "png_sha256": "00b4fb77930126890c44d085c5808d9cb5efcbd28cfd386dc0098abefc5b557d"
+    },
+    {
+      "id": "buttongroup/focus.primary/focus+focus+focus/dark",
+      "component": "buttongroup",
+      "group": "focus",
+      "params": {
+        "labels": "One,Two,Three",
+        "variant": "primary"
+      },
+      "state": "focus+focus+focus",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        155.0,
+        32.0
+      ],
+      "png": "png/buttongroup/focus.primary/focus+focus+focus/dark.png",
+      "scene": "scenes/buttongroup/focus.primary/focus+focus+focus/dark.json",
+      "png_sha256": "8e08f40f18244f6ceb2421c36e257472ef6a6b9130fef6e4e86c54cf83c62656"
+    },
+    {
+      "id": "buttongroup/focus.primary/focus+focus+focus/light",
+      "component": "buttongroup",
+      "group": "focus",
+      "params": {
+        "labels": "One,Two,Three",
+        "variant": "primary"
+      },
+      "state": "focus+focus+focus",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        155.0,
+        32.0
+      ],
+      "png": "png/buttongroup/focus.primary/focus+focus+focus/light.png",
+      "scene": "scenes/buttongroup/focus.primary/focus+focus+focus/light.json",
+      "png_sha256": "f4970dd6b8c0105b8a1e563c27465a4807f8e0b496d01cba37615c553bb75839"
+    },
+    {
+      "id": "buttongroup/focus.primary/focus+focus/dark",
+      "component": "buttongroup",
+      "group": "focus",
+      "params": {
+        "labels": "One,Two,Three",
+        "variant": "primary"
+      },
+      "state": "focus+focus",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        155.0,
+        32.0
+      ],
+      "png": "png/buttongroup/focus.primary/focus+focus/dark.png",
+      "scene": "scenes/buttongroup/focus.primary/focus+focus/dark.json",
+      "png_sha256": "e92164c33912d2c31a7ab77565b8eb0df21f536b5fdf7a1e8b0985070c5db458"
+    },
+    {
+      "id": "buttongroup/focus.primary/focus+focus/light",
+      "component": "buttongroup",
+      "group": "focus",
+      "params": {
+        "labels": "One,Two,Three",
+        "variant": "primary"
+      },
+      "state": "focus+focus",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        155.0,
+        32.0
+      ],
+      "png": "png/buttongroup/focus.primary/focus+focus/light.png",
+      "scene": "scenes/buttongroup/focus.primary/focus+focus/light.json",
+      "png_sha256": "55b20302ee0b984b3ad6c00430f48affa7e51e7e40da83b297a7d61870c644d7"
+    },
+    {
+      "id": "buttongroup/focus.primary/focus/dark",
+      "component": "buttongroup",
+      "group": "focus",
+      "params": {
+        "labels": "One,Two,Three",
+        "variant": "primary"
+      },
+      "state": "focus",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        155.0,
+        32.0
+      ],
+      "png": "png/buttongroup/focus.primary/focus/dark.png",
+      "scene": "scenes/buttongroup/focus.primary/focus/dark.json",
+      "png_sha256": "11bb8a48b420213a3ca2f546b1d2c6b186c5e983fd4c0482b8bc60cbbffbd22d"
+    },
+    {
+      "id": "buttongroup/focus.primary/focus/light",
+      "component": "buttongroup",
+      "group": "focus",
+      "params": {
+        "labels": "One,Two,Three",
+        "variant": "primary"
+      },
+      "state": "focus",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        155.0,
+        32.0
+      ],
+      "png": "png/buttongroup/focus.primary/focus/light.png",
+      "scene": "scenes/buttongroup/focus.primary/focus/light.json",
+      "png_sha256": "dcb5384897a9b3a2e5071908a896d9dc4dce0648e8c3bb35b26fa9488c9ac6bc"
+    },
+    {
+      "id": "buttongroup/horizontal.default.medium/normal/dark",
+      "component": "buttongroup",
+      "group": "horizontal",
+      "params": {
+        "labels": "One,Two,Three",
+        "variant": "default",
+        "outline": false,
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        159.0,
+        32.0
+      ],
+      "png": "png/buttongroup/horizontal.default.medium/normal/dark.png",
+      "scene": "scenes/buttongroup/horizontal.default.medium/normal/dark.json",
+      "png_sha256": "401b6a9683e98e4af17a039777a9c1f07c957fc3a6a31946216e7b9d0bdbae82"
+    },
+    {
+      "id": "buttongroup/horizontal.default.medium/normal/light",
+      "component": "buttongroup",
+      "group": "horizontal",
+      "params": {
+        "labels": "One,Two,Three",
+        "variant": "default",
+        "outline": false,
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        159.0,
+        32.0
+      ],
+      "png": "png/buttongroup/horizontal.default.medium/normal/light.png",
+      "scene": "scenes/buttongroup/horizontal.default.medium/normal/light.json",
+      "png_sha256": "b459642dcda3af861be66ff62ff4cc7218dd72f2761f1aa79037e710936b083d"
+    },
+    {
+      "id": "buttongroup/horizontal.default.outline.medium/normal/dark",
+      "component": "buttongroup",
+      "group": "horizontal",
+      "params": {
+        "labels": "One,Two,Three",
+        "variant": "default",
+        "outline": true,
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        159.0,
+        32.0
+      ],
+      "png": "png/buttongroup/horizontal.default.outline.medium/normal/dark.png",
+      "scene": "scenes/buttongroup/horizontal.default.outline.medium/normal/dark.json",
+      "png_sha256": "401b6a9683e98e4af17a039777a9c1f07c957fc3a6a31946216e7b9d0bdbae82"
+    },
+    {
+      "id": "buttongroup/horizontal.default.outline.medium/normal/light",
+      "component": "buttongroup",
+      "group": "horizontal",
+      "params": {
+        "labels": "One,Two,Three",
+        "variant": "default",
+        "outline": true,
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        159.0,
+        32.0
+      ],
+      "png": "png/buttongroup/horizontal.default.outline.medium/normal/light.png",
+      "scene": "scenes/buttongroup/horizontal.default.outline.medium/normal/light.json",
+      "png_sha256": "b459642dcda3af861be66ff62ff4cc7218dd72f2761f1aa79037e710936b083d"
+    },
+    {
+      "id": "buttongroup/horizontal.default.outline.small/normal/dark",
+      "component": "buttongroup",
+      "group": "horizontal",
+      "params": {
+        "labels": "One,Two,Three",
+        "variant": "default",
+        "outline": true,
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        147.0,
+        24.0
+      ],
+      "png": "png/buttongroup/horizontal.default.outline.small/normal/dark.png",
+      "scene": "scenes/buttongroup/horizontal.default.outline.small/normal/dark.json",
+      "png_sha256": "08f68350f82a132883864ff458506bc7965ee52bdf6d99400b330418d02fc6d8"
+    },
+    {
+      "id": "buttongroup/horizontal.default.outline.small/normal/light",
+      "component": "buttongroup",
+      "group": "horizontal",
+      "params": {
+        "labels": "One,Two,Three",
+        "variant": "default",
+        "outline": true,
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        147.0,
+        24.0
+      ],
+      "png": "png/buttongroup/horizontal.default.outline.small/normal/light.png",
+      "scene": "scenes/buttongroup/horizontal.default.outline.small/normal/light.json",
+      "png_sha256": "ef5ee21184b1505a5750c75b4cbed19e53aa6f0f672d02afd6ecbe27faab140f"
+    },
+    {
+      "id": "buttongroup/horizontal.default.small/normal/dark",
+      "component": "buttongroup",
+      "group": "horizontal",
+      "params": {
+        "labels": "One,Two,Three",
+        "variant": "default",
+        "outline": false,
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        147.0,
+        24.0
+      ],
+      "png": "png/buttongroup/horizontal.default.small/normal/dark.png",
+      "scene": "scenes/buttongroup/horizontal.default.small/normal/dark.json",
+      "png_sha256": "08f68350f82a132883864ff458506bc7965ee52bdf6d99400b330418d02fc6d8"
+    },
+    {
+      "id": "buttongroup/horizontal.default.small/normal/light",
+      "component": "buttongroup",
+      "group": "horizontal",
+      "params": {
+        "labels": "One,Two,Three",
+        "variant": "default",
+        "outline": false,
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        147.0,
+        24.0
+      ],
+      "png": "png/buttongroup/horizontal.default.small/normal/light.png",
+      "scene": "scenes/buttongroup/horizontal.default.small/normal/light.json",
+      "png_sha256": "ef5ee21184b1505a5750c75b4cbed19e53aa6f0f672d02afd6ecbe27faab140f"
+    },
+    {
+      "id": "buttongroup/horizontal.ghost.medium/normal/dark",
+      "component": "buttongroup",
+      "group": "horizontal",
+      "params": {
+        "labels": "One,Two,Three",
+        "variant": "ghost",
+        "outline": false,
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        155.0,
+        32.0
+      ],
+      "png": "png/buttongroup/horizontal.ghost.medium/normal/dark.png",
+      "scene": "scenes/buttongroup/horizontal.ghost.medium/normal/dark.json",
+      "png_sha256": "9792fb3ee229bf5d0c8ec637b3b0779274c09c42b58a5b088994c00acee4c29b"
+    },
+    {
+      "id": "buttongroup/horizontal.ghost.medium/normal/light",
+      "component": "buttongroup",
+      "group": "horizontal",
+      "params": {
+        "labels": "One,Two,Three",
+        "variant": "ghost",
+        "outline": false,
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        155.0,
+        32.0
+      ],
+      "png": "png/buttongroup/horizontal.ghost.medium/normal/light.png",
+      "scene": "scenes/buttongroup/horizontal.ghost.medium/normal/light.json",
+      "png_sha256": "73e046fbad7da07caa71fb5d05a5da0c12dbc1aa2bbd7a17761e060f1da1d2e4"
+    },
+    {
+      "id": "buttongroup/horizontal.ghost.outline.medium/normal/dark",
+      "component": "buttongroup",
+      "group": "horizontal",
+      "params": {
+        "labels": "One,Two,Three",
+        "variant": "ghost",
+        "outline": true,
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        159.0,
+        32.0
+      ],
+      "png": "png/buttongroup/horizontal.ghost.outline.medium/normal/dark.png",
+      "scene": "scenes/buttongroup/horizontal.ghost.outline.medium/normal/dark.json",
+      "png_sha256": "1b0338496ef2de0fe16477bb8860aa0f645432fc3d39ebfee0ed8547a9878a83"
+    },
+    {
+      "id": "buttongroup/horizontal.ghost.outline.medium/normal/light",
+      "component": "buttongroup",
+      "group": "horizontal",
+      "params": {
+        "labels": "One,Two,Three",
+        "variant": "ghost",
+        "outline": true,
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        159.0,
+        32.0
+      ],
+      "png": "png/buttongroup/horizontal.ghost.outline.medium/normal/light.png",
+      "scene": "scenes/buttongroup/horizontal.ghost.outline.medium/normal/light.json",
+      "png_sha256": "4191d70d87f3cef2110daf86dc1f9836ddbf02371c11ba3ffe5b59f86954d889"
+    },
+    {
+      "id": "buttongroup/horizontal.ghost.outline.small/normal/dark",
+      "component": "buttongroup",
+      "group": "horizontal",
+      "params": {
+        "labels": "One,Two,Three",
+        "variant": "ghost",
+        "outline": true,
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        147.0,
+        24.0
+      ],
+      "png": "png/buttongroup/horizontal.ghost.outline.small/normal/dark.png",
+      "scene": "scenes/buttongroup/horizontal.ghost.outline.small/normal/dark.json",
+      "png_sha256": "c7b130b0bc12e26760247c5a69e0a08291bdfa7de853c89a4dd4601d1c0690b6"
+    },
+    {
+      "id": "buttongroup/horizontal.ghost.outline.small/normal/light",
+      "component": "buttongroup",
+      "group": "horizontal",
+      "params": {
+        "labels": "One,Two,Three",
+        "variant": "ghost",
+        "outline": true,
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        147.0,
+        24.0
+      ],
+      "png": "png/buttongroup/horizontal.ghost.outline.small/normal/light.png",
+      "scene": "scenes/buttongroup/horizontal.ghost.outline.small/normal/light.json",
+      "png_sha256": "e22f960e45d664a564d20a0ddc6ca26abd2dc920c080443c81678643d3083e22"
+    },
+    {
+      "id": "buttongroup/horizontal.ghost.small/normal/dark",
+      "component": "buttongroup",
+      "group": "horizontal",
+      "params": {
+        "labels": "One,Two,Three",
+        "variant": "ghost",
+        "outline": false,
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        143.0,
+        24.0
+      ],
+      "png": "png/buttongroup/horizontal.ghost.small/normal/dark.png",
+      "scene": "scenes/buttongroup/horizontal.ghost.small/normal/dark.json",
+      "png_sha256": "e7c1bba5f5ea72baa44bfd722d86ea459c262abde2259042cb8b223484420896"
+    },
+    {
+      "id": "buttongroup/horizontal.ghost.small/normal/light",
+      "component": "buttongroup",
+      "group": "horizontal",
+      "params": {
+        "labels": "One,Two,Three",
+        "variant": "ghost",
+        "outline": false,
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        143.0,
+        24.0
+      ],
+      "png": "png/buttongroup/horizontal.ghost.small/normal/light.png",
+      "scene": "scenes/buttongroup/horizontal.ghost.small/normal/light.json",
+      "png_sha256": "d7923bf7f06b7180fb1ec0489c329586db12aca015141f8eec1ee4f048a6d57b"
+    },
+    {
+      "id": "buttongroup/horizontal.primary.medium/normal/dark",
+      "component": "buttongroup",
+      "group": "horizontal",
+      "params": {
+        "labels": "One,Two,Three",
+        "variant": "primary",
+        "outline": false,
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        155.0,
+        32.0
+      ],
+      "png": "png/buttongroup/horizontal.primary.medium/normal/dark.png",
+      "scene": "scenes/buttongroup/horizontal.primary.medium/normal/dark.json",
+      "png_sha256": "a08be170d252537e66c62fa260f8b0f5551bc609b64e9ecfce183ca46980930e"
+    },
+    {
+      "id": "buttongroup/horizontal.primary.medium/normal/light",
+      "component": "buttongroup",
+      "group": "horizontal",
+      "params": {
+        "labels": "One,Two,Three",
+        "variant": "primary",
+        "outline": false,
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        155.0,
+        32.0
+      ],
+      "png": "png/buttongroup/horizontal.primary.medium/normal/light.png",
+      "scene": "scenes/buttongroup/horizontal.primary.medium/normal/light.json",
+      "png_sha256": "9179b7a5b5f6ed9ec616a164ef2dee4a0b357842e1781990664dd739eb5826e8"
+    },
+    {
+      "id": "buttongroup/horizontal.primary.outline.medium/normal/dark",
+      "component": "buttongroup",
+      "group": "horizontal",
+      "params": {
+        "labels": "One,Two,Three",
+        "variant": "primary",
+        "outline": true,
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        159.0,
+        32.0
+      ],
+      "png": "png/buttongroup/horizontal.primary.outline.medium/normal/dark.png",
+      "scene": "scenes/buttongroup/horizontal.primary.outline.medium/normal/dark.json",
+      "png_sha256": "bdf78ba51e1ead06c8c21ded0d565d38ed1071193d9a42912a8b7c0b163d5e6d"
+    },
+    {
+      "id": "buttongroup/horizontal.primary.outline.medium/normal/light",
+      "component": "buttongroup",
+      "group": "horizontal",
+      "params": {
+        "labels": "One,Two,Three",
+        "variant": "primary",
+        "outline": true,
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        159.0,
+        32.0
+      ],
+      "png": "png/buttongroup/horizontal.primary.outline.medium/normal/light.png",
+      "scene": "scenes/buttongroup/horizontal.primary.outline.medium/normal/light.json",
+      "png_sha256": "232de88bbec3a2b6028ef6ad2cbc1c2aef80265f7c96ac685c3d431ba22cc898"
+    },
+    {
+      "id": "buttongroup/horizontal.primary.outline.small/normal/dark",
+      "component": "buttongroup",
+      "group": "horizontal",
+      "params": {
+        "labels": "One,Two,Three",
+        "variant": "primary",
+        "outline": true,
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        147.0,
+        24.0
+      ],
+      "png": "png/buttongroup/horizontal.primary.outline.small/normal/dark.png",
+      "scene": "scenes/buttongroup/horizontal.primary.outline.small/normal/dark.json",
+      "png_sha256": "32c1d8ab528fc98a61cf21ce4c07e5deba3a2383d6937eab1e533be0882e6fdb"
+    },
+    {
+      "id": "buttongroup/horizontal.primary.outline.small/normal/light",
+      "component": "buttongroup",
+      "group": "horizontal",
+      "params": {
+        "labels": "One,Two,Three",
+        "variant": "primary",
+        "outline": true,
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        147.0,
+        24.0
+      ],
+      "png": "png/buttongroup/horizontal.primary.outline.small/normal/light.png",
+      "scene": "scenes/buttongroup/horizontal.primary.outline.small/normal/light.json",
+      "png_sha256": "baba0fc14bd56fbbb35ce4b666f0dd9fdf8d34fb054280fb97f956e7181cad2b"
+    },
+    {
+      "id": "buttongroup/horizontal.primary.small/normal/dark",
+      "component": "buttongroup",
+      "group": "horizontal",
+      "params": {
+        "labels": "One,Two,Three",
+        "variant": "primary",
+        "outline": false,
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        143.0,
+        24.0
+      ],
+      "png": "png/buttongroup/horizontal.primary.small/normal/dark.png",
+      "scene": "scenes/buttongroup/horizontal.primary.small/normal/dark.json",
+      "png_sha256": "33d5db86d7c7b7ad69870286fa2aa21e3a67fb51a500edea7819ff1b5d8f3b77"
+    },
+    {
+      "id": "buttongroup/horizontal.primary.small/normal/light",
+      "component": "buttongroup",
+      "group": "horizontal",
+      "params": {
+        "labels": "One,Two,Three",
+        "variant": "primary",
+        "outline": false,
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        143.0,
+        24.0
+      ],
+      "png": "png/buttongroup/horizontal.primary.small/normal/light.png",
+      "scene": "scenes/buttongroup/horizontal.primary.small/normal/light.json",
+      "png_sha256": "72b28e0934e961d4f01631b0381cd2761f86d185fed9fa43ca7502a2095d183d"
+    },
+    {
+      "id": "buttongroup/last.base/hover/dark",
+      "component": "buttongroup",
+      "group": "last",
+      "params": {
+        "labels": "One,Two,Three",
+        "outline": true,
+        "pointer_x": 0.85
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        159.0,
+        32.0
+      ],
+      "png": "png/buttongroup/last.base/hover/dark.png",
+      "scene": "scenes/buttongroup/last.base/hover/dark.json",
+      "png_sha256": "b22b45b89a93b0c3a0aa6affeb44a2a38b188d10c312a1a01235280c35155239"
+    },
+    {
+      "id": "buttongroup/last.base/hover/light",
+      "component": "buttongroup",
+      "group": "last",
+      "params": {
+        "labels": "One,Two,Three",
+        "outline": true,
+        "pointer_x": 0.85
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        159.0,
+        32.0
+      ],
+      "png": "png/buttongroup/last.base/hover/light.png",
+      "scene": "scenes/buttongroup/last.base/hover/light.json",
+      "png_sha256": "0086eb16f5887bb9f54c180c52c3458bde6170d1da2b3d8c99601a1a0831a1c1"
+    },
+    {
+      "id": "buttongroup/last.base/pressed/dark",
+      "component": "buttongroup",
+      "group": "last",
+      "params": {
+        "labels": "One,Two,Three",
+        "outline": true,
+        "pointer_x": 0.85
+      },
+      "state": "pressed",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        159.0,
+        32.0
+      ],
+      "png": "png/buttongroup/last.base/pressed/dark.png",
+      "scene": "scenes/buttongroup/last.base/pressed/dark.json",
+      "png_sha256": "bf1ad23b3c3c3e44bc708244e4fe35ec613287ce638a26b8fb67bb9408b52848"
+    },
+    {
+      "id": "buttongroup/last.base/pressed/light",
+      "component": "buttongroup",
+      "group": "last",
+      "params": {
+        "labels": "One,Two,Three",
+        "outline": true,
+        "pointer_x": 0.85
+      },
+      "state": "pressed",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        159.0,
+        32.0
+      ],
+      "png": "png/buttongroup/last.base/pressed/light.png",
+      "scene": "scenes/buttongroup/last.base/pressed/light.json",
+      "png_sha256": "e26cd5dbed8721ec89e55e74eeb73b50f19f0981af1385837170cf5493e0ece5"
+    },
+    {
+      "id": "buttongroup/middle.base/hover/dark",
+      "component": "buttongroup",
+      "group": "middle",
+      "params": {
+        "labels": "One,Two,Three",
+        "outline": true,
+        "pointer_x": 0.5
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        159.0,
+        32.0
+      ],
+      "png": "png/buttongroup/middle.base/hover/dark.png",
+      "scene": "scenes/buttongroup/middle.base/hover/dark.json",
+      "png_sha256": "64a456a684af3ad7b4509f74dfd10c88fde23a404f16da5d53c8bcac8e1f31f4"
+    },
+    {
+      "id": "buttongroup/middle.base/hover/light",
+      "component": "buttongroup",
+      "group": "middle",
+      "params": {
+        "labels": "One,Two,Three",
+        "outline": true,
+        "pointer_x": 0.5
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        159.0,
+        32.0
+      ],
+      "png": "png/buttongroup/middle.base/hover/light.png",
+      "scene": "scenes/buttongroup/middle.base/hover/light.json",
+      "png_sha256": "479df00b8039bd7a109f8fcbfbfaf15138177d60b79367aca8e2e586213ca102"
+    },
+    {
+      "id": "buttongroup/middle.base/pressed/dark",
+      "component": "buttongroup",
+      "group": "middle",
+      "params": {
+        "labels": "One,Two,Three",
+        "outline": true,
+        "pointer_x": 0.5
+      },
+      "state": "pressed",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        159.0,
+        32.0
+      ],
+      "png": "png/buttongroup/middle.base/pressed/dark.png",
+      "scene": "scenes/buttongroup/middle.base/pressed/dark.json",
+      "png_sha256": "0bc9859f0a04a5890cc3dd78da018e02d75273d1467e72ddd0260484b675db1b"
+    },
+    {
+      "id": "buttongroup/middle.base/pressed/light",
+      "component": "buttongroup",
+      "group": "middle",
+      "params": {
+        "labels": "One,Two,Three",
+        "outline": true,
+        "pointer_x": 0.5
+      },
+      "state": "pressed",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        159.0,
+        32.0
+      ],
+      "png": "png/buttongroup/middle.base/pressed/light.png",
+      "scene": "scenes/buttongroup/middle.base/pressed/light.json",
+      "png_sha256": "c84952b41015f4a9ff449ce846bf50e8dbc6fd469d2c04219ce1c0792e5ea2ab"
+    },
+    {
+      "id": "buttongroup/rounded.large/focus/dark",
+      "component": "buttongroup",
+      "group": "rounded",
+      "params": {
+        "labels": "One,Two,Three",
+        "rounded": "large"
+      },
+      "state": "focus",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        159.0,
+        32.0
+      ],
+      "png": "png/buttongroup/rounded.large/focus/dark.png",
+      "scene": "scenes/buttongroup/rounded.large/focus/dark.json",
+      "png_sha256": "53d2c065f559c31de295af51e35eda298a3a237de6dc3cb8e3e05acb766a256b"
+    },
+    {
+      "id": "buttongroup/rounded.large/focus/light",
+      "component": "buttongroup",
+      "group": "rounded",
+      "params": {
+        "labels": "One,Two,Three",
+        "rounded": "large"
+      },
+      "state": "focus",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        159.0,
+        32.0
+      ],
+      "png": "png/buttongroup/rounded.large/focus/light.png",
+      "scene": "scenes/buttongroup/rounded.large/focus/light.json",
+      "png_sha256": "819f4e8056d31d0ffbd52f8339fb23957af739e6a1f6eea5f333c2a3e87d6676"
+    },
+    {
+      "id": "buttongroup/rounded.large/normal/dark",
+      "component": "buttongroup",
+      "group": "rounded",
+      "params": {
+        "labels": "One,Two,Three",
+        "rounded": "large"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        159.0,
+        32.0
+      ],
+      "png": "png/buttongroup/rounded.large/normal/dark.png",
+      "scene": "scenes/buttongroup/rounded.large/normal/dark.json",
+      "png_sha256": "e79ee4677830cd390f5457658016a92b631351d9b4be9d24bd753d189cfcf08f"
+    },
+    {
+      "id": "buttongroup/rounded.large/normal/light",
+      "component": "buttongroup",
+      "group": "rounded",
+      "params": {
+        "labels": "One,Two,Three",
+        "rounded": "large"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        159.0,
+        32.0
+      ],
+      "png": "png/buttongroup/rounded.large/normal/light.png",
+      "scene": "scenes/buttongroup/rounded.large/normal/light.json",
+      "png_sha256": "658b8f395c85280bd79f44cc1f0797f5ecfbd866e8496810f454b7e3877b5267"
+    },
+    {
+      "id": "buttongroup/rounded.none/focus/dark",
+      "component": "buttongroup",
+      "group": "rounded",
+      "params": {
+        "labels": "One,Two,Three",
+        "rounded": "none"
+      },
+      "state": "focus",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        159.0,
+        32.0
+      ],
+      "png": "png/buttongroup/rounded.none/focus/dark.png",
+      "scene": "scenes/buttongroup/rounded.none/focus/dark.json",
+      "png_sha256": "dc124aefd80829857a4464711de93242682936843449e6333c16d8a24fd919c7"
+    },
+    {
+      "id": "buttongroup/rounded.none/focus/light",
+      "component": "buttongroup",
+      "group": "rounded",
+      "params": {
+        "labels": "One,Two,Three",
+        "rounded": "none"
+      },
+      "state": "focus",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        159.0,
+        32.0
+      ],
+      "png": "png/buttongroup/rounded.none/focus/light.png",
+      "scene": "scenes/buttongroup/rounded.none/focus/light.json",
+      "png_sha256": "6c505a90e72fa5e45e69cda2105515598a21753b4dcc27e5e8d0b41d88592fd4"
+    },
+    {
+      "id": "buttongroup/rounded.none/normal/dark",
+      "component": "buttongroup",
+      "group": "rounded",
+      "params": {
+        "labels": "One,Two,Three",
+        "rounded": "none"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        159.0,
+        32.0
+      ],
+      "png": "png/buttongroup/rounded.none/normal/dark.png",
+      "scene": "scenes/buttongroup/rounded.none/normal/dark.json",
+      "png_sha256": "a5c9829a6d0ff45f8c0136675ba39e87daf997dd19cd9515e13f6ebb14040247"
+    },
+    {
+      "id": "buttongroup/rounded.none/normal/light",
+      "component": "buttongroup",
+      "group": "rounded",
+      "params": {
+        "labels": "One,Two,Three",
+        "rounded": "none"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        159.0,
+        32.0
+      ],
+      "png": "png/buttongroup/rounded.none/normal/light.png",
+      "scene": "scenes/buttongroup/rounded.none/normal/light.json",
+      "png_sha256": "d03f7dccddafc8b59556627432600172efcee222e0624b6f7b02d2b4cb45766f"
+    },
+    {
+      "id": "buttongroup/rounded.small/focus/dark",
+      "component": "buttongroup",
+      "group": "rounded",
+      "params": {
+        "labels": "One,Two,Three",
+        "rounded": "small"
+      },
+      "state": "focus",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        159.0,
+        32.0
+      ],
+      "png": "png/buttongroup/rounded.small/focus/dark.png",
+      "scene": "scenes/buttongroup/rounded.small/focus/dark.json",
+      "png_sha256": "0e5bf43fab204c2f44adcf20f7e44873890a30a791e68880d4e0dbfcd7bee940"
+    },
+    {
+      "id": "buttongroup/rounded.small/focus/light",
+      "component": "buttongroup",
+      "group": "rounded",
+      "params": {
+        "labels": "One,Two,Three",
+        "rounded": "small"
+      },
+      "state": "focus",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        159.0,
+        32.0
+      ],
+      "png": "png/buttongroup/rounded.small/focus/light.png",
+      "scene": "scenes/buttongroup/rounded.small/focus/light.json",
+      "png_sha256": "889d2320058e1844bb11c212920b35001dd41fda816dc59674a793301200ce24"
+    },
+    {
+      "id": "buttongroup/rounded.small/normal/dark",
+      "component": "buttongroup",
+      "group": "rounded",
+      "params": {
+        "labels": "One,Two,Three",
+        "rounded": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        159.0,
+        32.0
+      ],
+      "png": "png/buttongroup/rounded.small/normal/dark.png",
+      "scene": "scenes/buttongroup/rounded.small/normal/dark.json",
+      "png_sha256": "5d97c9b399d70870bd9024e6b50a33ac9377e12aa089ae8d02f2a6fa7e8d61bc"
+    },
+    {
+      "id": "buttongroup/rounded.small/normal/light",
+      "component": "buttongroup",
+      "group": "rounded",
+      "params": {
+        "labels": "One,Two,Three",
+        "rounded": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        159.0,
+        32.0
+      ],
+      "png": "png/buttongroup/rounded.small/normal/light.png",
+      "scene": "scenes/buttongroup/rounded.small/normal/light.json",
+      "png_sha256": "4d5b47f424200a66599b398bf9ac2539ff0204611958f633343fea829e2b7261"
+    },
+    {
+      "id": "buttongroup/selected.base/disabled/dark",
+      "component": "buttongroup",
+      "group": "selected",
+      "params": {
+        "labels": "One,Two,Three",
+        "selected": "010",
+        "outline": false,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        159.0,
+        32.0
+      ],
+      "png": "png/buttongroup/selected.base/disabled/dark.png",
+      "scene": "scenes/buttongroup/selected.base/disabled/dark.json",
+      "png_sha256": "e8c5b5dc936f03076b6ce07a139de224d3cd22f2f1fe248403d16d3c3031ea2c"
+    },
+    {
+      "id": "buttongroup/selected.base/disabled/light",
+      "component": "buttongroup",
+      "group": "selected",
+      "params": {
+        "labels": "One,Two,Three",
+        "selected": "010",
+        "outline": false,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        159.0,
+        32.0
+      ],
+      "png": "png/buttongroup/selected.base/disabled/light.png",
+      "scene": "scenes/buttongroup/selected.base/disabled/light.json",
+      "png_sha256": "122113a19553f9d184a702dd5caace3f90e87c662f7cf0ba5c025fe10dbc5fc6"
+    },
+    {
+      "id": "buttongroup/selected.base/normal/dark",
+      "component": "buttongroup",
+      "group": "selected",
+      "params": {
+        "labels": "One,Two,Three",
+        "selected": "010",
+        "outline": false
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        159.0,
+        32.0
+      ],
+      "png": "png/buttongroup/selected.base/normal/dark.png",
+      "scene": "scenes/buttongroup/selected.base/normal/dark.json",
+      "png_sha256": "0bc9859f0a04a5890cc3dd78da018e02d75273d1467e72ddd0260484b675db1b"
+    },
+    {
+      "id": "buttongroup/selected.base/normal/light",
+      "component": "buttongroup",
+      "group": "selected",
+      "params": {
+        "labels": "One,Two,Three",
+        "selected": "010",
+        "outline": false
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        159.0,
+        32.0
+      ],
+      "png": "png/buttongroup/selected.base/normal/light.png",
+      "scene": "scenes/buttongroup/selected.base/normal/light.json",
+      "png_sha256": "c84952b41015f4a9ff449ce846bf50e8dbc6fd469d2c04219ce1c0792e5ea2ab"
+    },
+    {
+      "id": "buttongroup/selected.outline/disabled/dark",
+      "component": "buttongroup",
+      "group": "selected",
+      "params": {
+        "labels": "One,Two,Three",
+        "selected": "010",
+        "outline": true,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        159.0,
+        32.0
+      ],
+      "png": "png/buttongroup/selected.outline/disabled/dark.png",
+      "scene": "scenes/buttongroup/selected.outline/disabled/dark.json",
+      "png_sha256": "e8c5b5dc936f03076b6ce07a139de224d3cd22f2f1fe248403d16d3c3031ea2c"
+    },
+    {
+      "id": "buttongroup/selected.outline/disabled/light",
+      "component": "buttongroup",
+      "group": "selected",
+      "params": {
+        "labels": "One,Two,Three",
+        "selected": "010",
+        "outline": true,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        159.0,
+        32.0
+      ],
+      "png": "png/buttongroup/selected.outline/disabled/light.png",
+      "scene": "scenes/buttongroup/selected.outline/disabled/light.json",
+      "png_sha256": "122113a19553f9d184a702dd5caace3f90e87c662f7cf0ba5c025fe10dbc5fc6"
+    },
+    {
+      "id": "buttongroup/selected.outline/normal/dark",
+      "component": "buttongroup",
+      "group": "selected",
+      "params": {
+        "labels": "One,Two,Three",
+        "selected": "010",
+        "outline": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        159.0,
+        32.0
+      ],
+      "png": "png/buttongroup/selected.outline/normal/dark.png",
+      "scene": "scenes/buttongroup/selected.outline/normal/dark.json",
+      "png_sha256": "0bc9859f0a04a5890cc3dd78da018e02d75273d1467e72ddd0260484b675db1b"
+    },
+    {
+      "id": "buttongroup/selected.outline/normal/light",
+      "component": "buttongroup",
+      "group": "selected",
+      "params": {
+        "labels": "One,Two,Three",
+        "selected": "010",
+        "outline": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        159.0,
+        32.0
+      ],
+      "png": "png/buttongroup/selected.outline/normal/light.png",
+      "scene": "scenes/buttongroup/selected.outline/normal/light.json",
+      "png_sha256": "c84952b41015f4a9ff449ce846bf50e8dbc6fd469d2c04219ce1c0792e5ea2ab"
+    },
+    {
+      "id": "buttongroup/sizes.large.compact/normal/dark",
+      "component": "buttongroup",
+      "group": "sizes",
+      "params": {
+        "labels": "One,Two,Three",
+        "size": "large",
+        "compact": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        161.0,
+        32.0
+      ],
+      "png": "png/buttongroup/sizes.large.compact/normal/dark.png",
+      "scene": "scenes/buttongroup/sizes.large.compact/normal/dark.json",
+      "png_sha256": "1c9813f41d6d383fd96b631e7a643eb870981ddf6fab312d94fb721e6e7913d0"
+    },
+    {
+      "id": "buttongroup/sizes.large.compact/normal/light",
+      "component": "buttongroup",
+      "group": "sizes",
+      "params": {
+        "labels": "One,Two,Three",
+        "size": "large",
+        "compact": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        161.0,
+        32.0
+      ],
+      "png": "png/buttongroup/sizes.large.compact/normal/light.png",
+      "scene": "scenes/buttongroup/sizes.large.compact/normal/light.json",
+      "png_sha256": "2579fd5b710d65bf632d006bfc76c87da48acf7162ae1f87ce3f3ed0dffd7d0b"
+    },
+    {
+      "id": "buttongroup/sizes.large/normal/dark",
+      "component": "buttongroup",
+      "group": "sizes",
+      "params": {
+        "labels": "One,Two,Three",
+        "size": "large",
+        "compact": false
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        185.0,
+        32.0
+      ],
+      "png": "png/buttongroup/sizes.large/normal/dark.png",
+      "scene": "scenes/buttongroup/sizes.large/normal/dark.json",
+      "png_sha256": "8bc2af09045f4d0e944ff873c6ef68de1b5174dcff242104604bad2c7c710ec5"
+    },
+    {
+      "id": "buttongroup/sizes.large/normal/light",
+      "component": "buttongroup",
+      "group": "sizes",
+      "params": {
+        "labels": "One,Two,Three",
+        "size": "large",
+        "compact": false
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        185.0,
+        32.0
+      ],
+      "png": "png/buttongroup/sizes.large/normal/light.png",
+      "scene": "scenes/buttongroup/sizes.large/normal/light.json",
+      "png_sha256": "8bf1869728e8083890f818765d4a0c7d2269d2b4aa7685266e3225f123beb2c9"
+    },
+    {
+      "id": "buttongroup/sizes.xsmall.compact/normal/dark",
+      "component": "buttongroup",
+      "group": "sizes",
+      "params": {
+        "labels": "One,Two,Three",
+        "size": "xsmall",
+        "compact": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        110.0,
+        20.0
+      ],
+      "png": "png/buttongroup/sizes.xsmall.compact/normal/dark.png",
+      "scene": "scenes/buttongroup/sizes.xsmall.compact/normal/dark.json",
+      "png_sha256": "1d28992329447c985b9f20db8bcd94609dbb31dd48de695d6a545f48a56a0de6"
+    },
+    {
+      "id": "buttongroup/sizes.xsmall.compact/normal/light",
+      "component": "buttongroup",
+      "group": "sizes",
+      "params": {
+        "labels": "One,Two,Three",
+        "size": "xsmall",
+        "compact": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        110.0,
+        20.0
+      ],
+      "png": "png/buttongroup/sizes.xsmall.compact/normal/light.png",
+      "scene": "scenes/buttongroup/sizes.xsmall.compact/normal/light.json",
+      "png_sha256": "13f662287a94d888a6d7b5cfaa3136e895b8ed580424fbc8c1aef20ad3ae498e"
+    },
+    {
+      "id": "buttongroup/sizes.xsmall/normal/dark",
+      "component": "buttongroup",
+      "group": "sizes",
+      "params": {
+        "labels": "One,Two,Three",
+        "size": "xsmall",
+        "compact": false
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        110.0,
+        20.0
+      ],
+      "png": "png/buttongroup/sizes.xsmall/normal/dark.png",
+      "scene": "scenes/buttongroup/sizes.xsmall/normal/dark.json",
+      "png_sha256": "1d28992329447c985b9f20db8bcd94609dbb31dd48de695d6a545f48a56a0de6"
+    },
+    {
+      "id": "buttongroup/sizes.xsmall/normal/light",
+      "component": "buttongroup",
+      "group": "sizes",
+      "params": {
+        "labels": "One,Two,Three",
+        "size": "xsmall",
+        "compact": false
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        110.0,
+        20.0
+      ],
+      "png": "png/buttongroup/sizes.xsmall/normal/light.png",
+      "scene": "scenes/buttongroup/sizes.xsmall/normal/light.json",
+      "png_sha256": "13f662287a94d888a6d7b5cfaa3136e895b8ed580424fbc8c1aef20ad3ae498e"
+    },
+    {
+      "id": "buttongroup/vertical.default.outline/normal/dark",
+      "component": "buttongroup",
+      "group": "vertical",
+      "params": {
+        "labels": "One,Two,Three",
+        "layout": "vertical",
+        "variant": "default",
+        "outline": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        120.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        61.0,
+        96.0
+      ],
+      "png": "png/buttongroup/vertical.default.outline/normal/dark.png",
+      "scene": "scenes/buttongroup/vertical.default.outline/normal/dark.json",
+      "png_sha256": "213e5a870dbee0209671d18f42071a2691849f6f0f4ca04048857e4d02434a31"
+    },
+    {
+      "id": "buttongroup/vertical.default.outline/normal/light",
+      "component": "buttongroup",
+      "group": "vertical",
+      "params": {
+        "labels": "One,Two,Three",
+        "layout": "vertical",
+        "variant": "default",
+        "outline": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        120.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        61.0,
+        96.0
+      ],
+      "png": "png/buttongroup/vertical.default.outline/normal/light.png",
+      "scene": "scenes/buttongroup/vertical.default.outline/normal/light.json",
+      "png_sha256": "6e40569980a82579a4976c0d74b8f1907e6cd3d75111c5890c06d0280698c0f7"
+    },
+    {
+      "id": "buttongroup/vertical.default/normal/dark",
+      "component": "buttongroup",
+      "group": "vertical",
+      "params": {
+        "labels": "One,Two,Three",
+        "layout": "vertical",
+        "variant": "default",
+        "outline": false
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        120.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        61.0,
+        96.0
+      ],
+      "png": "png/buttongroup/vertical.default/normal/dark.png",
+      "scene": "scenes/buttongroup/vertical.default/normal/dark.json",
+      "png_sha256": "213e5a870dbee0209671d18f42071a2691849f6f0f4ca04048857e4d02434a31"
+    },
+    {
+      "id": "buttongroup/vertical.default/normal/light",
+      "component": "buttongroup",
+      "group": "vertical",
+      "params": {
+        "labels": "One,Two,Three",
+        "layout": "vertical",
+        "variant": "default",
+        "outline": false
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        120.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        61.0,
+        96.0
+      ],
+      "png": "png/buttongroup/vertical.default/normal/light.png",
+      "scene": "scenes/buttongroup/vertical.default/normal/light.json",
+      "png_sha256": "6e40569980a82579a4976c0d74b8f1907e6cd3d75111c5890c06d0280698c0f7"
+    },
+    {
+      "id": "buttongroup/vertical.primary.outline/normal/dark",
+      "component": "buttongroup",
+      "group": "vertical",
+      "params": {
+        "labels": "One,Two,Three",
+        "layout": "vertical",
+        "variant": "primary",
+        "outline": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        120.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        61.0,
+        96.0
+      ],
+      "png": "png/buttongroup/vertical.primary.outline/normal/dark.png",
+      "scene": "scenes/buttongroup/vertical.primary.outline/normal/dark.json",
+      "png_sha256": "4bf6fa1fe1cda44f08329da1e82827e009c8bd5818fe8cd0f9ebefe86e8f20f0"
+    },
+    {
+      "id": "buttongroup/vertical.primary.outline/normal/light",
+      "component": "buttongroup",
+      "group": "vertical",
+      "params": {
+        "labels": "One,Two,Three",
+        "layout": "vertical",
+        "variant": "primary",
+        "outline": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        120.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        61.0,
+        96.0
+      ],
+      "png": "png/buttongroup/vertical.primary.outline/normal/light.png",
+      "scene": "scenes/buttongroup/vertical.primary.outline/normal/light.json",
+      "png_sha256": "a6b897c5de17b46269a65ab1b513cbac95c249f3c82968989609afec8b13e0c5"
+    },
+    {
+      "id": "buttongroup/vertical.primary/normal/dark",
+      "component": "buttongroup",
+      "group": "vertical",
+      "params": {
+        "labels": "One,Two,Three",
+        "layout": "vertical",
+        "variant": "primary",
+        "outline": false
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        120.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        59.0,
+        96.0
+      ],
+      "png": "png/buttongroup/vertical.primary/normal/dark.png",
+      "scene": "scenes/buttongroup/vertical.primary/normal/dark.json",
+      "png_sha256": "f181d0e6e84a0e3875aa5e3a6bf675b5dd9a4815a6e6bb28396a8a8519d8fb56"
+    },
+    {
+      "id": "buttongroup/vertical.primary/normal/light",
+      "component": "buttongroup",
+      "group": "vertical",
+      "params": {
+        "labels": "One,Two,Three",
+        "layout": "vertical",
+        "variant": "primary",
+        "outline": false
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        120.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        59.0,
+        96.0
+      ],
+      "png": "png/buttongroup/vertical.primary/normal/light.png",
+      "scene": "scenes/buttongroup/vertical.primary/normal/light.json",
+      "png_sha256": "24a01278a05a398afca4b4537b09634739cea9ede7f3c0c925e72b40c7a9297a"
+    },
+    {
+      "id": "buttongroup/vfocus.base/focus+focus/dark",
+      "component": "buttongroup",
+      "group": "vfocus",
+      "params": {
+        "labels": "One,Two,Three",
+        "layout": "vertical"
+      },
+      "state": "focus+focus",
+      "theme": "dark",
+      "viewport": [
+        96.0,
+        120.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        61.0,
+        96.0
+      ],
+      "png": "png/buttongroup/vfocus.base/focus+focus/dark.png",
+      "scene": "scenes/buttongroup/vfocus.base/focus+focus/dark.json",
+      "png_sha256": "73f410b654cf6c5f479b295c4b0188e8dc766a67af579518d60e4bbb91efa122"
+    },
+    {
+      "id": "buttongroup/vfocus.base/focus+focus/light",
+      "component": "buttongroup",
+      "group": "vfocus",
+      "params": {
+        "labels": "One,Two,Three",
+        "layout": "vertical"
+      },
+      "state": "focus+focus",
+      "theme": "light",
+      "viewport": [
+        96.0,
+        120.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        61.0,
+        96.0
+      ],
+      "png": "png/buttongroup/vfocus.base/focus+focus/light.png",
+      "scene": "scenes/buttongroup/vfocus.base/focus+focus/light.json",
+      "png_sha256": "8b1a9f2bc83340b36a356b99122673c7bd78a53a7cac96c363b6910e3fd9f1ac"
+    },
+    {
       "id": "checkbox/bare.medium.checked/disabled/dark",
       "component": "checkbox",
       "group": "bare",

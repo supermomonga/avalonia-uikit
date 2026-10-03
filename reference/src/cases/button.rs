@@ -10,7 +10,7 @@ use gpui_kit::{
     component::{
         Colorize as _, Theme,
         Disableable as _, Selectable as _, Sizable as _,
-        button::{Button, ButtonRounded, ButtonVariant, ButtonVariants as _},
+        button::{Button, ButtonGroup, ButtonRounded, ButtonVariant, ButtonVariants as _},
     },
 };
 use std::rc::Rc;
@@ -31,6 +31,55 @@ pub fn variant(name: &str) -> Result<ButtonVariant> {
     })
 }
 
+fn rounded(params: &Params) -> ButtonRounded {
+    match param_str(params, "rounded", "medium") {
+        "none" => ButtonRounded::None,
+        "small" => ButtonRounded::Small,
+        "large" => ButtonRounded::Large,
+        _ => ButtonRounded::Medium,
+    }
+}
+
+/// `ButtonGroup` (crates/component/src/button/button_group.rs): buttons that
+/// share their inner edges. `selected` marks buttons with '1' ("010").
+pub fn group(params: &Params) -> Result<Builder> {
+    let name = param_str(params, "variant", "default");
+    let variant = if name == "default" { None } else { Some(variant(name)?) };
+    let outline = param_bool(params, "outline");
+    let compact = param_bool(params, "compact");
+    let vertical = param_str(params, "layout", "horizontal") == "vertical";
+    let size = size(params);
+    let disabled = disabled(params);
+    let rounded = rounded(params);
+    let labels: Vec<String> = param_str(params, "labels", "One,Two,Three").split(',').map(str::to_string).collect();
+    let selected = param_str(params, "selected", "").to_string();
+    Ok(Rc::new(move |_, _, _| {
+        // `disabled` before `child`: ButtonGroup::child copies it.
+        let mut group = ButtonGroup::new("case")
+            .with_size(size)
+            .disabled(disabled)
+            .layout(if vertical { gpui_kit::Axis::Vertical } else { gpui_kit::Axis::Horizontal });
+        if let Some(variant) = variant {
+            group = group.with_variant(variant);
+        }
+        if outline {
+            group = group.outline();
+        }
+        if compact {
+            group = group.compact();
+        }
+        for (ix, label) in labels.iter().enumerate() {
+            group = group.child(
+                Button::new(ix)
+                    .label(label.clone())
+                    .rounded(rounded)
+                    .selected(selected.as_bytes().get(ix) == Some(&b'1')),
+            );
+        }
+        group.into_any_element()
+    }))
+}
+
 pub fn builder(params: &Params) -> Result<Builder> {
     let variant = variant(param_str(params, "variant", "default"))?;
     let outline = param_bool(params, "outline");
@@ -43,12 +92,7 @@ pub fn builder(params: &Params) -> Result<Builder> {
         .and_then(|v| v.as_str())
         .map(|s| s.to_string());
     let icon = icon(param_str(params, "icon", ""));
-    let rounded = match param_str(params, "rounded", "medium") {
-        "none" => ButtonRounded::None,
-        "small" => ButtonRounded::Small,
-        "large" => ButtonRounded::Large,
-        _ => ButtonRounded::Medium,
-    };
+    let rounded = rounded(params);
     Ok(Rc::new(move |_, _, _| {
         let mut button = Button::new("case")
             .with_variant(variant)
