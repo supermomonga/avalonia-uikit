@@ -4,7 +4,7 @@ GpuiTheme が GPUI Kit と同じ見た目・動きになっていることを、
 
 - 移植元: gpui-kit [`2c5162f8c5b0c7fcec066ed53125d304c632bfe2`](https://github.com/longbridge/gpui-kit/tree/2c5162f8c5b0c7fcec066ed53125d304c632bfe2)（gpui-pre 0.3.7）
 - 移植先: Avalonia 12.1.3（別パッケージは `Avalonia.Controls.ColorPicker` 12.1.3、`Avalonia.Controls.DataGrid` 12.1.2）、.NET 10、TUnit 1.72.16
-- 参照データ: `goldens/gpui-2c5162f/`（2975 ケース。うち動き 55。PNG、Scene JSON、トークン）
+- 参照データ: `goldens/gpui-2c5162f/`（3402 ケース。うち動き 60。PNG、Scene JSON、トークン）
 
 ## コマンド
 
@@ -53,14 +53,14 @@ GpuiTheme が GPUI Kit と同じ見た目・動きになっていることを、
 
 ## テストの構成
 
-3125 件。macOS arm64 での最新の実行結果は全件成功し、全体で約 4 分かかる。テストの時刻はすべて仮想時計で進める（[時刻](#時刻)）。
+3586 件。macOS arm64 での最新の実行結果は全件成功し、全体で約 4 分半かかる。テストの時刻はすべて仮想時計で進める（[時刻](#時刻)）。
 
 | テスト | 件数 | 内容 |
 | --- | --- | --- |
-| `*_matches_gpui`（コンポーネント別 52 クラス） | 3022 | 静止状態の全ケース（TabControl は Tabs のケースをもう一度使う）。構造と画素を比較する。 |
-| `MotionTests`、`TabControl_moves_as_gpui` | 59 | 動きを GPUI が記録した時刻ごとに描画し、フレームを比較する。 |
+| `*_matches_gpui`（コンポーネント別 72 クラス） | 3442 | 静止状態の全ケース（TabControl は Tabs のケースをもう一度使う）。構造と画素を比較する。 |
+| `MotionTests`、`TabControl_moves_as_gpui` | 64 | 動きを GPUI が記録した時刻ごとに描画し、フレームを比較する。 |
 | `TokenTests` | 3 | トークンの完全一致と過不足。 |
-| `BehaviorTests` | 24 | 時間・入力・無効状態の挙動。 |
+| `BehaviorTests`、`ControlBehaviorTests` | 24、34 | 時間・入力・無効状態の挙動。後者は新しいコントロール（ADR 19）の操作と、GPUI の表記・色の計算。 |
 | `FluentLayeringTests` | 19 | FluentTheme の上に重ねても見た目が変わらないこと。 |
 
 コンポーネント別の静止ケース数（括弧内は動きのケース数）:
@@ -120,6 +120,31 @@ GpuiTheme が GPUI Kit と同じ見た目・動きになっていることを、
 | Tooltip → ToolTip | 4（1） | 表示後、サイズ |
 | 背景（Window） | 2 | Light / Dark |
 
+新しいコントロール（ADR 19）の静止ケース数:
+
+| コンポーネント（GPUI → Avalonia） | ケース | 組み合わせ |
+| --- | --- | --- |
+| Tag → TagLabel | 82 | 6 色 × outline、19 のパレット色、4 サイズ、rounded-full、hover |
+| Alert → Alert | 46 | 5 種類、タイトル、4 サイズ、banner、アイコン、折り返し、閉じるボタンの hover / 押下 |
+| Avatar → Avatar | 36 | 頭文字 × 4 サイズ、12 色のうち 8 名分、1 語、代わりのアイコン、画像 |
+| Badge → Badge | 32 | 数 / 点 / アイコン × 3 サイズ、2 桁、上限、色 |
+| Rating → Rating | 28 | 値、サイズ、上限 10、色、hover の予告とクリック、disabled |
+| Bubble → Bubble | 28 | 7 種類、start / end、折り返し、リアクションの上下・左右 |
+| Stepper → Stepper | 24 | 選択、4 サイズ、アイコン、中央寄せ、縦、hover / 押下 / disabled |
+| Clipboard → Clipboard | 18 | 4 サイズ、hover / 押下、コピー後と 2 秒後 |
+| Marker → Marker | 18 | plain + アイコン、separator × 3 揃え、border、揃え、spinner、shimmer |
+| DescriptionList → DescriptionList | 16 | 横 × 3 サイズ、縦、枠なし、2 列とラベル幅、区切り |
+| Kbd → Kbd | 16 | 修飾キーのないキー 6 種、outline |
+| Form / Field → Form / FormField | 12 | 縦 × 3 サイズ、横、ラベル幅、2 列と結合とフッター |
+| AvatarGroup → AvatarGroup | 10 | 2 サイズ、上限、省略記号 |
+| Message → Message | 10 | アバター・ヘッダー・フッター × start / end、複数の吹き出し、文字だけ、filled |
+| Skeleton → Skeleton | 8（1） | 帯、secondary、円、角丸、明滅 |
+| StatusBar → StatusBar | 8 | 3 領域、左だけ、右だけ、中央だけ |
+| Breadcrumb → Breadcrumb | 8 | 項目、1 つ、無効、長い列 |
+| Empty → EmptyState | 8 | 全部、ヘッダーだけ、枠なしの画像、タイトルだけ |
+| HoverCard → HoverCard | 8 | 500ms では閉じている、700ms で開く、左右の揃え |
+| ShimmerText → ShimmerText | 6（4） | 色、小さい文字、1 回のスイープ（逆向き） |
+
 静止ケースは Light と Dark の両方を持つ（Tooltip のサイズ違いを除く）。動きは時間の比較が目的なので Light だけで行う。
 
 ## 比較の 4 層
@@ -176,6 +201,7 @@ GPUI の Scene から各デバイス画素を領域に分類し、領域ごと�
 | Gradient | グラデーションの内側 | 最大 3、平均 1 | 3、0.69 | R32 |
 
 - Edge、Ink、Image、ImageEdge は、1 デバイス px ずれた位置との差のうち最小のものを使う（R9）。
+- テストは緩和を挙げて画素を比べない範囲（Excluded 領域）を指定できる。使っているのは R33 の AvatarGroup の省略記号だけ。構造はその範囲でも比べる。
 - インク量は、各インク画素がその下の塗りからどれだけ離れているかの総和。文字が少し太い・細いのは許し、文字・アイコン・線が欠けたり余計に描かれたりしたら検出する。GPUI 側の量が 200 未満のケースでは調べない。破線の Separator が描かれていなかった不具合は、この検査で見つかった（比 0）。
 
 ケース単位で許容値を変えているのは、動きの途中フレームだけ（`Motion/MotionTolerance.cs`）:
@@ -213,6 +239,8 @@ GPUI 側は仮想時計で 1 フレームずつ記録する（R15）。Avalonia 
 | Carousel のページ送り | spring_move で 2 ページが 16px 離れて動く | `gpui:SpringSlide`（PageSlide の派生） |
 | Sidebar の開閉 | 200ms、ease-in-out-cubic でクリップの幅、中身は即時 | PART_PaneRoot の Width の Transition |
 | Sheet の表示 | 150ms、linear で 100px 滑り込む | キーフレーム |
+| Skeleton の明滅 | 2 秒周期、bounce(ease_in_out) で 1 → 0.5 → 1 | 1 秒の Alternate のキーフレーム、QuadraticEaseInOut（テンプレートの Border を動かす） |
+| ShimmerText のスイープ | 2 秒、linear。12 層の文字を帯で切り抜く | `ShimmerText.Phase` を Animation で動かし、帯をクリップにする |
 
 ### 時刻
 
@@ -244,6 +272,14 @@ Avalonia には時刻を指定する公開 API がないので、テストに限
 | Carousel | キーボードのフォーカスでだけリングを出す。 |
 | TitleBar のボタン | 34 × 33 の大きさと 14px のアイコン、hover の色、最大化中の restore（macOS のゴールデンには出ない）。 |
 | ColorPicker | ポップオーバーが 288px でスウォッチの 4px 下に開き、パレットと 16 進の欄を持つ。 |
+| Clipboard | クリックで文字をコピーしてチェックを出し、その間のクリックは無視し、2 秒で戻る。 |
+| Alert | 閉じるボタンは `CloseRequested` を出すだけで、Alert は残る（GPUI の on_close と同じ）。 |
+| Rating | クリックで値を変える。埋まった星のクリックは 1 つ前まで戻す。disabled は無視する。 |
+| Breadcrumb | 項目のクリック。無効な項目は反応しない。 |
+| AvatarGroup | 上限までを表示し、超えたら省略記号を出す。 |
+| HoverCard | 599ms では開かず 600ms で開く。カードの上にポインターがある間は開いたまま、離れて 300ms で閉じる。 |
+| Stepper | 指標・ラベルのクリックで選択する。disabled は無視する。 |
+| 計算 | Avatar の頭文字（GPUI の extract_text_initials）、Kbd の表記（GPUI の test_format、macOS と他の OS）、DescriptionList の行の分け方（GPUI の test_group_item_rows）。 |
 
 ## 見た目だけのコード
 
@@ -271,6 +307,9 @@ Avalonia には時刻を指定する公開 API がないので、テストに限
 | | `RoundedClipConverter` | Image の角丸 |
 | | `CalendarConverters`、`TimeConverters`、`TableConverters` | 月名・年・時刻の表示、縞の詰め物行 |
 | | `GpuiColorConverters`（ColorPicker） | GPUI の darken / lighten と 16 進 |
+| | `LinearThicknessConverter`、`AvatarConverters`、`StepperConverters`、`FormConverters` | Badge のずれ、円の角丸、Stepper の線、Form の間隔 |
+
+新しいコントロール（ADR 19、`src/AvaloniaUIKit/Controls/`）は、プロパティ・疑似クラス・テンプレートの部品と、そのコンポーネント自身の操作だけを持つ: `Badge`、`TagLabel`、`Alert`、`Skeleton`、`StatusBar`、`Breadcrumb` / `BreadcrumbItem`、`Kbd`、`Clipboard`、`Rating` / `RatingStar`、`Avatar`、`AvatarGroup`、`EmptyState`、`DescriptionList` / `DescriptionItem` / `DescriptionSeparator`、`Stepper` / `StepperItem`、`Form` / `FormField`、`HoverCard`、`ShimmerText`、`Marker`、`Bubble`、`Message`。補助として、GPUI の色の選び方（`FxHash`: rustc-hash 2.1 の FxHasher、`OkLab`: mix_oklab）と、長さを分け合うパネル（`DescriptionRowPanel`、`StepperPanel`、`FormPanel`、`MarkerPanel`。辺をデバイス px に丸める `LayoutSnap`）を持つ。
 
 ## 緩和の一覧
 
@@ -299,7 +338,7 @@ Avalonia には時刻を指定する公開 API がないので、テストに限
 | R19 | クリップされた図形の輪郭はクリップ側になる。不定値 Progress で角丸より細いバーは、GPUI では幅 2r の pill、Avalonia では 2 つの丸い端が重なった形になる。 | 構造比較でクリップ側の角丸を認め、該当フレームの画素の許容値を緩める。 |
 | R20 | スクロールバーの Scrolling モード（スクロール中だけ表示）と、Hover モードで隠れたバーのつまみを直接指したときのスライド入場（SlideAndFade）。 | 解消済み。`Scrollbars` の Behavior がスクロールと帯の上のポインターを追い、表示状態を 1 つのプロパティにまとめてテーマに渡す。 |
 | R21 | Tooltip の閉じる前の猶予と、隣への切り替えスライド。 | 対象外。 |
-| R22 | ショートカットの表記は OS ごとに異なる。 | 修飾キーのないショートカット（F5）だけを比べる。 |
+| R22 | ショートカットの表記は OS ごとに異なる。修飾キーの記号（⌘ ⇧ など）は同梱の Inter になく、描画系ごとのフォールバックのフォントで描かれる。 | 修飾キーのないショートカット（F5）とキー（Kbd）だけを画素で比べる。Kbd の表記は GPUI のテストと同じ例で、macOS と他の OS の両方を単体テストで確かめる。 |
 | R23 | 欠番。 | – |
 | R24 | テーマが持たないコントロール側の処理。NumericUpDown はボタンの押下でフォーカスを得るとテキストを選択し、TextBox は Tab で全選択する。GPUI はしない。 | テストで選択を戻してから比べる。 |
 | R25 | キャレットの点滅の位相。 | キャプチャではキャレットを隠す。 |
@@ -349,6 +388,24 @@ GPUI と同じ見た目・挙動にするため、アプリ側で次の設定を
 | Sheet | `DrawerPage Classes="sheet" DrawerBehavior="Flyout"`、暗転なしは `BackdropBrush="{x:Null}"`、GPUI の 34px のタイトルバーの下に出すなら `Gpui.Sheet.Margin` | – |
 | TitleBar | `Gpui.TitleBar.Padding`（既定 12） | Avalonia が装飾を描く OS（Windows の拡張、X11、Wayland）でだけ使われる。 |
 | ColorPicker | `GpuiColorPickerTheme` を追加、ColorSelect は `Classes="field"` | パレットは標準の FluentColorPalette（`Palette` で変える）。 |
+| Badge | `Count` / `Maximum` / `IsDot` / `Icon`、色は `BadgeBackground`、サイズは `small` `large` | 色を Background にすると中身の背景と区別できない。 |
+| TagLabel | 色はクラス（`primary` 既定、`secondary` `danger` `success` `warning` `info`、19 のパレット色）、`outline`、`xsmall` `small` `large`、`rounded-full` | GPUI の Tag。Avalonia の `Control.Tag` と同名になるため改名。 |
+| Alert | 種類は `info` `success` `warning` `error`、`banner`、サイズのクラス。`IsClosable` と `CloseRequested` で隠すのはアプリ | GPUI の on_close も隠さない。 |
+| Skeleton | 大きさと角丸はアプリが指定、`secondary` | GPUI と同じく形は持たない。 |
+| StatusBar | `Left` / `Content` / `Right` に 1 要素ずつ、複数なら `StackPanel` の Spacing 8 | GPUI の各領域は gap 8 の行。 |
+| Breadcrumb | 項目は `BreadcrumbItem`（Button。`Click` / `Command`） | 遷移はアプリ。 |
+| Kbd | `Gesture`（KeyGesture）。表記は実行中の OS に合わせる | Action からの解決は対象外。 |
+| Clipboard | `Text` に値、完了は `Copied` | – |
+| Rating | `Value`（双方向）、`Maximum`、色は `ActiveBrush`、サイズのクラス | – |
+| Avatar / AvatarGroup | `UserName` / `Source` / `Placeholder`、サイズのクラス（他の大きさも円のまま）。AvatarGroup のサイズのクラスは中のアバターに渡る、`Limit` / `ShowsEllipsis` | – |
+| EmptyState | `Media` / `Title` / `Description` / `Actions`、アイコンの枠は `icon-media` | GPUI の Empty。破線の枠は Avalonia の Border で描けないので持たない。 |
+| DescriptionList | 項目は `DescriptionItem`（`Label` / `Value` / `Span`）と `DescriptionSeparator`、`Columns`、`Orientation`、`IsBordered`、`LabelWidth` | – |
+| Stepper | `SelectedIndex`（双方向、クリックで変わる）、`Orientation`、`CentersSteps`、項目の `Icon`、サイズのクラス | – |
+| Form | `FormField`（`Label` / `IsRequired` / `Description` / `ColumnSpan`、中身が入力）、`Columns`、`LabelOrientation`、`LabelWidth`、`Footer`、サイズのクラスは間隔 | 入力のサイズは入力のクラス。検証は DataValidationErrors。 |
+| HoverCard | 中身がトリガー、`Card`、`Placement`（GPUI のアンカーの対応は Popover と同じ）、`OpenDelay` / `CloseDelay` | – |
+| ShimmerText | `Text`、`Duration`、`Repeats`、`IsReversed`、`Spread`、`HighlightColor`。文字の大きさと色はアプリ | GPUI は繰り返しの位相をアプリの時計で全体にそろえる。ここでは要素ごと。 |
+| Marker | `separator` / `border`、揃えは `HorizontalContentAlignment`、`Icon`、`IsLoading` と `shimmer` | – |
+| Bubble / Message | Bubble は種類のクラスと `start` / `end`、`Reaction` と `reaction-top` / `reaction-start`。Message の項目が吹き出し、`Avatar` / `Header` / `Footer`、`end` | 会話の末尾への追従（MessageScroller）は対象外。 |
 
 Tooltip の表示遅延（500ms）、間隔（300ms）、配置（上）は、テーマがすべてのコントロールに設定する。
 

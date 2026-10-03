@@ -8,11 +8,11 @@ GPUI Kit の見た目を、Avalonia の既存コントロールに適用する�
 
 ボタン、入力欄、選択欄、タブ、メニュー、カレンダー、一覧、表、通知などは対象にできる。標準に存在しないコンポーネントのうち、見た目が中心で小さく作れるもの（Badge、Tag、Alert など）は新しいコントロールとして実装する（ADR 19）。標準を超える検索・選択・ドッキング・編集機能や、モーダル・可視化の仕組みは実装しない。対応表の「部分対応」は、記載した部分だけをテーマ化する意味であり、残りの機能を後から自作する予定を意味しない。
 
-この資料はもともと、移植範囲を決めるためのソース・資料調査として作った。その後、「対応」の 16 行と「部分対応」の 34 行（DataTable は `TableView` と DataGrid の 2 行）をテーマとして実装し、GPUI Kit との一致を自動テストで検証した（[実装状況](#実装状況)）。「部分対応」の各行に書いた範囲と対象外は、実装後もそのまま有効である。見た目だけのコードを認めた方針の改定（ADR 15）で対象に戻した動き（タブのインジケーター、自然高の reveal など）は、行の説明も改めた。
+この資料はもともと、移植範囲を決めるためのソース・資料調査として作った。その後、「対応」の 16 行と「部分対応」の 34 行（DataTable は `TableView` と DataGrid の 2 行）をテーマとして、「新規実装」の 19 行を新しいコントロールとして実装し、GPUI Kit との一致を自動テストで検証した（[実装状況](#実装状況)）。「部分対応」の各行に書いた範囲と対象外は、実装後もそのまま有効である。見た目だけのコードを認めた方針の改定（ADR 15）で対象に戻した動き（タブのインジケーター、自然高の reveal など）は、行の説明も改めた。
 
 ## 実装状況
 
-2026-10-04 時点。「対応」と「部分対応」の全 50 行を実装し、GPUI Kit `2c5162f` が描いた参照データと比べて、Light / Dark、各 Variant・サイズ・状態、動きが一致することを自動テストで確かめた。本体のコントロールは `GpuiTheme`（`src/AvaloniaUIKit`）、公式の別パッケージのコントロールは別のアセンブリ（`src/AvaloniaUIKit.ColorPicker`、`src/AvaloniaUIKit.DataGrid`。ADR 16）にある。全 3125 件のテストが成功している。検証の方法、許容値、緩和 ID の意味、利用側の約束は [テストと一致検証](../testing.md) にまとめた。
+2026-10-04 時点。「対応」と「部分対応」の全 50 行と「新規実装」の 19 行を実装し、GPUI Kit `2c5162f` が描いた参照データと比べて、Light / Dark、各 Variant・サイズ・状態、動きが一致することを自動テストで確かめた。本体のコントロールは `GpuiTheme`（`src/AvaloniaUIKit`）、公式の別パッケージのコントロールは別のアセンブリ（`src/AvaloniaUIKit.ColorPicker`、`src/AvaloniaUIKit.DataGrid`。ADR 16）にある。全 3586 件のテストが成功している。検証の方法、許容値、緩和 ID の意味、利用側の約束は [テストと一致検証](../testing.md) にまとめた。
 
 ### 対応
 
@@ -76,12 +76,38 @@ GPUI Kit の見た目を、Avalonia の既存コントロールに適用する�
 | ColorPicker | `ColorPicker`（`GpuiColorPickerTheme`） | 42 | – | – | GPUI 独自のパレット・featured 行・HSL スライダー（標準の `FluentColorPalette` と RGB / HSV の成分）。ポップオーバーは挙動テストで確かめる |
 | DataTable | `DataGrid`（`GpuiDataGridTheme`） | 36 | – | R28 | セル範囲選択、無限取得。DataGrid 本体がトリム非対応なので NativeAOT は保証しない |
 
+### 新規実装
+
+Avalonia に対応するコントロールがないため、新しいコントロールとして作った（ADR 19）。どれも `GpuiTheme` に含まれ、NativeAOT のギャラリーにも入っている。
+
+| GPUI Kit | Avalonia | 静止ケース | 動き（フレームごとの比較） | 固有の緩和 | 対象外とした機能 |
+| --- | --- | --- | --- | --- | --- |
+| Badge | `gpui:Badge` | 32 | – | – | – |
+| Tag | `gpui:TagLabel` | 82 | – | – | 任意の色の組み合わせ（`TagVariant::Custom`。Background などを直接指定すれば描ける） |
+| Alert | `gpui:Alert` | 46 | – | R34 | メッセージの Markdown（TextView） |
+| Skeleton | `gpui:Skeleton` | 8 | 明滅 | – | – |
+| StatusBar | `gpui:StatusBar` | 8 | – | – | – |
+| Breadcrumb | `gpui:Breadcrumb`、`gpui:BreadcrumbItem` | 8 | – | – | – |
+| Kbd | `gpui:Kbd` | 16 | – | R22 | Action からのキーの解決 |
+| Clipboard | `gpui:Clipboard` | 18 | – | – | 値を関数で渡す `value_fn`（クリック時に `Text` を設定すれば同じ） |
+| Rating | `gpui:Rating`、`gpui:RatingStar` | 28 | – | – | – |
+| Avatar / AvatarGroup | `gpui:Avatar`、`gpui:AvatarGroup` | 36、10 | – | R33 | URL からの画像の取得 |
+| Empty | `gpui:EmptyState` | 8 | – | R34 | 破線の枠 |
+| DescriptionList | `gpui:DescriptionList`、`gpui:DescriptionItem`、`gpui:DescriptionSeparator` | 16 | – | – | – |
+| Stepper | `gpui:Stepper`、`gpui:StepperItem` | 24 | – | – | – |
+| Form / Field | `gpui:Form`、`gpui:FormField` | 12 | – | – | 列の開始・終了位置の指定（`col_start` / `col_end`）、ラベルの文字サイズの変更 |
+| HoverCard | `gpui:HoverCard` | 8 | – | R9 | タップで開く `tap_to_open`、`appearance(false)` |
+| Shimmer / ShimmerText | `gpui:ShimmerText` | 6 | スイープ、逆向き（Light / Dark） | – | 複数の ShimmerText の位相をアプリの時計でそろえる（GPUI の repeat_synced）、絶対値の帯幅 |
+| Marker | `gpui:Marker` | 18 | – | – | 区切り線のスタイル変更（`separator_style`） |
+| Bubble | `gpui:Bubble` | 28 | – | – | リアクションに置く Button の自動の丸め |
+| Message / MessageGroup | `gpui:Message` | 10 | – | – | MessageGroup（StackPanel の Spacing 8 で同じ）、ヘッダー・フッターの inset の個別指定 |
+
 ### 共通
 
 - 全コンポーネントに共通の緩和: R1（文字のラスタライズ）、R2（縁の AA）、R3（影）、R4（アイコン）、R7（仮想時計がない）、R9（レイアウトの丸め）、R11（色の量子化）、R13（システムフォント）、R14（参照データは macOS で生成）、R15（参照生成器の時計パッチ）、R17（rem は 16 固定）。
 - 静止ケースはすべて Light / Dark の両方で比べる（Tooltip のサイズ違いを除く）。テーマを FluentTheme の上に重ねても同じ見た目になることも確かめている。
 - テーマの既定フォントはシステム UI フォント。検証は同梱の Inter で行っている（R13）。
-- NativeAOT で publish したギャラリー（`samples/AvaloniaUIKit.AotSmoke`）で、DataGrid を除く全コントロールが警告なしにビルドでき、描画できることを確かめている。
+- NativeAOT で publish したギャラリー（`samples/AvaloniaUIKit.AotSmoke`）で、DataGrid を除く全コントロール（新規実装を含む）が警告なしにビルドでき、描画できることを確かめている。
 - テーマで書けない見た目と動きは、見た目だけを動かす Behavior と値変換で補った（ADR 15、ADR 17）。一覧は [テストと一致検証](../testing.md#見た目だけのコード) にある。
 
 ## 調査対象と判定基準
