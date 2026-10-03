@@ -12,3 +12,4 @@
 * [12. Run TUnit tests on the Avalonia headless platform with Skia](0012-run-tunit-tests-on-the-avalonia-headless-platform-with-skia.md)
 * [13. Bundle Lucide icons as geometry with their license](0013-bundle-lucide-icons-as-geometry-with-their-license.md)
 * [14. Run Avalonia on a virtual clock in tests](0014-run-avalonia-on-a-virtual-clock-in-tests.md)
+* [15. Allow presentation-only code alongside the theme](0015-allow-presentation-only-code-alongside-the-theme.md)
