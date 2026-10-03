@@ -1,0 +1,12 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.DescriptionListVertical">
+  <gpui:DescriptionList Orientation="Vertical" Width="600" HorizontalAlignment="Left">
+    <gpui:DescriptionItem Label="Name" Value="GPUI Kit" />
+    <gpui:DescriptionItem Label="Version" Value="0.1.0" />
+    <gpui:DescriptionItem Label="License" Value="MIT" />
+    <gpui:DescriptionItem Label="Platform" Value="macOS, Windows, Linux" Span="2" />
+    <gpui:DescriptionItem Label="Status" Value="Stable" />
+  </gpui:DescriptionList>
+</UserControl>

@@ -1,0 +1,30 @@
+---
+title: "Checkbox"
+description: "GPUI Kit's checkbox, with the check mark fading in on its spring."
+---
+
+<Demo name="checkbox/demo" />
+
+## Usage
+
+The theme covers `CheckBox` in full. The box is 16px with the label 8px after it; the check mark fades in on `Gpui.Spring.Control` and reverses midway when the box is toggled back. Sizes: `xsmall`, `small`, `large` (medium is the default).
+
+`IsThreeState="True"` with `IsChecked="{x:Null}"` gives the indeterminate state, drawn as a minus mark. A `CheckBox` without `Content` drops the label and its gap: the theme adds the `bare` class to the indicator on its own. The focus ring wraps the whole row and shows on keyboard focus only, as GPUI Kit does not focus a checkbox on a pointer press.
+
+## Examples
+
+The four sizes scale the box, the mark and the label.
+
+<Demo name="checkbox/sizes" title="Sizes" />
+
+A three-state "Select all" box above the items it stands for. The states are static here; an app keeps them in sync through its bindings.
+
+<Demo name="checkbox/indeterminate" title="Indeterminate" />
+
+Label-less boxes for a table or list row; no class is needed.
+
+<Demo name="checkbox/bare" title="Bare" />
+
+## Not covered
+
+- Nothing: the control's look and motion are covered in full.

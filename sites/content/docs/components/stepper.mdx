@@ -1,0 +1,35 @@
+---
+title: "Stepper"
+description: "Numbered or icon steps joined by lines, with the current one highlighted."
+---
+
+<Demo name="stepper/demo" />
+
+## Usage
+
+`gpui:Stepper` lays out `gpui:StepperItem`s: each is an indicator (a circle with the step's number, or its `Icon`) with the item's content as the label, and a line to the next step. Steps up to `SelectedIndex` are checked, in the primary color, and the lines after passed steps turn primary too. A click on a step's indicator or label selects it (`SelectedIndex` binds two-way), unless the stepper is disabled. `Orientation="Vertical"` runs the steps down, with the label beside the indicator; `CentersSteps="True"` gives every step an equal share of the width with its indicator and label centered.
+
+| Class | Indicator, line, label |
+| --- | --- |
+| `xsmall` | 8px dots without a number, 1.5px, 12px |
+| `small` | 18px, 2px, 12px |
+| default | 24px, 2px, 14px |
+| `large` | 32px, 3px, 14px |
+
+## Examples
+
+`Icon` on an item replaces its number.
+
+<Demo name="stepper/icons" title="Icons" />
+
+The four sizes.
+
+<Demo name="stepper/sizes" title="Sizes" />
+
+`CentersSteps="True"`, and `Orientation="Vertical"`.
+
+<Demo name="stepper/layouts" title="Layouts" />
+
+## Not covered
+
+- Nothing: the control covers the component.

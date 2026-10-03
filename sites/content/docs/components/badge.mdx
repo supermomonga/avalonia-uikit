@@ -1,0 +1,36 @@
+---
+title: "Badge"
+description: "A count, a dot or an icon over the top right corner of its content."
+---
+
+<Demo name="badge/demo" />
+
+## Usage
+
+`gpui:Badge` wraps its content and draws over its top right corner, taking no room of its own: the `Count` on a pill at least 14px wide, a 6px dot with `IsDot="True"`, or an `Icon` in a ringed circle at the bottom right. A count of 0 shows nothing; past `Maximum` (99 by default) it reads "99+". An icon takes precedence over the dot, which takes precedence over the count. The color is `BadgeBackground`, the theme's red by default (not `Background`, which belongs to the content). The sizes `small`, the default medium and `large` move the count and resize the icon's circle.
+
+| Property | Effect |
+| --- | --- |
+| `Count` | The number shown; 0 hides the badge. |
+| `Maximum` | The largest number shown as is; beyond it, "Maximum+". |
+| `IsDot` | A 6px dot instead of the count. |
+| `Icon` | A geometry in a 10, 16 or 24px circle (by size) at the bottom right. |
+| `BadgeBackground` | The badge's brush. |
+
+## Examples
+
+Counts of 3, 12 and 100 (shown as 99+), and 12 with `Maximum="9"`.
+
+<Demo name="badge/count" title="Count" />
+
+`small` and `large` on the badge, with a count and with a dot; the dot stays 6px.
+
+<Demo name="badge/sizes" title="Sizes" />
+
+`BadgeBackground` takes any brush, such as the theme's palette colors.
+
+<Demo name="badge/colors" title="Colors" />
+
+## Not covered
+
+- Nothing: the control covers the component.

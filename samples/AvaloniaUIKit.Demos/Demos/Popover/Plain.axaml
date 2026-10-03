@@ -1,0 +1,14 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.PopoverPlain">
+  <Panel MinWidth="360" MinHeight="180">
+    <Button Classes="outline" Content="Open plain popover" HorizontalAlignment="Left" VerticalAlignment="Top">
+      <Button.Flyout>
+        <Flyout Placement="BottomEdgeAlignedLeft" PlacementConstraintAdjustment="SlideX, SlideY" FlyoutPresenterClasses="plain">
+          <gpui:Alert Classes="info" Title="No surface" Content="A plain popover draws only its content." Width="300" />
+        </Flyout>
+      </Button.Flyout>
+    </Button>
+  </Panel>
+</UserControl>

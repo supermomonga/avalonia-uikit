@@ -1,0 +1,12 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.IconSizes">
+  <StackPanel Orientation="Horizontal" Spacing="16" HorizontalAlignment="Left">
+    <PathIcon Classes="xsmall" Data="{StaticResource Gpui.Icon.Copy}" />
+    <PathIcon Classes="small" Data="{StaticResource Gpui.Icon.Copy}" />
+    <PathIcon Data="{StaticResource Gpui.Icon.Copy}" />
+    <PathIcon Classes="large" Data="{StaticResource Gpui.Icon.Copy}" />
+    <PathIcon Width="48" Height="48" Data="{StaticResource Gpui.Icon.Copy}" />
+  </StackPanel>
+</UserControl>

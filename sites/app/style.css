@@ -1,0 +1,233 @@
+/*
+ * The site's stylesheet: the nova preset's theme (as `shadcnui-hono-jsx init`
+ * installs it) plus the layout utilities and code styles of the shadcn/ui
+ * website (apps/v4/app/globals.css, MIT License, Copyright (c) 2023 shadcn).
+ */
+@import "tailwindcss" source("..");
+@import "../styles/shadcn/theme.css";
+@import "./styles/typeset.css";
+
+@source "../components";
+@source "../content";
+
+@custom-variant fixed (&:is(.layout-fixed *));
+
+@theme inline {
+  --breakpoint-3xl: 1600px;
+  --breakpoint-4xl: 2000px;
+  --font-mono:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  --color-surface: var(--surface);
+  --color-surface-foreground: var(--surface-foreground);
+  --color-code: var(--code);
+  --color-code-foreground: var(--code-foreground);
+  --color-code-highlight: var(--code-highlight);
+  --color-code-number: var(--code-number);
+  --color-selection: var(--selection);
+  --color-selection-foreground: var(--selection-foreground);
+}
+
+:root {
+  --surface: oklch(0.98 0 0);
+  --surface-foreground: var(--foreground);
+  --code: var(--surface);
+  --code-foreground: var(--surface-foreground);
+  --code-highlight: oklch(0.96 0 0);
+  --code-number: oklch(0.56 0 0);
+  --selection: oklch(0% 0 0);
+  --selection-foreground: oklch(1 0 0);
+}
+
+.dark {
+  --surface: oklch(0.2 0 0);
+  --surface-foreground: oklch(0.708 0 0);
+  --code: var(--surface);
+  --code-foreground: var(--surface-foreground);
+  --code-highlight: oklch(0.27 0 0);
+  --code-number: oklch(0.72 0 0);
+  --selection: oklch(0.922 0 0);
+  --selection-foreground: oklch(0.205 0 0);
+}
+
+@layer base {
+  html {
+    scroll-padding-top: var(--header-height);
+    @apply overscroll-y-none;
+  }
+  ::selection {
+    @apply bg-selection text-selection-foreground;
+  }
+  body {
+    position: relative;
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+  }
+  [data-slot="layout"] {
+    @apply overscroll-none;
+  }
+  a:active,
+  button:active {
+    @apply opacity-60 md:opacity-100;
+  }
+}
+
+@utility border-grid {
+  @apply border-border/50 dark:border-border;
+}
+
+@utility section-soft {
+  @apply bg-linear-to-b from-background to-surface/40 dark:bg-background 3xl:fixed:bg-none;
+}
+
+@utility container-wrapper {
+  @apply mx-auto w-full px-2 3xl:fixed:max-w-[calc(var(--breakpoint-2xl)+2rem)];
+}
+
+@utility container {
+  @apply mx-auto max-w-[1400px] px-4 3xl:max-w-screen-2xl lg:px-8;
+}
+
+@utility scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@utility step {
+  counter-increment: step;
+
+  &:before {
+    @apply mr-2 inline-flex size-6 items-center justify-center rounded-full border-background bg-muted text-center -indent-px font-mono text-sm font-medium md:absolute md:mt-[-4px] md:ml-[-50px] md:size-9 md:border-4;
+    content: counter(step);
+  }
+}
+
+@utility extend-touch-target {
+  @media (pointer: coarse) {
+    @apply relative touch-manipulation after:absolute after:-inset-2;
+  }
+}
+
+@layer components {
+  .typeset a[data-slot] {
+    font-weight: inherit;
+    text-decoration-line: none;
+  }
+
+  .steps {
+    &:first-child {
+      @apply !mt-0;
+    }
+
+    &:first-child > h3:first-child {
+      @apply !mt-0;
+    }
+
+    > h3 {
+      @apply !mt-8;
+    }
+
+    > h3 + p {
+      @apply !mt-2;
+    }
+  }
+
+  [data-code-figure] {
+    background-color: var(--color-code);
+    color: var(--color-code-foreground);
+    border-radius: var(--radius-2xl);
+    margin-top: calc(var(--spacing) * 6);
+    overflow: hidden;
+    font-size: var(--text-sm);
+    outline: none;
+    position: relative;
+    @apply -mx-1 md:-mx-1;
+  }
+
+  [data-line] span {
+    color: var(--shiki-light);
+
+    @variant dark {
+      color: var(--shiki-dark);
+    }
+  }
+
+  [data-code-figure] code,
+  [data-code-figure] code span {
+    font-variant-ligatures: none;
+    font-feature-settings:
+      "liga" 0,
+      "calt" 0;
+  }
+
+  [data-code-title] {
+    border-bottom: 1px solid color-mix(in oklab, var(--border) 30%, transparent);
+    padding-block: calc(var(--spacing) * 2.5);
+    padding-inline: calc(var(--spacing) * 4);
+    font-size: var(--text-sm);
+    font-family: var(--font-mono);
+    color: var(--color-code-foreground);
+  }
+
+  [data-code-figure] pre code {
+    display: grid;
+    min-width: 100%;
+  }
+
+  [data-line] {
+    padding-top: calc(var(--spacing) * 0.25);
+    padding-bottom: calc(var(--spacing) * 0.25);
+    min-height: 1lh;
+    width: 100%;
+    display: inline-block;
+  }
+
+  /*
+   * Live demos (app/avalonia-demo.ts): the preview image until the .NET
+   * runtime mounts an AvaloniaView into the host, which then covers it.
+   */
+  avalonia-demo {
+    display: block;
+    position: relative;
+    max-width: 100%;
+  }
+
+  avalonia-demo > img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  avalonia-demo[data-state="live"] > img {
+    visibility: hidden;
+  }
+
+  avalonia-demo > [data-demo-host] {
+    position: absolute;
+    inset: 0;
+    display: none;
+  }
+
+  avalonia-demo[data-state="loading"] > [data-demo-host],
+  avalonia-demo[data-state="live"] > [data-demo-host] {
+    display: block;
+  }
+
+  avalonia-demo[data-state="loading"] > img {
+    opacity: 0.6;
+  }
+}
+
+/*
+ * Live demos (app/avalonia-demo.ts): Avalonia sets `touch-action: none` on
+ * its host, which would also stop the page from scrolling by touch over a
+ * demo. Demos that do not scroll themselves hand vertical panning back to
+ * the page.
+ */
+avalonia-demo:not([scroll]) [data-demo-host] {
+  touch-action: pan-y !important;
+}

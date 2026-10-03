@@ -1,0 +1,19 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.InputIcons">
+  <StackPanel Spacing="12" Width="240" HorizontalAlignment="Left">
+    <TextBox PlaceholderText="Search">
+      <TextBox.InnerLeftContent>
+        <PathIcon Classes="small" Data="{StaticResource Gpui.Icon.Search}" />
+      </TextBox.InnerLeftContent>
+    </TextBox>
+    <TextBox Text="Hello world">
+      <TextBox.InnerRightContent>
+        <Button Classes="ghost xsmall icon-only">
+          <PathIcon Data="{StaticResource Gpui.Icon.Info}" />
+        </Button>
+      </TextBox.InnerRightContent>
+    </TextBox>
+  </StackPanel>
+</UserControl>

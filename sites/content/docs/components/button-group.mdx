@@ -1,0 +1,30 @@
+---
+title: "Button Group"
+description: "Buttons joined into one bar, with the shared edges and corners GPUI Kit draws."
+---
+
+<Demo name="button-group/demo" />
+
+## Usage
+
+Put the buttons in a `StackPanel Classes="button-group"`, horizontal or vertical, and leave its `Spacing` at 0. Each button stays a `Button` with its own classes: the colors, `outline`, `selected`, the sizes and the corner classes all work as usual, and `Click` or `Command` stay on each button.
+
+Grouped, only the first and last buttons keep their outer corners, and every later button drops the edge it shares with the one before, so neighbours share one 1px divider (borderless variants have no edge to drop). The focus ring follows each button's corners.
+
+## Examples
+
+Default, primary and ghost groups, plain and outlined; the group takes any of the Button's colors.
+
+<Demo name="button-group/variants" title="Variants" />
+
+The buttons' size classes set the group's size; give every button the same one.
+
+<Demo name="button-group/sizes" title="Sizes" />
+
+`Orientation="Vertical"` stacks the buttons and shares the horizontal edges instead.
+
+<Demo name="button-group/vertical" title="Vertical" />
+
+## Not covered
+
+- A group-level API: the group is only the panel and its buttons, so selection and commands stay on each `Button`.

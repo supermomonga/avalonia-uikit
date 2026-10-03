@@ -1,0 +1,67 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.ToolbarSizes">
+  <StackPanel Spacing="8" HorizontalAlignment="Left">
+    <CommandBar Classes="xsmall">
+      <CommandBarButton>
+        <CommandBarButton.Icon>
+          <PathIcon Data="{StaticResource Gpui.Icon.Undo2}" />
+        </CommandBarButton.Icon>
+      </CommandBarButton>
+      <CommandBarButton>
+        <CommandBarButton.Icon>
+          <PathIcon Data="{StaticResource Gpui.Icon.Redo2}" />
+        </CommandBarButton.Icon>
+      </CommandBarButton>
+      <CommandBarSeparator />
+      <CommandBarButton Label="New">
+        <CommandBarButton.Icon>
+          <PathIcon Data="{StaticResource Gpui.Icon.Plus}" />
+        </CommandBarButton.Icon>
+      </CommandBarButton>
+      <CommandBarSeparator />
+      <CommandBarToggleButton Label="B" IsChecked="True" />
+    </CommandBar>
+    <CommandBar>
+      <CommandBarButton>
+        <CommandBarButton.Icon>
+          <PathIcon Data="{StaticResource Gpui.Icon.Undo2}" />
+        </CommandBarButton.Icon>
+      </CommandBarButton>
+      <CommandBarButton>
+        <CommandBarButton.Icon>
+          <PathIcon Data="{StaticResource Gpui.Icon.Redo2}" />
+        </CommandBarButton.Icon>
+      </CommandBarButton>
+      <CommandBarSeparator />
+      <CommandBarButton Label="New">
+        <CommandBarButton.Icon>
+          <PathIcon Data="{StaticResource Gpui.Icon.Plus}" />
+        </CommandBarButton.Icon>
+      </CommandBarButton>
+      <CommandBarSeparator />
+      <CommandBarToggleButton Label="B" IsChecked="True" />
+    </CommandBar>
+    <CommandBar Classes="medium">
+      <CommandBarButton>
+        <CommandBarButton.Icon>
+          <PathIcon Data="{StaticResource Gpui.Icon.Undo2}" />
+        </CommandBarButton.Icon>
+      </CommandBarButton>
+      <CommandBarButton>
+        <CommandBarButton.Icon>
+          <PathIcon Data="{StaticResource Gpui.Icon.Redo2}" />
+        </CommandBarButton.Icon>
+      </CommandBarButton>
+      <CommandBarSeparator />
+      <CommandBarButton Label="New">
+        <CommandBarButton.Icon>
+          <PathIcon Data="{StaticResource Gpui.Icon.Plus}" />
+        </CommandBarButton.Icon>
+      </CommandBarButton>
+      <CommandBarSeparator />
+      <CommandBarToggleButton Label="B" IsChecked="True" />
+    </CommandBar>
+  </StackPanel>
+</UserControl>

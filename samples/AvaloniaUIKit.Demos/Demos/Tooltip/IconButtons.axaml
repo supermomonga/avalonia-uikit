@@ -1,0 +1,21 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.TooltipIconButtons">
+  <Panel MinWidth="240" MinHeight="96">
+    <StackPanel Orientation="Horizontal" Spacing="4" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+      <Button Classes="icon-only ghost" ToolTip.Tip="Copy">
+        <PathIcon Data="{StaticResource Gpui.Icon.Copy}" />
+      </Button>
+      <Button Classes="icon-only ghost" ToolTip.Tip="Search">
+        <PathIcon Data="{StaticResource Gpui.Icon.Search}" />
+      </Button>
+      <Button Classes="icon-only ghost" ToolTip.Tip="Notifications">
+        <PathIcon Data="{StaticResource Gpui.Icon.Bell}" />
+      </Button>
+      <Button Classes="icon-only ghost" ToolTip.Tip="Open in browser">
+        <PathIcon Data="{StaticResource Gpui.Icon.ExternalLink}" />
+      </Button>
+    </StackPanel>
+  </Panel>
+</UserControl>

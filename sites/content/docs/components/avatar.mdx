@@ -1,0 +1,26 @@
+---
+title: "Avatar"
+description: "A circular avatar with an image, initials or a placeholder, and a group that overlaps them."
+---
+
+<Demo name="avatar/demo" />
+
+## Usage
+
+`gpui:Avatar` draws a circle on the secondary color with a 1px ring. Inside it: the image (`Source`, covering the circle) if there is one; else the initials of `UserName` (the first letters of its first two words) on one of GPUI Kit's twelve hues, picked from the initials as GPUI picks it; else the `Placeholder` icon, the user icon by default. Sizes: `xsmall` (16px), `small` (24px), the default (48px) and `large` (80px); any other `Width` and `Height` stays a circle.
+
+`gpui:AvatarGroup` overlaps its avatars by 30% of their size, the first on top, and shows at most `Limit` of them (3 by default); with `ShowsEllipsis="True"` a "⋯" avatar follows a cut group. The group's size class is given to every avatar in it.
+
+## Examples
+
+The four sizes with initials and with the placeholder.
+
+<Demo name="avatar/sizes" title="Sizes" />
+
+A `small` group, a group of five cut to `Limit="3"`, and the same with `ShowsEllipsis="True"`.
+
+<Demo name="avatar/groups" title="Groups" />
+
+## Not covered
+
+- Fetching the image from a URL (give the avatar a loaded bitmap).

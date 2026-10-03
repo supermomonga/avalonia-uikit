@@ -1,0 +1,19 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.ToggleIcons">
+  <WrapPanel ItemSpacing="8" LineSpacing="8">
+    <ToggleButton IsChecked="True">
+      <PathIcon Data="{StaticResource Gpui.Icon.Star}" />
+    </ToggleButton>
+    <ToggleButton>
+      <PathIcon Data="{StaticResource Gpui.Icon.Bell}" />
+    </ToggleButton>
+    <ToggleButton Classes="outline" IsChecked="True">
+      <PathIcon Data="{StaticResource Gpui.Icon.Eye}" />
+    </ToggleButton>
+    <ToggleButton Classes="outline">
+      <PathIcon Data="{StaticResource Gpui.Icon.PanelLeftOpen}" />
+    </ToggleButton>
+  </WrapPanel>
+</UserControl>

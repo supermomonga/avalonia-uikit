@@ -1,0 +1,24 @@
+---
+title: "Resizable"
+description: "GPUI Kit's resize handle, as Avalonia's GridSplitter."
+---
+
+<Demo name="resizable/demo" />
+
+## Usage
+
+Put a `GridSplitter` in a 1px column or row of a `Grid` and set `ResizeDirection` to `Columns` or `Rows`: the theme keys the handle's orientation on it. The handle is a 1px hairline in the border color inside a 9px band that takes the pointer and overlaps both panels. A muted pill grows along it and fades in with the state over 120ms: hovered 20px at 35%, pressed 28px at 60%, dragging 44px at 90%; keyboard focus shows the hovered pill. The panels resize with the grid's definitions, so put the limits there (`MinWidth`, `MinHeight`). For GPUI Kit's exact layout, put the splitter at the start of the second panel's cell with `ResizeBehavior="PreviousAndCurrent"` and give each panel `MinWidth="100"`.
+
+## Examples
+
+`ResizeDirection="Rows"` in a 1px row.
+
+<Demo name="resizable/vertical" title="Vertical" />
+
+A splitter in each direction, the second grid nested in the first's column.
+
+<Demo name="resizable/nested" title="Nested" />
+
+## Not covered
+
+- Registering panels and saving and restoring their sizes.

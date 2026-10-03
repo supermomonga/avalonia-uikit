@@ -1,0 +1,17 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.PopoverDemo">
+  <Panel MinWidth="320" MinHeight="200">
+    <Button Classes="outline" Content="Open popover" HorizontalAlignment="Left" VerticalAlignment="Top">
+      <Button.Flyout>
+        <Flyout Placement="BottomEdgeAlignedLeft" PlacementConstraintAdjustment="SlideX, SlideY" FlyoutPresenterClasses="arrow">
+          <StackPanel Spacing="4" Width="240">
+            <TextBlock Text="Dimensions" FontWeight="SemiBold" />
+            <TextBlock Text="Set the dimensions for the layer." Foreground="{DynamicResource Gpui.MutedForeground}" TextWrapping="Wrap" />
+          </StackPanel>
+        </Flyout>
+      </Button.Flyout>
+    </Button>
+  </Panel>
+</UserControl>

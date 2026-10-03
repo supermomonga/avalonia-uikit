@@ -1,0 +1,20 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.KbdDemo">
+  <StackPanel Spacing="12" HorizontalAlignment="Left">
+    <StackPanel Orientation="Horizontal" Spacing="6">
+      <TextBlock Text="Press" VerticalAlignment="Center" />
+      <gpui:Kbd Gesture="Ctrl+K" VerticalAlignment="Center" />
+      <TextBlock Text="to search" VerticalAlignment="Center" />
+    </StackPanel>
+    <WrapPanel ItemSpacing="8" LineSpacing="8">
+      <gpui:Kbd Gesture="A" />
+      <gpui:Kbd Gesture="F12" />
+      <gpui:Kbd Gesture="Tab" />
+      <gpui:Kbd Gesture="Space" />
+      <gpui:Kbd Gesture="PageDown" />
+      <gpui:Kbd Gesture="Ctrl+Shift+P" />
+    </WrapPanel>
+  </StackPanel>
+</UserControl>

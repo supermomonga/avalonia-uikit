@@ -1,0 +1,13 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.TagSizes">
+  <WrapPanel ItemSpacing="8" LineSpacing="8">
+    <gpui:TagLabel Classes="xsmall" Content="XSmall" VerticalAlignment="Center" />
+    <gpui:TagLabel Classes="small" Content="Small" VerticalAlignment="Center" />
+    <gpui:TagLabel Content="Medium" VerticalAlignment="Center" />
+    <gpui:TagLabel Classes="large" Content="Large" VerticalAlignment="Center" />
+    <gpui:TagLabel Classes="small rounded-full" Content="Rounded" VerticalAlignment="Center" />
+    <gpui:TagLabel Classes="rounded-full" Content="Rounded" VerticalAlignment="Center" />
+  </WrapPanel>
+</UserControl>

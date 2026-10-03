@@ -1,0 +1,29 @@
+---
+title: "Tabs"
+description: "GPUI Kit's tab bar in its default, outline, pill, segmented and underline looks, as TabStrip and TabControl."
+---
+
+<Demo name="tabs/demo" />
+
+## Usage
+
+The theme covers `TabStrip` and `TabStripItem` (a bar on its own) and the strip of `TabControl` and `TabItem` (tabs with their content). The look is a class on the strip or control: GPUI Kit's default tab without one, or `outline`, `pill`, `segmented` or `underline`. Pill, segmented and underline show the selection with an indicator that springs to the selected tab on GPUI Kit's spring and reverses midway when the selection changes again; a pill's label fades in as the indicator slides. Sizes: `xsmall`, `small`, `large` (medium without one). Put `icon-only` on an item whose content is an icon. GPUI's tabs take no focus; here a tab shows a ring on keyboard focus only.
+
+## Examples
+
+The five looks; the last underline tab is disabled.
+
+<Demo name="tabs/variants" title="Variants" />
+
+The four sizes of a pill strip.
+
+<Demo name="tabs/sizes" title="Sizes" />
+
+`icon-only` items in a pill and in a segmented strip.
+
+<Demo name="tabs/icons" title="Icon only" />
+
+## Not covered
+
+- Closing tabs with a button.
+- Reordering tabs by drag and drop.

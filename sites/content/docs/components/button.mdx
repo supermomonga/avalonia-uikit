@@ -1,0 +1,56 @@
+---
+title: "Button"
+description: "GPUI Kit's button in every color, modifier and size, as classes on Avalonia's Button."
+---
+
+<Demo name="button/demo" />
+
+## Usage
+
+The theme covers `Button` in full. Every look is a class, and the classes combine, as in `Classes="danger outline small"`. The content is text, a `PathIcon`, or both in a horizontal `StackPanel`.
+
+| Group | Classes |
+| --- | --- |
+| Color | `primary`, `secondary`, `danger`, `warning`, `success`, `info`, `ghost`, `link`, `text` (none is Default) |
+| Modifier | `outline`, `compact`, `selected`, `icon-only` |
+| Size | `xsmall`, `small`, `large` (medium is the default) |
+| Corners | `rounded-none`, `rounded-small`, `rounded-large`, `rounded-full` |
+
+`selected` holds the selected colors, which a button with an open flyout shows too. `link` and `text` buttons have no height or padding, and a link is underlined only in its normal state. The focus ring shows on keyboard focus only (`:focus-visible`), as GPUI Kit does not focus a button on a pointer press.
+
+## Examples
+
+Every color, including the paddingless `link` and `text` variants.
+
+<Demo name="button/variants" title="Variants" />
+
+The four sizes; medium needs no class.
+
+<Demo name="button/sizes" title="Sizes" />
+
+`outline` gives each color its outlined look.
+
+<Demo name="button/outline" title="Outline" />
+
+`icon-only` makes a square button (20, 24 or 32px by size) for a `PathIcon`, in any color; an icon beside a label is a horizontal `StackPanel` as the content.
+
+<Demo name="button/icons" title="Icons" />
+
+`compact` narrows the padding and the minimum width at every size.
+
+<Demo name="button/compact" title="Compact" />
+
+The corner classes replace the theme radius, from square to a pill.
+
+<Demo name="button/rounded" title="Rounded" />
+
+`IsEnabled="False"` switches every variant to its disabled colors.
+
+<Demo name="button/disabled" title="Disabled" />
+
+## Not covered
+
+- The loading state.
+- The Custom variant (set `Background`, `Foreground` and `BorderBrush` directly instead).
+- A dropdown caret on a plain `Button` (use `SplitButton`; see Dropdown Button).
+- The toggled state (use `ToggleButton`; see Toggle).

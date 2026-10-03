@@ -1,0 +1,34 @@
+---
+title: "Notification"
+description: "GPUI Kit's notification cards, sliding in and fading out, as Avalonia's WindowNotificationManager."
+---
+
+<Demo name="notification/demo" />
+
+## Usage
+
+Use Avalonia's `WindowNotificationManager`; the theme covers the `NotificationCard` it shows. Create the manager once for the top level and call `Show`. In the demo above, the button's `Click` handler does exactly that, with `MaxItems = 3`.
+
+```csharp
+_manager ??= new WindowNotificationManager(TopLevel.GetTopLevel(this)) { MaxItems = 10 };
+_manager.Show(new Notification("Saved", "Your changes have been saved.", NotificationType.Success),
+    NotificationType.Success, expiration: TimeSpan.FromSeconds(5.4));
+```
+
+A card is 382px wide on the popover background with a 1px border and GPUI Kit's toast shadow: the type's icon at the top left, the title in semibold and the message on 22.5px lines, and a ghost close button that shows while the card is hovered. The manager's `Position` places the pile as GPUI Kit does: 50px from the top (under a 34px title bar) or 16px from the bottom, 16px from the side, the newest nearest the edge, 14px apart. A card slides 96px in from its edge and fades in over 400ms, and fades out over 200ms when it closes. For GPUI Kit's limits pass `MaxItems = 10` and an `expiration` of 5.4 seconds. GPUI Kit's untyped notification, without an icon, is the class `plain`: `Show(..., classes: ["plain"])`.
+
+## Examples
+
+The four types and the plain card; each button's `Click` handler creates the manager for the top level once and calls `Show` with the type from its `Tag`.
+
+<Demo name="notification/types" title="Types" />
+
+A mock of the card's look, drawn with the theme's tokens so that it can sit on the page; real cards come from `WindowNotificationManager` and slide in.
+
+<Demo name="notification/card" title="Card" />
+
+## Not covered
+
+- Placing each notification individually.
+- Deduplicating notifications.
+- Expanding and re-stacking the pile.

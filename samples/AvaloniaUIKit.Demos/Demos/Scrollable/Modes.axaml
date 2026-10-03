@@ -1,0 +1,58 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.ScrollableModes">
+  <StackPanel Orientation="Horizontal" Spacing="16" HorizontalAlignment="Left">
+    <StackPanel Spacing="8">
+      <TextBlock Text="Always" Foreground="{DynamicResource Gpui.MutedForeground}" />
+      <Border BorderBrush="{DynamicResource Gpui.Border}" BorderThickness="1" CornerRadius="5.5" Width="180" Height="140">
+        <ScrollViewer AllowAutoHide="False">
+          <StackPanel Spacing="8" Margin="12">
+            <TextBlock Text="Apple" />
+            <TextBlock Text="Banana" />
+            <TextBlock Text="Cherry" />
+            <TextBlock Text="Grape" />
+            <TextBlock Text="Lemon" />
+            <TextBlock Text="Mango" />
+            <TextBlock Text="Orange" />
+            <TextBlock Text="Peach" />
+          </StackPanel>
+        </ScrollViewer>
+      </Border>
+    </StackPanel>
+    <StackPanel Spacing="8">
+      <TextBlock Text="Hover" Foreground="{DynamicResource Gpui.MutedForeground}" />
+      <Border BorderBrush="{DynamicResource Gpui.Border}" BorderThickness="1" CornerRadius="5.5" Width="180" Height="140">
+        <ScrollViewer AllowAutoHide="True">
+          <StackPanel Spacing="8" Margin="12">
+            <TextBlock Text="Apple" />
+            <TextBlock Text="Banana" />
+            <TextBlock Text="Cherry" />
+            <TextBlock Text="Grape" />
+            <TextBlock Text="Lemon" />
+            <TextBlock Text="Mango" />
+            <TextBlock Text="Orange" />
+            <TextBlock Text="Peach" />
+          </StackPanel>
+        </ScrollViewer>
+      </Border>
+    </StackPanel>
+    <StackPanel Spacing="8">
+      <TextBlock Text="Scrolling" Foreground="{DynamicResource Gpui.MutedForeground}" />
+      <Border BorderBrush="{DynamicResource Gpui.Border}" BorderThickness="1" CornerRadius="5.5" Width="180" Height="140">
+        <ScrollViewer AllowAutoHide="True" gpui:Scrollbars.ShowOnHover="False">
+          <StackPanel Spacing="8" Margin="12">
+            <TextBlock Text="Apple" />
+            <TextBlock Text="Banana" />
+            <TextBlock Text="Cherry" />
+            <TextBlock Text="Grape" />
+            <TextBlock Text="Lemon" />
+            <TextBlock Text="Mango" />
+            <TextBlock Text="Orange" />
+            <TextBlock Text="Peach" />
+          </StackPanel>
+        </ScrollViewer>
+      </Border>
+    </StackPanel>
+  </StackPanel>
+</UserControl>

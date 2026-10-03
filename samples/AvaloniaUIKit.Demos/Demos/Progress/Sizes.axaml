@@ -1,0 +1,11 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.ProgressSizes">
+  <StackPanel Spacing="12" Width="240" HorizontalAlignment="Left">
+    <ProgressBar Classes="xsmall" Value="40" />
+    <ProgressBar Classes="small" Value="40" />
+    <ProgressBar Value="40" />
+    <ProgressBar Classes="large" Value="40" />
+  </StackPanel>
+</UserControl>

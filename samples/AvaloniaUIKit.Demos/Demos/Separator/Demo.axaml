@@ -1,0 +1,19 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.SeparatorDemo">
+  <StackPanel Spacing="12" Width="320" HorizontalAlignment="Left">
+    <StackPanel Spacing="4">
+      <TextBlock Text="GPUI Kit" FontWeight="Medium" />
+      <TextBlock Text="An open-source UI component library." Foreground="{DynamicResource Gpui.MutedForeground}" />
+    </StackPanel>
+    <Separator />
+    <StackPanel Orientation="Horizontal" Spacing="12" Height="20">
+      <TextBlock Text="Blog" VerticalAlignment="Center" />
+      <Separator Classes="vertical" />
+      <TextBlock Text="Docs" VerticalAlignment="Center" />
+      <Separator Classes="vertical" />
+      <TextBlock Text="Source" VerticalAlignment="Center" />
+    </StackPanel>
+  </StackPanel>
+</UserControl>

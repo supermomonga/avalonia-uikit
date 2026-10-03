@@ -1,0 +1,26 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.FormHorizontal">
+  <StackPanel Spacing="24" Width="360" HorizontalAlignment="Left">
+    <gpui:Form LabelOrientation="Horizontal">
+      <gpui:FormField Label="First name">
+        <TextBox PlaceholderText="Enter first name" />
+      </gpui:FormField>
+      <gpui:FormField Label="Last name" IsRequired="True">
+        <TextBox PlaceholderText="Enter last name" />
+      </gpui:FormField>
+      <gpui:FormField Label="Email" Description="Used for sign in.">
+        <TextBox PlaceholderText="Enter email" />
+      </gpui:FormField>
+    </gpui:Form>
+    <gpui:Form LabelOrientation="Horizontal" LabelWidth="100">
+      <gpui:FormField Label="Name">
+        <TextBox PlaceholderText="Enter name" />
+      </gpui:FormField>
+      <gpui:FormField Label="Email">
+        <TextBox PlaceholderText="Enter email" />
+      </gpui:FormField>
+    </gpui:Form>
+  </StackPanel>
+</UserControl>

@@ -1,0 +1,102 @@
+name: Site
+
+# Builds the documentation site (sites/) and deploys it to Cloudflare Workers
+# at https://avalonia-uikit.omofla.sh when main changes what it is built
+# from: the site, the themes and controls, the demos. Pull requests run the
+# same build without deploying. See docs/site.md.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "sites/**"
+      - "src/**"
+      - "samples/**"
+      - "assets/**"
+      - "Directory.Build.props"
+      - "Directory.Packages.props"
+      - "global.json"
+      - ".github/workflows/site.yml"
+  pull_request:
+    paths:
+      - "sites/**"
+      - "src/**"
+      - "samples/**"
+      - "assets/**"
+      - "Directory.Build.props"
+      - "Directory.Packages.props"
+      - "global.json"
+      - ".github/workflows/site.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: site-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    environment:
+      name: ${{ github.event_name == 'pull_request' && 'preview' || 'production' }}
+      url: ${{ github.event_name != 'pull_request' && 'https://avalonia-uikit.omofla.sh' || '' }}
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-dotnet@v5
+        with:
+          global-json-file: global.json
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version-file: sites/package.json
+
+      - name: Cache NuGet packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.nuget/packages
+          key: nuget-${{ runner.os }}-${{ hashFiles('Directory.Packages.props', '**/*.csproj') }}
+          restore-keys: nuget-${{ runner.os }}-
+
+      - name: Install the WebAssembly workload
+        run: dotnet workload install wasm-tools
+
+      - name: Install the site's dependencies
+        run: bun install --frozen-lockfile
+        working-directory: sites
+
+      - name: The demo registry is up to date
+        run: bun sites/scripts/demo-registry.ts --check
+
+      - name: Render the previews and the social image
+        run: dotnet run --project samples/AvaloniaUIKit.Previews -c Release -- --out sites/public/previews --og sites/public/og.png
+
+      - name: Publish the browser app
+        run: sites/scripts/publish-wasm.sh
+
+      - name: Typecheck
+        run: bun run typecheck
+        working-directory: sites
+
+      - name: Build the site
+        run: bun run build
+        working-directory: sites
+
+      - name: Check the built site
+        run: bun scripts/smoke.ts
+        working-directory: sites
+
+      - name: Deploy
+        if: github.event_name != 'pull_request'
+        run: bunx wrangler@4.147.0 deploy
+        working-directory: sites
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+      - name: Dry-run deploy
+        if: github.event_name == 'pull_request'
+        run: bunx wrangler@4.147.0 deploy --dry-run --outdir "$RUNNER_TEMP/worker"
+        working-directory: sites

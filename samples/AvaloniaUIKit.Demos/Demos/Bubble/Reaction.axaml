@@ -1,0 +1,10 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.BubbleReaction">
+  <StackPanel Width="360" Spacing="28" Margin="0,20" HorizontalAlignment="Left">
+    <gpui:Bubble Classes="secondary start" Content="Can you review this draft?" Reaction="+2" />
+    <gpui:Bubble Classes="secondary start reaction-start" Content="Can you review this draft?" Reaction="+2" />
+    <gpui:Bubble Classes="end reaction-top" Content="Sure, I will take a look." Reaction="+1" />
+  </StackPanel>
+</UserControl>

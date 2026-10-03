@@ -1,0 +1,15 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.ImageRounded">
+  <StackPanel Orientation="Horizontal" Spacing="16" HorizontalAlignment="Left">
+    <Image Classes="rounded" Width="96" Height="96" Stretch="UniformToFill"
+           Source="avares://AvaloniaUIKit.Demos/Assets/wide-192x96.png" />
+    <Image Classes="rounded-lg" Width="96" Height="96" Stretch="UniformToFill"
+           Source="avares://AvaloniaUIKit.Demos/Assets/wide-192x96.png" />
+    <Image Classes="rounded-full" Width="96" Height="96" Stretch="UniformToFill"
+           Source="avares://AvaloniaUIKit.Demos/Assets/wide-192x96.png" />
+    <Image Classes="rounded-full" Width="192" Height="96"
+           Source="avares://AvaloniaUIKit.Demos/Assets/wide-192x96.png" />
+  </StackPanel>
+</UserControl>

@@ -1,0 +1,26 @@
+---
+title: "Switch"
+description: "GPUI Kit's switch, with the thumb sliding on its spring."
+---
+
+<Demo name="switch/demo" />
+
+## Usage
+
+The theme covers `ToggleSwitch` in full. The track is 28×16 for `xsmall` and `small` (they differ in the label's text size), 36×20 at medium (the default) and 44×24 for `large`; `IsChecked` colors it. The thumb travels with GPUI's `spring_move` through `Gpui.Motion.Spring`, keeping its velocity when the switch is toggled back mid-flight, and follows the pointer at once while dragged.
+
+`Content` is the label after the track; `Classes="label-left"` puts it before. Unlike a button, a pointer press focuses a switch, so its ring shows on `:focus`.
+
+## Examples
+
+The four sizes.
+
+<Demo name="switch/sizes" title="Sizes" />
+
+`label-left` for a settings row where the label leads.
+
+<Demo name="switch/label-left" title="Label left" />
+
+## Not covered
+
+- Custom track colors (GPUI's `color()`).

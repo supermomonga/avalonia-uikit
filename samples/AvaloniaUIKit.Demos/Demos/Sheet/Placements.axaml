@@ -1,0 +1,17 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.SheetPlacements">
+  <DrawerPage Name="Sheet" Classes="sheet" DrawerBehavior="Flyout" DrawerPlacement="Right" DrawerLength="240" DrawerHeader="Settings"
+              Width="560" Height="320" HorizontalAlignment="Left">
+    <DrawerPage.Drawer>
+      <TextBlock Text="Sheet content" Foreground="{DynamicResource Gpui.MutedForeground}" />
+    </DrawerPage.Drawer>
+    <WrapPanel ItemSpacing="8" LineSpacing="8" Margin="16" HorizontalAlignment="Left" VerticalAlignment="Top">
+      <Button Classes="outline" Content="Left" Tag="Left" Click="OnOpenSheet" />
+      <Button Classes="outline" Content="Right" Tag="Right" Click="OnOpenSheet" />
+      <Button Classes="outline" Content="Top" Tag="Top" Click="OnOpenSheet" />
+      <Button Classes="outline" Content="Bottom" Tag="Bottom" Click="OnOpenSheet" />
+    </WrapPanel>
+  </DrawerPage>
+</UserControl>

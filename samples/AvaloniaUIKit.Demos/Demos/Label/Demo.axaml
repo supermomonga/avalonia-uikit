@@ -1,0 +1,10 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.LabelDemo">
+  <StackPanel Spacing="8" HorizontalAlignment="Left">
+    <TextBlock Classes="label">Company address<Run Classes="secondary" Text=" (optional)" /></TextBlock>
+    <Label Content="Label control" />
+    <SelectableTextBlock Classes="label" Text="Selectable label" />
+  </StackPanel>
+</UserControl>

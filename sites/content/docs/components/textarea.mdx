@@ -1,0 +1,29 @@
+---
+title: "Textarea"
+description: "A multi-line input in GPUI Kit's frame, as TextBox with AcceptsReturn."
+---
+
+<Demo name="textarea/demo" />
+
+## Usage
+
+`TextBox AcceptsReturn="True"` is the textarea. It has no fixed height: give it rows with `MinLines` and `MaxLines`, or a `Height`. The theme wraps the text (`TextWrapping="Wrap"`), aligns it to the top and pads it inside the scrolling area rather than the frame, so the overlay scrollbar runs along the whole inner frame. The frame, the placeholder, the focus ring and the disabled look are the Input's. Sizes: `xsmall`, `small`, `large` (medium is the default).
+
+## Examples
+
+`MinLines="2" MaxLines="5"`: the field grows with its text from two to five lines, then scrolls.
+
+<Demo name="textarea/auto-grow" title="Auto grow" />
+
+The four sizes, each two lines tall.
+
+<Demo name="textarea/sizes" title="Sizes" />
+
+Read-only and disabled textareas.
+
+<Demo name="textarea/states" title="States" />
+
+## Not covered
+
+- The search UI.
+- Inline tokens.

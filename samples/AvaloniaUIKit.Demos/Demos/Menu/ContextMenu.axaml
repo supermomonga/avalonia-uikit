@@ -1,0 +1,28 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.MenuContextMenu">
+  <Panel MinWidth="420" MinHeight="260">
+    <Border Width="200" Height="64" BorderThickness="1" CornerRadius="6" Background="Transparent"
+            BorderBrush="{DynamicResource Gpui.Border}" HorizontalAlignment="Left" VerticalAlignment="Top">
+      <Border.ContextMenu>
+        <ContextMenu>
+          <MenuItem Header="Copy" InputGesture="Ctrl+C">
+            <MenuItem.Icon>
+              <PathIcon Data="{StaticResource Gpui.Icon.Copy}" />
+            </MenuItem.Icon>
+          </MenuItem>
+          <MenuItem Header="Paste" InputGesture="Ctrl+V" />
+          <MenuItem Header="Word Wrap" ToggleType="CheckBox" IsChecked="True" />
+          <Separator />
+          <MenuItem Header="Rename" IsEnabled="False" />
+          <MenuItem Header="Share">
+            <MenuItem Header="Copy Link" />
+            <MenuItem Header="Email" />
+          </MenuItem>
+        </ContextMenu>
+      </Border.ContextMenu>
+      <TextBlock Text="Right-click here" HorizontalAlignment="Center" VerticalAlignment="Center" />
+    </Border>
+  </Panel>
+</UserControl>

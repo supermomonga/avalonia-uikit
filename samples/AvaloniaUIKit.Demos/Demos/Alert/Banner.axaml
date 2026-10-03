@@ -1,0 +1,10 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.AlertBanner">
+  <StackPanel Spacing="12" Width="480" HorizontalAlignment="Left">
+    <gpui:Alert Classes="info banner" Content="A new version is available." />
+    <gpui:Alert Classes="warning banner" Content="Scheduled maintenance starts in 30 minutes." Icon="{StaticResource Gpui.Icon.TriangleAlert}" IsClosable="True" />
+    <gpui:Alert Classes="success banner small" Content="Your changes have been saved." Icon="{StaticResource Gpui.Icon.CircleCheck}" />
+  </StackPanel>
+</UserControl>

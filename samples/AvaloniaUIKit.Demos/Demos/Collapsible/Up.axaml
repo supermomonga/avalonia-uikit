@@ -1,0 +1,19 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.CollapsibleUp">
+  <!-- ExpandDirection Up puts the content before the trigger. -->
+  <Expander Theme="{StaticResource GpuiCollapsible}" Classes="reveal" ExpandDirection="Up" IsExpanded="True" Width="320" HorizontalAlignment="Left">
+    <Expander.Header>
+      <DockPanel>
+        <PathIcon DockPanel.Dock="Right" Data="{StaticResource Gpui.Icon.ChevronsUpDown}" Width="14" Height="14"
+                  Foreground="{DynamicResource Gpui.MutedForeground}" />
+        <TextBlock Text="Show less" FontWeight="Medium" VerticalAlignment="Center" />
+      </DockPanel>
+    </Expander.Header>
+    <Border Margin="0,0,0,8" Padding="12" CornerRadius="5.5" BorderThickness="1" BackgroundSizing="OuterBorderEdge"
+            Background="{DynamicResource Gpui.Muted}" BorderBrush="{DynamicResource Gpui.Border}">
+      <TextBlock Text="Revealed above the trigger." />
+    </Border>
+  </Expander>
+</UserControl>

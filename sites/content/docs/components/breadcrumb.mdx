@@ -1,0 +1,20 @@
+---
+title: "Breadcrumb"
+description: "Muted path items with a chevron between them; the last one in the foreground color."
+---
+
+<Demo name="breadcrumb/demo" />
+
+## Usage
+
+`gpui:Breadcrumb` lays out `gpui:BreadcrumbItem`s in muted 14px text, 6px apart with a 14px muted chevron between them; the last item is in the foreground color. An item is a `Button`, so `Click` or `Command` navigates; as in GPUI Kit, items show no hover and take no keyboard focus. Content that is not an item is wrapped in one.
+
+## Examples
+
+A disabled item (`IsEnabled="False"`) stays muted and shows the arrow cursor instead of the hand.
+
+<Demo name="breadcrumb/disabled" title="Disabled" />
+
+## Not covered
+
+- Nothing: the control covers the component.

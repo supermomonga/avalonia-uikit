@@ -1,0 +1,53 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.NotificationCard">
+  <!--
+    The look of a notification card, drawn from the theme's tokens: a 382px
+    popover surface with the type's icon at the top left, the title in
+    semibold and the message on 22.5px lines. A real NotificationCard is shown
+    by WindowNotificationManager and slides in (see the Demo).
+  -->
+  <StackPanel Spacing="14" Margin="16" HorizontalAlignment="Left">
+    <Border Width="382" CornerRadius="7.5" BorderThickness="1" BackgroundSizing="OuterBorderEdge"
+            Background="{DynamicResource Gpui.Popover}" BorderBrush="{DynamicResource Gpui.Border}"
+            BoxShadow="0 10 24.2487 -3 #1A000000, 0 4 8.6603 -4 #1A000000">
+      <Panel>
+        <PathIcon Data="{StaticResource Gpui.Icon.Info}" Foreground="{DynamicResource Gpui.Info}" Width="16" Height="16"
+                  Margin="16,18,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <StackPanel Margin="40,14,16,14">
+          <TextBlock Text="Update available" FontSize="14" FontWeight="SemiBold" LineHeight="22.5" />
+          <TextBlock Text="A new version is ready to install." FontSize="14" LineHeight="22.5" TextWrapping="Wrap" />
+        </StackPanel>
+      </Panel>
+    </Border>
+    <Border Width="382" CornerRadius="7.5" BorderThickness="1" BackgroundSizing="OuterBorderEdge"
+            Background="{DynamicResource Gpui.Popover}" BorderBrush="{DynamicResource Gpui.Border}"
+            BoxShadow="0 10 24.2487 -3 #1A000000, 0 4 8.6603 -4 #1A000000">
+      <Panel>
+        <PathIcon Data="{StaticResource Gpui.Icon.CircleCheck}" Foreground="{DynamicResource Gpui.Success}" Width="16" Height="16"
+                  Margin="16,18,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <TextBlock Text="Your changes have been saved." Margin="40,14,16,14" FontSize="14" LineHeight="22.5" TextWrapping="Wrap" />
+      </Panel>
+    </Border>
+    <Border Width="382" CornerRadius="7.5" BorderThickness="1" BackgroundSizing="OuterBorderEdge"
+            Background="{DynamicResource Gpui.Popover}" BorderBrush="{DynamicResource Gpui.Border}"
+            BoxShadow="0 10 24.2487 -3 #1A000000, 0 4 8.6603 -4 #1A000000">
+      <Panel>
+        <PathIcon Data="{StaticResource Gpui.Icon.TriangleAlert}" Foreground="{DynamicResource Gpui.Warning}" Width="16" Height="16"
+                  Margin="16,18,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <TextBlock Text="Network connection is unstable. Changes will sync when it recovers." Margin="40,14,16,14"
+                   FontSize="14" LineHeight="22.5" TextWrapping="Wrap" />
+      </Panel>
+    </Border>
+    <Border Width="382" CornerRadius="7.5" BorderThickness="1" BackgroundSizing="OuterBorderEdge"
+            Background="{DynamicResource Gpui.Popover}" BorderBrush="{DynamicResource Gpui.Border}"
+            BoxShadow="0 10 24.2487 -3 #1A000000, 0 4 8.6603 -4 #1A000000">
+      <Panel>
+        <PathIcon Data="{StaticResource Gpui.Icon.CircleX}" Foreground="{DynamicResource Gpui.Danger}" Width="16" Height="16"
+                  Margin="16,18,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <TextBlock Text="The upload failed." Margin="40,14,16,14" FontSize="14" LineHeight="22.5" TextWrapping="Wrap" />
+      </Panel>
+    </Border>
+  </StackPanel>
+</UserControl>

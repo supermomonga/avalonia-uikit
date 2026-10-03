@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "types": ["vite/client", "bun"],
+    "jsx": "react-jsx",
+    "jsxImportSource": "hono/jsx",
+    "paths": {
+      "@/components/ui/*": ["./components/ui/*"],
+      "@/*": ["./app/*"]
+    },
+    "allowImportingTsExtensions": true
+  },
+  "include": ["app", "scripts", "components/ui", "vite.config.ts"]
+}

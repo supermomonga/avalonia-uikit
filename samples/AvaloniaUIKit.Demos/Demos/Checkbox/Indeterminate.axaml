@@ -1,0 +1,12 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.CheckboxIndeterminate">
+  <StackPanel Spacing="8">
+    <CheckBox Content="Select all" IsThreeState="True" IsChecked="{x:Null}" />
+    <StackPanel Spacing="8" Margin="24,0,0,0">
+      <CheckBox Content="Documents" IsChecked="True" />
+      <CheckBox Content="Photos" />
+    </StackPanel>
+  </StackPanel>
+</UserControl>

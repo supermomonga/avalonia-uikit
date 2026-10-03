@@ -1,0 +1,19 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.StatusBarDemo">
+  <gpui:StatusBar Width="420" HorizontalAlignment="Left" Content="Ready">
+    <gpui:StatusBar.Left>
+      <StackPanel Orientation="Horizontal" Spacing="8">
+        <TextBlock Text="main" />
+        <TextBlock Text="0 errors" />
+      </StackPanel>
+    </gpui:StatusBar.Left>
+    <gpui:StatusBar.Right>
+      <StackPanel Orientation="Horizontal" Spacing="8">
+        <TextBlock Text="Ln 1, Col 1" />
+        <TextBlock Text="UTF-8" />
+      </StackPanel>
+    </gpui:StatusBar.Right>
+  </gpui:StatusBar>
+</UserControl>

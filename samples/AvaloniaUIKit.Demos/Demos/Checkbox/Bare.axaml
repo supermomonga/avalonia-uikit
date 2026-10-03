@@ -1,0 +1,13 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.CheckboxBare">
+  <WrapPanel ItemSpacing="12" LineSpacing="8">
+    <CheckBox IsChecked="True" />
+    <CheckBox />
+    <CheckBox Classes="small" IsChecked="True" />
+    <CheckBox Classes="small" />
+    <CheckBox IsChecked="True" IsEnabled="False" />
+    <CheckBox IsEnabled="False" />
+  </WrapPanel>
+</UserControl>

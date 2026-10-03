@@ -1,0 +1,16 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.SeparatorVariants">
+  <StackPanel Spacing="16" Width="240" HorizontalAlignment="Left">
+    <Separator />
+    <Separator Classes="dashed" />
+    <StackPanel Orientation="Horizontal" Spacing="16" Height="32">
+      <TextBlock Text="Solid" VerticalAlignment="Center" />
+      <Separator Classes="vertical" />
+      <TextBlock Text="Dashed" VerticalAlignment="Center" />
+      <Separator Classes="vertical dashed" />
+      <TextBlock Text="Vertical" VerticalAlignment="Center" />
+    </StackPanel>
+  </StackPanel>
+</UserControl>

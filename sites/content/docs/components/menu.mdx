@@ -1,0 +1,32 @@
+---
+title: "Menu"
+description: "GPUI Kit's popup menus and menu bar: Menu, ContextMenu and MenuFlyout."
+---
+
+<Demo name="menu/demo" />
+
+## Usage
+
+The theme covers `Menu`, `MenuItem`, `ContextMenu` and `MenuFlyoutPresenter` in full: GPUI Kit's popover surface with its hairline ring and shadow, 26px items 2px apart, an icon column when any item has an `Icon` or a check, `ToggleType="CheckBox"` and `"Radio"` items, submenus with a chevron, `Separator`s, and `InputGesture` shown as a shortcut. `Menu` is GPUI Kit's AppMenuBar: its top-level items are small ghost buttons, shown selected while open.
+
+Two settings on the app's side keep GPUI Kit's behavior. GPUI opens a submenu as soon as it is hovered, so set `DefaultMenuInteractionHandler.MenuShowDelay` to zero at startup (Avalonia waits otherwise):
+
+```csharp
+Avalonia.Controls.Platform.DefaultMenuInteractionHandler.MenuShowDelay = TimeSpan.Zero;
+```
+
+And open a `MenuFlyout` with `Placement="BottomEdgeAlignedLeft"` (`BottomEdgeAlignedRight` for a split button): the presenter keeps GPUI's 4px gap from the trigger. A `ContextMenu` opens at the pointer. Avalonia selects the first item when a menu opens or takes focus, which GPUI does not; the theme gives that selection the hover look.
+
+## Examples
+
+A `ContextMenu` on a control: an icon, a shortcut, a check item, a separator, a disabled item and a submenu.
+
+<Demo name="menu/context-menu" title="Context menu" />
+
+GPUI Kit's DropdownMenu: a `Button` with a `MenuFlyout`, placed below its left edge.
+
+<Demo name="menu/dropdown" title="Dropdown" />
+
+## Not covered
+
+- Link items (open the link from a `Click` handler).

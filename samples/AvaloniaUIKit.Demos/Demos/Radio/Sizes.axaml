@@ -1,0 +1,11 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.RadioSizes">
+  <WrapPanel ItemSpacing="16" LineSpacing="8">
+    <RadioButton Classes="xsmall" Content="Extra small" GroupName="xsmall" IsChecked="True" />
+    <RadioButton Classes="small" Content="Small" GroupName="small" IsChecked="True" />
+    <RadioButton Content="Medium" GroupName="medium" IsChecked="True" />
+    <RadioButton Classes="large" Content="Large" GroupName="large" IsChecked="True" />
+  </WrapPanel>
+</UserControl>

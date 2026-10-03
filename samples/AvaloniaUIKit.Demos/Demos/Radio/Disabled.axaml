@@ -1,0 +1,9 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.RadioDisabled">
+  <StackPanel Spacing="8">
+    <RadioButton Content="Express" GroupName="disabled" IsChecked="True" IsEnabled="False" />
+    <RadioButton Content="Standard" GroupName="disabled" IsEnabled="False" />
+  </StackPanel>
+</UserControl>

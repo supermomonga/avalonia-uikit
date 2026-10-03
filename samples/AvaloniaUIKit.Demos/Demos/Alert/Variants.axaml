@@ -1,0 +1,12 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.AlertVariants">
+  <StackPanel Spacing="12" Width="420" HorizontalAlignment="Left">
+    <gpui:Alert Title="Default" Content="This is an alert message." />
+    <gpui:Alert Classes="info" Title="Info" Content="A new version is available." />
+    <gpui:Alert Classes="success" Title="Success" Content="Your changes have been saved." Icon="{StaticResource Gpui.Icon.CircleCheck}" />
+    <gpui:Alert Classes="warning" Title="Warning" Content="Your session is about to expire." Icon="{StaticResource Gpui.Icon.TriangleAlert}" />
+    <gpui:Alert Classes="error" Title="Error" Content="The upload failed. Please try again." Icon="{StaticResource Gpui.Icon.CircleX}" />
+  </StackPanel>
+</UserControl>

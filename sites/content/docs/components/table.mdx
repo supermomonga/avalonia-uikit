@@ -1,0 +1,31 @@
+---
+title: "Table"
+description: "GPUI Kit's simple table, as a TableView with a named theme."
+---
+
+<Demo name="table/demo" />
+
+## Usage
+
+`TableView Theme="{StaticResource GpuiTable}"` gives GPUI Kit's plain table: a header band, rows sized by their content with a rule between them, 14px text at every size, cells centered in their rows, and no hover or selection colors. The default `TableView` theme is the [Data Table](/docs/components/data-table); both share the cell and header themes. The table has no border of its own: `BorderThickness="1" CornerRadius="5.5"` is the bordered table of GPUI Kit's story.
+
+Columns are `TableViewColumn`s with a `Header` and a `Binding`. `Width` fixes a column in pixels, and `HorizontalContentAlignment="Right"` right-aligns a column's cells.
+
+| Class | Effect |
+| --- | --- |
+| `stripe` | Every other row, starting with the second, on the even color. |
+| `xsmall`, `small`, `large` | Cell padding 4×2, 6×3 and 12×8 instead of 8×4; the text stays 14px. |
+
+## Examples
+
+The default look: no border, no stripes, and the first and last columns fixed at 100px.
+
+<Demo name="table/plain" title="Plain" />
+
+The size classes change only the padding of the cells.
+
+<Demo name="table/sizes" title="Sizes" />
+
+## Not covered
+
+- `TableFooter` and `TableCaption`.

@@ -1,0 +1,39 @@
+---
+title: "Rating"
+description: "Stars to pick and show a rating."
+---
+
+<Demo name="rating/demo" />
+
+## Usage
+
+`gpui:Rating` is a row of `Maximum` stars (5 by default) with `Value` of them filled, in the theme's yellow or `ActiveBrush`. The pointer previews the value under it; a click sets `Value` to that star, or to the star before when that star is already filled, so a rating can be cleared down to zero. `Value` binds two-way by default. A disabled rating shows its value only. Each star is a `gpui:RatingStar` with the `:filled` and `:active` pseudo-classes.
+
+| Class | Star icon |
+| --- | --- |
+| `xsmall` | 12px |
+| `small` | 14px |
+| (medium) | 16px |
+| `large` | 24px |
+
+## Examples
+
+The four sizes.
+
+<Demo name="rating/sizes" title="Sizes" />
+
+`Maximum` sets the number of stars.
+
+<Demo name="rating/maximum" title="Maximum" />
+
+`ActiveBrush` colors the filled and previewed stars; the theme's `Gpui.Red` and `Gpui.Primary` here.
+
+<Demo name="rating/color" title="Color" />
+
+A disabled rating neither previews nor changes.
+
+<Demo name="rating/disabled" title="Disabled" />
+
+## Not covered
+
+- Nothing: the control covers the component.

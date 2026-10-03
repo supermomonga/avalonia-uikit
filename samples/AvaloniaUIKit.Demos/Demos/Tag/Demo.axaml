@@ -1,0 +1,13 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.TagDemo">
+  <WrapPanel ItemSpacing="8" LineSpacing="8">
+    <gpui:TagLabel Content="Primary" />
+    <gpui:TagLabel Classes="secondary" Content="Secondary" />
+    <gpui:TagLabel Classes="danger" Content="Danger" />
+    <gpui:TagLabel Classes="success" Content="Success" />
+    <gpui:TagLabel Classes="warning" Content="Warning" />
+    <gpui:TagLabel Classes="info" Content="Info" />
+  </WrapPanel>
+</UserControl>

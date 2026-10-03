@@ -1,0 +1,25 @@
+---
+title: "Carousel"
+description: "One page at a time, sliding on GPUI Kit's spring, with its dots as a PipsPager."
+---
+
+<Demo name="carousel/demo" />
+
+## Usage
+
+The theme covers `Carousel`: it shows one page at a time, clipped to its bounds, and its `PageTransition` is `gpui:SpringSlide`, on which both pages ride one track 16px apart on GPUI Kit's `spring_move`. Set `Focusable="True"` so the carousel is a tab stop as GPUI Kit's is (Avalonia then handles the arrow keys); keyboard focus rings the pages.
+
+The rest of GPUI Kit's carousel is the app's: Previous and Next are `Button Classes="outline icon-only rounded-full"` with a chevron, 16px outside the pages and centered on them, whose `Click` handlers call the carousel's `Previous()` and `Next()`; the dots are a `PipsPager Classes="carousel"` 16px below, with `SelectedPageIndex` bound two-way to the carousel's `SelectedIndex`.
+
+## Examples
+
+A smaller carousel with `small` buttons and two pages.
+
+<Demo name="carousel/small" title="Small" />
+
+## Not covered
+
+- Jumping several pages at once by number.
+- Reversing a page change midway.
+- Looping from the last page to the first.
+- Dragging and wheel scrolling between pages.

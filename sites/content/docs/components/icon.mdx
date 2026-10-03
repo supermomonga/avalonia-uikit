@@ -1,0 +1,25 @@
+---
+title: "Icon"
+description: "The Lucide icons GPUI Kit uses, as geometry for PathIcon."
+---
+
+<Demo name="icon/demo" />
+
+## Usage
+
+The theme covers `PathIcon` and bundles GPUI Kit's Lucide icons as geometry resources: set `Data` to one of them, such as `{StaticResource Gpui.Icon.Search}` (see [Icons](/docs/icons) for the list). An icon is 16px, GPUI's medium size, and takes its `Foreground`. The classes `xsmall`, `small` and `large` give 12, 14 and 24px, and any other `Width` and `Height` scale the outline exactly, as GPUI scales the SVG.
+
+## Examples
+
+The three size classes, the default, and a 48px icon by `Width` and `Height`.
+
+<Demo name="icon/sizes" title="Sizes" />
+
+Color with `Foreground` (the theme's muted, primary and danger brushes here), and turn an icon with a `RenderTransform`.
+
+<Demo name="icon/colors" title="Colors" />
+
+## Not covered
+
+- Loading arbitrary SVG files at run time.
+- An `IconName`-compatible API; icons are resources.

@@ -1,0 +1,34 @@
+---
+title: "Image"
+description: "Avalonia's Image with GPUI Kit's rounded corners and object fits."
+---
+
+<Demo name="image/demo" />
+
+## Usage
+
+`Image` is not themed by default: GPUI Kit has no Image component, an image keeps its colors, and Avalonia's `Stretch="Uniform"` is GPUI's default object fit. Three classes clip the drawn image to a radius: `rounded` (the theme radius, 6), `rounded-lg` (8) and `rounded-full` (a pill; the radius is clamped to half the shorter side). GPUI's object fits map to `Stretch`:
+
+| GPUI `ObjectFit` | `Image` |
+| --- | --- |
+| Fill | `Stretch="Fill"` |
+| Contain | `Stretch="Uniform"` (the default) |
+| Cover | `Stretch="UniformToFill"` |
+| ScaleDown | `Stretch="Uniform" StretchDirection="DownOnly"` |
+| None | `Stretch="None"` with `HorizontalAlignment="Left" VerticalAlignment="Top"` |
+
+## Examples
+
+The five fits in a 96px frame: a wide image for the first three, a small one for `DownOnly` and `None`.
+
+<Demo name="image/fit" title="Object fit" />
+
+`rounded`, `rounded-lg` and `rounded-full` on a square image, and `rounded-full` on a wide one.
+
+<Demo name="image/rounded" title="Rounded" />
+
+## Not covered
+
+- Fetching from a URL.
+- A fallback image when loading fails.
+- Images taller than the frame, which GPUI does not fit.

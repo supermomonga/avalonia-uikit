@@ -1,0 +1,41 @@
+---
+title: "Input"
+description: "GPUI Kit's input frame, focus ring and placeholder, as Avalonia's TextBox."
+---
+
+<Demo name="input/demo" />
+
+## Usage
+
+The theme covers `TextBox` (`MaskedTextBox` shares it): the frame with the input background and a 1px `input` border that turns to `ring`, with the ring band, while the field or anything in it has focus; the muted `PlaceholderText`; no hover look. GPUI shows a selection only while focused, so an unfocused field hides it.
+
+`InnerLeftContent` and `InnerRightContent` are GPUI's prefix and suffix, a size's gap from the text; for addons inside one bordered frame see Input Group. A password is masked with `PasswordChar="•"` (GPUI's mask character), and `Classes="revealPasswordButton"` adds GPUI's mask toggle, an eye button that shows the text while checked. A disabled field fills with the disabled background and draws its text, placeholder and inner content at half strength; a read-only field has no look of its own.
+
+| Class | Effect |
+| --- | --- |
+| `xsmall`, `small`, `large` | Height 20, 24 and 44; medium, the default, is 32 |
+| `revealPasswordButton` | The eye button that reveals a masked password |
+
+## Examples
+
+The four sizes.
+
+<Demo name="input/sizes" title="Sizes" />
+
+A small search icon as `InnerLeftContent`, and an `xsmall` ghost icon button as `InnerRightContent`.
+
+<Demo name="input/icons" title="Icons" />
+
+A masked password, with and without the reveal button.
+
+<Demo name="input/password" title="Password" />
+
+Read-only and disabled fields.
+
+<Demo name="input/states" title="States" />
+
+## Not covered
+
+- GPUI Kit's validation and mask syntax (use `MaskedTextBox` or your own validation).
+- Clearing with <Kbd>Esc</Kbd>.
+- Inline tokens.

@@ -1,0 +1,24 @@
+---
+title: "Progress"
+description: "GPUI Kit's progress bar, determinate and indeterminate, as Avalonia's ProgressBar."
+---
+
+<Demo name="progress/demo" />
+
+## Usage
+
+The theme covers `ProgressBar` in full: a bar in the progress color over the same color at 20%, with half its height as the radius. A change of `Value` animates the bar's width over 180ms on GPUI Kit's move easing. `IsIndeterminate="True"` repeats GPUI Kit's one-second sweep: the bar's leading edge runs across in the second, and its trailing edge follows in the second half, both ends rounded. Sizes: `xsmall` (4px), `small` (6px), `large` (10px); medium (8px) needs no class.
+
+## Examples
+
+The four heights.
+
+<Demo name="progress/sizes" title="Sizes" />
+
+`IsIndeterminate="True"` repeats the sweep.
+
+<Demo name="progress/indeterminate" title="Indeterminate" />
+
+## Not covered
+
+- Custom colors (`color()`); set `Foreground` directly.

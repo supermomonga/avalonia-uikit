@@ -1,0 +1,27 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.ButtonGroupSizes">
+  <WrapPanel ItemSpacing="16" LineSpacing="12">
+    <StackPanel Classes="button-group" Orientation="Horizontal">
+      <Button Classes="outline xsmall" Content="One" />
+      <Button Classes="outline xsmall" Content="Two" />
+      <Button Classes="outline xsmall" Content="Three" />
+    </StackPanel>
+    <StackPanel Classes="button-group" Orientation="Horizontal">
+      <Button Classes="outline small" Content="One" />
+      <Button Classes="outline small" Content="Two" />
+      <Button Classes="outline small" Content="Three" />
+    </StackPanel>
+    <StackPanel Classes="button-group" Orientation="Horizontal">
+      <Button Classes="outline" Content="One" />
+      <Button Classes="outline" Content="Two" />
+      <Button Classes="outline" Content="Three" />
+    </StackPanel>
+    <StackPanel Classes="button-group" Orientation="Horizontal">
+      <Button Classes="outline large" Content="One" />
+      <Button Classes="outline large" Content="Two" />
+      <Button Classes="outline large" Content="Three" />
+    </StackPanel>
+  </WrapPanel>
+</UserControl>

@@ -1,0 +1,28 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.SidebarRight">
+  <SplitView DisplayMode="CompactInline" PanePlacement="Right" OpenPaneLength="200"
+             IsPaneOpen="{Binding #PaneToggle.IsChecked}"
+             Width="480" Height="220" HorizontalAlignment="Left">
+    <SplitView.Pane>
+      <StackPanel Margin="12" Spacing="12">
+        <TextBlock Text="Details" FontWeight="Medium" Margin="4,0" />
+        <StackPanel Orientation="Horizontal" Spacing="8" Margin="4,0">
+          <PathIcon Data="{StaticResource Gpui.Icon.Info}" />
+          <TextBlock Text="Overview" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Spacing="8" Margin="4,0">
+          <PathIcon Data="{StaticResource Gpui.Icon.Calendar}" />
+          <TextBlock Text="Timeline" />
+        </StackPanel>
+      </StackPanel>
+    </SplitView.Pane>
+    <Border Background="{DynamicResource Gpui.Muted}">
+      <ToggleButton Name="PaneToggle" Classes="outline" IsChecked="True" Margin="8"
+                    HorizontalAlignment="Right" VerticalAlignment="Top">
+        <PathIcon Data="{StaticResource Gpui.Icon.PanelRightClose}" />
+      </ToggleButton>
+    </Border>
+  </SplitView>
+</UserControl>

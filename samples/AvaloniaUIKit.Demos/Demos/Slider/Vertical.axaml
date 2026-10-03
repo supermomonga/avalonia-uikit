@@ -1,0 +1,10 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.SliderVertical">
+  <StackPanel Orientation="Horizontal" Spacing="24" HorizontalAlignment="Left">
+    <Slider Orientation="Vertical" Value="0" Height="120" Margin="8,12" />
+    <Slider Orientation="Vertical" Value="40" Height="120" Margin="8,12" />
+    <Slider Orientation="Vertical" Value="100" Height="120" Margin="8,12" />
+  </StackPanel>
+</UserControl>

@@ -1,0 +1,23 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.SelectStates">
+  <Panel MinHeight="220">
+    <WrapPanel ItemSpacing="8" LineSpacing="8" VerticalAlignment="Top">
+      <ComboBox Width="200" SelectedIndex="0">
+        <ComboBoxItem Content="Apple" />
+        <ComboBoxItem Content="Banana" />
+        <ComboBoxItem Content="Cherry" IsEnabled="False" />
+        <ComboBoxItem Content="Grape" />
+      </ComboBox>
+      <ComboBox Width="200" SelectedIndex="0" IsEnabled="False">
+        <ComboBoxItem Content="Apple" />
+        <ComboBoxItem Content="Banana" />
+      </ComboBox>
+      <ComboBox Width="200" PlaceholderText="Select a fruit" IsEnabled="False">
+        <ComboBoxItem Content="Apple" />
+        <ComboBoxItem Content="Banana" />
+      </ComboBox>
+    </WrapPanel>
+  </Panel>
+</UserControl>

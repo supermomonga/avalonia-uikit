@@ -1,0 +1,25 @@
+---
+title: "Progress Circle"
+description: "A ring showing progress, as a ProgressBar with a named theme."
+---
+
+<Demo name="progress-circle/demo" />
+
+## Usage
+
+`ProgressBar Theme="{StaticResource GpuiProgressCircle}"` draws a ring in the progress color at 20% and, over it, the value's arc clockwise from 12 o'clock with flat ends. The stroke is 15% of the width, at most 5px, so any `Width` and `Height` work. A change of `Value` sweeps the arc over 180ms; `IsIndeterminate="True"` repeats GPUI Kit's one-second cycle, in which the arc grows and shrinks around the ring. Sizes: `xsmall` (8px), `small` (12px), `large` (20px); medium (16px) needs no class.
+
+## Examples
+
+The four sizes and an 80px ring, whose stroke stops at 5px.
+
+<Demo name="progress-circle/sizes" title="Sizes" />
+
+The indeterminate arc at medium, large and 40px.
+
+<Demo name="progress-circle/indeterminate" title="Indeterminate" />
+
+## Not covered
+
+- Custom colors.
+- Content in the center of the ring (overlay it in a `Grid`).

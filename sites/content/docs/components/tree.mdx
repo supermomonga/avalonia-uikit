@@ -1,0 +1,20 @@
+---
+title: "Tree"
+description: "GPUI Kit's tree rows with folder and file icons, as TreeView."
+---
+
+<Demo name="tree/demo" />
+
+## Usage
+
+The theme covers `TreeView` and `TreeViewItem` with GPUI Kit's list row: 16px text with 4px of vertical padding, 12px plus 16px of indent per level, and a 16px folder (open when expanded) or file icon 8px before the label. The folder icon is the expander; an item without children gets the file icon. A hovered row takes the list's hover color, the selected row its active color, and a disabled item muted text. The tree has no chrome of its own and the scrollbar overlays the rows. Nest `TreeViewItem`s with `Header`, `IsExpanded` and `IsSelected`, or bind `ItemsSource` as usual.
+
+## Examples
+
+For a framed tree, give the `TreeView` a border, `Padding` and `CornerRadius`, and round the rows with a `Style` that sets `CornerRadius` on `TreeViewItem`.
+
+<Demo name="tree/rounded" title="Rounded" />
+
+## Not covered
+
+- GPUI Kit's data model and virtualization; bind `ItemsSource` as usual.

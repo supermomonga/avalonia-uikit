@@ -1,0 +1,11 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.PaginationSizes">
+  <StackPanel Spacing="4" HorizontalAlignment="Left">
+    <PipsPager Classes="xsmall" NumberOfPages="5" SelectedPageIndex="2" />
+    <PipsPager Classes="small" NumberOfPages="5" SelectedPageIndex="2" />
+    <PipsPager NumberOfPages="5" SelectedPageIndex="2" />
+    <PipsPager Classes="large" NumberOfPages="5" SelectedPageIndex="2" />
+  </StackPanel>
+</UserControl>

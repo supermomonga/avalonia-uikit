@@ -1,0 +1,31 @@
+---
+title: "Sheet"
+description: "A panel sliding in from a side over the dimmed content, as DrawerPage in its overlay mode."
+---
+
+<Demo name="sheet/demo" />
+
+## Usage
+
+`DrawerPage Classes="sheet" DrawerBehavior="Flyout"` is GPUI Kit's sheet. The page is the `DrawerPage`'s content; the sheet is `Drawer`, with `DrawerHeader` as its title row (semibold, with the close button) and `DrawerFooter` under the body. When `IsOpen` becomes true the sheet slides 100px in from its edge over 150ms over the content dimmed with the theme overlay, and it goes at once when it closes. In the demo above, the button's `Click` handler sets `IsOpen` to true.
+
+| Property | Meaning |
+| --- | --- |
+| `IsOpen` | Opens and closes the sheet. |
+| `DrawerPlacement` | The side it slides in from: `Left`, `Right`, `Top` or `Bottom`. |
+| `DrawerLength` | Its width, or height from the top or bottom; 350 by default. |
+| `DrawerHeader`, `Drawer`, `DrawerFooter` | The title row, the body and the footer. |
+| `BackdropBrush` | The dimming; `{x:Null}` for GPUI Kit's `overlay(false)`. |
+
+To open the sheet under GPUI Kit's 34px title bar, set the `Gpui.Sheet.Margin` resource.
+
+## Examples
+
+The four sides at 240px; each button's `Click` handler sets `DrawerPlacement` from its `Tag` and opens the sheet.
+
+<Demo name="sheet/placements" title="Placements" />
+
+## Not covered
+
+- Several sheets at once.
+- Resizing the sheet by dragging.

@@ -1,0 +1,55 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.ButtonIcons">
+  <StackPanel Spacing="8">
+    <WrapPanel ItemSpacing="8" LineSpacing="8">
+      <Button Classes="icon-only">
+        <PathIcon Data="{StaticResource Gpui.Icon.Copy}" />
+      </Button>
+      <Button Classes="icon-only primary">
+        <PathIcon Data="{StaticResource Gpui.Icon.Plus}" />
+      </Button>
+      <Button Classes="icon-only secondary">
+        <PathIcon Data="{StaticResource Gpui.Icon.Search}" />
+      </Button>
+      <Button Classes="icon-only danger">
+        <PathIcon Data="{StaticResource Gpui.Icon.Close}" />
+      </Button>
+      <Button Classes="icon-only ghost">
+        <PathIcon Data="{StaticResource Gpui.Icon.Ellipsis}" />
+      </Button>
+      <Button Classes="icon-only outline">
+        <PathIcon Data="{StaticResource Gpui.Icon.Info}" />
+      </Button>
+    </WrapPanel>
+    <WrapPanel ItemSpacing="8" LineSpacing="8">
+      <Button Classes="icon-only xsmall">
+        <PathIcon Data="{StaticResource Gpui.Icon.Copy}" />
+      </Button>
+      <Button Classes="icon-only small">
+        <PathIcon Data="{StaticResource Gpui.Icon.Copy}" />
+      </Button>
+      <Button Classes="icon-only">
+        <PathIcon Data="{StaticResource Gpui.Icon.Copy}" />
+      </Button>
+      <Button Classes="icon-only large">
+        <PathIcon Data="{StaticResource Gpui.Icon.Copy}" />
+      </Button>
+    </WrapPanel>
+    <WrapPanel ItemSpacing="8" LineSpacing="8">
+      <Button Classes="primary">
+        <StackPanel Orientation="Horizontal" Spacing="6">
+          <PathIcon Data="{StaticResource Gpui.Icon.Plus}" />
+          <TextBlock Text="New file" />
+        </StackPanel>
+      </Button>
+      <Button Classes="outline">
+        <StackPanel Orientation="Horizontal" Spacing="6">
+          <TextBlock Text="Open" />
+          <PathIcon Data="{StaticResource Gpui.Icon.ExternalLink}" />
+        </StackPanel>
+      </Button>
+    </WrapPanel>
+  </StackPanel>
+</UserControl>

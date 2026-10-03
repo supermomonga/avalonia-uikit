@@ -1,0 +1,44 @@
+---
+title: "Data Table"
+description: "GPUI Kit's data table as Avalonia's TableView, or DataGrid with the AvaloniaUIKit.DataGrid package."
+---
+
+<Demo name="data-table/demo" />
+
+## Usage
+
+`TableView` has GPUI Kit's DataTable look by default: a bordered box with the theme radius, a header band with a rule under it, rows of a fixed height with a rule under each, the hover and selection fills, resize handles on the header edges and overlay scrollbars. Columns are `TableViewColumn`s with a `Header` and a `Binding`; give them pixel `Width`s, as GPUI's columns have, and `HorizontalContentAlignment="Right"` for numbers. The plain table of GPUI Kit is the same control with `Theme="{StaticResource GpuiTable}"`: see [Table](/docs/components/table).
+
+| Class | Effect |
+| --- | --- |
+| `stripe` | Every other row on the even color, and empty striped rows below the last one. |
+| `borderless` | No border and no fill around the rows. |
+| `xsmall` | 26px rows, 4×2 cell padding, 12px text. |
+| `small` | 30px rows, 6×3 cell padding. |
+| `large` | 40px rows, 12×8 cell padding, 16px text. |
+
+The default is 32px rows with 8×4 padding and 14px text.
+
+For `DataGrid` (the `Avalonia.Controls.DataGrid` package), add `GpuiDataGridTheme` from the `AvaloniaUIKit.DataGrid` package to the application's styles after `GpuiTheme`. The grid takes the same look, with what DataGrid has of its own: sort indicators in the headers, column resizing and reordering. Set `IsReadOnly="True"` for a table that only displays (a click edits a cell otherwise) and `CanUserResizeColumns="True"` (off by default); right-align a column with `CellStyleClasses="text-right"` and a right-aligned header. The `stripe`, `borderless` and size classes are the same.
+
+## Examples
+
+`Classes="stripe"` fills every other row and continues the stripes below the last row.
+
+<Demo name="data-table/striped" title="Striped" />
+
+`small` and `large` change the row height, the cell padding and (for `large`) the text size.
+
+<Demo name="data-table/sizes" title="Sizes" />
+
+`DataGrid` with `GpuiDataGridTheme`: read-only, sortable from the headers, resizable columns, and an amount column right-aligned with `CellStyleClasses="text-right"`.
+
+<Demo name="data-table/data-grid" title="DataGrid" />
+
+## Not covered
+
+- Sorting, moving and pinning columns in `TableView` (DataGrid has its own).
+- Cell range selection.
+- Infinite loading.
+- The frame around a right-clicked row (Avalonia selects the row on the right button).
+- NativeAOT with `DataGrid`, which is not trimmable itself.

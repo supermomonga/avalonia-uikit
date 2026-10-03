@@ -1,0 +1,28 @@
+---
+title: "Date Picker"
+description: "An input frame that opens GPUI Kit's calendar."
+---
+
+<Demo name="date-picker/demo" />
+
+## Usage
+
+The theme covers `CalendarDatePicker`: an input-styled field with the date or the muted `PlaceholderText` and a muted calendar icon at its end; the border turns to the ring, with the focus band, while the field has focus or its calendar is open. The calendar opens 6px below on GPUI's popover surface (the Calendar theme without its card), sliding 8px down and fading in over 150ms. Today is always marked.
+
+GPUI's text format and placeholder are the app's, and the format also governs parsing: set `SelectedDateFormat="Custom"`, `CustomDateFormatString="yyyy/MM/dd"` and `PlaceholderText="Select date"` for GPUI Kit's defaults. Sizes: `xsmall`, `small`, `large` (medium is the default); the size class also sizes the popup calendar (`small` opens the small calendar, `large` the large one). Disabled, the field fades to half and drops the icon.
+
+## Examples
+
+The four sizes.
+
+<Demo name="date-picker/sizes" title="Sizes" />
+
+An empty field with its placeholder, a disabled field with a date, and a disabled empty one.
+
+<Demo name="date-picker/states" title="States" />
+
+## Not covered
+
+- Date ranges.
+- Presets such as "Last 7 days".
+- Editing the time in the same picker (use `TimePicker` alongside; see Time Field).

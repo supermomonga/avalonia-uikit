@@ -1,0 +1,36 @@
+---
+title: "Description List"
+description: "Labels and values in GPUI Kit's description grid, with spans and separators."
+---
+
+<Demo name="description-list/demo" />
+
+## Usage
+
+`gpui:DescriptionList` lays out `gpui:DescriptionItem`s, each a `Label` and a `Value` (the value is the content, so it can be a control), in rows of `Columns`. An item takes `Span` columns; a new row starts when the next span would pass the columns, and the items of a row that is not full grow to share it. A `gpui:DescriptionSeparator` is an 8px band across a whole row. The list is bordered by default: a 1px border with the theme radius, a rule between rows, and muted 14px labels on the label fill beside 16px values.
+
+| Property or class | Effect |
+| --- | --- |
+| `Columns` | Items per row, 1 to 10 (3 by default). |
+| `Orientation` | `Horizontal` (the default) puts labels beside their values, `Vertical` above them. |
+| `IsBordered` | `False` drops the border, the rules, the label fill and the cell padding. |
+| `LabelWidth` | The width of a label beside its value (120 by default). |
+| `small`, `large` | Cell padding 4×2 or 12×6 instead of 8×4; rows without borders 2 or 8 apart instead of 4. |
+
+## Examples
+
+`Orientation="Vertical"` puts each label above its value.
+
+<Demo name="description-list/vertical" title="Vertical" />
+
+`IsBordered="False"` for a plain grid without borders, fills or padding, in either orientation.
+
+<Demo name="description-list/borderless" title="Borderless" />
+
+The size classes change the padding; the large list here has two columns and 100px labels.
+
+<Demo name="description-list/sizes" title="Sizes" />
+
+## Not covered
+
+- Nothing: the control covers the component.

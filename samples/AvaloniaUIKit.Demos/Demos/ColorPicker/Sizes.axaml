@@ -1,0 +1,13 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.ColorPickerSizes">
+  <Panel MinHeight="350">
+    <StackPanel Orientation="Horizontal" Spacing="16" HorizontalAlignment="Left" VerticalAlignment="Top">
+      <ColorPicker Classes="xsmall" Color="#2563EB" VerticalAlignment="Center" />
+      <ColorPicker Classes="small" Color="#2563EB" VerticalAlignment="Center" />
+      <ColorPicker Color="#2563EB" VerticalAlignment="Center" />
+      <ColorPicker Classes="large" Color="#2563EB" VerticalAlignment="Center" />
+    </StackPanel>
+  </Panel>
+</UserControl>
