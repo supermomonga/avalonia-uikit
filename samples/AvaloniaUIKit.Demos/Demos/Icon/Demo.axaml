@@ -1,0 +1,31 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.IconDemo">
+  <WrapPanel ItemSpacing="12" LineSpacing="12">
+    <PathIcon Data="{StaticResource Gpui.Icon.Check}" />
+    <PathIcon Data="{StaticResource Gpui.Icon.Plus}" />
+    <PathIcon Data="{StaticResource Gpui.Icon.Minus}" />
+    <PathIcon Data="{StaticResource Gpui.Icon.Close}" />
+    <PathIcon Data="{StaticResource Gpui.Icon.ChevronDown}" />
+    <PathIcon Data="{StaticResource Gpui.Icon.ChevronRight}" />
+    <PathIcon Data="{StaticResource Gpui.Icon.Search}" />
+    <PathIcon Data="{StaticResource Gpui.Icon.Copy}" />
+    <PathIcon Data="{StaticResource Gpui.Icon.ExternalLink}" />
+    <PathIcon Data="{StaticResource Gpui.Icon.Folder}" />
+    <PathIcon Data="{StaticResource Gpui.Icon.FolderOpen}" />
+    <PathIcon Data="{StaticResource Gpui.Icon.File}" />
+    <PathIcon Data="{StaticResource Gpui.Icon.Calendar}" />
+    <PathIcon Data="{StaticResource Gpui.Icon.Inbox}" />
+    <PathIcon Data="{StaticResource Gpui.Icon.Bell}" />
+    <PathIcon Data="{StaticResource Gpui.Icon.Star}" />
+    <PathIcon Data="{StaticResource Gpui.Icon.User}" />
+    <PathIcon Data="{StaticResource Gpui.Icon.Eye}" />
+    <PathIcon Data="{StaticResource Gpui.Icon.EyeOff}" />
+    <PathIcon Data="{StaticResource Gpui.Icon.Info}" />
+    <PathIcon Data="{StaticResource Gpui.Icon.CircleCheck}" />
+    <PathIcon Data="{StaticResource Gpui.Icon.TriangleAlert}" />
+    <PathIcon Data="{StaticResource Gpui.Icon.CircleX}" />
+    <PathIcon Data="{StaticResource Gpui.Icon.Loader}" />
+  </WrapPanel>
+</UserControl>

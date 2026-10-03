@@ -1,0 +1,22 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             xmlns:local="using:AvaloniaUIKit.Demos"
+             x:Class="AvaloniaUIKit.Demos.DataTableSizes">
+  <StackPanel Spacing="16" HorizontalAlignment="Left">
+    <TableView Classes="small" Width="400" Height="160" ItemsSource="{x:Static local:Person.Samples}">
+      <TableView.Columns>
+        <TableViewColumn Header="Name" Binding="{Binding Name}" Width="120" />
+        <TableViewColumn Header="Email" Binding="{Binding Email}" Width="180" />
+        <TableViewColumn Header="Amount" Binding="{Binding Amount}" Width="100" HorizontalContentAlignment="Right" />
+      </TableView.Columns>
+    </TableView>
+    <TableView Classes="large" Width="400" Height="200" ItemsSource="{x:Static local:Person.Samples}">
+      <TableView.Columns>
+        <TableViewColumn Header="Name" Binding="{Binding Name}" Width="120" />
+        <TableViewColumn Header="Email" Binding="{Binding Email}" Width="180" />
+        <TableViewColumn Header="Amount" Binding="{Binding Amount}" Width="100" HorizontalContentAlignment="Right" />
+      </TableView.Columns>
+    </TableView>
+  </StackPanel>
+</UserControl>

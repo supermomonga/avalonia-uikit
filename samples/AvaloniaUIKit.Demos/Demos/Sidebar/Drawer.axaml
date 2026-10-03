@@ -1,0 +1,31 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.SidebarDrawer">
+  <DrawerPage DrawerLayoutBehavior="CompactInline" IsOpen="True"
+              Width="480" Height="220" HorizontalAlignment="Left">
+    <DrawerPage.DrawerHeader>
+      <TextBlock Text="Workspace" FontWeight="Medium" VerticalAlignment="Center" />
+    </DrawerPage.DrawerHeader>
+    <DrawerPage.Drawer>
+      <StackPanel Spacing="12">
+        <StackPanel Orientation="Horizontal" Spacing="8">
+          <PathIcon Data="{StaticResource Gpui.Icon.Inbox}" />
+          <TextBlock Text="Inbox" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Spacing="8">
+          <PathIcon Data="{StaticResource Gpui.Icon.Star}" />
+          <TextBlock Text="Starred" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Spacing="8">
+          <PathIcon Data="{StaticResource Gpui.Icon.Folder}" />
+          <TextBlock Text="Projects" />
+        </StackPanel>
+      </StackPanel>
+    </DrawerPage.Drawer>
+    <DrawerPage.DrawerFooter>
+      <gpui:Avatar Classes="small" UserName="Alice" HorizontalAlignment="Left" />
+    </DrawerPage.DrawerFooter>
+    <Border Background="{DynamicResource Gpui.Muted}" />
+  </DrawerPage>
+</UserControl>

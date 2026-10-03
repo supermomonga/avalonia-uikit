@@ -1,0 +1,32 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.TagColors">
+  <StackPanel Spacing="12" HorizontalAlignment="Left">
+    <WrapPanel ItemSpacing="8" LineSpacing="8" MaxWidth="560">
+      <gpui:TagLabel Classes="neutral" Content="Neutral" />
+      <gpui:TagLabel Classes="gray" Content="Gray" />
+      <gpui:TagLabel Classes="red" Content="Red" />
+      <gpui:TagLabel Classes="orange" Content="Orange" />
+      <gpui:TagLabel Classes="amber" Content="Amber" />
+      <gpui:TagLabel Classes="yellow" Content="Yellow" />
+      <gpui:TagLabel Classes="lime" Content="Lime" />
+      <gpui:TagLabel Classes="green" Content="Green" />
+      <gpui:TagLabel Classes="emerald" Content="Emerald" />
+      <gpui:TagLabel Classes="teal" Content="Teal" />
+      <gpui:TagLabel Classes="cyan" Content="Cyan" />
+      <gpui:TagLabel Classes="sky" Content="Sky" />
+      <gpui:TagLabel Classes="blue" Content="Blue" />
+      <gpui:TagLabel Classes="indigo" Content="Indigo" />
+      <gpui:TagLabel Classes="violet" Content="Violet" />
+      <gpui:TagLabel Classes="purple" Content="Purple" />
+      <gpui:TagLabel Classes="fuchsia" Content="Fuchsia" />
+      <gpui:TagLabel Classes="pink" Content="Pink" />
+      <gpui:TagLabel Classes="rose" Content="Rose" />
+    </WrapPanel>
+    <WrapPanel ItemSpacing="8" LineSpacing="8">
+      <gpui:TagLabel Classes="blue outline" Content="Blue" />
+      <gpui:TagLabel Classes="rose outline" Content="Rose" />
+    </WrapPanel>
+  </StackPanel>
+</UserControl>

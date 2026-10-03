@@ -1,0 +1,13 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.LabelSizes">
+  <StackPanel Spacing="8" HorizontalAlignment="Left">
+    <TextBlock Classes="label" FontSize="12" Text="Account details" />
+    <TextBlock Classes="label" FontSize="14" Text="Account details" />
+    <TextBlock Classes="label" FontSize="16" Text="Account details" />
+    <TextBlock Classes="label" FontSize="18" Text="Account details" />
+    <TextBlock Classes="label" FontSize="20" Text="Account details" />
+    <TextBlock Classes="label" FontSize="24" Text="Account details" />
+  </StackPanel>
+</UserControl>

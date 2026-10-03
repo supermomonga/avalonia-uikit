@@ -5,6 +5,66 @@ using Avalonia.Markup.Xaml;
 
 namespace AvaloniaUIKit.Demos;
 
+public sealed partial class AvatarDemo : UserControl
+{
+    public AvatarDemo() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class AvatarGroups : UserControl
+{
+    public AvatarGroups() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class AvatarSizes : UserControl
+{
+    public AvatarSizes() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class BadgeColors : UserControl
+{
+    public BadgeColors() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class BadgeCount : UserControl
+{
+    public BadgeCount() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class BadgeDemo : UserControl
+{
+    public BadgeDemo() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class BadgeSizes : UserControl
+{
+    public BadgeSizes() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class BreadcrumbDemo : UserControl
+{
+    public BreadcrumbDemo() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class BreadcrumbDisabled : UserControl
+{
+    public BreadcrumbDisabled() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class BubbleDemo : UserControl
+{
+    public BubbleDemo() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class BubbleReaction : UserControl
+{
+    public BubbleReaction() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class BubbleVariants : UserControl
+{
+    public BubbleVariants() => AvaloniaXamlLoader.Load(this);
+}
+
 public sealed partial class ButtonDemo : UserControl
 {
     public ButtonDemo() => AvaloniaXamlLoader.Load(this);
@@ -15,12 +75,360 @@ public sealed partial class ButtonVariants : UserControl
     public ButtonVariants() => AvaloniaXamlLoader.Load(this);
 }
 
+public sealed partial class DataTableDataGrid : UserControl
+{
+    public DataTableDataGrid() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class DataTableDemo : UserControl
+{
+    public DataTableDemo() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class DataTableSizes : UserControl
+{
+    public DataTableSizes() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class DataTableStriped : UserControl
+{
+    public DataTableStriped() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class DescriptionListBorderless : UserControl
+{
+    public DescriptionListBorderless() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class DescriptionListDemo : UserControl
+{
+    public DescriptionListDemo() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class DescriptionListSizes : UserControl
+{
+    public DescriptionListSizes() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class DescriptionListVertical : UserControl
+{
+    public DescriptionListVertical() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class IconColors : UserControl
+{
+    public IconColors() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class IconDemo : UserControl
+{
+    public IconDemo() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class IconSizes : UserControl
+{
+    public IconSizes() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class ImageDemo : UserControl
+{
+    public ImageDemo() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class ImageFit : UserControl
+{
+    public ImageFit() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class ImageRounded : UserControl
+{
+    public ImageRounded() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class KbdDemo : UserControl
+{
+    public KbdDemo() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class KbdOutline : UserControl
+{
+    public KbdOutline() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class LabelDemo : UserControl
+{
+    public LabelDemo() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class LabelSizes : UserControl
+{
+    public LabelSizes() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class LabelStyles : UserControl
+{
+    public LabelStyles() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class LabelWrap : UserControl
+{
+    public LabelWrap() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class ListDemo : UserControl
+{
+    public ListDemo() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class ListEmpty : UserControl
+{
+    public ListEmpty() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class MenuContextMenu : UserControl
+{
+    public MenuContextMenu() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class MenuDemo : UserControl
+{
+    public MenuDemo() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class MenuDropdown : UserControl
+{
+    public MenuDropdown() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class MessageDemo : UserControl
+{
+    public MessageDemo() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class MessagePlain : UserControl
+{
+    public MessagePlain() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class PaginationCompact : UserControl
+{
+    public PaginationCompact() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class PaginationDemo : UserControl
+{
+    public PaginationDemo() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class PaginationSizes : UserControl
+{
+    public PaginationSizes() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class SidebarDemo : UserControl
+{
+    public SidebarDemo() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class SidebarDrawer : UserControl
+{
+    public SidebarDrawer() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class SidebarRight : UserControl
+{
+    public SidebarRight() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class StatusBarDemo : UserControl
+{
+    public StatusBarDemo() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class StatusBarRegions : UserControl
+{
+    public StatusBarRegions() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class StepperDemo : UserControl
+{
+    public StepperDemo() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class StepperIcons : UserControl
+{
+    public StepperIcons() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class StepperLayouts : UserControl
+{
+    public StepperLayouts() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class StepperSizes : UserControl
+{
+    public StepperSizes() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class TableDemo : UserControl
+{
+    public TableDemo() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class TablePlain : UserControl
+{
+    public TablePlain() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class TableSizes : UserControl
+{
+    public TableSizes() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class TabsDemo : UserControl
+{
+    public TabsDemo() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class TabsIcons : UserControl
+{
+    public TabsIcons() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class TabsSizes : UserControl
+{
+    public TabsSizes() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class TabsVariants : UserControl
+{
+    public TabsVariants() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class TagColors : UserControl
+{
+    public TagColors() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class TagDemo : UserControl
+{
+    public TagDemo() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class TagOutline : UserControl
+{
+    public TagOutline() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class TagSizes : UserControl
+{
+    public TagSizes() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class ToolbarDemo : UserControl
+{
+    public ToolbarDemo() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class ToolbarDisabled : UserControl
+{
+    public ToolbarDisabled() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class ToolbarSizes : UserControl
+{
+    public ToolbarSizes() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class TreeDemo : UserControl
+{
+    public TreeDemo() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class TreeRounded : UserControl
+{
+    public TreeRounded() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class VirtualListDemo : UserControl
+{
+    public VirtualListDemo() => AvaloniaXamlLoader.Load(this);
+}
+
 public static partial class DemoRegistry
 {
     /// <summary>Every demo by id (`&lt;component&gt;/&lt;name&gt;`), in id order.</summary>
     public static IReadOnlyDictionary<string, Func<Control>> Factories { get; } = new Dictionary<string, Func<Control>>
     {
+        ["avatar/demo"] = static () => new AvatarDemo(),
+        ["avatar/groups"] = static () => new AvatarGroups(),
+        ["avatar/sizes"] = static () => new AvatarSizes(),
+        ["badge/colors"] = static () => new BadgeColors(),
+        ["badge/count"] = static () => new BadgeCount(),
+        ["badge/demo"] = static () => new BadgeDemo(),
+        ["badge/sizes"] = static () => new BadgeSizes(),
+        ["breadcrumb/demo"] = static () => new BreadcrumbDemo(),
+        ["breadcrumb/disabled"] = static () => new BreadcrumbDisabled(),
+        ["bubble/demo"] = static () => new BubbleDemo(),
+        ["bubble/reaction"] = static () => new BubbleReaction(),
+        ["bubble/variants"] = static () => new BubbleVariants(),
         ["button/demo"] = static () => new ButtonDemo(),
         ["button/variants"] = static () => new ButtonVariants(),
+        ["data-table/data-grid"] = static () => new DataTableDataGrid(),
+        ["data-table/demo"] = static () => new DataTableDemo(),
+        ["data-table/sizes"] = static () => new DataTableSizes(),
+        ["data-table/striped"] = static () => new DataTableStriped(),
+        ["description-list/borderless"] = static () => new DescriptionListBorderless(),
+        ["description-list/demo"] = static () => new DescriptionListDemo(),
+        ["description-list/sizes"] = static () => new DescriptionListSizes(),
+        ["description-list/vertical"] = static () => new DescriptionListVertical(),
+        ["icon/colors"] = static () => new IconColors(),
+        ["icon/demo"] = static () => new IconDemo(),
+        ["icon/sizes"] = static () => new IconSizes(),
+        ["image/demo"] = static () => new ImageDemo(),
+        ["image/fit"] = static () => new ImageFit(),
+        ["image/rounded"] = static () => new ImageRounded(),
+        ["kbd/demo"] = static () => new KbdDemo(),
+        ["kbd/outline"] = static () => new KbdOutline(),
+        ["label/demo"] = static () => new LabelDemo(),
+        ["label/sizes"] = static () => new LabelSizes(),
+        ["label/styles"] = static () => new LabelStyles(),
+        ["label/wrap"] = static () => new LabelWrap(),
+        ["list/demo"] = static () => new ListDemo(),
+        ["list/empty"] = static () => new ListEmpty(),
+        ["menu/context-menu"] = static () => new MenuContextMenu(),
+        ["menu/demo"] = static () => new MenuDemo(),
+        ["menu/dropdown"] = static () => new MenuDropdown(),
+        ["message/demo"] = static () => new MessageDemo(),
+        ["message/plain"] = static () => new MessagePlain(),
+        ["pagination/compact"] = static () => new PaginationCompact(),
+        ["pagination/demo"] = static () => new PaginationDemo(),
+        ["pagination/sizes"] = static () => new PaginationSizes(),
+        ["sidebar/demo"] = static () => new SidebarDemo(),
+        ["sidebar/drawer"] = static () => new SidebarDrawer(),
+        ["sidebar/right"] = static () => new SidebarRight(),
+        ["status-bar/demo"] = static () => new StatusBarDemo(),
+        ["status-bar/regions"] = static () => new StatusBarRegions(),
+        ["stepper/demo"] = static () => new StepperDemo(),
+        ["stepper/icons"] = static () => new StepperIcons(),
+        ["stepper/layouts"] = static () => new StepperLayouts(),
+        ["stepper/sizes"] = static () => new StepperSizes(),
+        ["table/demo"] = static () => new TableDemo(),
+        ["table/plain"] = static () => new TablePlain(),
+        ["table/sizes"] = static () => new TableSizes(),
+        ["tabs/demo"] = static () => new TabsDemo(),
+        ["tabs/icons"] = static () => new TabsIcons(),
+        ["tabs/sizes"] = static () => new TabsSizes(),
+        ["tabs/variants"] = static () => new TabsVariants(),
+        ["tag/colors"] = static () => new TagColors(),
+        ["tag/demo"] = static () => new TagDemo(),
+        ["tag/outline"] = static () => new TagOutline(),
+        ["tag/sizes"] = static () => new TagSizes(),
+        ["toolbar/demo"] = static () => new ToolbarDemo(),
+        ["toolbar/disabled"] = static () => new ToolbarDisabled(),
+        ["toolbar/sizes"] = static () => new ToolbarSizes(),
+        ["tree/demo"] = static () => new TreeDemo(),
+        ["tree/rounded"] = static () => new TreeRounded(),
+        ["virtual-list/demo"] = static () => new VirtualListDemo(),
     };
 }

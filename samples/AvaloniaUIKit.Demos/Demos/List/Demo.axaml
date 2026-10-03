@@ -1,0 +1,15 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.ListDemo">
+  <ListBox Width="240" Height="200" HorizontalAlignment="Left" SelectedIndex="1">
+    <ListBoxItem Content="Apple" />
+    <ListBoxItem Content="Banana" />
+    <ListBoxItem Content="Cherry" />
+    <ListBoxItem Content="Grape" IsEnabled="False" />
+    <ListBoxItem Content="Mango" />
+    <ListBoxItem Content="Orange" />
+    <ListBoxItem Content="Peach" />
+    <ListBoxItem Content="Strawberry" />
+  </ListBox>
+</UserControl>

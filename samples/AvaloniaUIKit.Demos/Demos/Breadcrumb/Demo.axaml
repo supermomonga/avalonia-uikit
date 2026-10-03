@@ -1,0 +1,10 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.BreadcrumbDemo">
+  <gpui:Breadcrumb HorizontalAlignment="Left">
+    <gpui:BreadcrumbItem Content="Home" />
+    <gpui:BreadcrumbItem Content="Documents" />
+    <gpui:BreadcrumbItem Content="Report" />
+  </gpui:Breadcrumb>
+</UserControl>

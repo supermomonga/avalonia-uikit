@@ -1,0 +1,32 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.TabsVariants">
+  <StackPanel Spacing="16" HorizontalAlignment="Left">
+    <TabStrip Width="320" SelectedIndex="0">
+      <TabStripItem Content="Account" />
+      <TabStripItem Content="Profile" />
+      <TabStripItem Content="Settings" />
+    </TabStrip>
+    <TabStrip Classes="outline" Width="320" SelectedIndex="0">
+      <TabStripItem Content="Account" />
+      <TabStripItem Content="Profile" />
+      <TabStripItem Content="Settings" />
+    </TabStrip>
+    <TabStrip Classes="pill" Width="320" SelectedIndex="0">
+      <TabStripItem Content="Account" />
+      <TabStripItem Content="Profile" />
+      <TabStripItem Content="Settings" />
+    </TabStrip>
+    <TabStrip Classes="segmented" Width="320" SelectedIndex="0">
+      <TabStripItem Content="Account" />
+      <TabStripItem Content="Profile" />
+      <TabStripItem Content="Settings" />
+    </TabStrip>
+    <TabStrip Classes="underline" Width="320" SelectedIndex="0">
+      <TabStripItem Content="Account" />
+      <TabStripItem Content="Profile" />
+      <TabStripItem Content="Settings" IsEnabled="False" />
+    </TabStrip>
+  </StackPanel>
+</UserControl>

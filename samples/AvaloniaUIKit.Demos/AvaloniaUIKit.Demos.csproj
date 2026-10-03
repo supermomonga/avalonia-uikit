@@ -13,5 +13,7 @@
     <ProjectReference Include="../../src/AvaloniaUIKit.DataGrid/AvaloniaUIKit.DataGrid.csproj" />
     <!-- The site's demos render with the bundled Inter, as the tests do (ADR 5): browsers have no system fonts. -->
     <AvaloniaResource Include="../../assets/fonts/inter/*.ttf" Link="Assets/Fonts/%(Filename)%(Extension)" />
+    <!-- The Image demos: the small opaque test images (assets/images, no license restrictions). -->
+    <AvaloniaResource Include="Assets/*.png" />
   </ItemGroup>
 </Project>

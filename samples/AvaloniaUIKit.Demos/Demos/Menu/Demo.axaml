@@ -1,0 +1,31 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.MenuDemo">
+  <Panel MinWidth="400" MinHeight="260">
+    <Menu VerticalAlignment="Top">
+      <MenuItem Header="File">
+        <MenuItem Header="New File" InputGesture="Ctrl+N" />
+        <MenuItem Header="Open Recent">
+          <MenuItem Header="Avalonia UI Kit" />
+          <MenuItem Header="GPUI Kit" />
+        </MenuItem>
+        <Separator />
+        <MenuItem Header="Save" InputGesture="Ctrl+S" />
+        <MenuItem Header="Save As…" IsEnabled="False" />
+        <Separator />
+        <MenuItem Header="Quit" />
+      </MenuItem>
+      <MenuItem Header="Edit">
+        <MenuItem Header="Undo" InputGesture="Ctrl+Z" />
+        <MenuItem Header="Redo" InputGesture="Ctrl+Shift+Z" />
+        <Separator />
+        <MenuItem Header="Word Wrap" ToggleType="CheckBox" IsChecked="True" />
+      </MenuItem>
+      <MenuItem Header="View">
+        <MenuItem Header="Zoom In" />
+        <MenuItem Header="Zoom Out" />
+      </MenuItem>
+    </Menu>
+  </Panel>
+</UserControl>

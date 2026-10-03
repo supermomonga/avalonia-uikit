@@ -1,0 +1,14 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.BubbleVariants">
+  <StackPanel Width="360" Spacing="8" HorizontalAlignment="Left">
+    <gpui:Bubble Content="Filled" />
+    <gpui:Bubble Classes="secondary" Content="Secondary" />
+    <gpui:Bubble Classes="muted" Content="Muted" />
+    <gpui:Bubble Classes="tinted" Content="Tinted" />
+    <gpui:Bubble Classes="outline" Content="Outline" />
+    <gpui:Bubble Classes="ghost" Content="Ghost" />
+    <gpui:Bubble Classes="destructive" Content="Destructive" />
+  </StackPanel>
+</UserControl>

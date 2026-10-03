@@ -1,0 +1,38 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.ImageFit">
+  <WrapPanel ItemSpacing="16" LineSpacing="16">
+    <StackPanel Spacing="4">
+      <Border Width="96" Height="96" BorderThickness="1" BorderBrush="{DynamicResource Gpui.Border}">
+        <Image Stretch="Fill" Source="avares://AvaloniaUIKit.Demos/Assets/wide-192x96.png" />
+      </Border>
+      <TextBlock Text="Fill" FontSize="12" Foreground="{DynamicResource Gpui.MutedForeground}" />
+    </StackPanel>
+    <StackPanel Spacing="4">
+      <Border Width="96" Height="96" BorderThickness="1" BorderBrush="{DynamicResource Gpui.Border}">
+        <Image Stretch="Uniform" Source="avares://AvaloniaUIKit.Demos/Assets/wide-192x96.png" />
+      </Border>
+      <TextBlock Text="Uniform" FontSize="12" Foreground="{DynamicResource Gpui.MutedForeground}" />
+    </StackPanel>
+    <StackPanel Spacing="4">
+      <Border Width="96" Height="96" BorderThickness="1" BorderBrush="{DynamicResource Gpui.Border}">
+        <Image Stretch="UniformToFill" Source="avares://AvaloniaUIKit.Demos/Assets/wide-192x96.png" />
+      </Border>
+      <TextBlock Text="UniformToFill" FontSize="12" Foreground="{DynamicResource Gpui.MutedForeground}" />
+    </StackPanel>
+    <StackPanel Spacing="4">
+      <Border Width="96" Height="96" BorderThickness="1" BorderBrush="{DynamicResource Gpui.Border}">
+        <Image Stretch="Uniform" StretchDirection="DownOnly" Source="avares://AvaloniaUIKit.Demos/Assets/small-48x48.png" />
+      </Border>
+      <TextBlock Text="DownOnly" FontSize="12" Foreground="{DynamicResource Gpui.MutedForeground}" />
+    </StackPanel>
+    <StackPanel Spacing="4">
+      <Border Width="96" Height="96" BorderThickness="1" BorderBrush="{DynamicResource Gpui.Border}">
+        <Image Stretch="None" HorizontalAlignment="Left" VerticalAlignment="Top"
+               Source="avares://AvaloniaUIKit.Demos/Assets/small-48x48.png" />
+      </Border>
+      <TextBlock Text="None" FontSize="12" Foreground="{DynamicResource Gpui.MutedForeground}" />
+    </StackPanel>
+  </WrapPanel>
+</UserControl>
