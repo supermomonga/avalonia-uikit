@@ -47,7 +47,8 @@ public sealed record GoldenScene(
     IReadOnlyList<SceneShadow> Shadows,
     IReadOnlyList<SceneUnderline> Underlines,
     IReadOnlyList<SceneSprite> Sprites,
-    IReadOnlyList<Rect> Paths)
+    IReadOnlyList<Rect> Paths,
+    IReadOnlyList<Rgba> PathColors)
 {
     public static GoldenScene Load(string relativePath)
     {
@@ -103,7 +104,8 @@ public sealed record GoldenScene(
             }
         }
         var paths = root["paths"]!.AsArray().Select(n => GoldenManifest.ReadRect(n!["bounds"])).ToList();
-        return new GoldenScene(quads, shadows, underlines, sprites, paths);
+        var pathColors = root["paths"]!.AsArray().Select(n => Rgba.From(n!["color"]?["rgba"])).ToList();
+        return new GoldenScene(quads, shadows, underlines, sprites, paths, pathColors);
     }
 
     private static double D(JsonNode? n) => n!.GetValue<double>();

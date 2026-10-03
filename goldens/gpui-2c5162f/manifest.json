@@ -40236,6 +40236,1397 @@
       "png_sha256": "dbe0ba9f213d96726e9ec768fb5d92726d26aac597e026f2bd6e3a99422874ca"
     },
     {
+      "id": "progress-circle/box.base/normal/dark",
+      "component": "progress-circle",
+      "group": "box",
+      "params": {
+        "side": 80,
+        "value": 60
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        112.0,
+        96.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        80.0,
+        80.0
+      ],
+      "png": "png/progress-circle/box.base/normal/dark.png",
+      "scene": "scenes/progress-circle/box.base/normal/dark.json",
+      "png_sha256": "d7eef1be59c7ed7ccc769129c412ec196a0df228dda9da35e98d73fe5ac5f999"
+    },
+    {
+      "id": "progress-circle/box.base/normal/light",
+      "component": "progress-circle",
+      "group": "box",
+      "params": {
+        "side": 80,
+        "value": 60
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        112.0,
+        96.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        80.0,
+        80.0
+      ],
+      "png": "png/progress-circle/box.base/normal/light.png",
+      "scene": "scenes/progress-circle/box.base/normal/light.json",
+      "png_sha256": "ce8f186e016aaac904324e9a5f2645258bcde6f53e1bf61066c2718fc23409db"
+    },
+    {
+      "id": "progress-circle/motion.loading/wait-0ms/light",
+      "component": "progress-circle",
+      "group": "motion.loading",
+      "params": {
+        "size": "large",
+        "loading": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        52.0,
+        36.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        20.0,
+        20.0
+      ],
+      "motion": {
+        "name": "loading",
+        "trigger": "wait-0ms",
+        "from": "normal",
+        "frames": [
+          {
+            "t_ms": 0,
+            "png": "png/progress-circle/motion.loading/wait-0ms/light/0000ms.png",
+            "scene": "scenes/progress-circle/motion.loading/wait-0ms/light/0000ms.json",
+            "png_sha256": "a0b52566eeb3059abd594ff1756e5d65138e077f8c9834da8be6efd64c29d4d4"
+          },
+          {
+            "t_ms": 100,
+            "png": "png/progress-circle/motion.loading/wait-0ms/light/0100ms.png",
+            "scene": "scenes/progress-circle/motion.loading/wait-0ms/light/0100ms.json",
+            "png_sha256": "9cb1348f4899a8942eb126f9a24ea6b4a6e04d5d604fb06de4d50c682127d57b"
+          },
+          {
+            "t_ms": 200,
+            "png": "png/progress-circle/motion.loading/wait-0ms/light/0200ms.png",
+            "scene": "scenes/progress-circle/motion.loading/wait-0ms/light/0200ms.json",
+            "png_sha256": "3f4144d441cfb2be00d93535350a95688edf57b2bdb62e782c06f560776023d5"
+          },
+          {
+            "t_ms": 300,
+            "png": "png/progress-circle/motion.loading/wait-0ms/light/0300ms.png",
+            "scene": "scenes/progress-circle/motion.loading/wait-0ms/light/0300ms.json",
+            "png_sha256": "6065491b2987e893726fffc9b52925e625c8485007d118b700bc20e36fa070fa"
+          },
+          {
+            "t_ms": 400,
+            "png": "png/progress-circle/motion.loading/wait-0ms/light/0400ms.png",
+            "scene": "scenes/progress-circle/motion.loading/wait-0ms/light/0400ms.json",
+            "png_sha256": "ca04fea40aa4b02dc2ce77ba5f50522500514c42d98752114459910a4f6a26f4"
+          },
+          {
+            "t_ms": 500,
+            "png": "png/progress-circle/motion.loading/wait-0ms/light/0500ms.png",
+            "scene": "scenes/progress-circle/motion.loading/wait-0ms/light/0500ms.json",
+            "png_sha256": "d3f0baab9807940231c8790563068b89d1bf3c268ff3ae7a6d331b37ee6cb728"
+          },
+          {
+            "t_ms": 550,
+            "png": "png/progress-circle/motion.loading/wait-0ms/light/0550ms.png",
+            "scene": "scenes/progress-circle/motion.loading/wait-0ms/light/0550ms.json",
+            "png_sha256": "29da817a6ecb1d013897f1c1c98f890b3eab246a12f1949e79532d002dc591e0"
+          },
+          {
+            "t_ms": 600,
+            "png": "png/progress-circle/motion.loading/wait-0ms/light/0600ms.png",
+            "scene": "scenes/progress-circle/motion.loading/wait-0ms/light/0600ms.json",
+            "png_sha256": "1a77ad312cbecd2829ea61a80614e55fd4902814a350c5dd793399fd4261cdb3"
+          },
+          {
+            "t_ms": 650,
+            "png": "png/progress-circle/motion.loading/wait-0ms/light/0650ms.png",
+            "scene": "scenes/progress-circle/motion.loading/wait-0ms/light/0650ms.json",
+            "png_sha256": "a818ed42c741b7a7741829675ae9f80bd407aef05ad45f9439f37934be00c2c7"
+          },
+          {
+            "t_ms": 700,
+            "png": "png/progress-circle/motion.loading/wait-0ms/light/0700ms.png",
+            "scene": "scenes/progress-circle/motion.loading/wait-0ms/light/0700ms.json",
+            "png_sha256": "6700c58c23d54a4cfee01e380169b06af130750095ecb257819ec54a5a8c95ed"
+          },
+          {
+            "t_ms": 750,
+            "png": "png/progress-circle/motion.loading/wait-0ms/light/0750ms.png",
+            "scene": "scenes/progress-circle/motion.loading/wait-0ms/light/0750ms.json",
+            "png_sha256": "25e4bdb418c1f2d98548b8c4d4a221bc5a924b731ed4d17080b0dbcd76e3922b"
+          },
+          {
+            "t_ms": 800,
+            "png": "png/progress-circle/motion.loading/wait-0ms/light/0800ms.png",
+            "scene": "scenes/progress-circle/motion.loading/wait-0ms/light/0800ms.json",
+            "png_sha256": "75eb5df7b9349cc4b2e4d893847976d87b237efd4638ce7691c8aae9e790b0c2"
+          },
+          {
+            "t_ms": 900,
+            "png": "png/progress-circle/motion.loading/wait-0ms/light/0900ms.png",
+            "scene": "scenes/progress-circle/motion.loading/wait-0ms/light/0900ms.json",
+            "png_sha256": "584ec8b584b48e526b1583e9c8ed82de5f42f6d47da0b895b86c44718055b328"
+          },
+          {
+            "t_ms": 950,
+            "png": "png/progress-circle/motion.loading/wait-0ms/light/0950ms.png",
+            "scene": "scenes/progress-circle/motion.loading/wait-0ms/light/0950ms.json",
+            "png_sha256": "55a81341d08fc4fc8fa67dbdf428f889b16751c24da201c8907c2b04ceb94afe"
+          },
+          {
+            "t_ms": 1000,
+            "png": "png/progress-circle/motion.loading/wait-0ms/light/1000ms.png",
+            "scene": "scenes/progress-circle/motion.loading/wait-0ms/light/1000ms.json",
+            "png_sha256": "a0b52566eeb3059abd594ff1756e5d65138e077f8c9834da8be6efd64c29d4d4"
+          }
+        ]
+      }
+    },
+    {
+      "id": "progress-circle/motion.value/click/light",
+      "component": "progress-circle",
+      "group": "motion.value",
+      "params": {
+        "size": "large",
+        "value": 25,
+        "value_to": 75
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        52.0,
+        36.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        20.0,
+        20.0
+      ],
+      "motion": {
+        "name": "value",
+        "trigger": "click",
+        "from": "normal",
+        "frames": [
+          {
+            "t_ms": 0,
+            "png": "png/progress-circle/motion.value/click/light/0000ms.png",
+            "scene": "scenes/progress-circle/motion.value/click/light/0000ms.json",
+            "png_sha256": "26a9dbac7ed939fbc65bb14d4438cfdb3d417d20619d9d806011a4ffa66edca2"
+          },
+          {
+            "t_ms": 16,
+            "png": "png/progress-circle/motion.value/click/light/0016ms.png",
+            "scene": "scenes/progress-circle/motion.value/click/light/0016ms.json",
+            "png_sha256": "2f2d265ca4608ad961f0a934e01c8acaf575c40faa5d8fc70ebc23e70db55caf"
+          },
+          {
+            "t_ms": 33,
+            "png": "png/progress-circle/motion.value/click/light/0033ms.png",
+            "scene": "scenes/progress-circle/motion.value/click/light/0033ms.json",
+            "png_sha256": "37fccbf1a09ca50d22c337338754078eab92c72c7f19fc1d5e832394334a71be"
+          },
+          {
+            "t_ms": 50,
+            "png": "png/progress-circle/motion.value/click/light/0050ms.png",
+            "scene": "scenes/progress-circle/motion.value/click/light/0050ms.json",
+            "png_sha256": "2036640fa3f2aab14dc63076775817ef5168927a51e2235740328f698148a922"
+          },
+          {
+            "t_ms": 66,
+            "png": "png/progress-circle/motion.value/click/light/0066ms.png",
+            "scene": "scenes/progress-circle/motion.value/click/light/0066ms.json",
+            "png_sha256": "c7f2df972b5a263053597168b3bd6586e7b42eed471de788cc98ad06273afff6"
+          },
+          {
+            "t_ms": 83,
+            "png": "png/progress-circle/motion.value/click/light/0083ms.png",
+            "scene": "scenes/progress-circle/motion.value/click/light/0083ms.json",
+            "png_sha256": "986ae76a8b7009d2556cfd25cdb25016d6fcdbe87d0cdec8b00ba75e97ac5c60"
+          },
+          {
+            "t_ms": 100,
+            "png": "png/progress-circle/motion.value/click/light/0100ms.png",
+            "scene": "scenes/progress-circle/motion.value/click/light/0100ms.json",
+            "png_sha256": "b1e73e1c2e1acc53fbb50cf56546940da62eb3446cc472ed2ef5443711d9e514"
+          },
+          {
+            "t_ms": 133,
+            "png": "png/progress-circle/motion.value/click/light/0133ms.png",
+            "scene": "scenes/progress-circle/motion.value/click/light/0133ms.json",
+            "png_sha256": "4a5f0e024e44002d80dcb14bff70f666c5d56b3fd722e1881772852609d389a7"
+          },
+          {
+            "t_ms": 166,
+            "png": "png/progress-circle/motion.value/click/light/0166ms.png",
+            "scene": "scenes/progress-circle/motion.value/click/light/0166ms.json",
+            "png_sha256": "ebeda43d57eada78a459ab6bd032da506daeb78f976c4e8dce4658d1c3fe1395"
+          },
+          {
+            "t_ms": 200,
+            "png": "png/progress-circle/motion.value/click/light/0200ms.png",
+            "scene": "scenes/progress-circle/motion.value/click/light/0200ms.json",
+            "png_sha256": "d9f3f5e3279704fa46ed088834989bca75960da2d95dac4509493141c5003700"
+          }
+        ]
+      }
+    },
+    {
+      "id": "progress-circle/value.large.value-0/normal/dark",
+      "component": "progress-circle",
+      "group": "value",
+      "params": {
+        "size": "large",
+        "value": 0
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        52.0,
+        36.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        20.0,
+        20.0
+      ],
+      "png": "png/progress-circle/value.large.value-0/normal/dark.png",
+      "scene": "scenes/progress-circle/value.large.value-0/normal/dark.json",
+      "png_sha256": "84d34c8c0664b6fce403974f93c8362bfab2a1bf57aa6765ab1d99face215363"
+    },
+    {
+      "id": "progress-circle/value.large.value-0/normal/light",
+      "component": "progress-circle",
+      "group": "value",
+      "params": {
+        "size": "large",
+        "value": 0
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        52.0,
+        36.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        20.0,
+        20.0
+      ],
+      "png": "png/progress-circle/value.large.value-0/normal/light.png",
+      "scene": "scenes/progress-circle/value.large.value-0/normal/light.json",
+      "png_sha256": "a0b52566eeb3059abd594ff1756e5d65138e077f8c9834da8be6efd64c29d4d4"
+    },
+    {
+      "id": "progress-circle/value.large.value-100/normal/dark",
+      "component": "progress-circle",
+      "group": "value",
+      "params": {
+        "size": "large",
+        "value": 100
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        52.0,
+        36.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        20.0,
+        20.0
+      ],
+      "png": "png/progress-circle/value.large.value-100/normal/dark.png",
+      "scene": "scenes/progress-circle/value.large.value-100/normal/dark.json",
+      "png_sha256": "cc0909b1187f04572f5a3a91fb97370d9039243015f1884380351b59ab5cb94e"
+    },
+    {
+      "id": "progress-circle/value.large.value-100/normal/light",
+      "component": "progress-circle",
+      "group": "value",
+      "params": {
+        "size": "large",
+        "value": 100
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        52.0,
+        36.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        20.0,
+        20.0
+      ],
+      "png": "png/progress-circle/value.large.value-100/normal/light.png",
+      "scene": "scenes/progress-circle/value.large.value-100/normal/light.json",
+      "png_sha256": "b4be89b8b0ba0b3960fdd4b90505efc907feb5adadc9a9aedc1f28acc5df99d1"
+    },
+    {
+      "id": "progress-circle/value.large.value-25/normal/dark",
+      "component": "progress-circle",
+      "group": "value",
+      "params": {
+        "size": "large",
+        "value": 25
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        52.0,
+        36.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        20.0,
+        20.0
+      ],
+      "png": "png/progress-circle/value.large.value-25/normal/dark.png",
+      "scene": "scenes/progress-circle/value.large.value-25/normal/dark.json",
+      "png_sha256": "e0cb0fa6705a588a4f24bce94b0d23c0b7ca169d3d1b690ee42c9971311de114"
+    },
+    {
+      "id": "progress-circle/value.large.value-25/normal/light",
+      "component": "progress-circle",
+      "group": "value",
+      "params": {
+        "size": "large",
+        "value": 25
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        52.0,
+        36.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        20.0,
+        20.0
+      ],
+      "png": "png/progress-circle/value.large.value-25/normal/light.png",
+      "scene": "scenes/progress-circle/value.large.value-25/normal/light.json",
+      "png_sha256": "26a9dbac7ed939fbc65bb14d4438cfdb3d417d20619d9d806011a4ffa66edca2"
+    },
+    {
+      "id": "progress-circle/value.large.value-50/normal/dark",
+      "component": "progress-circle",
+      "group": "value",
+      "params": {
+        "size": "large",
+        "value": 50
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        52.0,
+        36.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        20.0,
+        20.0
+      ],
+      "png": "png/progress-circle/value.large.value-50/normal/dark.png",
+      "scene": "scenes/progress-circle/value.large.value-50/normal/dark.json",
+      "png_sha256": "7f0a400f34aa79de8e71c0751a57508389f8a04b121a3cd91dd48cb36cb899be"
+    },
+    {
+      "id": "progress-circle/value.large.value-50/normal/light",
+      "component": "progress-circle",
+      "group": "value",
+      "params": {
+        "size": "large",
+        "value": 50
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        52.0,
+        36.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        20.0,
+        20.0
+      ],
+      "png": "png/progress-circle/value.large.value-50/normal/light.png",
+      "scene": "scenes/progress-circle/value.large.value-50/normal/light.json",
+      "png_sha256": "d3f0baab9807940231c8790563068b89d1bf3c268ff3ae7a6d331b37ee6cb728"
+    },
+    {
+      "id": "progress-circle/value.large.value-75/normal/dark",
+      "component": "progress-circle",
+      "group": "value",
+      "params": {
+        "size": "large",
+        "value": 75
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        52.0,
+        36.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        20.0,
+        20.0
+      ],
+      "png": "png/progress-circle/value.large.value-75/normal/dark.png",
+      "scene": "scenes/progress-circle/value.large.value-75/normal/dark.json",
+      "png_sha256": "4087600a81b968b7f2e352c20a9b5bb1cf5bdce6d226a1d5f502f366ebfd6c1a"
+    },
+    {
+      "id": "progress-circle/value.large.value-75/normal/light",
+      "component": "progress-circle",
+      "group": "value",
+      "params": {
+        "size": "large",
+        "value": 75
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        52.0,
+        36.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        20.0,
+        20.0
+      ],
+      "png": "png/progress-circle/value.large.value-75/normal/light.png",
+      "scene": "scenes/progress-circle/value.large.value-75/normal/light.json",
+      "png_sha256": "d9f3f5e3279704fa46ed088834989bca75960da2d95dac4509493141c5003700"
+    },
+    {
+      "id": "progress-circle/value.medium.value-0/normal/dark",
+      "component": "progress-circle",
+      "group": "value",
+      "params": {
+        "size": "medium",
+        "value": 0
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        52.0,
+        36.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        16.0,
+        16.0
+      ],
+      "png": "png/progress-circle/value.medium.value-0/normal/dark.png",
+      "scene": "scenes/progress-circle/value.medium.value-0/normal/dark.json",
+      "png_sha256": "87cd9fc236f48911f417f418190322c7df21bc075fa421ae79413a5a5c31f2ea"
+    },
+    {
+      "id": "progress-circle/value.medium.value-0/normal/light",
+      "component": "progress-circle",
+      "group": "value",
+      "params": {
+        "size": "medium",
+        "value": 0
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        52.0,
+        36.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        16.0,
+        16.0
+      ],
+      "png": "png/progress-circle/value.medium.value-0/normal/light.png",
+      "scene": "scenes/progress-circle/value.medium.value-0/normal/light.json",
+      "png_sha256": "cf1250ed7b679339c0cdeb5aa83550db9fb56e3b1881e7800f319492c709a222"
+    },
+    {
+      "id": "progress-circle/value.medium.value-100/normal/dark",
+      "component": "progress-circle",
+      "group": "value",
+      "params": {
+        "size": "medium",
+        "value": 100
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        52.0,
+        36.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        16.0,
+        16.0
+      ],
+      "png": "png/progress-circle/value.medium.value-100/normal/dark.png",
+      "scene": "scenes/progress-circle/value.medium.value-100/normal/dark.json",
+      "png_sha256": "24c310228948686b2b2bde6ab064e655978f508208a58d5a36e619b86a4f0398"
+    },
+    {
+      "id": "progress-circle/value.medium.value-100/normal/light",
+      "component": "progress-circle",
+      "group": "value",
+      "params": {
+        "size": "medium",
+        "value": 100
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        52.0,
+        36.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        16.0,
+        16.0
+      ],
+      "png": "png/progress-circle/value.medium.value-100/normal/light.png",
+      "scene": "scenes/progress-circle/value.medium.value-100/normal/light.json",
+      "png_sha256": "df92479c34ca4e0204f111c11dbfe5222d3ece150ef632aea063fdcb949d5574"
+    },
+    {
+      "id": "progress-circle/value.medium.value-25/normal/dark",
+      "component": "progress-circle",
+      "group": "value",
+      "params": {
+        "size": "medium",
+        "value": 25
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        52.0,
+        36.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        16.0,
+        16.0
+      ],
+      "png": "png/progress-circle/value.medium.value-25/normal/dark.png",
+      "scene": "scenes/progress-circle/value.medium.value-25/normal/dark.json",
+      "png_sha256": "80295a68e4ceb6fed3e156d0e0c9006a6bbb6e8eb6b06b96c141bd8dc0c8cd8a"
+    },
+    {
+      "id": "progress-circle/value.medium.value-25/normal/light",
+      "component": "progress-circle",
+      "group": "value",
+      "params": {
+        "size": "medium",
+        "value": 25
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        52.0,
+        36.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        16.0,
+        16.0
+      ],
+      "png": "png/progress-circle/value.medium.value-25/normal/light.png",
+      "scene": "scenes/progress-circle/value.medium.value-25/normal/light.json",
+      "png_sha256": "2829386c0d45e8f4f207136b0aaad532bf00d69c2e08ffe25eed5d6364f38733"
+    },
+    {
+      "id": "progress-circle/value.medium.value-50/normal/dark",
+      "component": "progress-circle",
+      "group": "value",
+      "params": {
+        "size": "medium",
+        "value": 50
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        52.0,
+        36.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        16.0,
+        16.0
+      ],
+      "png": "png/progress-circle/value.medium.value-50/normal/dark.png",
+      "scene": "scenes/progress-circle/value.medium.value-50/normal/dark.json",
+      "png_sha256": "3e521273d5b2b769aa5a9cc5034f91a2eb3fe892e747b3a1d08a9008817421e2"
+    },
+    {
+      "id": "progress-circle/value.medium.value-50/normal/light",
+      "component": "progress-circle",
+      "group": "value",
+      "params": {
+        "size": "medium",
+        "value": 50
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        52.0,
+        36.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        16.0,
+        16.0
+      ],
+      "png": "png/progress-circle/value.medium.value-50/normal/light.png",
+      "scene": "scenes/progress-circle/value.medium.value-50/normal/light.json",
+      "png_sha256": "acba074514615a209449561dcc18cce659640214c0b078f7fba46de52fa0b582"
+    },
+    {
+      "id": "progress-circle/value.medium.value-75/normal/dark",
+      "component": "progress-circle",
+      "group": "value",
+      "params": {
+        "size": "medium",
+        "value": 75
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        52.0,
+        36.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        16.0,
+        16.0
+      ],
+      "png": "png/progress-circle/value.medium.value-75/normal/dark.png",
+      "scene": "scenes/progress-circle/value.medium.value-75/normal/dark.json",
+      "png_sha256": "16a938a90c5f34f2bbef313d22c0f90aad6136ca16fcf5944ebf5b64e49bf9cb"
+    },
+    {
+      "id": "progress-circle/value.medium.value-75/normal/light",
+      "component": "progress-circle",
+      "group": "value",
+      "params": {
+        "size": "medium",
+        "value": 75
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        52.0,
+        36.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        16.0,
+        16.0
+      ],
+      "png": "png/progress-circle/value.medium.value-75/normal/light.png",
+      "scene": "scenes/progress-circle/value.medium.value-75/normal/light.json",
+      "png_sha256": "a5f708f50b2b014f157d35a4cbd84526d6978724d8942b49523e347f87adff8b"
+    },
+    {
+      "id": "progress-circle/value.small.value-0/normal/dark",
+      "component": "progress-circle",
+      "group": "value",
+      "params": {
+        "size": "small",
+        "value": 0
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        52.0,
+        36.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        12.0,
+        12.0
+      ],
+      "png": "png/progress-circle/value.small.value-0/normal/dark.png",
+      "scene": "scenes/progress-circle/value.small.value-0/normal/dark.json",
+      "png_sha256": "51a8194d544f721b3ca29983316850046077bb69b2c9d1d3765e14ed3e634040"
+    },
+    {
+      "id": "progress-circle/value.small.value-0/normal/light",
+      "component": "progress-circle",
+      "group": "value",
+      "params": {
+        "size": "small",
+        "value": 0
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        52.0,
+        36.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        12.0,
+        12.0
+      ],
+      "png": "png/progress-circle/value.small.value-0/normal/light.png",
+      "scene": "scenes/progress-circle/value.small.value-0/normal/light.json",
+      "png_sha256": "62809f5438ac9a94092060cd7a5ace5b6ca4585bac07b2e763a1d8fe5bc0e663"
+    },
+    {
+      "id": "progress-circle/value.small.value-100/normal/dark",
+      "component": "progress-circle",
+      "group": "value",
+      "params": {
+        "size": "small",
+        "value": 100
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        52.0,
+        36.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        12.0,
+        12.0
+      ],
+      "png": "png/progress-circle/value.small.value-100/normal/dark.png",
+      "scene": "scenes/progress-circle/value.small.value-100/normal/dark.json",
+      "png_sha256": "1ee2a069fec3a2b952315786e6a8b1bbf9cb5a989e8c6b496a500483d2b8c712"
+    },
+    {
+      "id": "progress-circle/value.small.value-100/normal/light",
+      "component": "progress-circle",
+      "group": "value",
+      "params": {
+        "size": "small",
+        "value": 100
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        52.0,
+        36.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        12.0,
+        12.0
+      ],
+      "png": "png/progress-circle/value.small.value-100/normal/light.png",
+      "scene": "scenes/progress-circle/value.small.value-100/normal/light.json",
+      "png_sha256": "a2d11143837ddf15fbe4f860c5d3c4c967aafff21cd0b01bb8d9173701a223cd"
+    },
+    {
+      "id": "progress-circle/value.small.value-25/normal/dark",
+      "component": "progress-circle",
+      "group": "value",
+      "params": {
+        "size": "small",
+        "value": 25
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        52.0,
+        36.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        12.0,
+        12.0
+      ],
+      "png": "png/progress-circle/value.small.value-25/normal/dark.png",
+      "scene": "scenes/progress-circle/value.small.value-25/normal/dark.json",
+      "png_sha256": "4042b3e5ae08f0f76a706ca5b341bcd0e16e57bc27bdff5283a3df1fe4f55ea6"
+    },
+    {
+      "id": "progress-circle/value.small.value-25/normal/light",
+      "component": "progress-circle",
+      "group": "value",
+      "params": {
+        "size": "small",
+        "value": 25
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        52.0,
+        36.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        12.0,
+        12.0
+      ],
+      "png": "png/progress-circle/value.small.value-25/normal/light.png",
+      "scene": "scenes/progress-circle/value.small.value-25/normal/light.json",
+      "png_sha256": "ac074ec65d8ddcbbe0859bfa83870c55c01b012a0a3ae1948e03362d2f4558e2"
+    },
+    {
+      "id": "progress-circle/value.small.value-50/normal/dark",
+      "component": "progress-circle",
+      "group": "value",
+      "params": {
+        "size": "small",
+        "value": 50
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        52.0,
+        36.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        12.0,
+        12.0
+      ],
+      "png": "png/progress-circle/value.small.value-50/normal/dark.png",
+      "scene": "scenes/progress-circle/value.small.value-50/normal/dark.json",
+      "png_sha256": "3f980c665a1905d6b458ed8587a2110d5735c2f96b6f9e582a2b3daaff8e1ef8"
+    },
+    {
+      "id": "progress-circle/value.small.value-50/normal/light",
+      "component": "progress-circle",
+      "group": "value",
+      "params": {
+        "size": "small",
+        "value": 50
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        52.0,
+        36.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        12.0,
+        12.0
+      ],
+      "png": "png/progress-circle/value.small.value-50/normal/light.png",
+      "scene": "scenes/progress-circle/value.small.value-50/normal/light.json",
+      "png_sha256": "cc905d9e9d3dae8134ec1335eccd7b10a1edf349af9a3f01d650a75c9caf5206"
+    },
+    {
+      "id": "progress-circle/value.small.value-75/normal/dark",
+      "component": "progress-circle",
+      "group": "value",
+      "params": {
+        "size": "small",
+        "value": 75
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        52.0,
+        36.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        12.0,
+        12.0
+      ],
+      "png": "png/progress-circle/value.small.value-75/normal/dark.png",
+      "scene": "scenes/progress-circle/value.small.value-75/normal/dark.json",
+      "png_sha256": "dc9b20633cc727b084795850bf5a83a17069eae3cc6b0e83ce84cbf1199a3f07"
+    },
+    {
+      "id": "progress-circle/value.small.value-75/normal/light",
+      "component": "progress-circle",
+      "group": "value",
+      "params": {
+        "size": "small",
+        "value": 75
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        52.0,
+        36.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        12.0,
+        12.0
+      ],
+      "png": "png/progress-circle/value.small.value-75/normal/light.png",
+      "scene": "scenes/progress-circle/value.small.value-75/normal/light.json",
+      "png_sha256": "7daf18933c99d1abb619cf666bb1aa16483ce9cdd5be5c41a595a56c8db58a66"
+    },
+    {
+      "id": "progress-circle/value.xsmall.value-0/normal/dark",
+      "component": "progress-circle",
+      "group": "value",
+      "params": {
+        "size": "xsmall",
+        "value": 0
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        52.0,
+        36.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        8.0,
+        8.0
+      ],
+      "png": "png/progress-circle/value.xsmall.value-0/normal/dark.png",
+      "scene": "scenes/progress-circle/value.xsmall.value-0/normal/dark.json",
+      "png_sha256": "3e2b6c29bc3eeab5b9ef2837ebfb58d1587cec55c95658a6fc03d8383294fe61"
+    },
+    {
+      "id": "progress-circle/value.xsmall.value-0/normal/light",
+      "component": "progress-circle",
+      "group": "value",
+      "params": {
+        "size": "xsmall",
+        "value": 0
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        52.0,
+        36.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        8.0,
+        8.0
+      ],
+      "png": "png/progress-circle/value.xsmall.value-0/normal/light.png",
+      "scene": "scenes/progress-circle/value.xsmall.value-0/normal/light.json",
+      "png_sha256": "3e34fe3d70ae080c410b118eaf6d71d628f3ca3bd5ad3d6eb84344bc84a173fb"
+    },
+    {
+      "id": "progress-circle/value.xsmall.value-100/normal/dark",
+      "component": "progress-circle",
+      "group": "value",
+      "params": {
+        "size": "xsmall",
+        "value": 100
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        52.0,
+        36.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        8.0,
+        8.0
+      ],
+      "png": "png/progress-circle/value.xsmall.value-100/normal/dark.png",
+      "scene": "scenes/progress-circle/value.xsmall.value-100/normal/dark.json",
+      "png_sha256": "d652af51757f971bb9c1475bfbec8716f83db5854aed705efbdd7b1db23c85a9"
+    },
+    {
+      "id": "progress-circle/value.xsmall.value-100/normal/light",
+      "component": "progress-circle",
+      "group": "value",
+      "params": {
+        "size": "xsmall",
+        "value": 100
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        52.0,
+        36.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        8.0,
+        8.0
+      ],
+      "png": "png/progress-circle/value.xsmall.value-100/normal/light.png",
+      "scene": "scenes/progress-circle/value.xsmall.value-100/normal/light.json",
+      "png_sha256": "36aa6ebcdfab5c62e372e2b760f751b894434e9b47ccfb7a0e96aa596206b015"
+    },
+    {
+      "id": "progress-circle/value.xsmall.value-25/normal/dark",
+      "component": "progress-circle",
+      "group": "value",
+      "params": {
+        "size": "xsmall",
+        "value": 25
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        52.0,
+        36.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        8.0,
+        8.0
+      ],
+      "png": "png/progress-circle/value.xsmall.value-25/normal/dark.png",
+      "scene": "scenes/progress-circle/value.xsmall.value-25/normal/dark.json",
+      "png_sha256": "e90be22bd91b9996b50f1a7bf2c6f699765b9e2ef3af500ae1dc5e48c1e5e340"
+    },
+    {
+      "id": "progress-circle/value.xsmall.value-25/normal/light",
+      "component": "progress-circle",
+      "group": "value",
+      "params": {
+        "size": "xsmall",
+        "value": 25
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        52.0,
+        36.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        8.0,
+        8.0
+      ],
+      "png": "png/progress-circle/value.xsmall.value-25/normal/light.png",
+      "scene": "scenes/progress-circle/value.xsmall.value-25/normal/light.json",
+      "png_sha256": "ee146f47f302cba791386a0f941894df194883d4cc9bf2ee41a5baa04bef669f"
+    },
+    {
+      "id": "progress-circle/value.xsmall.value-50/normal/dark",
+      "component": "progress-circle",
+      "group": "value",
+      "params": {
+        "size": "xsmall",
+        "value": 50
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        52.0,
+        36.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        8.0,
+        8.0
+      ],
+      "png": "png/progress-circle/value.xsmall.value-50/normal/dark.png",
+      "scene": "scenes/progress-circle/value.xsmall.value-50/normal/dark.json",
+      "png_sha256": "41be545c2532d17d38f1a1bb209c38b5c58bc30d4d3ac2a536dfafe119a5085e"
+    },
+    {
+      "id": "progress-circle/value.xsmall.value-50/normal/light",
+      "component": "progress-circle",
+      "group": "value",
+      "params": {
+        "size": "xsmall",
+        "value": 50
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        52.0,
+        36.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        8.0,
+        8.0
+      ],
+      "png": "png/progress-circle/value.xsmall.value-50/normal/light.png",
+      "scene": "scenes/progress-circle/value.xsmall.value-50/normal/light.json",
+      "png_sha256": "7126bfb180049f95056e2e5249cc11d11b60d19bc5664d47a9a204369662a289"
+    },
+    {
+      "id": "progress-circle/value.xsmall.value-75/normal/dark",
+      "component": "progress-circle",
+      "group": "value",
+      "params": {
+        "size": "xsmall",
+        "value": 75
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        52.0,
+        36.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        8.0,
+        8.0
+      ],
+      "png": "png/progress-circle/value.xsmall.value-75/normal/dark.png",
+      "scene": "scenes/progress-circle/value.xsmall.value-75/normal/dark.json",
+      "png_sha256": "20b8b399926ff1b7d3ee41873442c05b58b0331fa31124bee1ce4ba38e6f5560"
+    },
+    {
+      "id": "progress-circle/value.xsmall.value-75/normal/light",
+      "component": "progress-circle",
+      "group": "value",
+      "params": {
+        "size": "xsmall",
+        "value": 75
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        52.0,
+        36.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        8.0,
+        8.0
+      ],
+      "png": "png/progress-circle/value.xsmall.value-75/normal/light.png",
+      "scene": "scenes/progress-circle/value.xsmall.value-75/normal/light.json",
+      "png_sha256": "048bd7dc4b9a4933c2b0516a99f123399507641632f54276478ecc1880db7e4a"
+    },
+    {
       "id": "progress/motion.loading/wait-0ms/light",
       "component": "progress",
       "group": "motion.loading",

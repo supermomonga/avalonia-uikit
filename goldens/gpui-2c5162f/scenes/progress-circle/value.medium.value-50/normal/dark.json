@@ -1,0 +1,147 @@
+{
+  "quads": [
+    {
+      "order": 1,
+      "bounds": [
+        0.0,
+        0.0,
+        52.0,
+        36.0
+      ],
+      "clip": [
+        0.0,
+        0.0,
+        52.0,
+        36.0
+      ],
+      "background": {
+        "kind": "solid",
+        "rgba": [
+          0.039,
+          0.039,
+          0.039,
+          1.0
+        ]
+      },
+      "border_color": [
+        0.039,
+        0.039,
+        0.039,
+        0.0
+      ],
+      "border_widths": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "corner_radii": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "border_style": "Solid"
+    },
+    {
+      "order": 2,
+      "bounds": [
+        0.0,
+        0.0,
+        52.0,
+        36.0
+      ],
+      "clip": [
+        0.0,
+        0.0,
+        52.0,
+        36.0
+      ],
+      "background": {
+        "kind": "solid",
+        "rgba": [
+          0.039,
+          0.039,
+          0.039,
+          1.0
+        ]
+      },
+      "border_color": [
+        0.039,
+        0.039,
+        0.039,
+        0.0
+      ],
+      "border_widths": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "corner_radii": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "border_style": "Solid"
+    }
+  ],
+  "shadows": [],
+  "underlines": [],
+  "mono_sprites": [],
+  "subpixel_sprites": [],
+  "poly_sprites": [],
+  "paths": [
+    {
+      "order": 3,
+      "bounds": [
+        16.0,
+        8.0,
+        16.0,
+        16.0
+      ],
+      "clip": [
+        0.0,
+        0.0,
+        52.0,
+        36.0
+      ],
+      "color": {
+        "kind": "solid",
+        "rgba": [
+          0.98,
+          0.98,
+          0.98,
+          0.2
+        ]
+      },
+      "vertices": 144
+    },
+    {
+      "order": 4,
+      "bounds": [
+        24.000399,
+        8.0,
+        7.999998,
+        16.0
+      ],
+      "clip": [
+        0.0,
+        0.0,
+        52.0,
+        36.0
+      ],
+      "color": {
+        "kind": "solid",
+        "rgba": [
+          0.98,
+          0.98,
+          0.98,
+          1.0
+        ]
+      },
+      "vertices": 72
+    }
+  ]
+}

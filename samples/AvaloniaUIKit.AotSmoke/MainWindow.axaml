@@ -71,6 +71,10 @@
           <ProgressBar Value="40" Width="240" />
           <ProgressBar IsIndeterminate="True" Width="240" />
           <ProgressBar Theme="{StaticResource GpuiSpinner}" Classes="large" />
+          <StackPanel Orientation="Horizontal" Spacing="12">
+            <ProgressBar Theme="{StaticResource GpuiProgressCircle}" Value="60" />
+            <ProgressBar Theme="{StaticResource GpuiProgressCircle}" Classes="large" IsIndeterminate="True" />
+          </StackPanel>
         </StackPanel>
 
                 <TextBlock Text="ButtonGroup, ToggleGroup, Icon, Label" Foreground="{DynamicResource Gpui.MutedForeground}" />

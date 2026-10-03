@@ -39,6 +39,7 @@ public static class Adapters
         "separator" => Separator(c),
         "link" => new HyperlinkButton { Content = c.Str("label", "Documentation") },
         "progress" => Progress(c),
+        "progress-circle" => ProgressCircle(c),
         "spinner" => Spinner(c),
         "tooltip" => Tooltip(c),
         "scroll" => Scroll(c),
@@ -478,6 +479,26 @@ public static class Adapters
         };
         ClassFrom(progress, c, "size", "medium");
         // The case's click switches the value, as the GPUI case's wrapper does.
+        progress.PointerReleased += (_, _) => progress.Value = progress.Value == value ? valueTo : value;
+        return progress;
+    }
+
+    private static ProgressBar ProgressCircle(GoldenCase c)
+    {
+        var value = c.Num("value", 40);
+        var valueTo = c.Num("value_to", value);
+        var progress = new ProgressBar
+        {
+            Theme = (ControlTheme)Avalonia.Application.Current!.FindResource("GpuiProgressCircle")!,
+            Value = value,
+            IsIndeterminate = c.Bool("loading"),
+        };
+        ClassFrom(progress, c, "size", "medium");
+        if (c.Num("side", 0) is > 0 and var side)
+        {
+            progress.Width = side;
+            progress.Height = side;
+        }
         progress.PointerReleased += (_, _) => progress.Value = progress.Value == value ? valueTo : value;
         return progress;
     }

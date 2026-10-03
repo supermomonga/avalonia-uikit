@@ -323,17 +323,20 @@ public static class StructuralComparison
     private static bool Near(double a, double b, double tolerance) => Math.Abs(a - b) <= tolerance;
 
     /// <summary>
-    /// The colors of text and icons: GPUI's glyph and icon sprites against the
-    /// foregrounds of Avalonia's text blocks and the brushes of its shapes.
+    /// The colors of text, icons and paths: GPUI's glyph and icon sprites and its
+    /// paths against the foregrounds of Avalonia's text blocks and selections and
+    /// the brushes of its shapes.
     /// </summary>
     public static List<string> CompareInk(GoldenScene scene, Visual root)
     {
         var expected = Distinct(scene.Sprites.Where(s => !s.Color.IsTransparent).Select(s => s.Color)
-            .Concat(scene.Underlines.Where(u => !u.Color.IsTransparent).Select(u => u.Color)));
+            .Concat(scene.Underlines.Where(u => !u.Color.IsTransparent).Select(u => u.Color))
+            .Concat(scene.PathColors.Where(c => !c.IsTransparent)));
         var actual = new List<Rgba>();
         foreach (var visual in root.GetSelfAndVisualDescendants())
         {
-            if (!visual.IsEffectivelyVisible || visual.Bounds.Width <= 0 || visual.Bounds.Height <= 0)
+            // A shape of no width or height still strokes a line (a dashed separator).
+            if (!visual.IsEffectivelyVisible || (visual is not Shape && (visual.Bounds.Width <= 0 || visual.Bounds.Height <= 0)))
             {
                 continue;
             }
@@ -358,8 +361,14 @@ public static class StructuralComparison
                     break;
                 case TextPresenter p when !string.IsNullOrEmpty(p.Text) && Solid(p.Foreground, opacity) is { } c:
                     actual.Add(c);
+                    // GPUI paints a selection as a path.
+                    if (p.SelectionStart != p.SelectionEnd && Solid(p.SelectionBrush, opacity) is { } selection)
+                    {
+                        actual.Add(selection);
+                    }
                     break;
-                case Shape shape:
+                // A shape whose geometry is empty (an arc of no sweep) paints nothing.
+                case Shape shape when shape.RenderedGeometry is { Bounds: var g } && g.Width + g.Height > 0:
                     if (Solid(shape.Stroke, opacity) is { } stroke && shape.StrokeThickness > 0)
                     {
                         actual.Add(stroke);

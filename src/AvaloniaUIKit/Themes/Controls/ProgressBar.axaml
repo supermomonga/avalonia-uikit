@@ -17,7 +17,8 @@
 -->
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:gpui="using:AvaloniaUIKit">
+                    xmlns:gpui="using:AvaloniaUIKit"
+                    xmlns:gconv="using:AvaloniaUIKit.Converters">
   <ControlTheme x:Key="{x:Type ProgressBar}" TargetType="ProgressBar">
     <Setter Property="Foreground" Value="{DynamicResource Gpui.ProgressBar}" />
     <Setter Property="Background" Value="{DynamicResource Gpui.Progress.Track}" />
@@ -159,6 +160,87 @@
           <KeyFrame Cue="100%">
             <Setter Property="RotateTransform.Angle" Value="360" />
           </KeyFrame>
+        </Animation>
+      </Style.Animations>
+    </Style>
+  </ControlTheme>
+
+  <!--
+    GPUI Kit ProgressCircle -> ProgressBar with Theme="{StaticResource GpuiProgressCircle}"
+    (crates/component/src/progress/progress_circle.rs).
+    Classes: xsmall small large (medium is the default); any other Width/Height works.
+
+    A ring in the progress color at 20%, and over it the value's arc clockwise from
+    12 o'clock with flat ends, both touching the box's edge; the stroke is 15% of
+    the width, at most 5px. A value change sweeps the arc over 180ms (easing_move).
+    Indeterminate, a 1s cycle: at phase d the arc spans [e(max(0, 2d - 1)), e(d)]
+    of a turn, e the quadratic ease-in-out, keyframed exactly by quadratic splines.
+  -->
+  <gconv:AffineConverter x:Key="Gpui.ProgressCircle.Degrees" Scale="3.6" />
+  <gconv:AffineConverter x:Key="Gpui.ProgressCircle.Stroke" Scale="0.15" Maximum="5" />
+  <ControlTheme x:Key="GpuiProgressCircle" TargetType="ProgressBar">
+    <Setter Property="Foreground" Value="{DynamicResource Gpui.ProgressBar}" />
+    <Setter Property="Background" Value="{DynamicResource Gpui.Progress.Track}" />
+    <Setter Property="Width" Value="16" />
+    <Setter Property="Height" Value="16" />
+    <Setter Property="MinWidth" Value="0" />
+    <Setter Property="MinHeight" Value="0" />
+    <Setter Property="HorizontalAlignment" Value="Left" />
+    <Setter Property="VerticalAlignment" Value="Top" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <!-- The whole box takes the pointer, not only the ring. -->
+        <Panel Background="Transparent">
+          <Border Name="PART_Indicator" IsVisible="False" />
+          <Ellipse Name="PART_Ring" Stroke="{TemplateBinding Background}"
+                   StrokeThickness="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource Gpui.ProgressCircle.Stroke}}" />
+          <Arc Name="PART_Arc" Stroke="{TemplateBinding Foreground}" StartAngle="-90"
+               StrokeThickness="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource Gpui.ProgressCircle.Stroke}}"
+               SweepAngle="{Binding Percentage, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource Gpui.ProgressCircle.Degrees}}">
+            <!-- Value changes sweep; the angle the arc first settles into does not. -->
+            <gpui:Motion.SettledTransitions>
+              <Transitions>
+                <DoubleTransition Property="SweepAngle" Duration="0:0:0.18" Easing="0.2,0,0,1" />
+              </Transitions>
+            </gpui:Motion.SettledTransitions>
+          </Arc>
+          <Arc Name="PART_IndeterminateArc" Stroke="{TemplateBinding Foreground}" IsVisible="False"
+               StrokeThickness="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource Gpui.ProgressCircle.Stroke}}" />
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^.xsmall">
+      <Setter Property="Width" Value="8" />
+      <Setter Property="Height" Value="8" />
+    </Style>
+    <Style Selector="^.small">
+      <Setter Property="Width" Value="12" />
+      <Setter Property="Height" Value="12" />
+    </Style>
+    <Style Selector="^.large">
+      <Setter Property="Width" Value="20" />
+      <Setter Property="Height" Value="20" />
+    </Style>
+    <Style Selector="^:indeterminate /template/ Arc#PART_Arc">
+      <Setter Property="IsVisible" Value="False" />
+    </Style>
+    <Style Selector="^:indeterminate /template/ Arc#PART_IndeterminateArc">
+      <Setter Property="IsVisible" Value="True" />
+      <Style.Animations>
+        <!-- start / 360 = 0, then 2(2d - 1)^2, then 1 - 8(1 - d)^2; offset by a quarter turn. -->
+        <Animation Duration="0:0:1" IterationCount="Infinite">
+          <KeyFrame Cue="0%"><Setter Property="StartAngle" Value="-90" /></KeyFrame>
+          <KeyFrame Cue="50%"><Setter Property="StartAngle" Value="-90" /></KeyFrame>
+          <KeyFrame Cue="75%" KeySpline="0.333333,0,0.666667,0.333333"><Setter Property="StartAngle" Value="90" /></KeyFrame>
+          <KeyFrame Cue="100%" KeySpline="0.333333,0.666667,0.666667,1"><Setter Property="StartAngle" Value="270" /></KeyFrame>
+        </Animation>
+        <!-- sweep / 360 = 2d^2, then -3 + 12d - 10d^2 (its peak at 0.6), then 6(1 - d)^2. -->
+        <Animation Duration="0:0:1" IterationCount="Infinite">
+          <KeyFrame Cue="0%"><Setter Property="SweepAngle" Value="0" /></KeyFrame>
+          <KeyFrame Cue="50%" KeySpline="0.333333,0,0.666667,0.333333"><Setter Property="SweepAngle" Value="180" /></KeyFrame>
+          <KeyFrame Cue="60%" KeySpline="0.333333,0.666667,0.666667,1"><Setter Property="SweepAngle" Value="216" /></KeyFrame>
+          <KeyFrame Cue="75%" KeySpline="0.333333,0,0.666667,0.333333"><Setter Property="SweepAngle" Value="135" /></KeyFrame>
+          <KeyFrame Cue="100%" KeySpline="0.333333,0.666667,0.666667,1"><Setter Property="SweepAngle" Value="0" /></KeyFrame>
         </Animation>
       </Style.Animations>
     </Style>

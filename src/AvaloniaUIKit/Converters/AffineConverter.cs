@@ -5,9 +5,10 @@ using Avalonia.Data.Converters;
 namespace AvaloniaUIKit.Converters;
 
 /// <summary>
-/// A number times <see cref="Scale"/> plus <see cref="Offset"/>, as a double,
-/// a uniform Thickness or a uniform CornerRadius (the target's type): a spring's
-/// progress as a ring's width, inset and corner radius.
+/// A number times <see cref="Scale"/> plus <see cref="Offset"/>, at most
+/// <see cref="Maximum"/>, as a double, a uniform Thickness or a uniform
+/// CornerRadius (the target's type): a spring's progress as a ring's width,
+/// inset and corner radius, or a percentage as degrees.
 /// </summary>
 public sealed class AffineConverter : IValueConverter
 {
@@ -17,6 +18,9 @@ public sealed class AffineConverter : IValueConverter
     /// <summary>What is added after scaling.</summary>
     public double Offset { get; set; }
 
+    /// <summary>The largest result.</summary>
+    public double Maximum { get; set; } = double.PositiveInfinity;
+
     /// <inheritdoc />
     public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
@@ -24,7 +28,7 @@ public sealed class AffineConverter : IValueConverter
         {
             return Avalonia.Data.BindingOperations.DoNothing;
         }
-        var y = x * Scale + Offset;
+        var y = Math.Min(x * Scale + Offset, Maximum);
         if (targetType == typeof(Thickness))
         {
             return new Thickness(y);

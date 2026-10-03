@@ -51,6 +51,7 @@ pub fn builder(case: &Case) -> Result<Builder> {
         "separator" => display::separator(&params),
         "link" => display::link(&params),
         "progress" => progress::progress(&params),
+        "progress-circle" => progress::circle(&params),
         "spinner" => progress::spinner(&params),
         "tooltip" => button::tooltip(&params),
         "scroll" => scroll::builder(&params),

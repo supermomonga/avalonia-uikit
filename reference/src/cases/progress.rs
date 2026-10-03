@@ -8,7 +8,11 @@ use anyhow::Result;
 use gpui_kit::{
     InteractiveElement as _, IntoElement as _, ParentElement as _, StatefulInteractiveElement as _,
     Styled as _, div, px,
-    component::{Sizable as _, progress::Progress, spinner::Spinner},
+    component::{
+        Sizable as _,
+        progress::{Progress, ProgressCircle},
+        spinner::Spinner,
+    },
 };
 use std::rc::Rc;
 
@@ -35,6 +39,31 @@ pub fn progress(params: &Params) -> Result<Builder> {
                     .value(current)
                     .loading(loading),
             )
+            .into_any_element()
+    }))
+}
+
+/// A progress circle; a click switches the value between `value` and `value_to`.
+/// `side` > 0 gives the circle a styled box (`size_20` is 80).
+pub fn circle(params: &Params) -> Result<Builder> {
+    let size = size(params);
+    let value = param_f32(params, "value", 40.);
+    let value_to = param_f32(params, "value_to", value);
+    let loading = param_bool(params, "loading");
+    let side = param_f32(params, "side", 0.);
+    Ok(Rc::new(move |view, _, cx| {
+        let current = if view.state.toggled { value_to } else { value };
+        let mut circle = ProgressCircle::new("case").with_size(size).value(current).loading(loading);
+        if side > 0. {
+            circle = circle.size(px(side));
+        }
+        div()
+            .id("case-box")
+            .on_click(cx.listener(|view, _, _, cx| {
+                view.state.toggled = !view.state.toggled;
+                cx.notify();
+            }))
+            .child(circle)
             .into_any_element()
     }))
 }
