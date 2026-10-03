@@ -5,7 +5,7 @@ using Avalonia.Headless;
 using Avalonia.Input;
 using Avalonia.VisualTree;
 using AvaloniaUIKit.Tests.Golden;
-using AvaloniaUIKit.Tests.Motion;
+using AvaloniaUIKit.Tests.Infrastructure;
 using AvaloniaUIKit.Tests.Rendering;
 
 namespace AvaloniaUIKit.Tests.Behavior;
@@ -27,9 +27,9 @@ public class BehaviorTests
         var golden = Case("tooltip/text.base/hover+wait-800ms/light");
         using var host = CaseHost.Open(golden, Adapters.Create(golden));
         host.Drive(golden, "hover");
-        CaseHost.Pump(TimeSpan.FromMilliseconds(400));
+        VirtualTime.Advance(TimeSpan.FromMilliseconds(499));
         await Assert.That(ToolTip.GetIsOpen(host.Control)).IsFalse();
-        CaseHost.Pump(TimeSpan.FromMilliseconds(250));
+        VirtualTime.Advance(TimeSpan.FromMilliseconds(1));
         await Assert.That(ToolTip.GetIsOpen(host.Control)).IsTrue();
     }
 
@@ -93,21 +93,5 @@ public class BehaviorTests
         host.Window.KeyReleaseQwerty(PhysicalKey.ArrowDown, RawInputModifiers.None);
         host.Flush();
         await Assert.That(items.Count(Lit)).IsEqualTo(1);
-    }
-
-    [Test]
-    public async Task A_hover_mode_scrollbar_hides_two_seconds_after_the_pointer_leaves()
-    {
-        var golden = Case("scroll/hover.base/normal/light");
-        using var host = CaseHost.Open(golden, Adapters.Create(golden), freezeMotion: false);
-        host.Drive(golden, "at-164-90");
-        CaseHost.Pump(TimeSpan.FromMilliseconds(400));
-        var root = MotionProbes.Part<Border>(host.Window, "PART_Root");
-        await Assert.That(root.Opacity).IsEqualTo(1);
-        host.Drive(golden, "at-60-50");
-        CaseHost.Pump(TimeSpan.FromMilliseconds(1500));
-        await Assert.That(root.Opacity).IsEqualTo(1);
-        CaseHost.Pump(TimeSpan.FromMilliseconds(1200));
-        await Assert.That(root.Opacity).IsEqualTo(0);
     }
 }

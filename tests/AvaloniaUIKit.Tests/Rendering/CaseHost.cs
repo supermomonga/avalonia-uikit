@@ -9,6 +9,7 @@ using Avalonia.Styling;
 using Avalonia.Threading;
 using Avalonia.VisualTree;
 using AvaloniaUIKit.Tests.Golden;
+using AvaloniaUIKit.Tests.Infrastructure;
 
 namespace AvaloniaUIKit.Tests.Rendering;
 
@@ -30,12 +31,8 @@ public sealed class CaseHost : IDisposable
     public Window Window { get; }
     public Control Control { get; }
 
-    public static CaseHost Open(GoldenCase golden, Control control, bool freezeMotion = true)
+    public static CaseHost Open(GoldenCase golden, Control control)
     {
-        if (freezeMotion)
-        {
-            ThemeMotion.StripAnimations();
-        }
         var canvas = new Canvas();
         Canvas.SetLeft(control, golden.Anchor.X);
         Canvas.SetTop(control, golden.Anchor.Y);
@@ -50,48 +47,22 @@ public sealed class CaseHost : IDisposable
         };
         TextOptions.SetTextRenderingMode(window, TextRenderingMode.Antialias);
         TextOptions.SetTextHintingMode(window, TextHintingMode.None);
+        VirtualTime.Attach(window);
         window.Show();
         window.SetRenderScaling(Scale);
         var host = new CaseHost(window, control);
-        if (freezeMotion)
-        {
-            host.FreezeMotion();
-        }
         host.Flush();
         return host;
     }
 
-    /// <summary>Removes every transition so a state change shows its end state at once.</summary>
-    public void FreezeMotion()
-    {
-        Flush();
-        foreach (var visual in Window.GetSelfAndVisualDescendants().OfType<Animatable>())
-        {
-            visual.Transitions = null;
-            if (visual is ToggleSwitch toggle)
-            {
-                toggle.KnobTransitions = new Transitions();
-            }
-        }
-    }
+    /// <summary>The template part named <paramref name="name"/>, anywhere in the window.</summary>
+    public T Part<T>(string name) where T : Control =>
+        Window.GetVisualDescendants().OfType<T>().First(c => c.Name == name);
 
-    /// <summary>Runs the dispatcher loop, timers included, for <paramref name="duration"/> of real time.</summary>
-    public static void Pump(TimeSpan duration)
-    {
-        if (duration <= TimeSpan.Zero)
-        {
-            return;
-        }
-        var frame = new DispatcherFrame();
-        var timer = new DispatcherTimer(duration, DispatcherPriority.Send, (_, _) => frame.Continue = false);
-        timer.Start();
-        Dispatcher.UIThread.PushFrame(frame);
-        timer.Stop();
-    }
-
+    /// <summary>Runs what is due now (timers, jobs, motions at their current moment) and renders a frame.</summary>
     public void Flush()
     {
-        Dispatcher.UIThread.RunJobs();
+        VirtualTime.Tick();
         AvaloniaHeadlessPlatform.ForceRenderTimerTick();
         Dispatcher.UIThread.RunJobs();
     }
@@ -122,9 +93,8 @@ public sealed class CaseHost : IDisposable
                 case "disabled":
                     break;
                 case var w when w.StartsWith("wait-", StringComparison.Ordinal):
-                    // Real time passes, so timers (a tooltip's show delay) run out.
                     var ms = int.Parse(w["wait-".Length..].Replace("ms", "", StringComparison.Ordinal), System.Globalization.CultureInfo.InvariantCulture);
-                    Pump(TimeSpan.FromMilliseconds(ms));
+                    VirtualTime.Advance(TimeSpan.FromMilliseconds(ms));
                     break;
                 case "hover":
                     Window.MouseMove(at);

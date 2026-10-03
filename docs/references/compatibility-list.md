@@ -12,9 +12,9 @@ GPUI Kit の見た目を、Avalonia の既存コントロールに適用する�
 
 ## 実装状況
 
-2026-10-03 時点。「対応」の全 16 行を `GpuiTheme`（`src/AvaloniaUIKit`）として実装し、GPUI Kit `2c5162f` が描いた参照データと比べて、Light / Dark、各 Variant・サイズ・状態、動きが一致することを自動テストで確かめた。全 1461 件のテストが成功している。検証の方法、許容値、緩和 ID の意味は [テストと一致検証](../testing.md) にまとめた。
+2026-10-03 時点。「対応」の全 16 行を `GpuiTheme`（`src/AvaloniaUIKit`）として実装し、GPUI Kit `2c5162f` が描いた参照データと比べて、Light / Dark、各 Variant・サイズ・状態、動きが一致することを自動テストで確かめた。全 1440 件のテストが成功している。検証の方法、許容値、緩和 ID の意味は [テストと一致検証](../testing.md) にまとめた。
 
-| GPUI Kit | Avalonia | 静止ケース | 動き（曲線・途中フレーム・実時間） | 固有の緩和 | 対象外とした機能 |
+| GPUI Kit | Avalonia | 静止ケース | 動き（フレームごとの比較） | 固有の緩和 | 対象外とした機能 |
 | --- | --- | --- | --- | --- | --- |
 | Button | `Button` | 720 | – | R27 | loading、Custom variant、通常の Button への dropdown_caret、toggled |
 | DropdownButton | `SplitButton` | 150 | – | R12、R28 | Button と同じ |

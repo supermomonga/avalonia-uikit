@@ -10,7 +10,8 @@ namespace AvaloniaUIKit.Tests.Infrastructure;
 
 /// <summary>
 /// Runs every test body on the Avalonia headless UI thread, in a fresh
-/// application instance (per-test isolation).
+/// application instance (per-test isolation) whose time only moves when the
+/// test advances it (<see cref="VirtualTime"/>).
 /// </summary>
 public sealed class AvaloniaHeadlessExecutor : ITestExecutor
 {
@@ -20,6 +21,7 @@ public sealed class AvaloniaHeadlessExecutor : ITestExecutor
     public ValueTask ExecuteTest(TestContext context, Func<ValueTask> action) =>
         new(Session.Value.Dispatch(async () =>
         {
+            VirtualTime.Install();
             await action();
             Dispatcher.UIThread.RunJobs();
             return 0;

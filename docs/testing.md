@@ -31,14 +31,14 @@ GpuiTheme が GPUI Kit と同じ見た目・動きになっていることを、
 
 ## テストの構成
 
-1461 件。macOS arm64 での最新の実行結果は全件成功。
+1440 件。macOS arm64 での最新の実行結果は全件成功し、全体で約 35 秒かかる。テストの時刻はすべて仮想時計で進める（[時刻](#時刻)）。
 
 | テスト | 件数 | 内容 |
 | --- | --- | --- |
 | `*_matches_gpui`（コンポーネント別 18 クラス） | 1398 | 静止状態の全ケース。構造と画素を比較する。 |
-| `MotionTests`（3 種 × 10 動き） | 30 | 動きの (a) 曲線、(b) 途中の静止フレーム、(c) 実時間。 |
+| `MotionTests` | 10 | 動きを GPUI が記録した時刻ごとに描画し、フレームを比較する。 |
 | `TokenTests` | 3 | トークンの完全一致と過不足。 |
-| `BehaviorTests` | 11 | 時間・入力・無効状態の挙動。 |
+| `BehaviorTests` | 10 | 時間・入力・無効状態の挙動。 |
 | `FluentLayeringTests` | 19 | FluentTheme の上に重ねても見た目が変わらないこと。 |
 
 コンポーネント別の静止ケース数:
@@ -104,39 +104,43 @@ GPUI の Scene から各デバイス画素を 4 つの領域に分類し、領�
 
 | ケース | 変更 | 理由 |
 | --- | --- | --- |
-| 不定値 Progress の途中で、バーが角丸より細いフレーム | Flat 64、Edge 128 / 平均 6 | R19 |
-| Tooltip の表示途中（不透明度 < 1） | Flat 13、Ink 平均 24 | R5 |
+| 不定値 Progress の途中で、GPUI のバーが角丸より細いフレーム | Flat 64、Edge 128 / 平均 6 | R19 |
+| Tooltip の表示途中（GPUI の吹き出しの不透明度 < 1） | Flat 13、Ink 平均 24 | R5 |
 
 ### 4. 動き
 
-Avalonia には任意の時刻で描画するための仮想時計がない（R7）。そのため、各動きを 3 つに分けて検証する。GPUI 側は仮想時計で 1 フレームずつ記録する（R15）。
+GPUI 側は仮想時計で 1 フレームずつ記録する（R15）。Avalonia 側も仮想時計で動かす。動きの始まりの状態を作ってトリガーを操作した後、時計を GPUI が記録した各時刻まで進めて描画し、そのフレームを構造と画素で比べる。描くのは Avalonia 自身のアニメーターなので、テーマが宣言した Transition や Animation が実際にどう動くかをそのまま確かめられる。位置は GPUI が動く端をデバイス px に丸めるので ±0.51 論理 px まで認める（R8、R9）。
 
-- (a) 曲線: テーマが宣言する Transition / Animation（時間、Easing、KeySpline）を数値で評価し、GPUI の各フレームの値と比べる。
-- (b) 静止フレーム: (a) の値をコントロールに直接設定して止め、GPUI のその時刻のフレームと構造・画素で比べる。
-- (c) 実時間: 実際に動かし、遷移は終了後の状態を GPUI の最終フレームと比べる。繰り返しの動きは、12 回取った値が宣言した曲線上にあることを確かめる。
+| 動き | GPUI | Avalonia |
+| --- | --- | --- |
+| Checkbox / Radio のチェック | spring_control で不透明度 | SpringEasing（D=265ms） |
+| Switch のつまみ | spring_move で位置 | KnobTransitions の SpringEasing（D=234/271/302ms） |
+| Progress の値 | 180ms、easing_move | Width の Transition、SplineEasing(0.2,0,0,1)。最初に収まる幅は動かさない |
+| 不定値 Progress | 1 秒周期の左右端 | 幅のキーフレーム + KeySpline |
+| Spinner | 0.8 秒で 1 回転 | RotateTransform のキーフレーム |
+| Tooltip の表示 | 500ms 待ってから 150ms、ease-out-cubic でフェードと 4px | ShowDelay と、Opacity / TranslateTransform のアニメーション |
+| スクロールバーの表示 | 300ms、linear | Opacity の Transition |
+| スクロールバーの消去 | 2 秒待ってから 500ms、ease-in-cubic でフェードと 16px のスライド | ScrollBar の `HideDelay` と、Opacity / Track の RenderTransform の Transition |
+| つまみの拡大 | 300ms、ease-out-cubic で 6→8px | Width の Transition |
 
-| 動き | GPUI | Avalonia | (a) の許容値 |
-| --- | --- | --- | --- |
-| Checkbox / Radio のチェック | spring_control で不透明度 | SpringEasing（D=265ms） | 0.002 |
-| Switch のつまみ | spring_move で位置 | KnobTransitions の SpringEasing（D=234/271/302ms） | 0.26 px（R8, R9） |
-| Progress の値 | 180ms、easing_move | Width の Transition、SplineEasing(0.2,0,0,1) | 0.26 px |
-| 不定値 Progress | 1 秒周期の左右端 | 幅のキーフレーム + KeySpline | 0.26 px |
-| Spinner | 0.8 秒で 1 回転 | RotateTransform のキーフレーム | 0.01° |
-| Tooltip の表示 | 150ms、ease-out-cubic でフェードと 4px | Opacity と TranslateTransform | 不透明度 1/255、位置 0.26 px |
-| スクロールバーの表示 | 300ms、linear | Opacity | 0.003 |
-| スクロールバーの消去 | 2 秒待ってから 500ms、ease-in-cubic でフェードと 16px のスライド | ScrollBar の `HideDelay` と、Opacity / Track の RenderTransform の Transition | 不透明度 0.003、位置 0.26 px |
-| つまみの拡大 | 300ms、ease-out-cubic で 6→8px | Width | 0.26 px |
+### 時刻
+
+Avalonia には時刻を指定する公開 API がないので、テストに限り内部に手を入れて仮想時計にする（`Infrastructure/VirtualTime.cs`）。テーマ本体はリフレクションを使わない。
+
+- Transition と Animation は、継承されるプロパティ `Animatable.Clock` の時計で動く。テストの各ウィンドウに、テストが進めたときだけ時刻が進む時計を設定する（`UnsafeAccessor` で内部の `ClockBase` を作り、`Pulse` を呼ぶ）。
+- `DispatcherTimer`（Tooltip の表示遅延、スクロールバーの消去遅延、キャレットの点滅）は Dispatcher の時刻で動く。その時刻の取得元を仮想時計に差し替え、ディスパッチャーのループ自身のストップウォッチを止め、時刻を進めるたびに期限の来たタイマーを実行する。
+- 時刻は 1ms ずつ進める。タイマーで始まった動きも、GPUI と同じ時刻から始まる。
+- Avalonia の内部の名前（`Dispatcher._timeProvider`、`Dispatcher._impl`、`Dispatcher.PromoteTimers`、`ManagedDispatcherImpl._clock`、`ClockBase`、`Animatable.Clock`）に依存する（R7）。Avalonia の更新で変わった場合は、起動時の例外で分かる。
 
 ### 挙動
 
 | テスト | 内容 |
 | --- | --- |
-| Tooltip の遅延 | 400ms では開かず、650ms までに開く（GPUI は 500ms）。 |
+| Tooltip の遅延 | 499ms では開かず、500ms で開く（GPUI と同じ）。 |
 | ポインター押下とフォーカスリング | Button / CheckBox / Radio はクリックでリングを出さず、Tab で出す（R27）。 |
 | Switch のリング | クリック後にリングを出す（GPUI と同じ）。 |
 | 無効な Button | クリックを無視する。 |
 | メニューの矢印キー | 矢印キーで選んだ項目が hover と同じ見た目になる（R28）。 |
-| スクロールバーの自動非表示 | Hover モードで、ポインターが離れて 2 秒後に消える。 |
 
 ## 緩和の一覧
 
@@ -150,8 +154,8 @@ Avalonia には任意の時刻で描画するための仮想時計がない（R7
 | R4 | SVG アイコンのラスタライズが異なる（resvg と Skia の Path）。 | R1 と同じく Ink 領域で比べる。 |
 | R5 | 不透明度のかけ方が異なる。GPUI は図形ごと、Avalonia はグループ全体にかける。重なった影がフェード中だけ違って見える。 | Tooltip の表示途中だけ Flat を 13 に緩める（理論上の最大 12.75）。 |
 | R6 | spring の途中で目標が変わったときの速度の引き継ぎ。Avalonia の Transition は速度 0 から始まる。 | 検証の対象外。動きは開始から終了までを比べる。 |
-| R7 | Avalonia に仮想時計がない。 | 動きを (a)(b)(c) に分けて検証する。リフレクションで時計を差し替えない。 |
-| R8 | spring の終端で GPUI は ε（0.1px）以内になると止める。Avalonia の SpringEasing は終了時刻に目標へ合わせる。 | Switch の位置の許容値 0.26px に含める。 |
+| R7 | Avalonia に時刻を指定する公開 API がない。 | テストに限り、内部の時計と Dispatcher の時刻を差し替える（[時刻](#時刻)）。Avalonia の内部に依存する。 |
+| R8 | spring の終端で GPUI は ε（0.1px）以内になると止める。Avalonia の SpringEasing は終了時刻に目標へ合わせる。 | 動きのフレームの位置の許容値 ±0.51px に含める。 |
 | R9 | レイアウトの丸めが異なる。GPUI は文字幅を論理 px に切り上げ、端をデバイス px に丸める。Avalonia はデバイス px に丸める。 | 位置 ±0.26px、文字を含む箱の幅、Edge / Ink の近傍比較。 |
 | R10 | 行の高さがフォント本来の高さより小さいときの文字の寄せ方。 | 今回のケースでは差が出なかった。予備の ID。 |
 | R11 | 色の量子化（GPUI は float の HSLA、Avalonia は 8bit）。 | 色と Flat 領域で ±1/255。 |

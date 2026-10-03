@@ -24,7 +24,9 @@ GPUI の動きを、同じ曲線になる Avalonia の標準機構に置き換�
 | フェードとスライドの入場（Tooltip） | テンプレート内の `PART_Motion` に対する入場アニメーション |
 | スクロールバーの表示・消去（待ち時間、フェード、スライド） | `ScrollBar` の既存の `IsExpanded`、`ShowDelay`、`HideDelay` と、状態ごとの Opacity / RenderTransform の Transition |
 
-* 動きの値は、テストでテーマの宣言から読み取って評価し、GPUI の記録と比べる（ADR 10 の (a)）。
+* 動きは、仮想時計で GPUI と同じ時刻まで進めて描いたフレームで比べる（ADR 14）。
+* 1 つの状態のスタイルで Transition と値をどちらも変えるときは、Transition の Setter を値の Setter より先に書く。逆にすると、値が古い Transition で動き出した直後にその Transition が外れ、値が飛ぶ。
+* コントロールが読み込み時に収まる値（ProgressBar の幅など）は動かさない。GPUI は変化を動かすが、最初のフレームは動かさないため。`gpui:Motion.SettledTransitions` で、最初のレイアウトの後に Transition を付ける。
 * spring の途中で目標が変わったときの速度の引き継ぎは再現しない（緩和 R6）。spring の終端の扱いの差は 0.1px 以内（R8）。
 
 ### Consequences
