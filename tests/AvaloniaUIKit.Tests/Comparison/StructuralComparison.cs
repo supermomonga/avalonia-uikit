@@ -55,7 +55,10 @@ public static class StructuralComparison
         var list = new List<Primitive>();
         foreach (var s in scene.Shadows.Where(s => !s.Color.IsTransparent && !s.Inset))
         {
-            list.Add(new Primitive(PrimitiveKind.Shadow, s.Bounds, s.Radii, default, s.Sigma, s.Color, $"shadow#{s.Order}"));
+            // An unblurred shadow is a crisp filled rounded rectangle (the popover ring).
+            list.Add(s.Sigma <= 0
+                ? new Primitive(PrimitiveKind.Fill, s.Bounds, Clamp(s.Radii, s.Bounds), default, 0, s.Color, $"shadow#{s.Order}")
+                : new Primitive(PrimitiveKind.Shadow, s.Bounds, s.Radii, default, s.Sigma, s.Color, $"shadow#{s.Order}"));
         }
         foreach (var q in scene.Quads)
         {
@@ -65,7 +68,7 @@ public static class StructuralComparison
             }
             if (q.BorderWidths != default && !q.BorderColor.IsTransparent)
             {
-                list.Add(new Primitive(PrimitiveKind.Band, q.Bounds, Clamp(q.Radii, q.Bounds), q.BorderWidths, 0, q.BorderColor, $"quad#{q.Order}"));
+                list.Add(Band(q.Bounds, Clamp(q.Radii, q.Bounds), q.BorderWidths, q.BorderColor, $"quad#{q.Order}"));
             }
         }
         return Dedupe(list);
@@ -159,7 +162,7 @@ public static class StructuralComparison
         }
         if (t != default && Solid(borderBrush, opacity) is { } band && !band.IsTransparent)
         {
-            list.Add(new Primitive(PrimitiveKind.Band, rect, Clamp(outer, rect), t, 0, band, name));
+            list.Add(Band(rect, Clamp(outer, rect), t, band, name));
         }
         foreach (var s in shadows)
         {
@@ -176,6 +179,15 @@ public static class StructuralComparison
                 Math.Max(0, baseRadii.BottomRight + s.Spread), Math.Max(0, baseRadii.BottomLeft + s.Spread));
             list.Add(new Primitive(PrimitiveKind.Shadow, shadowRect, Clamp(radii, shadowRect), default, sigma, Rgba.From(s.Color, opacity), name));
         }
+    }
+
+    /// <summary>A border band, or a fill when the border leaves no inside (a 2px line drawn as a 2px border).</summary>
+    private static Primitive Band(Rect bounds, CornerRadius radii, Thickness widths, Rgba color, string source)
+    {
+        var inner = bounds.Deflate(widths);
+        return inner.Width <= 0.001 || inner.Height <= 0.001
+            ? new Primitive(PrimitiveKind.Fill, bounds, radii, default, 0, color, source)
+            : new Primitive(PrimitiveKind.Band, bounds, radii, widths, 0, color, source);
     }
 
     private static Rgba? Solid(IBrush? brush, double opacity) =>
@@ -223,27 +235,34 @@ public static class StructuralComparison
 
     /// <summary>
     /// Like <see cref="Same"/>, but lets a box be narrower in Avalonia by less than
-    /// one logical pixel, and shifted horizontally by half that: GPUI rounds text
-    /// widths up to whole logical pixels, Avalonia to device pixels (R9).
+    /// one logical pixel, and shifted horizontally by less than one: GPUI rounds
+    /// text widths up to whole logical pixels, Avalonia to device pixels (R9).
     /// </summary>
     public static bool SameWithTextRounding(Primitive gpui, Primitive avalonia, double geometry, double color)
     {
         var dw = gpui.Bounds.Width - avalonia.Bounds.Width;
+        var dx = gpui.Bounds.X - avalonia.Bounds.X;
         return gpui.Kind == avalonia.Kind &&
             dw >= -geometry && dw < 1 &&
-            Near(gpui.Bounds.X, avalonia.Bounds.X, geometry + Math.Max(0, dw)) &&
+            // Boxes after (or around) text shift by up to the text's rounding difference.
+            dx > -0.5 - geometry && dx < 1 &&
             Near(gpui.Bounds.Y, avalonia.Bounds.Y, geometry) &&
             Near(gpui.Bounds.Height, avalonia.Bounds.Height, geometry) &&
             SameShape(gpui, avalonia, geometry, color);
     }
 
     private static bool SameShape(Primitive a, Primitive b, double geometry, double color) =>
-        Near(a.Radii.TopLeft, b.Radii.TopLeft, geometry) && Near(a.Radii.TopRight, b.Radii.TopRight, geometry) &&
-        Near(a.Radii.BottomRight, b.Radii.BottomRight, geometry) && Near(a.Radii.BottomLeft, b.Radii.BottomLeft, geometry) &&
+        // A spread shadow keeps the element's radius in GPUI and grows it by the
+        // spread in Skia (R3); a popover's spreads are at most 2px.
+        SameRadii(a, b, a.Kind == PrimitiveKind.Shadow ? 2.01 : geometry) &&
         Near(a.Widths.Left, b.Widths.Left, 0.001) && Near(a.Widths.Top, b.Widths.Top, 0.001) &&
         Near(a.Widths.Right, b.Widths.Right, 0.001) && Near(a.Widths.Bottom, b.Widths.Bottom, 0.001) &&
         Near(a.Sigma, b.Sigma, 0.02) &&
         a.Color.Distance(b.Color) <= color;
+
+    private static bool SameRadii(Primitive a, Primitive b, double tolerance) =>
+        Near(a.Radii.TopLeft, b.Radii.TopLeft, tolerance) && Near(a.Radii.TopRight, b.Radii.TopRight, tolerance) &&
+        Near(a.Radii.BottomRight, b.Radii.BottomRight, tolerance) && Near(a.Radii.BottomLeft, b.Radii.BottomLeft, tolerance);
 
     private static bool Near(double a, double b, double tolerance) => Math.Abs(a - b) <= tolerance;
 

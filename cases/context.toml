@@ -1,0 +1,8 @@
+# GPUI Kit ContextMenu -> ContextMenu. The menu opens at the pointer.
+component = "context"
+viewport = [600, 260]
+anchor = [16, 8]
+
+[[group]]
+name = "menu"
+states = ["right-click", "right-click+at-110-77"]

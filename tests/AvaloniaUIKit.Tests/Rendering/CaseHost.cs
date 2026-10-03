@@ -128,6 +128,19 @@ public sealed class CaseHost : IDisposable
                     var b = ControlBounds();
                     Window.MouseMove(new Point(b.Right + 40, b.Bottom + 40));
                     break;
+                case var p when p.StartsWith("at-", StringComparison.Ordinal) || p.StartsWith("click-at-", StringComparison.Ordinal) || p.StartsWith("right-click-at-", StringComparison.Ordinal):
+                    var split = p.IndexOf("at-", StringComparison.Ordinal);
+                    var kind = p[..split];
+                    var xy = p[(split + 3)..].Split('-');
+                    var point = new Point(double.Parse(xy[0], System.Globalization.CultureInfo.InvariantCulture), double.Parse(xy[1], System.Globalization.CultureInfo.InvariantCulture));
+                    Window.MouseMove(point);
+                    if (kind is "click-" or "right-click-")
+                    {
+                        var button = kind == "click-" ? MouseButton.Left : MouseButton.Right;
+                        Window.MouseDown(point, button);
+                        Window.MouseUp(point, button);
+                    }
+                    break;
                 default:
                     if (!DriveExtra(part, at))
                     {
@@ -147,9 +160,14 @@ public sealed class CaseHost : IDisposable
     public RgbaImage Capture()
     {
         Flush();
-        // Render the whole tree from scratch: the compositor's retained frame only
-        // repaints dirty regions, which do not include content a control draws
-        // outside its own bounds (a focus ring, for example).
+        using var frame = Window.CaptureRenderedFrame() ?? throw new InvalidOperationException("no frame was rendered");
+        return RgbaImage.FromFrame(frame);
+    }
+
+    /// <summary>The whole tree rendered from scratch by the immediate renderer (popups excluded).</summary>
+    public RgbaImage CaptureImmediate()
+    {
+        Flush();
         var size = new PixelSize((int)Math.Round(Window.Bounds.Width * Scale), (int)Math.Round(Window.Bounds.Height * Scale));
         using var bitmap = new RenderTargetBitmap(size, new Vector(96 * Scale, 96 * Scale));
         bitmap.Render(Window);
@@ -161,13 +179,7 @@ public sealed class CaseHost : IDisposable
         return RgbaImage.FromFrame(frame);
     }
 
-    /// <summary>The compositor's last frame, as the headless platform presents it.</summary>
-    public RgbaImage CaptureComposited()
-    {
-        Flush();
-        using var frame = Window.CaptureRenderedFrame() ?? throw new InvalidOperationException("no frame was rendered");
-        return RgbaImage.FromFrame(frame);
-    }
+
 
     public void Dispose() => Window.Close();
 }

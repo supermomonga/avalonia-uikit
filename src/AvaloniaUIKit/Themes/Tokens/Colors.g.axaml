@@ -939,6 +939,48 @@
       <SolidColorBrush x:Key="Gpui.Switch.Disabled.Track" Color="#80D4D4D4" />
       <Color x:Key="Gpui.Switch.Disabled.CheckedTrack.Color">#80171717</Color>
       <SolidColorBrush x:Key="Gpui.Switch.Disabled.CheckedTrack" Color="#80171717" />
+      <Color x:Key="Gpui.PopoverRing.Color">#1A0A0A0A</Color>
+      <SolidColorBrush x:Key="Gpui.PopoverRing" Color="#1A0A0A0A" />
+      <Color x:Key="Gpui.Button.Default.Caret.Color">#BF0A0A0A</Color>
+      <SolidColorBrush x:Key="Gpui.Button.Default.Caret" Color="#BF0A0A0A" />
+      <Color x:Key="Gpui.Button.Default.Outline.Caret.Color">#BF0A0A0A</Color>
+      <SolidColorBrush x:Key="Gpui.Button.Default.Outline.Caret" Color="#BF0A0A0A" />
+      <Color x:Key="Gpui.Button.Primary.Caret.Color">#BFFAFAFA</Color>
+      <SolidColorBrush x:Key="Gpui.Button.Primary.Caret" Color="#BFFAFAFA" />
+      <Color x:Key="Gpui.Button.Primary.Outline.Caret.Color">#BF171717</Color>
+      <SolidColorBrush x:Key="Gpui.Button.Primary.Outline.Caret" Color="#BF171717" />
+      <Color x:Key="Gpui.Button.Secondary.Caret.Color">#BF171717</Color>
+      <SolidColorBrush x:Key="Gpui.Button.Secondary.Caret" Color="#BF171717" />
+      <Color x:Key="Gpui.Button.Secondary.Outline.Caret.Color">#BF171717</Color>
+      <SolidColorBrush x:Key="Gpui.Button.Secondary.Outline.Caret" Color="#BF171717" />
+      <Color x:Key="Gpui.Button.Danger.Caret.Color">#BFEF4444</Color>
+      <SolidColorBrush x:Key="Gpui.Button.Danger.Caret" Color="#BFEF4444" />
+      <Color x:Key="Gpui.Button.Danger.Outline.Caret.Color">#BFEF4444</Color>
+      <SolidColorBrush x:Key="Gpui.Button.Danger.Outline.Caret" Color="#BFEF4444" />
+      <Color x:Key="Gpui.Button.Warning.Caret.Color">#BFEAB308</Color>
+      <SolidColorBrush x:Key="Gpui.Button.Warning.Caret" Color="#BFEAB308" />
+      <Color x:Key="Gpui.Button.Warning.Outline.Caret.Color">#BFEAB308</Color>
+      <SolidColorBrush x:Key="Gpui.Button.Warning.Outline.Caret" Color="#BFEAB308" />
+      <Color x:Key="Gpui.Button.Success.Caret.Color">#BF22C55E</Color>
+      <SolidColorBrush x:Key="Gpui.Button.Success.Caret" Color="#BF22C55E" />
+      <Color x:Key="Gpui.Button.Success.Outline.Caret.Color">#BF22C55E</Color>
+      <SolidColorBrush x:Key="Gpui.Button.Success.Outline.Caret" Color="#BF22C55E" />
+      <Color x:Key="Gpui.Button.Info.Caret.Color">#BF06B6D4</Color>
+      <SolidColorBrush x:Key="Gpui.Button.Info.Caret" Color="#BF06B6D4" />
+      <Color x:Key="Gpui.Button.Info.Outline.Caret.Color">#BF06B6D4</Color>
+      <SolidColorBrush x:Key="Gpui.Button.Info.Outline.Caret" Color="#BF06B6D4" />
+      <Color x:Key="Gpui.Button.Ghost.Caret.Color">#BF171717</Color>
+      <SolidColorBrush x:Key="Gpui.Button.Ghost.Caret" Color="#BF171717" />
+      <Color x:Key="Gpui.Button.Ghost.Outline.Caret.Color">#BF171717</Color>
+      <SolidColorBrush x:Key="Gpui.Button.Ghost.Outline.Caret" Color="#BF171717" />
+      <Color x:Key="Gpui.Button.Link.Caret.Color">#BF171717</Color>
+      <SolidColorBrush x:Key="Gpui.Button.Link.Caret" Color="#BF171717" />
+      <Color x:Key="Gpui.Button.Link.Outline.Caret.Color">#BF171717</Color>
+      <SolidColorBrush x:Key="Gpui.Button.Link.Outline.Caret" Color="#BF171717" />
+      <Color x:Key="Gpui.Button.Text.Caret.Color">#AC0A0A0A</Color>
+      <SolidColorBrush x:Key="Gpui.Button.Text.Caret" Color="#AC0A0A0A" />
+      <Color x:Key="Gpui.Button.Text.Outline.Caret.Color">#AC0A0A0A</Color>
+      <SolidColorBrush x:Key="Gpui.Button.Text.Outline.Caret" Color="#AC0A0A0A" />
     </ResourceDictionary>
     <ResourceDictionary x:Key="Dark">
       <Color x:Key="Gpui.Accent.Color">#FF262626</Color>
@@ -1873,6 +1915,48 @@
       <SolidColorBrush x:Key="Gpui.Switch.Disabled.Track" Color="#80404040" />
       <Color x:Key="Gpui.Switch.Disabled.CheckedTrack.Color">#80FAFAFA</Color>
       <SolidColorBrush x:Key="Gpui.Switch.Disabled.CheckedTrack" Color="#80FAFAFA" />
+      <Color x:Key="Gpui.PopoverRing.Color">#1AFAFAFA</Color>
+      <SolidColorBrush x:Key="Gpui.PopoverRing" Color="#1AFAFAFA" />
+      <Color x:Key="Gpui.Button.Default.Caret.Color">#BFFAFAFA</Color>
+      <SolidColorBrush x:Key="Gpui.Button.Default.Caret" Color="#BFFAFAFA" />
+      <Color x:Key="Gpui.Button.Default.Outline.Caret.Color">#BFFAFAFA</Color>
+      <SolidColorBrush x:Key="Gpui.Button.Default.Outline.Caret" Color="#BFFAFAFA" />
+      <Color x:Key="Gpui.Button.Primary.Caret.Color">#BF171717</Color>
+      <SolidColorBrush x:Key="Gpui.Button.Primary.Caret" Color="#BF171717" />
+      <Color x:Key="Gpui.Button.Primary.Outline.Caret.Color">#BFFAFAFA</Color>
+      <SolidColorBrush x:Key="Gpui.Button.Primary.Outline.Caret" Color="#BFFAFAFA" />
+      <Color x:Key="Gpui.Button.Secondary.Caret.Color">#BFFAFAFA</Color>
+      <SolidColorBrush x:Key="Gpui.Button.Secondary.Caret" Color="#BFFAFAFA" />
+      <Color x:Key="Gpui.Button.Secondary.Outline.Caret.Color">#BFFAFAFA</Color>
+      <SolidColorBrush x:Key="Gpui.Button.Secondary.Outline.Caret" Color="#BFFAFAFA" />
+      <Color x:Key="Gpui.Button.Danger.Caret.Color">#BFF87171</Color>
+      <SolidColorBrush x:Key="Gpui.Button.Danger.Caret" Color="#BFF87171" />
+      <Color x:Key="Gpui.Button.Danger.Outline.Caret.Color">#BFF87171</Color>
+      <SolidColorBrush x:Key="Gpui.Button.Danger.Outline.Caret" Color="#BFF87171" />
+      <Color x:Key="Gpui.Button.Warning.Caret.Color">#BFFACC15</Color>
+      <SolidColorBrush x:Key="Gpui.Button.Warning.Caret" Color="#BFFACC15" />
+      <Color x:Key="Gpui.Button.Warning.Outline.Caret.Color">#BFFACC15</Color>
+      <SolidColorBrush x:Key="Gpui.Button.Warning.Outline.Caret" Color="#BFFACC15" />
+      <Color x:Key="Gpui.Button.Success.Caret.Color">#BF4ADE80</Color>
+      <SolidColorBrush x:Key="Gpui.Button.Success.Caret" Color="#BF4ADE80" />
+      <Color x:Key="Gpui.Button.Success.Outline.Caret.Color">#BF4ADE80</Color>
+      <SolidColorBrush x:Key="Gpui.Button.Success.Outline.Caret" Color="#BF4ADE80" />
+      <Color x:Key="Gpui.Button.Info.Caret.Color">#BF22D3EE</Color>
+      <SolidColorBrush x:Key="Gpui.Button.Info.Caret" Color="#BF22D3EE" />
+      <Color x:Key="Gpui.Button.Info.Outline.Caret.Color">#BF22D3EE</Color>
+      <SolidColorBrush x:Key="Gpui.Button.Info.Outline.Caret" Color="#BF22D3EE" />
+      <Color x:Key="Gpui.Button.Ghost.Caret.Color">#BFFAFAFA</Color>
+      <SolidColorBrush x:Key="Gpui.Button.Ghost.Caret" Color="#BFFAFAFA" />
+      <Color x:Key="Gpui.Button.Ghost.Outline.Caret.Color">#BFFAFAFA</Color>
+      <SolidColorBrush x:Key="Gpui.Button.Ghost.Outline.Caret" Color="#BFFAFAFA" />
+      <Color x:Key="Gpui.Button.Link.Caret.Color">#BFFAFAFA</Color>
+      <SolidColorBrush x:Key="Gpui.Button.Link.Caret" Color="#BFFAFAFA" />
+      <Color x:Key="Gpui.Button.Link.Outline.Caret.Color">#BFFAFAFA</Color>
+      <SolidColorBrush x:Key="Gpui.Button.Link.Outline.Caret" Color="#BFFAFAFA" />
+      <Color x:Key="Gpui.Button.Text.Caret.Color">#ACFAFAFA</Color>
+      <SolidColorBrush x:Key="Gpui.Button.Text.Caret" Color="#ACFAFAFA" />
+      <Color x:Key="Gpui.Button.Text.Outline.Caret.Color">#ACFAFAFA</Color>
+      <SolidColorBrush x:Key="Gpui.Button.Text.Outline.Caret" Color="#ACFAFAFA" />
     </ResourceDictionary>
   </ResourceDictionary.ThemeDictionaries>
 </ResourceDictionary>

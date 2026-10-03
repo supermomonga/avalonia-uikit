@@ -120,6 +120,7 @@ impl Harness {
             },
         );
         cx.update(gpui_kit::init);
+        cx.update(crate::cases::menu::init);
         let fonts = crate::fonts::load(root)?;
         cx.update(|cx| cx.text_system().add_fonts(fonts))?;
         Ok(Self { cx, sink })

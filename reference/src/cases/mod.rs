@@ -13,6 +13,7 @@ use std::time::Duration;
 
 mod button;
 mod check;
+pub mod menu;
 mod surface;
 mod toggle;
 
@@ -25,6 +26,10 @@ pub fn builder(case: &Case) -> Result<Builder> {
         "checkbox" => check::checkbox(&params),
         "radio" => check::radio(&params),
         "switch" => check::switch(&params),
+        "dropdown" => menu::dropdown(&params),
+        "context" => menu::context(&params),
+        "split" => menu::split(&params),
+        "menubar" => menu::menubar(&params),
         other => bail!("unknown component {other}"),
     }
 }
@@ -81,6 +86,18 @@ pub fn drive(harness: &mut Harness, window: &CaseWindow, case: &Case, state: &st
                 harness.mouse_move(window, at, None)?;
                 harness.advance(window, Duration::from_millis(600))?;
             }
+            // Absolute window positions: "at-X-Y" moves the pointer there,
+            // "click-at-X-Y" and "right-click-at-X-Y" also click.
+            other if other.starts_with("at-") || other.starts_with("click-at-") || other.starts_with("right-click-at-") => {
+                let (kind, coords) = other.split_once("at-").expect("prefix checked");
+                let (x, y) = coords.split_once('-').expect("at-X-Y");
+                let at = gpui_kit::point(gpui_kit::px(x.parse()?), gpui_kit::px(y.parse()?));
+                match kind {
+                    "click-" => harness.click(window, at, MouseButton::Left)?,
+                    "right-click-" => harness.click(window, at, MouseButton::Right)?,
+                    _ => harness.mouse_move(window, at, None)?,
+                }
+            }
             other if other.starts_with("wait-") => {
                 let ms: u64 = other["wait-".len()..].trim_end_matches("ms").parse()?;
                 harness.advance(window, Duration::from_millis(ms))?;
@@ -119,6 +136,7 @@ pub fn icon(name: &str) -> Option<IconName> {
 pub fn derived_colors(theme: &gpui_kit::component::Theme, out: &mut Vec<(String, gpui_kit::Hsla)>) {
     button::derived_colors(theme, out);
     check::derived_colors(theme, out);
+    menu::derived_colors(theme, out);
 }
 
 pub fn disabled(params: &Params) -> bool {

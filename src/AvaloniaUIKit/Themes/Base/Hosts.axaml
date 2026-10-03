@@ -5,6 +5,8 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <ControlTheme x:Key="{x:Type PopupRoot}" TargetType="PopupRoot">
+    <!-- Shadows and rings paint outside the bounds. -->
+    <Setter Property="ClipToBounds" Value="False" />
     <Setter Property="Background" Value="{x:Null}" />
     <Setter Property="TransparencyLevelHint" Value="Transparent" />
     <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
@@ -14,7 +16,7 @@
     <Setter Property="FontStyle" Value="Normal" />
     <Setter Property="Template">
       <ControlTemplate>
-        <LayoutTransformControl LayoutTransform="{TemplateBinding Transform}">
+        <LayoutTransformControl LayoutTransform="{TemplateBinding Transform}" ClipToBounds="False">
           <Panel>
             <Border Name="PART_TransparencyFallback" IsHitTestVisible="False" />
             <VisualLayerManager Name="PART_VisualLayerManager">
@@ -31,6 +33,8 @@
   </ControlTheme>
 
   <ControlTheme x:Key="{x:Type OverlayPopupHost}" TargetType="OverlayPopupHost">
+    <!-- Shadows and rings paint outside the bounds. -->
+    <Setter Property="ClipToBounds" Value="False" />
     <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
     <Setter Property="FontFamily" Value="{DynamicResource Gpui.FontFamily}" />
     <Setter Property="FontSize" Value="{DynamicResource Gpui.FontSize}" />
@@ -38,7 +42,7 @@
     <Setter Property="FontStyle" Value="Normal" />
     <Setter Property="Template">
       <ControlTemplate>
-        <LayoutTransformControl LayoutTransform="{TemplateBinding Transform}">
+        <LayoutTransformControl LayoutTransform="{TemplateBinding Transform}" ClipToBounds="False">
           <VisualLayerManager Name="PART_VisualLayerManager">
             <ContentPresenter Name="PART_ContentPresenter"
                               Padding="{TemplateBinding Padding}"

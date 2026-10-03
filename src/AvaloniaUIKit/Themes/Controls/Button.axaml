@@ -149,7 +149,7 @@
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Default.Pressed.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Default.Pressed.Border}" />
     </Style>
-    <Style Selector="^.selected">
+    <Style Selector="^.selected, ^:flyout-open">
       <Setter Property="Background" Value="{DynamicResource Gpui.Button.Default.Selected.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Default.Selected.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Default.Selected.Border}" />
@@ -186,7 +186,7 @@
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Default.Outline.Pressed.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Default.Outline.Pressed.Border}" />
     </Style>
-    <Style Selector="^.outline.selected">
+    <Style Selector="^.outline.selected, ^.outline:flyout-open">
       <Setter Property="Background" Value="{DynamicResource Gpui.Button.Default.Outline.Selected.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Default.Outline.Selected.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Default.Outline.Selected.Border}" />
@@ -223,7 +223,7 @@
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Primary.Pressed.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Primary.Pressed.Border}" />
     </Style>
-    <Style Selector="^.primary.selected">
+    <Style Selector="^.primary.selected, ^.primary:flyout-open">
       <Setter Property="Background" Value="{DynamicResource Gpui.Button.Primary.Selected.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Primary.Selected.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Primary.Selected.Border}" />
@@ -260,7 +260,7 @@
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Primary.Outline.Pressed.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Primary.Outline.Pressed.Border}" />
     </Style>
-    <Style Selector="^.primary.outline.selected">
+    <Style Selector="^.primary.outline.selected, ^.primary.outline:flyout-open">
       <Setter Property="Background" Value="{DynamicResource Gpui.Button.Primary.Outline.Selected.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Primary.Outline.Selected.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Primary.Outline.Selected.Border}" />
@@ -297,7 +297,7 @@
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Secondary.Pressed.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Secondary.Pressed.Border}" />
     </Style>
-    <Style Selector="^.secondary.selected">
+    <Style Selector="^.secondary.selected, ^.secondary:flyout-open">
       <Setter Property="Background" Value="{DynamicResource Gpui.Button.Secondary.Selected.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Secondary.Selected.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Secondary.Selected.Border}" />
@@ -334,7 +334,7 @@
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Secondary.Outline.Pressed.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Secondary.Outline.Pressed.Border}" />
     </Style>
-    <Style Selector="^.secondary.outline.selected">
+    <Style Selector="^.secondary.outline.selected, ^.secondary.outline:flyout-open">
       <Setter Property="Background" Value="{DynamicResource Gpui.Button.Secondary.Outline.Selected.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Secondary.Outline.Selected.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Secondary.Outline.Selected.Border}" />
@@ -371,7 +371,7 @@
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Danger.Pressed.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Danger.Pressed.Border}" />
     </Style>
-    <Style Selector="^.danger.selected">
+    <Style Selector="^.danger.selected, ^.danger:flyout-open">
       <Setter Property="Background" Value="{DynamicResource Gpui.Button.Danger.Selected.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Danger.Selected.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Danger.Selected.Border}" />
@@ -408,7 +408,7 @@
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Danger.Outline.Pressed.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Danger.Outline.Pressed.Border}" />
     </Style>
-    <Style Selector="^.danger.outline.selected">
+    <Style Selector="^.danger.outline.selected, ^.danger.outline:flyout-open">
       <Setter Property="Background" Value="{DynamicResource Gpui.Button.Danger.Outline.Selected.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Danger.Outline.Selected.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Danger.Outline.Selected.Border}" />
@@ -445,7 +445,7 @@
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Warning.Pressed.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Warning.Pressed.Border}" />
     </Style>
-    <Style Selector="^.warning.selected">
+    <Style Selector="^.warning.selected, ^.warning:flyout-open">
       <Setter Property="Background" Value="{DynamicResource Gpui.Button.Warning.Selected.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Warning.Selected.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Warning.Selected.Border}" />
@@ -482,7 +482,7 @@
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Warning.Outline.Pressed.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Warning.Outline.Pressed.Border}" />
     </Style>
-    <Style Selector="^.warning.outline.selected">
+    <Style Selector="^.warning.outline.selected, ^.warning.outline:flyout-open">
       <Setter Property="Background" Value="{DynamicResource Gpui.Button.Warning.Outline.Selected.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Warning.Outline.Selected.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Warning.Outline.Selected.Border}" />
@@ -519,7 +519,7 @@
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Success.Pressed.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Success.Pressed.Border}" />
     </Style>
-    <Style Selector="^.success.selected">
+    <Style Selector="^.success.selected, ^.success:flyout-open">
       <Setter Property="Background" Value="{DynamicResource Gpui.Button.Success.Selected.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Success.Selected.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Success.Selected.Border}" />
@@ -556,7 +556,7 @@
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Success.Outline.Pressed.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Success.Outline.Pressed.Border}" />
     </Style>
-    <Style Selector="^.success.outline.selected">
+    <Style Selector="^.success.outline.selected, ^.success.outline:flyout-open">
       <Setter Property="Background" Value="{DynamicResource Gpui.Button.Success.Outline.Selected.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Success.Outline.Selected.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Success.Outline.Selected.Border}" />
@@ -593,7 +593,7 @@
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Info.Pressed.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Info.Pressed.Border}" />
     </Style>
-    <Style Selector="^.info.selected">
+    <Style Selector="^.info.selected, ^.info:flyout-open">
       <Setter Property="Background" Value="{DynamicResource Gpui.Button.Info.Selected.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Info.Selected.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Info.Selected.Border}" />
@@ -630,7 +630,7 @@
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Info.Outline.Pressed.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Info.Outline.Pressed.Border}" />
     </Style>
-    <Style Selector="^.info.outline.selected">
+    <Style Selector="^.info.outline.selected, ^.info.outline:flyout-open">
       <Setter Property="Background" Value="{DynamicResource Gpui.Button.Info.Outline.Selected.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Info.Outline.Selected.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Info.Outline.Selected.Border}" />
@@ -667,7 +667,7 @@
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Ghost.Pressed.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Ghost.Pressed.Border}" />
     </Style>
-    <Style Selector="^.ghost.selected">
+    <Style Selector="^.ghost.selected, ^.ghost:flyout-open">
       <Setter Property="Background" Value="{DynamicResource Gpui.Button.Ghost.Selected.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Ghost.Selected.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Ghost.Selected.Border}" />
@@ -704,7 +704,7 @@
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Ghost.Outline.Pressed.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Ghost.Outline.Pressed.Border}" />
     </Style>
-    <Style Selector="^.ghost.outline.selected">
+    <Style Selector="^.ghost.outline.selected, ^.ghost.outline:flyout-open">
       <Setter Property="Background" Value="{DynamicResource Gpui.Button.Ghost.Outline.Selected.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Ghost.Outline.Selected.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Ghost.Outline.Selected.Border}" />
@@ -741,7 +741,7 @@
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Link.Pressed.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Link.Pressed.Border}" />
     </Style>
-    <Style Selector="^.link.selected">
+    <Style Selector="^.link.selected, ^.link:flyout-open">
       <Setter Property="Background" Value="{DynamicResource Gpui.Button.Link.Selected.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Link.Selected.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Link.Selected.Border}" />
@@ -778,7 +778,7 @@
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Link.Outline.Pressed.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Link.Outline.Pressed.Border}" />
     </Style>
-    <Style Selector="^.link.outline.selected">
+    <Style Selector="^.link.outline.selected, ^.link.outline:flyout-open">
       <Setter Property="Background" Value="{DynamicResource Gpui.Button.Link.Outline.Selected.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Link.Outline.Selected.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Link.Outline.Selected.Border}" />
@@ -815,7 +815,7 @@
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Text.Pressed.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Text.Pressed.Border}" />
     </Style>
-    <Style Selector="^.text.selected">
+    <Style Selector="^.text.selected, ^.text:flyout-open">
       <Setter Property="Background" Value="{DynamicResource Gpui.Button.Text.Selected.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Text.Selected.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Text.Selected.Border}" />
@@ -852,7 +852,7 @@
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Text.Outline.Pressed.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Text.Outline.Pressed.Border}" />
     </Style>
-    <Style Selector="^.text.outline.selected">
+    <Style Selector="^.text.outline.selected, ^.text.outline:flyout-open">
       <Setter Property="Background" Value="{DynamicResource Gpui.Button.Text.Outline.Selected.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Text.Outline.Selected.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Text.Outline.Selected.Border}" />
@@ -873,102 +873,102 @@
     </Style>
 
     <!-- Selected keeps its look while hovered or pressed: GPUI registers no hover style on it. -->
-    <Style Selector="^.selected:pointerover, ^.selected:pressed">
+    <Style Selector="^.selected:pointerover, ^.selected:pressed, ^:flyout-open:pointerover, ^:flyout-open:pressed">
       <Setter Property="Background" Value="{DynamicResource Gpui.Button.Default.Selected.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Default.Selected.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Default.Selected.Border}" />
     </Style>
-    <Style Selector="^.outline.selected:pointerover, ^.outline.selected:pressed">
+    <Style Selector="^.outline.selected:pointerover, ^.outline.selected:pressed, ^.outline:flyout-open:pointerover, ^.outline:flyout-open:pressed">
       <Setter Property="Background" Value="{DynamicResource Gpui.Button.Default.Outline.Selected.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Default.Outline.Selected.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Default.Outline.Selected.Border}" />
     </Style>
-    <Style Selector="^.primary.selected:pointerover, ^.primary.selected:pressed">
+    <Style Selector="^.primary.selected:pointerover, ^.primary.selected:pressed, ^.primary:flyout-open:pointerover, ^.primary:flyout-open:pressed">
       <Setter Property="Background" Value="{DynamicResource Gpui.Button.Primary.Selected.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Primary.Selected.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Primary.Selected.Border}" />
     </Style>
-    <Style Selector="^.primary.outline.selected:pointerover, ^.primary.outline.selected:pressed">
+    <Style Selector="^.primary.outline.selected:pointerover, ^.primary.outline.selected:pressed, ^.primary.outline:flyout-open:pointerover, ^.primary.outline:flyout-open:pressed">
       <Setter Property="Background" Value="{DynamicResource Gpui.Button.Primary.Outline.Selected.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Primary.Outline.Selected.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Primary.Outline.Selected.Border}" />
     </Style>
-    <Style Selector="^.secondary.selected:pointerover, ^.secondary.selected:pressed">
+    <Style Selector="^.secondary.selected:pointerover, ^.secondary.selected:pressed, ^.secondary:flyout-open:pointerover, ^.secondary:flyout-open:pressed">
       <Setter Property="Background" Value="{DynamicResource Gpui.Button.Secondary.Selected.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Secondary.Selected.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Secondary.Selected.Border}" />
     </Style>
-    <Style Selector="^.secondary.outline.selected:pointerover, ^.secondary.outline.selected:pressed">
+    <Style Selector="^.secondary.outline.selected:pointerover, ^.secondary.outline.selected:pressed, ^.secondary.outline:flyout-open:pointerover, ^.secondary.outline:flyout-open:pressed">
       <Setter Property="Background" Value="{DynamicResource Gpui.Button.Secondary.Outline.Selected.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Secondary.Outline.Selected.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Secondary.Outline.Selected.Border}" />
     </Style>
-    <Style Selector="^.danger.selected:pointerover, ^.danger.selected:pressed">
+    <Style Selector="^.danger.selected:pointerover, ^.danger.selected:pressed, ^.danger:flyout-open:pointerover, ^.danger:flyout-open:pressed">
       <Setter Property="Background" Value="{DynamicResource Gpui.Button.Danger.Selected.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Danger.Selected.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Danger.Selected.Border}" />
     </Style>
-    <Style Selector="^.danger.outline.selected:pointerover, ^.danger.outline.selected:pressed">
+    <Style Selector="^.danger.outline.selected:pointerover, ^.danger.outline.selected:pressed, ^.danger.outline:flyout-open:pointerover, ^.danger.outline:flyout-open:pressed">
       <Setter Property="Background" Value="{DynamicResource Gpui.Button.Danger.Outline.Selected.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Danger.Outline.Selected.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Danger.Outline.Selected.Border}" />
     </Style>
-    <Style Selector="^.warning.selected:pointerover, ^.warning.selected:pressed">
+    <Style Selector="^.warning.selected:pointerover, ^.warning.selected:pressed, ^.warning:flyout-open:pointerover, ^.warning:flyout-open:pressed">
       <Setter Property="Background" Value="{DynamicResource Gpui.Button.Warning.Selected.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Warning.Selected.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Warning.Selected.Border}" />
     </Style>
-    <Style Selector="^.warning.outline.selected:pointerover, ^.warning.outline.selected:pressed">
+    <Style Selector="^.warning.outline.selected:pointerover, ^.warning.outline.selected:pressed, ^.warning.outline:flyout-open:pointerover, ^.warning.outline:flyout-open:pressed">
       <Setter Property="Background" Value="{DynamicResource Gpui.Button.Warning.Outline.Selected.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Warning.Outline.Selected.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Warning.Outline.Selected.Border}" />
     </Style>
-    <Style Selector="^.success.selected:pointerover, ^.success.selected:pressed">
+    <Style Selector="^.success.selected:pointerover, ^.success.selected:pressed, ^.success:flyout-open:pointerover, ^.success:flyout-open:pressed">
       <Setter Property="Background" Value="{DynamicResource Gpui.Button.Success.Selected.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Success.Selected.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Success.Selected.Border}" />
     </Style>
-    <Style Selector="^.success.outline.selected:pointerover, ^.success.outline.selected:pressed">
+    <Style Selector="^.success.outline.selected:pointerover, ^.success.outline.selected:pressed, ^.success.outline:flyout-open:pointerover, ^.success.outline:flyout-open:pressed">
       <Setter Property="Background" Value="{DynamicResource Gpui.Button.Success.Outline.Selected.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Success.Outline.Selected.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Success.Outline.Selected.Border}" />
     </Style>
-    <Style Selector="^.info.selected:pointerover, ^.info.selected:pressed">
+    <Style Selector="^.info.selected:pointerover, ^.info.selected:pressed, ^.info:flyout-open:pointerover, ^.info:flyout-open:pressed">
       <Setter Property="Background" Value="{DynamicResource Gpui.Button.Info.Selected.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Info.Selected.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Info.Selected.Border}" />
     </Style>
-    <Style Selector="^.info.outline.selected:pointerover, ^.info.outline.selected:pressed">
+    <Style Selector="^.info.outline.selected:pointerover, ^.info.outline.selected:pressed, ^.info.outline:flyout-open:pointerover, ^.info.outline:flyout-open:pressed">
       <Setter Property="Background" Value="{DynamicResource Gpui.Button.Info.Outline.Selected.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Info.Outline.Selected.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Info.Outline.Selected.Border}" />
     </Style>
-    <Style Selector="^.ghost.selected:pointerover, ^.ghost.selected:pressed">
+    <Style Selector="^.ghost.selected:pointerover, ^.ghost.selected:pressed, ^.ghost:flyout-open:pointerover, ^.ghost:flyout-open:pressed">
       <Setter Property="Background" Value="{DynamicResource Gpui.Button.Ghost.Selected.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Ghost.Selected.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Ghost.Selected.Border}" />
     </Style>
-    <Style Selector="^.ghost.outline.selected:pointerover, ^.ghost.outline.selected:pressed">
+    <Style Selector="^.ghost.outline.selected:pointerover, ^.ghost.outline.selected:pressed, ^.ghost.outline:flyout-open:pointerover, ^.ghost.outline:flyout-open:pressed">
       <Setter Property="Background" Value="{DynamicResource Gpui.Button.Ghost.Outline.Selected.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Ghost.Outline.Selected.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Ghost.Outline.Selected.Border}" />
     </Style>
-    <Style Selector="^.link.selected:pointerover, ^.link.selected:pressed">
+    <Style Selector="^.link.selected:pointerover, ^.link.selected:pressed, ^.link:flyout-open:pointerover, ^.link:flyout-open:pressed">
       <Setter Property="Background" Value="{DynamicResource Gpui.Button.Link.Selected.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Link.Selected.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Link.Selected.Border}" />
     </Style>
-    <Style Selector="^.link.outline.selected:pointerover, ^.link.outline.selected:pressed">
+    <Style Selector="^.link.outline.selected:pointerover, ^.link.outline.selected:pressed, ^.link.outline:flyout-open:pointerover, ^.link.outline:flyout-open:pressed">
       <Setter Property="Background" Value="{DynamicResource Gpui.Button.Link.Outline.Selected.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Link.Outline.Selected.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Link.Outline.Selected.Border}" />
     </Style>
-    <Style Selector="^.text.selected:pointerover, ^.text.selected:pressed">
+    <Style Selector="^.text.selected:pointerover, ^.text.selected:pressed, ^.text:flyout-open:pointerover, ^.text:flyout-open:pressed">
       <Setter Property="Background" Value="{DynamicResource Gpui.Button.Text.Selected.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Text.Selected.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Text.Selected.Border}" />
     </Style>
-    <Style Selector="^.text.outline.selected:pointerover, ^.text.outline.selected:pressed">
+    <Style Selector="^.text.outline.selected:pointerover, ^.text.outline.selected:pressed, ^.text.outline:flyout-open:pointerover, ^.text.outline:flyout-open:pressed">
       <Setter Property="Background" Value="{DynamicResource Gpui.Button.Text.Outline.Selected.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Text.Outline.Selected.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Button.Text.Outline.Selected.Border}" />

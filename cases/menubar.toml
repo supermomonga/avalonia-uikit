@@ -1,0 +1,8 @@
+# GPUI Kit AppMenuBar -> Menu.
+component = "menubar"
+viewport = [240, 200]
+anchor = [8, 8]
+
+[[group]]
+name = "bar"
+states = ["normal", "at-20-20"]

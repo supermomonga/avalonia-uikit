@@ -181,6 +181,9 @@ for variant in VARIANTS:
         w(f'    <!-- {variant}{" outline" if outline else ""} -->')
         for state, suffix in STATES:
             sel = base if (state == "normal") else f"{base}{suffix}"
+            if state == "selected":
+                # A trigger whose menu is open shows as selected (Popover::trigger calls `.open(true)`).
+                sel = f"{base}.selected, {base}:flyout-open"
             w(f'    <Style Selector="{sel}">')
             w(f'      <Setter Property="Background" Value="{{DynamicResource {key(variant, outline, state, "Background")}}}" />')
             w(f'      <Setter Property="Foreground" Value="{{DynamicResource {key(variant, outline, state, "Foreground")}}}" />')
@@ -200,7 +203,7 @@ w('    <!-- Selected keeps its look while hovered or pressed: GPUI registers no 
 for variant in VARIANTS:
     for outline in [False, True]:
         base = selector(variant, outline)
-        w(f'    <Style Selector="{base}.selected:pointerover, {base}.selected:pressed">')
+        w(f'    <Style Selector="{base}.selected:pointerover, {base}.selected:pressed, {base}:flyout-open:pointerover, {base}:flyout-open:pressed">')
         w(f'      <Setter Property="Background" Value="{{DynamicResource {key(variant, outline, "selected", "Background")}}}" />')
         w(f'      <Setter Property="Foreground" Value="{{DynamicResource {key(variant, outline, "selected", "Foreground")}}}" />')
         w(f'      <Setter Property="BorderBrush" Value="{{DynamicResource {key(variant, outline, "selected", "Border")}}}" />')

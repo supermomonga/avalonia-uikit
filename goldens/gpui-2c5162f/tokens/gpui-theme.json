@@ -470,7 +470,28 @@
       "check.disabled.checked": "#17171780",
       "check.disabled.mark": "#fafafa80",
       "switch.disabled.track": "#d4d4d480",
-      "switch.disabled.checked-track": "#17171780"
+      "switch.disabled.checked-track": "#17171780",
+      "popover-ring": "#0a0a0a1a",
+      "button.default.caret": "#0a0a0abf",
+      "button.default.outline.caret": "#0a0a0abf",
+      "button.primary.caret": "#fafafabf",
+      "button.primary.outline.caret": "#171717bf",
+      "button.secondary.caret": "#171717bf",
+      "button.secondary.outline.caret": "#171717bf",
+      "button.danger.caret": "#ef4444bf",
+      "button.danger.outline.caret": "#ef4444bf",
+      "button.warning.caret": "#eab308bf",
+      "button.warning.outline.caret": "#eab308bf",
+      "button.success.caret": "#22c55ebf",
+      "button.success.outline.caret": "#22c55ebf",
+      "button.info.caret": "#06b6d4bf",
+      "button.info.outline.caret": "#06b6d4bf",
+      "button.ghost.caret": "#171717bf",
+      "button.ghost.outline.caret": "#171717bf",
+      "button.link.caret": "#171717bf",
+      "button.link.outline.caret": "#171717bf",
+      "button.text.caret": "#0a0a0aac",
+      "button.text.outline.caret": "#0a0a0aac"
     },
     "derived_float": {
       "button.default.normal.background": [
@@ -2434,6 +2455,132 @@
         0.09000000357627869,
         0.09000000357627869,
         0.5
+      ],
+      "popover-ring": [
+        0.039000000804662704,
+        0.039000000804662704,
+        0.039000000804662704,
+        0.10000000149011612
+      ],
+      "button.default.caret": [
+        0.039000000804662704,
+        0.039000000804662704,
+        0.039000000804662704,
+        0.75
+      ],
+      "button.default.outline.caret": [
+        0.039000000804662704,
+        0.039000000804662704,
+        0.039000000804662704,
+        0.75
+      ],
+      "button.primary.caret": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        0.75
+      ],
+      "button.primary.outline.caret": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        0.75
+      ],
+      "button.secondary.caret": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        0.75
+      ],
+      "button.secondary.outline.caret": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        0.75
+      ],
+      "button.danger.caret": [
+        0.9371159672737122,
+        0.2668840289115906,
+        0.2668840289115906,
+        0.75
+      ],
+      "button.danger.outline.caret": [
+        0.9371159672737122,
+        0.2668840289115906,
+        0.2668840289115906,
+        0.75
+      ],
+      "button.warning.caret": [
+        0.9186500310897827,
+        0.7027404308319092,
+        0.03134998679161072,
+        0.75
+      ],
+      "button.warning.outline.caret": [
+        0.9186500310897827,
+        0.7027404308319092,
+        0.03134998679161072,
+        0.75
+      ],
+      "button.success.caret": [
+        0.13318201899528503,
+        0.7728179693222046,
+        0.3687813878059387,
+        0.75
+      ],
+      "button.success.outline.caret": [
+        0.13318201899528503,
+        0.7728179693222046,
+        0.3687813878059387,
+        0.75
+      ],
+      "button.info.caret": [
+        0.023485004901885986,
+        0.713495671749115,
+        0.8305150270462036,
+        0.75
+      ],
+      "button.info.outline.caret": [
+        0.023485004901885986,
+        0.713495671749115,
+        0.8305150270462036,
+        0.75
+      ],
+      "button.ghost.caret": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        0.75
+      ],
+      "button.ghost.outline.caret": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        0.75
+      ],
+      "button.link.caret": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        0.75
+      ],
+      "button.link.outline.caret": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        0.75
+      ],
+      "button.text.caret": [
+        0.039000000804662704,
+        0.039000000804662704,
+        0.039000000804662704,
+        0.6749999523162842
+      ],
+      "button.text.outline.caret": [
+        0.039000000804662704,
+        0.039000000804662704,
+        0.039000000804662704,
+        0.6749999523162842
       ]
     },
     "scalars": {
@@ -2915,7 +3062,28 @@
       "check.disabled.checked": "#fafafa80",
       "check.disabled.mark": "#17171780",
       "switch.disabled.track": "#40404080",
-      "switch.disabled.checked-track": "#fafafa80"
+      "switch.disabled.checked-track": "#fafafa80",
+      "popover-ring": "#fafafa1a",
+      "button.default.caret": "#fafafabf",
+      "button.default.outline.caret": "#fafafabf",
+      "button.primary.caret": "#171717bf",
+      "button.primary.outline.caret": "#fafafabf",
+      "button.secondary.caret": "#fafafabf",
+      "button.secondary.outline.caret": "#fafafabf",
+      "button.danger.caret": "#f87171bf",
+      "button.danger.outline.caret": "#f87171bf",
+      "button.warning.caret": "#facc15bf",
+      "button.warning.outline.caret": "#facc15bf",
+      "button.success.caret": "#4ade80bf",
+      "button.success.outline.caret": "#4ade80bf",
+      "button.info.caret": "#22d3eebf",
+      "button.info.outline.caret": "#22d3eebf",
+      "button.ghost.caret": "#fafafabf",
+      "button.ghost.outline.caret": "#fafafabf",
+      "button.link.caret": "#fafafabf",
+      "button.link.outline.caret": "#fafafabf",
+      "button.text.caret": "#fafafaac",
+      "button.text.outline.caret": "#fafafaac"
     },
     "derived_float": {
       "button.default.normal.background": [
@@ -4879,6 +5047,132 @@
         0.9800000190734863,
         0.9800000190734863,
         0.5
+      ],
+      "popover-ring": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        0.10000000149011612
+      ],
+      "button.default.caret": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        0.75
+      ],
+      "button.default.outline.caret": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        0.75
+      ],
+      "button.primary.caret": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        0.75
+      ],
+      "button.primary.outline.caret": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        0.75
+      ],
+      "button.secondary.caret": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        0.75
+      ],
+      "button.secondary.outline.caret": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        0.75
+      ],
+      "button.danger.caret": [
+        0.9725520014762878,
+        0.443448007106781,
+        0.443448007106781,
+        0.75
+      ],
+      "button.danger.outline.caret": [
+        0.9725520014762878,
+        0.443448007106781,
+        0.443448007106781,
+        0.75
+      ],
+      "button.warning.caret": [
+        0.9803019762039185,
+        0.7990834712982178,
+        0.08169791102409363,
+        0.75
+      ],
+      "button.warning.outline.caret": [
+        0.9803019762039185,
+        0.7990834712982178,
+        0.08169791102409363,
+        0.75
+      ],
+      "button.success.caret": [
+        0.289359986782074,
+        0.870639979839325,
+        0.5015270709991455,
+        0.75
+      ],
+      "button.success.outline.caret": [
+        0.289359986782074,
+        0.870639979839325,
+        0.5015270709991455,
+        0.75
+      ],
+      "button.info.caret": [
+        0.1327809989452362,
+        0.8278281688690186,
+        0.9332189559936523,
+        0.75
+      ],
+      "button.info.outline.caret": [
+        0.1327809989452362,
+        0.8278281688690186,
+        0.9332189559936523,
+        0.75
+      ],
+      "button.ghost.caret": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        0.75
+      ],
+      "button.ghost.outline.caret": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        0.75
+      ],
+      "button.link.caret": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        0.75
+      ],
+      "button.link.outline.caret": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        0.75
+      ],
+      "button.text.caret": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        0.6749999523162842
+      ],
+      "button.text.outline.caret": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        0.6749999523162842
       ]
     },
     "scalars": {

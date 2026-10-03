@@ -1,0 +1,23 @@
+<!--
+  GPUI Kit Separator -> Separator (crates/component/src/separator.rs).
+  A 1px line in the border color. Classes: vertical, dashed.
+  Inside a menu a separator is PopupMenuItem::Separator instead: a 2px line
+  that runs to the surface edge with 2px above and below (see GpuiTheme.axaml).
+-->
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ControlTheme x:Key="{x:Type Separator}" TargetType="Separator">
+    <Setter Property="Background" Value="{DynamicResource Gpui.Border}" />
+    <Setter Property="Height" Value="1" />
+    <Setter Property="Focusable" Value="False" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}" />
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^.vertical">
+      <Setter Property="Width" Value="1" />
+      <Setter Property="Height" Value="NaN" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

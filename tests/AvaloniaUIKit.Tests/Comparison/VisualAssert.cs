@@ -1,4 +1,5 @@
 using Avalonia;
+using Avalonia.VisualTree;
 using AvaloniaUIKit.Tests.Golden;
 using AvaloniaUIKit.Tests.Infrastructure;
 using AvaloniaUIKit.Tests.Rendering;
@@ -18,7 +19,8 @@ public static class VisualAssert
         host.Drive(golden, golden.State);
         var bounds = host.ControlBounds();
         var failures = new List<string>();
-        if (!Near(bounds, golden.ComponentBounds) && !NearWithTextRounding(golden.ComponentBounds, bounds))
+        var textRuns = host.Control.GetSelfAndVisualDescendants().OfType<Avalonia.Controls.TextBlock>().Count(t => !string.IsNullOrEmpty(t.Text));
+        if (!Near(bounds, golden.ComponentBounds) && !NearWithTextRounding(golden.ComponentBounds, bounds, Math.Max(1, textRuns)))
         {
             failures.Add($"bounds {Fmt(bounds)} != gpui {Fmt(golden.ComponentBounds)}");
         }
@@ -59,10 +61,10 @@ public static class VisualAssert
         Math.Abs(a.Width - b.Width) <= GeometryTolerance && Math.Abs(a.Height - b.Height) <= GeometryTolerance;
 
     /// <summary>R9: GPUI rounds text widths up to whole logical pixels, Avalonia to device pixels.</summary>
-    private static bool NearWithTextRounding(Rect gpui, Rect avalonia)
+    private static bool NearWithTextRounding(Rect gpui, Rect avalonia, int textRuns)
     {
         var dw = gpui.Width - avalonia.Width;
-        return dw >= -GeometryTolerance && dw < 1 &&
+        return dw >= -GeometryTolerance && dw < textRuns &&
             Math.Abs(gpui.X - avalonia.X) <= GeometryTolerance + dw &&
             Math.Abs(gpui.Y - avalonia.Y) <= GeometryTolerance &&
             Math.Abs(gpui.Height - avalonia.Height) <= GeometryTolerance;

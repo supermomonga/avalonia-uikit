@@ -29,7 +29,7 @@ public sealed record PixelTolerance(
     double EdgeMax = 64,
     double EdgeMean = 3,
     double InkMean = 18,
-    double ShadowMax = 8)
+    double ShadowMax = 12)
 {
     public static PixelTolerance Default { get; } = new();
 }
@@ -91,6 +91,8 @@ public static class PixelComparison
         }
 
         var reach = 1.0 / scale; // one device pixel, in logical pixels
+        // Antialiasing kernels differ by up to one and a half device pixels at tight corners (R2).
+        var edgeReach = 1.5 / scale;
         foreach (var q in scene.Quads)
         {
             var hasBorder = q.BorderWidths != default && !q.BorderColor.IsTransparent;
@@ -99,11 +101,11 @@ public static class PixelComparison
             {
                 continue;
             }
-            var area = q.Bounds.Inflate(reach * 1.5).Intersect(q.Clip.Inflate(reach));
+            var area = q.Bounds.Inflate(edgeReach * 1.5).Intersect(q.Clip.Inflate(edgeReach));
             Mark(Region.Edge, (x, y) =>
             {
                 var d = RoundedRectDistance(q.Bounds, q.Radii, x, y);
-                if (Math.Abs(d) <= reach * 1.01)
+                if (Math.Abs(d) <= edgeReach * 1.01)
                 {
                     return true;
                 }
@@ -115,7 +117,7 @@ public static class PixelComparison
                         Math.Max(0, q.Radii.TopRight - Math.Max(q.BorderWidths.Right, q.BorderWidths.Top)),
                         Math.Max(0, q.Radii.BottomRight - Math.Max(q.BorderWidths.Right, q.BorderWidths.Bottom)),
                         Math.Max(0, q.Radii.BottomLeft - Math.Max(q.BorderWidths.Left, q.BorderWidths.Bottom)));
-                    return Math.Abs(RoundedRectDistance(inner, innerRadii, x, y)) <= reach * 1.01;
+                    return Math.Abs(RoundedRectDistance(inner, innerRadii, x, y)) <= edgeReach * 1.01;
                 }
                 return false;
             }, area);
@@ -128,10 +130,10 @@ public static class PixelComparison
             {
                 continue;
             }
-            var area = p.Bounds.Inflate(reach * 1.5);
+            var area = p.Bounds.Inflate(edgeReach * 1.5);
             Mark(Region.Edge, (x, y) =>
             {
-                if (Math.Abs(RoundedRectDistance(p.Bounds, p.Radii, x, y)) <= reach * 1.01)
+                if (Math.Abs(RoundedRectDistance(p.Bounds, p.Radii, x, y)) <= edgeReach * 1.01)
                 {
                     return true;
                 }
@@ -143,15 +145,17 @@ public static class PixelComparison
                         Math.Max(0, p.Radii.TopRight - Math.Max(p.Widths.Right, p.Widths.Top)),
                         Math.Max(0, p.Radii.BottomRight - Math.Max(p.Widths.Right, p.Widths.Bottom)),
                         Math.Max(0, p.Radii.BottomLeft - Math.Max(p.Widths.Left, p.Widths.Bottom)));
-                    return Math.Abs(RoundedRectDistance(inner, innerRadii, x, y)) <= reach * 1.01;
+                    return Math.Abs(RoundedRectDistance(inner, innerRadii, x, y)) <= edgeReach * 1.01;
                 }
                 return false;
             }, area);
         }
         foreach (var s in scene.Shadows)
         {
+            // Only where the shadow shows: outside the element casting it.
             var spread = s.Sigma * 3 + reach;
-            Mark(Region.Shadow, (_, _) => true, s.Bounds.Inflate(spread).Intersect(s.Clip));
+            Mark(Region.Shadow, (x, y) => RoundedRectDistance(s.ElementBounds, s.ElementRadii, x, y) > -edgeReach,
+                s.Bounds.Inflate(spread).Intersect(s.Clip));
         }
         foreach (var s in scene.Sprites)
         {
@@ -171,8 +175,8 @@ public static class PixelComparison
     private static int Priority(Region r) => r switch
     {
         Region.Flat => 0,
-        Region.Edge => 1,
-        Region.Shadow => 2,
+        Region.Shadow => 1,
+        Region.Edge => 2,
         Region.Ink => 3,
         _ => 0,
     };

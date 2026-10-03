@@ -1,0 +1,32 @@
+# GPUI Kit DropdownButton -> SplitButton.
+component = "split"
+viewport = [140, 48]
+anchor = [16, 8]
+
+[[group]]
+name = "label"
+params = { label = "Save" }
+matrix = { variant = ["default", "primary", "secondary", "danger", "ghost"], size = ["xsmall", "small", "medium", "large"] }
+states = ["normal", "disabled"]
+
+[[group]]
+name = "state"
+params = { label = "Save" }
+matrix = { variant = ["default", "primary", "ghost"], outline = [false, true] }
+states = ["normal", "hover", "pressed", "focus", "at-76-24"]
+
+[[group]]
+name = "selected"
+params = { label = "Save", selected = true }
+matrix = { variant = ["default", "primary", "ghost"] }
+states = ["normal"]
+
+# The menu opens below the right edge; placed where it fits, as GPUI and
+# Avalonia clamp a popup to the window differently (R12).
+[[group]]
+name = "open"
+viewport = [600, 260]
+anchor = [200, 8]
+params = { label = "Save" }
+matrix = { variant = ["default", "ghost"] }
+states = ["click-at-271-24"]

@@ -1,0 +1,10 @@
+# GPUI Kit DropdownMenu (a Button with `.dropdown_menu`) -> Button + MenuFlyout.
+# The menu opens 4px below the trigger. Items are 26px high with 2px between them.
+component = "dropdown"
+viewport = [600, 260]
+anchor = [16, 8]
+
+[[group]]
+name = "menu"
+params = { label = "Open" }
+states = ["click", "click+at-60-61", "click+at-60-117", "click+at-60-153", "click+at-60-181"]

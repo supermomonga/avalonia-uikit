@@ -1,5 +1,6 @@
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
+using Avalonia.Input;
 using AvaloniaUIKit.Tests.Golden;
 
 namespace AvaloniaUIKit.Tests.Rendering;
@@ -19,6 +20,14 @@ public static class Adapters
         "checkbox" => Check(new CheckBox(), c),
         "radio" => Check(new RadioButton(), c),
         "switch" => Check(new ToggleSwitch(), c),
+        "dropdown" => new Button
+        {
+            Content = c.Str("label", "Open"),
+            Flyout = new MenuFlyout { Placement = PlacementMode.BottomEdgeAlignedLeft, ItemsSource = StandardMenu() },
+        },
+        "context" => ContextArea(),
+        "split" => Split(c),
+        "menubar" => MenuBar(),
         _ => throw new NotSupportedException($"no adapter for {c.Component}"),
     };
 
@@ -46,6 +55,66 @@ public static class Adapters
             control.Classes.Add(className ?? key);
         }
     }
+
+    /// <summary>The menu every popup case shows (reference/src/cases/menu.rs standard_menu).</summary>
+    public static List<Control> StandardMenu() =>
+    [
+        new MenuItem { Header = "New File" },
+        new MenuItem { Header = "Refresh", InputGesture = new KeyGesture(Key.F5) },
+        new MenuItem { Header = "Word Wrap", ToggleType = MenuItemToggleType.CheckBox, IsChecked = true },
+        new Separator(),
+        new MenuItem { Header = "Rename", IsEnabled = false },
+        new MenuItem { Header = "Edit", ItemsSource = new List<Control> { new MenuItem { Header = "Copy" }, new MenuItem { Header = "Paste" } } },
+    ];
+
+    private static Border ContextArea()
+    {
+        var area = new Border
+        {
+            Width = 120,
+            Height = 48,
+            BorderThickness = new Avalonia.Thickness(1),
+            Background = Avalonia.Media.Brushes.Transparent,
+            ContextMenu = new ContextMenu { ItemsSource = StandardMenu() },
+        };
+        area.Bind(Border.BorderBrushProperty, area.GetResourceObservable("Gpui.Border"));
+        return area;
+    }
+
+    private static SplitButton Split(GoldenCase c)
+    {
+        var split = new SplitButton
+        {
+            Content = c.Str("label", "Save"),
+            Flyout = new MenuFlyout { Placement = PlacementMode.BottomEdgeAlignedRight, ItemsSource = StandardMenu() },
+            IsEnabled = !c.Bool("disabled"),
+        };
+        ClassFrom(split, c, "variant", "default");
+        ClassFrom(split, c, "size", "medium");
+        FlagClass(split, c, "outline");
+        FlagClass(split, c, "selected");
+        return split;
+    }
+
+    private static Menu MenuBar() => new()
+    {
+        ItemsSource = new List<MenuItem>
+        {
+            new()
+            {
+                Header = "File",
+                ItemsSource = new List<Control>
+                {
+                    new MenuItem { Header = "New File" },
+                    new MenuItem { Header = "Refresh", InputGesture = new KeyGesture(Key.F5) },
+                    new Separator(),
+                    new MenuItem { Header = "Quit" },
+                },
+            },
+            new() { Header = "Edit", ItemsSource = new List<MenuItem> { new() { Header = "Undo" }, new() { Header = "Redo" } } },
+            new() { Header = "View", ItemsSource = new List<MenuItem> { new() { Header = "Zoom" } } },
+        },
+    };
 
     private static ToggleButton Check(ToggleButton control, GoldenCase c)
     {

@@ -269,6 +269,11 @@ fn style(theme: &Theme, variant: ButtonVariant, outline: bool, state: State) -> 
     }
 }
 
+/// The foreground of a variant's normal look (ButtonVariant::normal).
+pub fn normal_foreground(theme: &Theme, variant: ButtonVariant, outline: bool) -> Hsla {
+    style(theme, variant, outline, State::Normal).1
+}
+
 pub const VARIANTS: [&str; 10] = [
     "default", "primary", "secondary", "danger", "warning", "success", "info", "ghost", "link", "text",
 ];

@@ -35,7 +35,7 @@ public readonly record struct Rgba(double R, double G, double B, double A)
 
 public sealed record SceneQuad(int Order, Rect Bounds, Rect Clip, Rgba Background, bool SolidBackground, Rgba BorderColor, Thickness BorderWidths, CornerRadius Radii);
 
-public sealed record SceneShadow(int Order, Rect Bounds, Rect Clip, CornerRadius Radii, double Sigma, Rgba Color, bool Inset);
+public sealed record SceneShadow(int Order, Rect Bounds, Rect Clip, CornerRadius Radii, double Sigma, Rgba Color, bool Inset, Rect ElementBounds, CornerRadius ElementRadii);
 
 public sealed record SceneUnderline(int Order, Rect Bounds, double Thickness, Rgba Color);
 
@@ -80,7 +80,9 @@ public sealed record GoldenScene(
                 new CornerRadius(D(r[0]), D(r[1]), D(r[2]), D(r[3])),
                 D(s["sigma"]),
                 Rgba.From(s["color"]),
-                s["inset"]!.GetValue<bool>());
+                s["inset"]!.GetValue<bool>(),
+                GoldenManifest.ReadRect(s["element_bounds"]),
+                Radii(s["element_corner_radii"]));
         }).ToList();
         var underlines = root["underlines"]!.AsArray().Select(n =>
         {
@@ -103,4 +105,10 @@ public sealed record GoldenScene(
     }
 
     private static double D(JsonNode? n) => n!.GetValue<double>();
+
+    private static CornerRadius Radii(JsonNode? n)
+    {
+        var r = n!.AsArray();
+        return new CornerRadius(D(r[0]), D(r[1]), D(r[2]), D(r[3]));
+    }
 }

@@ -15,6 +15,9 @@
         <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/CheckBox.axaml" />
         <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/RadioButton.axaml" />
         <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/ToggleSwitch.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/Separator.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/Menus.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/SplitButton.axaml" />
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
   </Styles.Resources>
@@ -45,5 +48,17 @@
   <Style Selector="ToggleButton.large PathIcon">
     <Setter Property="Width" Value="16" />
     <Setter Property="Height" Value="16" />
+  </Style>
+
+  <!-- PopupMenuItem::Separator (popup_menu.rs): 2px, my_0p5, mx_neg_1. -->
+  <Style Selector="ContextMenu Separator, MenuFlyoutPresenter Separator, MenuItem Separator">
+    <Setter Property="Height" Value="2" />
+    <Setter Property="Margin" Value="-4,2" />
+    <Setter Property="CornerRadius" Value="1" />
+  </Style>
+  <!-- render_icon: menu icons are Size::XSmall (12px). -->
+  <Style Selector="MenuItem PathIcon">
+    <Setter Property="Width" Value="12" />
+    <Setter Property="Height" Value="12" />
   </Style>
 </Styles>
