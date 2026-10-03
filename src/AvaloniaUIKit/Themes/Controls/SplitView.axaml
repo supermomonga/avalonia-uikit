@@ -1,0 +1,368 @@
+<!--
+  GPUI Kit Sidebar (crates/component/src/sidebar) -> SplitView in its inline
+  modes, and the surface of GPUI Kit's Sheet (sheet.rs) in its overlay mode.
+
+  DisplayMode picks GPUI's collapsible mode: CompactInline is Icon (closed:
+  48px, CompactPaneLength), Inline is Offcanvas (closed: 0), Inline with
+  IsPaneOpen="True" is None. The pane opens to OpenPaneLength (GPUI's 255px
+  default). The pane's width moves over 200ms (ease-in-out-cubic) while the
+  surface inside snaps to its new width: on the window's side of the pane in
+  the compact modes, against the content in Inline (so it slides out). The
+  surface paints PaneBackground with a 1px border on the content side.
+
+  Overlay is the sheet: the surface (background, border on the inner edge,
+  shadow_xl) slides 100px in over 150ms when it opens and goes at once when it
+  closes. UseLightDismissOverlayMode dims the content with the theme overlay.
+-->
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:gpui="using:AvaloniaUIKit">
+  <!-- shadow_xl (gpui styles.rs): (0, 20) blur 25 spread -5, (0, 8) blur 10 spread -6, black at 10%. -->
+  <BoxShadows x:Key="Gpui.Shadow.Xl">0 20 84.8705 -5 #1A000000, 0 8 32.909 -6 #1A000000</BoxShadows>
+  <!-- SheetSettings.margin_top: the sheet's offset below a custom title bar (GPUI: 34px, TITLE_BAR_HEIGHT). -->
+  <Thickness x:Key="Gpui.Sheet.Margin">0</Thickness>
+
+  <ControlTheme x:Key="{x:Type SplitView}" TargetType="SplitView">
+    <Setter Property="OpenPaneLength" Value="255" />
+    <Setter Property="CompactPaneLength" Value="48" />
+    <Setter Property="PaneBackground" Value="{DynamicResource Gpui.Sidebar}" />
+
+    <Style Selector="^:left">
+      <Setter Property="Template">
+        <ControlTemplate>
+          <Grid Name="Container" Background="{TemplateBinding Background}" ClipToBounds="True">
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="{Binding $parent[SplitView].TemplateSettings.PaneColumnGridLength}" />
+              <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Panel Name="PART_PaneRoot" Grid.Column="0" HorizontalAlignment="Left" ZIndex="100" ClipToBounds="True">
+              <Panel.RenderTransform>
+                <TranslateTransform />
+              </Panel.RenderTransform>
+              <!-- The sheet's shadow: a Border with a one-sided border draws no BoxShadow. -->
+              <Border Name="PART_PaneShadow" IsHitTestVisible="False" />
+              <Border Name="PART_PaneSurface"
+                      Background="{TemplateBinding PaneBackground}"
+                      BackgroundSizing="OuterBorderEdge"
+                      BorderBrush="{DynamicResource Gpui.SidebarBorder}"
+                      TextElement.Foreground="{DynamicResource Gpui.SidebarForeground}">
+                <ContentPresenter Name="PART_PanePresenter"
+                                  Content="{TemplateBinding Pane}"
+                                  ContentTemplate="{TemplateBinding PaneTemplate}" />
+              </Border>
+            </Panel>
+            <Panel Name="ContentRoot" Grid.Column="1">
+              <ContentPresenter Name="PART_ContentPresenter"
+                                Content="{TemplateBinding Content}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}" />
+              <Rectangle Name="LightDismissLayer" Fill="Transparent" IsVisible="False" />
+            </Panel>
+          </Grid>
+        </ControlTemplate>
+      </Setter>
+      <Style Selector="^:overlay /template/ Panel#PART_PaneRoot, ^:compactoverlay /template/ Panel#PART_PaneRoot">
+        <Setter Property="Grid.Column" Value="0" />
+        <Setter Property="Grid.ColumnSpan" Value="2" />
+      </Style>
+      <Style Selector="^:overlay /template/ Panel#ContentRoot">
+        <Setter Property="Grid.Column" Value="0" />
+        <Setter Property="Grid.ColumnSpan" Value="2" />
+      </Style>
+    </Style>
+    <Style Selector="^:right">
+      <Setter Property="Template">
+        <ControlTemplate>
+          <Grid Name="Container" Background="{TemplateBinding Background}" ClipToBounds="True">
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="*" />
+              <ColumnDefinition Width="{Binding $parent[SplitView].TemplateSettings.PaneColumnGridLength}" />
+            </Grid.ColumnDefinitions>
+            <Panel Name="PART_PaneRoot" Grid.Column="1" HorizontalAlignment="Right" ZIndex="100" ClipToBounds="True">
+              <Panel.RenderTransform>
+                <TranslateTransform />
+              </Panel.RenderTransform>
+              <!-- The sheet's shadow: a Border with a one-sided border draws no BoxShadow. -->
+              <Border Name="PART_PaneShadow" IsHitTestVisible="False" />
+              <Border Name="PART_PaneSurface"
+                      Background="{TemplateBinding PaneBackground}"
+                      BackgroundSizing="OuterBorderEdge"
+                      BorderBrush="{DynamicResource Gpui.SidebarBorder}"
+                      TextElement.Foreground="{DynamicResource Gpui.SidebarForeground}">
+                <ContentPresenter Name="PART_PanePresenter"
+                                  Content="{TemplateBinding Pane}"
+                                  ContentTemplate="{TemplateBinding PaneTemplate}" />
+              </Border>
+            </Panel>
+            <Panel Name="ContentRoot" Grid.Column="0">
+              <ContentPresenter Name="PART_ContentPresenter"
+                                Content="{TemplateBinding Content}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}" />
+              <Rectangle Name="LightDismissLayer" Fill="Transparent" IsVisible="False" />
+            </Panel>
+          </Grid>
+        </ControlTemplate>
+      </Setter>
+      <Style Selector="^:overlay /template/ Panel#PART_PaneRoot, ^:compactoverlay /template/ Panel#PART_PaneRoot">
+        <Setter Property="Grid.Column" Value="0" />
+        <Setter Property="Grid.ColumnSpan" Value="2" />
+      </Style>
+      <Style Selector="^:overlay /template/ Panel#ContentRoot">
+        <Setter Property="Grid.Column" Value="0" />
+        <Setter Property="Grid.ColumnSpan" Value="2" />
+      </Style>
+    </Style>
+    <Style Selector="^:top">
+      <Setter Property="Template">
+        <ControlTemplate>
+          <Grid Name="Container" Background="{TemplateBinding Background}" ClipToBounds="True">
+            <Grid.RowDefinitions>
+              <RowDefinition Height="{Binding $parent[SplitView].TemplateSettings.PaneRowGridLength}" />
+              <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Panel Name="PART_PaneRoot" Grid.Row="0" VerticalAlignment="Top" ZIndex="100" ClipToBounds="True">
+              <Panel.RenderTransform>
+                <TranslateTransform />
+              </Panel.RenderTransform>
+              <!-- The sheet's shadow: a Border with a one-sided border draws no BoxShadow. -->
+              <Border Name="PART_PaneShadow" IsHitTestVisible="False" />
+              <Border Name="PART_PaneSurface"
+                      Background="{TemplateBinding PaneBackground}"
+                      BackgroundSizing="OuterBorderEdge"
+                      BorderBrush="{DynamicResource Gpui.SidebarBorder}"
+                      TextElement.Foreground="{DynamicResource Gpui.SidebarForeground}">
+                <ContentPresenter Name="PART_PanePresenter"
+                                  Content="{TemplateBinding Pane}"
+                                  ContentTemplate="{TemplateBinding PaneTemplate}" />
+              </Border>
+            </Panel>
+            <Panel Name="ContentRoot" Grid.Row="1">
+              <ContentPresenter Name="PART_ContentPresenter"
+                                Content="{TemplateBinding Content}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}" />
+              <Rectangle Name="LightDismissLayer" Fill="Transparent" IsVisible="False" />
+            </Panel>
+          </Grid>
+        </ControlTemplate>
+      </Setter>
+      <Style Selector="^:overlay /template/ Panel#PART_PaneRoot, ^:compactoverlay /template/ Panel#PART_PaneRoot">
+        <Setter Property="Grid.Row" Value="0" />
+        <Setter Property="Grid.RowSpan" Value="2" />
+      </Style>
+      <Style Selector="^:overlay /template/ Panel#ContentRoot">
+        <Setter Property="Grid.Row" Value="0" />
+        <Setter Property="Grid.RowSpan" Value="2" />
+      </Style>
+    </Style>
+    <Style Selector="^:bottom">
+      <Setter Property="Template">
+        <ControlTemplate>
+          <Grid Name="Container" Background="{TemplateBinding Background}" ClipToBounds="True">
+            <Grid.RowDefinitions>
+              <RowDefinition Height="*" />
+              <RowDefinition Height="{Binding $parent[SplitView].TemplateSettings.PaneRowGridLength}" />
+            </Grid.RowDefinitions>
+            <Panel Name="PART_PaneRoot" Grid.Row="1" VerticalAlignment="Bottom" ZIndex="100" ClipToBounds="True">
+              <Panel.RenderTransform>
+                <TranslateTransform />
+              </Panel.RenderTransform>
+              <!-- The sheet's shadow: a Border with a one-sided border draws no BoxShadow. -->
+              <Border Name="PART_PaneShadow" IsHitTestVisible="False" />
+              <Border Name="PART_PaneSurface"
+                      Background="{TemplateBinding PaneBackground}"
+                      BackgroundSizing="OuterBorderEdge"
+                      BorderBrush="{DynamicResource Gpui.SidebarBorder}"
+                      TextElement.Foreground="{DynamicResource Gpui.SidebarForeground}">
+                <ContentPresenter Name="PART_PanePresenter"
+                                  Content="{TemplateBinding Pane}"
+                                  ContentTemplate="{TemplateBinding PaneTemplate}" />
+              </Border>
+            </Panel>
+            <Panel Name="ContentRoot" Grid.Row="0">
+              <ContentPresenter Name="PART_ContentPresenter"
+                                Content="{TemplateBinding Content}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}" />
+              <Rectangle Name="LightDismissLayer" Fill="Transparent" IsVisible="False" />
+            </Panel>
+          </Grid>
+        </ControlTemplate>
+      </Setter>
+      <Style Selector="^:overlay /template/ Panel#PART_PaneRoot, ^:compactoverlay /template/ Panel#PART_PaneRoot">
+        <Setter Property="Grid.Row" Value="0" />
+        <Setter Property="Grid.RowSpan" Value="2" />
+      </Style>
+      <Style Selector="^:overlay /template/ Panel#ContentRoot">
+        <Setter Property="Grid.Row" Value="0" />
+        <Setter Property="Grid.RowSpan" Value="2" />
+      </Style>
+    </Style>
+
+    <!-- The pane: open, the open length; closed, the closed length of the mode. -->
+    <Style Selector="^:left:open /template/ Panel#PART_PaneRoot, ^:right:open /template/ Panel#PART_PaneRoot">
+      <Setter Property="Width" Value="{Binding $parent[SplitView].OpenPaneLength}" />
+    </Style>
+    <Style Selector="^:left:closed /template/ Panel#PART_PaneRoot, ^:right:closed /template/ Panel#PART_PaneRoot">
+      <Setter Property="Width" Value="{Binding $parent[SplitView].TemplateSettings.ClosedPaneWidth}" />
+    </Style>
+    <!-- mod.rs: EffectTransition 200ms ease_in_out_cubic on the clip; not on the first layout. -->
+    <Style Selector="^:left:inline /template/ Panel#PART_PaneRoot, ^:left:compactinline /template/ Panel#PART_PaneRoot, ^:left:compactoverlay /template/ Panel#PART_PaneRoot, ^:right:inline /template/ Panel#PART_PaneRoot, ^:right:compactinline /template/ Panel#PART_PaneRoot, ^:right:compactoverlay /template/ Panel#PART_PaneRoot">
+      <Setter Property="gpui:Motion.SettledTransitions">
+        <Transitions>
+          <DoubleTransition Property="Width" Duration="0:0:0.2" Easing="CubicEaseInOut" />
+        </Transitions>
+      </Setter>
+    </Style>
+    <Style Selector="^:top:open /template/ Panel#PART_PaneRoot, ^:bottom:open /template/ Panel#PART_PaneRoot">
+      <Setter Property="Height" Value="{Binding $parent[SplitView].OpenPaneLength}" />
+    </Style>
+    <Style Selector="^:top:closed /template/ Panel#PART_PaneRoot, ^:bottom:closed /template/ Panel#PART_PaneRoot">
+      <Setter Property="Height" Value="{Binding $parent[SplitView].TemplateSettings.ClosedPaneHeight}" />
+    </Style>
+    <!-- mod.rs: EffectTransition 200ms ease_in_out_cubic on the clip; not on the first layout. -->
+    <Style Selector="^:top:inline /template/ Panel#PART_PaneRoot, ^:top:compactinline /template/ Panel#PART_PaneRoot, ^:top:compactoverlay /template/ Panel#PART_PaneRoot, ^:bottom:inline /template/ Panel#PART_PaneRoot, ^:bottom:compactinline /template/ Panel#PART_PaneRoot, ^:bottom:compactoverlay /template/ Panel#PART_PaneRoot">
+      <Setter Property="gpui:Motion.SettledTransitions">
+        <Transitions>
+          <DoubleTransition Property="Height" Duration="0:0:0.2" Easing="CubicEaseInOut" />
+        </Transitions>
+      </Setter>
+    </Style>
+
+    <!-- The surface: its own width, snapping, and the border on the content side. -->
+    <Style Selector="^:left /template/ Border#PART_PaneSurface">
+      <Setter Property="BorderThickness" Value="0,0,1,0" />
+    </Style>
+    <Style Selector="^:left:compactinline /template/ Border#PART_PaneSurface, ^:left:compactoverlay /template/ Border#PART_PaneSurface">
+      <Setter Property="HorizontalAlignment" Value="Left" />
+      <Setter Property="Width" Value="{Binding $parent[SplitView].OpenPaneLength}" />
+    </Style>
+    <Style Selector="^:left:compactinline:closed /template/ Border#PART_PaneSurface, ^:left:compactoverlay:closed /template/ Border#PART_PaneSurface">
+      <Setter Property="Width" Value="{Binding $parent[SplitView].CompactPaneLength}" />
+    </Style>
+    <Style Selector="^:left:inline /template/ Border#PART_PaneSurface">
+      <Setter Property="HorizontalAlignment" Value="Right" />
+      <Setter Property="Width" Value="{Binding $parent[SplitView].OpenPaneLength}" />
+    </Style>
+    <Style Selector="^:right /template/ Border#PART_PaneSurface">
+      <Setter Property="BorderThickness" Value="1,0,0,0" />
+    </Style>
+    <Style Selector="^:right:compactinline /template/ Border#PART_PaneSurface, ^:right:compactoverlay /template/ Border#PART_PaneSurface">
+      <Setter Property="HorizontalAlignment" Value="Right" />
+      <Setter Property="Width" Value="{Binding $parent[SplitView].OpenPaneLength}" />
+    </Style>
+    <Style Selector="^:right:compactinline:closed /template/ Border#PART_PaneSurface, ^:right:compactoverlay:closed /template/ Border#PART_PaneSurface">
+      <Setter Property="Width" Value="{Binding $parent[SplitView].CompactPaneLength}" />
+    </Style>
+    <Style Selector="^:right:inline /template/ Border#PART_PaneSurface">
+      <Setter Property="HorizontalAlignment" Value="Left" />
+      <Setter Property="Width" Value="{Binding $parent[SplitView].OpenPaneLength}" />
+    </Style>
+    <Style Selector="^:top /template/ Border#PART_PaneSurface">
+      <Setter Property="BorderThickness" Value="0,0,0,1" />
+    </Style>
+    <Style Selector="^:top:compactinline /template/ Border#PART_PaneSurface, ^:top:compactoverlay /template/ Border#PART_PaneSurface">
+      <Setter Property="VerticalAlignment" Value="Top" />
+      <Setter Property="Height" Value="{Binding $parent[SplitView].OpenPaneLength}" />
+    </Style>
+    <Style Selector="^:top:compactinline:closed /template/ Border#PART_PaneSurface, ^:top:compactoverlay:closed /template/ Border#PART_PaneSurface">
+      <Setter Property="Height" Value="{Binding $parent[SplitView].CompactPaneLength}" />
+    </Style>
+    <Style Selector="^:top:inline /template/ Border#PART_PaneSurface">
+      <Setter Property="VerticalAlignment" Value="Bottom" />
+      <Setter Property="Height" Value="{Binding $parent[SplitView].OpenPaneLength}" />
+    </Style>
+    <Style Selector="^:bottom /template/ Border#PART_PaneSurface">
+      <Setter Property="BorderThickness" Value="0,1,0,0" />
+    </Style>
+    <Style Selector="^:bottom:compactinline /template/ Border#PART_PaneSurface, ^:bottom:compactoverlay /template/ Border#PART_PaneSurface">
+      <Setter Property="VerticalAlignment" Value="Bottom" />
+      <Setter Property="Height" Value="{Binding $parent[SplitView].OpenPaneLength}" />
+    </Style>
+    <Style Selector="^:bottom:compactinline:closed /template/ Border#PART_PaneSurface, ^:bottom:compactoverlay:closed /template/ Border#PART_PaneSurface">
+      <Setter Property="Height" Value="{Binding $parent[SplitView].CompactPaneLength}" />
+    </Style>
+    <Style Selector="^:bottom:inline /template/ Border#PART_PaneSurface">
+      <Setter Property="VerticalAlignment" Value="Top" />
+      <Setter Property="Height" Value="{Binding $parent[SplitView].OpenPaneLength}" />
+    </Style>
+
+    <!--
+      Overlay: the sheet. The pane sits below Gpui.Sheet.Margin and slides
+      100px in from its edge over 150ms, linearly (sheet.rs), its shadow
+      spilling past it; closing collapses it at once. Closed, it is collapsed
+      rather than hidden, so DrawerPage can focus into it as it opens.
+    -->
+    <Style Selector="^:overlay">
+      <Setter Property="PaneBackground" Value="{DynamicResource Gpui.Background}" />
+    </Style>
+    <Style Selector="^:overlay /template/ Panel#PART_PaneRoot">
+      <Setter Property="Margin" Value="{DynamicResource Gpui.Sheet.Margin}" />
+    </Style>
+    <Style Selector="^:overlay:open /template/ Panel#PART_PaneRoot">
+      <Setter Property="ClipToBounds" Value="False" />
+    </Style>
+    <Style Selector="^:overlay /template/ Border#PART_PaneSurface">
+      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Border}" />
+      <Setter Property="TextElement.Foreground" Value="{DynamicResource Gpui.Foreground}" />
+    </Style>
+    <Style Selector="^:overlay /template/ Border#PART_PaneShadow">
+      <Setter Property="BoxShadow" Value="{StaticResource Gpui.Shadow.Xl}" />
+    </Style>
+    <Style Selector="^:bottom:overlay /template/ Panel#PART_PaneRoot">
+      <Setter Property="Margin" Value="0" />
+    </Style>
+    <Style Selector="^:left:overlay:open /template/ Panel#PART_PaneRoot">
+      <Style.Animations>
+        <Animation Duration="0:0:0.15">
+          <KeyFrame Cue="0%">
+            <Setter Property="TranslateTransform.X" Value="-100" />
+          </KeyFrame>
+          <KeyFrame Cue="100%">
+            <Setter Property="TranslateTransform.X" Value="0" />
+          </KeyFrame>
+        </Animation>
+      </Style.Animations>
+    </Style>
+    <Style Selector="^:right:overlay:open /template/ Panel#PART_PaneRoot">
+      <Style.Animations>
+        <Animation Duration="0:0:0.15">
+          <KeyFrame Cue="0%">
+            <Setter Property="TranslateTransform.X" Value="100" />
+          </KeyFrame>
+          <KeyFrame Cue="100%">
+            <Setter Property="TranslateTransform.X" Value="0" />
+          </KeyFrame>
+        </Animation>
+      </Style.Animations>
+    </Style>
+    <Style Selector="^:top:overlay:open /template/ Panel#PART_PaneRoot">
+      <Style.Animations>
+        <Animation Duration="0:0:0.15">
+          <KeyFrame Cue="0%">
+            <Setter Property="TranslateTransform.Y" Value="-100" />
+          </KeyFrame>
+          <KeyFrame Cue="100%">
+            <Setter Property="TranslateTransform.Y" Value="0" />
+          </KeyFrame>
+        </Animation>
+      </Style.Animations>
+    </Style>
+    <Style Selector="^:bottom:overlay:open /template/ Panel#PART_PaneRoot">
+      <Style.Animations>
+        <Animation Duration="0:0:0.15">
+          <KeyFrame Cue="0%">
+            <Setter Property="TranslateTransform.Y" Value="100" />
+          </KeyFrame>
+          <KeyFrame Cue="100%">
+            <Setter Property="TranslateTransform.Y" Value="0" />
+          </KeyFrame>
+        </Animation>
+      </Style.Animations>
+    </Style>
+
+    <Style Selector="^:lightDismiss /template/ Rectangle#LightDismissLayer">
+      <Setter Property="Fill" Value="{DynamicResource Gpui.Overlay}" />
+    </Style>
+    <Style Selector="^:overlay:open /template/ Rectangle#LightDismissLayer, ^:compactoverlay:open /template/ Rectangle#LightDismissLayer">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

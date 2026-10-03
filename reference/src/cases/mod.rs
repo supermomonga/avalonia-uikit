@@ -30,6 +30,8 @@ mod label;
 mod list;
 mod scroll;
 mod select;
+mod sheet;
+mod sidebar;
 mod slider;
 mod surface;
 mod table;
@@ -77,6 +79,8 @@ pub fn builder(case: &Case) -> Result<Builder> {
         "tabs" => tabs::builder(&params),
         "table" => table::builder(&params),
         "carousel" => carousel::builder(&params),
+        "sidebar" => sidebar::builder(&params),
+        "sheet" => sheet::builder(&params),
         "datatable" => table::data_table(&params),
         "toolbar" => toolbar::builder(&params),
         "popover" => popover::popover(&params),

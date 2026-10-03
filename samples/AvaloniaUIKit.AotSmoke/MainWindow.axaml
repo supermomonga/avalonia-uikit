@@ -166,6 +166,28 @@
                      SelectedPageIndex="{Binding #Slides.SelectedIndex, Mode=TwoWay}" />
         </StackPanel>
 
+        <TextBlock Text="Sidebar" Foreground="{DynamicResource Gpui.MutedForeground}" />
+        <SplitView DisplayMode="CompactInline" IsPaneOpen="True" OpenPaneLength="200" Width="400" Height="120"
+                   HorizontalAlignment="Left">
+          <Border Background="{DynamicResource Gpui.Muted}" />
+        </SplitView>
+        <DrawerPage DrawerLayoutBehavior="CompactInline" IsOpen="False" Width="400" Height="120"
+                    HorizontalAlignment="Left">
+          <DrawerPage.DrawerHeader>
+            <TextBlock Text="Workspace" VerticalAlignment="Center" />
+          </DrawerPage.DrawerHeader>
+          <Border Background="{DynamicResource Gpui.Muted}" />
+        </DrawerPage>
+
+        <TextBlock Text="Sheet" Foreground="{DynamicResource Gpui.MutedForeground}" />
+        <DrawerPage Classes="sheet" DrawerBehavior="Flyout" DrawerPlacement="Right" DrawerHeader="Settings"
+                    IsOpen="True" Width="400" Height="200" HorizontalAlignment="Left">
+          <DrawerPage.Drawer>
+            <TextBlock Text="Sheet content" />
+          </DrawerPage.Drawer>
+          <Border Background="{DynamicResource Gpui.Muted}" />
+        </DrawerPage>
+
         <TextBlock Text="Popover" Foreground="{DynamicResource Gpui.MutedForeground}" />
         <Button Classes="outline" Content="Open" HorizontalAlignment="Left">
           <Button.Flyout>

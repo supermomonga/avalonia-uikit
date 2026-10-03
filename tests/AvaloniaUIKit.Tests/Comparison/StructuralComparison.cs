@@ -363,6 +363,22 @@ public static class StructuralComparison
 
     private static bool Near(double a, double b, double tolerance) => Math.Abs(a - b) <= tolerance;
 
+    // The text's line boxes, each cut to the font's ascent and descent about its middle.
+    private static Rect TextInk(TextBlock text)
+    {
+        var typeface = new Avalonia.Media.Typeface(text.FontFamily, text.FontStyle, text.FontWeight, text.FontStretch);
+        var glyphs = Avalonia.Media.FontManager.Current.TryGetGlyphTypeface(typeface, out var face)
+            ? (face.Metrics.Descent - face.Metrics.Ascent) * text.FontSize / face.Metrics.DesignEmHeight
+            : text.FontSize * 1.2;
+        Rect? ink = null;
+        foreach (var line in text.TextLayout.HitTestTextRange(0, text.Text!.Length))
+        {
+            var band = new Rect(line.X + text.Padding.Left, line.Center.Y - glyphs / 2 + text.Padding.Top, line.Width, glyphs);
+            ink = ink is { } union ? union.Union(band) : band;
+        }
+        return ink ?? new Rect(text.Bounds.Size);
+    }
+
     /// <summary>
     /// The colors of text, icons and paths: GPUI's glyph and icon sprites and its
     /// paths against the foregrounds of Avalonia's text blocks and selections and
@@ -381,8 +397,11 @@ public static class StructuralComparison
             {
                 continue;
             }
-            // Off the window it paints nothing (GPUI culls its sprites).
-            if (visual.TransformToVisual(root) is { } toRoot && !new Rect(visual.Bounds.Size).TransformToAABB(toRoot).Inflate(1).Intersects(new Rect(root.Bounds.Size)))
+            // Off the window it paints nothing (GPUI culls its sprites). A text's
+            // glyphs fill less than its block: its line boxes are as wide as the text
+            // and taller than the glyphs, which GPUI culls by their own bounds.
+            var painted = visual is TextBlock { Text.Length: > 0 } text ? TextInk(text) : new Rect(visual.Bounds.Size);
+            if (visual.TransformToVisual(root) is { } toRoot && !painted.TransformToAABB(toRoot).Inflate(1).Intersects(new Rect(root.Bounds.Size)))
             {
                 continue;
             }

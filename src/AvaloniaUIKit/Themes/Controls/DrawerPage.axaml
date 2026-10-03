@@ -1,0 +1,268 @@
+<!--
+  GPUI Kit Sidebar (crates/component/src/sidebar) -> DrawerPage in its inline
+  modes, and GPUI Kit Sheet (sheet.rs) in its overlay mode, on the SplitView
+  theme (SplitView.axaml).
+
+  Sidebar: DrawerBehavior="Locked" is GPUI's non-collapsible sidebar,
+  DrawerLayoutBehavior="CompactInline" its Icon mode (the compact toggle is
+  GPUI's SidebarToggleButton), "Split" its Offcanvas mode. The drawer is 255px
+  wide; its header, body and footer take GPUI's paddings (12px, 8px when
+  collapsed to icons, with 8px between them).
+
+  Sheet: the overlay modes are 350px, dim the page with the theme overlay
+  (BackdropBrush; set it to null for GPUI's overlay(false)) and pad the
+  header, body and footer as GPUI's sheet. The class sheet is GPUI's sheet
+  proper: no top bar, a title row with a close button.
+
+  Without a top bar of GPUI's own, the top bar (DrawerLayoutBehavior Split and
+  the overlay modes without the sheet class) takes GPUI's TitleBar colors.
+-->
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <!-- A page draws nothing of its own: the window paints the background. -->
+  <ControlTheme x:Key="{x:Type ContentPage}" TargetType="ContentPage">
+    <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <DockPanel>
+          <ContentPresenter Name="PART_TopCommandBar" DockPanel.Dock="Top"
+                            HorizontalContentAlignment="Stretch" IsVisible="False" />
+          <ContentPresenter Name="PART_BottomCommandBar" DockPanel.Dock="Bottom"
+                            HorizontalContentAlignment="Stretch" IsVisible="False" />
+          <ContentPresenter Name="PART_ContentPresenter"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}" />
+        </DockPanel>
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type DrawerPage}" TargetType="DrawerPage">
+    <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+    <Setter Property="DrawerLength" Value="255" />
+    <Setter Property="CompactDrawerLength" Value="48" />
+    <Setter Property="BackdropBrush" Value="{DynamicResource Gpui.Overlay}" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <SplitView Name="PART_SplitView"
+                   DisplayMode="{TemplateBinding DisplayMode}"
+                   OpenPaneLength="{TemplateBinding DrawerLength}"
+                   CompactPaneLength="{TemplateBinding CompactDrawerLength}"
+                   IsPaneOpen="{Binding IsOpen, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}">
+          <SplitView.Pane>
+            <!-- The body comes first: opening an overlay drawer focuses what follows
+                 PART_DrawerPresenter, which is then the header's close button. -->
+            <Grid RowDefinitions="Auto,*,Auto">
+              <Border Name="PART_BodyHost" Grid.Row="1">
+                <ContentPresenter Name="PART_DrawerPresenter"
+                                  HorizontalContentAlignment="Stretch"
+                                  VerticalContentAlignment="Stretch"
+                                  Content="{TemplateBinding Drawer}"
+                                  ContentTemplate="{TemplateBinding DrawerTemplate}" />
+              </Border>
+              <Border Name="PART_HeaderHost" Grid.Row="0">
+                <DockPanel>
+                  <!-- SidebarToggleButton: a small ghost icon button (no checked look). -->
+                  <ToggleButton Name="PART_CompactPaneToggle"
+                                DockPanel.Dock="Left"
+                                Theme="{StaticResource {x:Type Button}}"
+                                Classes="ghost small icon-only"
+                                Margin="0,0,8,0"
+                                VerticalAlignment="Center"
+                                IsVisible="False"
+                                IsChecked="{Binding #PART_SplitView.IsPaneOpen, Mode=TwoWay}"
+                                AutomationProperties.Name="Toggle navigation drawer">
+                    <Panel>
+                      <PathIcon Name="PART_CompactPaneIcon"
+                                Data="{StaticResource Gpui.Icon.PanelLeftClose}"
+                                IsVisible="{Binding DrawerIcon, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static ObjectConverters.IsNull}}" />
+                      <ContentPresenter Name="PART_CompactPaneIconPresenter"
+                                        Content="{TemplateBinding DrawerIcon}"
+                                        ContentTemplate="{TemplateBinding DrawerIconTemplate}"
+                                        IsVisible="{Binding DrawerIcon, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                    </Panel>
+                  </ToggleButton>
+                  <!-- The sheet's close button: unchecking closes the drawer through IsOpen. -->
+                  <ToggleButton Name="PART_CloseButton"
+                                DockPanel.Dock="Right"
+                                Theme="{StaticResource {x:Type Button}}"
+                                Classes="ghost small icon-only"
+                                VerticalAlignment="Center"
+                                IsVisible="False"
+                                IsChecked="{Binding #PART_SplitView.IsPaneOpen, Mode=TwoWay}"
+                                AutomationProperties.Name="Close">
+                    <PathIcon Data="{StaticResource Gpui.Icon.Close}" />
+                  </ToggleButton>
+                  <ContentPresenter Name="PART_DrawerHeader"
+                                    VerticalAlignment="Center"
+                                    Content="{TemplateBinding DrawerHeader}"
+                                    ContentTemplate="{TemplateBinding DrawerHeaderTemplate}"
+                                    Background="{TemplateBinding DrawerHeaderBackground}" />
+                </DockPanel>
+              </Border>
+              <Border Name="PART_FooterHost" Grid.Row="2">
+                <ContentPresenter Name="PART_DrawerFooter"
+                                  Content="{TemplateBinding DrawerFooter}"
+                                  ContentTemplate="{TemplateBinding DrawerFooterTemplate}"
+                                  Background="{TemplateBinding DrawerFooterBackground}" />
+              </Border>
+            </Grid>
+          </SplitView.Pane>
+          <Grid>
+            <DockPanel Name="PART_ContentDock">
+              <Border Name="PART_TopBar"
+                      DockPanel.Dock="Top"
+                      Height="34"
+                      Padding="8,0"
+                      Background="{DynamicResource Gpui.TitleBar}"
+                      BorderBrush="{DynamicResource Gpui.TitleBarBorder}"
+                      BorderThickness="0,0,0,1">
+                <DockPanel>
+                  <ToggleButton Name="PART_PaneButton"
+                                DockPanel.Dock="Left"
+                                Theme="{StaticResource {x:Type Button}}"
+                                Classes="ghost small icon-only"
+                                VerticalAlignment="Center"
+                                IsChecked="{Binding #PART_SplitView.IsPaneOpen, Mode=TwoWay}"
+                                AutomationProperties.Name="Toggle navigation drawer">
+                    <Panel>
+                      <PathIcon Name="PART_PaneIcon"
+                                Data="{StaticResource Gpui.Icon.PanelLeftOpen}"
+                                IsVisible="{Binding DrawerIcon, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static ObjectConverters.IsNull}}" />
+                      <ContentPresenter Name="PART_PaneIconPresenter"
+                                        Content="{TemplateBinding DrawerIcon}"
+                                        ContentTemplate="{TemplateBinding DrawerIconTemplate}"
+                                        IsVisible="{Binding DrawerIcon, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                    </Panel>
+                  </ToggleButton>
+                  <ContentPresenter Name="PART_TitlePresenter"
+                                    Margin="8,0,0,0"
+                                    VerticalAlignment="Center"
+                                    FontWeight="SemiBold"
+                                    Content="{TemplateBinding Header}"
+                                    ContentTemplate="{TemplateBinding HeaderTemplate}" />
+                </DockPanel>
+              </Border>
+              <ContentPresenter Name="PART_ContentPresenter"
+                                HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="{TemplateBinding CornerRadius}"
+                                Content="{TemplateBinding Content}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}" />
+            </DockPanel>
+            <Border Name="PART_Backdrop"
+                    Background="{TemplateBinding BackdropBrush}"
+                    IsVisible="False"
+                    IsHitTestVisible="False" />
+          </Grid>
+        </SplitView>
+      </ControlTemplate>
+    </Setter>
+
+    <!-- Sidebar: GPUI's header, content and footer paddings (mod.rs). -->
+    <Style Selector="^ /template/ Border#PART_HeaderHost">
+      <Setter Property="Padding" Value="12,12,12,0" />
+      <Setter Property="IsVisible" Value="{Binding $parent[DrawerPage].DrawerHeader, Converter={x:Static ObjectConverters.IsNotNull}}" />
+    </Style>
+    <Style Selector="^ /template/ Border#PART_FooterHost">
+      <Setter Property="Padding" Value="12,0,12,12" />
+      <Setter Property="IsVisible" Value="{Binding $parent[DrawerPage].DrawerFooter, Converter={x:Static ObjectConverters.IsNotNull}}" />
+    </Style>
+    <Style Selector="^ /template/ Border#PART_BodyHost">
+      <Setter Property="Padding" Value="12" />
+    </Style>
+    <!-- Collapsed to icons: 8px paddings (the footer keeps 12 below) and 8px between the rows. -->
+    <Style Selector="^[DisplayMode=CompactInline][IsOpen=False], ^[DisplayMode=CompactOverlay][IsOpen=False]">
+      <Style Selector="^ /template/ Border#PART_HeaderHost">
+        <Setter Property="Padding" Value="8,8,8,0" />
+      </Style>
+      <Style Selector="^ /template/ Border#PART_FooterHost">
+        <Setter Property="Padding" Value="8,8,8,12" />
+      </Style>
+      <Style Selector="^ /template/ Border#PART_BodyHost">
+        <Setter Property="Padding" Value="8,20" />
+        <Setter Property="Margin" Value="0,8" />
+      </Style>
+    </Style>
+    <!-- The compact modes toggle from the header (Fluent's rule), with the panel icons. -->
+    <Style Selector="^[DisplayMode=CompactInline], ^[DisplayMode=CompactOverlay]">
+      <Style Selector="^ /template/ Border#PART_HeaderHost">
+        <Setter Property="IsVisible" Value="True" />
+      </Style>
+      <Style Selector="^ /template/ ToggleButton#PART_CompactPaneToggle">
+        <Setter Property="IsVisible" Value="True" />
+      </Style>
+      <Style Selector="^ /template/ Border#PART_TopBar">
+        <Setter Property="IsVisible" Value="False" />
+      </Style>
+    </Style>
+    <Style Selector="^[IsOpen=False] /template/ PathIcon#PART_CompactPaneIcon">
+      <Setter Property="Data" Value="{StaticResource Gpui.Icon.PanelLeftOpen}" />
+    </Style>
+    <Style Selector="^:placement-right /template/ PathIcon#PART_CompactPaneIcon">
+      <Setter Property="Data" Value="{StaticResource Gpui.Icon.PanelRightClose}" />
+    </Style>
+    <Style Selector="^:placement-right[IsOpen=False] /template/ PathIcon#PART_CompactPaneIcon">
+      <Setter Property="Data" Value="{StaticResource Gpui.Icon.PanelRightOpen}" />
+    </Style>
+    <Style Selector="^:placement-right /template/ PathIcon#PART_PaneIcon">
+      <Setter Property="Data" Value="{StaticResource Gpui.Icon.PanelRightOpen}" />
+    </Style>
+    <Style Selector="^:placement-right /template/ ToggleButton#PART_PaneButton">
+      <Setter Property="DockPanel.Dock" Value="Right" />
+    </Style>
+
+    <!-- The top bar: not with a locked or disabled drawer, nor inside a NavigationPage (Fluent's rules). -->
+    <Style Selector="^[DrawerBehavior=Locked] /template/ Border#PART_TopBar, ^[DrawerBehavior=Disabled] /template/ Border#PART_TopBar, ^:detail-is-navpage /template/ Border#PART_TopBar, ^[IsInNavigationPage=True] /template/ Border#PART_TopBar">
+      <Setter Property="IsVisible" Value="False" />
+    </Style>
+    <Style Selector="^:detail-is-navpage /template/ ToggleButton#PART_CompactPaneToggle">
+      <Setter Property="IsVisible" Value="False" />
+    </Style>
+
+    <!--
+      Sheet (sheet.rs): 350px, a title row (16 / 12 left and right, 8 above
+      and below, the title in semibold), the body 16px in from the sides, the
+      footer 16 / 12 in.
+    -->
+    <Style Selector="^[DisplayMode=Overlay]">
+      <Setter Property="DrawerLength" Value="350" />
+      <Style Selector="^ /template/ Border#PART_HeaderHost">
+        <Setter Property="Padding" Value="16,8,12,8" />
+      </Style>
+      <Style Selector="^ /template/ ContentPresenter#PART_DrawerHeader">
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="LineHeight" Value="26" />
+      </Style>
+      <Style Selector="^ /template/ Border#PART_BodyHost">
+        <Setter Property="Padding" Value="16,0" />
+      </Style>
+      <Style Selector="^ /template/ Border#PART_FooterHost">
+        <Setter Property="Padding" Value="16,12" />
+      </Style>
+    </Style>
+    <Style Selector="^.sheet">
+      <Style Selector="^ /template/ Border#PART_TopBar">
+        <Setter Property="IsVisible" Value="False" />
+      </Style>
+      <Style Selector="^[DisplayMode=Overlay] /template/ Border#PART_HeaderHost">
+        <Setter Property="IsVisible" Value="True" />
+      </Style>
+      <Style Selector="^[DisplayMode=Overlay] /template/ ToggleButton#PART_CloseButton">
+        <Setter Property="IsVisible" Value="True" />
+      </Style>
+      <Style Selector="^[DrawerBehavior=Locked] /template/ ToggleButton#PART_CloseButton">
+        <Setter Property="IsVisible" Value="False" />
+      </Style>
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

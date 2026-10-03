@@ -1,0 +1,74 @@
+# GPUI Kit Sheet -> DrawerPage (DrawerBehavior=Flyout, the class sheet).
+# The 560x400 window is the page; a click anywhere opens the sheet at the
+# placement. The builder sets GPUI's sheet.margin_top (title-bar offset) to 0.
+# A right sheet spans x=210..560; its close button is x=524..548, y=9..33.
+component = "sheet"
+viewport = [560, 400]
+anchor = [0, 0]
+
+[[group]]
+name = "open"
+params = { width = 560, height = 400, title = "Settings" }
+matrix = { placement = ["left", "right", "top", "bottom"] }
+states = ["click+wait-200ms"]
+
+[[group]]
+name = "size"
+params = { width = 560, height = 400, title = "Settings", size = 240 }
+matrix = { placement = ["right", "bottom"] }
+states = ["click+wait-200ms"]
+
+[[group]]
+name = "untitled"
+params = { width = 560, height = 400, placement = "right" }
+states = ["click+wait-200ms"]
+
+[[group]]
+name = "footer"
+params = { width = 560, height = 400, placement = "right", title = "Settings", footer = true }
+states = ["click+wait-200ms"]
+
+# The close button hovered and pressed; closed by the button, the overlay and Escape.
+[[group]]
+name = "close"
+params = { width = 560, height = 400, placement = "right", title = "Settings" }
+states = [
+  "click+wait-200ms+at-536-21",
+  "click+wait-200ms+pressed-at-536-21",
+  "click+wait-200ms+click-at-536-21+wait-50ms",
+  "click+wait-200ms+click-at-60-200+wait-50ms",
+  "click+wait-200ms+key-escape+wait-50ms",
+]
+
+[[group]]
+name = "no-overlay"
+params = { width = 560, height = 400, placement = "right", title = "Settings", no_overlay = true }
+states = ["click+wait-200ms"]
+
+[[motion]]
+name = "slide-right"
+params = { width = 560, height = 400, placement = "right", title = "Settings" }
+trigger = "click"
+samples_ms = [0, 16, 33, 50, 66, 83, 100, 116, 133, 150, 166]
+themes = ["light"]
+
+[[motion]]
+name = "slide-left"
+params = { width = 560, height = 400, placement = "left", title = "Settings" }
+trigger = "click"
+samples_ms = [0, 16, 33, 50, 66, 83, 100, 116, 133, 150, 166]
+themes = ["light"]
+
+[[motion]]
+name = "slide-top"
+params = { width = 560, height = 400, placement = "top", title = "Settings" }
+trigger = "click"
+samples_ms = [0, 16, 33, 50, 66, 83, 100, 116, 133, 150, 166]
+themes = ["light"]
+
+[[motion]]
+name = "slide-bottom"
+params = { width = 560, height = 400, placement = "bottom", title = "Settings" }
+trigger = "click"
+samples_ms = [0, 16, 33, 50, 66, 83, 100, 116, 133, 150, 166]
+themes = ["light"]

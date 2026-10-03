@@ -69,6 +69,8 @@ public static class Adapters
         "table" => Table(c),
         "datatable" => DataTable(c),
         "carousel" => CarouselCase(c),
+        "sidebar" => c.Str("host", "splitview") == "drawer" ? SidebarDrawer(c) : Sidebar(c),
+        "sheet" => Sheet(c),
         _ => throw new NotSupportedException($"no adapter for {c.Component}"),
     };
 
@@ -738,6 +740,118 @@ public static class Adapters
             calendar.DisplayMode = CalendarMode.Year;
         }
         return calendar;
+    }
+
+    /// <summary>
+    /// reference/src/cases/sheet.rs: a DrawerPage the size of the window with
+    /// the sheet class; tapping the page opens the drawer (a tap, so the
+    /// release after a backdrop press does not reopen it).
+    /// </summary>
+    private static DrawerPage Sheet(GoldenCase c)
+    {
+        Border Fill(string brush, double width, double height) => new()
+        {
+            Width = width,
+            Height = height,
+            HorizontalAlignment = double.IsNaN(width) ? HorizontalAlignment.Stretch : HorizontalAlignment.Left,
+            VerticalAlignment = VerticalAlignment.Top,
+            [!Border.BackgroundProperty] = new Avalonia.Markup.Xaml.MarkupExtensions.DynamicResourceExtension(brush),
+        };
+        var content = new Border { Background = Avalonia.Media.Brushes.Transparent };
+        var drawer = new DrawerPage
+        {
+            Classes = { "sheet" },
+            Width = c.Num("width", 560),
+            Height = c.Num("height", 400),
+            DrawerBehavior = DrawerBehavior.Flyout,
+            DrawerPlacement = c.Str("placement", "right") switch
+            {
+                "left" => DrawerPlacement.Left,
+                "top" => DrawerPlacement.Top,
+                "bottom" => DrawerPlacement.Bottom,
+                _ => DrawerPlacement.Right,
+            },
+            Drawer = Fill("Gpui.Muted", double.NaN, 40),
+            Content = content,
+        };
+        if (c.Params.ContainsKey("size"))
+        {
+            drawer.DrawerLength = c.Num("size", 350);
+        }
+        if (c.Params.ContainsKey("title"))
+        {
+            drawer.DrawerHeader = c.Str("title", "");
+        }
+        if (c.Bool("footer"))
+        {
+            drawer.DrawerFooter = Fill("Gpui.Primary", 80, 24);
+        }
+        if (c.Bool("no_overlay"))
+        {
+            drawer.BackdropBrush = null;
+        }
+        content.Tapped += (_, _) => drawer.IsOpen = true;
+        return drawer;
+    }
+
+    // reference/src/cases/sidebar.rs: the muted content area beside the sidebar.
+    private static Border SidebarContent() => new()
+    {
+        [!Border.BackgroundProperty] = new Avalonia.Markup.Xaml.MarkupExtensions.DynamicResourceExtension("Gpui.Muted"),
+    };
+
+    /// <summary>
+    /// GPUI's Sidebar modes on SplitView: Icon is CompactInline, Offcanvas and
+    /// None are Inline (None always open). Releasing the pointer on the content
+    /// toggles the pane, as a click toggles collapsed in the GPUI case.
+    /// </summary>
+    private static SplitView Sidebar(GoldenCase c)
+    {
+        var collapsible = c.Str("collapsible", "icon");
+        var content = SidebarContent();
+        var split = new SplitView
+        {
+            Width = c.Num("width", 400),
+            Height = c.Num("height", 160),
+            DisplayMode = collapsible == "icon" ? SplitViewDisplayMode.CompactInline : SplitViewDisplayMode.Inline,
+            PanePlacement = c.Str("side", "left") == "right" ? SplitViewPanePlacement.Right : SplitViewPanePlacement.Left,
+            IsPaneOpen = collapsible == "none" || !c.Bool("collapsed"),
+            Content = content,
+        };
+        if (c.Params.ContainsKey("sidebar_width"))
+        {
+            split.OpenPaneLength = c.Num("sidebar_width", 255);
+        }
+        content.PointerReleased += (_, _) => split.IsPaneOpen = !split.IsPaneOpen;
+        return split;
+    }
+
+    // DrawerPage: Locked for GPUI's non-collapsible sidebar, CompactInline for Icon.
+    private static DrawerPage SidebarDrawer(GoldenCase c)
+    {
+        Border Block() => new()
+        {
+            Width = 24,
+            Height = 24,
+            HorizontalAlignment = HorizontalAlignment.Left,
+            [!Border.BackgroundProperty] = new Avalonia.Markup.Xaml.MarkupExtensions.DynamicResourceExtension("Gpui.SidebarPrimary"),
+        };
+        var icon = c.Str("collapsible", "icon") == "icon";
+        var drawer = new DrawerPage
+        {
+            Width = c.Num("width", 400),
+            Height = c.Num("height", 160),
+            DrawerBehavior = icon ? DrawerBehavior.Auto : DrawerBehavior.Locked,
+            DrawerLayoutBehavior = icon ? DrawerLayoutBehavior.CompactInline : DrawerLayoutBehavior.Split,
+            IsOpen = !icon || !c.Bool("collapsed"),
+            Content = SidebarContent(),
+        };
+        if (c.Bool("blocks"))
+        {
+            drawer.DrawerHeader = Block();
+            drawer.DrawerFooter = Block();
+        }
+        return drawer;
     }
 
     /// <summary>

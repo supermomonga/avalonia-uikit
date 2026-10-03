@@ -1,0 +1,77 @@
+# GPUI Kit Sidebar -> SplitView (CompactInline / Inline) and DrawerPage.
+# A 400x160 row at (16, 8): the sidebar and a muted content area. Clicking the
+# content area toggles collapsed (GPUI) / IsPaneOpen (Avalonia).
+component = "sidebar"
+viewport = [432, 176]
+anchor = [16, 8]
+
+[[group]]
+name = "icon"
+params = { width = 400, height = 160, sidebar_width = 200, collapsible = "icon", side = "left" }
+matrix = { collapsed = [false, true] }
+
+[[group]]
+name = "icon-right"
+params = { width = 400, height = 160, sidebar_width = 200, collapsible = "icon", side = "right" }
+matrix = { collapsed = [false, true] }
+
+# No width: GPUI's DEFAULT_WIDTH 255, the theme's OpenPaneLength.
+[[group]]
+name = "default-width"
+params = { width = 400, height = 160, collapsible = "icon" }
+
+[[group]]
+name = "offcanvas"
+params = { width = 400, height = 160, sidebar_width = 200, collapsible = "offcanvas", side = "left" }
+matrix = { collapsed = [false, true] }
+
+# GPUI ignores collapsed; Avalonia: Inline with IsPaneOpen=True.
+[[group]]
+name = "none"
+params = { width = 400, height = 160, sidebar_width = 200, collapsible = "none", collapsed = true }
+
+# DrawerPage, DrawerBehavior=Locked: the header and footer paddings (24px blocks).
+[[group]]
+name = "drawer"
+params = { width = 400, height = 160, host = "drawer", collapsible = "none", blocks = true }
+
+# DrawerPage, CompactInline: PART_CompactPaneToggle as SidebarToggleButton.
+[[group]]
+name = "drawer-icon"
+params = { width = 400, height = 160, host = "drawer", collapsible = "icon", toggle = true }
+matrix = { collapsed = [false, true] }
+
+[[motion]]
+name = "collapse"
+params = { width = 400, height = 160, sidebar_width = 200, collapsible = "icon", side = "left", pointer_x = 0.9 }
+trigger = "click"
+samples_ms = [0, 25, 50, 75, 100, 125, 150, 175, 200, 225]
+themes = ["light"]
+
+[[motion]]
+name = "expand"
+params = { width = 400, height = 160, sidebar_width = 200, collapsible = "icon", side = "left", collapsed = true, pointer_x = 0.9 }
+trigger = "click"
+samples_ms = [0, 25, 50, 75, 100, 125, 150, 175, 200, 225]
+themes = ["light"]
+
+[[motion]]
+name = "collapse-right"
+params = { width = 400, height = 160, sidebar_width = 200, collapsible = "icon", side = "right", pointer_x = 0.1 }
+trigger = "click"
+samples_ms = [0, 25, 50, 75, 100, 125, 150, 175, 200, 225]
+themes = ["light"]
+
+[[motion]]
+name = "offcanvas-collapse"
+params = { width = 400, height = 160, sidebar_width = 200, collapsible = "offcanvas", side = "left", pointer_x = 0.9 }
+trigger = "click"
+samples_ms = [0, 25, 50, 75, 100, 125, 150, 175, 200, 225]
+themes = ["light"]
+
+[[motion]]
+name = "offcanvas-expand"
+params = { width = 400, height = 160, sidebar_width = 200, collapsible = "offcanvas", side = "left", collapsed = true, pointer_x = 0.9 }
+trigger = "click"
+samples_ms = [0, 25, 50, 75, 100, 125, 150, 175, 200, 225]
+themes = ["light"]
