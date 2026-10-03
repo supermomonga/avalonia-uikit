@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Avalonia UIKit demos</title>
+  <style>
+    body { margin: 0; padding: 24px; font-family: system-ui, sans-serif; background: #fff; color: #0a0a0a; }
+    body.dark { background: #0a0a0a; color: #fafafa; }
+    .demo { margin: 0 0 24px; }
+    .demo h2 { font: 500 14px/1.4 ui-monospace, monospace; margin: 0 0 8px; }
+    .host { width: 640px; height: 200px; border: 1px solid #e5e5e5; border-radius: 8px; overflow: hidden; }
+    button { font: inherit; }
+  </style>
+</head>
+<body>
+  <p><button id="theme">Toggle theme</button> <span id="status">Starting .NET…</span></p>
+  <div id="demos"></div>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

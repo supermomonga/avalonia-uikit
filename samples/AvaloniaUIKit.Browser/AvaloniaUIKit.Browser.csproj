@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.WebAssembly">
+  <PropertyGroup>
+    <TargetFramework>net10.0-browser</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>AvaloniaUIKit.Browser</RootNamespace>
+    <IsPackable>false</IsPackable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <!-- Single-threaded: threads would need cross-origin isolation headers on the site. -->
+    <WasmEnableThreads>false</WasmEnableThreads>
+    <!-- Month and weekday names come from the invariant culture (English); saves the ICU data. -->
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <!-- Cloudflare compresses application/wasm itself; do not emit .br/.gz twins. -->
+    <CompressionEnabled>false</CompressionEnabled>
+    <WasmEmitSymbolMap>false</WasmEmitSymbolMap>
+    <!-- Avalonia.Controls.DataGrid is not trim-safe (docs/references/compatibility-list.md): keep it whole and do not fail on its warnings. -->
+    <ILLinkTreatWarningsAsErrors>false</ILLinkTreatWarningsAsErrors>
+    <TrimmerSingleWarn>true</TrimmerSingleWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Avalonia.Browser" />
+    <ProjectReference Include="../AvaloniaUIKit.Demos/AvaloniaUIKit.Demos.csproj" />
+    <TrimmerRootAssembly Include="Avalonia.Controls.DataGrid" />
+    <TrimmerRootAssembly Include="AvaloniaUIKit.DataGrid" />
+  </ItemGroup>
+</Project>

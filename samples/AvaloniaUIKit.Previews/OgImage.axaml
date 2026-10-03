@@ -1,0 +1,27 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:gpui="using:AvaloniaUIKit"
+             xmlns:demos="using:AvaloniaUIKit.Demos"
+             x:Class="AvaloniaUIKit.Previews.OgImage"
+             Width="1200" Height="630">
+  <!-- The social image (sites/public/og.png): the site's name beside real controls. -->
+  <Grid ColumnDefinitions="560,*" Background="{DynamicResource Gpui.Background}">
+    <StackPanel Margin="72,0,0,0" VerticalAlignment="Center" Spacing="20">
+      <Border Width="56" Height="56" CornerRadius="14" BorderThickness="4" BorderBrush="{DynamicResource Gpui.Foreground}" HorizontalAlignment="Left">
+        <Border Width="22" Height="22" CornerRadius="6" Background="{DynamicResource Gpui.Blue}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,8,8" />
+      </Border>
+      <TextBlock Text="Avalonia UIKit" FontSize="72" FontWeight="SemiBold" LineHeight="76" Foreground="{DynamicResource Gpui.Foreground}" />
+      <TextBlock Text="GPUI Kit's look and motion, for Avalonia. Themes and controls verified pixel by pixel against GPUI Kit's own renders."
+                 FontSize="24" LineHeight="32" TextWrapping="Wrap" MaxWidth="440" HorizontalAlignment="Left"
+                 Foreground="{DynamicResource Gpui.MutedForeground}" />
+      <TextBlock Text="avalonia-uikit.omofla.sh" FontSize="18" Foreground="{DynamicResource Gpui.MutedForeground}" />
+    </StackPanel>
+    <Border Grid.Column="1" Margin="24,56,0,0" Padding="32" CornerRadius="16,0,0,16" BorderThickness="1,1,0,1"
+            BorderBrush="{DynamicResource Gpui.Border}" Background="{DynamicResource Gpui.Background}" ClipToBounds="True">
+      <StackPanel Spacing="28" Width="760">
+        <demos:ButtonVariants />
+        <demos:ButtonDemo />
+      </StackPanel>
+    </Border>
+  </Grid>
+</UserControl>

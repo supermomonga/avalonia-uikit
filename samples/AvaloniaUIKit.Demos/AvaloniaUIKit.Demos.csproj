@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>AvaloniaUIKit.Demos</RootNamespace>
+    <IsPackable>false</IsPackable>
+    <IsTrimmable>true</IsTrimmable>
+    <EnableTrimAnalyzer>true</EnableTrimAnalyzer>
+    <AvaloniaXamlIlVerifyIl>true</AvaloniaXamlIlVerifyIl>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Avalonia" />
+    <ProjectReference Include="../../src/AvaloniaUIKit/AvaloniaUIKit.csproj" />
+    <ProjectReference Include="../../src/AvaloniaUIKit.ColorPicker/AvaloniaUIKit.ColorPicker.csproj" />
+    <ProjectReference Include="../../src/AvaloniaUIKit.DataGrid/AvaloniaUIKit.DataGrid.csproj" />
+    <!-- The site's demos render with the bundled Inter, as the tests do (ADR 5): browsers have no system fonts. -->
+    <AvaloniaResource Include="../../assets/fonts/inter/*.ttf" Link="Assets/Fonts/%(Filename)%(Extension)" />
+  </ItemGroup>
+</Project>

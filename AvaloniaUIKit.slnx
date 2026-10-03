@@ -6,6 +6,9 @@
   </Folder>
   <Folder Name="/samples/">
     <Project Path="samples/AvaloniaUIKit.AotSmoke/AvaloniaUIKit.AotSmoke.csproj" />
+    <Project Path="samples/AvaloniaUIKit.Demos/AvaloniaUIKit.Demos.csproj" />
+    <Project Path="samples/AvaloniaUIKit.Previews/AvaloniaUIKit.Previews.csproj" />
+    <Project Path="samples/AvaloniaUIKit.Browser/AvaloniaUIKit.Browser.csproj" />
   </Folder>
   <Folder Name="/tests/">
     <Project Path="tests/AvaloniaUIKit.Tests/AvaloniaUIKit.Tests.csproj" />
