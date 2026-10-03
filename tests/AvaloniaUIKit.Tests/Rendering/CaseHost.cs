@@ -147,6 +147,9 @@ public sealed class CaseHost : IDisposable
                         Window.MouseUp(point, button);
                     }
                     break;
+                case var k when k.StartsWith("key-", StringComparison.Ordinal):
+                    PressKey(k["key-".Length..]);
+                    break;
                 default:
                     if (!DriveExtra(part, at))
                     {
@@ -156,6 +159,50 @@ public sealed class CaseHost : IDisposable
             }
             Flush();
         }
+    }
+
+    /// <summary>
+    /// Presses a key named as GPUI's Keystroke::parse names it: modifiers joined
+    /// with '-' before the key ("down", "enter", "shift-tab", "a").
+    /// </summary>
+    public void PressKey(string keystroke)
+    {
+        var parts = keystroke.Split('-');
+        var modifiers = RawInputModifiers.None;
+        foreach (var m in parts[..^1])
+        {
+            modifiers |= m switch
+            {
+                "shift" => RawInputModifiers.Shift,
+                "ctrl" => RawInputModifiers.Control,
+                "alt" => RawInputModifiers.Alt,
+                "cmd" => RawInputModifiers.Meta,
+                _ => throw new NotSupportedException($"modifier {m}"),
+            };
+        }
+        var name = parts[^1];
+        var key = name switch
+        {
+            "up" => PhysicalKey.ArrowUp,
+            "down" => PhysicalKey.ArrowDown,
+            "left" => PhysicalKey.ArrowLeft,
+            "right" => PhysicalKey.ArrowRight,
+            "enter" => PhysicalKey.Enter,
+            "escape" => PhysicalKey.Escape,
+            "tab" => PhysicalKey.Tab,
+            "space" => PhysicalKey.Space,
+            "home" => PhysicalKey.Home,
+            "end" => PhysicalKey.End,
+            "backspace" => PhysicalKey.Backspace,
+            "delete" => PhysicalKey.Delete,
+            "pageup" => PhysicalKey.PageUp,
+            "pagedown" => PhysicalKey.PageDown,
+            { Length: 1 } c when char.IsAsciiLetter(c[0]) => Enum.Parse<PhysicalKey>("Key" + char.ToUpperInvariant(c[0])),
+            { Length: 1 } c when char.IsAsciiDigit(c[0]) => Enum.Parse<PhysicalKey>("Digit" + c),
+            _ => throw new NotSupportedException($"key {name}"),
+        };
+        Window.KeyPressQwerty(key, modifiers);
+        Window.KeyReleaseQwerty(key, modifiers);
     }
 
     /// <summary>Component-specific states, registered by the component's case adapter.</summary>
