@@ -1,0 +1,15 @@
+# GPUI Kit Spinner -> ProgressBar with the GpuiSpinner theme.
+component = "spinner"
+viewport = [56, 40]
+anchor = [16, 8]
+
+[[group]]
+name = "icon"
+matrix = { size = ["xsmall", "small", "medium", "large"] }
+
+[[motion]]
+name = "rotate"
+params = { size = "large" }
+trigger = "wait-0ms"
+samples_ms = [0, 100, 200, 300, 400, 500, 600, 700]
+themes = ["light"]

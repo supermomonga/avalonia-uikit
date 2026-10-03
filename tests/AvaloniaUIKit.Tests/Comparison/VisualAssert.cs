@@ -30,11 +30,15 @@ public static class VisualAssert
         Compare(golden, host, tolerance, failures);
     }
 
-    /// <summary>Compares a host the caller has already put into the frame's state.</summary>
+    /// <summary>
+    /// Compares a host the caller has already put into a motion frame's state.
+    /// GPUI snaps a moving edge to the nearest device pixel and Avalonia rounds
+    /// the posed value its own way, so geometry may differ by a device pixel.
+    /// </summary>
     public static void MatchesPosed(GoldenCase golden, CaseHost host, PixelTolerance? tolerance = null) =>
-        Compare(golden, host, tolerance, []);
+        Compare(golden, host, tolerance, [], geometryTolerance: 0.51);
 
-    private static void Compare(GoldenCase golden, CaseHost host, PixelTolerance? tolerance, List<string> failures)
+    private static void Compare(GoldenCase golden, CaseHost host, PixelTolerance? tolerance, List<string> failures, double geometryTolerance = StructuralComparison.GeometryTolerance)
     {
 
         var actual = host.Capture();
@@ -45,7 +49,7 @@ public static class VisualAssert
         var report = PixelComparison.Compare(expected, actual, regions, tolerance ?? PixelTolerance.Default);
         failures.AddRange(report.Failures);
 
-        var structure = StructuralComparison.Compare(scene, primitives);
+        var structure = StructuralComparison.Compare(scene, primitives, geometryTolerance);
         structure.AddRange(StructuralComparison.CompareInk(scene, host.Window));
         Calibration.Record(golden.Id, report);
         failures.AddRange(structure);

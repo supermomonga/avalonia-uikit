@@ -25378,6 +25378,887 @@
       "png_sha256": "c818366162e527a2035e3eb901b282176cb5359d6eca411f3f86575d7a785bc2"
     },
     {
+      "id": "progress/motion.loading/wait-0ms/light",
+      "component": "progress",
+      "group": "motion.loading",
+      "params": {
+        "width": 200,
+        "loading": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        232.0,
+        26.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        8.0
+      ],
+      "motion": {
+        "name": "loading",
+        "trigger": "wait-0ms",
+        "from": "normal",
+        "frames": [
+          {
+            "t_ms": 0,
+            "png": "png/progress/motion.loading/wait-0ms/light/0000ms.png",
+            "scene": "scenes/progress/motion.loading/wait-0ms/light/0000ms.json",
+            "png_sha256": "96297bccbae8177bb952c96f22937602f223cd47ca84d71caa28b15569f4dbac"
+          },
+          {
+            "t_ms": 100,
+            "png": "png/progress/motion.loading/wait-0ms/light/0100ms.png",
+            "scene": "scenes/progress/motion.loading/wait-0ms/light/0100ms.json",
+            "png_sha256": "8f18d1bbea559634f11ee23c22b6d56598d6032c1cce9bb96a99de4acccfcefe"
+          },
+          {
+            "t_ms": 200,
+            "png": "png/progress/motion.loading/wait-0ms/light/0200ms.png",
+            "scene": "scenes/progress/motion.loading/wait-0ms/light/0200ms.json",
+            "png_sha256": "bee5b3dbabf5593cac94be9ae8ed59a5bd02085ed484d77b7318f9f0776c3b04"
+          },
+          {
+            "t_ms": 300,
+            "png": "png/progress/motion.loading/wait-0ms/light/0300ms.png",
+            "scene": "scenes/progress/motion.loading/wait-0ms/light/0300ms.json",
+            "png_sha256": "0597f5d60d2718e8211221b96fc3ef0424aeaef30473179e8da3bf390575d0ae"
+          },
+          {
+            "t_ms": 400,
+            "png": "png/progress/motion.loading/wait-0ms/light/0400ms.png",
+            "scene": "scenes/progress/motion.loading/wait-0ms/light/0400ms.json",
+            "png_sha256": "6f74994d6e34f0a312c0c7df4c25d462e18f353c3b8e414ac18055e7f482778b"
+          },
+          {
+            "t_ms": 500,
+            "png": "png/progress/motion.loading/wait-0ms/light/0500ms.png",
+            "scene": "scenes/progress/motion.loading/wait-0ms/light/0500ms.json",
+            "png_sha256": "4c84123fa7b780ece548c93461280275968960b1a5786466e5c5642a8083ddde"
+          },
+          {
+            "t_ms": 600,
+            "png": "png/progress/motion.loading/wait-0ms/light/0600ms.png",
+            "scene": "scenes/progress/motion.loading/wait-0ms/light/0600ms.json",
+            "png_sha256": "9d3b57622cd8edca509c4c21864000a2b74a3ce12ca7c9cfac692631e4d3c7d1"
+          },
+          {
+            "t_ms": 700,
+            "png": "png/progress/motion.loading/wait-0ms/light/0700ms.png",
+            "scene": "scenes/progress/motion.loading/wait-0ms/light/0700ms.json",
+            "png_sha256": "60c38e2f42cb547d61aaf54158bc95c22ed7281993c5deafde63c88fb681cb18"
+          },
+          {
+            "t_ms": 800,
+            "png": "png/progress/motion.loading/wait-0ms/light/0800ms.png",
+            "scene": "scenes/progress/motion.loading/wait-0ms/light/0800ms.json",
+            "png_sha256": "49f7b87d74ffd5c3816a282d232923b0d3d307a9a6dffa036ddc7b7b2a588a5e"
+          },
+          {
+            "t_ms": 900,
+            "png": "png/progress/motion.loading/wait-0ms/light/0900ms.png",
+            "scene": "scenes/progress/motion.loading/wait-0ms/light/0900ms.json",
+            "png_sha256": "4b6d3934567dabbb85548adc3cc840590e6749592989e3f60379dcc048a871ab"
+          }
+        ]
+      }
+    },
+    {
+      "id": "progress/motion.value/click/light",
+      "component": "progress",
+      "group": "motion.value",
+      "params": {
+        "width": 200,
+        "value": 20,
+        "value_to": 80
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        232.0,
+        26.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        8.0
+      ],
+      "motion": {
+        "name": "value",
+        "trigger": "click",
+        "from": "normal",
+        "frames": [
+          {
+            "t_ms": 0,
+            "png": "png/progress/motion.value/click/light/0000ms.png",
+            "scene": "scenes/progress/motion.value/click/light/0000ms.json",
+            "png_sha256": "4ad31167e62de574f734f890993ea55ca844758a3c0f34056bdd84e6b079ca41"
+          },
+          {
+            "t_ms": 16,
+            "png": "png/progress/motion.value/click/light/0016ms.png",
+            "scene": "scenes/progress/motion.value/click/light/0016ms.json",
+            "png_sha256": "9c0a4c4ccadd6b5a174eb9bdd0e86648e9dde58a8d6bf20d0585c7da92464940"
+          },
+          {
+            "t_ms": 33,
+            "png": "png/progress/motion.value/click/light/0033ms.png",
+            "scene": "scenes/progress/motion.value/click/light/0033ms.json",
+            "png_sha256": "88696b5c402125fde4bf31bb35ba0897bca4d8aaa00f211a07986dd77f3e2c62"
+          },
+          {
+            "t_ms": 50,
+            "png": "png/progress/motion.value/click/light/0050ms.png",
+            "scene": "scenes/progress/motion.value/click/light/0050ms.json",
+            "png_sha256": "e9457d16631896de101612621fd3bacbd84655cf432b9515a9d115b8daf20400"
+          },
+          {
+            "t_ms": 66,
+            "png": "png/progress/motion.value/click/light/0066ms.png",
+            "scene": "scenes/progress/motion.value/click/light/0066ms.json",
+            "png_sha256": "7ad8769a57d83b322eb733e4edb4b9d39b11f0581a5ef32a59b996e3fe08b9ec"
+          },
+          {
+            "t_ms": 83,
+            "png": "png/progress/motion.value/click/light/0083ms.png",
+            "scene": "scenes/progress/motion.value/click/light/0083ms.json",
+            "png_sha256": "51de17f6b6611cce7b7bb62654fb68822bcad681608f7ef17a65dd4fb8c652eb"
+          },
+          {
+            "t_ms": 100,
+            "png": "png/progress/motion.value/click/light/0100ms.png",
+            "scene": "scenes/progress/motion.value/click/light/0100ms.json",
+            "png_sha256": "ee5cc75131a3550be9fb78c8e8a20857ff1db8e1c8f5bbaecffde55f1767da20"
+          },
+          {
+            "t_ms": 133,
+            "png": "png/progress/motion.value/click/light/0133ms.png",
+            "scene": "scenes/progress/motion.value/click/light/0133ms.json",
+            "png_sha256": "6c63c2a3b4e1e5a87c6626de8fab904c70fc81350c1ca452800f6c4b5e93e407"
+          },
+          {
+            "t_ms": 166,
+            "png": "png/progress/motion.value/click/light/0166ms.png",
+            "scene": "scenes/progress/motion.value/click/light/0166ms.json",
+            "png_sha256": "51a9cd55bae737e49c3ea0b9ff48bf0d8ae34d6d67cc2d4043e729bafa8ccfaa"
+          },
+          {
+            "t_ms": 200,
+            "png": "png/progress/motion.value/click/light/0200ms.png",
+            "scene": "scenes/progress/motion.value/click/light/0200ms.json",
+            "png_sha256": "cdf23d1a22b2ae721278c7a31b04e218655be627fe9a55f6a6df8bbc0e2dad6f"
+          }
+        ]
+      }
+    },
+    {
+      "id": "progress/value.large.value-0/normal/dark",
+      "component": "progress",
+      "group": "value",
+      "params": {
+        "width": 200,
+        "size": "large",
+        "value": 0
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        232.0,
+        26.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        10.0
+      ],
+      "png": "png/progress/value.large.value-0/normal/dark.png",
+      "scene": "scenes/progress/value.large.value-0/normal/dark.json",
+      "png_sha256": "b90e42284f7f41dc8ccd41e63150ab5609686acd6d8d04ea69d7176f9bc763d9"
+    },
+    {
+      "id": "progress/value.large.value-0/normal/light",
+      "component": "progress",
+      "group": "value",
+      "params": {
+        "width": 200,
+        "size": "large",
+        "value": 0
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        232.0,
+        26.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        10.0
+      ],
+      "png": "png/progress/value.large.value-0/normal/light.png",
+      "scene": "scenes/progress/value.large.value-0/normal/light.json",
+      "png_sha256": "4254d91f1380a05feb313ad9677c722d91566769b18207519906d13de7cdbba2"
+    },
+    {
+      "id": "progress/value.large.value-100/normal/dark",
+      "component": "progress",
+      "group": "value",
+      "params": {
+        "width": 200,
+        "size": "large",
+        "value": 100
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        232.0,
+        26.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        10.0
+      ],
+      "png": "png/progress/value.large.value-100/normal/dark.png",
+      "scene": "scenes/progress/value.large.value-100/normal/dark.json",
+      "png_sha256": "f221b7dacaa167c2c937664a43d005502bfd90c944e08163d1040f00ee021dc1"
+    },
+    {
+      "id": "progress/value.large.value-100/normal/light",
+      "component": "progress",
+      "group": "value",
+      "params": {
+        "width": 200,
+        "size": "large",
+        "value": 100
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        232.0,
+        26.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        10.0
+      ],
+      "png": "png/progress/value.large.value-100/normal/light.png",
+      "scene": "scenes/progress/value.large.value-100/normal/light.json",
+      "png_sha256": "daee6ff8e9d5e5b7ab4097429f21c6152c901bab3e02e1d6135f033d2dc97679"
+    },
+    {
+      "id": "progress/value.large.value-40/normal/dark",
+      "component": "progress",
+      "group": "value",
+      "params": {
+        "width": 200,
+        "size": "large",
+        "value": 40
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        232.0,
+        26.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        10.0
+      ],
+      "png": "png/progress/value.large.value-40/normal/dark.png",
+      "scene": "scenes/progress/value.large.value-40/normal/dark.json",
+      "png_sha256": "d9a3e05adabba0e084d36c472cf16c9e71d6ecfe9d39b871e8d01221fe2e51bd"
+    },
+    {
+      "id": "progress/value.large.value-40/normal/light",
+      "component": "progress",
+      "group": "value",
+      "params": {
+        "width": 200,
+        "size": "large",
+        "value": 40
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        232.0,
+        26.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        10.0
+      ],
+      "png": "png/progress/value.large.value-40/normal/light.png",
+      "scene": "scenes/progress/value.large.value-40/normal/light.json",
+      "png_sha256": "38bd0ba2fdf423fa131715d7ec380135b71d33b6a397abd6783447969d833e3b"
+    },
+    {
+      "id": "progress/value.medium.value-0/normal/dark",
+      "component": "progress",
+      "group": "value",
+      "params": {
+        "width": 200,
+        "size": "medium",
+        "value": 0
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        232.0,
+        26.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        8.0
+      ],
+      "png": "png/progress/value.medium.value-0/normal/dark.png",
+      "scene": "scenes/progress/value.medium.value-0/normal/dark.json",
+      "png_sha256": "a86e5cabcc22b3dcba32148ca9fef62137ea7806917a84c300115af8c683342c"
+    },
+    {
+      "id": "progress/value.medium.value-0/normal/light",
+      "component": "progress",
+      "group": "value",
+      "params": {
+        "width": 200,
+        "size": "medium",
+        "value": 0
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        232.0,
+        26.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        8.0
+      ],
+      "png": "png/progress/value.medium.value-0/normal/light.png",
+      "scene": "scenes/progress/value.medium.value-0/normal/light.json",
+      "png_sha256": "96297bccbae8177bb952c96f22937602f223cd47ca84d71caa28b15569f4dbac"
+    },
+    {
+      "id": "progress/value.medium.value-100/normal/dark",
+      "component": "progress",
+      "group": "value",
+      "params": {
+        "width": 200,
+        "size": "medium",
+        "value": 100
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        232.0,
+        26.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        8.0
+      ],
+      "png": "png/progress/value.medium.value-100/normal/dark.png",
+      "scene": "scenes/progress/value.medium.value-100/normal/dark.json",
+      "png_sha256": "7ee7b0bd5fa978d43daa46d5e7b9bb29d941b249a45f835b6e7ec577fdc9850a"
+    },
+    {
+      "id": "progress/value.medium.value-100/normal/light",
+      "component": "progress",
+      "group": "value",
+      "params": {
+        "width": 200,
+        "size": "medium",
+        "value": 100
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        232.0,
+        26.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        8.0
+      ],
+      "png": "png/progress/value.medium.value-100/normal/light.png",
+      "scene": "scenes/progress/value.medium.value-100/normal/light.json",
+      "png_sha256": "fd21ebb0258cdea5206ac1022046fdff02df0d0b623f8cbe1a2dc47eaf056a76"
+    },
+    {
+      "id": "progress/value.medium.value-40/normal/dark",
+      "component": "progress",
+      "group": "value",
+      "params": {
+        "width": 200,
+        "size": "medium",
+        "value": 40
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        232.0,
+        26.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        8.0
+      ],
+      "png": "png/progress/value.medium.value-40/normal/dark.png",
+      "scene": "scenes/progress/value.medium.value-40/normal/dark.json",
+      "png_sha256": "6b59ef05790f8f2e3f353a70a8470d78aae91ab99728d7db131373d4cbf40659"
+    },
+    {
+      "id": "progress/value.medium.value-40/normal/light",
+      "component": "progress",
+      "group": "value",
+      "params": {
+        "width": 200,
+        "size": "medium",
+        "value": 40
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        232.0,
+        26.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        8.0
+      ],
+      "png": "png/progress/value.medium.value-40/normal/light.png",
+      "scene": "scenes/progress/value.medium.value-40/normal/light.json",
+      "png_sha256": "8eeeb9baa3fb670912bd51c276abf98586d619b053904671b7248ba6b88bc95d"
+    },
+    {
+      "id": "progress/value.small.value-0/normal/dark",
+      "component": "progress",
+      "group": "value",
+      "params": {
+        "width": 200,
+        "size": "small",
+        "value": 0
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        232.0,
+        26.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        6.0
+      ],
+      "png": "png/progress/value.small.value-0/normal/dark.png",
+      "scene": "scenes/progress/value.small.value-0/normal/dark.json",
+      "png_sha256": "bde0e9f2b10dc26bfc7be2f6126201ad95211fc84ab35cb9eca3fb517b9f91ee"
+    },
+    {
+      "id": "progress/value.small.value-0/normal/light",
+      "component": "progress",
+      "group": "value",
+      "params": {
+        "width": 200,
+        "size": "small",
+        "value": 0
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        232.0,
+        26.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        6.0
+      ],
+      "png": "png/progress/value.small.value-0/normal/light.png",
+      "scene": "scenes/progress/value.small.value-0/normal/light.json",
+      "png_sha256": "d4a854a4a36158c21103508a23f62a027e0ff151c62a14d7b6c7883d4cb6f30a"
+    },
+    {
+      "id": "progress/value.small.value-100/normal/dark",
+      "component": "progress",
+      "group": "value",
+      "params": {
+        "width": 200,
+        "size": "small",
+        "value": 100
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        232.0,
+        26.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        6.0
+      ],
+      "png": "png/progress/value.small.value-100/normal/dark.png",
+      "scene": "scenes/progress/value.small.value-100/normal/dark.json",
+      "png_sha256": "3190e5f0e4d8cd460dd86a4551f94e163640258afeb95e0a6f2907905b39597c"
+    },
+    {
+      "id": "progress/value.small.value-100/normal/light",
+      "component": "progress",
+      "group": "value",
+      "params": {
+        "width": 200,
+        "size": "small",
+        "value": 100
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        232.0,
+        26.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        6.0
+      ],
+      "png": "png/progress/value.small.value-100/normal/light.png",
+      "scene": "scenes/progress/value.small.value-100/normal/light.json",
+      "png_sha256": "ce5f618c6ea9426e7110355169250598223ea46710391b0c12751f0a6a846782"
+    },
+    {
+      "id": "progress/value.small.value-40/normal/dark",
+      "component": "progress",
+      "group": "value",
+      "params": {
+        "width": 200,
+        "size": "small",
+        "value": 40
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        232.0,
+        26.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        6.0
+      ],
+      "png": "png/progress/value.small.value-40/normal/dark.png",
+      "scene": "scenes/progress/value.small.value-40/normal/dark.json",
+      "png_sha256": "3dc1e1ce0f771236b43d25728ea462eaf902a441f031ca887b7a9c034ca58ee0"
+    },
+    {
+      "id": "progress/value.small.value-40/normal/light",
+      "component": "progress",
+      "group": "value",
+      "params": {
+        "width": 200,
+        "size": "small",
+        "value": 40
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        232.0,
+        26.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        6.0
+      ],
+      "png": "png/progress/value.small.value-40/normal/light.png",
+      "scene": "scenes/progress/value.small.value-40/normal/light.json",
+      "png_sha256": "e6b032b90ca28d0fe8241550dbc2771c4f4aff8c4cecae3bda544fc7fd4c9e85"
+    },
+    {
+      "id": "progress/value.xsmall.value-0/normal/dark",
+      "component": "progress",
+      "group": "value",
+      "params": {
+        "width": 200,
+        "size": "xsmall",
+        "value": 0
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        232.0,
+        26.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        4.0
+      ],
+      "png": "png/progress/value.xsmall.value-0/normal/dark.png",
+      "scene": "scenes/progress/value.xsmall.value-0/normal/dark.json",
+      "png_sha256": "910d405c0597bc5264203007ac66f039ce8426c7a1d7f97faefbde26193199bd"
+    },
+    {
+      "id": "progress/value.xsmall.value-0/normal/light",
+      "component": "progress",
+      "group": "value",
+      "params": {
+        "width": 200,
+        "size": "xsmall",
+        "value": 0
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        232.0,
+        26.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        4.0
+      ],
+      "png": "png/progress/value.xsmall.value-0/normal/light.png",
+      "scene": "scenes/progress/value.xsmall.value-0/normal/light.json",
+      "png_sha256": "4a0a7dbfa477fa3152d46e746ed9fea1df78e11fe7d95633380467a26dd376fb"
+    },
+    {
+      "id": "progress/value.xsmall.value-100/normal/dark",
+      "component": "progress",
+      "group": "value",
+      "params": {
+        "width": 200,
+        "size": "xsmall",
+        "value": 100
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        232.0,
+        26.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        4.0
+      ],
+      "png": "png/progress/value.xsmall.value-100/normal/dark.png",
+      "scene": "scenes/progress/value.xsmall.value-100/normal/dark.json",
+      "png_sha256": "817facc37949b1c010c779d7b820fec3a100973de376003076ec83ae62cbbd49"
+    },
+    {
+      "id": "progress/value.xsmall.value-100/normal/light",
+      "component": "progress",
+      "group": "value",
+      "params": {
+        "width": 200,
+        "size": "xsmall",
+        "value": 100
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        232.0,
+        26.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        4.0
+      ],
+      "png": "png/progress/value.xsmall.value-100/normal/light.png",
+      "scene": "scenes/progress/value.xsmall.value-100/normal/light.json",
+      "png_sha256": "f2d74207b4d9560cd1b82b60c0436e714d2b709ddd7d6fb29d6800ff5e914df4"
+    },
+    {
+      "id": "progress/value.xsmall.value-40/normal/dark",
+      "component": "progress",
+      "group": "value",
+      "params": {
+        "width": 200,
+        "size": "xsmall",
+        "value": 40
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        232.0,
+        26.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        4.0
+      ],
+      "png": "png/progress/value.xsmall.value-40/normal/dark.png",
+      "scene": "scenes/progress/value.xsmall.value-40/normal/dark.json",
+      "png_sha256": "bf74bde305ecdb06f35cfb6b7c4e28a6d18c9f4548b463243c02915eceff7b8c"
+    },
+    {
+      "id": "progress/value.xsmall.value-40/normal/light",
+      "component": "progress",
+      "group": "value",
+      "params": {
+        "width": 200,
+        "size": "xsmall",
+        "value": 40
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        232.0,
+        26.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        4.0
+      ],
+      "png": "png/progress/value.xsmall.value-40/normal/light.png",
+      "scene": "scenes/progress/value.xsmall.value-40/normal/light.json",
+      "png_sha256": "6c9a537b2aa6a6cd49102517ddb12456180e3b3059da804750338046b0eade02"
+    },
+    {
       "id": "radio/bare.medium.checked/disabled/dark",
       "component": "radio",
       "group": "bare",
@@ -27936,6 +28817,301 @@
       "png": "png/separator/line.vertical/normal/light.png",
       "scene": "scenes/separator/line.vertical/normal/light.json",
       "png_sha256": "d6472b7196bb9537d97c06b8c90794a13dcc32e62e416de8a8289557ac7a74b2"
+    },
+    {
+      "id": "spinner/icon.large/normal/dark",
+      "component": "spinner",
+      "group": "icon",
+      "params": {
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        56.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        24.0,
+        24.0
+      ],
+      "png": "png/spinner/icon.large/normal/dark.png",
+      "scene": "scenes/spinner/icon.large/normal/dark.json",
+      "png_sha256": "c1da9f0b6eb2b446b6d07584417f3bc17c5c1c6914ebea1249d74148ac609886"
+    },
+    {
+      "id": "spinner/icon.large/normal/light",
+      "component": "spinner",
+      "group": "icon",
+      "params": {
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        56.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        24.0,
+        24.0
+      ],
+      "png": "png/spinner/icon.large/normal/light.png",
+      "scene": "scenes/spinner/icon.large/normal/light.json",
+      "png_sha256": "d332d28c9f639fdabd84ad3c93d063672dd45b31525cd624474bd580bd58f1e4"
+    },
+    {
+      "id": "spinner/icon.medium/normal/dark",
+      "component": "spinner",
+      "group": "icon",
+      "params": {
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        56.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        16.0,
+        16.0
+      ],
+      "png": "png/spinner/icon.medium/normal/dark.png",
+      "scene": "scenes/spinner/icon.medium/normal/dark.json",
+      "png_sha256": "f72ea331023f8f4471474ee72fbfe17855f0885173a9f572e42255f814288712"
+    },
+    {
+      "id": "spinner/icon.medium/normal/light",
+      "component": "spinner",
+      "group": "icon",
+      "params": {
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        56.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        16.0,
+        16.0
+      ],
+      "png": "png/spinner/icon.medium/normal/light.png",
+      "scene": "scenes/spinner/icon.medium/normal/light.json",
+      "png_sha256": "c44b4ba2c9eb9c9db39b9a268f455c36f3daaebcf46b633a009c1f5bc51b37ad"
+    },
+    {
+      "id": "spinner/icon.small/normal/dark",
+      "component": "spinner",
+      "group": "icon",
+      "params": {
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        56.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        14.0,
+        14.0
+      ],
+      "png": "png/spinner/icon.small/normal/dark.png",
+      "scene": "scenes/spinner/icon.small/normal/dark.json",
+      "png_sha256": "bdd9a62c085b1a59e6f1818ef04a63f8011caaa17f03197d77e714a2a5076908"
+    },
+    {
+      "id": "spinner/icon.small/normal/light",
+      "component": "spinner",
+      "group": "icon",
+      "params": {
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        56.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        14.0,
+        14.0
+      ],
+      "png": "png/spinner/icon.small/normal/light.png",
+      "scene": "scenes/spinner/icon.small/normal/light.json",
+      "png_sha256": "dd11fbeb4dfa4c622eab1ac64b9f2cd9b5d9961237995c35b3a243d4cb7904f2"
+    },
+    {
+      "id": "spinner/icon.xsmall/normal/dark",
+      "component": "spinner",
+      "group": "icon",
+      "params": {
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        56.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        12.0,
+        12.0
+      ],
+      "png": "png/spinner/icon.xsmall/normal/dark.png",
+      "scene": "scenes/spinner/icon.xsmall/normal/dark.json",
+      "png_sha256": "30e14575214eb4949158ec7c4445c607760464a2ea5682bf5924fd48e6e2883e"
+    },
+    {
+      "id": "spinner/icon.xsmall/normal/light",
+      "component": "spinner",
+      "group": "icon",
+      "params": {
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        56.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        12.0,
+        12.0
+      ],
+      "png": "png/spinner/icon.xsmall/normal/light.png",
+      "scene": "scenes/spinner/icon.xsmall/normal/light.json",
+      "png_sha256": "b675ee84d4269209b0de23ca798c92be7e9796f15bc59677ecf0bfae350cb371"
+    },
+    {
+      "id": "spinner/motion.rotate/wait-0ms/light",
+      "component": "spinner",
+      "group": "motion.rotate",
+      "params": {
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        56.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        24.0,
+        24.0
+      ],
+      "motion": {
+        "name": "rotate",
+        "trigger": "wait-0ms",
+        "from": "normal",
+        "frames": [
+          {
+            "t_ms": 0,
+            "png": "png/spinner/motion.rotate/wait-0ms/light/0000ms.png",
+            "scene": "scenes/spinner/motion.rotate/wait-0ms/light/0000ms.json",
+            "png_sha256": "d332d28c9f639fdabd84ad3c93d063672dd45b31525cd624474bd580bd58f1e4"
+          },
+          {
+            "t_ms": 100,
+            "png": "png/spinner/motion.rotate/wait-0ms/light/0100ms.png",
+            "scene": "scenes/spinner/motion.rotate/wait-0ms/light/0100ms.json",
+            "png_sha256": "1c3208377a72573882e45a4603f1839fc7c420b66f17f56b4b62590539bfcdc1"
+          },
+          {
+            "t_ms": 200,
+            "png": "png/spinner/motion.rotate/wait-0ms/light/0200ms.png",
+            "scene": "scenes/spinner/motion.rotate/wait-0ms/light/0200ms.json",
+            "png_sha256": "c4d3396e00b2b3d2f50913079dab6ec87228a28f94cf03c4d7086b344ad2d39b"
+          },
+          {
+            "t_ms": 300,
+            "png": "png/spinner/motion.rotate/wait-0ms/light/0300ms.png",
+            "scene": "scenes/spinner/motion.rotate/wait-0ms/light/0300ms.json",
+            "png_sha256": "55063879fe8b876a2e4d25f7584afe1991f5408778a3f4ec73e279d743d60605"
+          },
+          {
+            "t_ms": 400,
+            "png": "png/spinner/motion.rotate/wait-0ms/light/0400ms.png",
+            "scene": "scenes/spinner/motion.rotate/wait-0ms/light/0400ms.json",
+            "png_sha256": "9dac776b51c52ab5ea82d677355e17eb2c90ce655fbcd654f657e6894318cf1b"
+          },
+          {
+            "t_ms": 500,
+            "png": "png/spinner/motion.rotate/wait-0ms/light/0500ms.png",
+            "scene": "scenes/spinner/motion.rotate/wait-0ms/light/0500ms.json",
+            "png_sha256": "963ab959e6c1676e70f8b7671065744930d4a50380375159872f7d8c5d34c385"
+          },
+          {
+            "t_ms": 600,
+            "png": "png/spinner/motion.rotate/wait-0ms/light/0600ms.png",
+            "scene": "scenes/spinner/motion.rotate/wait-0ms/light/0600ms.json",
+            "png_sha256": "55fab73e1aa13dc114972604b136c34a6fb0b230cebb2182e4e3b97b3e334e7d"
+          },
+          {
+            "t_ms": 700,
+            "png": "png/spinner/motion.rotate/wait-0ms/light/0700ms.png",
+            "scene": "scenes/spinner/motion.rotate/wait-0ms/light/0700ms.json",
+            "png_sha256": "fdd03f7bfa233d9704ecfd10b3da872eb1ec5f27182d1440e081baa5f8b32181"
+          }
+        ]
+      }
     },
     {
       "id": "split/label.danger.large/disabled/dark",

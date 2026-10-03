@@ -33,6 +33,8 @@ public static class Adapters
         "groupbox" => GroupBox(c),
         "separator" => Separator(c),
         "link" => new HyperlinkButton { Content = c.Str("label", "Documentation") },
+        "progress" => Progress(c),
+        "spinner" => Spinner(c),
         _ => throw new NotSupportedException($"no adapter for {c.Component}"),
     };
 
@@ -87,6 +89,30 @@ public static class Adapters
         new MenuItem { Header = "Rename", IsEnabled = false },
         new MenuItem { Header = "Edit", ItemsSource = new List<Control> { new MenuItem { Header = "Copy" }, new MenuItem { Header = "Paste" } } },
     ];
+
+    private static ProgressBar Progress(GoldenCase c)
+    {
+        var value = c.Num("value", 40);
+        var valueTo = c.Num("value_to", value);
+        var progress = new ProgressBar
+        {
+            Width = c.Num("width", 200),
+            Value = value,
+            IsIndeterminate = c.Bool("loading"),
+        };
+        ClassFrom(progress, c, "size", "medium");
+        // The case's click switches the value, as the GPUI case's wrapper does.
+        progress.PointerReleased += (_, _) => progress.Value = progress.Value == value ? valueTo : value;
+        return progress;
+    }
+
+    private static ProgressBar Spinner(GoldenCase c)
+    {
+        var spinner = new ProgressBar { IsIndeterminate = true };
+        spinner.Theme = (Avalonia.Styling.ControlTheme)Avalonia.Application.Current!.FindResource("GpuiSpinner")!;
+        ClassFrom(spinner, c, "size", "medium");
+        return spinner;
+    }
 
     private static GroupBox GroupBox(GoldenCase c)
     {

@@ -25,6 +25,9 @@ public enum PrimitiveKind
 /// </summary>
 public sealed record Primitive(PrimitiveKind Kind, Rect Bounds, CornerRadius Radii, Thickness Widths, double Sigma, Rgba Color, string Source)
 {
+    /// <summary>Cut by a clipping ancestor: its outline there is the clip's, not its own (R19).</summary>
+    public bool Clipped { get; init; }
+
     public override string ToString()
     {
         var text = FormattableString.Invariant($"{Kind} {VisualAssert.Fmt(Bounds)} r=({Radii.TopLeft:0.##},{Radii.TopRight:0.##},{Radii.BottomRight:0.##},{Radii.BottomLeft:0.##})");
@@ -94,7 +97,13 @@ public static class StructuralComparison
                 continue;
             }
             var rect = new Rect(origin.Value, visual.Bounds.Size);
+            if (rect.Width <= 0 || rect.Height <= 0)
+            {
+                continue;
+            }
+            var clip = ClipOf(visual, root);
             var name = string.IsNullOrEmpty(control.Name) ? control.GetType().Name : $"{control.GetType().Name}#{control.Name}";
+            var before = list.Count;
             switch (visual)
             {
                 case Border b:
@@ -109,6 +118,19 @@ public static class StructuralComparison
                 case Rectangle r when r.Fill is not null:
                     AddBox(list, rect, r.Fill, null, default, new CornerRadius(r.RadiusX), BackgroundSizing.CenterBorder, default, opacity, name);
                     break;
+            }
+            if (clip is { } c)
+            {
+                for (var i = before; i < list.Count; i++)
+                {
+                    var p = list[i];
+                    var cut = p.Bounds.Intersect(c);
+                    if (cut != p.Bounds)
+                    {
+                        list[i] = p with { Bounds = cut, Radii = Clamp(p.Radii, cut), Clipped = true };
+                    }
+                }
+                list.RemoveAll(p => p.Bounds.Width <= 0 || p.Bounds.Height <= 0);
             }
         }
         return Dedupe(list);
@@ -190,6 +212,21 @@ public static class StructuralComparison
             : new Primitive(PrimitiveKind.Band, bounds, radii, widths, 0, color, source);
     }
 
+    /// <summary>The intersection of the clipping ancestors' bounds (within the root), if any.</summary>
+    private static Rect? ClipOf(Visual visual, Visual root)
+    {
+        Rect? clip = null;
+        for (var v = visual.GetVisualParent(); v is not null && v != root; v = v.GetVisualParent())
+        {
+            if (v.ClipToBounds && v is Border && v.TranslatePoint(default, root) is { } origin)
+            {
+                var r = new Rect(origin, v.Bounds.Size);
+                clip = clip is { } c ? c.Intersect(r) : r;
+            }
+        }
+        return clip;
+    }
+
     private static Rgba? Solid(IBrush? brush, double opacity) =>
         brush is ISolidColorBrush s ? Rgba.From(s.Color, s.Opacity * opacity) : null;
 
@@ -253,8 +290,9 @@ public static class StructuralComparison
 
     private static bool SameShape(Primitive a, Primitive b, double geometry, double color) =>
         // A spread shadow keeps the element's radius in GPUI and grows it by the
-        // spread in Skia (R3); a popover's spreads are at most 2px.
-        SameRadii(a, b, a.Kind == PrimitiveKind.Shadow ? 2.01 : geometry) &&
+        // spread in Skia (R3); a popover's spreads are at most 2px. A clipped
+        // shape's corners are the clip's (R19).
+        SameRadii(a, b, a.Kind == PrimitiveKind.Shadow ? 2.01 : (a.Clipped || b.Clipped) ? Math.Max(a.Radii.TopLeft, b.Radii.TopLeft) + 0.01 : geometry) &&
         Near(a.Widths.Left, b.Widths.Left, 0.001) && Near(a.Widths.Top, b.Widths.Top, 0.001) &&
         Near(a.Widths.Right, b.Widths.Right, 0.001) && Near(a.Widths.Bottom, b.Widths.Bottom, 0.001) &&
         Near(a.Sigma, b.Sigma, 0.02) &&
@@ -333,15 +371,15 @@ public static class StructuralComparison
     }
 
     /// <summary>Returns one message per primitive that only one side paints.</summary>
-    public static List<string> Compare(GoldenScene scene, IReadOnlyList<Primitive> avalonia)
+    public static List<string> Compare(GoldenScene scene, IReadOnlyList<Primitive> avalonia, double geometryTolerance = GeometryTolerance)
     {
         var expected = FromScene(scene).ToList();
         var actual = avalonia.ToList();
         var messages = new List<string>();
         foreach (var e in expected)
         {
-            var match = actual.FirstOrDefault(a => Same(e, a, GeometryTolerance, ColorTolerance))
-                ?? actual.FirstOrDefault(a => SameWithTextRounding(e, a, GeometryTolerance, ColorTolerance));
+            var match = actual.FirstOrDefault(a => Same(e, a, geometryTolerance, ColorTolerance))
+                ?? actual.FirstOrDefault(a => SameWithTextRounding(e, a, geometryTolerance, ColorTolerance));
             if (match is not null)
             {
                 actual.Remove(match);

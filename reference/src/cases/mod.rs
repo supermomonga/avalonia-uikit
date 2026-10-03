@@ -16,6 +16,7 @@ mod check;
 mod display;
 pub mod menu;
 mod number;
+mod progress;
 mod surface;
 mod toggle;
 
@@ -36,6 +37,8 @@ pub fn builder(case: &Case) -> Result<Builder> {
         "groupbox" => display::group_box(&params),
         "separator" => display::separator(&params),
         "link" => display::link(&params),
+        "progress" => progress::progress(&params),
+        "spinner" => progress::spinner(&params),
         other => bail!("unknown component {other}"),
     }
 }
@@ -151,6 +154,7 @@ pub fn derived_colors(theme: &gpui_kit::component::Theme, out: &mut Vec<(String,
     menu::derived_colors(theme, out);
     number::derived_colors(theme, out);
     display::derived_colors(theme, out);
+    progress::derived_colors(theme, out);
 }
 
 pub fn disabled(params: &Params) -> bool {

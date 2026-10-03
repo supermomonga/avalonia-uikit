@@ -39,7 +39,7 @@ public sealed record SceneShadow(int Order, Rect Bounds, Rect Clip, CornerRadius
 
 public sealed record SceneUnderline(int Order, Rect Bounds, double Thickness, Rgba Color);
 
-public sealed record SceneSprite(int Order, Rect Bounds, Rect Clip, Rgba Color, bool Transformed);
+public sealed record SceneSprite(int Order, Rect Bounds, Rect Clip, Rgba Color, bool Transformed, double RotationDegrees);
 
 /// <summary>Everything GPUI painted for one frame, in logical pixels.</summary>
 public sealed record GoldenScene(
@@ -97,7 +97,9 @@ public sealed record GoldenScene(
                 var s = n!.AsObject();
                 var rs = s["transform"]!["rotation_scale"]!.AsArray();
                 var identity = D(rs[0]![0]) == 1 && D(rs[0]![1]) == 0 && D(rs[1]![0]) == 0 && D(rs[1]![1]) == 1;
-                sprites.Add(new SceneSprite((int)s["order"]!.GetValue<double>(), GoldenManifest.ReadRect(s["bounds"]), GoldenManifest.ReadRect(s["clip"]), Rgba.From(s["color"]), !identity));
+                // GPUI's rotation matrix is [[cos, -sin], [sin, cos]] in a y-down space: clockwise.
+                var rotation = Math.Atan2(D(rs[1]![0]), D(rs[0]![0])) * 180 / Math.PI;
+                sprites.Add(new SceneSprite((int)s["order"]!.GetValue<double>(), GoldenManifest.ReadRect(s["bounds"]), GoldenManifest.ReadRect(s["clip"]), Rgba.From(s["color"]), !identity, rotation));
             }
         }
         var paths = root["paths"]!.AsArray().Select(n => GoldenManifest.ReadRect(n!["bounds"])).ToList();

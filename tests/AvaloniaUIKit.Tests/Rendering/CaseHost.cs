@@ -32,6 +32,10 @@ public sealed class CaseHost : IDisposable
 
     public static CaseHost Open(GoldenCase golden, Control control, bool freezeMotion = true)
     {
+        if (freezeMotion)
+        {
+            ThemeMotion.StripAnimations();
+        }
         var canvas = new Canvas();
         Canvas.SetLeft(control, golden.Anchor.X);
         Canvas.SetTop(control, golden.Anchor.Y);
@@ -102,6 +106,9 @@ public sealed class CaseHost : IDisposable
             {
                 case "normal":
                 case "disabled":
+                    break;
+                case var w when w.StartsWith("wait-", StringComparison.Ordinal):
+                    // Time is the motion tests' business; a static capture does not wait.
                     break;
                 case "hover":
                     Window.MouseMove(at);
