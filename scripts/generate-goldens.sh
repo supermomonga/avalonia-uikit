@@ -10,3 +10,4 @@ cd "$ROOT/reference"
 cargo build --release
 ./target/release/reference generate "$@"
 ./target/release/reference verify-determinism "$@"
+python3 "$ROOT/scripts/prune_goldens.py"

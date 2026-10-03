@@ -28,6 +28,7 @@ pub fn builder(case: &Case) -> Result<Builder> {
         "button" => button::builder(&params),
         "buttongroup" => button::group(&params),
         "toggle" => toggle::builder(&params),
+        "togglegroup" => toggle::group(&params),
         "checkbox" => check::checkbox(&params),
         "radio" => check::radio(&params),
         "switch" => check::switch(&params),
@@ -50,7 +51,7 @@ pub fn builder(case: &Case) -> Result<Builder> {
 /// The parameters with the `disabled` state folded in.
 pub fn effective_params(case: &Case) -> Params {
     let mut params = case.params.clone();
-    if case.state == "disabled" {
+    if case.state.split('+').any(|part| part == "disabled") {
         params.insert("disabled".into(), true.into());
     }
     params

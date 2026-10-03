@@ -19,6 +19,7 @@ public static class Adapters
         "button" => Button(c),
         "buttongroup" => ButtonGroup(c),
         "toggle" => Toggle(c),
+        "togglegroup" => ToggleGroup(c),
         "checkbox" => Check(new CheckBox(), c),
         "radio" => Check(new RadioButton(), c),
         "switch" => Check(new ToggleSwitch(), c),
@@ -264,6 +265,35 @@ public static class Adapters
         ClassFrom(toggle, c, "variant", "ghost");
         ClassFrom(toggle, c, "size", "medium");
         return toggle;
+    }
+
+    /// <summary>A ListBox.toggle-group; '1's in `checked` mark the selected items.</summary>
+    private static ListBox ToggleGroup(GoldenCase c)
+    {
+        var list = new ListBox
+        {
+            Classes = { "toggle-group" },
+            SelectionMode = SelectionMode.Multiple | SelectionMode.Toggle,
+            IsEnabled = !c.Bool("disabled"),
+        };
+        ClassFrom(list, c, "variant", "ghost");
+        ClassFrom(list, c, "size", "medium");
+        FlagClass(list, c, "segmented");
+        var labels = c.Str("labels", "").Split(',', StringSplitOptions.RemoveEmptyEntries);
+        var icons = c.Str("icons", "").Split(',', StringSplitOptions.RemoveEmptyEntries);
+        for (var i = 0; i < Math.Max(labels.Length, icons.Length); i++)
+        {
+            list.Items.Add(i < icons.Length ? Icon(icons[i]) : labels[i]);
+        }
+        var checkedMask = c.Str("checked", "");
+        for (var i = 0; i < checkedMask.Length; i++)
+        {
+            if (checkedMask[i] == '1')
+            {
+                list.Selection.Select(i);
+            }
+        }
+        return list;
     }
 
     /// <summary>A StackPanel.button-group of labelled buttons; '1's in `selected` mark selected ones.</summary>

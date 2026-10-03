@@ -1,0 +1,153 @@
+<!--
+  GPUI Kit ToggleGroup (crates/component/src/button/toggle.rs) -> a ListBox
+  with the toggle-group class, its items drawn as toggles:
+
+    <ListBox Classes="toggle-group outline small" SelectionMode="Multiple,Toggle">
+
+  Classes: outline (ghost is the default); xsmall small large; segmented
+  (joined: only the outer corners rounded and one shared edge between items).
+  Selected items show the accent, as checked toggles do. The selection rule is
+  the app's (SelectionMode); GPUI's group lets every toggle flip on its own,
+  which Multiple,Toggle matches.
+-->
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Styles.Resources>
+    <ControlTheme x:Key="GpuiToggleGroupItem" TargetType="ListBoxItem">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Border}" />
+      <Setter Property="BorderThickness" Value="0" />
+      <Setter Property="CornerRadius" Value="6" />
+      <!-- Size::Medium: min_w_8 h_8 px_2 text_sm. -->
+      <Setter Property="Height" Value="32" />
+      <Setter Property="MinWidth" Value="32" />
+      <Setter Property="Padding" Value="8,0" />
+      <Setter Property="FontSize" Value="14" />
+      <Setter Property="HorizontalContentAlignment" Value="Center" />
+      <Setter Property="VerticalContentAlignment" Value="Center" />
+      <Setter Property="Template">
+        <ControlTemplate>
+          <ContentPresenter Name="PART_ContentPresenter"
+                            BackgroundSizing="OuterBorderEdge"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            Padding="{TemplateBinding Padding}"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Foreground="{TemplateBinding Foreground}"
+                            LineHeight="17.5"
+                            TextWrapping="NoWrap" />
+        </ControlTemplate>
+      </Setter>
+    </ControlTheme>
+
+    <ControlTheme x:Key="GpuiToggleGroup" TargetType="ListBox">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="BorderThickness" Value="0" />
+      <Setter Property="Padding" Value="0" />
+      <Setter Property="HorizontalAlignment" Value="Left" />
+      <Setter Property="VerticalAlignment" Value="Top" />
+      <Setter Property="ItemContainerTheme" Value="{StaticResource GpuiToggleGroupItem}" />
+      <!-- h_flex gap_2: a toggle group holds a handful of items, so no virtualization. -->
+      <Setter Property="ItemsPanel">
+        <ItemsPanelTemplate>
+          <StackPanel Orientation="Horizontal" Spacing="8" />
+        </ItemsPanelTemplate>
+      </Setter>
+      <Setter Property="Template">
+        <ControlTemplate>
+          <Border Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
+            <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
+          </Border>
+        </ControlTemplate>
+      </Setter>
+    </ControlTheme>
+  </Styles.Resources>
+
+  <Style Selector="ListBox.toggle-group">
+    <Setter Property="Theme" Value="{StaticResource GpuiToggleGroup}" />
+  </Style>
+  <Style Selector="ListBox.toggle-group.segmented">
+    <Setter Property="ItemsPanel">
+      <ItemsPanelTemplate>
+        <StackPanel Orientation="Horizontal" />
+      </ItemsPanelTemplate>
+    </Setter>
+  </Style>
+
+  <!-- Sizes (toggle.rs): xsmall 20, small 24, medium 32, large 36. -->
+  <Style Selector="ListBox.toggle-group.xsmall > ListBoxItem">
+    <Setter Property="Height" Value="20" />
+    <Setter Property="MinWidth" Value="20" />
+    <Setter Property="Padding" Value="2,0" />
+    <Setter Property="FontSize" Value="12" />
+  </Style>
+  <Style Selector="ListBox.toggle-group.xsmall > ListBoxItem /template/ ContentPresenter#PART_ContentPresenter">
+    <Setter Property="LineHeight" Value="15" />
+  </Style>
+  <Style Selector="ListBox.toggle-group.small > ListBoxItem">
+    <Setter Property="Height" Value="24" />
+    <Setter Property="MinWidth" Value="24" />
+    <Setter Property="Padding" Value="4,0" />
+  </Style>
+  <Style Selector="ListBox.toggle-group.large > ListBoxItem">
+    <Setter Property="Height" Value="36" />
+    <Setter Property="MinWidth" Value="36" />
+    <Setter Property="Padding" Value="12,0" />
+    <Setter Property="FontSize" Value="16" />
+  </Style>
+  <Style Selector="ListBox.toggle-group.large > ListBoxItem /template/ ContentPresenter#PART_ContentPresenter">
+    <Setter Property="LineHeight" Value="20" />
+  </Style>
+  <!-- An icon takes the text size (Icon without a size, icon.rs). -->
+  <Style Selector="ListBox.toggle-group PathIcon">
+    <Setter Property="Width" Value="14" />
+    <Setter Property="Height" Value="14" />
+  </Style>
+  <Style Selector="ListBox.toggle-group.xsmall PathIcon">
+    <Setter Property="Width" Value="12" />
+    <Setter Property="Height" Value="12" />
+  </Style>
+  <Style Selector="ListBox.toggle-group.large PathIcon">
+    <Setter Property="Width" Value="16" />
+    <Setter Property="Height" Value="16" />
+  </Style>
+
+  <!-- ToggleVariant::Outline: a 1px border and the background token. -->
+  <Style Selector="ListBox.toggle-group.outline > ListBoxItem">
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="CornerRadius" Value="5.5" />
+    <Setter Property="Background" Value="{DynamicResource Gpui.Background}" />
+  </Style>
+
+  <!-- Segmented: the outer corners only, and one shared edge (the left item's right edge). -->
+  <Style Selector="ListBox.toggle-group.segmented > ListBoxItem:nth-child(1):not(:nth-last-child(1))">
+    <Setter Property="CornerRadius" Value="6,0,0,6" />
+  </Style>
+  <Style Selector="ListBox.toggle-group.segmented > ListBoxItem:nth-last-child(1):not(:nth-child(1))">
+    <Setter Property="CornerRadius" Value="0,6,6,0" />
+  </Style>
+  <Style Selector="ListBox.toggle-group.segmented.outline > ListBoxItem:nth-child(1):not(:nth-last-child(1))">
+    <Setter Property="CornerRadius" Value="5.5,0,0,5.5" />
+  </Style>
+  <Style Selector="ListBox.toggle-group.segmented.outline > ListBoxItem:nth-last-child(1):not(:nth-child(1))">
+    <Setter Property="CornerRadius" Value="0,5.5,5.5,0" />
+  </Style>
+  <Style Selector="ListBox.toggle-group.segmented > ListBoxItem:not(:nth-child(1)):not(:nth-last-child(1))">
+    <Setter Property="CornerRadius" Value="0" />
+  </Style>
+  <Style Selector="ListBox.toggle-group.segmented.outline > ListBoxItem:not(:nth-child(1))">
+    <Setter Property="BorderThickness" Value="0,1,1,1" />
+  </Style>
+
+  <!-- Checked (selected) and hovered toggles show the accent. -->
+  <Style Selector="ListBox.toggle-group > ListBoxItem:pointerover, ListBox.toggle-group > ListBoxItem:selected">
+    <Setter Property="Background" Value="{DynamicResource Gpui.Accent}" />
+    <Setter Property="Foreground" Value="{DynamicResource Gpui.AccentForeground}" />
+  </Style>
+</Styles>
