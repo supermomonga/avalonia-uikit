@@ -1,4 +1,5 @@
 using Avalonia;
+using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.Layout;
@@ -50,8 +51,31 @@ public static class Tables
     public static readonly AttachedProperty<bool> ShowsFocusRingProperty =
         AvaloniaProperty.RegisterAttached<InputElement, bool>("ShowsFocusRing", typeof(Tables));
 
+    /// <summary>
+    /// Makes <see cref="IsFilledProperty"/> follow the list's rows and body
+    /// (rows of <see cref="RowHeightProperty"/> each).
+    /// </summary>
+    public static readonly AttachedProperty<bool> TracksFillProperty =
+        AvaloniaProperty.RegisterAttached<ListBox, bool>("TracksFill", typeof(Tables));
+
+    /// <summary>
+    /// Whether the rows fill the body, so the last row's bottom rule would
+    /// double the table's border (inherited; set by the behavior).
+    /// </summary>
+    public static readonly AttachedProperty<bool> IsFilledProperty =
+        AvaloniaProperty.RegisterAttached<StyledElement, bool>("IsFilled", typeof(Tables), inherits: true);
+
     static Tables()
     {
+        TracksFillProperty.Changed.AddClassHandler<ListBox>((list, e) =>
+        {
+            list.RemoveHandler(ScrollViewer.ScrollChangedEvent, OnScrollChanged);
+            list.ClearValue(IsFilledProperty);
+            if (e.GetNewValue<bool>())
+            {
+                list.AddHandler(ScrollViewer.ScrollChangedEvent, OnScrollChanged, RoutingStrategies.Bubble, handledEventsToo: true);
+            }
+        });
         TracksKeyboardFocusProperty.Changed.AddClassHandler<InputElement>((element, e) =>
         {
             element.RemoveHandler(InputElement.GotFocusEvent, OnGotFocus);
@@ -72,6 +96,25 @@ public static class Tables
                 element.ClearValue(ShowsFocusRingProperty);
             }
         });
+    }
+
+    /// <summary>Gets whether the list tracks whether its rows fill its body.</summary>
+    public static bool GetTracksFill(ListBox list) => list.GetValue(TracksFillProperty);
+
+    /// <summary>Sets whether the list tracks whether its rows fill its body.</summary>
+    public static void SetTracksFill(ListBox list, bool value) => list.SetValue(TracksFillProperty, value);
+
+    /// <summary>Gets whether the rows fill the body.</summary>
+    public static bool GetIsFilled(StyledElement element) => element.GetValue(IsFilledProperty);
+
+    // state.rs: filled when the body is no taller than the rows (their count times the row height).
+    private static void OnScrollChanged(object? sender, ScrollChangedEventArgs e)
+    {
+        if (sender is ListBox list && e.Source is ScrollViewer viewer && ReferenceEquals(viewer.TemplatedParent, list))
+        {
+            var rows = list.ItemCount * list.GetValue(RowHeightProperty);
+            list.SetValue(IsFilledProperty, viewer.Viewport.Height > 0 && viewer.Viewport.Height <= rows + 1e-3);
+        }
     }
 
     /// <summary>Gets whether the focus ring follows focus and the last input.</summary>

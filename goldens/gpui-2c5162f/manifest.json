@@ -30781,6 +30781,114 @@
       "png_sha256": "39ef237ad9ff5cd5dbf205d69fb480272bfe46d0c090e229aa3980564b3e6f1f"
     },
     {
+      "id": "datatable/filled.base/click-at-80-193/dark",
+      "component": "datatable",
+      "group": "filled",
+      "params": {
+        "extra": 0
+      },
+      "state": "click-at-80-193",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        194.0
+      ],
+      "png": "png/datatable/filled.base/click-at-80-193/dark.png",
+      "scene": "scenes/datatable/filled.base/click-at-80-193/dark.json",
+      "png_sha256": "46e80d37a228505b09b67d45c74e79e7d6bf50601e5ed52ec9a90da8ef7ad9db"
+    },
+    {
+      "id": "datatable/filled.base/click-at-80-193/light",
+      "component": "datatable",
+      "group": "filled",
+      "params": {
+        "extra": 0
+      },
+      "state": "click-at-80-193",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        194.0
+      ],
+      "png": "png/datatable/filled.base/click-at-80-193/light.png",
+      "scene": "scenes/datatable/filled.base/click-at-80-193/light.json",
+      "png_sha256": "f644bea3b7f3d5df25e478e4193d22430b0e6d8d1cf1331b419806b231e4531b"
+    },
+    {
+      "id": "datatable/filled.base/normal/dark",
+      "component": "datatable",
+      "group": "filled",
+      "params": {
+        "extra": 0
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        194.0
+      ],
+      "png": "png/datatable/filled.base/normal/dark.png",
+      "scene": "scenes/datatable/filled.base/normal/dark.json",
+      "png_sha256": "625e5cd7b4876f5643be349383af1ab132ca7080ca763b18b69443d68b6895e8"
+    },
+    {
+      "id": "datatable/filled.base/normal/light",
+      "component": "datatable",
+      "group": "filled",
+      "params": {
+        "extra": 0
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        194.0
+      ],
+      "png": "png/datatable/filled.base/normal/light.png",
+      "scene": "scenes/datatable/filled.base/normal/light.json",
+      "png_sha256": "034fdee7834b84453fea09da02f4dfdc004ecfce9a0751e1c0923beb944650d9"
+    },
+    {
       "id": "datatable/fixed-columns.base/normal/dark",
       "component": "datatable",
       "group": "fixed-columns",
@@ -31507,6 +31615,62 @@
       "png": "png/datatable/small.base/click-at-80-92/light.png",
       "scene": "scenes/datatable/small.base/click-at-80-92/light.json",
       "png_sha256": "70b3ea737e745809571882ee1a8b3d78bb15291990fce50717c29e2cd0f89dc3"
+    },
+    {
+      "id": "datatable/stripe-filler.base/normal/dark",
+      "component": "datatable",
+      "group": "stripe-filler",
+      "params": {
+        "stripe": true,
+        "extra": 74
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        268.0
+      ],
+      "png": "png/datatable/stripe-filler.base/normal/dark.png",
+      "scene": "scenes/datatable/stripe-filler.base/normal/dark.json",
+      "png_sha256": "5cb4cc130a404cd501abd5aa0dc99550048544fd4fc1b097e0b6b0fdc19b26ad"
+    },
+    {
+      "id": "datatable/stripe-filler.base/normal/light",
+      "component": "datatable",
+      "group": "stripe-filler",
+      "params": {
+        "stripe": true,
+        "extra": 74
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        268.0
+      ],
+      "png": "png/datatable/stripe-filler.base/normal/light.png",
+      "scene": "scenes/datatable/stripe-filler.base/normal/light.json",
+      "png_sha256": "91c8639d0b5c69521cb9de06bf8278308b961f013fa4b7d0329a768752d6d58a"
     },
     {
       "id": "datatable/stripe.base/at-80-97/dark",

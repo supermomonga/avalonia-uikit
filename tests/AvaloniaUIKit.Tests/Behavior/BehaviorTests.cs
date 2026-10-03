@@ -272,4 +272,18 @@ public class BehaviorTests
         await Assert.That(name.TranslatePoint(default, nameCell)!.Value.X).IsEqualTo(8);
         await Assert.That(amount.TranslatePoint(new Point(amount.Bounds.Width, 0), amountCell)!.Value.X).IsEqualTo(32);
     }
+
+    // GPUI drops the last row's rule while the rows fill the body, and draws it
+    // again once the body grows past them (Tables.IsFilled follows the body).
+    [Test]
+    public async Task A_data_table_tracks_whether_its_rows_fill_it()
+    {
+        var golden = Case("datatable/filled.base/normal/light");
+        using var host = CaseHost.Open(golden, Adapters.Create(golden));
+        var table = (TableView)host.Control;
+        await Assert.That(Tables.GetIsFilled(table)).IsTrue();
+        table.Height += 32;
+        host.Flush();
+        await Assert.That(Tables.GetIsFilled(table)).IsFalse();
+    }
 }

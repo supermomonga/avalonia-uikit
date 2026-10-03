@@ -15,7 +15,8 @@
 -->
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:gpui="using:AvaloniaUIKit">
+        xmlns:gpui="using:AvaloniaUIKit"
+        xmlns:gconv="using:AvaloniaUIKit.Converters">
   <Styles.Resources>
     <ResourceDictionary>
       <!--
@@ -25,7 +26,8 @@
 
         DataTable (state.rs): the header and its scroll area both fill with
         table_head, so the translucent dark fill lies twice; the header row's
-        bottom rule is border.
+        bottom rule is border. A striped table fills the body below its rows
+        with empty rows (PART_Filler, shown by the stripe class).
       -->
       <ControlTheme x:Key="GpuiTableViewScrollViewer" TargetType="ScrollViewer">
         <Setter Property="Background" Value="Transparent" />
@@ -45,6 +47,38 @@
                   <TableViewColumnHeadersPresenter />
                 </Border>
               </Border>
+              <Canvas Grid.Row="1" IsHitTestVisible="False">
+                <ItemsControl Name="PART_Filler" IsVisible="False"
+                              Width="{Binding Viewport.Width, RelativeSource={RelativeSource TemplatedParent}}">
+                  <Canvas.Top>
+                    <MultiBinding Converter="{x:Static gconv:TableConverters.RowsHeight}">
+                      <Binding Path="$parent[TableView].ItemCount" />
+                      <Binding Path="(gpui:Tables.RowHeight)" RelativeSource="{RelativeSource TemplatedParent}" />
+                    </MultiBinding>
+                  </Canvas.Top>
+                  <ItemsControl.ItemsSource>
+                    <MultiBinding Converter="{x:Static gconv:TableConverters.FillerRows}">
+                      <Binding Path="$parent[TableView].ItemCount" />
+                      <Binding Path="(gpui:Tables.RowHeight)" RelativeSource="{RelativeSource TemplatedParent}" />
+                      <Binding Path="Viewport.Height" RelativeSource="{RelativeSource TemplatedParent}" />
+                    </MultiBinding>
+                  </ItemsControl.ItemsSource>
+                  <ItemsControl.ItemTemplate>
+                    <DataTemplate x:DataType="x:Int32">
+                      <Border Height="{Binding $self.(gpui:Tables.RowHeight)}"
+                              BackgroundSizing="OuterBorderEdge"
+                              BorderBrush="{DynamicResource Gpui.TableRowBorder}"
+                              BorderThickness="0,0,0,1"
+                              Classes.even="{Binding Converter={x:Static gconv:TableConverters.IsOdd}}" />
+                    </DataTemplate>
+                  </ItemsControl.ItemTemplate>
+                  <ItemsControl.Styles>
+                    <Style Selector="Border.even">
+                      <Setter Property="Background" Value="{DynamicResource Gpui.TableEven}" />
+                    </Style>
+                  </ItemsControl.Styles>
+                </ItemsControl>
+              </Canvas>
               <ScrollContentPresenter Name="PART_ContentPresenter" Grid.Row="1"
                                       Padding="{TemplateBinding Padding}"
                                       Background="{TemplateBinding Background}"
@@ -191,6 +225,10 @@
             </Border>
           </ControlTemplate>
         </Setter>
+        <!-- state.rs need_render_border: rows filling the body drop the last rule (the table's border follows), unless it is selected. -->
+        <Style Selector="^[(gpui|Tables.IsFilled)=True]:nth-last-child(1):not(:selected) /template/ Border#Border">
+          <Setter Property="BorderThickness" Value="0" />
+        </Style>
         <Style Selector="^:pointerover /template/ Border#Border">
           <Setter Property="Background" Value="{DynamicResource Gpui.TableHover}" />
         </Style>
@@ -242,6 +280,7 @@
         <Setter Property="gpui:Tables.CellVerticalAlignment" Value="Top" />
         <Setter Property="gpui:Tables.ShowsResizeHandles" Value="True" />
         <Setter Property="gpui:Tables.TracksKeyboardFocus" Value="True" />
+        <Setter Property="gpui:Tables.TracksFill" Value="True" />
         <Setter Property="Template">
           <ControlTemplate>
             <Panel>
@@ -328,6 +367,7 @@
         <Setter Property="gpui:Tables.CellVerticalAlignment" Value="Center" />
         <Setter Property="gpui:Tables.ShowsResizeHandles" Value="False" />
         <Setter Property="gpui:Tables.TracksKeyboardFocus" Value="False" />
+        <Setter Property="gpui:Tables.TracksFill" Value="False" />
         <Style Selector="^ /template/ ScrollViewer#PART_ScrollViewer">
           <Setter Property="Theme" Value="{StaticResource GpuiTableScrollViewer}" />
         </Style>
@@ -355,6 +395,11 @@
   </Style>
   <Style Selector="TableViewCell[HorizontalContentAlignment=Center] TextBlock">
     <Setter Property="HorizontalAlignment" Value="Center" />
+  </Style>
+
+  <!-- A striped DataTable's empty rows below the last row (state.rs). -->
+  <Style Selector="TableView.stripe /template/ ScrollViewer#PART_ScrollViewer /template/ ItemsControl#PART_Filler">
+    <Setter Property="IsVisible" Value="True" />
   </Style>
 
   <!-- Stripes (state.rs, and the Table story): every other row, starting with the second, fills with table_even. -->

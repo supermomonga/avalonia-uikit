@@ -39,3 +39,16 @@ states = ["normal", "focus+key-escape"]
 [[group]]
 name = "fixed-columns"
 params = { fixed_columns = true }
+
+# The rows exactly fill the body: the last row drops its rule (the table's
+# border follows), unless it is selected.
+[[group]]
+name = "filled"
+params = { extra = 0 }
+states = ["normal", "click-at-80-193"]
+
+# A striped table taller than its rows fills the rest with whole empty rows,
+# striped on (two here, the first one striped), the remainder left blank.
+[[group]]
+name = "stripe-filler"
+params = { stripe = true, extra = 74 }
