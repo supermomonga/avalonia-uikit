@@ -1,0 +1,40 @@
+# GPUI Kit TimeField -> TimePicker (closed field). 09:30:15 unless stated.
+component = "timefield"
+viewport = [160, 60]
+anchor = [16, 10]
+
+[[group]]
+name = "size"
+params = { time = "09:30:15" }
+matrix = { size = ["xsmall", "small", "medium", "large"] }
+states = ["normal", "disabled"]
+
+[[group]]
+name = "format"
+params = { time = "09:30:15" }
+matrix = { precision = ["minute", "second"], cycle = ["h23", "h12"] }
+states = ["normal"]
+
+# 12-hour PM with seconds, every size (period segment width per size).
+[[group]]
+name = "pm"
+params = { time = "21:05:09", precision = "second", cycle = "h12" }
+matrix = { size = ["xsmall", "small", "medium", "large"] }
+states = ["normal"]
+
+# Requires the focused-hour emulation decision (section 5).
+[[group]]
+name = "focus"
+params = { time = "09:30:15" }
+matrix = { size = ["xsmall", "small", "medium", "large"] }
+states = ["focus"]
+
+[[group]]
+name = "invalid"
+params = { time = "21:05:00", invalid = true }
+states = ["normal", "focus"]
+
+[[group]]
+name = "hover"
+params = { time = "09:30:15" }
+states = ["hover"]

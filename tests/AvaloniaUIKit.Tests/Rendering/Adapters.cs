@@ -63,6 +63,7 @@ public static class Adapters
         "image" => ImageCase(c),
         "calendar" => CalendarCase(c),
         "datepicker" => DatePicker(c),
+        "timefield" => TimeField(c),
         "collapsible" => Collapsible(c),
         "slider" => Slider(c),
         _ => throw new NotSupportedException($"no adapter for {c.Component}"),
@@ -678,6 +679,23 @@ public static class Adapters
     private static DateTime? Date(GoldenCase c, string key, string fallback) =>
         DateTime.TryParseExact(c.Str(key, fallback), "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture,
             System.Globalization.DateTimeStyles.None, out var d) ? d : null;
+
+    private static TimePicker TimeField(GoldenCase c)
+    {
+        var picker = new TimePicker
+        {
+            SelectedTime = TimeSpan.Parse(c.Str("time", "09:30:15"), System.Globalization.CultureInfo.InvariantCulture),
+            ClockIdentifier = c.Str("cycle", "h23") == "h12" ? "12HourClock" : "24HourClock",
+            UseSeconds = c.Str("precision", "minute") == "second",
+            IsEnabled = !c.Bool("disabled"),
+        };
+        ClassFrom(picker, c, "size", "medium");
+        if (c.Bool("invalid"))
+        {
+            DataValidationErrors.SetError(picker, new Exception("invalid"));
+        }
+        return picker;
+    }
 
     // GPUI's text and placeholder are the app's to set (usage contract).
     private static CalendarDatePicker DatePicker(GoldenCase c)

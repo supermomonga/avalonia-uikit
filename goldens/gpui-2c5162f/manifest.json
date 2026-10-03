@@ -71960,6 +71960,1324 @@
       "png_sha256": "8ed4fb83c2027dab66dae829fd3d2d98aa94c78e5d609b9e897a08155e636f18"
     },
     {
+      "id": "timefield/focus.large/focus/dark",
+      "component": "timefield",
+      "group": "focus",
+      "params": {
+        "time": "09:30:15",
+        "size": "large"
+      },
+      "state": "focus",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        65.0,
+        44.0
+      ],
+      "png": "png/timefield/focus.large/focus/dark.png",
+      "scene": "scenes/timefield/focus.large/focus/dark.json",
+      "png_sha256": "3b1a7335eea55a3d979a3fbcce346d212a4796350d6988c82e0280122e81e499"
+    },
+    {
+      "id": "timefield/focus.large/focus/light",
+      "component": "timefield",
+      "group": "focus",
+      "params": {
+        "time": "09:30:15",
+        "size": "large"
+      },
+      "state": "focus",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        65.0,
+        44.0
+      ],
+      "png": "png/timefield/focus.large/focus/light.png",
+      "scene": "scenes/timefield/focus.large/focus/light.json",
+      "png_sha256": "fb4858ac7469c3c8c1bc94c976e78387ff2de7707e97c31ce575406358a888ad"
+    },
+    {
+      "id": "timefield/focus.medium/focus/dark",
+      "component": "timefield",
+      "group": "focus",
+      "params": {
+        "time": "09:30:15",
+        "size": "medium"
+      },
+      "state": "focus",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        60.0,
+        32.0
+      ],
+      "png": "png/timefield/focus.medium/focus/dark.png",
+      "scene": "scenes/timefield/focus.medium/focus/dark.json",
+      "png_sha256": "3675e796dbab2b60e64553c6f3672d41e55b2d2104d62f49464fceb93cec5b8a"
+    },
+    {
+      "id": "timefield/focus.medium/focus/light",
+      "component": "timefield",
+      "group": "focus",
+      "params": {
+        "time": "09:30:15",
+        "size": "medium"
+      },
+      "state": "focus",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        60.0,
+        32.0
+      ],
+      "png": "png/timefield/focus.medium/focus/light.png",
+      "scene": "scenes/timefield/focus.medium/focus/light.json",
+      "png_sha256": "5e68809b67a62162e0208fdf9aa10aa43d81e078400b0bff5e41c66581485e96"
+    },
+    {
+      "id": "timefield/focus.small/focus/dark",
+      "component": "timefield",
+      "group": "focus",
+      "params": {
+        "time": "09:30:15",
+        "size": "small"
+      },
+      "state": "focus",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        60.0,
+        24.0
+      ],
+      "png": "png/timefield/focus.small/focus/dark.png",
+      "scene": "scenes/timefield/focus.small/focus/dark.json",
+      "png_sha256": "3ca266ad976163dd7fa2b5803f7ab6e50d02f26ff57484d1a9ed5743d2ce471d"
+    },
+    {
+      "id": "timefield/focus.small/focus/light",
+      "component": "timefield",
+      "group": "focus",
+      "params": {
+        "time": "09:30:15",
+        "size": "small"
+      },
+      "state": "focus",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        60.0,
+        24.0
+      ],
+      "png": "png/timefield/focus.small/focus/light.png",
+      "scene": "scenes/timefield/focus.small/focus/light.json",
+      "png_sha256": "908a5fd15749a0836eef65e84fd799f915d3252eb6e47d2184e9b06e25d6a29a"
+    },
+    {
+      "id": "timefield/focus.xsmall/focus/dark",
+      "component": "timefield",
+      "group": "focus",
+      "params": {
+        "time": "09:30:15",
+        "size": "xsmall"
+      },
+      "state": "focus",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        54.0,
+        20.0
+      ],
+      "png": "png/timefield/focus.xsmall/focus/dark.png",
+      "scene": "scenes/timefield/focus.xsmall/focus/dark.json",
+      "png_sha256": "70a8c77487a73eb199deb1678bd2c5354aa1f731e1240f4b65ac450fc60764c3"
+    },
+    {
+      "id": "timefield/focus.xsmall/focus/light",
+      "component": "timefield",
+      "group": "focus",
+      "params": {
+        "time": "09:30:15",
+        "size": "xsmall"
+      },
+      "state": "focus",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        54.0,
+        20.0
+      ],
+      "png": "png/timefield/focus.xsmall/focus/light.png",
+      "scene": "scenes/timefield/focus.xsmall/focus/light.json",
+      "png_sha256": "f034dd632ae25febe21f6ebba6e90c7ef7021183f9f633ce995ce77bfccb2320"
+    },
+    {
+      "id": "timefield/format.minute.h12/normal/dark",
+      "component": "timefield",
+      "group": "format",
+      "params": {
+        "time": "09:30:15",
+        "precision": "minute",
+        "cycle": "h12"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        91.0,
+        32.0
+      ],
+      "png": "png/timefield/format.minute.h12/normal/dark.png",
+      "scene": "scenes/timefield/format.minute.h12/normal/dark.json",
+      "png_sha256": "58d7e876ad73f8610eef2523d0f06db53f11c4f01773793a7c215b85584c1001"
+    },
+    {
+      "id": "timefield/format.minute.h12/normal/light",
+      "component": "timefield",
+      "group": "format",
+      "params": {
+        "time": "09:30:15",
+        "precision": "minute",
+        "cycle": "h12"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        91.0,
+        32.0
+      ],
+      "png": "png/timefield/format.minute.h12/normal/light.png",
+      "scene": "scenes/timefield/format.minute.h12/normal/light.json",
+      "png_sha256": "6743f9b02381ab2a3d8d1f4c7b90f37be2c28c60aa1755a903ef0f7b05b6878d"
+    },
+    {
+      "id": "timefield/format.minute.h23/normal/dark",
+      "component": "timefield",
+      "group": "format",
+      "params": {
+        "time": "09:30:15",
+        "precision": "minute",
+        "cycle": "h23"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        60.0,
+        32.0
+      ],
+      "png": "png/timefield/format.minute.h23/normal/dark.png",
+      "scene": "scenes/timefield/format.minute.h23/normal/dark.json",
+      "png_sha256": "d3e7e0fe0c60d6a100d78e49c853422aaed66a35f5dcedbd03ee31a05ce0e342"
+    },
+    {
+      "id": "timefield/format.minute.h23/normal/light",
+      "component": "timefield",
+      "group": "format",
+      "params": {
+        "time": "09:30:15",
+        "precision": "minute",
+        "cycle": "h23"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        60.0,
+        32.0
+      ],
+      "png": "png/timefield/format.minute.h23/normal/light.png",
+      "scene": "scenes/timefield/format.minute.h23/normal/light.json",
+      "png_sha256": "634fa934fcc476c94f3383cc51bf824ddef56e5fbe541975734affeed267275d"
+    },
+    {
+      "id": "timefield/format.second.h12/normal/dark",
+      "component": "timefield",
+      "group": "format",
+      "params": {
+        "time": "09:30:15",
+        "precision": "second",
+        "cycle": "h12"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        118.0,
+        32.0
+      ],
+      "png": "png/timefield/format.second.h12/normal/dark.png",
+      "scene": "scenes/timefield/format.second.h12/normal/dark.json",
+      "png_sha256": "329d5dab59f3bbcb010f34362e13ba5ec36cba3e02275bff9e75e98e3fb2029f"
+    },
+    {
+      "id": "timefield/format.second.h12/normal/light",
+      "component": "timefield",
+      "group": "format",
+      "params": {
+        "time": "09:30:15",
+        "precision": "second",
+        "cycle": "h12"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        118.0,
+        32.0
+      ],
+      "png": "png/timefield/format.second.h12/normal/light.png",
+      "scene": "scenes/timefield/format.second.h12/normal/light.json",
+      "png_sha256": "6e146fb865f974bcd2bbc04bd9bbb8dcd20153b8965b4cd0e9e1fee6dd93c15b"
+    },
+    {
+      "id": "timefield/format.second.h23/normal/dark",
+      "component": "timefield",
+      "group": "format",
+      "params": {
+        "time": "09:30:15",
+        "precision": "second",
+        "cycle": "h23"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        87.0,
+        32.0
+      ],
+      "png": "png/timefield/format.second.h23/normal/dark.png",
+      "scene": "scenes/timefield/format.second.h23/normal/dark.json",
+      "png_sha256": "e76960607751089c5542c745b4f7973b35218e07b7046d600474c67a4b449e56"
+    },
+    {
+      "id": "timefield/format.second.h23/normal/light",
+      "component": "timefield",
+      "group": "format",
+      "params": {
+        "time": "09:30:15",
+        "precision": "second",
+        "cycle": "h23"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        87.0,
+        32.0
+      ],
+      "png": "png/timefield/format.second.h23/normal/light.png",
+      "scene": "scenes/timefield/format.second.h23/normal/light.json",
+      "png_sha256": "29d17d022f6d20df90acaa56450254189175e93d4f5edaa79b52c93b5abd0c65"
+    },
+    {
+      "id": "timefield/hover.base/hover/dark",
+      "component": "timefield",
+      "group": "hover",
+      "params": {
+        "time": "09:30:15"
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        60.0,
+        32.0
+      ],
+      "png": "png/timefield/hover.base/hover/dark.png",
+      "scene": "scenes/timefield/hover.base/hover/dark.json",
+      "png_sha256": "d3e7e0fe0c60d6a100d78e49c853422aaed66a35f5dcedbd03ee31a05ce0e342"
+    },
+    {
+      "id": "timefield/hover.base/hover/light",
+      "component": "timefield",
+      "group": "hover",
+      "params": {
+        "time": "09:30:15"
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        60.0,
+        32.0
+      ],
+      "png": "png/timefield/hover.base/hover/light.png",
+      "scene": "scenes/timefield/hover.base/hover/light.json",
+      "png_sha256": "634fa934fcc476c94f3383cc51bf824ddef56e5fbe541975734affeed267275d"
+    },
+    {
+      "id": "timefield/invalid.base/focus/dark",
+      "component": "timefield",
+      "group": "invalid",
+      "params": {
+        "time": "21:05:00",
+        "invalid": true
+      },
+      "state": "focus",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        60.0,
+        32.0
+      ],
+      "png": "png/timefield/invalid.base/focus/dark.png",
+      "scene": "scenes/timefield/invalid.base/focus/dark.json",
+      "png_sha256": "6496a3c9a80beedc8c4ad973540c6d1d1cd505c8d1a2ad703f5dbe0d78118a0a"
+    },
+    {
+      "id": "timefield/invalid.base/focus/light",
+      "component": "timefield",
+      "group": "invalid",
+      "params": {
+        "time": "21:05:00",
+        "invalid": true
+      },
+      "state": "focus",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        60.0,
+        32.0
+      ],
+      "png": "png/timefield/invalid.base/focus/light.png",
+      "scene": "scenes/timefield/invalid.base/focus/light.json",
+      "png_sha256": "db6b865bce237b13f0c23e2bffda59e21bd9818d48ff0ec9815ea42af750477b"
+    },
+    {
+      "id": "timefield/invalid.base/normal/dark",
+      "component": "timefield",
+      "group": "invalid",
+      "params": {
+        "time": "21:05:00",
+        "invalid": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        60.0,
+        32.0
+      ],
+      "png": "png/timefield/invalid.base/normal/dark.png",
+      "scene": "scenes/timefield/invalid.base/normal/dark.json",
+      "png_sha256": "483dffe021fa97ad33292a859fe44e043da03f27c16f2ff96cb54dc562b3bdee"
+    },
+    {
+      "id": "timefield/invalid.base/normal/light",
+      "component": "timefield",
+      "group": "invalid",
+      "params": {
+        "time": "21:05:00",
+        "invalid": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        60.0,
+        32.0
+      ],
+      "png": "png/timefield/invalid.base/normal/light.png",
+      "scene": "scenes/timefield/invalid.base/normal/light.json",
+      "png_sha256": "4f8c065ad1b465b451465ff2b2358ac499810faf2b5d92ea9dd7ab7ab9c4fd3e"
+    },
+    {
+      "id": "timefield/pm.large/normal/dark",
+      "component": "timefield",
+      "group": "pm",
+      "params": {
+        "time": "21:05:09",
+        "precision": "second",
+        "cycle": "h12",
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        129.0,
+        44.0
+      ],
+      "png": "png/timefield/pm.large/normal/dark.png",
+      "scene": "scenes/timefield/pm.large/normal/dark.json",
+      "png_sha256": "898ab92b5f5ca8bf73eb8badd17f6b45020ca9113f92a80a2d577e0bdb70641d"
+    },
+    {
+      "id": "timefield/pm.large/normal/light",
+      "component": "timefield",
+      "group": "pm",
+      "params": {
+        "time": "21:05:09",
+        "precision": "second",
+        "cycle": "h12",
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        129.0,
+        44.0
+      ],
+      "png": "png/timefield/pm.large/normal/light.png",
+      "scene": "scenes/timefield/pm.large/normal/light.json",
+      "png_sha256": "06cef930d560ebef0ca489574db39a1c09fe2855f63e4aa567bbd20cf2bedfb6"
+    },
+    {
+      "id": "timefield/pm.medium/normal/dark",
+      "component": "timefield",
+      "group": "pm",
+      "params": {
+        "time": "21:05:09",
+        "precision": "second",
+        "cycle": "h12",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        118.0,
+        32.0
+      ],
+      "png": "png/timefield/pm.medium/normal/dark.png",
+      "scene": "scenes/timefield/pm.medium/normal/dark.json",
+      "png_sha256": "119224a968de994ecde235a6daaba958d8b5ec5094f3a3a87183349fe287ca5d"
+    },
+    {
+      "id": "timefield/pm.medium/normal/light",
+      "component": "timefield",
+      "group": "pm",
+      "params": {
+        "time": "21:05:09",
+        "precision": "second",
+        "cycle": "h12",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        118.0,
+        32.0
+      ],
+      "png": "png/timefield/pm.medium/normal/light.png",
+      "scene": "scenes/timefield/pm.medium/normal/light.json",
+      "png_sha256": "e4d4e5b8e284565ecfc680b068e08d2f43f16b975efd304cf916e61957745f19"
+    },
+    {
+      "id": "timefield/pm.small/normal/dark",
+      "component": "timefield",
+      "group": "pm",
+      "params": {
+        "time": "21:05:09",
+        "precision": "second",
+        "cycle": "h12",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        118.0,
+        24.0
+      ],
+      "png": "png/timefield/pm.small/normal/dark.png",
+      "scene": "scenes/timefield/pm.small/normal/dark.json",
+      "png_sha256": "e96fb7b7e96fabf98c513c644bffad9a8b4979cbfdd3e91fb316a0783c425cd6"
+    },
+    {
+      "id": "timefield/pm.small/normal/light",
+      "component": "timefield",
+      "group": "pm",
+      "params": {
+        "time": "21:05:09",
+        "precision": "second",
+        "cycle": "h12",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        118.0,
+        24.0
+      ],
+      "png": "png/timefield/pm.small/normal/light.png",
+      "scene": "scenes/timefield/pm.small/normal/light.json",
+      "png_sha256": "833a7b43b0c61778c738e157ad1c8c52a6c3bec5a678ab9502b9a1c27f7869f6"
+    },
+    {
+      "id": "timefield/pm.xsmall/normal/dark",
+      "component": "timefield",
+      "group": "pm",
+      "params": {
+        "time": "21:05:09",
+        "precision": "second",
+        "cycle": "h12",
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        106.0,
+        20.0
+      ],
+      "png": "png/timefield/pm.xsmall/normal/dark.png",
+      "scene": "scenes/timefield/pm.xsmall/normal/dark.json",
+      "png_sha256": "11620b34b0f21c6d7871f4cdbdb5a14fcb70c76b336d52ee2db98ef4708ded32"
+    },
+    {
+      "id": "timefield/pm.xsmall/normal/light",
+      "component": "timefield",
+      "group": "pm",
+      "params": {
+        "time": "21:05:09",
+        "precision": "second",
+        "cycle": "h12",
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        106.0,
+        20.0
+      ],
+      "png": "png/timefield/pm.xsmall/normal/light.png",
+      "scene": "scenes/timefield/pm.xsmall/normal/light.json",
+      "png_sha256": "d06f7f8aea0d9152ffaf2bf6e6c6853847d094255254df4e498948b1454412a0"
+    },
+    {
+      "id": "timefield/size.large/disabled/dark",
+      "component": "timefield",
+      "group": "size",
+      "params": {
+        "time": "09:30:15",
+        "size": "large",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        65.0,
+        44.0
+      ],
+      "png": "png/timefield/size.large/disabled/dark.png",
+      "scene": "scenes/timefield/size.large/disabled/dark.json",
+      "png_sha256": "68d9e3dfd387ec4eed55ddd28f62d612dc33ff978ce593ec733b4a6bc1404006"
+    },
+    {
+      "id": "timefield/size.large/disabled/light",
+      "component": "timefield",
+      "group": "size",
+      "params": {
+        "time": "09:30:15",
+        "size": "large",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        65.0,
+        44.0
+      ],
+      "png": "png/timefield/size.large/disabled/light.png",
+      "scene": "scenes/timefield/size.large/disabled/light.json",
+      "png_sha256": "20800e093439c847c884efa703ace34a488849828d61f15d49e131add8a1741a"
+    },
+    {
+      "id": "timefield/size.large/normal/dark",
+      "component": "timefield",
+      "group": "size",
+      "params": {
+        "time": "09:30:15",
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        65.0,
+        44.0
+      ],
+      "png": "png/timefield/size.large/normal/dark.png",
+      "scene": "scenes/timefield/size.large/normal/dark.json",
+      "png_sha256": "ae341f510832ebb22c3c6553ebb3f7942c7995a153e01aef668a021a31f98f0c"
+    },
+    {
+      "id": "timefield/size.large/normal/light",
+      "component": "timefield",
+      "group": "size",
+      "params": {
+        "time": "09:30:15",
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        65.0,
+        44.0
+      ],
+      "png": "png/timefield/size.large/normal/light.png",
+      "scene": "scenes/timefield/size.large/normal/light.json",
+      "png_sha256": "ed6ed01f868f7973b0fdefc3177f299e5a7a99a38abed56118c8999d548aa1f3"
+    },
+    {
+      "id": "timefield/size.medium/disabled/dark",
+      "component": "timefield",
+      "group": "size",
+      "params": {
+        "time": "09:30:15",
+        "size": "medium",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        60.0,
+        32.0
+      ],
+      "png": "png/timefield/size.medium/disabled/dark.png",
+      "scene": "scenes/timefield/size.medium/disabled/dark.json",
+      "png_sha256": "7c4072771c46e297099f25d7daa043ea82e981c96bf2b624ee31c3cf4ed0c520"
+    },
+    {
+      "id": "timefield/size.medium/disabled/light",
+      "component": "timefield",
+      "group": "size",
+      "params": {
+        "time": "09:30:15",
+        "size": "medium",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        60.0,
+        32.0
+      ],
+      "png": "png/timefield/size.medium/disabled/light.png",
+      "scene": "scenes/timefield/size.medium/disabled/light.json",
+      "png_sha256": "6d8f0b80bfeee83017e79db424000f11e90ba3b7dcd95a42a8576470c641dbc1"
+    },
+    {
+      "id": "timefield/size.medium/normal/dark",
+      "component": "timefield",
+      "group": "size",
+      "params": {
+        "time": "09:30:15",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        60.0,
+        32.0
+      ],
+      "png": "png/timefield/size.medium/normal/dark.png",
+      "scene": "scenes/timefield/size.medium/normal/dark.json",
+      "png_sha256": "d3e7e0fe0c60d6a100d78e49c853422aaed66a35f5dcedbd03ee31a05ce0e342"
+    },
+    {
+      "id": "timefield/size.medium/normal/light",
+      "component": "timefield",
+      "group": "size",
+      "params": {
+        "time": "09:30:15",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        60.0,
+        32.0
+      ],
+      "png": "png/timefield/size.medium/normal/light.png",
+      "scene": "scenes/timefield/size.medium/normal/light.json",
+      "png_sha256": "634fa934fcc476c94f3383cc51bf824ddef56e5fbe541975734affeed267275d"
+    },
+    {
+      "id": "timefield/size.small/disabled/dark",
+      "component": "timefield",
+      "group": "size",
+      "params": {
+        "time": "09:30:15",
+        "size": "small",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        60.0,
+        24.0
+      ],
+      "png": "png/timefield/size.small/disabled/dark.png",
+      "scene": "scenes/timefield/size.small/disabled/dark.json",
+      "png_sha256": "e28b10356635731af5c7cd239cfd89998d32a89ae051eb744233babfffa3de73"
+    },
+    {
+      "id": "timefield/size.small/disabled/light",
+      "component": "timefield",
+      "group": "size",
+      "params": {
+        "time": "09:30:15",
+        "size": "small",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        60.0,
+        24.0
+      ],
+      "png": "png/timefield/size.small/disabled/light.png",
+      "scene": "scenes/timefield/size.small/disabled/light.json",
+      "png_sha256": "6c59cd355d0fd1ee3f842a0dd99d827b3bf35547b0359b79b883646ff6add255"
+    },
+    {
+      "id": "timefield/size.small/normal/dark",
+      "component": "timefield",
+      "group": "size",
+      "params": {
+        "time": "09:30:15",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        60.0,
+        24.0
+      ],
+      "png": "png/timefield/size.small/normal/dark.png",
+      "scene": "scenes/timefield/size.small/normal/dark.json",
+      "png_sha256": "684ae93c9929c37fa93808b549512e4b572c0247eebe399baef2413ac74865d3"
+    },
+    {
+      "id": "timefield/size.small/normal/light",
+      "component": "timefield",
+      "group": "size",
+      "params": {
+        "time": "09:30:15",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        60.0,
+        24.0
+      ],
+      "png": "png/timefield/size.small/normal/light.png",
+      "scene": "scenes/timefield/size.small/normal/light.json",
+      "png_sha256": "0ab3e8fde1faa5b83bc2b6037481ef303230bb3443c472e553e70da32ca3fa04"
+    },
+    {
+      "id": "timefield/size.xsmall/disabled/dark",
+      "component": "timefield",
+      "group": "size",
+      "params": {
+        "time": "09:30:15",
+        "size": "xsmall",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        54.0,
+        20.0
+      ],
+      "png": "png/timefield/size.xsmall/disabled/dark.png",
+      "scene": "scenes/timefield/size.xsmall/disabled/dark.json",
+      "png_sha256": "c8b5b0122c754cd2c4e3801d86831407e3345a58ef1df7ad6815410bde86ebd0"
+    },
+    {
+      "id": "timefield/size.xsmall/disabled/light",
+      "component": "timefield",
+      "group": "size",
+      "params": {
+        "time": "09:30:15",
+        "size": "xsmall",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        54.0,
+        20.0
+      ],
+      "png": "png/timefield/size.xsmall/disabled/light.png",
+      "scene": "scenes/timefield/size.xsmall/disabled/light.json",
+      "png_sha256": "8d1ea522b6d11fd500b00ede672c36b171d1a9e983281c8f6fc3d0aa683af737"
+    },
+    {
+      "id": "timefield/size.xsmall/normal/dark",
+      "component": "timefield",
+      "group": "size",
+      "params": {
+        "time": "09:30:15",
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        54.0,
+        20.0
+      ],
+      "png": "png/timefield/size.xsmall/normal/dark.png",
+      "scene": "scenes/timefield/size.xsmall/normal/dark.json",
+      "png_sha256": "ff86855e863e5934b707cb7d80e1253c95b34c722b875fb04e76f640fa61900d"
+    },
+    {
+      "id": "timefield/size.xsmall/normal/light",
+      "component": "timefield",
+      "group": "size",
+      "params": {
+        "time": "09:30:15",
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        54.0,
+        20.0
+      ],
+      "png": "png/timefield/size.xsmall/normal/light.png",
+      "scene": "scenes/timefield/size.xsmall/normal/light.json",
+      "png_sha256": "46a1365748a50b54fa4be5ac4838b75fae811cd49ef9e78950a7856582471659"
+    },
+    {
       "id": "toggle/icon.ghost.large.checked/hover/dark",
       "component": "toggle",
       "group": "icon",

@@ -119,6 +119,8 @@
         <CalendarDatePicker Width="220" HorizontalAlignment="Left" SelectedDateFormat="Custom"
                             CustomDateFormatString="yyyy/MM/dd" PlaceholderText="Select date" />
 
+        <TimePicker SelectedTime="09:30" ClockIdentifier="24HourClock" />
+
         <TextBlock Text="Popover" Foreground="{DynamicResource Gpui.MutedForeground}" />
         <Button Classes="outline" Content="Open" HorizontalAlignment="Left">
           <Button.Flyout>

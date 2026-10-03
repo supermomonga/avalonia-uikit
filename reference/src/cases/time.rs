@@ -3,16 +3,17 @@
 use super::{disabled, size};
 use crate::{
     harness::Builder,
-    manifest::{Params, param_f32, param_str},
+    manifest::{Params, param_bool, param_f32, param_str},
 };
 use anyhow::Result;
-use chrono::{NaiveDate, Weekday};
+use chrono::{NaiveDate, NaiveTime, Weekday};
 use gpui_kit::{
     AppContext as _, IntoElement as _, Styled as _, px,
     component::{
         Disableable as _, Sizable as _,
         calendar::{Calendar, CalendarState, Date, Matcher},
         date_picker::{DatePicker, DatePickerState},
+        time_field::{HourCycle, TimeField, TimeFieldState, TimePrecision},
     },
 };
 use std::rc::Rc;
@@ -89,6 +90,39 @@ pub fn date_picker(params: &Params) -> Result<Builder> {
             .and_then(|e| e.downcast::<DatePickerState>().ok())
             .expect("date picker state");
         DatePicker::new(&state).with_size(size).disabled(disabled).w(px(width)).into_any_element()
+    }))
+}
+
+/// `TimeField` (crates/component/src/time/time_field.rs): the segmented field.
+pub fn time_field(params: &Params) -> Result<Builder> {
+    let size = size(params);
+    let disabled = disabled(params);
+    let invalid = param_bool(params, "invalid");
+    let time = NaiveTime::parse_from_str(param_str(params, "time", "09:30:15"), "%H:%M:%S")?;
+    let precision = match param_str(params, "precision", "minute") {
+        "second" => TimePrecision::Second,
+        _ => TimePrecision::Minute,
+    };
+    let cycle = match param_str(params, "cycle", "h23") {
+        "h12" => HourCycle::H12,
+        _ => HourCycle::H23,
+    };
+    Ok(Rc::new(move |view, window, cx| {
+        if view.state.entity.is_none() {
+            let state = cx.new(|cx| {
+                let mut s = TimeFieldState::new(window, cx).precision(precision).hour_cycle(cycle);
+                s.set_time(time, window, cx);
+                s
+            });
+            view.state.entity = Some(state.into());
+        }
+        let state = view
+            .state
+            .entity
+            .clone()
+            .and_then(|e| e.downcast::<TimeFieldState>().ok())
+            .expect("time field state");
+        TimeField::new(&state).with_size(size).disabled(disabled).invalid(invalid).into_any_element()
     }))
 }
 

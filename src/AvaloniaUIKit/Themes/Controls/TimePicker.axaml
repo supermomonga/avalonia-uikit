@@ -1,0 +1,297 @@
+<!--
+  GPUI Kit TimeField (crates/component/src/time/time_field.rs) -> TimePicker:
+
+    <TimePicker SelectedTime="09:30" ClockIdentifier="24HourClock" Classes="small" />
+
+  The closed field as GPUI's: an input-styled frame sized to its content, the
+  hour, minute (and second) as two-digit segments with tabular figures between
+  colons, and for the 12-hour clock the period after a 4px gap, as wide as the
+  wider of AM and PM. Focused, the border turns ring with the focus band and the
+  hour segment shows the selection, as GPUI selects the hour on focus (here a
+  look only: TimePicker has no segments to edit). An error turns the border
+  danger. Sizes: xsmall small large (medium is the default). A click opens
+  Avalonia's TimePickerPresenter (GPUI edits in place instead) on GPUI's
+  popover surface; it has no GPUI counterpart to match.
+-->
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:gconv="using:AvaloniaUIKit.Converters">
+  <!-- The field: the frame around the segments; no hover or pressed look. -->
+  <ControlTheme x:Key="GpuiTimePickerButton" TargetType="Button">
+    <Setter Property="Template">
+      <ControlTemplate>
+        <ContentPresenter Name="PART_ContentPresenter"
+                          BackgroundSizing="OuterBorderEdge"
+                          Background="{TemplateBinding Background}"
+                          BorderBrush="{TemplateBinding BorderBrush}"
+                          BorderThickness="{TemplateBinding BorderThickness}"
+                          CornerRadius="{TemplateBinding CornerRadius}"
+                          Padding="{TemplateBinding Padding}"
+                          Content="{TemplateBinding Content}"
+                          Foreground="{TemplateBinding Foreground}"
+                          HorizontalContentAlignment="Left"
+                          VerticalContentAlignment="Center" />
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type TimePicker}" TargetType="TimePicker">
+    <Setter Property="Background" Value="{DynamicResource Gpui.InputBackground}" />
+    <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Input}" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="CornerRadius" Value="5.5" />
+    <Setter Property="Padding" Value="4,0" />
+    <Setter Property="Height" Value="32" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="TextBlock.LineHeight" Value="22.5" />
+    <Setter Property="MinWidth" Value="0" />
+    <Setter Property="HorizontalAlignment" Value="Left" />
+    <Setter Property="VerticalAlignment" Value="Top" />
+    <Setter Property="ClipToBounds" Value="False" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Panel>
+          <!-- focus_ring (styled.rs): a 3px band outside the border, in ring at 50%. -->
+          <Border Name="PART_FocusRing" Margin="-3" BorderThickness="3" CornerRadius="7.5"
+                  BorderBrush="{DynamicResource Gpui.FocusRing}" IsVisible="False" IsHitTestVisible="False" />
+          <Button Name="PART_FlyoutButton"
+                  Theme="{StaticResource GpuiTimePickerButton}"
+                  Background="{TemplateBinding Background}"
+                  BorderBrush="{TemplateBinding BorderBrush}"
+                  BorderThickness="{TemplateBinding BorderThickness}"
+                  CornerRadius="{TemplateBinding CornerRadius}"
+                  Padding="{TemplateBinding Padding}"
+                  Foreground="{TemplateBinding Foreground}"
+                  IsEnabled="{TemplateBinding IsEnabled}"
+                  HorizontalAlignment="Stretch"
+                  VerticalAlignment="Stretch">
+            <Panel>
+              <!-- The parts the control writes the time into; GPUI's segments show it. -->
+              <Grid Name="PART_FlyoutButtonContentGrid" IsVisible="False">
+                <Border Name="PART_FirstPickerHost"><TextBlock Name="PART_HourTextBlock" Text="hour" /></Border>
+                <Rectangle Name="PART_FirstColumnDivider" />
+                <Border Name="PART_SecondPickerHost"><TextBlock Name="PART_MinuteTextBlock" Text="minute" /></Border>
+                <Rectangle Name="PART_SecondColumnDivider" />
+                <Border Name="PART_ThirdPickerHost"><TextBlock Name="PART_SecondTextBlock" Text="second" /></Border>
+                <Rectangle Name="PART_ThirdColumnDivider" />
+                <Border Name="PART_FourthPickerHost"><TextBlock Name="PART_PeriodTextBlock" /></Border>
+              </Grid>
+              <!--
+                GPUI centres the segments' phi line, which may overflow the field,
+                and floors its top to a device pixel: room to overflow, centred
+                half a pixel high, lands each size where GPUI does.
+              -->
+              <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,-4,0,-3.5"
+                          TextElement.FontFeatures="+tnum">
+                <Border Name="PART_HourSegment" Padding="2,0" CornerRadius="3">
+                  <TextBlock Text="{Binding #PART_HourTextBlock.Text, Converter={x:Static gconv:TimeConverters.TwoDigits}}" />
+                </Border>
+                <TextBlock Text=":" />
+                <Border Padding="2,0" CornerRadius="3">
+                  <TextBlock Text="{Binding #PART_MinuteTextBlock.Text}" />
+                </Border>
+                <StackPanel Orientation="Horizontal" IsVisible="{TemplateBinding UseSeconds}">
+                  <TextBlock Text=":" />
+                  <Border Padding="2,0" CornerRadius="3">
+                    <TextBlock Text="{Binding #PART_SecondTextBlock.Text}" />
+                  </Border>
+                </StackPanel>
+                <!-- period_label: AM and PM in one cell, only the current one visible. -->
+                <Border Margin="4,0,0,0" Padding="2,0" CornerRadius="3"
+                        IsVisible="{TemplateBinding ClockIdentifier, Converter={x:Static gconv:TimeConverters.Is12Hour}}">
+                  <Panel>
+                    <TextBlock Foreground="Transparent" Text="{TemplateBinding ClockIdentifier, Converter={x:Static gconv:TimeConverters.AmDesignator}}" />
+                    <TextBlock Foreground="Transparent" Text="{TemplateBinding ClockIdentifier, Converter={x:Static gconv:TimeConverters.PmDesignator}}" />
+                    <TextBlock Text="{Binding #PART_PeriodTextBlock.Text}" />
+                  </Panel>
+                </Border>
+              </StackPanel>
+            </Panel>
+          </Button>
+          <Popup Name="PART_Popup"
+                 WindowManagerAddShadowHint="False"
+                 IsLightDismissEnabled="True"
+                 PlacementTarget="{TemplateBinding}"
+                 Placement="Bottom">
+            <TimePickerPresenter Name="PART_PickerPresenter" />
+          </Popup>
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+
+    <Style Selector="^.xsmall">
+      <Setter Property="Height" Value="20" />
+      <Setter Property="FontSize" Value="12" />
+      <Setter Property="TextBlock.LineHeight" Value="19.5" />
+    </Style>
+    <Style Selector="^.small">
+      <Setter Property="Height" Value="24" />
+    </Style>
+    <Style Selector="^.large">
+      <Setter Property="Height" Value="44" />
+      <Setter Property="FontSize" Value="16" />
+      <Setter Property="TextBlock.LineHeight" Value="26" />
+    </Style>
+
+    <Style Selector="^:focus-within">
+      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Ring}" />
+    </Style>
+    <Style Selector="^:focus-within /template/ Border#PART_FocusRing">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+    <Style Selector="^:focus-within /template/ Border#PART_HourSegment">
+      <Setter Property="Background" Value="{DynamicResource Gpui.Selection}" />
+    </Style>
+    <!-- After focus: an invalid field keeps the danger border inside the ring band. -->
+    <Style Selector="^:error">
+      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Danger}" />
+    </Style>
+    <Style Selector="^:disabled">
+      <Setter Property="Background" Value="{DynamicResource Gpui.Number.Disabled.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.MutedForeground}" />
+    </Style>
+    <Style Selector="^:disabled /template/ Button#PART_FlyoutButton">
+      <Setter Property="Opacity" Value="0.5" />
+    </Style>
+    <Style Selector="^:hasnotime /template/ Button#PART_FlyoutButton">
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.MutedForeground}" />
+    </Style>
+  </ControlTheme>
+
+  <!-- The presenter's rows: GPUI's menu rows. -->
+  <ControlTheme x:Key="GpuiDateTimePickerItem" TargetType="ListBoxItem">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Foreground" Value="{DynamicResource Gpui.PopoverForeground}" />
+    <Setter Property="CornerRadius" Value="6" />
+    <Setter Property="HorizontalContentAlignment" Value="Center" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <ContentPresenter Name="PART_ContentPresenter"
+                          Background="{TemplateBinding Background}"
+                          CornerRadius="{TemplateBinding CornerRadius}"
+                          Content="{TemplateBinding Content}"
+                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                          Foreground="{TemplateBinding Foreground}"
+                          HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^:pointerover">
+      <Setter Property="Background" Value="{DynamicResource Gpui.Accent}" />
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.AccentForeground}" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="GpuiDateTimePickerStepButton" TargetType="RepeatButton">
+    <Setter Property="Background" Value="{DynamicResource Gpui.Popover}" />
+    <Setter Property="Foreground" Value="{DynamicResource Gpui.MutedForeground}" />
+    <Setter Property="Height" Value="24" />
+    <Setter Property="HorizontalAlignment" Value="Stretch" />
+    <Setter Property="Focusable" Value="False" />
+    <Setter Property="IsVisible" Value="False" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <ContentPresenter Background="{TemplateBinding Background}" Content="{TemplateBinding Content}"
+                          Foreground="{TemplateBinding Foreground}"
+                          HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^:pointerover">
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.PopoverForeground}" />
+    </Style>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type TimePickerPresenter}" TargetType="TimePickerPresenter">
+    <Setter Property="Width" Value="242" />
+    <Setter Property="MaxHeight" Value="296" />
+    <Setter Property="Background" Value="{DynamicResource Gpui.Popover}" />
+    <Setter Property="Foreground" Value="{DynamicResource Gpui.PopoverForeground}" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="ClipToBounds" Value="False" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Panel Margin="0,4,0,0">
+          <Border Margin="-1" CornerRadius="6" Background="{DynamicResource Gpui.PopoverRing}" IsHitTestVisible="False" />
+          <Border Background="{TemplateBinding Background}" CornerRadius="6" Padding="4"
+                  BoxShadow="{StaticResource Gpui.Shadow.Popover}">
+            <Grid RowDefinitions="*,Auto">
+              <Grid Name="PART_PickerContainer">
+                <Grid.Styles>
+                  <Style Selector="DateTimePickerPanel > ListBoxItem">
+                    <Setter Property="Theme" Value="{StaticResource GpuiDateTimePickerItem}" />
+                  </Style>
+                </Grid.Styles>
+                <Panel Name="PART_HourHost" Grid.Column="0">
+                  <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
+                    <DateTimePickerPanel Name="PART_HourSelector" PanelType="Hour" ShouldLoop="True" ItemHeight="32" />
+                  </ScrollViewer>
+                  <RepeatButton Name="PART_HourUpButton" VerticalAlignment="Top" Theme="{StaticResource GpuiDateTimePickerStepButton}">
+                    <PathIcon Width="14" Height="14" Data="{StaticResource Gpui.Icon.ChevronUp}" />
+                  </RepeatButton>
+                  <RepeatButton Name="PART_HourDownButton" VerticalAlignment="Bottom" Theme="{StaticResource GpuiDateTimePickerStepButton}">
+                    <PathIcon Width="14" Height="14" Data="{StaticResource Gpui.Icon.ChevronDown}" />
+                  </RepeatButton>
+                </Panel>
+                <Panel Name="PART_MinuteHost" Grid.Column="2">
+                  <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
+                    <DateTimePickerPanel Name="PART_MinuteSelector" PanelType="Minute" ShouldLoop="True" ItemHeight="32" />
+                  </ScrollViewer>
+                  <RepeatButton Name="PART_MinuteUpButton" VerticalAlignment="Top" Theme="{StaticResource GpuiDateTimePickerStepButton}">
+                    <PathIcon Width="14" Height="14" Data="{StaticResource Gpui.Icon.ChevronUp}" />
+                  </RepeatButton>
+                  <RepeatButton Name="PART_MinuteDownButton" VerticalAlignment="Bottom" Theme="{StaticResource GpuiDateTimePickerStepButton}">
+                    <PathIcon Width="14" Height="14" Data="{StaticResource Gpui.Icon.ChevronDown}" />
+                  </RepeatButton>
+                </Panel>
+                <Panel Name="PART_SecondHost" Grid.Column="4">
+                  <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
+                    <DateTimePickerPanel Name="PART_SecondSelector" PanelType="Second" ShouldLoop="True" ItemHeight="32" />
+                  </ScrollViewer>
+                  <RepeatButton Name="PART_SecondUpButton" VerticalAlignment="Top" Theme="{StaticResource GpuiDateTimePickerStepButton}">
+                    <PathIcon Width="14" Height="14" Data="{StaticResource Gpui.Icon.ChevronUp}" />
+                  </RepeatButton>
+                  <RepeatButton Name="PART_SecondDownButton" VerticalAlignment="Bottom" Theme="{StaticResource GpuiDateTimePickerStepButton}">
+                    <PathIcon Width="14" Height="14" Data="{StaticResource Gpui.Icon.ChevronDown}" />
+                  </RepeatButton>
+                </Panel>
+                <Panel Name="PART_PeriodHost" Grid.Column="6">
+                  <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden">
+                    <DateTimePickerPanel Name="PART_PeriodSelector" PanelType="TimePeriod" ShouldLoop="False" ItemHeight="32" />
+                  </ScrollViewer>
+                  <RepeatButton Name="PART_PeriodUpButton" VerticalAlignment="Top" Theme="{StaticResource GpuiDateTimePickerStepButton}">
+                    <PathIcon Width="14" Height="14" Data="{StaticResource Gpui.Icon.ChevronUp}" />
+                  </RepeatButton>
+                  <RepeatButton Name="PART_PeriodDownButton" VerticalAlignment="Bottom" Theme="{StaticResource GpuiDateTimePickerStepButton}">
+                    <PathIcon Width="14" Height="14" Data="{StaticResource Gpui.Icon.ChevronDown}" />
+                  </RepeatButton>
+                </Panel>
+                <!-- The selected row: the selection's band, behind the rows. -->
+                <Border ZIndex="-1" Grid.ColumnSpan="7" Height="32" VerticalAlignment="Center" CornerRadius="6"
+                        Background="{DynamicResource Gpui.Accent}" />
+                <Rectangle Name="PART_FirstSpacer" Grid.Column="1" Width="1" HorizontalAlignment="Center" Fill="{DynamicResource Gpui.Border}" />
+                <Rectangle Name="PART_SecondSpacer" Grid.Column="3" Width="1" HorizontalAlignment="Center" Fill="{DynamicResource Gpui.Border}" />
+                <Rectangle Name="PART_ThirdSpacer" Grid.Column="5" Width="1" HorizontalAlignment="Center" Fill="{DynamicResource Gpui.Border}" />
+              </Grid>
+              <Grid Grid.Row="1" ColumnDefinitions="*,*" ColumnSpacing="4" Margin="0,4,0,0">
+                <Button Name="PART_AcceptButton" Classes="ghost small" HorizontalAlignment="Stretch">
+                  <PathIcon Data="{StaticResource Gpui.Icon.Check}" />
+                </Button>
+                <Button Name="PART_DismissButton" Grid.Column="1" Classes="ghost small" HorizontalAlignment="Stretch">
+                  <PathIcon Data="{StaticResource Gpui.Icon.Close}" />
+                </Button>
+              </Grid>
+            </Grid>
+          </Border>
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+    <!-- The step buttons show while the pointer is over their column. -->
+    <Style Selector="^ /template/ Panel">
+      <Style Selector="^:pointerover RepeatButton">
+        <Setter Property="IsVisible" Value="True" />
+      </Style>
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>
