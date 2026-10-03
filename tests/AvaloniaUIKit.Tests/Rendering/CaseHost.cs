@@ -88,6 +88,8 @@ public sealed class CaseHost : IDisposable
     public void Drive(GoldenCase golden, string state)
     {
         var at = PointAt(golden.Num("pointer_x", 0.5), golden.Num("pointer_y", 0.5));
+        // Where the pointer last went, for "release".
+        var last = at;
         foreach (var part in state.Split('+'))
         {
             switch (part)
@@ -107,6 +109,16 @@ public sealed class CaseHost : IDisposable
                 case "pressed":
                     Window.MouseMove(at);
                     Window.MouseDown(at, MouseButton.Left);
+                    last = at;
+                    break;
+                case "release":
+                    Window.MouseUp(last, MouseButton.Left);
+                    break;
+                case var p when p.StartsWith("drag-at-", StringComparison.Ordinal):
+                    // Moves the pointer with the left button held.
+                    var dxy = p["drag-at-".Length..].Split('-');
+                    last = new Point(double.Parse(dxy[0], System.Globalization.CultureInfo.InvariantCulture), double.Parse(dxy[1], System.Globalization.CultureInfo.InvariantCulture));
+                    Window.MouseMove(last, RawInputModifiers.LeftMouseButton);
                     break;
                 case "focus":
                     Window.KeyPressQwerty(PhysicalKey.Tab, RawInputModifiers.None);
@@ -138,6 +150,7 @@ public sealed class CaseHost : IDisposable
                     var pressAt = new Point(double.Parse(pxy[0], System.Globalization.CultureInfo.InvariantCulture), double.Parse(pxy[1], System.Globalization.CultureInfo.InvariantCulture));
                     Window.MouseMove(pressAt);
                     Window.MouseDown(pressAt, MouseButton.Left);
+                    last = pressAt;
                     break;
                 case var p when p.StartsWith("at-", StringComparison.Ordinal) || p.StartsWith("click-at-", StringComparison.Ordinal) || p.StartsWith("right-click-at-", StringComparison.Ordinal):
                     var split = p.IndexOf("at-", StringComparison.Ordinal);
@@ -145,6 +158,7 @@ public sealed class CaseHost : IDisposable
                     var xy = p[(split + 3)..].Split('-');
                     var point = new Point(double.Parse(xy[0], System.Globalization.CultureInfo.InvariantCulture), double.Parse(xy[1], System.Globalization.CultureInfo.InvariantCulture));
                     Window.MouseMove(point);
+                    last = point;
                     if (kind is "click-" or "right-click-")
                     {
                         var button = kind == "click-" ? MouseButton.Left : MouseButton.Right;

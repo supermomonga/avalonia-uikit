@@ -513,7 +513,11 @@
       "link.pressed": "#17171799",
       "progress.track": "#17171733",
       "tab.pill.disabled.selected-background": "#17171780",
-      "tab.pill.disabled.selected-foreground": "#fafafa80"
+      "tab.pill.disabled.selected-foreground": "#fafafa80",
+      "slider.track": "#17171733",
+      "slider.track.active": "#17171766",
+      "slider.thumb.edge": "#17171780",
+      "slider.ring": "#a3a3a380"
     },
     "derived_float": {
       "button.default.normal.background": [
@@ -2734,6 +2738,30 @@
         0.9800000190734863,
         0.9800000190734863,
         0.9800000190734863,
+        0.5
+      ],
+      "slider.track": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        0.20000000298023224
+      ],
+      "slider.track.active": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        0.4000000059604645
+      ],
+      "slider.thumb.edge": [
+        0.09000000357627869,
+        0.09000000357627869,
+        0.09000000357627869,
+        0.5
+      ],
+      "slider.ring": [
+        0.6389999985694885,
+        0.6389999985694885,
+        0.6389999985694885,
         0.5
       ]
     },
@@ -3259,7 +3287,11 @@
       "link.pressed": "#fafafa99",
       "progress.track": "#fafafa33",
       "tab.pill.disabled.selected-background": "#fafafa80",
-      "tab.pill.disabled.selected-foreground": "#17171780"
+      "tab.pill.disabled.selected-foreground": "#17171780",
+      "slider.track": "#fafafa33",
+      "slider.track.active": "#fafafa66",
+      "slider.thumb.edge": "#fafafa80",
+      "slider.ring": "#73737380"
     },
     "derived_float": {
       "button.default.normal.background": [
@@ -5480,6 +5512,30 @@
         0.09000000357627869,
         0.09000000357627869,
         0.09000000357627869,
+        0.5
+      ],
+      "slider.track": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        0.20000000298023224
+      ],
+      "slider.track.active": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        0.4000000059604645
+      ],
+      "slider.thumb.edge": [
+        0.9800000190734863,
+        0.9800000190734863,
+        0.9800000190734863,
+        0.5
+      ],
+      "slider.ring": [
+        0.4509999752044678,
+        0.4509999752044678,
+        0.4509999752044678,
         0.5
       ]
     },

@@ -64,9 +64,10 @@
           <ToggleSwitch Classes="small" Content="Bluetooth" />
         </WrapPanel>
 
-        <TextBlock Text="NumericUpDown, ProgressBar, Spinner" Foreground="{DynamicResource Gpui.MutedForeground}" />
+        <TextBlock Text="NumericUpDown, Slider, ProgressBar, Spinner" Foreground="{DynamicResource Gpui.MutedForeground}" />
         <StackPanel Spacing="12" HorizontalAlignment="Left">
           <NumericUpDown Value="42" Width="160" />
+          <Slider Value="40" Width="240" HorizontalAlignment="Left" />
           <ProgressBar Value="40" Width="240" />
           <ProgressBar IsIndeterminate="True" Width="240" />
           <ProgressBar Theme="{StaticResource GpuiSpinner}" Classes="large" />

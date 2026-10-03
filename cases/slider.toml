@@ -1,0 +1,70 @@
+# GPUI Kit Slider -> Slider / Track / Thumb.
+component = "slider"
+viewport = [232, 40]
+anchor = [16, 8]
+
+# Thumb at 0 / 40 / 100 %; the pointer sits on the thumb center.
+[[group]]
+name = "v0"
+params = { value = 0, pointer_x = 0.0 }
+states = ["normal", "hover+wait-400ms", "pressed+wait-400ms", "focus"]
+[[group]]
+name = "v40"
+params = { value = 40, pointer_x = 0.4 }
+states = ["normal", "hover+wait-400ms", "pressed+wait-400ms", "focus"]
+[[group]]
+name = "v100"
+params = { value = 100, pointer_x = 1.0 }
+states = ["normal", "hover+wait-400ms", "pressed+wait-400ms", "focus"]
+
+# Disabled: no thumb, track and fill unchanged.
+[[group]]
+name = "disabled"
+matrix = { value = [0, 40, 100] }
+states = ["disabled"]
+
+# Press on the bar at 80 %: the value jumps, the track turns bar·0.4 while held.
+[[group]]
+name = "bar"
+params = { value = 40, pointer_x = 0.8 }
+states = ["pressed", "pressed+wait-400ms"]
+
+# Drag the thumb from 40 % to 60 %, held and released.
+[[group]]
+name = "drag"
+params = { value = 40, pointer_x = 0.4 }
+states = ["pressed+drag-at-110-20+drag-at-136-20+wait-400ms", "pressed+drag-at-110-20+drag-at-136-20+release+wait-400ms"]
+
+[[group]]
+name = "reverse"
+params = { value = 40, reverse = true }
+
+# Vertical 24 x 120: thumb at bottom / 40 % / top (it overhangs 8px + 3px ring at both ends).
+[[group]]
+name = "vertical"
+viewport = [56, 152]
+anchor = [16, 16]
+params = { vertical = true }
+matrix = { value = [0, 40, 100] }
+states = ["normal", "disabled"]
+
+# Ring grows on hover (spring_control), shrinks on leave, and turns around mid-flight.
+[[motion]]
+name = "ring"
+params = { value = 40, pointer_x = 0.4 }
+trigger = "hover"
+samples_ms = [0, 16, 33, 50, 66, 83, 100, 133, 166, 200, 266, 333]
+themes = ["light"]
+[[motion]]
+name = "ring-out"
+params = { value = 40, pointer_x = 0.4 }
+from = "hover+wait-400ms"
+trigger = "leave"
+samples_ms = [0, 16, 33, 50, 66, 83, 100, 133, 166, 200, 266, 333]
+themes = ["light"]
+[[motion]]
+name = "ring-reverse"
+params = { value = 40, pointer_x = 0.4 }
+trigger = "hover+wait-60ms+leave"
+samples_ms = [0, 16, 33, 50, 66, 83, 100, 133, 166, 200, 266, 333]
+themes = ["light"]

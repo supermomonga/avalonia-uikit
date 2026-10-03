@@ -69,12 +69,22 @@ public static class StructuralComparison
             {
                 list.Add(new Primitive(PrimitiveKind.Fill, q.Bounds, Clamp(q.Radii, q.Bounds), default, 0, q.Background, $"quad#{q.Order}"));
             }
-            if (q.BorderWidths != default && !q.BorderColor.IsTransparent)
+            if (q.BorderWidths != default && !q.BorderColor.IsTransparent && !FadedHairline(q))
             {
                 list.Add(Band(q.Bounds, Clamp(q.Radii, q.Bounds), q.BorderWidths, q.BorderColor, $"quad#{q.Order}"));
             }
         }
         return Dedupe(list);
+    }
+
+    // R30: GPUI widens any non-zero stroke to one device pixel (snap_stroke); Avalonia's
+    // layout rounding drops a stroke under half a device pixel. A ring fading in or out
+    // (the slider's) is then under 5% alpha, so only the pixels compare it.
+    private static bool FadedHairline(SceneQuad q)
+    {
+        var w = q.BorderWidths;
+        var hairline = 1 / CaseHost.Scale;
+        return q.BorderColor.A < 0.05 && new[] { w.Left, w.Top, w.Right, w.Bottom }.All(e => e == 0 || Math.Abs(e - hairline) < 1e-6);
     }
 
     public static IReadOnlyList<Primitive> FromVisuals(Visual root)
@@ -107,10 +117,10 @@ public static class StructuralComparison
             switch (visual)
             {
                 case Border b:
-                    AddBox(list, rect, b.Background, b.BorderBrush, b.BorderThickness, b.CornerRadius, b.BackgroundSizing, b.BoxShadow, opacity, name);
+                    AddBox(list, rect, b.Background, b.BorderBrush, Painted(b, b.BorderThickness), b.CornerRadius, b.BackgroundSizing, b.BoxShadow, opacity, name);
                     break;
                 case ContentPresenter p:
-                    AddBox(list, rect, p.Background, p.BorderBrush, p.BorderThickness, p.CornerRadius, p.BackgroundSizing, p.BoxShadow, opacity, name);
+                    AddBox(list, rect, p.Background, p.BorderBrush, Painted(p, p.BorderThickness), p.CornerRadius, p.BackgroundSizing, p.BoxShadow, opacity, name);
                     break;
                 case Panel panel when panel.Background is not null:
                     AddBox(list, rect, panel.Background, null, default, default, BackgroundSizing.CenterBorder, default, opacity, name);
@@ -135,6 +145,10 @@ public static class StructuralComparison
         }
         return Dedupe(list);
     }
+
+    // Borders paint their thickness snapped to device pixels when they round layout.
+    private static Thickness Painted(Avalonia.Layout.Layoutable element, Thickness thickness) =>
+        element.UseLayoutRounding ? Avalonia.Layout.LayoutHelper.RoundLayoutThickness(thickness, CaseHost.Scale) : thickness;
 
     private static void AddBox(List<Primitive> list, Rect rect, IBrush? background, IBrush? borderBrush, Thickness t,
         CornerRadius cr, BackgroundSizing sizing, BoxShadows shadows, double opacity, string name)

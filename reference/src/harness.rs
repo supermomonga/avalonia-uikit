@@ -170,9 +170,11 @@ impl Harness {
     }
 
     pub fn close(&mut self, window: &CaseWindow) {
-        let _ = self
-            .cx
-            .update_window(window.handle, |_, window, _| window.remove_window());
+        // A case that ends mid-drag must not leave the drag to the next case's window.
+        let _ = self.cx.update_window(window.handle, |_, window, cx| {
+            cx.stop_active_drag(window);
+            window.remove_window();
+        });
         self.cx.run_until_parked();
     }
 

@@ -1025,6 +1025,14 @@
       <SolidColorBrush x:Key="Gpui.Tab.Pill.Disabled.SelectedBackground" Color="#80171717" />
       <Color x:Key="Gpui.Tab.Pill.Disabled.SelectedForeground.Color">#80FAFAFA</Color>
       <SolidColorBrush x:Key="Gpui.Tab.Pill.Disabled.SelectedForeground" Color="#80FAFAFA" />
+      <Color x:Key="Gpui.Slider.Track.Color">#33171717</Color>
+      <SolidColorBrush x:Key="Gpui.Slider.Track" Color="#33171717" />
+      <Color x:Key="Gpui.Slider.Track.Active.Color">#66171717</Color>
+      <SolidColorBrush x:Key="Gpui.Slider.Track.Active" Color="#66171717" />
+      <Color x:Key="Gpui.Slider.Thumb.Edge.Color">#80171717</Color>
+      <SolidColorBrush x:Key="Gpui.Slider.Thumb.Edge" Color="#80171717" />
+      <Color x:Key="Gpui.Slider.Ring.Color">#80A3A3A3</Color>
+      <SolidColorBrush x:Key="Gpui.Slider.Ring" Color="#80A3A3A3" />
     </ResourceDictionary>
     <ResourceDictionary x:Key="Dark">
       <Color x:Key="Gpui.Accent.Color">#FF262626</Color>
@@ -2045,6 +2053,14 @@
       <SolidColorBrush x:Key="Gpui.Tab.Pill.Disabled.SelectedBackground" Color="#80FAFAFA" />
       <Color x:Key="Gpui.Tab.Pill.Disabled.SelectedForeground.Color">#80171717</Color>
       <SolidColorBrush x:Key="Gpui.Tab.Pill.Disabled.SelectedForeground" Color="#80171717" />
+      <Color x:Key="Gpui.Slider.Track.Color">#33FAFAFA</Color>
+      <SolidColorBrush x:Key="Gpui.Slider.Track" Color="#33FAFAFA" />
+      <Color x:Key="Gpui.Slider.Track.Active.Color">#66FAFAFA</Color>
+      <SolidColorBrush x:Key="Gpui.Slider.Track.Active" Color="#66FAFAFA" />
+      <Color x:Key="Gpui.Slider.Thumb.Edge.Color">#80FAFAFA</Color>
+      <SolidColorBrush x:Key="Gpui.Slider.Thumb.Edge" Color="#80FAFAFA" />
+      <Color x:Key="Gpui.Slider.Ring.Color">#80737373</Color>
+      <SolidColorBrush x:Key="Gpui.Slider.Ring" Color="#80737373" />
     </ResourceDictionary>
   </ResourceDictionary.ThemeDictionaries>
 </ResourceDictionary>

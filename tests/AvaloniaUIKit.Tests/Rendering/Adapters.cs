@@ -55,6 +55,7 @@ public static class Adapters
         "pagination" => Pagination(c),
         "tabs" => TabStrip(c),
         "toolbar" => Toolbar(c),
+        "slider" => Slider(c),
         _ => throw new NotSupportedException($"no adapter for {c.Component}"),
     };
 
@@ -612,6 +613,27 @@ public static class Adapters
     }
 
     /// <summary>A ListBox.toggle-group; '1's in `checked` mark the selected items.</summary>
+    private static Slider Slider(GoldenCase c)
+    {
+        var slider = new Slider
+        {
+            Minimum = c.Num("min", 0),
+            Maximum = c.Num("max", 100),
+            Value = c.Num("value", 40),
+            IsEnabled = !c.Bool("disabled"),
+        };
+        if (c.Bool("vertical"))
+        {
+            slider.Orientation = Orientation.Vertical;
+        }
+        else
+        {
+            slider.Width = c.Num("width", 200);
+        }
+        FlagClass(slider, c, "reverse");
+        return slider;
+    }
+
     private static CommandBar Toolbar(GoldenCase c)
     {
         var enabled = !c.Bool("disabled");

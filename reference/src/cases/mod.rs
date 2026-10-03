@@ -24,6 +24,7 @@ mod label;
 mod list;
 mod scroll;
 mod select;
+mod slider;
 mod surface;
 mod tabs;
 mod toolbar;
@@ -66,6 +67,7 @@ pub fn builder(case: &Case) -> Result<Builder> {
         "tree" => tree::builder(&params),
         "tabs" => tabs::builder(&params),
         "toolbar" => toolbar::builder(&params),
+        "slider" => slider::builder(&params),
         other => bail!("unknown component {other}"),
     }
 }
@@ -88,18 +90,24 @@ fn pointer(harness: &Harness, window: &CaseWindow, params: &Params) -> Result<gp
 /// Puts the component into `state` after the window's first frame.
 pub fn drive(harness: &mut Harness, window: &CaseWindow, case: &Case, state: &str) -> Result<()> {
     let params = effective_params(case);
+    // Where the pointer last went, for "release".
+    let mut last = pointer(harness, window, &params)?;
     for part in state.split('+') {
         match part {
             "normal" | "disabled" => {}
             "hover" => {
                 let at = pointer(harness, window, &params)?;
                 harness.mouse_move(window, at, None)?;
+                last = at;
             }
             "pressed" => {
                 let at = pointer(harness, window, &params)?;
                 harness.mouse_move(window, at, None)?;
                 harness.mouse_down(window, at, MouseButton::Left)?;
+                last = at;
             }
+            // Releases the left button where the pointer is.
+            "release" => harness.mouse_up(window, last, MouseButton::Left)?,
             "focus" => harness.tab(window)?,
             // Makes the window active: GPUI paints a caret and a selection only then.
             "activate" => harness.activate(window)?,
@@ -126,11 +134,19 @@ pub fn drive(harness: &mut Harness, window: &CaseWindow, case: &Case, state: &st
             }
             // Absolute window positions: "at-X-Y" moves the pointer there,
             // "click-at-X-Y" and "right-click-at-X-Y" also click.
+            // "drag-at-X-Y" moves the pointer there with the left button held.
+            other if other.starts_with("drag-at-") => {
+                let (x, y) = other["drag-at-".len()..].split_once('-').expect("drag-at-X-Y");
+                let at = gpui_kit::point(gpui_kit::px(x.parse()?), gpui_kit::px(y.parse()?));
+                harness.mouse_move(window, at, Some(MouseButton::Left))?;
+                last = at;
+            }
             other if other.starts_with("pressed-at-") => {
                 let (x, y) = other["pressed-at-".len()..].split_once('-').expect("pressed-at-X-Y");
                 let at = gpui_kit::point(gpui_kit::px(x.parse()?), gpui_kit::px(y.parse()?));
                 harness.mouse_move(window, at, None)?;
                 harness.mouse_down(window, at, MouseButton::Left)?;
+                last = at;
             }
             other if other.starts_with("at-") || other.starts_with("click-at-") || other.starts_with("right-click-at-") => {
                 let (kind, coords) = other.split_once("at-").expect("prefix checked");
@@ -141,6 +157,7 @@ pub fn drive(harness: &mut Harness, window: &CaseWindow, case: &Case, state: &st
                     "right-click-" => harness.click(window, at, MouseButton::Right)?,
                     _ => harness.mouse_move(window, at, None)?,
                 }
+                last = at;
             }
             // "wheel-at-X-Y" scrolls the content under that point down by 40px.
             other if other.starts_with("wheel-at-") => {
@@ -205,6 +222,7 @@ pub fn derived_colors(theme: &gpui_kit::component::Theme, out: &mut Vec<(String,
     display::derived_colors(theme, out);
     progress::derived_colors(theme, out);
     tabs::derived_colors(theme, out);
+    slider::derived_colors(theme, out);
 }
 
 pub fn disabled(params: &Params) -> bool {

@@ -46963,6 +46963,1780 @@
       "png_sha256": "d6472b7196bb9537d97c06b8c90794a13dcc32e62e416de8a8289557ac7a74b2"
     },
     {
+      "id": "slider/bar.base/pressed+wait-400ms/dark",
+      "component": "slider",
+      "group": "bar",
+      "params": {
+        "value": 40,
+        "pointer_x": 0.8
+      },
+      "state": "pressed+wait-400ms",
+      "theme": "dark",
+      "viewport": [
+        232.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/slider/bar.base/pressed+wait-400ms/dark.png",
+      "scene": "scenes/slider/bar.base/pressed+wait-400ms/dark.json",
+      "png_sha256": "f042f1d057ac8c9924fdd4e1d0786e3d90162ac341a96f744834a2daf69d1231"
+    },
+    {
+      "id": "slider/bar.base/pressed+wait-400ms/light",
+      "component": "slider",
+      "group": "bar",
+      "params": {
+        "value": 40,
+        "pointer_x": 0.8
+      },
+      "state": "pressed+wait-400ms",
+      "theme": "light",
+      "viewport": [
+        232.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/slider/bar.base/pressed+wait-400ms/light.png",
+      "scene": "scenes/slider/bar.base/pressed+wait-400ms/light.json",
+      "png_sha256": "86b468e5f673f835b5ccf5ad6cbc3747c6336d63820688eeebfb25c0d4f8243b"
+    },
+    {
+      "id": "slider/bar.base/pressed/dark",
+      "component": "slider",
+      "group": "bar",
+      "params": {
+        "value": 40,
+        "pointer_x": 0.8
+      },
+      "state": "pressed",
+      "theme": "dark",
+      "viewport": [
+        232.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/slider/bar.base/pressed/dark.png",
+      "scene": "scenes/slider/bar.base/pressed/dark.json",
+      "png_sha256": "13f15c36771ac8417ddf8ad0a256cc69485c7a102cf45ac48e3013ce8b7fbe2c"
+    },
+    {
+      "id": "slider/bar.base/pressed/light",
+      "component": "slider",
+      "group": "bar",
+      "params": {
+        "value": 40,
+        "pointer_x": 0.8
+      },
+      "state": "pressed",
+      "theme": "light",
+      "viewport": [
+        232.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/slider/bar.base/pressed/light.png",
+      "scene": "scenes/slider/bar.base/pressed/light.json",
+      "png_sha256": "08be69fb8c17713a7de4b8c2b24c4d362c0cdad287de369bc2749f5adca069db"
+    },
+    {
+      "id": "slider/disabled.value-0/disabled/dark",
+      "component": "slider",
+      "group": "disabled",
+      "params": {
+        "value": 0,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        232.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/slider/disabled.value-0/disabled/dark.png",
+      "scene": "scenes/slider/disabled.value-0/disabled/dark.json",
+      "png_sha256": "7cbbba0f7098b750e031a2207ddbd24d0d0528e23168c60e4ee31d2ec1ce3121"
+    },
+    {
+      "id": "slider/disabled.value-0/disabled/light",
+      "component": "slider",
+      "group": "disabled",
+      "params": {
+        "value": 0,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        232.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/slider/disabled.value-0/disabled/light.png",
+      "scene": "scenes/slider/disabled.value-0/disabled/light.json",
+      "png_sha256": "0e98c335ad66ac28edcb8f8f1feb989e9887ca82c58920791c2786f10104d25c"
+    },
+    {
+      "id": "slider/disabled.value-100/disabled/dark",
+      "component": "slider",
+      "group": "disabled",
+      "params": {
+        "value": 100,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        232.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/slider/disabled.value-100/disabled/dark.png",
+      "scene": "scenes/slider/disabled.value-100/disabled/dark.json",
+      "png_sha256": "77f96c8006748b7037a699377bbc928cf768f103ee6a59ac1cf46c708286426a"
+    },
+    {
+      "id": "slider/disabled.value-100/disabled/light",
+      "component": "slider",
+      "group": "disabled",
+      "params": {
+        "value": 100,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        232.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/slider/disabled.value-100/disabled/light.png",
+      "scene": "scenes/slider/disabled.value-100/disabled/light.json",
+      "png_sha256": "c7b4223aa50f98f096754da08cb0c252bd69af0ed15ce2917390f22548c888bc"
+    },
+    {
+      "id": "slider/disabled.value-40/disabled/dark",
+      "component": "slider",
+      "group": "disabled",
+      "params": {
+        "value": 40,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        232.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/slider/disabled.value-40/disabled/dark.png",
+      "scene": "scenes/slider/disabled.value-40/disabled/dark.json",
+      "png_sha256": "566c47bfaaef2c94b163126518c2a6715eb688f06629e199a52000a1bb5359e5"
+    },
+    {
+      "id": "slider/disabled.value-40/disabled/light",
+      "component": "slider",
+      "group": "disabled",
+      "params": {
+        "value": 40,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        232.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/slider/disabled.value-40/disabled/light.png",
+      "scene": "scenes/slider/disabled.value-40/disabled/light.json",
+      "png_sha256": "bdc8dc192ebab54821df64b0a5a0c540747f12cf3fcdca0b7bf478dd9b564a74"
+    },
+    {
+      "id": "slider/drag.base/pressed+drag-at-110-20+drag-at-136-20+release+wait-400ms/dark",
+      "component": "slider",
+      "group": "drag",
+      "params": {
+        "value": 40,
+        "pointer_x": 0.4
+      },
+      "state": "pressed+drag-at-110-20+drag-at-136-20+release+wait-400ms",
+      "theme": "dark",
+      "viewport": [
+        232.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/slider/drag.base/pressed+drag-at-110-20+drag-at-136-20+release+wait-400ms/dark.png",
+      "scene": "scenes/slider/drag.base/pressed+drag-at-110-20+drag-at-136-20+release+wait-400ms/dark.json",
+      "png_sha256": "f80a3f9b10ff9441b4ced73c826acce7a81273f0e942ab68ac34c9e20d49769d"
+    },
+    {
+      "id": "slider/drag.base/pressed+drag-at-110-20+drag-at-136-20+release+wait-400ms/light",
+      "component": "slider",
+      "group": "drag",
+      "params": {
+        "value": 40,
+        "pointer_x": 0.4
+      },
+      "state": "pressed+drag-at-110-20+drag-at-136-20+release+wait-400ms",
+      "theme": "light",
+      "viewport": [
+        232.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/slider/drag.base/pressed+drag-at-110-20+drag-at-136-20+release+wait-400ms/light.png",
+      "scene": "scenes/slider/drag.base/pressed+drag-at-110-20+drag-at-136-20+release+wait-400ms/light.json",
+      "png_sha256": "d4dd85ce2b3a2a63c86e2b4ab08be7f36804e72d08981f9d56c971f39d179c84"
+    },
+    {
+      "id": "slider/drag.base/pressed+drag-at-110-20+drag-at-136-20+wait-400ms/dark",
+      "component": "slider",
+      "group": "drag",
+      "params": {
+        "value": 40,
+        "pointer_x": 0.4
+      },
+      "state": "pressed+drag-at-110-20+drag-at-136-20+wait-400ms",
+      "theme": "dark",
+      "viewport": [
+        232.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/slider/drag.base/pressed+drag-at-110-20+drag-at-136-20+wait-400ms/dark.png",
+      "scene": "scenes/slider/drag.base/pressed+drag-at-110-20+drag-at-136-20+wait-400ms/dark.json",
+      "png_sha256": "f80a3f9b10ff9441b4ced73c826acce7a81273f0e942ab68ac34c9e20d49769d"
+    },
+    {
+      "id": "slider/drag.base/pressed+drag-at-110-20+drag-at-136-20+wait-400ms/light",
+      "component": "slider",
+      "group": "drag",
+      "params": {
+        "value": 40,
+        "pointer_x": 0.4
+      },
+      "state": "pressed+drag-at-110-20+drag-at-136-20+wait-400ms",
+      "theme": "light",
+      "viewport": [
+        232.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/slider/drag.base/pressed+drag-at-110-20+drag-at-136-20+wait-400ms/light.png",
+      "scene": "scenes/slider/drag.base/pressed+drag-at-110-20+drag-at-136-20+wait-400ms/light.json",
+      "png_sha256": "d4dd85ce2b3a2a63c86e2b4ab08be7f36804e72d08981f9d56c971f39d179c84"
+    },
+    {
+      "id": "slider/motion.ring-out/leave/light",
+      "component": "slider",
+      "group": "motion.ring-out",
+      "params": {
+        "value": 40,
+        "pointer_x": 0.4
+      },
+      "state": "hover+wait-400ms",
+      "theme": "light",
+      "viewport": [
+        232.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "motion": {
+        "name": "ring-out",
+        "trigger": "leave",
+        "from": "hover+wait-400ms",
+        "frames": [
+          {
+            "t_ms": 0,
+            "png": "png/slider/motion.ring-out/leave/light/0000ms.png",
+            "scene": "scenes/slider/motion.ring-out/leave/light/0000ms.json",
+            "png_sha256": "7e0d4e3a8ebf371121b2d2caba83a314381af3a32ab12148d6db3378122da1ac"
+          },
+          {
+            "t_ms": 16,
+            "png": "png/slider/motion.ring-out/leave/light/0016ms.png",
+            "scene": "scenes/slider/motion.ring-out/leave/light/0016ms.json",
+            "png_sha256": "9a7c623d773e7fbd3a3e7382033bb365038c33cb25ce582add959877077430b4"
+          },
+          {
+            "t_ms": 33,
+            "png": "png/slider/motion.ring-out/leave/light/0033ms.png",
+            "scene": "scenes/slider/motion.ring-out/leave/light/0033ms.json",
+            "png_sha256": "4a44c05fde7ae93d2cc98952e79a627eaa7dc06faf8ec16aa5e6ca61cb6c1151"
+          },
+          {
+            "t_ms": 50,
+            "png": "png/slider/motion.ring-out/leave/light/0050ms.png",
+            "scene": "scenes/slider/motion.ring-out/leave/light/0050ms.json",
+            "png_sha256": "2f42c092e9a82b8cc7f9711bc0dc1aaddef5a43412e3f459dfc23f77ab7bd852"
+          },
+          {
+            "t_ms": 66,
+            "png": "png/slider/motion.ring-out/leave/light/0066ms.png",
+            "scene": "scenes/slider/motion.ring-out/leave/light/0066ms.json",
+            "png_sha256": "fc22f77402fea21cfba90dd54eccc6bce6b02aa95ceff0efddb9a4594a6d595d"
+          },
+          {
+            "t_ms": 83,
+            "png": "png/slider/motion.ring-out/leave/light/0083ms.png",
+            "scene": "scenes/slider/motion.ring-out/leave/light/0083ms.json",
+            "png_sha256": "c438580c6d6650d0f309d923c7a52ca48dfa3f05690645ef5817152b9d35cb63"
+          },
+          {
+            "t_ms": 100,
+            "png": "png/slider/motion.ring-out/leave/light/0100ms.png",
+            "scene": "scenes/slider/motion.ring-out/leave/light/0100ms.json",
+            "png_sha256": "26bd9b420a70656b45f567d191bb2d14669bb9e8b9d64103da291ef36edac3f2"
+          },
+          {
+            "t_ms": 133,
+            "png": "png/slider/motion.ring-out/leave/light/0133ms.png",
+            "scene": "scenes/slider/motion.ring-out/leave/light/0133ms.json",
+            "png_sha256": "5210b62c1e2bff6bad75affda0a57b5450e7d232d917b056e11611baa2d53d0d"
+          },
+          {
+            "t_ms": 166,
+            "png": "png/slider/motion.ring-out/leave/light/0166ms.png",
+            "scene": "scenes/slider/motion.ring-out/leave/light/0166ms.json",
+            "png_sha256": "87853d5f21bafa8a58808251ceb01905c2e368155454367a29b5b81532e48908"
+          },
+          {
+            "t_ms": 200,
+            "png": "png/slider/motion.ring-out/leave/light/0200ms.png",
+            "scene": "scenes/slider/motion.ring-out/leave/light/0200ms.json",
+            "png_sha256": "6676222f11761d0099159ef67a6a2d09650d43b7db528181696426e103a07b2f"
+          },
+          {
+            "t_ms": 266,
+            "png": "png/slider/motion.ring-out/leave/light/0266ms.png",
+            "scene": "scenes/slider/motion.ring-out/leave/light/0266ms.json",
+            "png_sha256": "849e5bfe51452ceeb2deb58e0155b85aa0bbb23720fbc2594c61111cf9c87d46"
+          },
+          {
+            "t_ms": 333,
+            "png": "png/slider/motion.ring-out/leave/light/0333ms.png",
+            "scene": "scenes/slider/motion.ring-out/leave/light/0333ms.json",
+            "png_sha256": "849e5bfe51452ceeb2deb58e0155b85aa0bbb23720fbc2594c61111cf9c87d46"
+          }
+        ]
+      }
+    },
+    {
+      "id": "slider/motion.ring-reverse/hover+wait-60ms+leave/light",
+      "component": "slider",
+      "group": "motion.ring-reverse",
+      "params": {
+        "value": 40,
+        "pointer_x": 0.4
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        232.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "motion": {
+        "name": "ring-reverse",
+        "trigger": "hover+wait-60ms+leave",
+        "from": "normal",
+        "frames": [
+          {
+            "t_ms": 0,
+            "png": "png/slider/motion.ring-reverse/hover+wait-60ms+leave/light/0000ms.png",
+            "scene": "scenes/slider/motion.ring-reverse/hover+wait-60ms+leave/light/0000ms.json",
+            "png_sha256": "78d80660730bc85a87b85ba4e980a580e73ed2c40400f7b6b34bb4d426c16b62"
+          },
+          {
+            "t_ms": 16,
+            "png": "png/slider/motion.ring-reverse/hover+wait-60ms+leave/light/0016ms.png",
+            "scene": "scenes/slider/motion.ring-reverse/hover+wait-60ms+leave/light/0016ms.json",
+            "png_sha256": "1e9102f0ab089bd7658b4cf6a4f9fe7beb0219994a833ec6ee76f97c60b92968"
+          },
+          {
+            "t_ms": 33,
+            "png": "png/slider/motion.ring-reverse/hover+wait-60ms+leave/light/0033ms.png",
+            "scene": "scenes/slider/motion.ring-reverse/hover+wait-60ms+leave/light/0033ms.json",
+            "png_sha256": "e30e5cfe60da6db23055ea5a2c298e5628573d00b1dcb019aa46e6b7db9fc6c9"
+          },
+          {
+            "t_ms": 50,
+            "png": "png/slider/motion.ring-reverse/hover+wait-60ms+leave/light/0050ms.png",
+            "scene": "scenes/slider/motion.ring-reverse/hover+wait-60ms+leave/light/0050ms.json",
+            "png_sha256": "dd7656735c9bd33f0c26bb3fee075c8ab3987c981aeed159b0945459f2ed2d25"
+          },
+          {
+            "t_ms": 66,
+            "png": "png/slider/motion.ring-reverse/hover+wait-60ms+leave/light/0066ms.png",
+            "scene": "scenes/slider/motion.ring-reverse/hover+wait-60ms+leave/light/0066ms.json",
+            "png_sha256": "b6650ef46a11d4b4f9da0a094b389e8b257e8b83e5c52f9fb722fefb4900235c"
+          },
+          {
+            "t_ms": 83,
+            "png": "png/slider/motion.ring-reverse/hover+wait-60ms+leave/light/0083ms.png",
+            "scene": "scenes/slider/motion.ring-reverse/hover+wait-60ms+leave/light/0083ms.json",
+            "png_sha256": "ce9331a74bfccdde2f52e8f72b8c07f2fa6e787b4036d51d6d5ea009413e9354"
+          },
+          {
+            "t_ms": 100,
+            "png": "png/slider/motion.ring-reverse/hover+wait-60ms+leave/light/0100ms.png",
+            "scene": "scenes/slider/motion.ring-reverse/hover+wait-60ms+leave/light/0100ms.json",
+            "png_sha256": "730fc82e8eaf6c790ff5b2b8608061d7c47ea17f832ccf696bc4e14161925c09"
+          },
+          {
+            "t_ms": 133,
+            "png": "png/slider/motion.ring-reverse/hover+wait-60ms+leave/light/0133ms.png",
+            "scene": "scenes/slider/motion.ring-reverse/hover+wait-60ms+leave/light/0133ms.json",
+            "png_sha256": "9b8c24757ba4b3f3080d93c6b85b049e441d8f15afefada4a0bafd6cbe8e3957"
+          },
+          {
+            "t_ms": 166,
+            "png": "png/slider/motion.ring-reverse/hover+wait-60ms+leave/light/0166ms.png",
+            "scene": "scenes/slider/motion.ring-reverse/hover+wait-60ms+leave/light/0166ms.json",
+            "png_sha256": "b48ede8170af770ee8f33195501c3e9ca17a164f1dfaad74c8b7cacfdc4bad1c"
+          },
+          {
+            "t_ms": 200,
+            "png": "png/slider/motion.ring-reverse/hover+wait-60ms+leave/light/0200ms.png",
+            "scene": "scenes/slider/motion.ring-reverse/hover+wait-60ms+leave/light/0200ms.json",
+            "png_sha256": "849e5bfe51452ceeb2deb58e0155b85aa0bbb23720fbc2594c61111cf9c87d46"
+          },
+          {
+            "t_ms": 266,
+            "png": "png/slider/motion.ring-reverse/hover+wait-60ms+leave/light/0266ms.png",
+            "scene": "scenes/slider/motion.ring-reverse/hover+wait-60ms+leave/light/0266ms.json",
+            "png_sha256": "849e5bfe51452ceeb2deb58e0155b85aa0bbb23720fbc2594c61111cf9c87d46"
+          },
+          {
+            "t_ms": 333,
+            "png": "png/slider/motion.ring-reverse/hover+wait-60ms+leave/light/0333ms.png",
+            "scene": "scenes/slider/motion.ring-reverse/hover+wait-60ms+leave/light/0333ms.json",
+            "png_sha256": "849e5bfe51452ceeb2deb58e0155b85aa0bbb23720fbc2594c61111cf9c87d46"
+          }
+        ]
+      }
+    },
+    {
+      "id": "slider/motion.ring/hover/light",
+      "component": "slider",
+      "group": "motion.ring",
+      "params": {
+        "value": 40,
+        "pointer_x": 0.4
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        232.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "motion": {
+        "name": "ring",
+        "trigger": "hover",
+        "from": "normal",
+        "frames": [
+          {
+            "t_ms": 0,
+            "png": "png/slider/motion.ring/hover/light/0000ms.png",
+            "scene": "scenes/slider/motion.ring/hover/light/0000ms.json",
+            "png_sha256": "849e5bfe51452ceeb2deb58e0155b85aa0bbb23720fbc2594c61111cf9c87d46"
+          },
+          {
+            "t_ms": 16,
+            "png": "png/slider/motion.ring/hover/light/0016ms.png",
+            "scene": "scenes/slider/motion.ring/hover/light/0016ms.json",
+            "png_sha256": "3ac5f49b716393529db903ef9cc649580246998f1e353ddc050e3fc053a9449c"
+          },
+          {
+            "t_ms": 33,
+            "png": "png/slider/motion.ring/hover/light/0033ms.png",
+            "scene": "scenes/slider/motion.ring/hover/light/0033ms.json",
+            "png_sha256": "fe7d28e179206034f6731590665061e6dc5d6e33d60b3ba794f66106002cca5f"
+          },
+          {
+            "t_ms": 50,
+            "png": "png/slider/motion.ring/hover/light/0050ms.png",
+            "scene": "scenes/slider/motion.ring/hover/light/0050ms.json",
+            "png_sha256": "f2dffca54e3f9ab06eee8b65cd7903e0c43e4b38476f1dad8d65603fe6b70bf1"
+          },
+          {
+            "t_ms": 66,
+            "png": "png/slider/motion.ring/hover/light/0066ms.png",
+            "scene": "scenes/slider/motion.ring/hover/light/0066ms.json",
+            "png_sha256": "0eece61b99709548e70fbb33cdc52696b93fa05a814323a8575f6e87cdabf942"
+          },
+          {
+            "t_ms": 83,
+            "png": "png/slider/motion.ring/hover/light/0083ms.png",
+            "scene": "scenes/slider/motion.ring/hover/light/0083ms.json",
+            "png_sha256": "d7af410db1d0eb1637c8492291fc9408b8b0ba485daa49e2be4e9e718245a234"
+          },
+          {
+            "t_ms": 100,
+            "png": "png/slider/motion.ring/hover/light/0100ms.png",
+            "scene": "scenes/slider/motion.ring/hover/light/0100ms.json",
+            "png_sha256": "87762d26ea4d2219b895b50ec8b94bf4884e61fd555893bcc6b12794da16daf0"
+          },
+          {
+            "t_ms": 133,
+            "png": "png/slider/motion.ring/hover/light/0133ms.png",
+            "scene": "scenes/slider/motion.ring/hover/light/0133ms.json",
+            "png_sha256": "6f43b9dbf98fb9d0a9e182caa4f5ec35428d2fcab625d9a997b70beaaeaff754"
+          },
+          {
+            "t_ms": 166,
+            "png": "png/slider/motion.ring/hover/light/0166ms.png",
+            "scene": "scenes/slider/motion.ring/hover/light/0166ms.json",
+            "png_sha256": "e4816172c1afa8e899c52fcfb4483a875fb48a552f7cff868299c1407de0bde0"
+          },
+          {
+            "t_ms": 200,
+            "png": "png/slider/motion.ring/hover/light/0200ms.png",
+            "scene": "scenes/slider/motion.ring/hover/light/0200ms.json",
+            "png_sha256": "0fd518790309134cfe1f0819ad8fb922a1d6badbc7cb55b53e687d8ceeee08f7"
+          },
+          {
+            "t_ms": 266,
+            "png": "png/slider/motion.ring/hover/light/0266ms.png",
+            "scene": "scenes/slider/motion.ring/hover/light/0266ms.json",
+            "png_sha256": "7e0d4e3a8ebf371121b2d2caba83a314381af3a32ab12148d6db3378122da1ac"
+          },
+          {
+            "t_ms": 333,
+            "png": "png/slider/motion.ring/hover/light/0333ms.png",
+            "scene": "scenes/slider/motion.ring/hover/light/0333ms.json",
+            "png_sha256": "7e0d4e3a8ebf371121b2d2caba83a314381af3a32ab12148d6db3378122da1ac"
+          }
+        ]
+      }
+    },
+    {
+      "id": "slider/reverse.base/normal/dark",
+      "component": "slider",
+      "group": "reverse",
+      "params": {
+        "value": 40,
+        "reverse": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        232.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/slider/reverse.base/normal/dark.png",
+      "scene": "scenes/slider/reverse.base/normal/dark.json",
+      "png_sha256": "2d1397533da096773ff56e8e10ef630e3170032748123ad295aa6fa689d9df9f"
+    },
+    {
+      "id": "slider/reverse.base/normal/light",
+      "component": "slider",
+      "group": "reverse",
+      "params": {
+        "value": 40,
+        "reverse": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        232.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/slider/reverse.base/normal/light.png",
+      "scene": "scenes/slider/reverse.base/normal/light.json",
+      "png_sha256": "727bd4b341d3dd833aadd37f49ad1824a9a18feb9267e35ba2fda95b983538d5"
+    },
+    {
+      "id": "slider/v0.base/focus/dark",
+      "component": "slider",
+      "group": "v0",
+      "params": {
+        "value": 0,
+        "pointer_x": 0.0
+      },
+      "state": "focus",
+      "theme": "dark",
+      "viewport": [
+        232.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/slider/v0.base/focus/dark.png",
+      "scene": "scenes/slider/v0.base/focus/dark.json",
+      "png_sha256": "c7352665879f90c6692ffdf25abf8213b40e76f7cb7db1ab7e0b8c2968756b17"
+    },
+    {
+      "id": "slider/v0.base/focus/light",
+      "component": "slider",
+      "group": "v0",
+      "params": {
+        "value": 0,
+        "pointer_x": 0.0
+      },
+      "state": "focus",
+      "theme": "light",
+      "viewport": [
+        232.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/slider/v0.base/focus/light.png",
+      "scene": "scenes/slider/v0.base/focus/light.json",
+      "png_sha256": "346abe1c18920d9ef6198a9e7ccea15f8265ca0eb26bae40345e9f981c37cc76"
+    },
+    {
+      "id": "slider/v0.base/hover+wait-400ms/dark",
+      "component": "slider",
+      "group": "v0",
+      "params": {
+        "value": 0,
+        "pointer_x": 0.0
+      },
+      "state": "hover+wait-400ms",
+      "theme": "dark",
+      "viewport": [
+        232.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/slider/v0.base/hover+wait-400ms/dark.png",
+      "scene": "scenes/slider/v0.base/hover+wait-400ms/dark.json",
+      "png_sha256": "b557dc695c66540f7d4cecc43e0e273c0088f9cf5b5ef95828bb331a5ed4593c"
+    },
+    {
+      "id": "slider/v0.base/hover+wait-400ms/light",
+      "component": "slider",
+      "group": "v0",
+      "params": {
+        "value": 0,
+        "pointer_x": 0.0
+      },
+      "state": "hover+wait-400ms",
+      "theme": "light",
+      "viewport": [
+        232.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/slider/v0.base/hover+wait-400ms/light.png",
+      "scene": "scenes/slider/v0.base/hover+wait-400ms/light.json",
+      "png_sha256": "c5494ac8093a9d8f59e1deb4e6e9682f0042502a6567148256d9c80c9307dfa6"
+    },
+    {
+      "id": "slider/v0.base/normal/dark",
+      "component": "slider",
+      "group": "v0",
+      "params": {
+        "value": 0,
+        "pointer_x": 0.0
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        232.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/slider/v0.base/normal/dark.png",
+      "scene": "scenes/slider/v0.base/normal/dark.json",
+      "png_sha256": "c7352665879f90c6692ffdf25abf8213b40e76f7cb7db1ab7e0b8c2968756b17"
+    },
+    {
+      "id": "slider/v0.base/normal/light",
+      "component": "slider",
+      "group": "v0",
+      "params": {
+        "value": 0,
+        "pointer_x": 0.0
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        232.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/slider/v0.base/normal/light.png",
+      "scene": "scenes/slider/v0.base/normal/light.json",
+      "png_sha256": "346abe1c18920d9ef6198a9e7ccea15f8265ca0eb26bae40345e9f981c37cc76"
+    },
+    {
+      "id": "slider/v0.base/pressed+wait-400ms/dark",
+      "component": "slider",
+      "group": "v0",
+      "params": {
+        "value": 0,
+        "pointer_x": 0.0
+      },
+      "state": "pressed+wait-400ms",
+      "theme": "dark",
+      "viewport": [
+        232.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/slider/v0.base/pressed+wait-400ms/dark.png",
+      "scene": "scenes/slider/v0.base/pressed+wait-400ms/dark.json",
+      "png_sha256": "b557dc695c66540f7d4cecc43e0e273c0088f9cf5b5ef95828bb331a5ed4593c"
+    },
+    {
+      "id": "slider/v0.base/pressed+wait-400ms/light",
+      "component": "slider",
+      "group": "v0",
+      "params": {
+        "value": 0,
+        "pointer_x": 0.0
+      },
+      "state": "pressed+wait-400ms",
+      "theme": "light",
+      "viewport": [
+        232.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/slider/v0.base/pressed+wait-400ms/light.png",
+      "scene": "scenes/slider/v0.base/pressed+wait-400ms/light.json",
+      "png_sha256": "c5494ac8093a9d8f59e1deb4e6e9682f0042502a6567148256d9c80c9307dfa6"
+    },
+    {
+      "id": "slider/v100.base/focus/dark",
+      "component": "slider",
+      "group": "v100",
+      "params": {
+        "value": 100,
+        "pointer_x": 1.0
+      },
+      "state": "focus",
+      "theme": "dark",
+      "viewport": [
+        232.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/slider/v100.base/focus/dark.png",
+      "scene": "scenes/slider/v100.base/focus/dark.json",
+      "png_sha256": "a07575ca39a5b58d2577dd2b312329b098cccfaf565c5925780bf6e5d070bcb8"
+    },
+    {
+      "id": "slider/v100.base/focus/light",
+      "component": "slider",
+      "group": "v100",
+      "params": {
+        "value": 100,
+        "pointer_x": 1.0
+      },
+      "state": "focus",
+      "theme": "light",
+      "viewport": [
+        232.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/slider/v100.base/focus/light.png",
+      "scene": "scenes/slider/v100.base/focus/light.json",
+      "png_sha256": "30c368b375e7c5181529b91398e75918655fc3a9247c8889dc91d2cacef02558"
+    },
+    {
+      "id": "slider/v100.base/hover+wait-400ms/dark",
+      "component": "slider",
+      "group": "v100",
+      "params": {
+        "value": 100,
+        "pointer_x": 1.0
+      },
+      "state": "hover+wait-400ms",
+      "theme": "dark",
+      "viewport": [
+        232.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/slider/v100.base/hover+wait-400ms/dark.png",
+      "scene": "scenes/slider/v100.base/hover+wait-400ms/dark.json",
+      "png_sha256": "b6937941c566251c2b16961e34f772042878917af1abfb05e89eeba3231c3278"
+    },
+    {
+      "id": "slider/v100.base/hover+wait-400ms/light",
+      "component": "slider",
+      "group": "v100",
+      "params": {
+        "value": 100,
+        "pointer_x": 1.0
+      },
+      "state": "hover+wait-400ms",
+      "theme": "light",
+      "viewport": [
+        232.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/slider/v100.base/hover+wait-400ms/light.png",
+      "scene": "scenes/slider/v100.base/hover+wait-400ms/light.json",
+      "png_sha256": "da92974758aecd18aa8eb2307f22ded0c12b871d0069db6a38017c6b04d213fe"
+    },
+    {
+      "id": "slider/v100.base/normal/dark",
+      "component": "slider",
+      "group": "v100",
+      "params": {
+        "value": 100,
+        "pointer_x": 1.0
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        232.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/slider/v100.base/normal/dark.png",
+      "scene": "scenes/slider/v100.base/normal/dark.json",
+      "png_sha256": "a07575ca39a5b58d2577dd2b312329b098cccfaf565c5925780bf6e5d070bcb8"
+    },
+    {
+      "id": "slider/v100.base/normal/light",
+      "component": "slider",
+      "group": "v100",
+      "params": {
+        "value": 100,
+        "pointer_x": 1.0
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        232.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/slider/v100.base/normal/light.png",
+      "scene": "scenes/slider/v100.base/normal/light.json",
+      "png_sha256": "30c368b375e7c5181529b91398e75918655fc3a9247c8889dc91d2cacef02558"
+    },
+    {
+      "id": "slider/v100.base/pressed+wait-400ms/dark",
+      "component": "slider",
+      "group": "v100",
+      "params": {
+        "value": 100,
+        "pointer_x": 1.0
+      },
+      "state": "pressed+wait-400ms",
+      "theme": "dark",
+      "viewport": [
+        232.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/slider/v100.base/pressed+wait-400ms/dark.png",
+      "scene": "scenes/slider/v100.base/pressed+wait-400ms/dark.json",
+      "png_sha256": "b6937941c566251c2b16961e34f772042878917af1abfb05e89eeba3231c3278"
+    },
+    {
+      "id": "slider/v100.base/pressed+wait-400ms/light",
+      "component": "slider",
+      "group": "v100",
+      "params": {
+        "value": 100,
+        "pointer_x": 1.0
+      },
+      "state": "pressed+wait-400ms",
+      "theme": "light",
+      "viewport": [
+        232.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/slider/v100.base/pressed+wait-400ms/light.png",
+      "scene": "scenes/slider/v100.base/pressed+wait-400ms/light.json",
+      "png_sha256": "da92974758aecd18aa8eb2307f22ded0c12b871d0069db6a38017c6b04d213fe"
+    },
+    {
+      "id": "slider/v40.base/focus/dark",
+      "component": "slider",
+      "group": "v40",
+      "params": {
+        "value": 40,
+        "pointer_x": 0.4
+      },
+      "state": "focus",
+      "theme": "dark",
+      "viewport": [
+        232.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/slider/v40.base/focus/dark.png",
+      "scene": "scenes/slider/v40.base/focus/dark.json",
+      "png_sha256": "c638da5adeb8a0740e800acc4204b211a65cbf28efcb20ed09c6b530fc430099"
+    },
+    {
+      "id": "slider/v40.base/focus/light",
+      "component": "slider",
+      "group": "v40",
+      "params": {
+        "value": 40,
+        "pointer_x": 0.4
+      },
+      "state": "focus",
+      "theme": "light",
+      "viewport": [
+        232.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/slider/v40.base/focus/light.png",
+      "scene": "scenes/slider/v40.base/focus/light.json",
+      "png_sha256": "849e5bfe51452ceeb2deb58e0155b85aa0bbb23720fbc2594c61111cf9c87d46"
+    },
+    {
+      "id": "slider/v40.base/hover+wait-400ms/dark",
+      "component": "slider",
+      "group": "v40",
+      "params": {
+        "value": 40,
+        "pointer_x": 0.4
+      },
+      "state": "hover+wait-400ms",
+      "theme": "dark",
+      "viewport": [
+        232.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/slider/v40.base/hover+wait-400ms/dark.png",
+      "scene": "scenes/slider/v40.base/hover+wait-400ms/dark.json",
+      "png_sha256": "1d5274f76c990f66023c53977745c6bda0574295cde24afc03d6709139fd1f04"
+    },
+    {
+      "id": "slider/v40.base/hover+wait-400ms/light",
+      "component": "slider",
+      "group": "v40",
+      "params": {
+        "value": 40,
+        "pointer_x": 0.4
+      },
+      "state": "hover+wait-400ms",
+      "theme": "light",
+      "viewport": [
+        232.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/slider/v40.base/hover+wait-400ms/light.png",
+      "scene": "scenes/slider/v40.base/hover+wait-400ms/light.json",
+      "png_sha256": "7e0d4e3a8ebf371121b2d2caba83a314381af3a32ab12148d6db3378122da1ac"
+    },
+    {
+      "id": "slider/v40.base/normal/dark",
+      "component": "slider",
+      "group": "v40",
+      "params": {
+        "value": 40,
+        "pointer_x": 0.4
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        232.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/slider/v40.base/normal/dark.png",
+      "scene": "scenes/slider/v40.base/normal/dark.json",
+      "png_sha256": "c638da5adeb8a0740e800acc4204b211a65cbf28efcb20ed09c6b530fc430099"
+    },
+    {
+      "id": "slider/v40.base/normal/light",
+      "component": "slider",
+      "group": "v40",
+      "params": {
+        "value": 40,
+        "pointer_x": 0.4
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        232.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/slider/v40.base/normal/light.png",
+      "scene": "scenes/slider/v40.base/normal/light.json",
+      "png_sha256": "849e5bfe51452ceeb2deb58e0155b85aa0bbb23720fbc2594c61111cf9c87d46"
+    },
+    {
+      "id": "slider/v40.base/pressed+wait-400ms/dark",
+      "component": "slider",
+      "group": "v40",
+      "params": {
+        "value": 40,
+        "pointer_x": 0.4
+      },
+      "state": "pressed+wait-400ms",
+      "theme": "dark",
+      "viewport": [
+        232.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/slider/v40.base/pressed+wait-400ms/dark.png",
+      "scene": "scenes/slider/v40.base/pressed+wait-400ms/dark.json",
+      "png_sha256": "1d5274f76c990f66023c53977745c6bda0574295cde24afc03d6709139fd1f04"
+    },
+    {
+      "id": "slider/v40.base/pressed+wait-400ms/light",
+      "component": "slider",
+      "group": "v40",
+      "params": {
+        "value": 40,
+        "pointer_x": 0.4
+      },
+      "state": "pressed+wait-400ms",
+      "theme": "light",
+      "viewport": [
+        232.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/slider/v40.base/pressed+wait-400ms/light.png",
+      "scene": "scenes/slider/v40.base/pressed+wait-400ms/light.json",
+      "png_sha256": "7e0d4e3a8ebf371121b2d2caba83a314381af3a32ab12148d6db3378122da1ac"
+    },
+    {
+      "id": "slider/vertical.value-0/disabled/dark",
+      "component": "slider",
+      "group": "vertical",
+      "params": {
+        "vertical": true,
+        "value": 0,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        56.0,
+        152.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        24.0,
+        120.0
+      ],
+      "png": "png/slider/vertical.value-0/disabled/dark.png",
+      "scene": "scenes/slider/vertical.value-0/disabled/dark.json",
+      "png_sha256": "85ceeede07ef4522e5dc89181f4dd7faa620ba504289a58266bf85057b4ae2a3"
+    },
+    {
+      "id": "slider/vertical.value-0/disabled/light",
+      "component": "slider",
+      "group": "vertical",
+      "params": {
+        "vertical": true,
+        "value": 0,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        56.0,
+        152.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        24.0,
+        120.0
+      ],
+      "png": "png/slider/vertical.value-0/disabled/light.png",
+      "scene": "scenes/slider/vertical.value-0/disabled/light.json",
+      "png_sha256": "f83688e0284a0a14802c7bbdab113f479ae272684aff724d8724372491674158"
+    },
+    {
+      "id": "slider/vertical.value-0/normal/dark",
+      "component": "slider",
+      "group": "vertical",
+      "params": {
+        "vertical": true,
+        "value": 0
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        56.0,
+        152.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        24.0,
+        120.0
+      ],
+      "png": "png/slider/vertical.value-0/normal/dark.png",
+      "scene": "scenes/slider/vertical.value-0/normal/dark.json",
+      "png_sha256": "0e53edff69af2dd24dffc7e050f4e689fc33a5aaf044ed17de4a16c0808e22f2"
+    },
+    {
+      "id": "slider/vertical.value-0/normal/light",
+      "component": "slider",
+      "group": "vertical",
+      "params": {
+        "vertical": true,
+        "value": 0
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        56.0,
+        152.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        24.0,
+        120.0
+      ],
+      "png": "png/slider/vertical.value-0/normal/light.png",
+      "scene": "scenes/slider/vertical.value-0/normal/light.json",
+      "png_sha256": "34f86b61c8c6c7057dd6915ef318b2ac78424bb780f8b493552d855e62144404"
+    },
+    {
+      "id": "slider/vertical.value-100/disabled/dark",
+      "component": "slider",
+      "group": "vertical",
+      "params": {
+        "vertical": true,
+        "value": 100,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        56.0,
+        152.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        24.0,
+        120.0
+      ],
+      "png": "png/slider/vertical.value-100/disabled/dark.png",
+      "scene": "scenes/slider/vertical.value-100/disabled/dark.json",
+      "png_sha256": "a6bd05e3eff4d53f7a621062f8be67b8dfa5eb3c30aad6e81a896438c6a2cdd1"
+    },
+    {
+      "id": "slider/vertical.value-100/disabled/light",
+      "component": "slider",
+      "group": "vertical",
+      "params": {
+        "vertical": true,
+        "value": 100,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        56.0,
+        152.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        24.0,
+        120.0
+      ],
+      "png": "png/slider/vertical.value-100/disabled/light.png",
+      "scene": "scenes/slider/vertical.value-100/disabled/light.json",
+      "png_sha256": "275aac526e00ffbc2dad7b5e5de5a035a534e803f0eb462a67b6f2cf08bdbbfa"
+    },
+    {
+      "id": "slider/vertical.value-100/normal/dark",
+      "component": "slider",
+      "group": "vertical",
+      "params": {
+        "vertical": true,
+        "value": 100
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        56.0,
+        152.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        24.0,
+        120.0
+      ],
+      "png": "png/slider/vertical.value-100/normal/dark.png",
+      "scene": "scenes/slider/vertical.value-100/normal/dark.json",
+      "png_sha256": "5a66f55d9f54cf2882642547daeddb72239a2f46cb9549f37e2d239900627a84"
+    },
+    {
+      "id": "slider/vertical.value-100/normal/light",
+      "component": "slider",
+      "group": "vertical",
+      "params": {
+        "vertical": true,
+        "value": 100
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        56.0,
+        152.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        24.0,
+        120.0
+      ],
+      "png": "png/slider/vertical.value-100/normal/light.png",
+      "scene": "scenes/slider/vertical.value-100/normal/light.json",
+      "png_sha256": "9afeb8b2d1c038b478091db005e841c71438a9a490653905c856f8835070ae63"
+    },
+    {
+      "id": "slider/vertical.value-40/disabled/dark",
+      "component": "slider",
+      "group": "vertical",
+      "params": {
+        "vertical": true,
+        "value": 40,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        56.0,
+        152.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        24.0,
+        120.0
+      ],
+      "png": "png/slider/vertical.value-40/disabled/dark.png",
+      "scene": "scenes/slider/vertical.value-40/disabled/dark.json",
+      "png_sha256": "8e294f64acd7c6dbfa93afc3b295ac75625315c85589d547793ad58db6d52503"
+    },
+    {
+      "id": "slider/vertical.value-40/disabled/light",
+      "component": "slider",
+      "group": "vertical",
+      "params": {
+        "vertical": true,
+        "value": 40,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        56.0,
+        152.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        24.0,
+        120.0
+      ],
+      "png": "png/slider/vertical.value-40/disabled/light.png",
+      "scene": "scenes/slider/vertical.value-40/disabled/light.json",
+      "png_sha256": "1888e60ce006e7d7a3117cf356d095c64b3372a3d45989d7d4e7682094b15146"
+    },
+    {
+      "id": "slider/vertical.value-40/normal/dark",
+      "component": "slider",
+      "group": "vertical",
+      "params": {
+        "vertical": true,
+        "value": 40
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        56.0,
+        152.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        24.0,
+        120.0
+      ],
+      "png": "png/slider/vertical.value-40/normal/dark.png",
+      "scene": "scenes/slider/vertical.value-40/normal/dark.json",
+      "png_sha256": "d73d9c30f8fdd2cf0e27fd42ac46f38ddc34e7ac97752d6bbcf31778db57ffa6"
+    },
+    {
+      "id": "slider/vertical.value-40/normal/light",
+      "component": "slider",
+      "group": "vertical",
+      "params": {
+        "vertical": true,
+        "value": 40
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        56.0,
+        152.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        24.0,
+        120.0
+      ],
+      "png": "png/slider/vertical.value-40/normal/light.png",
+      "scene": "scenes/slider/vertical.value-40/normal/light.json",
+      "png_sha256": "c82e8ed613f2a7cd223c8fc01cd7e890ab94d29573636762fc53f24663158631"
+    },
+    {
       "id": "spinner/icon.large/normal/dark",
       "component": "spinner",
       "group": "icon",
