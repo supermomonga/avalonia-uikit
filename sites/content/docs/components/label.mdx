@@ -7,7 +7,21 @@ description: "GPUI Kit's label line height and secondary text, for TextBlock and
 
 ## Usage
 
-`TextBlock Classes="label"` (and `SelectableTextBlock`) puts the text on GPUI Kit's fixed 20px line; a `Run Classes="secondary"` inside it is muted. Avalonia's `Label` control gets the same look and keeps its `Target`.
+`TextBlock Classes="label"` (and `SelectableTextBlock`) puts the text in the foreground color on GPUI Kit's fixed 20px line, whatever the font size, and wraps it when the width is constrained; a `Run Classes="secondary"` inside it is muted. Sizes and weights are the app's `FontSize` and `FontWeight`, as GPUI's `text_*` and `font_*` are. Avalonia's `Label` control gets the same look and keeps its `Target`. `TextBlock` has no default theme of its own, as one would retarget the text in every template.
+
+## Examples
+
+Font sizes from 12 to 24 on the same 20px line; text taller than the line overflows it, centered and unclipped, as in GPUI.
+
+<Demo name="label/sizes" title="Sizes" />
+
+Weights with a secondary run, colors with `Foreground`, and `TextAlignment` in a fixed width.
+
+<Demo name="label/styles" title="Styles" />
+
+A label wraps when its width is constrained; `LineHeight` replaces the 20px line.
+
+<Demo name="label/wrap" title="Wrap" />
 
 ## Not covered
 

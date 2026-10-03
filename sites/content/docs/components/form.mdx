@@ -7,7 +7,33 @@ description: "GPUI Kit's form grid, with labelled fields, required marks and des
 
 ## Usage
 
-`gpui:Form` lays out `gpui:FormField` children in `Columns`, with `LabelOrientation` vertical or horizontal. A field has a `Label`, `IsRequired`, a `Description` and the input as its content; sizes follow the form.
+`gpui:Form` is an `ItemsControl` of `gpui:FormField`s laid out in a grid of `Columns`, placed in order; a field that does not fit the rest of a row starts the next. A field's content is the input, stretched to the field's width; its `Label` is medium-weight text with a danger `*` after it when `IsRequired`, and `Description` is muted help text under the input, whose row is there even when empty. `Footer` is content under the fields, aligned to the end of the row. Validation stays with the inputs (`DataValidationErrors`); the form holds no values.
+
+| Property | On | Effect |
+| --- | --- | --- |
+| `Columns` | `Form` | The number of columns (1 by default) |
+| `LabelOrientation` | `Form` (inherited) | `Vertical` puts the label above the input, `Horizontal` beside it |
+| `LabelWidth` | `Form` (inherited) | The width of a label beside its input (140 by default) |
+| `Gap` | `Form` | The gap between rows; columns are three times as far apart |
+| `Footer` | `Form` | Content at the end of the row under the fields |
+| `Label`, `IsRequired`, `Description` | `FormField` | The label, its required mark, and the help text |
+| `ColumnSpan` | `FormField` | How many columns the field spans |
+
+The size classes on the form set its gaps: rows 8px apart (`small` 6, `large` 12) and the label 2px from the input (4 at `large`). The inputs keep their own size classes.
+
+## Examples
+
+`LabelOrientation="Horizontal"` puts the labels beside the inputs, 140px wide by default; `LabelWidth` narrows or widens them.
+
+<Demo name="form/horizontal" title="Horizontal labels" />
+
+`Columns="2"`, with the address field spanning both through `ColumnSpan="2"`.
+
+<Demo name="form/columns" title="Columns" />
+
+`small` and `large` forms, with matching size classes on their inputs and footer buttons.
+
+<Demo name="form/sizes" title="Sizes" />
 
 ## Not covered
 

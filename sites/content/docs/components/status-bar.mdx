@@ -7,7 +7,13 @@ description: "A thin bar of muted regions along the bottom of a window."
 
 ## Usage
 
-`gpui:StatusBar` draws a 1px top border and lays out its children as regions 8px apart in muted `text_xs`, each clipping what does not fit.
+`gpui:StatusBar` draws a 1px top border and three regions in muted 12px text, 8px apart: `Left` pinned to the start, `Right` pinned to the end, and the `Content` filling the middle. The content is centered when both ends are set, at the end when only `Left` is, and at the start otherwise. Each region holds one element and clips what does not fit; put several in a horizontal `StackPanel` with `Spacing="8"`, as GPUI Kit's regions are rows with an 8px gap.
+
+## Examples
+
+A bar with `Left` and content, one with content and `Right`, and one with content alone: with `Left` set the content moves to the end, otherwise it stays at the start.
+
+<Demo name="status-bar/regions" title="Regions" />
 
 ## Not covered
 

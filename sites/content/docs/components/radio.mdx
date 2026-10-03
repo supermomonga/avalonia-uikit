@@ -7,7 +7,17 @@ description: "GPUI Kit's radio button, with the dot fading in on its spring."
 
 ## Usage
 
-The theme covers `RadioButton` in full, including the fade of the dot. Group buttons with `GroupName`. Sizes: `xsmall`, `small`, `large`.
+The theme covers `RadioButton` in full: the circle with the label after it, the dot fading in on `Gpui.Spring.Control`. Buttons with the same `GroupName` select one of them; there is no separate RadioGroup type. Sizes: `xsmall`, `small`, `large` (medium is the default). As with the checkbox, a `RadioButton` without `Content` drops the label, and the focus ring shows on keyboard focus only.
+
+## Examples
+
+The four sizes; each is in its own group here so that all four can be checked.
+
+<Demo name="radio/sizes" title="Sizes" />
+
+`IsEnabled="False"` fades the circle, the dot and the label.
+
+<Demo name="radio/disabled" title="Disabled" />
 
 ## Not covered
 

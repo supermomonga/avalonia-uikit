@@ -1,13 +1,19 @@
 ---
 title: "Message"
-description: "A chat message: a bubble with its header and footer, aligned to a side."
+description: "A chat message: bubbles with a header, a footer and an avatar, aligned to a side."
 ---
 
 <Demo name="message/demo" />
 
 ## Usage
 
-`gpui:Message` places a `gpui:Bubble` with a header above and a footer below, aligned to the start or the end. Stack messages in a `StackPanel` with `Spacing="8"` for GPUI Kit's message group.
+`gpui:Message` is one turn of a conversation. Its items are the bubbles (or any content: plain strings show in 16px text), 10px apart; `Header` sits above them and `Footer` below, in muted 12px text inset 12px unless a bubble is `ghost`; `Avatar` sits at the bottom beside them. `Classes="end"` mirrors the whole message to the end of the row. Stack messages in a `StackPanel` with `Spacing="8"` for GPUI Kit's message group.
+
+## Examples
+
+Without bubbles: the items are strings, shown as plain text under the header.
+
+<Demo name="message/plain" title="Plain" />
 
 ## Not covered
 

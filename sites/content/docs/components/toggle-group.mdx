@@ -7,8 +7,28 @@ description: "Toggles that select one or several items, as a ListBox with the to
 
 ## Usage
 
-`ListBox Classes="toggle-group"` draws its items as toggles; `SelectionMode` picks single or multiple selection (`Multiple,Toggle` is GPUI Kit's multiple group). Classes: `outline`, `segmented`, `xsmall`, `small`, `large`.
+`ListBox Classes="toggle-group"` lays its `ListBoxItem`s out in a row, 8px apart, and draws each as a toggle: ghost by default, selected and hovered items in the accent. The selection rule is the app's `SelectionMode`: `Multiple,Toggle` lets every item flip on its own, which is GPUI Kit's group; `Toggle` (or `Single`) keeps at most one item selected. `IsSelected` on an item, or `SelectedItems` on the list, is the state. A group holds a handful of items, so the list does not virtualize.
+
+| Class | Effect |
+| --- | --- |
+| `outline` | A 1px border and the background on every item (ghost is the default) |
+| `segmented` | Joins the items: only the outer corners are rounded and neighbours share one edge |
+| `xsmall`, `small`, `large` | Item height 20, 24 and 36; medium, the default, is 32. An icon takes the text size |
+
+## Examples
+
+Ghost and outlined, loose and `segmented`. The segmented groups use `SelectionMode="Toggle"`, so one item is selected at a time and clicking it again clears the selection.
+
+<Demo name="toggle-group/variants" title="Variants" />
+
+The four sizes of an outlined group.
+
+<Demo name="toggle-group/sizes" title="Sizes" />
+
+A `PathIcon` as an item's content; the icon follows the group's size.
+
+<Demo name="toggle-group/icons" title="Icons" />
 
 ## Not covered
 
-- GPUI Kit's selection rules; the app sets `SelectionMode`.
+- GPUI Kit's selection rules: the app sets `SelectionMode`.

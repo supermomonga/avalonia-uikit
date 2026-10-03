@@ -7,8 +7,18 @@ description: "Previous, numbered pages and Next, as a PipsPager."
 
 ## Usage
 
-`PipsPager` with numbered pages: `NumberOfPages`, `SelectedPageIndex`, and Previous and Next as ghost buttons with a chevron and a label. Sizes: `xsmall`, `small`, `large`.
+`PipsPager` with numbered pages: set `NumberOfPages` and `SelectedPageIndex`. Previous and Next are ghost compact buttons with a chevron and a label (the resources `Gpui.Pagination.Previous` and `Gpui.Pagination.Next`), and the pages are compact buttons, the current one outline. The end buttons stay visible and disabled at the first and the last page, as in GPUI Kit. Sizes: `xsmall`, `small`, `large` (medium without one); `compact` keeps the chevrons alone, as square icon buttons. Set the classes in XAML, before the template applies: PipsPager sizes its page list from the first page it realizes. Past `MaxVisiblePips` the pages scroll.
+
+## Examples
+
+The four sizes.
+
+<Demo name="pagination/sizes" title="Sizes" />
+
+`compact` with `small`, at the default size, and disabled.
+
+<Demo name="pagination/compact" title="Compact" />
 
 ## Not covered
 
-- Collapsing long page lists with ellipses.
+- Collapsing long page lists with ellipses (GPUI Kit's ellipsis menu); PipsPager scrolls its pages instead.

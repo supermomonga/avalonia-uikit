@@ -1,16 +1,38 @@
 ---
 title: "Calendar"
-description: "A month view in GPUI Kit's bordered card, with its year and month pickers."
+description: "A month view in GPUI Kit's bordered card, with its month and year pickers."
 ---
 
 <Demo name="calendar/demo" />
 
 ## Usage
 
-The theme covers `Calendar` with its `CalendarItem`, `CalendarDayButton` and `CalendarButton`: the header with the previous and next buttons, the muted weekday row, the day grid and the month and year grids. `Classes="small"` gives GPUI Kit's small calendar.
+The theme covers `Calendar` with its `CalendarItem`, `CalendarDayButton` and `CalendarButton`: a bordered card with 12px of padding, a header with the previous and next buttons and the month and year between them, the muted weekday titles, and the days. `SelectedDate` and `DisplayDate` are Avalonia's; `FirstDayOfWeek` starts the week on another day, and `SelectionMode` allows a range. Today is always marked in the accent, as GPUI's calendar always marks it; leave `IsTodayHighlighted` on.
+
+Day states: days outside the month are muted, today is accent, a hovered day is `secondary_hover`, the selected day is primary, and a blackout date is muted at half strength without a hover. `DisplayMode="Year"` shows the months grid in GPUI's three columns of full month names, with the selected month in primary; Avalonia's header acts as one button.
+
+| Class | Cells | Width |
+| --- | --- | --- |
+| `small` | 28px | 220px |
+| (medium) | 32px | 248px |
+| `large` | 40px | 304px |
+
+## Examples
+
+The small and large calendars.
+
+<Demo name="calendar/sizes" title="Sizes" />
+
+The months grid, as `DisplayMode="Year"` shows it.
+
+<Demo name="calendar/year" title="Year view" />
+
+`FirstDayOfWeek="Monday"` reorders the weekday titles and the grid.
+
+<Demo name="calendar/first-day" title="First day of week" />
 
 ## Not covered
 
 - Showing several months side by side.
-- The 20-year grid (Avalonia's year view shows 12 years).
-- 4 to 6 week rows per month (Avalonia always shows 6).
+- The 20-year grid: Avalonia's decade view shows 12 years.
+- 4 to 6 week rows per month: Avalonia always shows 6.

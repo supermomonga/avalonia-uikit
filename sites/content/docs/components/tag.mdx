@@ -1,13 +1,34 @@
 ---
 title: "Tag"
-description: "A small colored label, filled, outlined or transparent."
+description: "A small colored label, filled or outlined, in the theme's and the palette's colors."
 ---
 
 <Demo name="tag/demo" />
 
 ## Usage
 
-`gpui:TagLabel` shows its content in a color: `primary` (the default), `secondary`, `danger`, `success`, `warning`, `info`, or a palette color such as `red`, `emerald` or `violet`. Modifiers: `outline`, `transparent`, `fill`. Sizes: `xsmall`, `small`, `large`.
+`gpui:TagLabel` (named so because every Avalonia control already has a `Tag` property) shows its `Content` on a small bordered label. The color is a class: `primary` (the default), `secondary`, `danger`, `success`, `warning`, `info`, or a palette color: `neutral`, `gray`, `red`, `orange`, `amber`, `yellow`, `lime`, `green`, `emerald`, `teal`, `cyan`, `sky`, `blue`, `indigo`, `violet`, `purple`, `fuchsia`, `pink`, `rose`. `outline` keeps the border and gives the text the color. The classes combine, as in `Classes="rose outline small"`. A hovered tag fades to 90%, as in GPUI Kit.
+
+| Class | Text and padding |
+| --- | --- |
+| `xsmall`, `small` | 10px, 6×2, radius 3 |
+| default | 12px, 10×4 |
+| `large` | 14px, 10×4 |
+| `rounded-full` | A pill at any size |
+
+## Examples
+
+`outline` with each theme color.
+
+<Demo name="tag/outline" title="Outline" />
+
+The sizes, and `rounded-full` on a small and on a medium tag.
+
+<Demo name="tag/sizes" title="Sizes" />
+
+The nineteen palette colors, filled and with `outline`.
+
+<Demo name="tag/colors" title="Colors" />
 
 ## Not covered
 

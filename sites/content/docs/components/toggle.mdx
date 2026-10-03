@@ -7,8 +7,27 @@ description: "GPUI Kit's toggle button, ghost or outlined, as ToggleButton."
 
 ## Usage
 
-The theme covers `ToggleButton` in full: ghost by default, `outline` for the bordered look; checked and hovered toggles show the accent, and a toggle draws no focus ring. Sizes: `xsmall`, `small`, `large`.
+The theme covers `ToggleButton` in full. A toggle is ghost by default: no border and a transparent background until it is hovered or checked, when it shows the accent. `Classes="outline"` adds the 1px border and the background. A toggle is at least as wide as it is tall, so a `PathIcon` alone makes a square. `IsChecked` is the state; a toggle draws no focus ring, as GPUI Kit's does not.
+
+| Class | Effect |
+| --- | --- |
+| `outline` | A 1px border and the background (ghost is the default) |
+| `xsmall`, `small`, `large` | Height 20, 24 and 36; medium, the default, is 32 |
+
+## Examples
+
+The outlined variant, checked, unchecked and disabled.
+
+<Demo name="toggle/outline" title="Outline" />
+
+The four sizes.
+
+<Demo name="toggle/sizes" title="Sizes" />
+
+A `PathIcon` as the content makes a square toggle, ghost or outlined.
+
+<Demo name="toggle/icons" title="Icons" />
 
 ## Not covered
 
-- Nothing: the control's look and motion are covered in full.
+- Nothing: the control's look is covered in full.

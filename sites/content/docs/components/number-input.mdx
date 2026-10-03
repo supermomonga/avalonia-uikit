@@ -7,8 +7,19 @@ description: "A numeric field with GPUI Kit's minus and plus buttons, as Numeric
 
 ## Usage
 
-The theme covers `NumericUpDown` (and `ButtonSpinner`) in full: the input frame with the minus button before the value and the plus button after it, as GPUI Kit lays it out. Sizes: `xsmall`, `small`, `large`.
+The theme covers `NumericUpDown` (and `ButtonSpinner`) in full: the input frame with the decrease button before the value, the text centred between the buttons, and the increase button after it, as GPUI Kit lays it out. The buttons stay at the sides by contract: `ButtonSpinnerLocation` has no effect. `Value`, `Minimum`, `Maximum`, `Increment` and `FormatString` are Avalonia's own. The frame shows the ring while anything in it has focus; a disabled field fades as a whole to 50%. Sizes: `xsmall` (20px), `small` (24px), medium (32px, the default) and `large` (44px).
+
+## Examples
+
+The four sizes.
+
+<Demo name="number-input/sizes" title="Sizes" />
+
+A range of 0 to 100 in steps of 10, a decimal field with `Increment="0.5"` and `FormatString="0.0"`, and a disabled one.
+
+<Demo name="number-input/range" title="Range and format" />
 
 ## Not covered
 
-- `ButtonSpinnerLocation`; the buttons stay at GPUI Kit's [−] value [+] positions.
+- `ButtonSpinnerLocation`: the buttons stay at GPUI Kit's [−] value [+] positions.
+- GPUI Kit's own normalisation and dynamic step computation.

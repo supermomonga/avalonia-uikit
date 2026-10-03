@@ -7,7 +7,19 @@ description: "GPUI Kit's sidebar, collapsing to icons or off canvas, as SplitVie
 
 ## Usage
 
-`SplitView` carries the sidebar surface and its inline modes: `CompactInline` is GPUI Kit's icon mode, and the pane collapses and expands on its spring. `DrawerPage` adds the locked and off-canvas behaviors.
+`SplitView` carries the sidebar surface: the pane background with a 1px border on the content side, opening to `OpenPaneLength` (255 by default) and moving over 200ms. `DisplayMode` picks GPUI Kit's collapsible mode: `CompactInline` is Icon (the closed pane keeps `CompactPaneLength`, 48px), `Inline` is Offcanvas (closed to nothing), and `Inline` with `IsPaneOpen="True"` is a sidebar that does not collapse. Bind `IsPaneOpen` to a toggle; `PanePlacement="Right"` puts the pane on the right. The overlay modes are the [Sheet](/docs/components/sheet).
+
+`DrawerPage` adds GPUI Kit's header, body and footer with their paddings: `DrawerHeader`, `Drawer` and `DrawerFooter`, 12px inside (8px when collapsed to icons). `DrawerBehavior="Locked"` is the sidebar that does not collapse, `DrawerLayoutBehavior="CompactInline"` the Icon mode, with the toggle button in the header, and `"Split"` the Offcanvas mode; `IsOpen` opens and closes the drawer.
+
+## Examples
+
+`PanePlacement="Right"` for a pane on the right; the border stays on the content side.
+
+<Demo name="sidebar/right" title="Right" />
+
+`DrawerPage` in `CompactInline`: the header holds the title and the toggle, the footer an avatar.
+
+<Demo name="sidebar/drawer" title="DrawerPage" />
 
 ## Not covered
 

@@ -1,13 +1,19 @@
 ---
 title: "Kbd"
-description: "A key cap for keyboard shortcuts."
+description: "A key cap for keyboard shortcuts, written as GPUI Kit writes them on each platform."
 ---
 
 <Demo name="kbd/demo" />
 
 ## Usage
 
-`gpui:Kbd` shows its text as muted `text_xs` on a key cap at least 20px wide. The `outline` class adds a 1px border on the background.
+`gpui:Kbd` shows its `Gesture` (a `KeyGesture`, such as `Ctrl+Shift+P`) in muted 12px text on a key cap at least 20px wide with 4×2 padding. The text follows GPUI Kit's notation on the running platform: on macOS the modifier symbols without a separator (⌃ ⌥ ⇧ ⌘, with ⏎ and ⎋ for Enter and Escape), elsewhere the names joined by "+" (Ctrl, Alt, Shift, Win). `Classes="outline"` draws the cap on the background with a 1px border.
+
+## Examples
+
+`outline` on single keys and on a chord.
+
+<Demo name="kbd/outline" title="Outline" />
 
 ## Not covered
 

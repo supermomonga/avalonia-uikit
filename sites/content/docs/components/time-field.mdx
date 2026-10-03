@@ -7,9 +7,25 @@ description: "Hour and minute segments in GPUI Kit's input frame, as TimePicker.
 
 ## Usage
 
-The theme covers the closed `TimePicker`: an input-styled frame sized to its content, the hour, minute and second as two-digit segments with tabular figures. `ClockIdentifier` picks 12 or 24 hours. Sizes: `xsmall`, `small`, `large`.
+The theme covers the closed `TimePicker` as GPUI Kit's TimeField: an input-styled frame sized to its content, with the hour, minute and (with `UseSeconds="True"`) second as two-digit segments with tabular figures between colons. `ClockIdentifier="24HourClock"` or `"12HourClock"` picks the clock; the 12-hour clock adds the period after a 4px gap. `SelectedTime` is the value. Sizes: `xsmall`, `small`, `large` (medium is the default).
+
+Focused, the border turns to the ring with the focus band and the hour segment shows the selection, as GPUI selects the hour on focus; this is a look only, as `TimePicker` has no segments to edit. An invalid field (`:error` through `DataValidationErrors`) turns the border to the danger color; a disabled one fills with the disabled background, mutes its text and fades to half. A click opens Avalonia's `TimePickerPresenter` on GPUI's popover surface, where the value is picked.
+
+## Examples
+
+The four sizes.
+
+<Demo name="time-field/sizes" title="Sizes" />
+
+24-hour and 12-hour clocks, with and without seconds.
+
+<Demo name="time-field/formats" title="Formats" />
+
+A disabled field and an invalid one. The demo sets `DataValidationErrors.Errors` from a static helper that holds one validation message; an app gets its errors from its bindings' validation instead.
+
+<Demo name="time-field/states" title="States" />
 
 ## Not covered
 
-- Editing the segments directly in the field (focus only marks the hour).
-- The opened picker, which is Avalonia's.
+- Editing the segments directly in the field: focus only marks the hour.
+- The opened picker, which is Avalonia's `TimePickerPresenter`.
