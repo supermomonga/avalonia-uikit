@@ -33,6 +33,14 @@ public sealed record DeclaredTransition(TimeSpan Duration, Easing Easing, double
     }
 }
 
+/// <summary>A motion that starts after a delay, holding its first value until then.</summary>
+public sealed record DelayedMotion(TimeSpan Delay, IDeclaredMotion Motion) : IDeclaredMotion
+{
+    public TimeSpan Settle => Delay + Motion.Settle;
+
+    public double[] ValueAt(TimeSpan t) => Motion.ValueAt(t < Delay ? TimeSpan.Zero : t - Delay);
+}
+
 /// <summary>
 /// A repeating two-keyframe animation as Avalonia runs it: after <c>Delay</c>,
 /// each iteration of <c>Duration</c> eases from <c>From</c> to <c>To</c>, then
@@ -151,6 +159,7 @@ public static class MotionProbes
         ("tooltip", _) => new TooltipEnter(),
         ("scroll", "expand") => new ScrollThumbWidth(),
         ("scroll", "show") => new ScrollShow(),
+        ("scroll", "hide") => new ScrollHide(),
         _ => throw new NotSupportedException($"no motion probe for {golden.Id}"),
     };
 
@@ -436,6 +445,62 @@ public static class MotionProbes
         public void Apply(CaseHost host, double[] values) => Part<Border>(host.Window, "PART_Root").Opacity = values[0];
 
         public double[] Live(CaseHost host) => [Part<Border>(host.Window, "PART_Root").Opacity];
+    }
+
+    /// <summary>
+    /// scrollbar.rs (ScrollbarMode::Hover): leaving the strip holds the bar for the
+    /// 2s idle time, then it fades out over 500ms (ease-in-cubic).
+    /// </summary>
+    private sealed class ScrollHide : IMotionProbe
+    {
+        // Opacity as the fade-in's; the slide to GPUI's half-pixel snapping.
+        public double Tolerance => 0.26;
+
+        public double ToleranceOf(int index) => index == 0 ? 0.003 : Tolerance;
+
+        // The slide is how far the thumb has moved out from its resting place,
+        // 4px in from the scroll area's right edge (a strip's width once gone).
+        public double[] FromGpui(GoldenScene scene, GoldenCase golden)
+        {
+            var thumb = scene.Quads.Where(q => q.SolidBackground && q.Bounds.Width <= 8.01 && q.Bounds.Height > 20).ToList();
+            var opacity = new ScrollShow().FromGpui(scene, golden)[0];
+            return [opacity, thumb.Count == 0 ? 16 : thumb.Max(q => q.Bounds.Right) - (golden.ComponentBounds.Right - 4)];
+        }
+
+        public IDeclaredMotion Declared(CaseHost host, GoldenCase golden)
+        {
+            // The ScrollBar's hide delay, then the transitions the collapsed state brings in:
+            // the strip's fade and the track's slide.
+            var bar = Part<ScrollBar>(host.Window, "PART_VerticalScrollBar");
+            var theme = (ControlTheme)bar.FindResource(typeof(ScrollBar))!;
+            Transitions Collapsed(string part) => (Transitions)Flatten(theme).OfType<Style>().First(s =>
+                    s.Selector?.ToString() is { } selector &&
+                    selector.Contains("AllowAutoHide=True", StringComparison.Ordinal) &&
+                    !selector.Contains("IsExpanded", StringComparison.Ordinal) &&
+                    selector.Contains(part, StringComparison.Ordinal) &&
+                    s.Setters.OfType<Setter>().Any(x => x.Property == Animatable.TransitionsProperty))
+                .Setters.OfType<Setter>().First(s => s.Property == Animatable.TransitionsProperty).Value!;
+            var slide = Collapsed("#PART_Track").OfType<TransformOperationsTransition>().First(t => t.Property == Visual.RenderTransformProperty);
+            return new DelayedMotion(bar.HideDelay, new Both(
+                FromTransitions(Collapsed("#PART_Root"), Visual.OpacityProperty, 1, 0),
+                new DeclaredTransition(slide.Duration, slide.Easing, 0, 16)));
+        }
+
+        public void Apply(CaseHost host, double[] values)
+        {
+            Part<Border>(host.Window, "PART_Root").Opacity = values[0];
+            Part<Track>(host.Window, "PART_Track").RenderTransform = new TranslateTransform(values[1], 0);
+        }
+
+        public double[] Live(CaseHost host) =>
+            [Part<Border>(host.Window, "PART_Root").Opacity, Part<Track>(host.Window, "PART_Track").RenderTransform?.Value.M31 ?? 0];
+
+        private sealed record Both(IDeclaredMotion First, IDeclaredMotion Second) : IDeclaredMotion
+        {
+            public TimeSpan Settle => First.Settle > Second.Settle ? First.Settle : Second.Settle;
+
+            public double[] ValueAt(TimeSpan t) => [.. First.ValueAt(t), .. Second.ValueAt(t)];
+        }
     }
 
     /// <summary>spinner.rs: the icon's rotation, one eased turn per 0.8s.</summary>

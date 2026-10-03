@@ -12,8 +12,9 @@
   - False is ScrollbarMode::Always: the scrollbar always shows.
   - True is ScrollbarMode::Hover: it shows when the pointer enters the strip
     (fading in over 300ms, linearly) and hides 2s after it leaves (fading out
-    over 500ms, ease-in-cubic).
-  ScrollbarMode::Scrolling (show while scrolling) is out of scope (R20).
+    and sliding out to its edge over 500ms, ease-in-cubic).
+  ScrollbarMode::Scrolling (show while scrolling) and the slide-in GPUI plays
+  when the pointer lands on the thumb of a hidden bar are out of scope (R20).
 -->
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
@@ -128,8 +129,12 @@
       </Setter>
     </Style>
 
-
-    <!-- ScrollbarMode::Hover: hidden until the pointer is over the strip. -->
+    <!--
+      ScrollbarMode::Hover: hidden until the pointer is over the strip. It fades
+      in where it stands; leaving, it slides a strip's width out to its edge as
+      it fades (both ease-in-cubic, VisibilityAnimation in scrollbar.rs). The
+      track slides, not the strip, which keeps taking the pointer where it is.
+    -->
     <Style Selector="^[AllowAutoHide=True] /template/ Border#PART_Root">
       <Setter Property="Opacity" Value="0" />
       <Setter Property="Transitions">
@@ -137,6 +142,19 @@
           <DoubleTransition Property="Opacity" Duration="0:0:0.5" Easing="CubicEaseIn" />
         </Transitions>
       </Setter>
+    </Style>
+    <Style Selector="^[AllowAutoHide=True] /template/ Track#PART_Track">
+      <Setter Property="Transitions">
+        <Transitions>
+          <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.5" Easing="CubicEaseIn" />
+        </Transitions>
+      </Setter>
+    </Style>
+    <Style Selector="^[AllowAutoHide=True]:vertical /template/ Track#PART_Track">
+      <Setter Property="RenderTransform" Value="translateX(16px)" />
+    </Style>
+    <Style Selector="^[AllowAutoHide=True]:horizontal /template/ Track#PART_Track">
+      <Setter Property="RenderTransform" Value="translateY(16px)" />
     </Style>
     <Style Selector="^[AllowAutoHide=True][IsExpanded=True] /template/ Border#PART_Root">
       <Setter Property="Opacity" Value="1" />
@@ -146,10 +164,16 @@
         </Transitions>
       </Setter>
     </Style>
+    <Style Selector="^[AllowAutoHide=True][IsExpanded=True] /template/ Track#PART_Track">
+      <Setter Property="RenderTransform" Value="none" />
+      <Setter Property="Transitions" Value="{x:Null}" />
+    </Style>
   </ControlTheme>
 
   <ControlTheme x:Key="{x:Type ScrollViewer}" TargetType="ScrollViewer">
     <Setter Property="Background" Value="Transparent" />
+    <!-- The scrollbars paint inside the scroll area, as GPUI clips them to it. -->
+    <Setter Property="ClipToBounds" Value="True" />
     <Setter Property="Template">
       <ControlTemplate>
         <Panel>

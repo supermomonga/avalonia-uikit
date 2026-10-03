@@ -32,3 +32,14 @@ from = "at-60-50"
 trigger = "at-164-20"
 samples_ms = [0, 50, 100, 150, 200, 250, 300, 350]
 themes = ["light"]
+
+# Leaving the strip keeps the bar for the 2s idle hold, then it fades out over
+# 500ms (ease-in-cubic). The fade starts at the first frame after the hold, so
+# a frame is sampled at exactly 2000ms.
+[[motion]]
+name = "hide"
+params = { scrollbar_mode = "hover" }
+from = "at-164-90+wait-400ms"
+trigger = "at-60-50"
+samples_ms = [0, 1000, 1990, 2000, 2050, 2100, 2200, 2300, 2400, 2500, 2600]
+themes = ["light"]
