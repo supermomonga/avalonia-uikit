@@ -132,6 +132,9 @@ public interface IMotionProbe
 
     double Tolerance { get; }
 
+    /// <summary>The tolerance for the quantity at <paramref name="index"/>, when the quantities differ in kind.</summary>
+    double ToleranceOf(int index) => Tolerance;
+
     /// <summary>Pixel limits for a frame posed at <paramref name="values"/>, when a relaxation applies.</summary>
     Comparison.PixelTolerance? PixelToleranceFor(CaseHost host, double[] values) => null;
 }
@@ -333,6 +336,8 @@ public static class MotionProbes
     {
         // Alpha to one 8-bit step; the bubble's position to GPUI's half-pixel snapping.
         public double Tolerance => 0.26;
+
+        public double ToleranceOf(int index) => index == 0 ? 1 / 255.0 : Tolerance;
 
         public double[] FromGpui(GoldenScene scene, GoldenCase golden)
         {

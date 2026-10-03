@@ -31,7 +31,7 @@ public enum Region : byte
 /// 0.69-1.07 (the low end in tooltip fade frames), a missing line at 0.
 /// </summary>
 public sealed record PixelTolerance(
-    double FlatMax = 2,
+    double FlatMax = 1,
     double EdgeMax = 64,
     double EdgeMean = 3,
     double InkMean = 18,

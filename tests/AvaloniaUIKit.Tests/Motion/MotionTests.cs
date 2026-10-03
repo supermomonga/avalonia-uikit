@@ -33,7 +33,7 @@ public class MotionTests
             var avalonia = declared.ValueAt(TimeSpan.FromMilliseconds(frame.TimeMs));
             for (var i = 0; i < gpui.Length; i++)
             {
-                if (Math.Abs(gpui[i] - avalonia[i]) > probe.Tolerance)
+                if (Math.Abs(gpui[i] - avalonia[i]) > probe.ToleranceOf(i))
                 {
                     failures.Add($"t={frame.TimeMs}ms [{i}]: theme {avalonia[i]:0.####} != gpui {gpui[i]:0.####}");
                 }
