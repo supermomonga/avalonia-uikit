@@ -12,7 +12,12 @@ public sealed class App : Application
     public static bool Smoke { get; set; }
     public static bool Dark { get; set; }
 
-    public override void Initialize() => AvaloniaXamlLoader.Load(this);
+    public override void Initialize()
+    {
+        AvaloniaXamlLoader.Load(this);
+        // GPUI opens a submenu as soon as its item is hovered (usage contract, docs/testing.md).
+        Avalonia.Controls.Platform.DefaultMenuInteractionHandler.MenuShowDelay = TimeSpan.Zero;
+    }
 
     public override void OnFrameworkInitializationCompleted()
     {
