@@ -17,7 +17,7 @@ export default createRoute((c) =>
       href: `/docs/components/${entry.slug}`,
       description: [
         componentPages.get(entry.slug)?.frontmatter.description,
-        entry.gpui,
+        entry.aliases,
         ...entry.avalonia,
       ]
         .filter(Boolean)

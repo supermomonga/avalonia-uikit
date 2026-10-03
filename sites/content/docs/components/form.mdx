@@ -1,13 +1,13 @@
 ---
 title: "Form"
-description: "GPUI Kit's form grid, with labelled fields, required marks and descriptions."
+description: "A form grid, with labelled fields, required marks and descriptions."
 ---
 
 <Demo name="form/demo" />
 
 ## Usage
 
-`gpui:Form` is an `ItemsControl` of `gpui:FormField`s laid out in a grid of `Columns`, placed in order; a field that does not fit the rest of a row starts the next. A field's content is the input, stretched to the field's width; its `Label` is medium-weight text with a danger `*` after it when `IsRequired`, and `Description` is muted help text under the input, whose row is there even when empty. `Footer` is content under the fields, aligned to the end of the row. Validation stays with the inputs (`DataValidationErrors`); the form holds no values.
+`uikit:Form` is an `ItemsControl` of `uikit:FormField`s laid out in a grid of `Columns`, placed in order; a field that does not fit the rest of a row starts the next. A field's content is the input, stretched to the field's width; its `Label` is medium-weight text with a danger `*` after it when `IsRequired`, and `Description` is muted help text under the input, whose row is there even when empty. `Footer` is content under the fields, aligned to the end of the row. Validation stays with the inputs (`DataValidationErrors`); the form holds no values.
 
 | Property | On | Effect |
 | --- | --- | --- |
@@ -37,5 +37,5 @@ The size classes on the form set its gaps: rows 8px apart (`small` 6, `large` 12
 
 ## Not covered
 
-- Placing a field at an explicit column (`col_start` / `col_end`).
+- Placing a field at an explicit column.
 - Changing the label's text size.

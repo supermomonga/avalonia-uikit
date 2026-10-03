@@ -1,15 +1,15 @@
 ---
 title: "Calendar"
-description: "A month view in GPUI Kit's bordered card, with its month and year pickers."
+description: "A month view in a bordered card, with month and year pickers."
 ---
 
 <Demo name="calendar/demo" />
 
 ## Usage
 
-The theme covers `Calendar` with its `CalendarItem`, `CalendarDayButton` and `CalendarButton`: a bordered card with 12px of padding, a header with the previous and next buttons and the month and year between them, the muted weekday titles, and the days. `SelectedDate` and `DisplayDate` are Avalonia's; `FirstDayOfWeek` starts the week on another day, and `SelectionMode` allows a range. Today is always marked in the accent, as GPUI's calendar always marks it; leave `IsTodayHighlighted` on.
+The theme covers `Calendar` with its `CalendarItem`, `CalendarDayButton` and `CalendarButton`: a bordered card with 12px of padding, a header with the previous and next buttons and the month and year between them, the muted weekday titles, and the days. `SelectedDate` and `DisplayDate` are Avalonia's; `FirstDayOfWeek` starts the week on another day, and `SelectionMode` allows a range. Today is always marked in the accent; leave `IsTodayHighlighted` on.
 
-Day states: days outside the month are muted, today is accent, a hovered day is `secondary_hover`, the selected day is primary, and a blackout date is muted at half strength without a hover. `DisplayMode="Year"` shows the months grid in GPUI's three columns of full month names, with the selected month in primary; Avalonia's header acts as one button.
+Day states: days outside the month are muted, today is accent, a hovered day is `UIKit.SecondaryHover`, the selected day is primary, and a blackout date is muted at half strength without a hover. `DisplayMode="Year"` shows the months grid in three columns of full month names, with the selected month in primary; Avalonia's header acts as one button.
 
 | Class | Cells | Width |
 | --- | --- | --- |

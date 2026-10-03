@@ -1,7 +1,7 @@
 {
   "name": "Avalonia UIKit",
   "short_name": "Avalonia UIKit",
-  "description": "Avalonia themes and controls that reproduce the look and motion of GPUI Kit components.",
+  "description": "Avalonia themes and controls based on shadcn/ui and GPUI Kit.",
   "icons": [
     { "src": "/icon-192.png", "type": "image/png", "sizes": "192x192" },
     { "src": "/icon-512.png", "type": "image/png", "sizes": "512x512" }

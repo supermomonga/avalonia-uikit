@@ -7,7 +7,7 @@ description: "A panel sliding in from a side over the dimmed content, as DrawerP
 
 ## Usage
 
-`DrawerPage Classes="sheet" DrawerBehavior="Flyout"` is GPUI Kit's sheet. The page is the `DrawerPage`'s content; the sheet is `Drawer`, with `DrawerHeader` as its title row (semibold, with the close button) and `DrawerFooter` under the body. When `IsOpen` becomes true the sheet slides 100px in from its edge over 150ms over the content dimmed with the theme overlay, and it goes at once when it closes. In the demo above, the button's `Click` handler sets `IsOpen` to true.
+`DrawerPage Classes="sheet" DrawerBehavior="Flyout"` is the sheet. The page is the `DrawerPage`'s content; the sheet is `Drawer`, with `DrawerHeader` as its title row (semibold, with the close button) and `DrawerFooter` under the body. When `IsOpen` becomes true the sheet slides 100px in from its edge over 150ms over the content dimmed with the theme overlay, and it goes at once when it closes. In the demo above, the button's `Click` handler sets `IsOpen` to true.
 
 | Property | Meaning |
 | --- | --- |
@@ -15,9 +15,9 @@ description: "A panel sliding in from a side over the dimmed content, as DrawerP
 | `DrawerPlacement` | The side it slides in from: `Left`, `Right`, `Top` or `Bottom`. |
 | `DrawerLength` | Its width, or height from the top or bottom; 350 by default. |
 | `DrawerHeader`, `Drawer`, `DrawerFooter` | The title row, the body and the footer. |
-| `BackdropBrush` | The dimming; `{x:Null}` for GPUI Kit's `overlay(false)`. |
+| `BackdropBrush` | The dimming; `{x:Null}` for none. |
 
-To open the sheet under GPUI Kit's 34px title bar, set the `Gpui.Sheet.Margin` resource.
+To open the sheet under the 34px [Title Bar](/docs/components/title-bar), set the `UIKit.Sheet.Margin` resource.
 
 ## Examples
 

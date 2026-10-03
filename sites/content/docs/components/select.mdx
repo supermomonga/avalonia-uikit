@@ -1,15 +1,15 @@
 ---
 title: "Select"
-description: "GPUI Kit's select: an input frame that opens a list in its popover."
+description: "A select: an input frame that opens a list in its popover."
 ---
 
 <Demo name="select/demo" />
 
 ## Usage
 
-The theme covers `ComboBox` and `ComboBoxItem`. The trigger is the input frame with the selected item (or the muted `PlaceholderText`) and a muted chevron; it shows the ring while focused or open, and stays focused after a mouse selection, as GPUI refocuses it. Disabled, the frame fades to half; `IsEnabled="False"` on a `ComboBoxItem` mutes that row. An invalid select (`:error` through `DataValidationErrors`) turns the border to the danger color.
+The theme covers `ComboBox` and `ComboBoxItem`. The trigger is the input frame with the selected item (or the muted `PlaceholderText`) and a muted chevron; it shows the ring while focused or open, and stays focused after a mouse selection. Disabled, the frame fades to half; `IsEnabled="False"` on a `ComboBoxItem` mutes that row. An invalid select (`:error` through `DataValidationErrors`) turns the border to the danger color.
 
-The popup opens 6px below the trigger (above it when it flips), as wide as the trigger and at most 320px tall: GPUI's popover surface with 4px of padding around rounded rows. The row under the keyboard cursor shows the accent, a hovered row the accent at 70%, and the selected row has a check mark. On every open the popup slides 8px down and fades in over 150ms, and while it is open the trigger shows the item under the cursor, as GPUI's does. Sizes: `xsmall`, `small`, `large` (medium is the default).
+The popup opens 6px below the trigger (above it when it flips), as wide as the trigger and at most 320px tall: the popover surface with 4px of padding around rounded rows. The row under the keyboard cursor shows the accent, a hovered row the accent at 70%, and the selected row has a check mark. On every open the popup slides 8px down and fades in over 150ms, and while it is open the trigger shows the item under the cursor. Sizes: `xsmall`, `small`, `large` (medium is the default).
 
 ## Examples
 

@@ -1,13 +1,13 @@
 ---
 title: "Number Input"
-description: "A numeric field with GPUI Kit's minus and plus buttons, as NumericUpDown."
+description: "A numeric field with minus and plus buttons, as NumericUpDown."
 ---
 
 <Demo name="number-input/demo" />
 
 ## Usage
 
-The theme covers `NumericUpDown` (and `ButtonSpinner`) in full: the input frame with the decrease button before the value, the text centred between the buttons, and the increase button after it, as GPUI Kit lays it out. The buttons stay at the sides by contract: `ButtonSpinnerLocation` has no effect. `Value`, `Minimum`, `Maximum`, `Increment` and `FormatString` are Avalonia's own. The frame shows the ring while anything in it has focus; a disabled field fades as a whole to 50%. Sizes: `xsmall` (20px), `small` (24px), medium (32px, the default) and `large` (44px).
+The theme covers `NumericUpDown` (and `ButtonSpinner`) in full: the input frame with the decrease button before the value, the text centred between the buttons, and the increase button after it. The buttons stay at the sides by contract: `ButtonSpinnerLocation` has no effect. `Value`, `Minimum`, `Maximum`, `Increment` and `FormatString` are Avalonia's own. The frame shows the ring while anything in it has focus; a disabled field fades as a whole to 50%. Sizes: `xsmall` (20px), `small` (24px), medium (32px, the default) and `large` (44px).
 
 ## Examples
 
@@ -21,5 +21,5 @@ A range of 0 to 100 in steps of 10, a decimal field with `Increment="0.5"` and `
 
 ## Not covered
 
-- `ButtonSpinnerLocation`: the buttons stay at GPUI Kit's [−] value [+] positions.
-- GPUI Kit's own normalisation and dynamic step computation.
+- `ButtonSpinnerLocation`: the buttons stay at the [−] value [+] positions.
+- Normalising the value and computing the step dynamically.

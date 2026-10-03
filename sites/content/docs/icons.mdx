@@ -1,25 +1,25 @@
 ---
 title: "Icons"
-description: "The Lucide icons GPUI Kit's components use, bundled as geometry for PathIcon."
+description: "The Lucide icons the components use, bundled as geometry for PathIcon."
 ---
 
-GPUI Kit's components draw [Lucide](https://lucide.dev) icons. The theme bundles the ones they use as `StreamGeometry` resources, so the icons an app places next to the components match them exactly, and no SVG parser is needed at run time (the geometry is compiled XAML, which suits NativeAOT). Lucide is licensed under the ISC License; the license ships with the package.
+The components draw [Lucide](https://lucide.dev) icons. The theme bundles the ones they use as `StreamGeometry` resources, so the icons an app places next to the components match them exactly, and no SVG parser is needed at run time (the geometry is compiled XAML, which suits NativeAOT). Lucide is licensed under the ISC License; the license ships with the package.
 
 ## Usage
 
-Set a `PathIcon`'s `Data` to the icon's resource. The icon is 16px, GPUI's medium size, and takes the `Foreground`:
+Set a `PathIcon`'s `Data` to the icon's resource. The icon is 16px, the medium size, and takes the `Foreground`:
 
 ```xml
-<PathIcon Data="{StaticResource Gpui.Icon.Search}" />
-<PathIcon Data="{StaticResource Gpui.Icon.TriangleAlert}"
-          Foreground="{DynamicResource Gpui.Warning}" />
+<PathIcon Data="{StaticResource UIKit.Icon.Search}" />
+<PathIcon Data="{StaticResource UIKit.Icon.TriangleAlert}"
+          Foreground="{DynamicResource UIKit.Warning}" />
 ```
 
-The classes `xsmall`, `small` and `large` give GPUI's other sizes, 12, 14 and 24px:
+The classes `xsmall`, `small` and `large` give the other sizes, 12, 14 and 24px:
 
 ```xml
-<PathIcon Classes="small" Data="{StaticResource Gpui.Icon.ChevronDown}" />
-<PathIcon Classes="large" Data="{StaticResource Gpui.Icon.Bell}" />
+<PathIcon Classes="small" Data="{StaticResource UIKit.Icon.ChevronDown}" />
+<PathIcon Classes="large" Data="{StaticResource UIKit.Icon.Bell}" />
 ```
 
 Any other geometry works the same way; the theme's `PathIcon` scales whatever `Data` it gets to its size.
@@ -28,46 +28,46 @@ Any other geometry works the same way; the theme's `PathIcon` scales whatever `D
 
 | Key | Lucide icon |
 | --- | --- |
-| `Gpui.Icon.Bell` | bell |
-| `Gpui.Icon.Calendar` | calendar |
-| `Gpui.Icon.Check` | check |
-| `Gpui.Icon.ChevronDown` | chevron-down |
-| `Gpui.Icon.ChevronLeft` | chevron-left |
-| `Gpui.Icon.ChevronRight` | chevron-right |
-| `Gpui.Icon.ChevronUp` | chevron-up |
-| `Gpui.Icon.ChevronsUpDown` | chevrons-up-down |
-| `Gpui.Icon.CircleCheck` | circle-check |
-| `Gpui.Icon.CircleX` | circle-x |
-| `Gpui.Icon.Close` | x |
-| `Gpui.Icon.Copy` | copy |
-| `Gpui.Icon.Ellipsis` | ellipsis |
-| `Gpui.Icon.ExternalLink` | external-link |
-| `Gpui.Icon.Eye` | eye |
-| `Gpui.Icon.EyeOff` | eye-off |
-| `Gpui.Icon.File` | file |
-| `Gpui.Icon.Folder` | folder |
-| `Gpui.Icon.FolderOpen` | folder-open |
-| `Gpui.Icon.Inbox` | inbox |
-| `Gpui.Icon.Info` | info |
-| `Gpui.Icon.Loader` | loader-circle |
-| `Gpui.Icon.Minus` | minus |
-| `Gpui.Icon.PanelLeftClose` | panel-left-close |
-| `Gpui.Icon.PanelLeftOpen` | panel-left-open |
-| `Gpui.Icon.PanelRightClose` | panel-right-close |
-| `Gpui.Icon.PanelRightOpen` | panel-right-open |
-| `Gpui.Icon.Plus` | plus |
-| `Gpui.Icon.Redo2` | redo-2 |
-| `Gpui.Icon.Search` | search |
-| `Gpui.Icon.SortAscending`, `Gpui.Icon.SortAscending.Faint` | arrow-up (the faint one for an inactive column) |
-| `Gpui.Icon.SortDescending`, `Gpui.Icon.SortDescending.Faint` | arrow-down |
-| `Gpui.Icon.Star` | star |
-| `Gpui.Icon.StarFill` | star, filled |
-| `Gpui.Icon.TriangleAlert` | triangle-alert |
-| `Gpui.Icon.Undo2` | undo-2 |
-| `Gpui.Icon.User` | user |
-| `Gpui.Icon.WindowClose` | the title bar's close |
-| `Gpui.Icon.WindowMaximize` | the title bar's maximize |
-| `Gpui.Icon.WindowMinimize` | the title bar's minimize |
-| `Gpui.Icon.WindowRestore` | the title bar's restore |
+| `UIKit.Icon.Bell` | bell |
+| `UIKit.Icon.Calendar` | calendar |
+| `UIKit.Icon.Check` | check |
+| `UIKit.Icon.ChevronDown` | chevron-down |
+| `UIKit.Icon.ChevronLeft` | chevron-left |
+| `UIKit.Icon.ChevronRight` | chevron-right |
+| `UIKit.Icon.ChevronUp` | chevron-up |
+| `UIKit.Icon.ChevronsUpDown` | chevrons-up-down |
+| `UIKit.Icon.CircleCheck` | circle-check |
+| `UIKit.Icon.CircleX` | circle-x |
+| `UIKit.Icon.Close` | x |
+| `UIKit.Icon.Copy` | copy |
+| `UIKit.Icon.Ellipsis` | ellipsis |
+| `UIKit.Icon.ExternalLink` | external-link |
+| `UIKit.Icon.Eye` | eye |
+| `UIKit.Icon.EyeOff` | eye-off |
+| `UIKit.Icon.File` | file |
+| `UIKit.Icon.Folder` | folder |
+| `UIKit.Icon.FolderOpen` | folder-open |
+| `UIKit.Icon.Inbox` | inbox |
+| `UIKit.Icon.Info` | info |
+| `UIKit.Icon.Loader` | loader-circle |
+| `UIKit.Icon.Minus` | minus |
+| `UIKit.Icon.PanelLeftClose` | panel-left-close |
+| `UIKit.Icon.PanelLeftOpen` | panel-left-open |
+| `UIKit.Icon.PanelRightClose` | panel-right-close |
+| `UIKit.Icon.PanelRightOpen` | panel-right-open |
+| `UIKit.Icon.Plus` | plus |
+| `UIKit.Icon.Redo2` | redo-2 |
+| `UIKit.Icon.Search` | search |
+| `UIKit.Icon.SortAscending`, `UIKit.Icon.SortAscending.Faint` | arrow-up (the faint one for an inactive column) |
+| `UIKit.Icon.SortDescending`, `UIKit.Icon.SortDescending.Faint` | arrow-down |
+| `UIKit.Icon.Star` | star |
+| `UIKit.Icon.StarFill` | star, filled |
+| `UIKit.Icon.TriangleAlert` | triangle-alert |
+| `UIKit.Icon.Undo2` | undo-2 |
+| `UIKit.Icon.User` | user |
+| `UIKit.Icon.WindowClose` | the title bar's close |
+| `UIKit.Icon.WindowMaximize` | the title bar's maximize |
+| `UIKit.Icon.WindowMinimize` | the title bar's minimize |
+| `UIKit.Icon.WindowRestore` | the title bar's restore |
 
 For other icons, add your own `StreamGeometry` resources, or a package such as `Lucide.Avalonia`, and point `Data` at them.

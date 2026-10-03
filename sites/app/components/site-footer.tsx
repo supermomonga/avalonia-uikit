@@ -15,16 +15,25 @@ export function SiteFooter() {
             >
               supermomonga
             </a>
-            . A port of{" "}
+            . Based on{" "}
             <a
-              href={siteConfig.links.upstream}
+              href={siteConfig.links.shadcn}
+              target="_blank"
+              rel="noreferrer"
+              class="font-medium underline underline-offset-4"
+            >
+              shadcn/ui
+            </a>{" "}
+            and{" "}
+            <a
+              href={siteConfig.links.gpuiKit}
               target="_blank"
               rel="noreferrer"
               class="font-medium underline underline-offset-4"
             >
               GPUI Kit
             </a>
-            's look to Avalonia. Not affiliated with Longbridge or AvaloniaUI.
+            . Not affiliated with shadcn, Longbridge or AvaloniaUI.
             The source code is available on{" "}
             <a
               href={siteConfig.links.github}

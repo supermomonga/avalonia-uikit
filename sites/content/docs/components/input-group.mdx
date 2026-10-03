@@ -7,7 +7,7 @@ description: "A text field with prefix and suffix addons inside one frame."
 
 ## Usage
 
-`TextBox Classes="group"` is GPUI Kit's InputGroup: `InnerLeftContent` and `InnerRightContent` are the addons, inside the frame, 6px from the border and 8px from the text. Text addons are muted and medium-weight; a `PathIcon` or a `Button` works as well. A `Button` in the group gets GPUI's InputGroupButton look on its own: a compact ghost button tinted with `muted` on hover and press, square with `icon-only`. The frame's border and background move to their new color over 120ms, as GPUI's group appearance transition.
+`TextBox Classes="group"` is an input group: `InnerLeftContent` and `InnerRightContent` are the addons, inside the frame, 6px from the border and 8px from the text. Text addons are muted and medium-weight; a `PathIcon` or a `Button` works as well. A `Button` in the group gets the group's button look on its own: a compact ghost button tinted with `muted` on hover and press, square with `icon-only`. The frame's border and background move to their new color over 120ms.
 
 A multi-line group is `AcceptsReturn="True"`, as for the Textarea. An invalid group (Avalonia's `:error`, set through `DataValidationErrors`) shows the danger border and ring, even when unfocused or disabled; disabled, the whole group fades to half. Sizes: `xsmall`, `small`, `large` (medium is the default).
 

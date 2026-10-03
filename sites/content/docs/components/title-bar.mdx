@@ -1,15 +1,15 @@
 ---
 title: "Title Bar"
-description: "GPUI Kit's title bar and window border, as the decorations Avalonia draws itself."
+description: "A title bar and window border, as the decorations Avalonia draws itself."
 ---
 
 <Demo name="title-bar/demo" />
 
 ## Usage
 
-The demo is a mock: `WindowDrawnDecorations` only renders inside a real window, so the page builds the same bar from the theme's pieces (the gradient, the rule, `GpuiCaptionButton` with its `close` class, and the `Gpui.TitleBar.*` resources). In an app nothing is composed by hand: the theme applies to the window chrome itself.
+The demo is a mock: `WindowDrawnDecorations` only renders inside a real window, so the page builds the same bar from the theme's pieces (the gradient, the rule, `UIKitCaptionButton` with its `close` class, and the `UIKit.TitleBar.*` resources). In an app nothing is composed by hand: the theme applies to the window chrome itself.
 
-Set `ExtendClientAreaToDecorationsHint="True"` on the `Window`. The theme covers `WindowDrawnDecorations`, the decorations Avalonia draws itself: a 34px title bar with a 1px rule at its bottom, filled with GPUI Kit's gradient from the title bar color mixed with 45% of the background down to the title bar color; the window's `Title` at 14px medium, inset by the `Gpui.TitleBar.Padding` resource (12px by default); and the caption buttons, 34 by 33 with 14px icons, secondary on hover and press, danger for close, the maximize button showing restore while maximized. The frame is 1px of GPUI Kit's fixed gray inside a 20px shadow area with its two shadows. Avalonia draws these on Windows (with the extended client area), X11 and Wayland with client-side decorations, never on macOS.
+Set `ExtendClientAreaToDecorationsHint="True"` on the `Window`. The theme covers `WindowDrawnDecorations`, the decorations Avalonia draws itself: a 34px title bar with a 1px rule at its bottom, filled with a gradient from the title bar color mixed with 45% of the background down to the title bar color; the window's `Title` at 14px medium, inset by the `UIKit.TitleBar.Padding` resource (12px by default); and the caption buttons, 34 by 33 with 14px icons, secondary on hover and press, danger for close, the maximize button showing restore while maximized. The frame is 1px of the `UIKit.WindowFrame` gray inside a 20px shadow area with two shadows. Avalonia draws these on Windows (with the extended client area), X11 and Wayland with client-side decorations, never on macOS.
 
 ## Not covered
 

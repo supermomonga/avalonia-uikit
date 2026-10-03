@@ -1,15 +1,15 @@
 ---
 title: "Input"
-description: "GPUI Kit's input frame, focus ring and placeholder, as Avalonia's TextBox."
+description: "An input frame with a focus ring and a placeholder, as Avalonia's TextBox."
 ---
 
 <Demo name="input/demo" />
 
 ## Usage
 
-The theme covers `TextBox` (`MaskedTextBox` shares it): the frame with the input background and a 1px `input` border that turns to `ring`, with the ring band, while the field or anything in it has focus; the muted `PlaceholderText`; no hover look. GPUI shows a selection only while focused, so an unfocused field hides it.
+The theme covers `TextBox` (`MaskedTextBox` shares it): the frame with the input background and a 1px `input` border that turns to `ring`, with the ring band, while the field or anything in it has focus; the muted `PlaceholderText`; no hover look. The selection shows only while the field is focused.
 
-`InnerLeftContent` and `InnerRightContent` are GPUI's prefix and suffix, a size's gap from the text; for addons inside one bordered frame see Input Group. A password is masked with `PasswordChar="•"` (GPUI's mask character), and `Classes="revealPasswordButton"` adds GPUI's mask toggle, an eye button that shows the text while checked. A disabled field fills with the disabled background and draws its text, placeholder and inner content at half strength; a read-only field has no look of its own.
+`InnerLeftContent` and `InnerRightContent` are the prefix and suffix, a size's gap from the text; for addons inside one bordered frame see Input Group. A password is masked with `PasswordChar="•"`, and `Classes="revealPasswordButton"` adds a mask toggle, an eye button that shows the text while checked. A disabled field fills with the disabled background and draws its text, placeholder and inner content at half strength; a read-only field has no look of its own.
 
 | Class | Effect |
 | --- | --- |
@@ -36,6 +36,6 @@ Read-only and disabled fields.
 
 ## Not covered
 
-- GPUI Kit's validation and mask syntax (use `MaskedTextBox` or your own validation).
+- Validation and masking built into the field (use `MaskedTextBox` or your own validation).
 - Clearing with <Kbd>Esc</Kbd>.
 - Inline tokens.

@@ -10,7 +10,7 @@ import { components, findComponent } from "@/lib/catalog"
 import { previewSize, previewUrls } from "@/lib/previews"
 import { siteConfig } from "@/lib/site"
 
-const title = "GPUI Kit's look and motion, for Avalonia"
+const title = "Nova-style themes and controls for Avalonia"
 
 /** Representative components on the home page, in order. */
 const featured = [
@@ -27,7 +27,7 @@ const featured = [
 const features = [
   {
     title: "Verified pixel by pixel",
-    text: "Every theme is compared with GPUI Kit's own renders: Light and Dark, each variant, size and state, and the motion frame by frame.",
+    text: "Every theme is compared with reference renders: Light and Dark, each variant, size and state, and the motion frame by frame.",
   },
   {
     title: `${components.length} components`,
@@ -39,15 +39,15 @@ const features = [
   },
   {
     title: "Light and dark",
-    text: "Switch with RequestedThemeVariant. The color tokens are generated from GPUI Kit's Default Light and Default Dark themes.",
+    text: "Switch with RequestedThemeVariant. Every color token has a light and a dark value.",
   },
   {
     title: "One line to install",
-    text: "Add <uikit:GpuiTheme /> to App.axaml. It works on its own, or layered on top of FluentTheme for the controls it does not cover.",
+    text: "Add <uikit:NovaTheme /> to App.axaml. It works on its own, or layered on top of FluentTheme for the controls it does not cover.",
   },
   {
     title: "Your font, not ours",
-    text: "The theme uses the platform's UI font by default. Set Gpui.FontFamily to Inter for GPUI Kit's exact proportions.",
+    text: "The theme uses the platform's UI font by default. Set UIKit.FontFamily to Inter to match the demos on this site.",
   },
 ]
 

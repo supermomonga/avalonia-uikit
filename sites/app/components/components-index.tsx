@@ -6,7 +6,7 @@ import { DocsPage } from "./docs-page"
 import { DocsLayout } from "./docs-sidebar"
 
 const description =
-  "Every GPUI Kit component the library ports: themes for Avalonia's own controls, and new controls for the small components Avalonia lacks."
+  "Every component the library covers: themes for Avalonia's own controls, and new controls for the small components Avalonia lacks."
 
 function ComponentCard({ entry }: { entry: ComponentEntry }) {
   const id = `${entry.slug}/demo`

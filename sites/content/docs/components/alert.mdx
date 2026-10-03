@@ -1,13 +1,13 @@
 ---
 title: "Alert"
-description: "A message with a title and an icon in GPUI Kit's info, success, warning and error colors."
+description: "A message with a title and an icon in the info, success, warning and error colors."
 ---
 
 <Demo name="alert/demo" />
 
 ## Usage
 
-`gpui:Alert` shows its content as the message, with an optional `Title` above it and an `Icon` before the text (a `Geometry`; GPUI Kit's info icon when unset). The variant is a class; without one the alert is the foreground on the background. The variant color is the text and the icon, at 4% the fill and at 30% the border. `IsClosable="True"` adds a close button at the top right; it only raises `CloseRequested`, and hiding the alert is the app's, as GPUI Kit's `on_close` leaves it to the app. In the demo above, the handler sets `IsVisible` to false.
+`uikit:Alert` shows its content as the message, with an optional `Title` above it and an `Icon` before the text (a `Geometry`; the info icon when unset). The variant is a class; without one the alert is the foreground on the background. The variant color is the text and the icon, at 4% the fill and at 30% the border. `IsClosable="True"` adds a close button at the top right; it only raises `CloseRequested`, and hiding the alert is up to the app. In the demo above, the handler sets `IsVisible` to false.
 
 | Group | Classes |
 | --- | --- |
@@ -31,4 +31,4 @@ The four sizes, from 12 by 6 to 20 by 14 of padding; large takes the larger radi
 
 ## Not covered
 
-- Markdown in the message (GPUI Kit's TextView).
+- Markdown in the message.

@@ -1,11 +1,11 @@
 ---
 title: "Theming"
-description: "Light and dark, GPUI Kit's color tokens, the font, and the sizes and variants chosen with style classes."
+description: "Light and dark, the color tokens, the font, and the sizes and variants chosen with style classes."
 ---
 
 ## Light and dark
 
-The theme has GPUI Kit's Default Light and Default Dark themes. Switch with Avalonia's `RequestedThemeVariant`, on the application or on any control:
+The theme comes in light and dark. Switch with Avalonia's `RequestedThemeVariant`, on the application or on any control:
 
 ```xml
 <Application RequestedThemeVariant="Dark">
@@ -19,32 +19,32 @@ The theme has GPUI Kit's Default Light and Default Dark themes. Switch with Aval
 
 ## Color tokens
 
-Every color GPUI Kit resolves for its themes is a resource with a `Gpui.` prefix: the theme's own tokens (`Gpui.Background`, `Gpui.Foreground`, `Gpui.Border`, `Gpui.Primary`, `Gpui.PrimaryForeground`, `Gpui.Secondary`, `Gpui.Muted`, `Gpui.MutedForeground`, `Gpui.Accent`, `Gpui.Danger`, `Gpui.Warning`, `Gpui.Success`, `Gpui.Info`, `Gpui.Link`, `Gpui.Popover`, `Gpui.FocusRing`, the palette colors `Gpui.Blue`, `Gpui.Green` and so on) and the colors its components derive while painting (`Gpui.Button.Primary.Hover.Background`, for example). Each token is a `SolidColorBrush`; the `Color` is the same key with a `.Color` suffix. Use them with `DynamicResource` so they follow the theme variant:
+Every color of the theme is a resource with a `UIKit.` prefix: the base tokens (`UIKit.Background`, `UIKit.Foreground`, `UIKit.Border`, `UIKit.Primary`, `UIKit.PrimaryForeground`, `UIKit.Secondary`, `UIKit.Muted`, `UIKit.MutedForeground`, `UIKit.Accent`, `UIKit.Danger`, `UIKit.Warning`, `UIKit.Success`, `UIKit.Info`, `UIKit.Link`, `UIKit.Popover`, `UIKit.FocusRing`, the palette colors `UIKit.Blue`, `UIKit.Green` and so on) and the colors the components derive from them for their states (`UIKit.Button.Primary.Hover.Background`, for example). Each token is a `SolidColorBrush`; the `Color` is the same key with a `.Color` suffix. Use them with `DynamicResource` so they follow the theme variant:
 
 ```xml
-<Border Background="{DynamicResource Gpui.Muted}"
-        BorderBrush="{DynamicResource Gpui.Border}">
-  <TextBlock Foreground="{DynamicResource Gpui.MutedForeground}" Text="Muted" />
+<Border Background="{DynamicResource UIKit.Muted}"
+        BorderBrush="{DynamicResource UIKit.Border}">
+  <TextBlock Foreground="{DynamicResource UIKit.MutedForeground}" Text="Muted" />
 </Border>
 ```
 
-The tokens are generated from GPUI Kit, so they are not meant to be edited by hand. An application can still override one in `Application.Resources`, which Avalonia checks before the theme.
+The tokens are generated, so they are not meant to be edited by hand. An application can still override one in `Application.Resources`, which Avalonia checks before the theme; the derived colors are resources of their own and do not follow the override.
 
 ## Font
 
-GPUI Kit uses the platform's UI font, and so does the theme: `Gpui.FontFamily` is `$Default`. GPUI Kit's own apps ship Inter; for its exact proportions, add Inter to your app and override the resource:
+The theme uses the platform's UI font: `UIKit.FontFamily` is `$Default`. The demos on this site use Inter; to match them, add Inter to your app and override the resource:
 
 ```xml title="App.axaml"
 <Application.Resources>
-  <FontFamily x:Key="Gpui.FontFamily">avares://MyApp/Assets/Fonts#Inter</FontFamily>
+  <FontFamily x:Key="UIKit.FontFamily">avares://MyApp/Assets/Fonts#Inter</FontFamily>
 </Application.Resources>
 ```
 
-The other metrics are resources too: `Gpui.FontSize` (16, GPUI's rem) with `Gpui.FontSize.Xs`, `.Sm`, `.Base` and `.Lg` (12, 14, 16, 18), `Gpui.Radius` (6) and `Gpui.RadiusLg` (8), and the springs `Gpui.Spring.Control` and `Gpui.Spring.Move` that drive the motion.
+The other metrics are resources too: `UIKit.FontSize` (16) with `UIKit.FontSize.Xs`, `.Sm`, `.Base` and `.Lg` (12, 14, 16, 18), `UIKit.Radius` (6) and `UIKit.RadiusLg` (8), and the springs `UIKit.Spring.Control` and `UIKit.Spring.Move` that drive the motion.
 
 ## Sizes
 
-GPUI Kit's components come in four sizes. Pick one with a style class; the default is medium.
+The components come in four sizes. Pick one with a style class; the default is medium.
 
 ```xml
 <Button Classes="xsmall" Content="XSmall" />
@@ -57,13 +57,13 @@ GPUI Kit's components come in four sizes. Pick one with a style class; the defau
 
 ## Variants
 
-Variants are style classes as well, so a button is written with GPUI Kit's vocabulary and the classes combine freely:
+Variants are style classes as well, and the classes combine freely:
 
 ```xml
 <Button Classes="primary" Content="Primary" />
 <Button Classes="danger outline small" Content="Delete" />
 <Button Classes="ghost icon-only">
-  <PathIcon Data="{StaticResource Gpui.Icon.Copy}" />
+  <PathIcon Data="{StaticResource UIKit.Icon.Copy}" />
 </Button>
 ```
 
@@ -77,22 +77,22 @@ Variants are style classes as well, so a button is written with GPUI Kit's vocab
 | `Separator` | `vertical`, `dashed`. |
 | `TabStrip`, `TabControl` | `pill`, `segmented`, `underline`. |
 | `TextBox` | `revealPasswordButton`; `group` for an input group. |
-| `ComboBox` | `combobox` for GPUI Kit's Combobox look. |
+| `ComboBox` | `combobox` for the Combobox look. |
 | `Image` | `rounded`, `rounded-lg`, `rounded-full`. |
-| `gpui:Alert` | `info`, `success`, `warning`, `error`. |
-| `gpui:TagLabel` | `primary`, `secondary`, `danger`, `success`, `warning`, `info` or a palette color (`red`, `blue`, `emerald`…); `outline`, `transparent`, `fill`. |
-| `gpui:Kbd` | `outline`. |
-| `gpui:Skeleton` | `secondary`. |
+| `uikit:Alert` | `info`, `success`, `warning`, `error`. |
+| `uikit:TagLabel` | `primary`, `secondary`, `danger`, `success`, `warning`, `info` or a palette color (`red`, `blue`, `emerald`…); `outline`, `transparent`, `fill`. |
+| `uikit:Kbd` | `outline`. |
+| `uikit:Skeleton` | `secondary`. |
 
 A class the theme does not know is ignored, so a typo gives the default look rather than an error.
 
 ## Named themes
 
-A few GPUI Kit components are another look of an Avalonia control, chosen with `Theme`:
+A few components are another look of an Avalonia control, chosen with `Theme`:
 
 ```xml
-<ProgressBar Theme="{StaticResource GpuiSpinner}" IsIndeterminate="True" />
-<ProgressBar Theme="{StaticResource GpuiProgressCircle}" Value="60" />
-<Expander Theme="{StaticResource GpuiCollapsible}" Header="Details" />
-<TableView Theme="{StaticResource GpuiTable}" />
+<ProgressBar Theme="{StaticResource UIKitSpinner}" IsIndeterminate="True" />
+<ProgressBar Theme="{StaticResource UIKitProgressCircle}" Value="60" />
+<Expander Theme="{StaticResource UIKitCollapsible}" Header="Details" />
+<TableView Theme="{StaticResource UIKitTable}" />
 ```
