@@ -4,7 +4,7 @@ GpuiTheme が GPUI Kit と同じ見た目・動きになっていることを、
 
 - 移植元: gpui-kit [`2c5162f8c5b0c7fcec066ed53125d304c632bfe2`](https://github.com/longbridge/gpui-kit/tree/2c5162f8c5b0c7fcec066ed53125d304c632bfe2)（gpui-pre 0.3.7）
 - 移植先: Avalonia 12.1.3、.NET 10、TUnit 1.72.16
-- 参照データ: `goldens/gpui-2c5162f/`（1406 ケース。PNG、Scene JSON、トークン）
+- 参照データ: `goldens/gpui-2c5162f/`（1408 ケース。PNG、Scene JSON、トークン）
 
 ## コマンド
 
@@ -31,12 +31,12 @@ GpuiTheme が GPUI Kit と同じ見た目・動きになっていることを、
 
 ## テストの構成
 
-1455 件。macOS arm64 での最新の実行結果は全件成功。
+1461 件。macOS arm64 での最新の実行結果は全件成功。
 
 | テスト | 件数 | 内容 |
 | --- | --- | --- |
 | `*_matches_gpui`（コンポーネント別 18 クラス） | 1398 | 静止状態の全ケース。構造と画素を比較する。 |
-| `MotionTests`（3 種 × 8 動き） | 24 | 動きの (a) 曲線、(b) 途中の静止フレーム、(c) 実時間。 |
+| `MotionTests`（3 種 × 10 動き） | 30 | 動きの (a) 曲線、(b) 途中の静止フレーム、(c) 実時間。 |
 | `TokenTests` | 3 | トークンの完全一致と過不足。 |
 | `BehaviorTests` | 11 | 時間・入力・無効状態の挙動。 |
 | `FluentLayeringTests` | 19 | FluentTheme の上に重ねても見た目が変わらないこと。 |
@@ -117,13 +117,14 @@ Avalonia には任意の時刻で描画するための仮想時計がない（R7
 
 | 動き | GPUI | Avalonia | (a) の許容値 |
 | --- | --- | --- | --- |
-| Checkbox / Radio のチェック | spring_control で不透明度 | SpringEasing（D≈265ms） | 0.002 |
+| Checkbox / Radio のチェック | spring_control で不透明度 | SpringEasing（D=265ms） | 0.002 |
 | Switch のつまみ | spring_move で位置 | KnobTransitions の SpringEasing（D=234/271/302ms） | 0.26 px（R8, R9） |
 | Progress の値 | 180ms、easing_move | Width の Transition、SplineEasing(0.2,0,0,1) | 0.26 px |
 | 不定値 Progress | 1 秒周期の左右端 | 幅のキーフレーム + KeySpline | 0.26 px |
 | Spinner | 0.8 秒で 1 回転 | RotateTransform のキーフレーム | 0.01° |
 | Tooltip の表示 | 150ms、ease-out-cubic でフェードと 4px | Opacity と TranslateTransform | 不透明度 1/255、位置 0.26 px |
 | スクロールバーの表示 | 300ms、linear | Opacity | 0.003 |
+| スクロールバーの消去 | 2 秒待ってから 500ms、ease-in-cubic でフェードと 16px のスライド | ScrollBar の `HideDelay` と、Opacity / Track の RenderTransform の Transition | 不透明度 0.003、位置 0.26 px |
 | つまみの拡大 | 300ms、ease-out-cubic で 6→8px | Width | 0.26 px |
 
 ### 挙動
@@ -162,7 +163,7 @@ Avalonia には任意の時刻で描画するための仮想時計がない（R7
 | R17 | rem は 16px に固定。 | GPUI の rem を変える設定は対象外。 |
 | R18 | 下線の位置と太さ。GPUI は descent の 0.618 倍、Avalonia はフォントの値を使う。 | Ink 領域として比べる。 |
 | R19 | クリップされた図形の輪郭はクリップ側になる。不定値 Progress で角丸より細いバーは、GPUI では幅 2r の pill、Avalonia では 2 つの丸い端が重なった形になる。 | 構造比較でクリップ側の角丸を認め、該当フレームの画素の許容値を緩める。 |
-| R20 | スクロールバーの Scrolling モード（スクロール中だけ表示）。 | 対象外。Always と Hover だけを移植した。 |
+| R20 | スクロールバーの Scrolling モード（スクロール中だけ表示）と、Hover モードで隠れたバーのつまみを直接指したときのスライド入場（SlideAndFade）。 | 対象外。Always と Hover を移植し、Hover は帯に入ったときのフェード入場と、離れたときのフェード・スライド退場を再現した。 |
 | R21 | Tooltip の閉じる前の猶予と、隣への切り替えスライド。 | 対象外。 |
 | R22 | ショートカットの表記は OS ごとに異なる。 | 修飾キーのないショートカット（F5）だけを比べる。 |
 | R23 | 欠番。 | – |
