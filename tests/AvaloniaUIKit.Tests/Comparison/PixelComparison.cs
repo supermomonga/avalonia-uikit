@@ -138,6 +138,19 @@ public static class PixelComparison
                 return false;
             }, area);
         }
+        // Where a clip cuts a quad, the cut is an edge too: GPUI rounds the clip's
+        // edges to the nearest device pixel, Avalonia's layout rounds sizes up (R9).
+        foreach (var q in scene.Quads)
+        {
+            var cut = q.Bounds.Intersect(q.Clip);
+            if (cut == q.Bounds || cut.Width <= 0 || cut.Height <= 0 ||
+                (q.BorderWidths == default || q.BorderColor.IsTransparent) && (!q.SolidBackground || q.Background.IsTransparent))
+            {
+                continue;
+            }
+            Mark(Region.Edge, (x, y) => Math.Abs(RoundedRectDistance(q.Clip, default, x, y)) <= edgeReach * 1.01,
+                cut.Inflate(edgeReach * 1.5).Intersect(q.Bounds));
+        }
         // The outlines Avalonia paints count as edges too: text measurement may
         // place an edge up to one device pixel away from GPUI's (R9).
         foreach (var p in actual ?? [])

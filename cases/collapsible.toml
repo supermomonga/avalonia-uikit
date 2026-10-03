@@ -1,0 +1,50 @@
+# GPUI Kit Collapsible -> Expander.collapsible (".reveal" for motion_id).
+# A 240px column: a 22.5px trigger line and a 56px content block (8px padding + 48px box).
+component = "collapsible"
+viewport = [272, 104]
+anchor = [16, 8]
+
+[[group]]
+name = "state"
+matrix = { open = [false, true], motion = [false, true] }
+
+# Content before the trigger <-> ExpandDirection=Up.
+[[group]]
+name = "up"
+params = { content_first = true }
+matrix = { open = [false, true] }
+
+# The trigger has no hover look and is not a tab stop in GPUI (drop "focus" if an
+# Avalonia-only ring is chosen for the header).
+[[group]]
+name = "interaction"
+params = { open = true }
+states = ["hover", "focus"]
+
+[[motion]]
+name = "open"
+params = { motion = true }
+trigger = "click-at-60-19"
+samples_ms = [0, 16, 33, 50, 66, 83, 100, 133, 166, 200, 233, 266, 300]
+themes = ["light"]
+
+[[motion]]
+name = "close"
+params = { motion = true, open = true }
+trigger = "click-at-60-19"
+samples_ms = [0, 16, 33, 50, 66, 83, 100, 133, 166, 200, 233, 266, 300]
+themes = ["light"]
+
+[[motion]]
+name = "reverse"
+params = { motion = true }
+trigger = "click-at-60-19+wait-80ms+click-at-60-19"
+samples_ms = [0, 16, 33, 50, 66, 83, 100, 133, 166, 200, 233, 266, 300, 350]
+themes = ["light"]
+
+# Without motion_id the content appears in the first frame.
+[[motion]]
+name = "instant"
+trigger = "click-at-60-19"
+samples_ms = [0, 16, 100]
+themes = ["light"]

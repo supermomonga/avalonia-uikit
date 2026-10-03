@@ -42,6 +42,7 @@
   <StyleInclude Source="avares://AvaloniaUIKit/Themes/Controls/Tabs.axaml" />
   <StyleInclude Source="avares://AvaloniaUIKit/Themes/Controls/CommandBar.axaml" />
   <StyleInclude Source="avares://AvaloniaUIKit/Themes/Controls/Slider.axaml" />
+  <StyleInclude Source="avares://AvaloniaUIKit/Themes/Controls/Expander.axaml" />
 
   <!-- GPUI sizes a text to whole pixels, rounding its width up (text.rs). -->
   <Style Selector=":is(TopLevel)">

@@ -1,0 +1,207 @@
+<!--
+  GPUI Kit AccordionItem (crates/component/src/accordion.rs) -> Expander, and
+  Collapsible (crates/component/src/collapsible.rs) -> Expander with
+  Theme="{StaticResource GpuiCollapsible}":
+
+    <Border Classes="accordion">
+      <StackPanel Classes="accordion">
+        <Expander Header="Is it accessible?" Content="Yes, it is." />
+        ...
+      </StackPanel>
+    </Border>
+
+  An Expander is one accordion item: a medium-weight title row with a 12px
+  muted chevron (turned up while open, gone while disabled) over the content,
+  on the accordion background. Sizes: xsmall small large (medium is the
+  default). In a StackPanel.accordion every item but the last has GPUI's 1px
+  separator; a Border.accordion is the card around them (bordered(true)).
+  Opening and closing reveal the content as GPUI's MotionReveal does: the
+  layout height is the content's natural height times a spring's progress
+  (spring_control), clipped from the bottom; a turn mid-way keeps velocity.
+  Expanders open independently (GPUI's multiple(true)). The title row takes
+  no hover look and shows no focus ring, as GPUI's.
+
+  GpuiCollapsible has no chrome: the header and content are the app's, the
+  content appears and disappears at once, or with the reveal under the class
+  reveal (GPUI's motion_id). ExpandDirection Up puts the content first.
+-->
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:gpui="using:AvaloniaUIKit"
+        xmlns:gconv="using:AvaloniaUIKit.Converters">
+  <Styles.Resources>
+    <!-- A header row without a look of its own; the whole row takes the pointer. -->
+    <ControlTheme x:Key="GpuiExpanderHeader" TargetType="ToggleButton">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="HorizontalAlignment" Value="Stretch" />
+      <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+      <Setter Property="VerticalContentAlignment" Value="Center" />
+      <Setter Property="Template">
+        <ControlTemplate>
+          <ContentPresenter Name="PART_ContentPresenter"
+                            Background="{TemplateBinding Background}"
+                            Padding="{TemplateBinding Padding}"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+        </ControlTemplate>
+      </Setter>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type Expander}" TargetType="Expander">
+      <Setter Property="Background" Value="{DynamicResource Gpui.Accordion}" />
+      <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Border}" />
+      <Setter Property="BorderThickness" Value="0" />
+      <Setter Property="HorizontalAlignment" Value="Stretch" />
+      <Setter Property="FontSize" Value="14" />
+      <!-- GPUI's phi line snapped to device pixels. -->
+      <Setter Property="TextBlock.LineHeight" Value="22.5" />
+      <!-- The content's padding: px on the sides, py below. -->
+      <Setter Property="Padding" Value="12,0,12,8" />
+      <Setter Property="Template">
+        <ControlTemplate>
+          <Border Name="PART_Root"
+                  BackgroundSizing="OuterBorderEdge"
+                  Background="{TemplateBinding Background}"
+                  BorderBrush="{TemplateBinding BorderBrush}"
+                  BorderThickness="{TemplateBinding BorderThickness}"
+                  CornerRadius="{TemplateBinding CornerRadius}">
+            <DockPanel>
+              <ToggleButton Name="PART_Header" DockPanel.Dock="Top"
+                            Theme="{StaticResource GpuiExpanderHeader}"
+                            Padding="12,8"
+                            IsChecked="{Binding IsExpanded, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}">
+                <Grid ColumnDefinitions="*,Auto" ColumnSpacing="12">
+                  <ContentPresenter Name="PART_HeaderPresenter"
+                                    Content="{TemplateBinding Header}"
+                                    ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                    FontWeight="Medium"
+                                    TextWrapping="Wrap"
+                                    VerticalAlignment="Center" />
+                  <PathIcon Name="PART_Chevron" Grid.Column="1" Width="12" Height="12"
+                            Data="{StaticResource Gpui.Icon.ChevronDown}"
+                            Foreground="{DynamicResource Gpui.MutedForeground}"
+                            RenderTransformOrigin="50%,50%" VerticalAlignment="Center" />
+                </Grid>
+              </ToggleButton>
+              <!--
+                MotionReveal: the canvas lays the content out at its natural height
+                and is itself that height times the spring's progress, clipping.
+              -->
+              <Canvas Name="PART_Reveal" ClipToBounds="True"
+                      gpui:Motion.Spring="{StaticResource Gpui.Spring.Control}"
+                      gpui:Motion.SpringTarget="{TemplateBinding IsExpanded, Converter={x:Static gconv:RevealConverters.Unit}}">
+                <Canvas.Height>
+                  <MultiBinding Converter="{x:Static gconv:RevealConverters.Product}">
+                    <Binding ElementName="PART_ContentPresenter" Path="Bounds.Height" />
+                    <Binding RelativeSource="{RelativeSource Self}" Path="(gpui:Motion.SpringValue)" />
+                  </MultiBinding>
+                </Canvas.Height>
+                <Canvas.IsVisible>
+                  <MultiBinding Converter="{x:Static gconv:RevealConverters.Shown}">
+                    <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="IsExpanded" />
+                    <Binding RelativeSource="{RelativeSource Self}" Path="(gpui:Motion.SpringValue)" />
+                  </MultiBinding>
+                </Canvas.IsVisible>
+                <ContentPresenter Name="PART_ContentPresenter"
+                                  Width="{Binding #PART_Reveal.Bounds.Width}"
+                                  Padding="{TemplateBinding Padding}"
+                                  Content="{TemplateBinding Content}"
+                                  ContentTemplate="{TemplateBinding ContentTemplate}"
+                                  TextWrapping="Wrap" />
+              </Canvas>
+            </DockPanel>
+          </Border>
+        </ControlTemplate>
+      </Setter>
+      <Style Selector="^:expanded /template/ PathIcon#PART_Chevron">
+        <Setter Property="RenderTransform" Value="rotate(180deg)" />
+      </Style>
+      <Style Selector="^:disabled /template/ PathIcon#PART_Chevron">
+        <Setter Property="IsVisible" Value="False" />
+      </Style>
+      <Style Selector="^.xsmall">
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="TextBlock.LineHeight" Value="19.5" />
+        <Setter Property="Padding" Value="6,0,6,4" />
+      </Style>
+      <Style Selector="^.xsmall /template/ ToggleButton#PART_Header">
+        <Setter Property="Padding" Value="6,4" />
+      </Style>
+      <Style Selector="^.small">
+        <Setter Property="Padding" Value="8,0,8,6" />
+      </Style>
+      <Style Selector="^.small /template/ ToggleButton#PART_Header">
+        <Setter Property="Padding" Value="8,6" />
+      </Style>
+      <Style Selector="^.large">
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="TextBlock.LineHeight" Value="26" />
+        <Setter Property="Padding" Value="16,0,16,12" />
+      </Style>
+      <Style Selector="^.large /template/ ToggleButton#PART_Header">
+        <Setter Property="Padding" Value="16,12" />
+      </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="GpuiCollapsible" TargetType="Expander">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="HorizontalAlignment" Value="Stretch" />
+      <Setter Property="Padding" Value="0" />
+      <Setter Property="Template">
+        <ControlTemplate>
+          <DockPanel Background="{TemplateBinding Background}">
+            <ToggleButton Name="PART_Header" DockPanel.Dock="Top"
+                          Theme="{StaticResource GpuiExpanderHeader}"
+                          Content="{TemplateBinding Header}"
+                          ContentTemplate="{TemplateBinding HeaderTemplate}"
+                          IsChecked="{Binding IsExpanded, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}" />
+            <!-- Without the class reveal the spring takes each target at once: GPUI mounts at once. -->
+            <Canvas Name="PART_Reveal" ClipToBounds="True"
+                    gpui:Motion.Spring="{StaticResource Gpui.Spring.Control}"
+                    gpui:Motion.SpringTravel="False"
+                    gpui:Motion.SpringTarget="{TemplateBinding IsExpanded, Converter={x:Static gconv:RevealConverters.Unit}}">
+              <Canvas.Height>
+                <MultiBinding Converter="{x:Static gconv:RevealConverters.Product}">
+                  <Binding ElementName="PART_ContentPresenter" Path="Bounds.Height" />
+                  <Binding RelativeSource="{RelativeSource Self}" Path="(gpui:Motion.SpringValue)" />
+                </MultiBinding>
+              </Canvas.Height>
+              <Canvas.IsVisible>
+                <MultiBinding Converter="{x:Static gconv:RevealConverters.Shown}">
+                  <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="IsExpanded" />
+                  <Binding RelativeSource="{RelativeSource Self}" Path="(gpui:Motion.SpringValue)" />
+                </MultiBinding>
+              </Canvas.IsVisible>
+              <ContentPresenter Name="PART_ContentPresenter"
+                                Width="{Binding #PART_Reveal.Bounds.Width}"
+                                Padding="{TemplateBinding Padding}"
+                                Content="{TemplateBinding Content}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}" />
+            </Canvas>
+          </DockPanel>
+        </ControlTemplate>
+      </Setter>
+      <Style Selector="^:up /template/ ToggleButton#PART_Header">
+        <Setter Property="DockPanel.Dock" Value="Bottom" />
+      </Style>
+      <Style Selector="^.reveal /template/ Canvas#PART_Reveal">
+        <Setter Property="gpui:Motion.SpringTravel" Value="True" />
+      </Style>
+    </ControlTheme>
+  </Styles.Resources>
+
+  <!-- GPUI's separator: every item but the last has a 1px border below. -->
+  <Style Selector="StackPanel.accordion > Expander:not(:nth-last-child(1))">
+    <Setter Property="BorderThickness" Value="0,0,0,1" />
+  </Style>
+  <!-- bordered(true): the card around the items, radius_lg. -->
+  <Style Selector="Border.accordion">
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Border}" />
+    <Setter Property="CornerRadius" Value="7.5" />
+    <Setter Property="ClipToBounds" Value="True" />
+  </Style>
+</Styles>

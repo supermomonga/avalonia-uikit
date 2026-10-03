@@ -57,6 +57,8 @@ public static class Adapters
         "tabs" => TabStrip(c),
         "toolbar" => Toolbar(c),
         "popover" => Popover(c),
+        "accordion" => Accordion(c),
+        "collapsible" => Collapsible(c),
         "slider" => Slider(c),
         _ => throw new NotSupportedException($"no adapter for {c.Component}"),
     };
@@ -654,6 +656,76 @@ public static class Adapters
         }
         FlagClass(slider, c, "reverse");
         return slider;
+    }
+
+    private static Control Accordion(GoldenCase c)
+    {
+        var size = c.Str("size", "medium");
+        var scope = c.Str("scope");
+        var items = new StackPanel { Classes = { "accordion" }, Width = c.Num("width", 280) - (c.Bool("borderless") ? 0 : 2) };
+        (string Title, string Body, string Icon)[] rows =
+        [
+            ("Is it accessible?", "Yes, it is.", "copy"),
+            ("Is it styled?", "Yes, by the theme.", "plus"),
+            ("Is it animated?", "Yes, with a spring.", "check"),
+        ];
+        for (var i = 0; i < rows.Length; i++)
+        {
+            object header = rows[i].Title;
+            if (c.Bool("icons"))
+            {
+                // AccordionItem::icon: the item's icon size, 4px (xsmall, small) or 8px before the title.
+                var icon = Icon(rows[i].Icon);
+                icon.Width = icon.Height = size switch { "xsmall" => 12, "small" => 14, "large" => 24, _ => 16 };
+                header = new StackPanel
+                {
+                    Orientation = Orientation.Horizontal,
+                    Spacing = size is "xsmall" or "small" ? 4 : 8,
+                    Children = { icon, new TextBlock { Text = rows[i].Title, VerticalAlignment = VerticalAlignment.Center } },
+                };
+            }
+            var expander = new Expander
+            {
+                Header = header,
+                Content = rows[i].Body,
+                IsExpanded = i == 0 && c.Bool("open_first"),
+                IsEnabled = !(scope == "all" || (scope == "item" && i == 1)),
+            };
+            ClassFrom(expander, c, "size", "medium");
+            items.Children.Add(expander);
+        }
+        if (c.Bool("borderless"))
+        {
+            items.HorizontalAlignment = HorizontalAlignment.Left;
+            return items;
+        }
+        return new Border { Classes = { "accordion" }, Child = items, HorizontalAlignment = HorizontalAlignment.Left };
+    }
+
+    private static Expander Collapsible(GoldenCase c)
+    {
+        var up = c.Bool("content_first");
+        var expander = new Expander
+        {
+            Theme = (ControlTheme)Avalonia.Application.Current!.FindResource("GpuiCollapsible")!,
+            Width = c.Num("width", 240),
+            HorizontalAlignment = HorizontalAlignment.Left,
+            IsExpanded = c.Bool("open"),
+            ExpandDirection = up ? ExpandDirection.Up : ExpandDirection.Down,
+            Header = new TextBlock { Text = "Order details", FontSize = 14, FontWeight = Avalonia.Media.FontWeight.Medium, LineHeight = 22.5 },
+            Content = new Border
+            {
+                Margin = up ? new Avalonia.Thickness(0, 0, 0, 8) : new Avalonia.Thickness(0, 8, 0, 0),
+                Height = 48,
+                BackgroundSizing = Avalonia.Media.BackgroundSizing.OuterBorderEdge,
+                CornerRadius = new Avalonia.CornerRadius(5.5),
+                BorderThickness = new Avalonia.Thickness(1),
+                [!Border.BorderBrushProperty] = new Avalonia.Markup.Xaml.MarkupExtensions.DynamicResourceExtension("Gpui.Border"),
+                [!Border.BackgroundProperty] = new Avalonia.Markup.Xaml.MarkupExtensions.DynamicResourceExtension("Gpui.Muted"),
+            },
+        };
+        FlagClass(expander, c, "motion", "reveal");
+        return expander;
     }
 
     private static Button Popover(GoldenCase c)

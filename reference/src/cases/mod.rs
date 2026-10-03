@@ -11,6 +11,7 @@ use gpui_kit::{
 };
 use std::time::Duration;
 
+mod accordion;
 mod button;
 mod check;
 mod display;
@@ -70,6 +71,8 @@ pub fn builder(case: &Case) -> Result<Builder> {
         "tabs" => tabs::builder(&params),
         "toolbar" => toolbar::builder(&params),
         "popover" => popover::popover(&params),
+        "accordion" => accordion::builder(&params),
+        "collapsible" => accordion::collapsible(&params),
         "slider" => slider::builder(&params),
         other => bail!("unknown component {other}"),
     }

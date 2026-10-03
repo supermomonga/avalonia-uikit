@@ -92,6 +92,17 @@
           <TextBlock Classes="label">Company address<Run Classes="secondary"> (optional)</Run></TextBlock>
         </WrapPanel>
 
+        <TextBlock Text="Accordion, Collapsible" Foreground="{DynamicResource Gpui.MutedForeground}" />
+        <Border Classes="accordion" Width="320" HorizontalAlignment="Left">
+          <StackPanel Classes="accordion">
+            <Expander Header="Is it accessible?" Content="Yes, it is." IsExpanded="True" />
+            <Expander Header="Is it animated?" Content="Yes, with a spring." />
+          </StackPanel>
+        </Border>
+        <Expander Theme="{StaticResource GpuiCollapsible}" Classes="reveal" Header="Order details" Width="320" HorizontalAlignment="Left">
+          <TextBlock Text="Details" Margin="0,8,0,0" />
+        </Expander>
+
         <TextBlock Text="Popover" Foreground="{DynamicResource Gpui.MutedForeground}" />
         <Button Classes="outline" Content="Open" HorizontalAlignment="Left">
           <Button.Flyout>

@@ -142,6 +142,17 @@ public static class StructuralComparison
                 }
                 list.RemoveAll(p => p.Bounds.Width <= 0 || p.Bounds.Height <= 0);
             }
+            // Wholly clipped away (a closed reveal), it paints nothing: GPUI culls it.
+            if (ClipOf(visual, root, borders: false) is { } all)
+            {
+                for (var i = list.Count - 1; i >= before; i--)
+                {
+                    if (!list[i].Bounds.Intersects(all))
+                    {
+                        list.RemoveAt(i);
+                    }
+                }
+            }
         }
         return Dedupe(list);
     }
@@ -230,13 +241,16 @@ public static class StructuralComparison
             : new Primitive(PrimitiveKind.Band, bounds, radii, widths, 0, color, source);
     }
 
-    /// <summary>The intersection of the clipping ancestors' bounds (within the root), if any.</summary>
-    private static Rect? ClipOf(Visual visual, Visual root)
+    /// <summary>
+    /// The intersection of the clipping ancestors' bounds (within the root), if
+    /// any: the Borders' only (whose rounded clips cut outlines, R19) or all.
+    /// </summary>
+    private static Rect? ClipOf(Visual visual, Visual root, bool borders = true)
     {
         Rect? clip = null;
         for (var v = visual.GetVisualParent(); v is not null && v != root; v = v.GetVisualParent())
         {
-            if (v.ClipToBounds && v is Border && v.TranslatePoint(default, root) is { } origin)
+            if (v.ClipToBounds && (v is Border || !borders) && v.TranslatePoint(default, root) is { } origin)
             {
                 var r = new Rect(origin, v.Bounds.Size);
                 clip = clip is { } c ? c.Intersect(r) : r;

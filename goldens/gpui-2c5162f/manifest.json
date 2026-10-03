@@ -5,6 +5,1223 @@
   "font_family": "Inter",
   "cases": [
     {
+      "id": "accordion/borderless.base/normal/dark",
+      "component": "accordion",
+      "group": "borderless",
+      "params": {
+        "borderless": true,
+        "open_first": false
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        117.5
+      ],
+      "png": "png/accordion/borderless.base/normal/dark.png",
+      "scene": "scenes/accordion/borderless.base/normal/dark.json",
+      "png_sha256": "74776290d2591a129bd1032b9ce72c355be85c1afcf9e4655def62b394cbbec9"
+    },
+    {
+      "id": "accordion/borderless.base/normal/light",
+      "component": "accordion",
+      "group": "borderless",
+      "params": {
+        "borderless": true,
+        "open_first": false
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        117.5
+      ],
+      "png": "png/accordion/borderless.base/normal/light.png",
+      "scene": "scenes/accordion/borderless.base/normal/light.json",
+      "png_sha256": "595350521855ce6d3483553c87c2eac00b35fa6222ec96e0c6bb33693536d183"
+    },
+    {
+      "id": "accordion/borderless.open_first/normal/dark",
+      "component": "accordion",
+      "group": "borderless",
+      "params": {
+        "borderless": true,
+        "open_first": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        148.0
+      ],
+      "png": "png/accordion/borderless.open_first/normal/dark.png",
+      "scene": "scenes/accordion/borderless.open_first/normal/dark.json",
+      "png_sha256": "97f4b7cbd6ec9f481b60f347f1fa76618802368eb7ffed1550fb0de3f37e4ac9"
+    },
+    {
+      "id": "accordion/borderless.open_first/normal/light",
+      "component": "accordion",
+      "group": "borderless",
+      "params": {
+        "borderless": true,
+        "open_first": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        148.0
+      ],
+      "png": "png/accordion/borderless.open_first/normal/light.png",
+      "scene": "scenes/accordion/borderless.open_first/normal/light.json",
+      "png_sha256": "9a3381062e13406da2e7deb616c8e7e9a5f2f52e9dc90e05308ec9ca721e602c"
+    },
+    {
+      "id": "accordion/card.large.open_first/normal/dark",
+      "component": "accordion",
+      "group": "card",
+      "params": {
+        "size": "large",
+        "open_first": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        192.0
+      ],
+      "png": "png/accordion/card.large.open_first/normal/dark.png",
+      "scene": "scenes/accordion/card.large.open_first/normal/dark.json",
+      "png_sha256": "643fa926e5dfc848cd45c237e1b8287aa4405ee0d4cc1daf6527ea567f748d8f"
+    },
+    {
+      "id": "accordion/card.large.open_first/normal/light",
+      "component": "accordion",
+      "group": "card",
+      "params": {
+        "size": "large",
+        "open_first": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        192.0
+      ],
+      "png": "png/accordion/card.large.open_first/normal/light.png",
+      "scene": "scenes/accordion/card.large.open_first/normal/light.json",
+      "png_sha256": "fe32dbb6f57ee7fd873b7242ef5dc8cc8aedb15c2387dc2a0b51aa3a33e11745"
+    },
+    {
+      "id": "accordion/card.large/normal/dark",
+      "component": "accordion",
+      "group": "card",
+      "params": {
+        "size": "large",
+        "open_first": false
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        154.0
+      ],
+      "png": "png/accordion/card.large/normal/dark.png",
+      "scene": "scenes/accordion/card.large/normal/dark.json",
+      "png_sha256": "aa9f1a6db19a27f84a2e329d08c9abfdb9d02377569c03afa21a16ea2f38a7d0"
+    },
+    {
+      "id": "accordion/card.large/normal/light",
+      "component": "accordion",
+      "group": "card",
+      "params": {
+        "size": "large",
+        "open_first": false
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        154.0
+      ],
+      "png": "png/accordion/card.large/normal/light.png",
+      "scene": "scenes/accordion/card.large/normal/light.json",
+      "png_sha256": "696927780eb5fcb6a09af29893dcc04495333fb221cd90729ec23eb0b254a045"
+    },
+    {
+      "id": "accordion/card.medium.open_first/normal/dark",
+      "component": "accordion",
+      "group": "card",
+      "params": {
+        "size": "medium",
+        "open_first": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        150.0
+      ],
+      "png": "png/accordion/card.medium.open_first/normal/dark.png",
+      "scene": "scenes/accordion/card.medium.open_first/normal/dark.json",
+      "png_sha256": "567b830038b4e06a736f66f56931434f67567aa6577d21c264332e1cc52f177f"
+    },
+    {
+      "id": "accordion/card.medium.open_first/normal/light",
+      "component": "accordion",
+      "group": "card",
+      "params": {
+        "size": "medium",
+        "open_first": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        150.0
+      ],
+      "png": "png/accordion/card.medium.open_first/normal/light.png",
+      "scene": "scenes/accordion/card.medium.open_first/normal/light.json",
+      "png_sha256": "5f3c9b611b45fbf21412ac56122244cc60b47fce1e7866e0e3705dfb85e449ef"
+    },
+    {
+      "id": "accordion/card.medium/normal/dark",
+      "component": "accordion",
+      "group": "card",
+      "params": {
+        "size": "medium",
+        "open_first": false
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        119.5
+      ],
+      "png": "png/accordion/card.medium/normal/dark.png",
+      "scene": "scenes/accordion/card.medium/normal/dark.json",
+      "png_sha256": "d0893181fa8dd1f025c0820e6b937ea7c2a9a96364fc32bd05c36f87028675dc"
+    },
+    {
+      "id": "accordion/card.medium/normal/light",
+      "component": "accordion",
+      "group": "card",
+      "params": {
+        "size": "medium",
+        "open_first": false
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        119.5
+      ],
+      "png": "png/accordion/card.medium/normal/light.png",
+      "scene": "scenes/accordion/card.medium/normal/light.json",
+      "png_sha256": "a960ec28a6df56cb790b2a460ad38ce82812e6ec886c4cfc49950df5df134a83"
+    },
+    {
+      "id": "accordion/card.small.open_first/normal/dark",
+      "component": "accordion",
+      "group": "card",
+      "params": {
+        "size": "small",
+        "open_first": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        136.0
+      ],
+      "png": "png/accordion/card.small.open_first/normal/dark.png",
+      "scene": "scenes/accordion/card.small.open_first/normal/dark.json",
+      "png_sha256": "01fd649c38c96b08d6f529ed382bd5b15ce049acff23040bf39f56c27557e38a"
+    },
+    {
+      "id": "accordion/card.small.open_first/normal/light",
+      "component": "accordion",
+      "group": "card",
+      "params": {
+        "size": "small",
+        "open_first": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        136.0
+      ],
+      "png": "png/accordion/card.small.open_first/normal/light.png",
+      "scene": "scenes/accordion/card.small.open_first/normal/light.json",
+      "png_sha256": "a88a001cad053a93d1038263799c2465b7c4a5fe197fd4bd91619f9702fec826"
+    },
+    {
+      "id": "accordion/card.small/normal/dark",
+      "component": "accordion",
+      "group": "card",
+      "params": {
+        "size": "small",
+        "open_first": false
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        107.5
+      ],
+      "png": "png/accordion/card.small/normal/dark.png",
+      "scene": "scenes/accordion/card.small/normal/dark.json",
+      "png_sha256": "d696a9af9bd17a8579cd06c1aaeac4d87d4538d6a82af04c528e0106429eab61"
+    },
+    {
+      "id": "accordion/card.small/normal/light",
+      "component": "accordion",
+      "group": "card",
+      "params": {
+        "size": "small",
+        "open_first": false
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        107.5
+      ],
+      "png": "png/accordion/card.small/normal/light.png",
+      "scene": "scenes/accordion/card.small/normal/light.json",
+      "png_sha256": "7d194080fddc493d7fbba7503584d9a53df189338d0973327781c07a4f628afb"
+    },
+    {
+      "id": "accordion/card.xsmall.open_first/normal/dark",
+      "component": "accordion",
+      "group": "card",
+      "params": {
+        "size": "xsmall",
+        "open_first": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        110.0
+      ],
+      "png": "png/accordion/card.xsmall.open_first/normal/dark.png",
+      "scene": "scenes/accordion/card.xsmall.open_first/normal/dark.json",
+      "png_sha256": "d5e87972de40e998a146d819520ae4ff3fb694543e5a8e626e521379c2b758b3"
+    },
+    {
+      "id": "accordion/card.xsmall.open_first/normal/light",
+      "component": "accordion",
+      "group": "card",
+      "params": {
+        "size": "xsmall",
+        "open_first": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        110.0
+      ],
+      "png": "png/accordion/card.xsmall.open_first/normal/light.png",
+      "scene": "scenes/accordion/card.xsmall.open_first/normal/light.json",
+      "png_sha256": "fad22ba4e92b5547fb65ae020593f1560027449314bd8a430c81e33fb20b3567"
+    },
+    {
+      "id": "accordion/card.xsmall/normal/dark",
+      "component": "accordion",
+      "group": "card",
+      "params": {
+        "size": "xsmall",
+        "open_first": false
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        86.5
+      ],
+      "png": "png/accordion/card.xsmall/normal/dark.png",
+      "scene": "scenes/accordion/card.xsmall/normal/dark.json",
+      "png_sha256": "3337455cc1be3156d165d1bde52843a1f0307a54f0b646c54177f063edd2a691"
+    },
+    {
+      "id": "accordion/card.xsmall/normal/light",
+      "component": "accordion",
+      "group": "card",
+      "params": {
+        "size": "xsmall",
+        "open_first": false
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        86.5
+      ],
+      "png": "png/accordion/card.xsmall/normal/light.png",
+      "scene": "scenes/accordion/card.xsmall/normal/light.json",
+      "png_sha256": "de84ceb6a7ba90eeb0d60dae3afc3956b59731dfdcd098cb9726c468dc6b1067"
+    },
+    {
+      "id": "accordion/disabled.all/normal/dark",
+      "component": "accordion",
+      "group": "disabled",
+      "params": {
+        "open_first": true,
+        "scope": "all"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        150.0
+      ],
+      "png": "png/accordion/disabled.all/normal/dark.png",
+      "scene": "scenes/accordion/disabled.all/normal/dark.json",
+      "png_sha256": "f9143627055420de56b0ad8291c17a5a64ad3ae35e869682dd9fe4044f857a1a"
+    },
+    {
+      "id": "accordion/disabled.all/normal/light",
+      "component": "accordion",
+      "group": "disabled",
+      "params": {
+        "open_first": true,
+        "scope": "all"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        150.0
+      ],
+      "png": "png/accordion/disabled.all/normal/light.png",
+      "scene": "scenes/accordion/disabled.all/normal/light.json",
+      "png_sha256": "053eda86531af58005eb3d78df058d195741ebaf54e16864d63c7b52ce38828e"
+    },
+    {
+      "id": "accordion/disabled.item/normal/dark",
+      "component": "accordion",
+      "group": "disabled",
+      "params": {
+        "open_first": true,
+        "scope": "item"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        150.0
+      ],
+      "png": "png/accordion/disabled.item/normal/dark.png",
+      "scene": "scenes/accordion/disabled.item/normal/dark.json",
+      "png_sha256": "b2bda100d77edcd24e5aee3ba1f09fecf130c898491a8cd5d11a97fe981a9ee4"
+    },
+    {
+      "id": "accordion/disabled.item/normal/light",
+      "component": "accordion",
+      "group": "disabled",
+      "params": {
+        "open_first": true,
+        "scope": "item"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        150.0
+      ],
+      "png": "png/accordion/disabled.item/normal/light.png",
+      "scene": "scenes/accordion/disabled.item/normal/light.json",
+      "png_sha256": "8dae7b1c165a43d83dbe6ffc127d4128a65cbf2662251510807773d3b57ee462"
+    },
+    {
+      "id": "accordion/icon.medium/normal/dark",
+      "component": "accordion",
+      "group": "icon",
+      "params": {
+        "icons": true,
+        "open_first": true,
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        150.0
+      ],
+      "png": "png/accordion/icon.medium/normal/dark.png",
+      "scene": "scenes/accordion/icon.medium/normal/dark.json",
+      "png_sha256": "9caeda38d34b7fc1ecdfd55226c998a283405fcaa06c0fd50044f1996a075f2c"
+    },
+    {
+      "id": "accordion/icon.medium/normal/light",
+      "component": "accordion",
+      "group": "icon",
+      "params": {
+        "icons": true,
+        "open_first": true,
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        150.0
+      ],
+      "png": "png/accordion/icon.medium/normal/light.png",
+      "scene": "scenes/accordion/icon.medium/normal/light.json",
+      "png_sha256": "64dcae0b12adbb7cebb574e7a9772bc90f69eeb5c48924797e14f51495a220c8"
+    },
+    {
+      "id": "accordion/icon.small/normal/dark",
+      "component": "accordion",
+      "group": "icon",
+      "params": {
+        "icons": true,
+        "open_first": true,
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        136.0
+      ],
+      "png": "png/accordion/icon.small/normal/dark.png",
+      "scene": "scenes/accordion/icon.small/normal/dark.json",
+      "png_sha256": "5d0b7e1d5678adc29e302e8149c7c6277bdc6d7f6f295c2ddeb1e69832eeef81"
+    },
+    {
+      "id": "accordion/icon.small/normal/light",
+      "component": "accordion",
+      "group": "icon",
+      "params": {
+        "icons": true,
+        "open_first": true,
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        136.0
+      ],
+      "png": "png/accordion/icon.small/normal/light.png",
+      "scene": "scenes/accordion/icon.small/normal/light.json",
+      "png_sha256": "cd664a809db4c29ecec3634e1a8ea5eec9f88db4459d2014b3de5d025797f323"
+    },
+    {
+      "id": "accordion/interaction.base/focus/dark",
+      "component": "accordion",
+      "group": "interaction",
+      "params": {},
+      "state": "focus",
+      "theme": "dark",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        119.5
+      ],
+      "png": "png/accordion/interaction.base/focus/dark.png",
+      "scene": "scenes/accordion/interaction.base/focus/dark.json",
+      "png_sha256": "d0893181fa8dd1f025c0820e6b937ea7c2a9a96364fc32bd05c36f87028675dc"
+    },
+    {
+      "id": "accordion/interaction.base/focus/light",
+      "component": "accordion",
+      "group": "interaction",
+      "params": {},
+      "state": "focus",
+      "theme": "light",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        119.5
+      ],
+      "png": "png/accordion/interaction.base/focus/light.png",
+      "scene": "scenes/accordion/interaction.base/focus/light.json",
+      "png_sha256": "a960ec28a6df56cb790b2a460ad38ce82812e6ec886c4cfc49950df5df134a83"
+    },
+    {
+      "id": "accordion/interaction.base/hover/dark",
+      "component": "accordion",
+      "group": "interaction",
+      "params": {},
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        119.5
+      ],
+      "png": "png/accordion/interaction.base/hover/dark.png",
+      "scene": "scenes/accordion/interaction.base/hover/dark.json",
+      "png_sha256": "d0893181fa8dd1f025c0820e6b937ea7c2a9a96364fc32bd05c36f87028675dc"
+    },
+    {
+      "id": "accordion/interaction.base/hover/light",
+      "component": "accordion",
+      "group": "interaction",
+      "params": {},
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        119.5
+      ],
+      "png": "png/accordion/interaction.base/hover/light.png",
+      "scene": "scenes/accordion/interaction.base/hover/light.json",
+      "png_sha256": "a960ec28a6df56cb790b2a460ad38ce82812e6ec886c4cfc49950df5df134a83"
+    },
+    {
+      "id": "accordion/motion.close/click-at-100-28/light",
+      "component": "accordion",
+      "group": "motion.close",
+      "params": {
+        "open_first": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        150.0
+      ],
+      "motion": {
+        "name": "close",
+        "trigger": "click-at-100-28",
+        "from": "normal",
+        "frames": [
+          {
+            "t_ms": 0,
+            "png": "png/accordion/motion.close/click-at-100-28/light/0000ms.png",
+            "scene": "scenes/accordion/motion.close/click-at-100-28/light/0000ms.json",
+            "png_sha256": "676c33a40c02153b23ff1d2574cf40d4a0a86f26a5de895f91f9188d2b089e08"
+          },
+          {
+            "t_ms": 16,
+            "png": "png/accordion/motion.close/click-at-100-28/light/0016ms.png",
+            "scene": "scenes/accordion/motion.close/click-at-100-28/light/0016ms.json",
+            "png_sha256": "dfc3fdce5873ce31933587d80f9df75eec1c043f1bebbadca5d7201232e577c4"
+          },
+          {
+            "t_ms": 33,
+            "png": "png/accordion/motion.close/click-at-100-28/light/0033ms.png",
+            "scene": "scenes/accordion/motion.close/click-at-100-28/light/0033ms.json",
+            "png_sha256": "839261297c96c422c7514a77e5f9df6e3a9ed085814904a43674cd5b7f19c244"
+          },
+          {
+            "t_ms": 50,
+            "png": "png/accordion/motion.close/click-at-100-28/light/0050ms.png",
+            "scene": "scenes/accordion/motion.close/click-at-100-28/light/0050ms.json",
+            "png_sha256": "45ea018fca0eb4650e26eb714cffbf0acb4c01279e0c19efd7670c633aee1865"
+          },
+          {
+            "t_ms": 66,
+            "png": "png/accordion/motion.close/click-at-100-28/light/0066ms.png",
+            "scene": "scenes/accordion/motion.close/click-at-100-28/light/0066ms.json",
+            "png_sha256": "b9608a9d9e95398b3e9a6a594b63e80d470804e631e36e9370cdddac5835b284"
+          },
+          {
+            "t_ms": 83,
+            "png": "png/accordion/motion.close/click-at-100-28/light/0083ms.png",
+            "scene": "scenes/accordion/motion.close/click-at-100-28/light/0083ms.json",
+            "png_sha256": "36e79a032f92c5420e624be1675fb943fced12599b92926657657305033a136c"
+          },
+          {
+            "t_ms": 100,
+            "png": "png/accordion/motion.close/click-at-100-28/light/0100ms.png",
+            "scene": "scenes/accordion/motion.close/click-at-100-28/light/0100ms.json",
+            "png_sha256": "b402634320de5456a6633848b6c44b6c9a16e69e7a183f1b2e1c0b33afa8698d"
+          },
+          {
+            "t_ms": 133,
+            "png": "png/accordion/motion.close/click-at-100-28/light/0133ms.png",
+            "scene": "scenes/accordion/motion.close/click-at-100-28/light/0133ms.json",
+            "png_sha256": "2b712bba01203b1855b2762ff0f5deb34f17900ac32e9f7ccee327c8489512fc"
+          },
+          {
+            "t_ms": 166,
+            "png": "png/accordion/motion.close/click-at-100-28/light/0166ms.png",
+            "scene": "scenes/accordion/motion.close/click-at-100-28/light/0166ms.json",
+            "png_sha256": "fdacdc0e4abbfd979b61bff54b2620f547561eb51df90ce955604e7536b6a71f"
+          },
+          {
+            "t_ms": 200,
+            "png": "png/accordion/motion.close/click-at-100-28/light/0200ms.png",
+            "scene": "scenes/accordion/motion.close/click-at-100-28/light/0200ms.json",
+            "png_sha256": "a960ec28a6df56cb790b2a460ad38ce82812e6ec886c4cfc49950df5df134a83"
+          },
+          {
+            "t_ms": 233,
+            "png": "png/accordion/motion.close/click-at-100-28/light/0233ms.png",
+            "scene": "scenes/accordion/motion.close/click-at-100-28/light/0233ms.json",
+            "png_sha256": "a960ec28a6df56cb790b2a460ad38ce82812e6ec886c4cfc49950df5df134a83"
+          },
+          {
+            "t_ms": 266,
+            "png": "png/accordion/motion.close/click-at-100-28/light/0266ms.png",
+            "scene": "scenes/accordion/motion.close/click-at-100-28/light/0266ms.json",
+            "png_sha256": "a960ec28a6df56cb790b2a460ad38ce82812e6ec886c4cfc49950df5df134a83"
+          },
+          {
+            "t_ms": 300,
+            "png": "png/accordion/motion.close/click-at-100-28/light/0300ms.png",
+            "scene": "scenes/accordion/motion.close/click-at-100-28/light/0300ms.json",
+            "png_sha256": "a960ec28a6df56cb790b2a460ad38ce82812e6ec886c4cfc49950df5df134a83"
+          }
+        ]
+      }
+    },
+    {
+      "id": "accordion/motion.open/click-at-100-28/light",
+      "component": "accordion",
+      "group": "motion.open",
+      "params": {},
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        119.5
+      ],
+      "motion": {
+        "name": "open",
+        "trigger": "click-at-100-28",
+        "from": "normal",
+        "frames": [
+          {
+            "t_ms": 0,
+            "png": "png/accordion/motion.open/click-at-100-28/light/0000ms.png",
+            "scene": "scenes/accordion/motion.open/click-at-100-28/light/0000ms.json",
+            "png_sha256": "86b9b18178bc811544256e1776911682870df307817a53ff9d3542458bb17246"
+          },
+          {
+            "t_ms": 16,
+            "png": "png/accordion/motion.open/click-at-100-28/light/0016ms.png",
+            "scene": "scenes/accordion/motion.open/click-at-100-28/light/0016ms.json",
+            "png_sha256": "39d51186e707e1f0ac7c6b3e55139c7f4032311e4148219cb0fb9eeab316044f"
+          },
+          {
+            "t_ms": 33,
+            "png": "png/accordion/motion.open/click-at-100-28/light/0033ms.png",
+            "scene": "scenes/accordion/motion.open/click-at-100-28/light/0033ms.json",
+            "png_sha256": "3cc549ffc648983ac901cc6b02dcbff6bbe0c0eac43bd377ede130d6590ed436"
+          },
+          {
+            "t_ms": 50,
+            "png": "png/accordion/motion.open/click-at-100-28/light/0050ms.png",
+            "scene": "scenes/accordion/motion.open/click-at-100-28/light/0050ms.json",
+            "png_sha256": "2fa55833398ec3f2e15b559d28b5c0c13c97e1bae877777a2d0fa61a6cc494d3"
+          },
+          {
+            "t_ms": 66,
+            "png": "png/accordion/motion.open/click-at-100-28/light/0066ms.png",
+            "scene": "scenes/accordion/motion.open/click-at-100-28/light/0066ms.json",
+            "png_sha256": "d203f545acf9d8d5a1263fe21fdbd6f35c904a6ead8bda64da24b62466d5deaa"
+          },
+          {
+            "t_ms": 83,
+            "png": "png/accordion/motion.open/click-at-100-28/light/0083ms.png",
+            "scene": "scenes/accordion/motion.open/click-at-100-28/light/0083ms.json",
+            "png_sha256": "72263436e1ff2400fbffe7005779ceb350702aa38fed066b4f2806d3a6a41939"
+          },
+          {
+            "t_ms": 100,
+            "png": "png/accordion/motion.open/click-at-100-28/light/0100ms.png",
+            "scene": "scenes/accordion/motion.open/click-at-100-28/light/0100ms.json",
+            "png_sha256": "fa5bb88e29c22fcd71ba36e6843099c3f423d33db092fb3054713ab8fb76872f"
+          },
+          {
+            "t_ms": 133,
+            "png": "png/accordion/motion.open/click-at-100-28/light/0133ms.png",
+            "scene": "scenes/accordion/motion.open/click-at-100-28/light/0133ms.json",
+            "png_sha256": "2023486fae8b4dfea0f6db5429a93b421e0a1ad877003e9ec58256193a75620f"
+          },
+          {
+            "t_ms": 166,
+            "png": "png/accordion/motion.open/click-at-100-28/light/0166ms.png",
+            "scene": "scenes/accordion/motion.open/click-at-100-28/light/0166ms.json",
+            "png_sha256": "2c2bfb24ed354df4be2ba0383e64f6b514dbb6f01233d927e3e30e13a9a5bb20"
+          },
+          {
+            "t_ms": 200,
+            "png": "png/accordion/motion.open/click-at-100-28/light/0200ms.png",
+            "scene": "scenes/accordion/motion.open/click-at-100-28/light/0200ms.json",
+            "png_sha256": "5f3c9b611b45fbf21412ac56122244cc60b47fce1e7866e0e3705dfb85e449ef"
+          },
+          {
+            "t_ms": 233,
+            "png": "png/accordion/motion.open/click-at-100-28/light/0233ms.png",
+            "scene": "scenes/accordion/motion.open/click-at-100-28/light/0233ms.json",
+            "png_sha256": "5f3c9b611b45fbf21412ac56122244cc60b47fce1e7866e0e3705dfb85e449ef"
+          },
+          {
+            "t_ms": 266,
+            "png": "png/accordion/motion.open/click-at-100-28/light/0266ms.png",
+            "scene": "scenes/accordion/motion.open/click-at-100-28/light/0266ms.json",
+            "png_sha256": "5f3c9b611b45fbf21412ac56122244cc60b47fce1e7866e0e3705dfb85e449ef"
+          },
+          {
+            "t_ms": 300,
+            "png": "png/accordion/motion.open/click-at-100-28/light/0300ms.png",
+            "scene": "scenes/accordion/motion.open/click-at-100-28/light/0300ms.json",
+            "png_sha256": "5f3c9b611b45fbf21412ac56122244cc60b47fce1e7866e0e3705dfb85e449ef"
+          }
+        ]
+      }
+    },
+    {
+      "id": "accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light",
+      "component": "accordion",
+      "group": "motion.reverse",
+      "params": {},
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        119.5
+      ],
+      "motion": {
+        "name": "reverse",
+        "trigger": "click-at-100-28+wait-80ms+click-at-100-28",
+        "from": "normal",
+        "frames": [
+          {
+            "t_ms": 0,
+            "png": "png/accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light/0000ms.png",
+            "scene": "scenes/accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light/0000ms.json",
+            "png_sha256": "ca52525812e3b901f1b30e0c029c8f43e2ff920374c2459810001d24d8b057c3"
+          },
+          {
+            "t_ms": 16,
+            "png": "png/accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light/0016ms.png",
+            "scene": "scenes/accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light/0016ms.json",
+            "png_sha256": "c894fb6cbdadde982fcc57363da4618f889581a2cf80f2d09040e0578613e1f3"
+          },
+          {
+            "t_ms": 33,
+            "png": "png/accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light/0033ms.png",
+            "scene": "scenes/accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light/0033ms.json",
+            "png_sha256": "ef8d6108d49e531e9693be69fdb4986fe7c9216c5c1c13f11b391b0fc888948d"
+          },
+          {
+            "t_ms": 50,
+            "png": "png/accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light/0050ms.png",
+            "scene": "scenes/accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light/0050ms.json",
+            "png_sha256": "bbc10bb47ac766a0b059cbf8a48ecde2d92495ee99ca4005464643b861eaeff3"
+          },
+          {
+            "t_ms": 66,
+            "png": "png/accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light/0066ms.png",
+            "scene": "scenes/accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light/0066ms.json",
+            "png_sha256": "1eede48976b4282a72065f68b6700d2d3b3a3f2d84ac7ba96259e66eb16e9cb4"
+          },
+          {
+            "t_ms": 83,
+            "png": "png/accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light/0083ms.png",
+            "scene": "scenes/accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light/0083ms.json",
+            "png_sha256": "fafda0156ee0dce25f34d03f5c3e9f8ed12f8f53f7157170faf62c8b8105f0bb"
+          },
+          {
+            "t_ms": 100,
+            "png": "png/accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light/0100ms.png",
+            "scene": "scenes/accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light/0100ms.json",
+            "png_sha256": "b402634320de5456a6633848b6c44b6c9a16e69e7a183f1b2e1c0b33afa8698d"
+          },
+          {
+            "t_ms": 133,
+            "png": "png/accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light/0133ms.png",
+            "scene": "scenes/accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light/0133ms.json",
+            "png_sha256": "2b712bba01203b1855b2762ff0f5deb34f17900ac32e9f7ccee327c8489512fc"
+          },
+          {
+            "t_ms": 166,
+            "png": "png/accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light/0166ms.png",
+            "scene": "scenes/accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light/0166ms.json",
+            "png_sha256": "fdacdc0e4abbfd979b61bff54b2620f547561eb51df90ce955604e7536b6a71f"
+          },
+          {
+            "t_ms": 200,
+            "png": "png/accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light/0200ms.png",
+            "scene": "scenes/accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light/0200ms.json",
+            "png_sha256": "a960ec28a6df56cb790b2a460ad38ce82812e6ec886c4cfc49950df5df134a83"
+          },
+          {
+            "t_ms": 233,
+            "png": "png/accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light/0233ms.png",
+            "scene": "scenes/accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light/0233ms.json",
+            "png_sha256": "a960ec28a6df56cb790b2a460ad38ce82812e6ec886c4cfc49950df5df134a83"
+          },
+          {
+            "t_ms": 266,
+            "png": "png/accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light/0266ms.png",
+            "scene": "scenes/accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light/0266ms.json",
+            "png_sha256": "a960ec28a6df56cb790b2a460ad38ce82812e6ec886c4cfc49950df5df134a83"
+          },
+          {
+            "t_ms": 300,
+            "png": "png/accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light/0300ms.png",
+            "scene": "scenes/accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light/0300ms.json",
+            "png_sha256": "a960ec28a6df56cb790b2a460ad38ce82812e6ec886c4cfc49950df5df134a83"
+          },
+          {
+            "t_ms": 350,
+            "png": "png/accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light/0350ms.png",
+            "scene": "scenes/accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light/0350ms.json",
+            "png_sha256": "a960ec28a6df56cb790b2a460ad38ce82812e6ec886c4cfc49950df5df134a83"
+          }
+        ]
+      }
+    },
+    {
       "id": "button/compact.large/normal/dark",
       "component": "button",
       "group": "compact",
@@ -26273,6 +27490,831 @@
           }
         ]
       }
+    },
+    {
+      "id": "collapsible/interaction.base/focus/dark",
+      "component": "collapsible",
+      "group": "interaction",
+      "params": {
+        "open": true
+      },
+      "state": "focus",
+      "theme": "dark",
+      "viewport": [
+        272.0,
+        104.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        240.0,
+        78.5
+      ],
+      "png": "png/collapsible/interaction.base/focus/dark.png",
+      "scene": "scenes/collapsible/interaction.base/focus/dark.json",
+      "png_sha256": "bfdbc72a06cc0e5ae8e8dc700d9ca6d655e4055598fc583d0ba08079dea8fb45"
+    },
+    {
+      "id": "collapsible/interaction.base/focus/light",
+      "component": "collapsible",
+      "group": "interaction",
+      "params": {
+        "open": true
+      },
+      "state": "focus",
+      "theme": "light",
+      "viewport": [
+        272.0,
+        104.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        240.0,
+        78.5
+      ],
+      "png": "png/collapsible/interaction.base/focus/light.png",
+      "scene": "scenes/collapsible/interaction.base/focus/light.json",
+      "png_sha256": "e4eb64a287c19f463450a60960294ea51afae82c4c159314cc489d532cef0ead"
+    },
+    {
+      "id": "collapsible/interaction.base/hover/dark",
+      "component": "collapsible",
+      "group": "interaction",
+      "params": {
+        "open": true
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        272.0,
+        104.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        240.0,
+        78.5
+      ],
+      "png": "png/collapsible/interaction.base/hover/dark.png",
+      "scene": "scenes/collapsible/interaction.base/hover/dark.json",
+      "png_sha256": "bfdbc72a06cc0e5ae8e8dc700d9ca6d655e4055598fc583d0ba08079dea8fb45"
+    },
+    {
+      "id": "collapsible/interaction.base/hover/light",
+      "component": "collapsible",
+      "group": "interaction",
+      "params": {
+        "open": true
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        272.0,
+        104.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        240.0,
+        78.5
+      ],
+      "png": "png/collapsible/interaction.base/hover/light.png",
+      "scene": "scenes/collapsible/interaction.base/hover/light.json",
+      "png_sha256": "e4eb64a287c19f463450a60960294ea51afae82c4c159314cc489d532cef0ead"
+    },
+    {
+      "id": "collapsible/motion.close/click-at-60-19/light",
+      "component": "collapsible",
+      "group": "motion.close",
+      "params": {
+        "motion": true,
+        "open": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        272.0,
+        104.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        240.0,
+        78.5
+      ],
+      "motion": {
+        "name": "close",
+        "trigger": "click-at-60-19",
+        "from": "normal",
+        "frames": [
+          {
+            "t_ms": 0,
+            "png": "png/collapsible/motion.close/click-at-60-19/light/0000ms.png",
+            "scene": "scenes/collapsible/motion.close/click-at-60-19/light/0000ms.json",
+            "png_sha256": "e4eb64a287c19f463450a60960294ea51afae82c4c159314cc489d532cef0ead"
+          },
+          {
+            "t_ms": 16,
+            "png": "png/collapsible/motion.close/click-at-60-19/light/0016ms.png",
+            "scene": "scenes/collapsible/motion.close/click-at-60-19/light/0016ms.json",
+            "png_sha256": "45e505705cb9e32a668a449008126408af45e964afa0a699ff0b083a471c5a4e"
+          },
+          {
+            "t_ms": 33,
+            "png": "png/collapsible/motion.close/click-at-60-19/light/0033ms.png",
+            "scene": "scenes/collapsible/motion.close/click-at-60-19/light/0033ms.json",
+            "png_sha256": "dde69dba4789fa7f633fa7036256032b371e8bff35cbcb7869989caf7aae1508"
+          },
+          {
+            "t_ms": 50,
+            "png": "png/collapsible/motion.close/click-at-60-19/light/0050ms.png",
+            "scene": "scenes/collapsible/motion.close/click-at-60-19/light/0050ms.json",
+            "png_sha256": "7a6c2666e963867503ea5473d52994a9540fd2f4d51a6f0600528cb589e6aac4"
+          },
+          {
+            "t_ms": 66,
+            "png": "png/collapsible/motion.close/click-at-60-19/light/0066ms.png",
+            "scene": "scenes/collapsible/motion.close/click-at-60-19/light/0066ms.json",
+            "png_sha256": "edadf70081175b404f9cbcd47141d55204f67f6a41df80599d61569796b4f718"
+          },
+          {
+            "t_ms": 83,
+            "png": "png/collapsible/motion.close/click-at-60-19/light/0083ms.png",
+            "scene": "scenes/collapsible/motion.close/click-at-60-19/light/0083ms.json",
+            "png_sha256": "9788b6113551e31738289bcd311070e68b66d5edc79dedf9f0c150288105bfc3"
+          },
+          {
+            "t_ms": 100,
+            "png": "png/collapsible/motion.close/click-at-60-19/light/0100ms.png",
+            "scene": "scenes/collapsible/motion.close/click-at-60-19/light/0100ms.json",
+            "png_sha256": "ac6a27cd56cce4f76052be597c862395e3e096f6a0c1af577d8aa5d4009a24ce"
+          },
+          {
+            "t_ms": 133,
+            "png": "png/collapsible/motion.close/click-at-60-19/light/0133ms.png",
+            "scene": "scenes/collapsible/motion.close/click-at-60-19/light/0133ms.json",
+            "png_sha256": "ac6a27cd56cce4f76052be597c862395e3e096f6a0c1af577d8aa5d4009a24ce"
+          },
+          {
+            "t_ms": 166,
+            "png": "png/collapsible/motion.close/click-at-60-19/light/0166ms.png",
+            "scene": "scenes/collapsible/motion.close/click-at-60-19/light/0166ms.json",
+            "png_sha256": "ac6a27cd56cce4f76052be597c862395e3e096f6a0c1af577d8aa5d4009a24ce"
+          },
+          {
+            "t_ms": 200,
+            "png": "png/collapsible/motion.close/click-at-60-19/light/0200ms.png",
+            "scene": "scenes/collapsible/motion.close/click-at-60-19/light/0200ms.json",
+            "png_sha256": "ac6a27cd56cce4f76052be597c862395e3e096f6a0c1af577d8aa5d4009a24ce"
+          },
+          {
+            "t_ms": 233,
+            "png": "png/collapsible/motion.close/click-at-60-19/light/0233ms.png",
+            "scene": "scenes/collapsible/motion.close/click-at-60-19/light/0233ms.json",
+            "png_sha256": "ac6a27cd56cce4f76052be597c862395e3e096f6a0c1af577d8aa5d4009a24ce"
+          },
+          {
+            "t_ms": 266,
+            "png": "png/collapsible/motion.close/click-at-60-19/light/0266ms.png",
+            "scene": "scenes/collapsible/motion.close/click-at-60-19/light/0266ms.json",
+            "png_sha256": "ac6a27cd56cce4f76052be597c862395e3e096f6a0c1af577d8aa5d4009a24ce"
+          },
+          {
+            "t_ms": 300,
+            "png": "png/collapsible/motion.close/click-at-60-19/light/0300ms.png",
+            "scene": "scenes/collapsible/motion.close/click-at-60-19/light/0300ms.json",
+            "png_sha256": "ac6a27cd56cce4f76052be597c862395e3e096f6a0c1af577d8aa5d4009a24ce"
+          }
+        ]
+      }
+    },
+    {
+      "id": "collapsible/motion.instant/click-at-60-19/light",
+      "component": "collapsible",
+      "group": "motion.instant",
+      "params": {},
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        272.0,
+        104.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        240.0,
+        22.5
+      ],
+      "motion": {
+        "name": "instant",
+        "trigger": "click-at-60-19",
+        "from": "normal",
+        "frames": [
+          {
+            "t_ms": 0,
+            "png": "png/collapsible/motion.instant/click-at-60-19/light/0000ms.png",
+            "scene": "scenes/collapsible/motion.instant/click-at-60-19/light/0000ms.json",
+            "png_sha256": "e4eb64a287c19f463450a60960294ea51afae82c4c159314cc489d532cef0ead"
+          },
+          {
+            "t_ms": 16,
+            "png": "png/collapsible/motion.instant/click-at-60-19/light/0016ms.png",
+            "scene": "scenes/collapsible/motion.instant/click-at-60-19/light/0016ms.json",
+            "png_sha256": "e4eb64a287c19f463450a60960294ea51afae82c4c159314cc489d532cef0ead"
+          },
+          {
+            "t_ms": 100,
+            "png": "png/collapsible/motion.instant/click-at-60-19/light/0100ms.png",
+            "scene": "scenes/collapsible/motion.instant/click-at-60-19/light/0100ms.json",
+            "png_sha256": "e4eb64a287c19f463450a60960294ea51afae82c4c159314cc489d532cef0ead"
+          }
+        ]
+      }
+    },
+    {
+      "id": "collapsible/motion.open/click-at-60-19/light",
+      "component": "collapsible",
+      "group": "motion.open",
+      "params": {
+        "motion": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        272.0,
+        104.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        240.0,
+        22.5
+      ],
+      "motion": {
+        "name": "open",
+        "trigger": "click-at-60-19",
+        "from": "normal",
+        "frames": [
+          {
+            "t_ms": 0,
+            "png": "png/collapsible/motion.open/click-at-60-19/light/0000ms.png",
+            "scene": "scenes/collapsible/motion.open/click-at-60-19/light/0000ms.json",
+            "png_sha256": "ac6a27cd56cce4f76052be597c862395e3e096f6a0c1af577d8aa5d4009a24ce"
+          },
+          {
+            "t_ms": 16,
+            "png": "png/collapsible/motion.open/click-at-60-19/light/0016ms.png",
+            "scene": "scenes/collapsible/motion.open/click-at-60-19/light/0016ms.json",
+            "png_sha256": "ac6a27cd56cce4f76052be597c862395e3e096f6a0c1af577d8aa5d4009a24ce"
+          },
+          {
+            "t_ms": 33,
+            "png": "png/collapsible/motion.open/click-at-60-19/light/0033ms.png",
+            "scene": "scenes/collapsible/motion.open/click-at-60-19/light/0033ms.json",
+            "png_sha256": "49e148b46d5d9b633ebca96950f9913669fa45730614c76c005f554415e548c7"
+          },
+          {
+            "t_ms": 50,
+            "png": "png/collapsible/motion.open/click-at-60-19/light/0050ms.png",
+            "scene": "scenes/collapsible/motion.open/click-at-60-19/light/0050ms.json",
+            "png_sha256": "f855fed391988abec4b17fdd0db10de1b3483160fddbbbe17d8fd9f5cff4a7d1"
+          },
+          {
+            "t_ms": 66,
+            "png": "png/collapsible/motion.open/click-at-60-19/light/0066ms.png",
+            "scene": "scenes/collapsible/motion.open/click-at-60-19/light/0066ms.json",
+            "png_sha256": "04e2e00f4f6276fd19356f7c606227a1a50e7ee97e332c50fb1693bee4b2229d"
+          },
+          {
+            "t_ms": 83,
+            "png": "png/collapsible/motion.open/click-at-60-19/light/0083ms.png",
+            "scene": "scenes/collapsible/motion.open/click-at-60-19/light/0083ms.json",
+            "png_sha256": "84117b6458eefa65faff46c822fe20521056789cc918efb1ab574071af23fa16"
+          },
+          {
+            "t_ms": 100,
+            "png": "png/collapsible/motion.open/click-at-60-19/light/0100ms.png",
+            "scene": "scenes/collapsible/motion.open/click-at-60-19/light/0100ms.json",
+            "png_sha256": "bf5478eed24c4ef1411ef9705063d2444c40619ea79b87472b07d1a9d7472637"
+          },
+          {
+            "t_ms": 133,
+            "png": "png/collapsible/motion.open/click-at-60-19/light/0133ms.png",
+            "scene": "scenes/collapsible/motion.open/click-at-60-19/light/0133ms.json",
+            "png_sha256": "72b742bc5ff5e204fdcf26e4cc86828b4f4f0af8c81eeea83564a834c6aae32d"
+          },
+          {
+            "t_ms": 166,
+            "png": "png/collapsible/motion.open/click-at-60-19/light/0166ms.png",
+            "scene": "scenes/collapsible/motion.open/click-at-60-19/light/0166ms.json",
+            "png_sha256": "20073d1ae09635aafd5f54e11191e9c48f8a622a235ddbdf001918a50bbe5ce6"
+          },
+          {
+            "t_ms": 200,
+            "png": "png/collapsible/motion.open/click-at-60-19/light/0200ms.png",
+            "scene": "scenes/collapsible/motion.open/click-at-60-19/light/0200ms.json",
+            "png_sha256": "9ef59d32ee553607ebfb58bf08e7e5ad0d65a41fc793d47e76bd9cdc4b06d0b7"
+          },
+          {
+            "t_ms": 233,
+            "png": "png/collapsible/motion.open/click-at-60-19/light/0233ms.png",
+            "scene": "scenes/collapsible/motion.open/click-at-60-19/light/0233ms.json",
+            "png_sha256": "e4eb64a287c19f463450a60960294ea51afae82c4c159314cc489d532cef0ead"
+          },
+          {
+            "t_ms": 266,
+            "png": "png/collapsible/motion.open/click-at-60-19/light/0266ms.png",
+            "scene": "scenes/collapsible/motion.open/click-at-60-19/light/0266ms.json",
+            "png_sha256": "e4eb64a287c19f463450a60960294ea51afae82c4c159314cc489d532cef0ead"
+          },
+          {
+            "t_ms": 300,
+            "png": "png/collapsible/motion.open/click-at-60-19/light/0300ms.png",
+            "scene": "scenes/collapsible/motion.open/click-at-60-19/light/0300ms.json",
+            "png_sha256": "e4eb64a287c19f463450a60960294ea51afae82c4c159314cc489d532cef0ead"
+          }
+        ]
+      }
+    },
+    {
+      "id": "collapsible/motion.reverse/click-at-60-19+wait-80ms+click-at-60-19/light",
+      "component": "collapsible",
+      "group": "motion.reverse",
+      "params": {
+        "motion": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        272.0,
+        104.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        240.0,
+        22.5
+      ],
+      "motion": {
+        "name": "reverse",
+        "trigger": "click-at-60-19+wait-80ms+click-at-60-19",
+        "from": "normal",
+        "frames": [
+          {
+            "t_ms": 0,
+            "png": "png/collapsible/motion.reverse/click-at-60-19+wait-80ms+click-at-60-19/light/0000ms.png",
+            "scene": "scenes/collapsible/motion.reverse/click-at-60-19+wait-80ms+click-at-60-19/light/0000ms.json",
+            "png_sha256": "597ff64e35d027d63db98764f01298c699f8ad0557fcf39382725a27fd61b1ba"
+          },
+          {
+            "t_ms": 16,
+            "png": "png/collapsible/motion.reverse/click-at-60-19+wait-80ms+click-at-60-19/light/0016ms.png",
+            "scene": "scenes/collapsible/motion.reverse/click-at-60-19+wait-80ms+click-at-60-19/light/0016ms.json",
+            "png_sha256": "71350dc1b846faab6b4484693bf6bfa942ad949410ecd6e6fb8092bcf235b859"
+          },
+          {
+            "t_ms": 33,
+            "png": "png/collapsible/motion.reverse/click-at-60-19+wait-80ms+click-at-60-19/light/0033ms.png",
+            "scene": "scenes/collapsible/motion.reverse/click-at-60-19+wait-80ms+click-at-60-19/light/0033ms.json",
+            "png_sha256": "84be7faedfa3a60340f83f6c54960cf34d534bb90220403d329f7aa631c5bade"
+          },
+          {
+            "t_ms": 50,
+            "png": "png/collapsible/motion.reverse/click-at-60-19+wait-80ms+click-at-60-19/light/0050ms.png",
+            "scene": "scenes/collapsible/motion.reverse/click-at-60-19+wait-80ms+click-at-60-19/light/0050ms.json",
+            "png_sha256": "7c06235199e26a6df34e9fbdb8cfe513200002161b0f3e274a5dbc5626201a40"
+          },
+          {
+            "t_ms": 66,
+            "png": "png/collapsible/motion.reverse/click-at-60-19+wait-80ms+click-at-60-19/light/0066ms.png",
+            "scene": "scenes/collapsible/motion.reverse/click-at-60-19+wait-80ms+click-at-60-19/light/0066ms.json",
+            "png_sha256": "63a60f0f7bce30520a3841eaa5e2c7438ee65bb3eada2f293417cba11e9d3262"
+          },
+          {
+            "t_ms": 83,
+            "png": "png/collapsible/motion.reverse/click-at-60-19+wait-80ms+click-at-60-19/light/0083ms.png",
+            "scene": "scenes/collapsible/motion.reverse/click-at-60-19+wait-80ms+click-at-60-19/light/0083ms.json",
+            "png_sha256": "6b83da26f949fea9256c11d0082c38ef39b7a0db5e41f5648953927a4623a863"
+          },
+          {
+            "t_ms": 100,
+            "png": "png/collapsible/motion.reverse/click-at-60-19+wait-80ms+click-at-60-19/light/0100ms.png",
+            "scene": "scenes/collapsible/motion.reverse/click-at-60-19+wait-80ms+click-at-60-19/light/0100ms.json",
+            "png_sha256": "ac6a27cd56cce4f76052be597c862395e3e096f6a0c1af577d8aa5d4009a24ce"
+          },
+          {
+            "t_ms": 133,
+            "png": "png/collapsible/motion.reverse/click-at-60-19+wait-80ms+click-at-60-19/light/0133ms.png",
+            "scene": "scenes/collapsible/motion.reverse/click-at-60-19+wait-80ms+click-at-60-19/light/0133ms.json",
+            "png_sha256": "ac6a27cd56cce4f76052be597c862395e3e096f6a0c1af577d8aa5d4009a24ce"
+          },
+          {
+            "t_ms": 166,
+            "png": "png/collapsible/motion.reverse/click-at-60-19+wait-80ms+click-at-60-19/light/0166ms.png",
+            "scene": "scenes/collapsible/motion.reverse/click-at-60-19+wait-80ms+click-at-60-19/light/0166ms.json",
+            "png_sha256": "ac6a27cd56cce4f76052be597c862395e3e096f6a0c1af577d8aa5d4009a24ce"
+          },
+          {
+            "t_ms": 200,
+            "png": "png/collapsible/motion.reverse/click-at-60-19+wait-80ms+click-at-60-19/light/0200ms.png",
+            "scene": "scenes/collapsible/motion.reverse/click-at-60-19+wait-80ms+click-at-60-19/light/0200ms.json",
+            "png_sha256": "ac6a27cd56cce4f76052be597c862395e3e096f6a0c1af577d8aa5d4009a24ce"
+          },
+          {
+            "t_ms": 233,
+            "png": "png/collapsible/motion.reverse/click-at-60-19+wait-80ms+click-at-60-19/light/0233ms.png",
+            "scene": "scenes/collapsible/motion.reverse/click-at-60-19+wait-80ms+click-at-60-19/light/0233ms.json",
+            "png_sha256": "ac6a27cd56cce4f76052be597c862395e3e096f6a0c1af577d8aa5d4009a24ce"
+          },
+          {
+            "t_ms": 266,
+            "png": "png/collapsible/motion.reverse/click-at-60-19+wait-80ms+click-at-60-19/light/0266ms.png",
+            "scene": "scenes/collapsible/motion.reverse/click-at-60-19+wait-80ms+click-at-60-19/light/0266ms.json",
+            "png_sha256": "ac6a27cd56cce4f76052be597c862395e3e096f6a0c1af577d8aa5d4009a24ce"
+          },
+          {
+            "t_ms": 300,
+            "png": "png/collapsible/motion.reverse/click-at-60-19+wait-80ms+click-at-60-19/light/0300ms.png",
+            "scene": "scenes/collapsible/motion.reverse/click-at-60-19+wait-80ms+click-at-60-19/light/0300ms.json",
+            "png_sha256": "ac6a27cd56cce4f76052be597c862395e3e096f6a0c1af577d8aa5d4009a24ce"
+          },
+          {
+            "t_ms": 350,
+            "png": "png/collapsible/motion.reverse/click-at-60-19+wait-80ms+click-at-60-19/light/0350ms.png",
+            "scene": "scenes/collapsible/motion.reverse/click-at-60-19+wait-80ms+click-at-60-19/light/0350ms.json",
+            "png_sha256": "ac6a27cd56cce4f76052be597c862395e3e096f6a0c1af577d8aa5d4009a24ce"
+          }
+        ]
+      }
+    },
+    {
+      "id": "collapsible/state.base/normal/dark",
+      "component": "collapsible",
+      "group": "state",
+      "params": {
+        "open": false,
+        "motion": false
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        272.0,
+        104.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        240.0,
+        22.5
+      ],
+      "png": "png/collapsible/state.base/normal/dark.png",
+      "scene": "scenes/collapsible/state.base/normal/dark.json",
+      "png_sha256": "58026046fac22785aca011bdaabaa0f113d602541178509e820b801fe2afd43e"
+    },
+    {
+      "id": "collapsible/state.base/normal/light",
+      "component": "collapsible",
+      "group": "state",
+      "params": {
+        "open": false,
+        "motion": false
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        272.0,
+        104.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        240.0,
+        22.5
+      ],
+      "png": "png/collapsible/state.base/normal/light.png",
+      "scene": "scenes/collapsible/state.base/normal/light.json",
+      "png_sha256": "ac6a27cd56cce4f76052be597c862395e3e096f6a0c1af577d8aa5d4009a24ce"
+    },
+    {
+      "id": "collapsible/state.motion/normal/dark",
+      "component": "collapsible",
+      "group": "state",
+      "params": {
+        "open": false,
+        "motion": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        272.0,
+        104.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        240.0,
+        22.5
+      ],
+      "png": "png/collapsible/state.motion/normal/dark.png",
+      "scene": "scenes/collapsible/state.motion/normal/dark.json",
+      "png_sha256": "58026046fac22785aca011bdaabaa0f113d602541178509e820b801fe2afd43e"
+    },
+    {
+      "id": "collapsible/state.motion/normal/light",
+      "component": "collapsible",
+      "group": "state",
+      "params": {
+        "open": false,
+        "motion": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        272.0,
+        104.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        240.0,
+        22.5
+      ],
+      "png": "png/collapsible/state.motion/normal/light.png",
+      "scene": "scenes/collapsible/state.motion/normal/light.json",
+      "png_sha256": "ac6a27cd56cce4f76052be597c862395e3e096f6a0c1af577d8aa5d4009a24ce"
+    },
+    {
+      "id": "collapsible/state.open.motion/normal/dark",
+      "component": "collapsible",
+      "group": "state",
+      "params": {
+        "open": true,
+        "motion": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        272.0,
+        104.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        240.0,
+        78.5
+      ],
+      "png": "png/collapsible/state.open.motion/normal/dark.png",
+      "scene": "scenes/collapsible/state.open.motion/normal/dark.json",
+      "png_sha256": "bfdbc72a06cc0e5ae8e8dc700d9ca6d655e4055598fc583d0ba08079dea8fb45"
+    },
+    {
+      "id": "collapsible/state.open.motion/normal/light",
+      "component": "collapsible",
+      "group": "state",
+      "params": {
+        "open": true,
+        "motion": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        272.0,
+        104.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        240.0,
+        78.5
+      ],
+      "png": "png/collapsible/state.open.motion/normal/light.png",
+      "scene": "scenes/collapsible/state.open.motion/normal/light.json",
+      "png_sha256": "e4eb64a287c19f463450a60960294ea51afae82c4c159314cc489d532cef0ead"
+    },
+    {
+      "id": "collapsible/state.open/normal/dark",
+      "component": "collapsible",
+      "group": "state",
+      "params": {
+        "open": true,
+        "motion": false
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        272.0,
+        104.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        240.0,
+        78.5
+      ],
+      "png": "png/collapsible/state.open/normal/dark.png",
+      "scene": "scenes/collapsible/state.open/normal/dark.json",
+      "png_sha256": "bfdbc72a06cc0e5ae8e8dc700d9ca6d655e4055598fc583d0ba08079dea8fb45"
+    },
+    {
+      "id": "collapsible/state.open/normal/light",
+      "component": "collapsible",
+      "group": "state",
+      "params": {
+        "open": true,
+        "motion": false
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        272.0,
+        104.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        240.0,
+        78.5
+      ],
+      "png": "png/collapsible/state.open/normal/light.png",
+      "scene": "scenes/collapsible/state.open/normal/light.json",
+      "png_sha256": "e4eb64a287c19f463450a60960294ea51afae82c4c159314cc489d532cef0ead"
+    },
+    {
+      "id": "collapsible/up.base/normal/dark",
+      "component": "collapsible",
+      "group": "up",
+      "params": {
+        "content_first": true,
+        "open": false
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        272.0,
+        104.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        240.0,
+        22.5
+      ],
+      "png": "png/collapsible/up.base/normal/dark.png",
+      "scene": "scenes/collapsible/up.base/normal/dark.json",
+      "png_sha256": "58026046fac22785aca011bdaabaa0f113d602541178509e820b801fe2afd43e"
+    },
+    {
+      "id": "collapsible/up.base/normal/light",
+      "component": "collapsible",
+      "group": "up",
+      "params": {
+        "content_first": true,
+        "open": false
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        272.0,
+        104.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        240.0,
+        22.5
+      ],
+      "png": "png/collapsible/up.base/normal/light.png",
+      "scene": "scenes/collapsible/up.base/normal/light.json",
+      "png_sha256": "ac6a27cd56cce4f76052be597c862395e3e096f6a0c1af577d8aa5d4009a24ce"
+    },
+    {
+      "id": "collapsible/up.open/normal/dark",
+      "component": "collapsible",
+      "group": "up",
+      "params": {
+        "content_first": true,
+        "open": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        272.0,
+        104.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        240.0,
+        78.5
+      ],
+      "png": "png/collapsible/up.open/normal/dark.png",
+      "scene": "scenes/collapsible/up.open/normal/dark.json",
+      "png_sha256": "67f3492df9f30374bca1bd13277492fe100cb13e219ab58b424d830e326a5ef7"
+    },
+    {
+      "id": "collapsible/up.open/normal/light",
+      "component": "collapsible",
+      "group": "up",
+      "params": {
+        "content_first": true,
+        "open": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        272.0,
+        104.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        240.0,
+        78.5
+      ],
+      "png": "png/collapsible/up.open/normal/light.png",
+      "scene": "scenes/collapsible/up.open/normal/light.json",
+      "png_sha256": "daf3ac7c30e663c092ad0c43f87661f693f489b50b6d6f6513daab446049c237"
     },
     {
       "id": "combobox/close.base/click+wait-200ms+click-at-60-65/dark",
