@@ -200,9 +200,9 @@
       <Setter Property="IsVisible" Value="True" />
     </Style>
     <!-- Highlighted under the pointer, when reached by the keyboard, and while its
-         submenu is open. A menu opened by a click highlights nothing (GPUI's
-         selected_index starts empty), although Avalonia focuses its first item. -->
-    <Style Selector="^:pointerover, ^:focus-visible, ^:open">
+         submenu is open. Avalonia selects a menu's first item when it opens,
+         where GPUI's selected_index starts empty (R28). -->
+    <Style Selector="^:selected, ^:pointerover, ^:open">
       <Setter Property="Background" Value="{DynamicResource Gpui.Accent}" />
       <Setter Property="Foreground" Value="{DynamicResource Gpui.AccentForeground}" />
     </Style>

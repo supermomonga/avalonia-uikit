@@ -54,6 +54,18 @@ public static class Adapters
     /// </summary>
     public static void AfterDrive(GoldenCase c, CaseHost host)
     {
+        // R28: Avalonia selects a menu's first item when the menu opens; GPUI starts
+        // with none. Only the pointer's item (and an open submenu's) stays selected.
+        if (!c.State.Contains("key-", StringComparison.Ordinal))
+        {
+            foreach (var item in host.Window.GetVisualDescendants().OfType<MenuItem>())
+            {
+                if (item.IsSelected && !item.IsPointerOver && !item.IsSubMenuOpen)
+                {
+                    item.IsSelected = false;
+                }
+            }
+        }
         foreach (var box in host.Window.GetVisualDescendants().OfType<TextBox>())
         {
             box.ClearSelection();
