@@ -1,5 +1,5 @@
 <!--
-  GPUI Kit Rating (crates/component/src/rating.rs) -> gpui:Rating.
+  GPUI Kit Rating (crates/component/src/rating.rs) -> uikit:Rating.
   Stars are the star icon (star-fill when filled) with 2px padding, in the
   foreground color, filled and previewed ones in the theme's yellow (or
   ActiveBrush). Sizes: xsmall (12px icons), small (14), the default (16),
@@ -7,10 +7,10 @@
 -->
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:gpui="using:AvaloniaUIKit">
-  <ControlTheme x:Key="{x:Type gpui:Rating}" TargetType="gpui:Rating">
-    <Setter Property="ActiveBrush" Value="{DynamicResource Gpui.Yellow}" />
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+                    xmlns:uikit="using:AvaloniaUIKit">
+  <ControlTheme x:Key="{x:Type uikit:Rating}" TargetType="uikit:Rating">
+    <Setter Property="ActiveBrush" Value="{DynamicResource UIKit.Yellow}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
     <Setter Property="HorizontalAlignment" Value="Left" />
     <Setter Property="VerticalAlignment" Value="Top" />
     <Setter Property="Background" Value="Transparent" />
@@ -30,22 +30,22 @@
     </Style>
   </ControlTheme>
 
-  <ControlTheme x:Key="{x:Type gpui:RatingStar}" TargetType="gpui:RatingStar">
+  <ControlTheme x:Key="{x:Type uikit:RatingStar}" TargetType="uikit:RatingStar">
     <Setter Property="Padding" Value="2" />
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="Template">
       <ControlTemplate>
         <Border Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
-          <PathIcon Name="PART_Icon" Data="{StaticResource Gpui.Icon.Star}"
+          <PathIcon Name="PART_Icon" Data="{StaticResource UIKit.Icon.Star}"
                     Width="{TemplateBinding IconSize}" Height="{TemplateBinding IconSize}" />
         </Border>
       </ControlTemplate>
     </Setter>
     <Style Selector="^:filled /template/ PathIcon#PART_Icon">
-      <Setter Property="Data" Value="{StaticResource Gpui.Icon.StarFill}" />
+      <Setter Property="Data" Value="{StaticResource UIKit.Icon.StarFill}" />
     </Style>
     <Style Selector="^:active /template/ PathIcon#PART_Icon">
-      <Setter Property="Foreground" Value="{Binding $parent[gpui:RatingStar].ActiveBrush}" />
+      <Setter Property="Foreground" Value="{Binding $parent[uikit:RatingStar].ActiveBrush}" />
     </Style>
   </ControlTheme>
 </ResourceDictionary>

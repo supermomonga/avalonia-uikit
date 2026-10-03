@@ -1,4 +1,4 @@
-# GPUI Kit Stepper -> gpui:Stepper / gpui:StepperItem, 480px wide. Steps up
+# GPUI Kit Stepper -> uikit:Stepper / uikit:StepperItem, 480px wide. Steps up
 # to the selected one are checked (primary); the line after each passed step
 # is primary. Indicators: 8 / 18 / 24 / 32px; labels at the next size down.
 component = "stepper"

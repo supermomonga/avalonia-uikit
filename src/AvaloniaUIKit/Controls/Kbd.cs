@@ -69,12 +69,12 @@ public class Kbd : TemplatedControl
         {
             parts.Add(mac ? "⌘" : "Win");
         }
-        parts.Add(KeyText(GpuiKey(gesture.Key), mac));
+        parts.Add(KeyText(UIKitKey(gesture.Key), mac));
         return string.Join(mac ? "" : "+", parts);
     }
 
     // GPUI's key names (Keystroke::key) for Avalonia's keys.
-    private static string GpuiKey(Key key) => key switch
+    private static string UIKitKey(Key key) => key switch
     {
         >= Key.A and <= Key.Z => ((char)('a' + (key - Key.A))).ToString(),
         >= Key.D0 and <= Key.D9 => ((char)('0' + (key - Key.D0))).ToString(),

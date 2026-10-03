@@ -1,4 +1,4 @@
-# GPUI Kit AvatarGroup -> gpui:AvatarGroup: avatars overlapping by 30%, the
+# GPUI Kit AvatarGroup -> uikit:AvatarGroup: avatars overlapping by 30%, the
 # first on top, cut at the limit, optionally with an ellipsis avatar.
 component = "avatargroup"
 viewport = [240, 80]

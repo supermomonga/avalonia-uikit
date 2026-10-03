@@ -1,4 +1,4 @@
-# GPUI Kit Spinner -> ProgressBar with the GpuiSpinner theme.
+# GPUI Kit Spinner -> ProgressBar with the UIKitSpinner theme.
 component = "spinner"
 viewport = [56, 40]
 anchor = [16, 8]

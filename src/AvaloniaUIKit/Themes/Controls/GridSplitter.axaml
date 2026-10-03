@@ -16,10 +16,10 @@
 -->
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:gpui="using:AvaloniaUIKit"
+                    xmlns:uikit="using:AvaloniaUIKit"
                     xmlns:gconv="using:AvaloniaUIKit.Converters">
   <!-- resizable.rs: the pill is drawn only while it is longer than half a pixel. -->
-  <gconv:AboveConverter x:Key="Gpui.Splitter.PillShown" Threshold="0.5" />
+  <gconv:AboveConverter x:Key="UIKit.Splitter.PillShown" Threshold="0.5" />
   <ControlTheme x:Key="{x:Type GridSplitter}" TargetType="GridSplitter">
     <!-- The whole band takes the pointer, over both neighbours. -->
     <Setter Property="Background" Value="Transparent" />
@@ -27,20 +27,20 @@
     <Setter Property="MinHeight" Value="0" />
     <Setter Property="ZIndex" Value="1" />
     <Setter Property="ClipToBounds" Value="False" />
-    <Setter Property="gpui:Splitters.TracksDrag" Value="True" />
+    <Setter Property="uikit:Splitters.TracksDrag" Value="True" />
     <Setter Property="PreviewContent">
       <Template>
-        <Border Background="{DynamicResource Gpui.Border}" />
+        <Border Background="{DynamicResource UIKit.Border}" />
       </Template>
     </Setter>
     <Setter Property="Template">
       <ControlTemplate>
         <Panel Background="{TemplateBinding Background}">
-          <Border Name="PART_Line" Background="{DynamicResource Gpui.Border}" />
-          <Border Name="PART_Pill" Background="{DynamicResource Gpui.MutedForeground}"
+          <Border Name="PART_Line" Background="{DynamicResource UIKit.Border}" />
+          <Border Name="PART_Pill" Background="{DynamicResource UIKit.MutedForeground}"
                   CornerRadius="1.5" Opacity="0" IsHitTestVisible="False">
             <Border.IsVisible>
-              <MultiBinding Converter="{StaticResource Gpui.Splitter.PillShown}">
+              <MultiBinding Converter="{StaticResource UIKit.Splitter.PillShown}">
                 <Binding RelativeSource="{RelativeSource Self}" Path="Width" />
                 <Binding RelativeSource="{RelativeSource Self}" Path="Height" />
               </MultiBinding>
@@ -107,13 +107,13 @@
     <Style Selector="^[ResizeDirection=Rows]:pressed /template/ Border#PART_Pill">
       <Setter Property="Width" Value="28" />
     </Style>
-    <Style Selector="^[(gpui|Splitters.IsDragging)=True] /template/ Border#PART_Pill">
+    <Style Selector="^[(uikit|Splitters.IsDragging)=True] /template/ Border#PART_Pill">
       <Setter Property="Opacity" Value="0.9" />
     </Style>
-    <Style Selector="^[ResizeDirection=Columns][(gpui|Splitters.IsDragging)=True] /template/ Border#PART_Pill">
+    <Style Selector="^[ResizeDirection=Columns][(uikit|Splitters.IsDragging)=True] /template/ Border#PART_Pill">
       <Setter Property="Height" Value="44" />
     </Style>
-    <Style Selector="^[ResizeDirection=Rows][(gpui|Splitters.IsDragging)=True] /template/ Border#PART_Pill">
+    <Style Selector="^[ResizeDirection=Rows][(uikit|Splitters.IsDragging)=True] /template/ Border#PART_Pill">
       <Setter Property="Width" Value="44" />
     </Style>
   </ControlTheme>

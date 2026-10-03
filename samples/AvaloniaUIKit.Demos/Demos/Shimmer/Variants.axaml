@@ -1,12 +1,12 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:gpui="using:AvaloniaUIKit"
+             xmlns:uikit="using:AvaloniaUIKit"
              x:Class="AvaloniaUIKit.Demos.ShimmerVariants">
   <StackPanel Spacing="8" HorizontalAlignment="Left">
-    <gpui:ShimmerText Text="Thinking about it…" />
-    <gpui:ShimmerText Text="Searching the web…" Foreground="{DynamicResource Gpui.MutedForeground}" />
-    <gpui:ShimmerText Text="Sweeping from the end…" IsReversed="True" />
-    <gpui:ShimmerText Text="Generating a response…" FontSize="14" TextBlock.LineHeight="22.5" />
-    <gpui:ShimmerText Text="A faster, wider sweep…" Duration="0:0:1" Spread="0.5" />
+    <uikit:ShimmerText Text="Thinking about it…" />
+    <uikit:ShimmerText Text="Searching the web…" Foreground="{DynamicResource UIKit.MutedForeground}" />
+    <uikit:ShimmerText Text="Sweeping from the end…" IsReversed="True" />
+    <uikit:ShimmerText Text="Generating a response…" FontSize="14" TextBlock.LineHeight="22.5" />
+    <uikit:ShimmerText Text="A faster, wider sweep…" Duration="0:0:1" Spread="0.5" />
   </StackPanel>
 </UserControl>

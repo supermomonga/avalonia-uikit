@@ -18,7 +18,7 @@
 -->
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:gpui="using:AvaloniaUIKit"
+                    xmlns:uikit="using:AvaloniaUIKit"
                     xmlns:gconv="using:AvaloniaUIKit.Converters"
                     xmlns:notifications="using:Avalonia.Controls.Notifications">
   <!--
@@ -26,8 +26,8 @@
     keeps a shadow's corners when it spreads it; Avalonia shrinks them by the
     spread, so each layer is cast by its own box with the radius grown back.
   -->
-  <gconv:FadedShadowConverter x:Key="Gpui.Shadow.Toast.Far" Power="3" Shadows="0 10 24.2487 -3 #1A000000" />
-  <gconv:FadedShadowConverter x:Key="Gpui.Shadow.Toast.Near" Power="3" Shadows="0 4 8.6603 -4 #1A000000" />
+  <gconv:FadedShadowConverter x:Key="UIKit.Shadow.Toast.Far" Power="3" Shadows="0 10 24.2487 -3 #1A000000" />
+  <gconv:FadedShadowConverter x:Key="UIKit.Shadow.Toast.Near" Power="3" Shadows="0 4 8.6603 -4 #1A000000" />
 
   <ControlTheme x:Key="{x:Type WindowNotificationManager}" TargetType="WindowNotificationManager">
     <Setter Property="Template">
@@ -55,7 +55,7 @@
     </Style>
     <Style Selector="^:bottomleft /template/ ReversibleStackPanel#PART_Items, ^:bottomright /template/ ReversibleStackPanel#PART_Items, ^:bottomcenter /template/ ReversibleStackPanel#PART_Items">
       <Setter Property="VerticalAlignment" Value="Bottom" />
-      <Setter Property="gpui:Notifications.FromBottom" Value="True" />
+      <Setter Property="uikit:Notifications.FromBottom" Value="True" />
     </Style>
     <Style Selector="^:topleft /template/ ReversibleStackPanel#PART_Items">
       <Setter Property="HorizontalAlignment" Value="Left" />
@@ -85,9 +85,9 @@
 
   <ControlTheme x:Key="{x:Type NotificationCard}" TargetType="NotificationCard">
     <Setter Property="Width" Value="382" />
-    <Setter Property="Background" Value="{DynamicResource Gpui.Popover}" />
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
-    <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Border}" />
+    <Setter Property="Background" Value="{DynamicResource UIKit.Popover}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Border}" />
     <Setter Property="BorderThickness" Value="1" />
     <Setter Property="CornerRadius" Value="7.5" />
     <Setter Property="FontSize" Value="14" />
@@ -101,7 +101,7 @@
             <Panel.RenderTransform><TranslateTransform /></Panel.RenderTransform>
             <Border Name="PART_ShadowFar" CornerRadius="11" IsHitTestVisible="False">
               <Border.BoxShadow>
-                <MultiBinding Converter="{StaticResource Gpui.Shadow.Toast.Far}">
+                <MultiBinding Converter="{StaticResource UIKit.Shadow.Toast.Far}">
                   <Binding ElementName="PART_Exit" Path="Opacity" />
                   <Binding ElementName="PART_Motion" Path="Opacity" />
                 </MultiBinding>
@@ -109,7 +109,7 @@
             </Border>
             <Border Name="PART_ShadowNear" CornerRadius="12" IsHitTestVisible="False">
               <Border.BoxShadow>
-                <MultiBinding Converter="{StaticResource Gpui.Shadow.Toast.Near}">
+                <MultiBinding Converter="{StaticResource UIKit.Shadow.Toast.Near}">
                   <Binding ElementName="PART_Exit" Path="Opacity" />
                   <Binding ElementName="PART_Motion" Path="Opacity" />
                 </MultiBinding>
@@ -131,7 +131,7 @@
                         HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,4,4,0"
                         NotificationCard.CloseOnClick="True"
                         Opacity="0" IsHitTestVisible="False">
-                  <PathIcon Data="{StaticResource Gpui.Icon.Close}" />
+                  <PathIcon Data="{StaticResource UIKit.Icon.Close}" />
                 </Button>
               </Panel>
             </Border>
@@ -141,20 +141,20 @@
     </Setter>
 
     <Style Selector="^:information /template/ PathIcon#PART_Icon">
-      <Setter Property="Data" Value="{StaticResource Gpui.Icon.Info}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Info}" />
+      <Setter Property="Data" Value="{StaticResource UIKit.Icon.Info}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Info}" />
     </Style>
     <Style Selector="^:success /template/ PathIcon#PART_Icon">
-      <Setter Property="Data" Value="{StaticResource Gpui.Icon.CircleCheck}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Success}" />
+      <Setter Property="Data" Value="{StaticResource UIKit.Icon.CircleCheck}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Success}" />
     </Style>
     <Style Selector="^:warning /template/ PathIcon#PART_Icon">
-      <Setter Property="Data" Value="{StaticResource Gpui.Icon.TriangleAlert}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Warning}" />
+      <Setter Property="Data" Value="{StaticResource UIKit.Icon.TriangleAlert}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Warning}" />
     </Style>
     <Style Selector="^:error /template/ PathIcon#PART_Icon">
-      <Setter Property="Data" Value="{StaticResource Gpui.Icon.CircleX}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Danger}" />
+      <Setter Property="Data" Value="{StaticResource UIKit.Icon.CircleX}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Danger}" />
     </Style>
     <!-- GPUI's untyped notification: no icon, and no indent for one. -->
     <Style Selector="^.plain /template/ PathIcon#PART_Icon">
@@ -171,7 +171,7 @@
     </Style>
 
     <!-- Enter: 96px down from above (up from below) and in, over 400ms. -->
-    <Style Selector="^ /template/ Panel#PART_Motion[(gpui|Notifications.FromBottom)=False]">
+    <Style Selector="^ /template/ Panel#PART_Motion[(uikit|Notifications.FromBottom)=False]">
       <Style.Animations>
         <Animation Duration="0:0:0.4" Easing="0.25,0.1,0.25,1" FillMode="Forward">
           <KeyFrame Cue="0%">
@@ -185,7 +185,7 @@
         </Animation>
       </Style.Animations>
     </Style>
-    <Style Selector="^ /template/ Panel#PART_Motion[(gpui|Notifications.FromBottom)=True]">
+    <Style Selector="^ /template/ Panel#PART_Motion[(uikit|Notifications.FromBottom)=True]">
       <Style.Animations>
         <Animation Duration="0:0:0.4" Easing="0.25,0.1,0.25,1" FillMode="Forward">
           <KeyFrame Cue="0%">
@@ -201,7 +201,7 @@
     </Style>
 
     <!-- Exit: 96px back toward the edge and out over 200ms, then closed (removed). -->
-    <Style Selector="^[IsClosing=True] /template/ Panel#PART_Exit[(gpui|Notifications.FromBottom)=False]">
+    <Style Selector="^[IsClosing=True] /template/ Panel#PART_Exit[(uikit|Notifications.FromBottom)=False]">
       <Style.Animations>
         <Animation Duration="0:0:0.2" Easing="0.25,0.1,0.25,1" FillMode="Forward">
           <KeyFrame Cue="0%">
@@ -215,7 +215,7 @@
         </Animation>
       </Style.Animations>
     </Style>
-    <Style Selector="^[IsClosing=True] /template/ Panel#PART_Exit[(gpui|Notifications.FromBottom)=True]">
+    <Style Selector="^[IsClosing=True] /template/ Panel#PART_Exit[(uikit|Notifications.FromBottom)=True]">
       <Style.Animations>
         <Animation Duration="0:0:0.2" Easing="0.25,0.1,0.25,1" FillMode="Forward">
           <KeyFrame Cue="0%">

@@ -16,26 +16,26 @@
         xmlns:conv="using:Avalonia.Controls.Converters"
         xmlns:gconv="using:AvaloniaUIKit.Converters">
   <Styles.Resources>
-    <conv:CornerRadiusFilterConverter x:Key="Gpui.Corners.Left" Filter="TopLeft, BottomLeft" />
-    <conv:CornerRadiusFilterConverter x:Key="Gpui.Corners.Right" Filter="TopRight, BottomRight" />
-    <conv:CornerRadiusFilterConverter x:Key="Gpui.Corners.Top" Filter="TopLeft, TopRight" />
-    <conv:CornerRadiusFilterConverter x:Key="Gpui.Corners.Bottom" Filter="BottomLeft, BottomRight" />
-    <gconv:ThicknessFilterConverter x:Key="Gpui.Sides.NoLeft" Filter="Top, Right, Bottom" />
-    <gconv:ThicknessFilterConverter x:Key="Gpui.Sides.NoTop" Filter="Left, Right, Bottom" />
+    <conv:CornerRadiusFilterConverter x:Key="UIKit.Corners.Left" Filter="TopLeft, BottomLeft" />
+    <conv:CornerRadiusFilterConverter x:Key="UIKit.Corners.Right" Filter="TopRight, BottomRight" />
+    <conv:CornerRadiusFilterConverter x:Key="UIKit.Corners.Top" Filter="TopLeft, TopRight" />
+    <conv:CornerRadiusFilterConverter x:Key="UIKit.Corners.Bottom" Filter="BottomLeft, BottomRight" />
+    <gconv:ThicknessFilterConverter x:Key="UIKit.Sides.NoLeft" Filter="Top, Right, Bottom" />
+    <gconv:ThicknessFilterConverter x:Key="UIKit.Sides.NoTop" Filter="Left, Right, Bottom" />
   </Styles.Resources>
 
   <!-- Corners: the first and last keep the group's outer ones, the middle none. -->
   <Style Selector="StackPanel.button-group[Orientation=Horizontal] > Button:nth-child(1):not(:nth-last-child(1)) /template/ ContentPresenter#PART_ContentPresenter">
-    <Setter Property="CornerRadius" Value="{Binding $parent[Button].CornerRadius, Converter={StaticResource Gpui.Corners.Left}}" />
+    <Setter Property="CornerRadius" Value="{Binding $parent[Button].CornerRadius, Converter={StaticResource UIKit.Corners.Left}}" />
   </Style>
   <Style Selector="StackPanel.button-group[Orientation=Horizontal] > Button:nth-last-child(1):not(:nth-child(1)) /template/ ContentPresenter#PART_ContentPresenter">
-    <Setter Property="CornerRadius" Value="{Binding $parent[Button].CornerRadius, Converter={StaticResource Gpui.Corners.Right}}" />
+    <Setter Property="CornerRadius" Value="{Binding $parent[Button].CornerRadius, Converter={StaticResource UIKit.Corners.Right}}" />
   </Style>
   <Style Selector="StackPanel.button-group[Orientation=Vertical] > Button:nth-child(1):not(:nth-last-child(1)) /template/ ContentPresenter#PART_ContentPresenter">
-    <Setter Property="CornerRadius" Value="{Binding $parent[Button].CornerRadius, Converter={StaticResource Gpui.Corners.Top}}" />
+    <Setter Property="CornerRadius" Value="{Binding $parent[Button].CornerRadius, Converter={StaticResource UIKit.Corners.Top}}" />
   </Style>
   <Style Selector="StackPanel.button-group[Orientation=Vertical] > Button:nth-last-child(1):not(:nth-child(1)) /template/ ContentPresenter#PART_ContentPresenter">
-    <Setter Property="CornerRadius" Value="{Binding $parent[Button].CornerRadius, Converter={StaticResource Gpui.Corners.Bottom}}" />
+    <Setter Property="CornerRadius" Value="{Binding $parent[Button].CornerRadius, Converter={StaticResource UIKit.Corners.Bottom}}" />
   </Style>
   <Style Selector="StackPanel.button-group > Button:not(:nth-child(1)):not(:nth-last-child(1)) /template/ ContentPresenter#PART_ContentPresenter">
     <Setter Property="CornerRadius" Value="0" />
@@ -43,10 +43,10 @@
 
   <!-- Edges: every later button drops the one it shares with the previous button. -->
   <Style Selector="StackPanel.button-group[Orientation=Horizontal] > Button:not(:nth-child(1)) /template/ ContentPresenter#PART_ContentPresenter">
-    <Setter Property="BorderThickness" Value="{Binding $parent[Button].BorderThickness, Converter={StaticResource Gpui.Sides.NoLeft}}" />
+    <Setter Property="BorderThickness" Value="{Binding $parent[Button].BorderThickness, Converter={StaticResource UIKit.Sides.NoLeft}}" />
   </Style>
   <Style Selector="StackPanel.button-group[Orientation=Vertical] > Button:not(:nth-child(1)) /template/ ContentPresenter#PART_ContentPresenter">
-    <Setter Property="BorderThickness" Value="{Binding $parent[Button].BorderThickness, Converter={StaticResource Gpui.Sides.NoTop}}" />
+    <Setter Property="BorderThickness" Value="{Binding $parent[Button].BorderThickness, Converter={StaticResource UIKit.Sides.NoTop}}" />
   </Style>
 
   <!--

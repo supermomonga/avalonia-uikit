@@ -1,29 +1,29 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:gpui="using:AvaloniaUIKit"
+             xmlns:uikit="using:AvaloniaUIKit"
              x:Class="AvaloniaUIKit.Demos.FormSizes">
   <StackPanel Spacing="24" Width="360" HorizontalAlignment="Left">
-    <gpui:Form Classes="small">
-      <gpui:FormField Label="Name">
+    <uikit:Form Classes="small">
+      <uikit:FormField Label="Name">
         <TextBox Classes="small" PlaceholderText="Enter name" />
-      </gpui:FormField>
-      <gpui:FormField Label="Email" IsRequired="True" Description="We will never share your email.">
+      </uikit:FormField>
+      <uikit:FormField Label="Email" IsRequired="True" Description="We will never share your email.">
         <TextBox Classes="small" PlaceholderText="Enter email" />
-      </gpui:FormField>
-      <gpui:Form.Footer>
+      </uikit:FormField>
+      <uikit:Form.Footer>
         <Button Classes="primary small" Content="Save" />
-      </gpui:Form.Footer>
-    </gpui:Form>
-    <gpui:Form Classes="large">
-      <gpui:FormField Label="Name">
+      </uikit:Form.Footer>
+    </uikit:Form>
+    <uikit:Form Classes="large">
+      <uikit:FormField Label="Name">
         <TextBox Classes="large" PlaceholderText="Enter name" />
-      </gpui:FormField>
-      <gpui:FormField Label="Email" IsRequired="True" Description="We will never share your email.">
+      </uikit:FormField>
+      <uikit:FormField Label="Email" IsRequired="True" Description="We will never share your email.">
         <TextBox Classes="large" PlaceholderText="Enter email" />
-      </gpui:FormField>
-      <gpui:Form.Footer>
+      </uikit:FormField>
+      <uikit:Form.Footer>
         <Button Classes="primary large" Content="Save" />
-      </gpui:Form.Footer>
-    </gpui:Form>
+      </uikit:Form.Footer>
+    </uikit:Form>
   </StackPanel>
 </UserControl>

@@ -1,9 +1,9 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:gpui="using:AvaloniaUIKit"
+             xmlns:uikit="using:AvaloniaUIKit"
              xmlns:local="using:AvaloniaUIKit.Demos"
              x:Class="AvaloniaUIKit.Demos.TableDemo">
-  <TableView Theme="{StaticResource GpuiTable}" Classes="stripe"
+  <TableView Theme="{StaticResource UIKitTable}" Classes="stripe"
              BorderThickness="1" CornerRadius="5.5"
              Width="400" Height="240" HorizontalAlignment="Left"
              ItemsSource="{x:Static local:Invoice.Samples}">

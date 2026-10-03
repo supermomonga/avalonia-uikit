@@ -1,13 +1,13 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:gpui="using:AvaloniaUIKit"
+             xmlns:uikit="using:AvaloniaUIKit"
              x:Class="AvaloniaUIKit.Demos.SheetDemo">
   <DrawerPage Name="Sheet" Classes="sheet" DrawerBehavior="Flyout" DrawerPlacement="Right" DrawerHeader="Edit profile"
               Width="560" Height="320" HorizontalAlignment="Left">
     <DrawerPage.Drawer>
       <StackPanel Spacing="12">
         <TextBlock Text="Make changes to your profile here. Click save when you're done."
-                   Foreground="{DynamicResource Gpui.MutedForeground}" TextWrapping="Wrap" />
+                   Foreground="{DynamicResource UIKit.MutedForeground}" TextWrapping="Wrap" />
         <TextBox Text="Jason Lee" />
         <TextBox Text="@huacnlee" />
       </StackPanel>
@@ -17,7 +17,7 @@
     </DrawerPage.DrawerFooter>
     <StackPanel Spacing="8" Margin="16" HorizontalAlignment="Left" VerticalAlignment="Top">
       <Button Classes="outline" Content="Open sheet" HorizontalAlignment="Left" Click="OnOpenSheet" />
-      <TextBlock Text="The sheet slides in over the page." Foreground="{DynamicResource Gpui.MutedForeground}" />
+      <TextBlock Text="The sheet slides in over the page." Foreground="{DynamicResource UIKit.MutedForeground}" />
     </StackPanel>
   </DrawerPage>
 </UserControl>

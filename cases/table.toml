@@ -1,4 +1,4 @@
-# GPUI Kit Table -> TableView (Theme="{StaticResource GpuiTable}").
+# GPUI Kit Table -> TableView (Theme="{StaticResource UIKitTable}").
 # Invoice / Method / Amount (right-aligned) x 5 rows in a 360px wide box.
 component = "table"
 viewport = [392, 272]

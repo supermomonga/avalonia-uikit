@@ -1,6 +1,6 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:gpui="using:AvaloniaUIKit"
+             xmlns:uikit="using:AvaloniaUIKit"
              x:Class="AvaloniaUIKit.Demos.ToggleGroupVariants">
   <WrapPanel ItemSpacing="16" LineSpacing="12">
     <ListBox Classes="toggle-group" SelectionMode="Multiple,Toggle">

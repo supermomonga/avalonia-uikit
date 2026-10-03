@@ -1,25 +1,25 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:gpui="using:AvaloniaUIKit"
+             xmlns:uikit="using:AvaloniaUIKit"
              x:Class="AvaloniaUIKit.Demos.HoverCardDemo">
   <Panel MinWidth="360" MinHeight="180">
     <StackPanel Spacing="8" HorizontalAlignment="Left" VerticalAlignment="Top">
-      <gpui:HoverCard>
-        <TextBlock Text="@huacnlee" Foreground="{DynamicResource Gpui.Primary}" />
-        <gpui:HoverCard.Card>
+      <uikit:HoverCard>
+        <TextBlock Text="@avaloniaui" Foreground="{DynamicResource UIKit.Primary}" />
+        <uikit:HoverCard.Card>
           <StackPanel Spacing="8" Width="260">
             <StackPanel Orientation="Horizontal" Spacing="12">
-              <gpui:Avatar UserName="Jason Lee" />
+              <uikit:Avatar UserName="Avalonia UI" />
               <StackPanel VerticalAlignment="Center">
-                <TextBlock Text="Jason Lee" FontWeight="SemiBold" />
-                <TextBlock Text="@huacnlee" Foreground="{DynamicResource Gpui.MutedForeground}" />
+                <TextBlock Text="Avalonia UI" FontWeight="SemiBold" />
+                <TextBlock Text="@avaloniaui" Foreground="{DynamicResource UIKit.MutedForeground}" />
               </StackPanel>
             </StackPanel>
-            <TextBlock Text="Author of GPUI Component, a UI library for GPUI." TextWrapping="Wrap" />
+            <TextBlock Text="The cross-platform UI framework for .NET." TextWrapping="Wrap" />
           </StackPanel>
-        </gpui:HoverCard.Card>
-      </gpui:HoverCard>
-      <TextBlock Text="Hover the name to open the card." Foreground="{DynamicResource Gpui.MutedForeground}" />
+        </uikit:HoverCard.Card>
+      </uikit:HoverCard>
+      <TextBlock Text="Hover the name to open the card." Foreground="{DynamicResource UIKit.MutedForeground}" />
     </StackPanel>
   </Panel>
 </UserControl>

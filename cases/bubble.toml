@@ -1,4 +1,4 @@
-# GPUI Kit Bubble -> gpui:Bubble in a 360px column; a bubble is at most 80%
+# GPUI Kit Bubble -> uikit:Bubble in a 360px column; a bubble is at most 80%
 # of it. Reactions hang 20px over the bubble's edge.
 component = "bubble"
 viewport = [392, 96]

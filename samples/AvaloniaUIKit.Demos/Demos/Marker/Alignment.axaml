@@ -1,16 +1,16 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:gpui="using:AvaloniaUIKit"
+             xmlns:uikit="using:AvaloniaUIKit"
              x:Class="AvaloniaUIKit.Demos.MarkerAlignment">
   <StackPanel Spacing="16" Width="420" HorizontalAlignment="Left">
-    <gpui:Marker Classes="separator" Content="Start" HorizontalContentAlignment="Left" />
-    <gpui:Marker Classes="separator" Content="Center" />
-    <gpui:Marker Classes="separator" Content="End" HorizontalContentAlignment="Right" />
-    <gpui:Marker Content="Online" HorizontalContentAlignment="Center">
-      <gpui:Marker.Icon>
-        <PathIcon Data="{StaticResource Gpui.Icon.CircleCheck}" />
-      </gpui:Marker.Icon>
-    </gpui:Marker>
-    <gpui:Marker Content="Seen 2 minutes ago" HorizontalContentAlignment="Right" />
+    <uikit:Marker Classes="separator" Content="Start" HorizontalContentAlignment="Left" />
+    <uikit:Marker Classes="separator" Content="Center" />
+    <uikit:Marker Classes="separator" Content="End" HorizontalContentAlignment="Right" />
+    <uikit:Marker Content="Online" HorizontalContentAlignment="Center">
+      <uikit:Marker.Icon>
+        <PathIcon Data="{StaticResource UIKit.Icon.CircleCheck}" />
+      </uikit:Marker.Icon>
+    </uikit:Marker>
+    <uikit:Marker Content="Seen 2 minutes ago" HorizontalContentAlignment="Right" />
   </StackPanel>
 </UserControl>

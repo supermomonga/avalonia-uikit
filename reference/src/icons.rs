@@ -124,7 +124,7 @@ pub fn write_xaml(root: &Path) -> Result<()> {
     for name in ICONS {
         let svg = std::fs::read(icons.join(format!("{name}.svg")))
             .with_context(|| format!("reading icon {name}"))?;
-        let key = format!("Gpui.Icon.{}", crate::tokens::pascal(name));
+        let key = format!("UIKit.Icon.{}", crate::tokens::pascal(name));
         let (data, faint) = outline(&svg)?;
         let _ = writeln!(xaml, "  <StreamGeometry x:Key=\"{key}\">{data}</StreamGeometry>");
         if let Some(faint) = faint {

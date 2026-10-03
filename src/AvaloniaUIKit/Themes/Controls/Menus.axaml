@@ -20,11 +20,11 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:conv="using:Avalonia.Controls.Converters">
-  <conv:PlatformKeyGestureConverter x:Key="GpuiKeyGestureConverter" />
+  <conv:PlatformKeyGestureConverter x:Key="UIKitKeyGestureConverter" />
 
-  <BoxShadows x:Key="Gpui.Shadow.Popover">0 4 8.6603 -1 #1A000000, 0 2 5.1962 -2 #1A000000</BoxShadows>
+  <BoxShadows x:Key="UIKit.Shadow.Popover">0 4 8.6603 -1 #1A000000, 0 2 5.1962 -2 #1A000000</BoxShadows>
 
-  <ControlTheme x:Key="GpuiMenuScrollViewer" TargetType="ScrollViewer">
+  <ControlTheme x:Key="UIKitMenuScrollViewer" TargetType="ScrollViewer">
     <Setter Property="HorizontalScrollBarVisibility" Value="Disabled" />
     <Setter Property="VerticalScrollBarVisibility" Value="Auto" />
     <Setter Property="Template">
@@ -36,31 +36,31 @@
     </Setter>
   </ControlTheme>
 
-  <ItemsPanelTemplate x:Key="GpuiMenuItemsPanel">
+  <ItemsPanelTemplate x:Key="UIKitMenuItemsPanel">
     <StackPanel Spacing="2" />
   </ItemsPanelTemplate>
 
   <ControlTheme x:Key="{x:Type MenuFlyoutPresenter}" TargetType="MenuFlyoutPresenter">
     <!-- Shadows and rings paint outside the bounds. -->
     <Setter Property="ClipToBounds" Value="False" />
-    <Setter Property="Background" Value="{DynamicResource Gpui.Popover}" />
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.PopoverForeground}" />
+    <Setter Property="Background" Value="{DynamicResource UIKit.Popover}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.PopoverForeground}" />
     <Setter Property="FontSize" Value="14" />
     <Setter Property="CornerRadius" Value="6" />
     <Setter Property="Padding" Value="4" />
     <Setter Property="MinWidth" Value="128" />
-    <Setter Property="ItemsPanel" Value="{StaticResource GpuiMenuItemsPanel}" />
+    <Setter Property="ItemsPanel" Value="{StaticResource UIKitMenuItemsPanel}" />
     <Setter Property="Template">
       <ControlTemplate>
         <!-- The popover opens 4px from its trigger (popover.rs, 0.25rem). -->
         <Panel Margin="0,4,0,0">
           <Border Name="PART_Ring" Margin="-1" CornerRadius="{TemplateBinding CornerRadius}"
-                  Background="{DynamicResource Gpui.PopoverRing}" IsHitTestVisible="False" />
+                  Background="{DynamicResource UIKit.PopoverRing}" IsHitTestVisible="False" />
           <Border Name="PART_Surface"
                   Background="{TemplateBinding Background}"
                   CornerRadius="{TemplateBinding CornerRadius}"
-                  BoxShadow="{StaticResource Gpui.Shadow.Popover}">
-            <ScrollViewer Theme="{StaticResource GpuiMenuScrollViewer}">
+                  BoxShadow="{StaticResource UIKit.Shadow.Popover}">
+            <ScrollViewer Theme="{StaticResource UIKitMenuScrollViewer}">
               <ItemsPresenter Name="PART_ItemsPresenter"
                               Margin="{TemplateBinding Padding}"
                               Grid.IsSharedSizeScope="True"
@@ -76,8 +76,8 @@
   <ControlTheme x:Key="{x:Type ContextMenu}" TargetType="ContextMenu">
     <!-- Shadows and rings paint outside the bounds. -->
     <Setter Property="ClipToBounds" Value="False" />
-    <Setter Property="Background" Value="{DynamicResource Gpui.Popover}" />
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.PopoverForeground}" />
+    <Setter Property="Background" Value="{DynamicResource UIKit.Popover}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.PopoverForeground}" />
     <Setter Property="FontSize" Value="14" />
     <Setter Property="FontWeight" Value="Normal" />
     <Setter Property="CornerRadius" Value="6" />
@@ -86,17 +86,17 @@
     <Setter Property="Focusable" Value="True" />
     <Setter Property="Placement" Value="Pointer" />
     <Setter Property="WindowManagerAddShadowHint" Value="False" />
-    <Setter Property="ItemsPanel" Value="{StaticResource GpuiMenuItemsPanel}" />
+    <Setter Property="ItemsPanel" Value="{StaticResource UIKitMenuItemsPanel}" />
     <Setter Property="Template">
       <ControlTemplate>
         <Panel>
           <Border Name="PART_Ring" Margin="-1" CornerRadius="{TemplateBinding CornerRadius}"
-                  Background="{DynamicResource Gpui.PopoverRing}" IsHitTestVisible="False" />
+                  Background="{DynamicResource UIKit.PopoverRing}" IsHitTestVisible="False" />
           <Border Name="PART_Surface"
                   Background="{TemplateBinding Background}"
                   CornerRadius="{TemplateBinding CornerRadius}"
-                  BoxShadow="{StaticResource Gpui.Shadow.Popover}">
-            <ScrollViewer Theme="{StaticResource GpuiMenuScrollViewer}">
+                  BoxShadow="{StaticResource UIKit.Shadow.Popover}">
+            <ScrollViewer Theme="{StaticResource UIKitMenuScrollViewer}">
               <ItemsPresenter Name="PART_ItemsPresenter"
                               Margin="{TemplateBinding Padding}"
                               Grid.IsSharedSizeScope="True"
@@ -113,12 +113,12 @@
     <!-- Shadows and rings paint outside the bounds. -->
     <Setter Property="ClipToBounds" Value="False" />
     <Setter Property="Background" Value="Transparent" />
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
     <Setter Property="FontSize" Value="14" />
     <Setter Property="Height" Value="26" />
     <Setter Property="Padding" Value="8,0" />
     <Setter Property="CornerRadius" Value="6" />
-    <Setter Property="ItemsPanel" Value="{StaticResource GpuiMenuItemsPanel}" />
+    <Setter Property="ItemsPanel" Value="{StaticResource UIKitMenuItemsPanel}" />
     <Setter Property="Template">
       <ControlTemplate>
         <Panel>
@@ -128,7 +128,7 @@
                   Padding="{TemplateBinding Padding}">
             <Grid>
               <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" SharedSizeGroup="GpuiMenuItemIcon" />
+                <ColumnDefinition Width="Auto" SharedSizeGroup="UIKitMenuItemIcon" />
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="Auto" />
@@ -139,7 +139,7 @@
                 <ContentPresenter Name="PART_IconPresenter" Content="{TemplateBinding Icon}"
                                   Width="12" Height="12" />
                 <PathIcon Name="PART_Check" Width="12" Height="12" IsVisible="False"
-                          Data="{StaticResource Gpui.Icon.Check}" />
+                          Data="{StaticResource UIKit.Icon.Check}" />
               </Panel>
               <ContentPresenter Name="PART_HeaderPresenter" Grid.Column="1"
                                 VerticalAlignment="Center"
@@ -150,13 +150,13 @@
               <TextBlock Name="PART_InputGestureText" Grid.Column="2" Margin="12,0,0,0"
                          MinWidth="20" TextAlignment="Center" VerticalAlignment="Center"
                          FontSize="12" LineHeight="12"
-                         Foreground="{DynamicResource Gpui.MutedForeground}"
+                         Foreground="{DynamicResource UIKit.MutedForeground}"
                          IsVisible="{TemplateBinding InputGesture, Converter={x:Static ObjectConverters.IsNotNull}}"
-                         Text="{TemplateBinding InputGesture, Converter={StaticResource GpuiKeyGestureConverter}}" />
+                         Text="{TemplateBinding InputGesture, Converter={StaticResource UIKitKeyGestureConverter}}" />
               <PathIcon Name="PART_SubmenuChevron" Grid.Column="3" Margin="8,0,0,0"
                         Width="12" Height="12" VerticalAlignment="Center"
-                        Foreground="{DynamicResource Gpui.MutedForeground}"
-                        Data="{StaticResource Gpui.Icon.ChevronRight}" />
+                        Foreground="{DynamicResource UIKit.MutedForeground}"
+                        Data="{StaticResource UIKit.Icon.ChevronRight}" />
             </Grid>
           </Border>
           <!-- A submenu starts 8px past the item and 4px above it, so its first
@@ -170,11 +170,11 @@
                  IsOpen="{TemplateBinding IsSubMenuOpen, Mode=TwoWay}">
             <Panel>
               <Border Name="PART_Ring" Margin="-1" CornerRadius="6"
-                      Background="{DynamicResource Gpui.PopoverRing}" IsHitTestVisible="False" />
-              <Border Name="PART_Surface" Background="{DynamicResource Gpui.Popover}" CornerRadius="6"
-                      BoxShadow="{StaticResource Gpui.Shadow.Popover}" MinWidth="128"
-                      TextElement.Foreground="{DynamicResource Gpui.PopoverForeground}">
-                <ScrollViewer Theme="{StaticResource GpuiMenuScrollViewer}">
+                      Background="{DynamicResource UIKit.PopoverRing}" IsHitTestVisible="False" />
+              <Border Name="PART_Surface" Background="{DynamicResource UIKit.Popover}" CornerRadius="6"
+                      BoxShadow="{StaticResource UIKit.Shadow.Popover}" MinWidth="128"
+                      TextElement.Foreground="{DynamicResource UIKit.PopoverForeground}">
+                <ScrollViewer Theme="{StaticResource UIKitMenuScrollViewer}">
                   <ItemsPresenter Name="PART_ItemsPresenter" Margin="4"
                                   Grid.IsSharedSizeScope="True"
                                   ItemsPanel="{TemplateBinding ItemsPanel}" />
@@ -203,12 +203,12 @@
          submenu is open. Avalonia selects a menu's first item when it opens,
          where GPUI's selected_index starts empty (R28). -->
     <Style Selector="^:selected, ^:pointerover, ^:open">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Accent}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.AccentForeground}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Accent}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.AccentForeground}" />
     </Style>
     <Style Selector="^:disabled">
       <Setter Property="Background" Value="Transparent" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.MutedForeground}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.MutedForeground}" />
     </Style>
     <Style Selector="^:separator">
       <Setter Property="Height" Value="NaN" />
@@ -222,16 +222,16 @@
 
   <!-- AppMenuBar's top-level items are small, compact, ghost buttons
        (app_menu_bar.rs AppMenu::render), shown selected while open. -->
-  <ControlTheme x:Key="GpuiTopLevelMenuItem" TargetType="MenuItem">
+  <ControlTheme x:Key="UIKitTopLevelMenuItem" TargetType="MenuItem">
     <Setter Property="ClipToBounds" Value="False" />
-    <Setter Property="Background" Value="{DynamicResource Gpui.Button.Ghost.Normal.Background}" />
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Ghost.Normal.Foreground}" />
+    <Setter Property="Background" Value="{DynamicResource UIKit.Button.Ghost.Normal.Background}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Ghost.Normal.Foreground}" />
     <Setter Property="FontSize" Value="14" />
     <Setter Property="Height" Value="24" />
     <Setter Property="MinWidth" Value="24" />
     <Setter Property="Padding" Value="6,0" />
     <Setter Property="CornerRadius" Value="6" />
-    <Setter Property="ItemsPanel" Value="{StaticResource GpuiMenuItemsPanel}" />
+    <Setter Property="ItemsPanel" Value="{StaticResource UIKitMenuItemsPanel}" />
     <Setter Property="Template">
       <ControlTemplate>
         <Panel>
@@ -256,11 +256,11 @@
                  IsOpen="{TemplateBinding IsSubMenuOpen, Mode=TwoWay}">
             <Panel>
               <Border Name="PART_Ring" Margin="-1" CornerRadius="6"
-                      Background="{DynamicResource Gpui.PopoverRing}" IsHitTestVisible="False" />
-              <Border Name="PART_Surface" Background="{DynamicResource Gpui.Popover}" CornerRadius="6"
-                      BoxShadow="{StaticResource Gpui.Shadow.Popover}" MinWidth="128"
-                      TextElement.Foreground="{DynamicResource Gpui.PopoverForeground}">
-                <ScrollViewer Theme="{StaticResource GpuiMenuScrollViewer}">
+                      Background="{DynamicResource UIKit.PopoverRing}" IsHitTestVisible="False" />
+              <Border Name="PART_Surface" Background="{DynamicResource UIKit.Popover}" CornerRadius="6"
+                      BoxShadow="{StaticResource UIKit.Shadow.Popover}" MinWidth="128"
+                      TextElement.Foreground="{DynamicResource UIKit.PopoverForeground}">
+                <ScrollViewer Theme="{StaticResource UIKitMenuScrollViewer}">
                   <ItemsPresenter Name="PART_ItemsPresenter" Margin="4"
                                   Grid.IsSharedSizeScope="True"
                                   ItemsPanel="{TemplateBinding ItemsPanel}" />
@@ -273,31 +273,31 @@
     </Setter>
 
     <Style Selector="^:pointerover">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Ghost.Hover.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Ghost.Hover.Foreground}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Ghost.Hover.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Ghost.Hover.Foreground}" />
     </Style>
     <Style Selector="^:pressed">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Ghost.Pressed.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Ghost.Pressed.Foreground}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Ghost.Pressed.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Ghost.Pressed.Foreground}" />
     </Style>
     <Style Selector="^:open">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Ghost.Selected.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Ghost.Selected.Foreground}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Ghost.Selected.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Ghost.Selected.Foreground}" />
     </Style>
     <Style Selector="^:disabled">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Button.Ghost.Disabled.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Ghost.Disabled.Foreground}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Ghost.Disabled.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Ghost.Disabled.Foreground}" />
     </Style>
   </ControlTheme>
 
   <!-- The bar is an h_flex with a 4px gap (AppMenuBar::render). -->
-  <ItemsPanelTemplate x:Key="GpuiMenuBarPanel">
+  <ItemsPanelTemplate x:Key="UIKitMenuBarPanel">
     <StackPanel Orientation="Horizontal" Spacing="4" />
   </ItemsPanelTemplate>
 
   <ControlTheme x:Key="{x:Type Menu}" TargetType="Menu">
-    <Setter Property="ItemContainerTheme" Value="{StaticResource GpuiTopLevelMenuItem}" />
-    <Setter Property="ItemsPanel" Value="{StaticResource GpuiMenuBarPanel}" />
+    <Setter Property="ItemContainerTheme" Value="{StaticResource UIKitTopLevelMenuItem}" />
+    <Setter Property="ItemsPanel" Value="{StaticResource UIKitMenuBarPanel}" />
     <Setter Property="Template">
       <ControlTemplate>
         <Border Padding="{TemplateBinding Padding}"

@@ -1,6 +1,6 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:gpui="using:AvaloniaUIKit"
+             xmlns:uikit="using:AvaloniaUIKit"
              x:Class="AvaloniaUIKit.Demos.SidebarDrawer">
   <DrawerPage DrawerLayoutBehavior="CompactInline" IsOpen="True"
               Width="480" Height="220" HorizontalAlignment="Left">
@@ -10,22 +10,22 @@
     <DrawerPage.Drawer>
       <StackPanel Spacing="12">
         <StackPanel Orientation="Horizontal" Spacing="8">
-          <PathIcon Data="{StaticResource Gpui.Icon.Inbox}" />
+          <PathIcon Data="{StaticResource UIKit.Icon.Inbox}" />
           <TextBlock Text="Inbox" />
         </StackPanel>
         <StackPanel Orientation="Horizontal" Spacing="8">
-          <PathIcon Data="{StaticResource Gpui.Icon.Star}" />
+          <PathIcon Data="{StaticResource UIKit.Icon.Star}" />
           <TextBlock Text="Starred" />
         </StackPanel>
         <StackPanel Orientation="Horizontal" Spacing="8">
-          <PathIcon Data="{StaticResource Gpui.Icon.Folder}" />
+          <PathIcon Data="{StaticResource UIKit.Icon.Folder}" />
           <TextBlock Text="Projects" />
         </StackPanel>
       </StackPanel>
     </DrawerPage.Drawer>
     <DrawerPage.DrawerFooter>
-      <gpui:Avatar Classes="small" UserName="Alice" HorizontalAlignment="Left" />
+      <uikit:Avatar Classes="small" UserName="Alice" HorizontalAlignment="Left" />
     </DrawerPage.DrawerFooter>
-    <Border Background="{DynamicResource Gpui.Muted}" />
+    <Border Background="{DynamicResource UIKit.Muted}" />
   </DrawerPage>
 </UserControl>

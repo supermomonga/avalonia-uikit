@@ -4,14 +4,14 @@ using Avalonia.Styling;
 namespace AvaloniaUIKit;
 
 /// <summary>
-/// GPUI Kit's DataTable look for Avalonia.Controls.DataGrid. Add it to the
-/// application's styles after <see cref="GpuiTheme"/> (and after DataGrid's own
+/// The Nova data table look for Avalonia.Controls.DataGrid. Add it to the
+/// application's styles after <see cref="NovaTheme"/> (and after DataGrid's own
 /// Fluent styles, if those are included).
 /// </summary>
-public class GpuiDataGridTheme : Styles
+public class NovaDataGridTheme : Styles
 {
     /// <summary>Loads the themes.</summary>
-    public GpuiDataGridTheme(IServiceProvider? serviceProvider = null)
+    public NovaDataGridTheme(IServiceProvider? serviceProvider = null)
     {
         AvaloniaXamlLoader.Load(serviceProvider, this);
     }

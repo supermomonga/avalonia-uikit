@@ -6,7 +6,7 @@
 
   The title bar is 34px with a 1px title_bar_border rule at its bottom, filled
   with GPUI's gradient from 55% title_bar + 45% background down to title_bar.
-  The title is 14px medium, 12px in (Gpui.TitleBar.Padding). The caption
+  The title is 14px medium, 12px in (UIKit.TitleBar.Padding). The caption
   buttons are 34 x 33 with 14px icons: secondary on hover and press, danger
   for close; the maximize button shows restore while maximized. The frame is
   1px of GPUI's fixed gray, inside a 20px shadow area with its two shadows.
@@ -14,14 +14,14 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <!-- TITLE_BAR_LEFT_PADDING (12; macOS keeps 80 for the traffic lights), and the bottom rule under the title. -->
-  <Thickness x:Key="Gpui.TitleBar.Padding">12,0,0,1</Thickness>
+  <Thickness x:Key="UIKit.TitleBar.Padding">12,0,0,1</Thickness>
   <!-- window_border.rs: (0, 2) sigma 10 spread -1 and (0, 1) sigma 3, black at 18%. -->
-  <BoxShadows x:Key="Gpui.Shadow.WindowFrame">0 2 32.909 -1 #2E000000, 0 1 8.6603 0 #2E000000</BoxShadows>
+  <BoxShadows x:Key="UIKit.Shadow.WindowFrame">0 2 32.909 -1 #2E000000, 0 1 8.6603 0 #2E000000</BoxShadows>
 
   <!-- ControlIcon (title_bar.rs): a 34 x 33 caption button with a centered 14px icon. -->
-  <ControlTheme x:Key="GpuiCaptionButton" TargetType="Button">
+  <ControlTheme x:Key="UIKitCaptionButton" TargetType="Button">
     <Setter Property="Background" Value="Transparent" />
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
     <Setter Property="Width" Value="34" />
     <Setter Property="Height" Value="33" />
     <Setter Property="VerticalAlignment" Value="Top" />
@@ -37,20 +37,20 @@
       </ControlTemplate>
     </Setter>
     <Style Selector="^:pointerover">
-      <Setter Property="Background" Value="{DynamicResource Gpui.SecondaryHover}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.SecondaryForeground}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.SecondaryHover}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.SecondaryForeground}" />
     </Style>
     <Style Selector="^:pressed">
-      <Setter Property="Background" Value="{DynamicResource Gpui.SecondaryActive}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.SecondaryForeground}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.SecondaryActive}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.SecondaryForeground}" />
     </Style>
     <Style Selector="^.close:pointerover">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Danger}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.DangerForeground}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Danger}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.DangerForeground}" />
     </Style>
     <Style Selector="^.close:pressed">
-      <Setter Property="Background" Value="{DynamicResource Gpui.DangerActive}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.DangerForeground}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.DangerActive}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.DangerForeground}" />
     </Style>
   </ControlTheme>
 
@@ -65,20 +65,20 @@
             <Panel Name="PART_UnderlayWrapper">
               <Border Name="PART_WindowBorder"
                       BorderThickness="{TemplateBinding FrameThickness}"
-                      BorderBrush="{DynamicResource Gpui.WindowFrame}"
+                      BorderBrush="{DynamicResource UIKit.WindowFrame}"
                       IsHitTestVisible="False" />
               <Border Name="PART_TitleBar"
                       VerticalAlignment="Top"
                       Height="{TemplateBinding TitleBarHeight}"
                       BackgroundSizing="OuterBorderEdge"
-                      BorderBrush="{DynamicResource Gpui.TitleBarBorder}"
+                      BorderBrush="{DynamicResource UIKit.TitleBarBorder}"
                       BorderThickness="0,0,0,1"
                       IsVisible="{TemplateBinding HasTitleBar}"
                       WindowDecorationProperties.ElementRole="TitleBar">
                 <Border.Background>
                   <LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,100%">
-                    <GradientStop Offset="0" Color="{DynamicResource Gpui.TitleBar.GradientTop.Color}" />
-                    <GradientStop Offset="1" Color="{DynamicResource Gpui.TitleBar.Color}" />
+                    <GradientStop Offset="0" Color="{DynamicResource UIKit.TitleBar.GradientTop.Color}" />
+                    <GradientStop Offset="1" Color="{DynamicResource UIKit.TitleBar.Color}" />
                   </LinearGradientBrush>
                 </Border.Background>
               </Border>
@@ -93,12 +93,12 @@
                      IsHitTestVisible="False"
                      IsVisible="{TemplateBinding HasTitleBar}">
                 <TextBlock Text="{TemplateBinding Title}"
-                           Margin="{DynamicResource Gpui.TitleBar.Padding}"
+                           Margin="{DynamicResource UIKit.TitleBar.Padding}"
                            VerticalAlignment="Center"
                            FontSize="14"
                            FontWeight="Medium"
                            LineHeight="22.5"
-                           Foreground="{DynamicResource Gpui.Foreground}" />
+                           Foreground="{DynamicResource UIKit.Foreground}" />
               </Panel>
               <StackPanel Name="PART_OverlayPanel"
                           VerticalAlignment="Top"
@@ -106,20 +106,20 @@
                           Orientation="Horizontal"
                           IsVisible="{TemplateBinding HasTitleBar}">
                 <Button Name="PART_MinimizeButton"
-                        Theme="{StaticResource GpuiCaptionButton}"
+                        Theme="{StaticResource UIKitCaptionButton}"
                         WindowDecorationProperties.ElementRole="MinimizeButton">
-                  <PathIcon Width="14" Height="14" Data="{StaticResource Gpui.Icon.WindowMinimize}" />
+                  <PathIcon Width="14" Height="14" Data="{StaticResource UIKit.Icon.WindowMinimize}" />
                 </Button>
                 <Button Name="PART_MaximizeButton"
-                        Theme="{StaticResource GpuiCaptionButton}"
+                        Theme="{StaticResource UIKitCaptionButton}"
                         WindowDecorationProperties.ElementRole="MaximizeButton">
                   <PathIcon Name="PART_MaximizeIcon" Width="14" Height="14" />
                 </Button>
                 <Button Name="PART_CloseButton"
                         Classes="close"
-                        Theme="{StaticResource GpuiCaptionButton}"
+                        Theme="{StaticResource UIKitCaptionButton}"
                         WindowDecorationProperties.ElementRole="CloseButton">
-                  <PathIcon Width="14" Height="14" Data="{StaticResource Gpui.Icon.WindowClose}" />
+                  <PathIcon Width="14" Height="14" Data="{StaticResource UIKit.Icon.WindowClose}" />
                 </Button>
               </StackPanel>
             </Panel>
@@ -130,29 +130,29 @@
             <Border Height="{TemplateBinding DefaultTitleBarHeight}"
                     VerticalAlignment="Top"
                     BackgroundSizing="OuterBorderEdge"
-                    BorderBrush="{DynamicResource Gpui.TitleBarBorder}"
+                    BorderBrush="{DynamicResource UIKit.TitleBarBorder}"
                     BorderThickness="0,0,0,1"
                     WindowDecorationProperties.ElementRole="DecorationsElement">
               <Border.Background>
                 <LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,100%">
-                  <GradientStop Offset="0" Color="{DynamicResource Gpui.TitleBar.GradientTop.Color}" />
-                  <GradientStop Offset="1" Color="{DynamicResource Gpui.TitleBar.Color}" />
+                  <GradientStop Offset="0" Color="{DynamicResource UIKit.TitleBar.GradientTop.Color}" />
+                  <GradientStop Offset="1" Color="{DynamicResource UIKit.TitleBar.Color}" />
                 </LinearGradientBrush>
               </Border.Background>
               <Panel>
                 <TextBlock Text="{TemplateBinding Title}"
-                           Margin="{DynamicResource Gpui.TitleBar.Padding}"
+                           Margin="{DynamicResource UIKit.TitleBar.Padding}"
                            VerticalAlignment="Center"
                            FontSize="14"
                            FontWeight="Medium"
                            LineHeight="22.5"
-                           Foreground="{DynamicResource Gpui.Foreground}" />
+                           Foreground="{DynamicResource UIKit.Foreground}" />
                 <Button Name="PART_PopoverCloseButton"
                         Classes="close"
                         HorizontalAlignment="Right"
-                        Theme="{StaticResource GpuiCaptionButton}"
+                        Theme="{StaticResource UIKitCaptionButton}"
                         WindowDecorationProperties.ElementRole="CloseButton">
-                  <PathIcon Width="14" Height="14" Data="{StaticResource Gpui.Icon.WindowClose}" />
+                  <PathIcon Width="14" Height="14" Data="{StaticResource UIKit.Icon.WindowClose}" />
                 </Button>
               </Panel>
             </Border>
@@ -162,10 +162,10 @@
     </Setter>
 
     <Style Selector="^ /template/ PathIcon#PART_MaximizeIcon">
-      <Setter Property="Data" Value="{StaticResource Gpui.Icon.WindowMaximize}" />
+      <Setter Property="Data" Value="{StaticResource UIKit.Icon.WindowMaximize}" />
     </Style>
     <Style Selector="^:maximized /template/ PathIcon#PART_MaximizeIcon">
-      <Setter Property="Data" Value="{StaticResource Gpui.Icon.WindowRestore}" />
+      <Setter Property="Data" Value="{StaticResource UIKit.Icon.WindowRestore}" />
     </Style>
 
     <!-- WindowBorder: the frame inside the shadow area, with its shadows. -->
@@ -176,7 +176,7 @@
       <Setter Property="Margin" Value="{TemplateBinding ShadowThickness}" />
     </Style>
     <Style Selector="^:has-shadow /template/ Border#PART_WindowBorder">
-      <Setter Property="BoxShadow" Value="{StaticResource Gpui.Shadow.WindowFrame}" />
+      <Setter Property="BoxShadow" Value="{StaticResource UIKit.Shadow.WindowFrame}" />
     </Style>
     <Style Selector="^:has-border /template/ Border#PART_TitleBar, ^:has-border /template/ Panel#PART_TitleTextPanel">
       <Setter Property="Margin" Value="1,1,1,0" />

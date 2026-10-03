@@ -1,12 +1,12 @@
 <!--
   GPUI Kit DescriptionList (crates/component/src/description_list.rs) ->
-  gpui:DescriptionList with gpui:DescriptionItem / gpui:DescriptionSeparator:
+  uikit:DescriptionList with uikit:DescriptionItem / uikit:DescriptionSeparator:
 
-    <gpui:DescriptionList Columns="3">
-      <gpui:DescriptionItem Label="Name" Value="GPUI Kit" />
-      <gpui:DescriptionItem Label="Platform" Value="macOS, Windows, Linux" Span="2" />
-      <gpui:DescriptionSeparator />
-    </gpui:DescriptionList>
+    <uikit:DescriptionList Columns="3">
+      <uikit:DescriptionItem Label="Name" Value="GPUI Kit" />
+      <uikit:DescriptionItem Label="Platform" Value="macOS, Windows, Linux" Span="2" />
+      <uikit:DescriptionSeparator />
+    </uikit:DescriptionList>
 
   Bordered (the default): a 1px border on radius 6 clipping the rows; a row
   above another has a bottom border; labels are muted text_sm on the label
@@ -17,10 +17,10 @@
 -->
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:gpui="using:AvaloniaUIKit">
-  <ControlTheme x:Key="{x:Type gpui:DescriptionList}" TargetType="gpui:DescriptionList">
-    <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Border}" />
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+                    xmlns:uikit="using:AvaloniaUIKit">
+  <ControlTheme x:Key="{x:Type uikit:DescriptionList}" TargetType="uikit:DescriptionList">
+    <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Border}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
     <Setter Property="FontSize" Value="16" />
     <Setter Property="Template">
       <ControlTemplate>
@@ -54,8 +54,8 @@
     </Style>
   </ControlTheme>
 
-  <ControlTheme x:Key="{x:Type gpui:DescriptionCell}" TargetType="gpui:DescriptionCell">
-    <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Border}" />
+  <ControlTheme x:Key="{x:Type uikit:DescriptionCell}" TargetType="uikit:DescriptionCell">
+    <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Border}" />
     <Setter Property="ClipToBounds" Value="True" />
     <Setter Property="Template">
       <ControlTemplate>
@@ -64,7 +64,7 @@
                   Padding="{TemplateBinding CellPadding}" BackgroundSizing="OuterBorderEdge"
                   BorderBrush="{TemplateBinding BorderBrush}">
             <ContentPresenter Content="{TemplateBinding Label}" FontSize="14" LineHeight="22.5"
-                              Foreground="{DynamicResource Gpui.DescriptionListLabelForeground}" />
+                              Foreground="{DynamicResource UIKit.DescriptionListLabelForeground}" />
           </Border>
           <ContentPresenter Name="PART_Value" Content="{TemplateBinding Value}" Padding="{TemplateBinding CellPadding}"
                             LineHeight="26" TextWrapping="Wrap" ClipToBounds="True" />
@@ -72,7 +72,7 @@
       </ControlTemplate>
     </Setter>
     <Style Selector="^:bordered /template/ Border#PART_Label">
-      <Setter Property="Background" Value="{DynamicResource Gpui.DescriptionListLabel}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.DescriptionListLabel}" />
       <Setter Property="BorderThickness" Value="1,0,1,0" />
     </Style>
     <Style Selector="^:bordered:first /template/ Border#PART_Label">
@@ -86,7 +86,7 @@
       <Setter Property="BorderThickness" Value="0,0,0,1" />
     </Style>
     <Style Selector="^:separator:bordered">
-      <Setter Property="Background" Value="{DynamicResource Gpui.DescriptionListLabel}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.DescriptionListLabel}" />
     </Style>
     <Style Selector="^:separator">
       <Setter Property="Height" Value="8" />

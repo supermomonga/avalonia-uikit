@@ -1,5 +1,5 @@
 <!--
-  GPUI Kit Empty (crates/component/src/empty.rs) -> gpui:EmptyState.
+  GPUI Kit Empty (crates/component/src/empty.rs) -> uikit:EmptyState.
   A centered column, 24px padding and 16px gaps, on radius 12: the header
   (media 8px above, then title and description 8px apart, at most 384px
   wide), the actions (at most 384px), then the content. The title is text_sm
@@ -10,9 +10,9 @@
 -->
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:gpui="using:AvaloniaUIKit">
-  <ControlTheme x:Key="{x:Type gpui:EmptyState}" TargetType="gpui:EmptyState">
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+                    xmlns:uikit="using:AvaloniaUIKit">
+  <ControlTheme x:Key="{x:Type uikit:EmptyState}" TargetType="uikit:EmptyState">
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
     <Setter Property="Padding" Value="24" />
     <Setter Property="CornerRadius" Value="12" />
     <Setter Property="FontSize" Value="14" />
@@ -35,7 +35,7 @@
                                 LineHeight="22.5" TextWrapping="Wrap" HorizontalContentAlignment="Center"
                                 IsVisible="{TemplateBinding Title, Converter={x:Static ObjectConverters.IsNotNull}}" />
               <ContentPresenter Name="PART_Description" Content="{TemplateBinding Description}"
-                                Foreground="{DynamicResource Gpui.MutedForeground}"
+                                Foreground="{DynamicResource UIKit.MutedForeground}"
                                 LineHeight="22.5" TextWrapping="Wrap" HorizontalContentAlignment="Center"
                                 IsVisible="{TemplateBinding Description, Converter={x:Static ObjectConverters.IsNotNull}}" />
             </StackPanel>
@@ -54,7 +54,7 @@
       <Setter Property="Width" Value="32" />
       <Setter Property="Height" Value="32" />
       <Setter Property="CornerRadius" Value="8" />
-      <Setter Property="Background" Value="{DynamicResource Gpui.Muted}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Muted}" />
     </Style>
   </ControlTheme>
 </ResourceDictionary>

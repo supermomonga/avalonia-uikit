@@ -1,18 +1,18 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:gpui="using:AvaloniaUIKit"
+             xmlns:uikit="using:AvaloniaUIKit"
              xmlns:demos="using:AvaloniaUIKit.Demos"
              x:Class="AvaloniaUIKit.Demos.InputGroupStates">
   <StackPanel Spacing="12" Width="280" HorizontalAlignment="Left">
     <TextBox Classes="group" Text="not an email"
              DataValidationErrors.Errors="{x:Static demos:ValidationErrors.InvalidEmail}">
       <TextBox.InnerLeftContent>
-        <PathIcon Data="{StaticResource Gpui.Icon.Search}" />
+        <PathIcon Data="{StaticResource UIKit.Icon.Search}" />
       </TextBox.InnerLeftContent>
     </TextBox>
     <TextBox Classes="group" PlaceholderText="Search..." IsEnabled="False">
       <TextBox.InnerLeftContent>
-        <PathIcon Data="{StaticResource Gpui.Icon.Search}" />
+        <PathIcon Data="{StaticResource UIKit.Icon.Search}" />
       </TextBox.InnerLeftContent>
     </TextBox>
   </StackPanel>

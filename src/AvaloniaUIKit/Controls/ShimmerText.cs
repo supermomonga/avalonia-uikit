@@ -210,8 +210,8 @@ public class ShimmerText : TemplatedControl
 
     private Color Mixed(Color text, bool dark)
     {
-        var background = Lookup("Gpui.Background.Color");
-        var foreground = Lookup("Gpui.Foreground.Color");
+        var background = Lookup("UIKit.Background.Color");
+        var foreground = Lookup("UIKit.Foreground.Color");
         var (target, opposite) = dark ? (foreground, background) : (background, foreground);
         if (Math.Abs(target.ToHsl().L - text.ToHsl().L) < 0.1)
         {

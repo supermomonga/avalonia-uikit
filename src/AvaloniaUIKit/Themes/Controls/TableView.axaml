@@ -1,11 +1,11 @@
 <!--
   GPUI Kit's DataTable (crates/component/src/table/data_table.rs, state.rs) ->
   TableView, its default look; GPUI Kit's Table (table/table.rs) -> TableView
-  with Theme="{StaticResource GpuiTable}".
+  with Theme="{StaticResource UIKitTable}".
 
   Both looks share the cell and column header themes: the TableView's theme
   hands its size and look to the rows, cells and headers (created in code)
-  through the inherited gpui:Tables values. Sizes are the classes xsmall,
+  through the inherited uikit:Tables values. Sizes are the classes xsmall,
   small, (medium) and large; the class stripe fills every other row with
   table_even.
 
@@ -15,7 +15,7 @@
 -->
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:gpui="using:AvaloniaUIKit"
+        xmlns:uikit="using:AvaloniaUIKit"
         xmlns:gconv="using:AvaloniaUIKit.Converters">
   <Styles.Resources>
     <ResourceDictionary>
@@ -29,20 +29,20 @@
         bottom rule is border. A striped table fills the body below its rows
         with empty rows (PART_Filler, shown by the stripe class).
       -->
-      <ControlTheme x:Key="GpuiTableViewScrollViewer" TargetType="ScrollViewer">
+      <ControlTheme x:Key="UIKitTableViewScrollViewer" TargetType="ScrollViewer">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="ClipToBounds" Value="True" />
         <Setter Property="Template">
           <ControlTemplate>
             <Grid RowDefinitions="Auto,*">
               <Border Name="PART_Header"
-                      Height="{TemplateBinding (gpui:Tables.RowHeight)}"
-                      Background="{DynamicResource Gpui.TableHead}"
-                      TextElement.Foreground="{DynamicResource Gpui.TableHeadForeground}"
+                      Height="{TemplateBinding (uikit:Tables.RowHeight)}"
+                      Background="{DynamicResource UIKit.TableHead}"
+                      TextElement.Foreground="{DynamicResource UIKit.TableHeadForeground}"
                       ClipToBounds="True">
-                <Border Background="{DynamicResource Gpui.TableHead}"
+                <Border Background="{DynamicResource UIKit.TableHead}"
                         BackgroundSizing="OuterBorderEdge"
-                        BorderBrush="{DynamicResource Gpui.Border}"
+                        BorderBrush="{DynamicResource UIKit.Border}"
                         BorderThickness="0,0,0,1">
                   <TableViewColumnHeadersPresenter />
                 </Border>
@@ -53,28 +53,28 @@
                   <Canvas.Top>
                     <MultiBinding Converter="{x:Static gconv:TableConverters.RowsHeight}">
                       <Binding Path="$parent[TableView].ItemCount" />
-                      <Binding Path="(gpui:Tables.RowHeight)" RelativeSource="{RelativeSource TemplatedParent}" />
+                      <Binding Path="(uikit:Tables.RowHeight)" RelativeSource="{RelativeSource TemplatedParent}" />
                     </MultiBinding>
                   </Canvas.Top>
                   <ItemsControl.ItemsSource>
                     <MultiBinding Converter="{x:Static gconv:TableConverters.FillerRows}">
                       <Binding Path="$parent[TableView].ItemCount" />
-                      <Binding Path="(gpui:Tables.RowHeight)" RelativeSource="{RelativeSource TemplatedParent}" />
+                      <Binding Path="(uikit:Tables.RowHeight)" RelativeSource="{RelativeSource TemplatedParent}" />
                       <Binding Path="Viewport.Height" RelativeSource="{RelativeSource TemplatedParent}" />
                     </MultiBinding>
                   </ItemsControl.ItemsSource>
                   <ItemsControl.ItemTemplate>
                     <DataTemplate x:DataType="x:Int32">
-                      <Border Height="{Binding $self.(gpui:Tables.RowHeight)}"
+                      <Border Height="{Binding $self.(uikit:Tables.RowHeight)}"
                               BackgroundSizing="OuterBorderEdge"
-                              BorderBrush="{DynamicResource Gpui.TableRowBorder}"
+                              BorderBrush="{DynamicResource UIKit.TableRowBorder}"
                               BorderThickness="0,0,0,1"
                               Classes.even="{Binding Converter={x:Static gconv:TableConverters.IsOdd}}" />
                     </DataTemplate>
                   </ItemsControl.ItemTemplate>
                   <ItemsControl.Styles>
                     <Style Selector="Border.even">
-                      <Setter Property="Background" Value="{DynamicResource Gpui.TableEven}" />
+                      <Setter Property="Background" Value="{DynamicResource UIKit.TableEven}" />
                     </Style>
                   </ItemsControl.Styles>
                 </ItemsControl>
@@ -95,18 +95,18 @@
       </ControlTheme>
 
       <!-- Table (table.rs TableHeader): one table_head fill, a table_row_border rule. -->
-      <ControlTheme x:Key="GpuiTableScrollViewer" TargetType="ScrollViewer">
+      <ControlTheme x:Key="UIKitTableScrollViewer" TargetType="ScrollViewer">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="ClipToBounds" Value="True" />
         <Setter Property="Template">
           <ControlTemplate>
             <Grid RowDefinitions="Auto,*">
               <Border Name="PART_Header"
-                      Background="{DynamicResource Gpui.TableHead}"
+                      Background="{DynamicResource UIKit.TableHead}"
                       BackgroundSizing="OuterBorderEdge"
-                      BorderBrush="{DynamicResource Gpui.TableRowBorder}"
+                      BorderBrush="{DynamicResource UIKit.TableRowBorder}"
                       BorderThickness="0,0,0,1"
-                      TextElement.Foreground="{DynamicResource Gpui.TableHeadForeground}"
+                      TextElement.Foreground="{DynamicResource UIKit.TableHeadForeground}"
                       ClipToBounds="True">
                 <TableViewColumnHeadersPresenter />
               </Border>
@@ -126,8 +126,8 @@
       </ControlTheme>
 
       <!-- A column's resize handle: the 4px inside the column's right edge, with a 1px hairline on that edge. -->
-      <ControlTheme x:Key="GpuiTableViewResizer" TargetType="Thumb">
-        <Setter Property="Background" Value="{DynamicResource Gpui.TableRowBorder}" />
+      <ControlTheme x:Key="UIKitTableViewResizer" TargetType="Thumb">
+        <Setter Property="Background" Value="{DynamicResource UIKit.TableRowBorder}" />
         <Setter Property="Template">
           <ControlTemplate>
             <Grid ColumnDefinitions="4,4" Background="Transparent">
@@ -139,7 +139,7 @@
         </Setter>
         <!-- state.rs: the hairline turns border while the pointer is over the column's own half. -->
         <Style Selector="^ /template/ Border#PART_Inside:pointerover > Border#PART_Hairline">
-          <Setter Property="Background" Value="{DynamicResource Gpui.Border}" />
+          <Setter Property="Background" Value="{DynamicResource UIKit.Border}" />
         </Style>
         <Style Selector="^:disabled /template/ Border#PART_Hairline">
           <Setter Property="IsVisible" Value="False" />
@@ -148,8 +148,8 @@
 
       <!-- The cell: the look's padding and alignment, the column's horizontal alignment. -->
       <ControlTheme x:Key="{x:Type TableViewCell}" TargetType="TableViewCell">
-        <Setter Property="Padding" Value="{Binding $self.(gpui:Tables.CellPadding)}" />
-        <Setter Property="VerticalContentAlignment" Value="{Binding $self.(gpui:Tables.CellVerticalAlignment)}" />
+        <Setter Property="Padding" Value="{Binding $self.(uikit:Tables.CellPadding)}" />
+        <Setter Property="VerticalContentAlignment" Value="{Binding $self.(uikit:Tables.CellVerticalAlignment)}" />
         <Setter Property="Template">
           <ControlTemplate>
             <ContentPresenter Name="PART_ContentPresenter"
@@ -173,8 +173,8 @@
         next header paints over it, so headers keep no background of their own.
       -->
       <ControlTheme x:Key="{x:Type TableViewColumnHeader}" TargetType="TableViewColumnHeader">
-        <Setter Property="Padding" Value="{Binding $self.(gpui:Tables.CellPadding)}" />
-        <Setter Property="VerticalContentAlignment" Value="{Binding $self.(gpui:Tables.CellVerticalAlignment)}" />
+        <Setter Property="Padding" Value="{Binding $self.(uikit:Tables.CellPadding)}" />
+        <Setter Property="VerticalContentAlignment" Value="{Binding $self.(uikit:Tables.CellVerticalAlignment)}" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="ClipToBounds" Value="False" />
         <Setter Property="Template">
@@ -191,7 +191,7 @@
                                 HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                 VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
               <Thumb Name="PART_Resizer"
-                     Theme="{StaticResource GpuiTableViewResizer}"
+                     Theme="{StaticResource UIKitTableViewResizer}"
                      Width="8" Margin="0,0,-4,0"
                      HorizontalAlignment="Right"
                      Cursor="SizeWestEast"
@@ -200,7 +200,7 @@
           </ControlTemplate>
         </Setter>
         <!-- Table has no resize handles to paint; the column still resizes. -->
-        <Style Selector="^[(gpui|Tables.ShowsResizeHandles)=False] /template/ Thumb#PART_Resizer">
+        <Style Selector="^[(uikit|Tables.ShowsResizeHandles)=False] /template/ Thumb#PART_Resizer">
           <Setter Property="Opacity" Value="0" />
         </Style>
       </ControlTheme>
@@ -216,29 +216,29 @@
         <Setter Property="Template">
           <ControlTemplate>
             <Border Name="Border"
-                    Height="{TemplateBinding (gpui:Tables.RowHeight)}"
+                    Height="{TemplateBinding (uikit:Tables.RowHeight)}"
                     Background="{TemplateBinding Background}"
                     BackgroundSizing="OuterBorderEdge"
-                    BorderBrush="{DynamicResource Gpui.TableRowBorder}"
+                    BorderBrush="{DynamicResource UIKit.TableRowBorder}"
                     BorderThickness="0,0,0,1">
               <TableViewCellsPresenter Name="PART_CellsPresenter" />
             </Border>
           </ControlTemplate>
         </Setter>
         <!-- state.rs need_render_border: rows filling the body drop the last rule (the table's border follows), unless it is selected. -->
-        <Style Selector="^[(gpui|Tables.IsFilled)=True]:nth-last-child(1):not(:selected) /template/ Border#Border">
+        <Style Selector="^[(uikit|Tables.IsFilled)=True]:nth-last-child(1):not(:selected) /template/ Border#Border">
           <Setter Property="BorderThickness" Value="0" />
         </Style>
         <Style Selector="^:pointerover /template/ Border#Border">
-          <Setter Property="Background" Value="{DynamicResource Gpui.TableHover}" />
+          <Setter Property="Background" Value="{DynamicResource UIKit.TableHover}" />
         </Style>
         <Style Selector="^:selected /template/ Border#Border">
-          <Setter Property="Background" Value="{DynamicResource Gpui.TableActive}" />
+          <Setter Property="Background" Value="{DynamicResource UIKit.TableActive}" />
         </Style>
       </ControlTheme>
 
       <!-- A Table row: sized by its cells, with a table_row_border rule along its top after the first row. -->
-      <ControlTheme x:Key="GpuiTableRow" TargetType="TableViewRow">
+      <ControlTheme x:Key="UIKitTableRow" TargetType="TableViewRow">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Padding" Value="0" />
         <Setter Property="Template">
@@ -246,7 +246,7 @@
             <Border Name="Border"
                     Background="{TemplateBinding Background}"
                     BackgroundSizing="OuterBorderEdge"
-                    BorderBrush="{DynamicResource Gpui.TableRowBorder}">
+                    BorderBrush="{DynamicResource UIKit.TableRowBorder}">
               <TableViewCellsPresenter Name="PART_CellsPresenter" />
             </Border>
           </ControlTemplate>
@@ -262,9 +262,9 @@
         of their padding, and text by size (xsmall 12px, large 16px).
       -->
       <ControlTheme x:Key="{x:Type TableView}" TargetType="TableView">
-        <Setter Property="Background" Value="{DynamicResource Gpui.Table}" />
-        <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Border}" />
+        <Setter Property="Background" Value="{DynamicResource UIKit.Table}" />
+        <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Border}" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="CornerRadius" Value="5.5" />
         <Setter Property="Padding" Value="0" />
@@ -275,12 +275,12 @@
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
         <Setter Property="ScrollViewer.IsScrollChainingEnabled" Value="True" />
-        <Setter Property="gpui:Tables.RowHeight" Value="32" />
-        <Setter Property="gpui:Tables.CellPadding" Value="8,4" />
-        <Setter Property="gpui:Tables.CellVerticalAlignment" Value="Top" />
-        <Setter Property="gpui:Tables.ShowsResizeHandles" Value="True" />
-        <Setter Property="gpui:Tables.TracksKeyboardFocus" Value="True" />
-        <Setter Property="gpui:Tables.TracksFill" Value="True" />
+        <Setter Property="uikit:Tables.RowHeight" Value="32" />
+        <Setter Property="uikit:Tables.CellPadding" Value="8,4" />
+        <Setter Property="uikit:Tables.CellVerticalAlignment" Value="Top" />
+        <Setter Property="uikit:Tables.ShowsResizeHandles" Value="True" />
+        <Setter Property="uikit:Tables.TracksKeyboardFocus" Value="True" />
+        <Setter Property="uikit:Tables.TracksFill" Value="True" />
         <Setter Property="Template">
           <ControlTemplate>
             <Panel>
@@ -311,13 +311,13 @@
                       IsHitTestVisible="False" />
               <!-- styled.rs focus_ring: 3px of ring at 50% outside the border, around radius + 3. -->
               <Border Name="PART_FocusRing" Margin="-3" BorderThickness="3" CornerRadius="7.5"
-                      BorderBrush="{DynamicResource Gpui.FocusRing}"
+                      BorderBrush="{DynamicResource UIKit.FocusRing}"
                       IsVisible="False" IsHitTestVisible="False" />
             </Panel>
           </ControlTemplate>
         </Setter>
         <Style Selector="^ /template/ ScrollViewer#PART_ScrollViewer">
-          <Setter Property="Theme" Value="{StaticResource GpuiTableViewScrollViewer}" />
+          <Setter Property="Theme" Value="{StaticResource UIKitTableViewScrollViewer}" />
         </Style>
         <Style Selector="^.borderless">
           <Setter Property="BorderThickness" Value="0" />
@@ -327,26 +327,26 @@
           <Setter Property="CornerRadius" Value="1.5" />
         </Style>
         <!-- Focused from the keyboard: the ring, and the border in ring. -->
-        <Style Selector="^[(gpui|Tables.ShowsFocusRing)=True]">
-          <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Ring}" />
+        <Style Selector="^[(uikit|Tables.ShowsFocusRing)=True]">
+          <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Ring}" />
           <Style Selector="^ /template/ Border#PART_FocusRing">
             <Setter Property="IsVisible" Value="True" />
           </Style>
         </Style>
         <!-- sizing.rs: table_row_height, table_cell_padding, and the text of table_cell_size. -->
         <Style Selector="^.xsmall">
-          <Setter Property="gpui:Tables.RowHeight" Value="26" />
-          <Setter Property="gpui:Tables.CellPadding" Value="4,2" />
+          <Setter Property="uikit:Tables.RowHeight" Value="26" />
+          <Setter Property="uikit:Tables.CellPadding" Value="4,2" />
           <Setter Property="FontSize" Value="12" />
           <Setter Property="TextBlock.LineHeight" Value="19.5" />
         </Style>
         <Style Selector="^.small">
-          <Setter Property="gpui:Tables.RowHeight" Value="30" />
-          <Setter Property="gpui:Tables.CellPadding" Value="6,3" />
+          <Setter Property="uikit:Tables.RowHeight" Value="30" />
+          <Setter Property="uikit:Tables.CellPadding" Value="6,3" />
         </Style>
         <Style Selector="^.large">
-          <Setter Property="gpui:Tables.RowHeight" Value="40" />
-          <Setter Property="gpui:Tables.CellPadding" Value="12,8" />
+          <Setter Property="uikit:Tables.RowHeight" Value="40" />
+          <Setter Property="uikit:Tables.CellPadding" Value="12,8" />
           <Setter Property="FontSize" Value="16" />
           <Setter Property="TextBlock.LineHeight" Value="26" />
         </Style>
@@ -358,21 +358,21 @@
         every size, cells centered in their row, no resize handles to paint and
         no hover or selection colors.
       -->
-      <ControlTheme x:Key="GpuiTable" TargetType="TableView" BasedOn="{StaticResource {x:Type TableView}}">
+      <ControlTheme x:Key="UIKitTable" TargetType="TableView" BasedOn="{StaticResource {x:Type TableView}}">
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="CornerRadius" Value="0" />
-        <Setter Property="ItemContainerTheme" Value="{StaticResource GpuiTableRow}" />
+        <Setter Property="ItemContainerTheme" Value="{StaticResource UIKitTableRow}" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
-        <Setter Property="gpui:Tables.RowHeight" Value="NaN" />
-        <Setter Property="gpui:Tables.CellVerticalAlignment" Value="Center" />
-        <Setter Property="gpui:Tables.ShowsResizeHandles" Value="False" />
-        <Setter Property="gpui:Tables.TracksKeyboardFocus" Value="False" />
-        <Setter Property="gpui:Tables.TracksFill" Value="False" />
+        <Setter Property="uikit:Tables.RowHeight" Value="NaN" />
+        <Setter Property="uikit:Tables.CellVerticalAlignment" Value="Center" />
+        <Setter Property="uikit:Tables.ShowsResizeHandles" Value="False" />
+        <Setter Property="uikit:Tables.TracksKeyboardFocus" Value="False" />
+        <Setter Property="uikit:Tables.TracksFill" Value="False" />
         <Style Selector="^ /template/ ScrollViewer#PART_ScrollViewer">
-          <Setter Property="Theme" Value="{StaticResource GpuiTableScrollViewer}" />
+          <Setter Property="Theme" Value="{StaticResource UIKitTableScrollViewer}" />
         </Style>
         <Style Selector="^.xsmall, ^.small, ^.large">
-          <Setter Property="gpui:Tables.RowHeight" Value="NaN" />
+          <Setter Property="uikit:Tables.RowHeight" Value="NaN" />
           <Setter Property="FontSize" Value="14" />
           <Setter Property="TextBlock.LineHeight" Value="22.5" />
         </Style>
@@ -404,6 +404,6 @@
 
   <!-- Stripes (state.rs, and the Table story): every other row, starting with the second, fills with table_even. -->
   <Style Selector="TableView.stripe TableViewRow:nth-child(2n)">
-    <Setter Property="Background" Value="{DynamicResource Gpui.TableEven}" />
+    <Setter Property="Background" Value="{DynamicResource UIKit.TableEven}" />
   </Style>
 </Styles>

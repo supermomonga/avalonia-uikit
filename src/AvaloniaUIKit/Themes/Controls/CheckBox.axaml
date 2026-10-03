@@ -6,9 +6,9 @@
 -->
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:gpui="using:AvaloniaUIKit">
+                    xmlns:uikit="using:AvaloniaUIKit">
   <ControlTheme x:Key="{x:Type CheckBox}" TargetType="CheckBox">
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="FontSize" Value="14" />
     <Setter Property="ClipToBounds" Value="False" />
@@ -19,18 +19,18 @@
         <Grid ColumnDefinitions="Auto,*" Background="{TemplateBinding Background}">
           <!-- The ring wraps the whole row (focus_ring_style on the root, radius * 0.5). -->
           <Border Name="PART_FocusRing" Grid.ColumnSpan="2" Margin="-3" BorderThickness="3"
-                  CornerRadius="4.5" BorderBrush="{DynamicResource Gpui.FocusRing}"
+                  CornerRadius="4.5" BorderBrush="{DynamicResource UIKit.FocusRing}"
                   IsVisible="False" IsHitTestVisible="False" />
           <Border Name="PART_Indicator" Width="16" Height="16" VerticalAlignment="Top"
                   Margin="0,2,0,0"
                   Classes.bare="{TemplateBinding Content, Converter={x:Static ObjectConverters.IsNull}}"
                   BorderThickness="1" CornerRadius="3.5" BackgroundSizing="OuterBorderEdge"
-                  Background="{DynamicResource Gpui.InputBackground}" BorderBrush="{DynamicResource Gpui.Input}">
+                  Background="{DynamicResource UIKit.InputBackground}" BorderBrush="{DynamicResource UIKit.Input}">
             <PathIcon Name="PART_Mark" Width="12" Height="12" Margin="1"
                       HorizontalAlignment="Left" VerticalAlignment="Top"
-                      Data="{StaticResource Gpui.Icon.Check}" Foreground="{DynamicResource Gpui.PrimaryForeground}"
-                      gpui:Motion.Spring="{StaticResource Gpui.Spring.Control}" gpui:Motion.SpringTarget="0"
-                      Opacity="{Binding $self.(gpui:Motion.SpringValue)}">
+                      Data="{StaticResource UIKit.Icon.Check}" Foreground="{DynamicResource UIKit.PrimaryForeground}"
+                      uikit:Motion.Spring="{StaticResource UIKit.Spring.Control}" uikit:Motion.SpringTarget="0"
+                      Opacity="{Binding $self.(uikit:Motion.SpringValue)}">
             </PathIcon>
           </Border>
           <ContentPresenter Name="PART_ContentPresenter" Grid.Column="1" Margin="8,0,0,0"
@@ -104,33 +104,33 @@
     </Style>
 
     <Style Selector="^:checked /template/ Border#PART_Indicator">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Primary}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Primary}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Primary}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Primary}" />
     </Style>
     <Style Selector="^:checked /template/ PathIcon#PART_Mark">
-      <Setter Property="gpui:Motion.SpringTarget" Value="1" />
+      <Setter Property="uikit:Motion.SpringTarget" Value="1" />
     </Style>
     <Style Selector="^:disabled">
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.MutedForeground}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.MutedForeground}" />
     </Style>
     <Style Selector="^:disabled /template/ Border#PART_Indicator">
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Check.Disabled.Border}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Check.Disabled.Border}" />
     </Style>
     <Style Selector="^:disabled:checked /template/ Border#PART_Indicator">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Check.Disabled.Checked}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Check.Disabled.Checked}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Check.Disabled.Checked}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Check.Disabled.Checked}" />
     </Style>
     <Style Selector="^:disabled /template/ PathIcon#PART_Mark">
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Check.Disabled.Mark}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Check.Disabled.Mark}" />
     </Style>
     <!-- Avalonia only: the indeterminate state shows a minus mark (not compared, R16). -->
     <Style Selector="^:indeterminate /template/ Border#PART_Indicator">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Primary}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Primary}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Primary}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Primary}" />
     </Style>
     <Style Selector="^:indeterminate /template/ PathIcon#PART_Mark">
-      <Setter Property="Data" Value="{StaticResource Gpui.Icon.Minus}" />
-      <Setter Property="gpui:Motion.SpringTarget" Value="1" />
+      <Setter Property="Data" Value="{StaticResource UIKit.Icon.Minus}" />
+      <Setter Property="uikit:Motion.SpringTarget" Value="1" />
     </Style>
     <!-- Keyboard focus only: GPUI prevents a pointer press from focusing the control. -->
     <Style Selector="^:focus-visible /template/ Border#PART_FocusRing">

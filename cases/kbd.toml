@@ -1,4 +1,4 @@
-# GPUI Kit Kbd -> gpui:Kbd. Modifier symbols (⌘ ⇧ ...) are not in the bundled
+# GPUI Kit Kbd -> uikit:Kbd. Modifier symbols (⌘ ⇧ ...) are not in the bundled
 # Inter, so the renderers fall back to different fonts (R22): the cases use
 # keys without modifiers; the notation itself has unit tests.
 component = "kbd"

@@ -95,7 +95,7 @@ pub fn pascal(segment: &str) -> String {
 /// The Avalonia resource key for a dumped color name.
 pub fn resource_key(name: &str) -> String {
     let segments: Vec<String> = name.split('.').map(pascal).collect();
-    format!("Gpui.{}", segments.join("."))
+    format!("UIKit.{}", segments.join("."))
 }
 
 /// `#rrggbbaa` -> Avalonia's `#AARRGGBB`.

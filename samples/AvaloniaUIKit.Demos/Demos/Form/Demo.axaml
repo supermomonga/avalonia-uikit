@@ -1,22 +1,22 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:gpui="using:AvaloniaUIKit"
+             xmlns:uikit="using:AvaloniaUIKit"
              x:Class="AvaloniaUIKit.Demos.FormDemo">
-  <gpui:Form Width="360" HorizontalAlignment="Left">
-    <gpui:FormField Label="Name">
+  <uikit:Form Width="360" HorizontalAlignment="Left">
+    <uikit:FormField Label="Name">
       <TextBox PlaceholderText="Enter your name" />
-    </gpui:FormField>
-    <gpui:FormField Label="Email" IsRequired="True" Description="We will never share your email.">
+    </uikit:FormField>
+    <uikit:FormField Label="Email" IsRequired="True" Description="We will never share your email.">
       <TextBox PlaceholderText="Enter your email" />
-    </gpui:FormField>
-    <gpui:FormField Label="Plan">
+    </uikit:FormField>
+    <uikit:FormField Label="Plan">
       <ComboBox SelectedIndex="0" HorizontalAlignment="Stretch">
         <ComboBoxItem Content="Free" />
         <ComboBoxItem Content="Pro" />
       </ComboBox>
-    </gpui:FormField>
-    <gpui:Form.Footer>
+    </uikit:FormField>
+    <uikit:Form.Footer>
       <Button Classes="primary" Content="Save" />
-    </gpui:Form.Footer>
-  </gpui:Form>
+    </uikit:Form.Footer>
+  </uikit:Form>
 </UserControl>

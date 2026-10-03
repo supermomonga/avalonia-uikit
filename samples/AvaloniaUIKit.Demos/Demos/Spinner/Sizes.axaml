@@ -1,11 +1,11 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:gpui="using:AvaloniaUIKit"
+             xmlns:uikit="using:AvaloniaUIKit"
              x:Class="AvaloniaUIKit.Demos.SpinnerSizes">
   <StackPanel Orientation="Horizontal" Spacing="16" HorizontalAlignment="Left">
-    <ProgressBar Theme="{StaticResource GpuiSpinner}" Classes="xsmall" VerticalAlignment="Center" />
-    <ProgressBar Theme="{StaticResource GpuiSpinner}" Classes="small" VerticalAlignment="Center" />
-    <ProgressBar Theme="{StaticResource GpuiSpinner}" VerticalAlignment="Center" />
-    <ProgressBar Theme="{StaticResource GpuiSpinner}" Classes="large" VerticalAlignment="Center" />
+    <ProgressBar Theme="{StaticResource UIKitSpinner}" Classes="xsmall" VerticalAlignment="Center" />
+    <ProgressBar Theme="{StaticResource UIKitSpinner}" Classes="small" VerticalAlignment="Center" />
+    <ProgressBar Theme="{StaticResource UIKitSpinner}" VerticalAlignment="Center" />
+    <ProgressBar Theme="{StaticResource UIKitSpinner}" Classes="large" VerticalAlignment="Center" />
   </StackPanel>
 </UserControl>

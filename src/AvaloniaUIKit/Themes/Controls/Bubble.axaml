@@ -1,6 +1,6 @@
 <!--
   GPUI Kit Bubble and Message (crates/component/src/bubble.rs, message.rs) ->
-  gpui:Bubble and gpui:Message.
+  uikit:Bubble and uikit:Message.
 
   Bubble: text_sm on a 22.5px line, 12x8 padding inside a 1px transparent
   border, radius 15 (radius_2xl; 14.5 at the border's center line), at most 80% of the room; stretched unless
@@ -18,12 +18,12 @@
 -->
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:gpui="using:AvaloniaUIKit"
+        xmlns:uikit="using:AvaloniaUIKit"
         xmlns:gconv="using:AvaloniaUIKit.Converters">
   <Styles.Resources>
-    <ControlTheme x:Key="{x:Type gpui:Bubble}" TargetType="gpui:Bubble">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Primary}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.PrimaryForeground}" />
+    <ControlTheme x:Key="{x:Type uikit:Bubble}" TargetType="uikit:Bubble">
+      <Setter Property="Background" Value="{DynamicResource UIKit.Primary}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.PrimaryForeground}" />
       <Setter Property="BorderBrush" Value="Transparent" />
       <Setter Property="BorderThickness" Value="1" />
       <Setter Property="CornerRadius" Value="14.5" />
@@ -48,8 +48,8 @@
             <ContentPresenter Name="PART_Reaction" Content="{TemplateBinding Reaction}"
                               IsVisible="{TemplateBinding Reaction, Converter={x:Static ObjectConverters.IsNotNull}}"
                               HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,12,-20"
-                              Background="{DynamicResource Gpui.Muted}" Foreground="{DynamicResource Gpui.Foreground}"
-                              BorderBrush="{DynamicResource Gpui.Background}" BorderThickness="3"
+                              Background="{DynamicResource UIKit.Muted}" Foreground="{DynamicResource UIKit.Foreground}"
+                              BorderBrush="{DynamicResource UIKit.Background}" BorderThickness="3"
                               BackgroundSizing="OuterBorderEdge" Padding="6,2" FontSize="14" LineHeight="22.5"
                               CornerRadius="{Binding $self.Bounds, Converter={x:Static gconv:AvatarConverters.Border}, ConverterParameter=3}" />
           </Panel>
@@ -73,25 +73,25 @@
         <Setter Property="Margin" Value="12,-20,0,0" />
       </Style>
       <Style Selector="^.secondary">
-        <Setter Property="Background" Value="{DynamicResource Gpui.Muted}" />
-        <Setter Property="Foreground" Value="{DynamicResource Gpui.SecondaryForeground}" />
+        <Setter Property="Background" Value="{DynamicResource UIKit.Muted}" />
+        <Setter Property="Foreground" Value="{DynamicResource UIKit.SecondaryForeground}" />
       </Style>
       <Style Selector="^.muted">
-        <Setter Property="Background" Value="{DynamicResource Gpui.Muted}" />
-        <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+        <Setter Property="Background" Value="{DynamicResource UIKit.Muted}" />
+        <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
       </Style>
       <Style Selector="^.tinted">
-        <Setter Property="Background" Value="{DynamicResource Gpui.Bubble.Tinted}" />
-        <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+        <Setter Property="Background" Value="{DynamicResource UIKit.Bubble.Tinted}" />
+        <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
       </Style>
       <Style Selector="^.outline">
-        <Setter Property="Background" Value="{DynamicResource Gpui.Background}" />
-        <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Border}" />
+        <Setter Property="Background" Value="{DynamicResource UIKit.Background}" />
+        <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Border}" />
       </Style>
       <Style Selector="^.ghost">
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+        <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="CornerRadius" Value="0" />
         <Setter Property="Padding" Value="0" />
@@ -100,19 +100,19 @@
         <Setter Property="ClipToBounds" Value="False" />
       </Style>
       <Style Selector="^.destructive">
-        <Setter Property="Background" Value="{DynamicResource Gpui.Bubble.Destructive}" />
-        <Setter Property="Foreground" Value="{DynamicResource Gpui.Bubble.DestructiveForeground}" />
+        <Setter Property="Background" Value="{DynamicResource UIKit.Bubble.Destructive}" />
+        <Setter Property="Foreground" Value="{DynamicResource UIKit.Bubble.DestructiveForeground}" />
       </Style>
     </ControlTheme>
 
     <!-- No text size in message.rs: plain content takes GPUI's 16px on a phi line. -->
-    <ControlTheme x:Key="GpuiMessageItem" TargetType="ContentPresenter">
+    <ControlTheme x:Key="UIKitMessageItem" TargetType="ContentPresenter">
       <Setter Property="FontSize" Value="16" />
       <Setter Property="LineHeight" Value="26" />
     </ControlTheme>
 
-    <ControlTheme x:Key="{x:Type gpui:Message}" TargetType="gpui:Message">
-      <Setter Property="ItemContainerTheme" Value="{StaticResource GpuiMessageItem}" />
+    <ControlTheme x:Key="{x:Type uikit:Message}" TargetType="uikit:Message">
+      <Setter Property="ItemContainerTheme" Value="{StaticResource UIKitMessageItem}" />
       <Setter Property="ItemsPanel">
         <ItemsPanelTemplate>
           <StackPanel Spacing="10" />
@@ -123,7 +123,7 @@
           <StackPanel Spacing="10">
             <DockPanel Name="PART_Row">
               <Border Name="PART_Avatar" DockPanel.Dock="Left" Margin="0,0,8,0" MinWidth="32"
-                      VerticalAlignment="Bottom" Background="{DynamicResource Gpui.Muted}" ClipToBounds="True"
+                      VerticalAlignment="Bottom" Background="{DynamicResource UIKit.Muted}" ClipToBounds="True"
                       CornerRadius="{Binding $self.Bounds, Converter={x:Static gconv:AvatarConverters.Circle}}"
                       IsVisible="{TemplateBinding Avatar, Converter={x:Static ObjectConverters.IsNotNull}}">
                 <ContentPresenter Content="{TemplateBinding Avatar}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
@@ -143,7 +143,7 @@
         <Setter Property="FontSize" Value="12" />
         <Setter Property="FontWeight" Value="Medium" />
         <Setter Property="LineHeight" Value="15" />
-        <Setter Property="Foreground" Value="{DynamicResource Gpui.MutedForeground}" />
+        <Setter Property="Foreground" Value="{DynamicResource UIKit.MutedForeground}" />
         <Setter Property="Padding" Value="12,0" />
       </Style>
       <Style Selector="^:ghost /template/ ContentPresenter.line">
@@ -166,13 +166,13 @@
   </Styles.Resources>
 
   <!-- message.rs: the content column aligns each bubble to the message's side. -->
-  <Style Selector="gpui|Message gpui|Bubble:not(.start):not(.end)">
+  <Style Selector="uikit|Message uikit|Bubble:not(.start):not(.end)">
     <Setter Property="HorizontalAlignment" Value="Left" />
   </Style>
-  <Style Selector="gpui|Message.end gpui|Bubble:not(.start):not(.end)">
+  <Style Selector="uikit|Message.end uikit|Bubble:not(.start):not(.end)">
     <Setter Property="HorizontalAlignment" Value="Right" />
   </Style>
-  <Style Selector="gpui|Message.end ContentPresenter">
+  <Style Selector="uikit|Message.end ContentPresenter">
     <Setter Property="HorizontalAlignment" Value="Right" />
   </Style>
 </Styles>

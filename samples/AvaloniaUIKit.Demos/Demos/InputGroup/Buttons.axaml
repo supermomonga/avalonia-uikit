@@ -1,17 +1,17 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:gpui="using:AvaloniaUIKit"
+             xmlns:uikit="using:AvaloniaUIKit"
              x:Class="AvaloniaUIKit.Demos.InputGroupButtons">
   <StackPanel Spacing="12" Width="280" HorizontalAlignment="Left">
-    <TextBox Classes="group" Text="gpui">
+    <TextBox Classes="group" Text="avalonia">
       <TextBox.InnerRightContent>
         <Button Content="Clear" />
       </TextBox.InnerRightContent>
     </TextBox>
-    <TextBox Classes="group" Text="gpui">
+    <TextBox Classes="group" Text="avalonia">
       <TextBox.InnerRightContent>
         <Button Classes="icon-only">
-          <PathIcon Data="{StaticResource Gpui.Icon.Close}" />
+          <PathIcon Data="{StaticResource UIKit.Icon.Close}" />
         </Button>
       </TextBox.InnerRightContent>
     </TextBox>

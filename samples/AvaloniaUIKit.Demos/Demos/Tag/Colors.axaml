@@ -1,32 +1,32 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:gpui="using:AvaloniaUIKit"
+             xmlns:uikit="using:AvaloniaUIKit"
              x:Class="AvaloniaUIKit.Demos.TagColors">
   <StackPanel Spacing="12" HorizontalAlignment="Left">
     <WrapPanel ItemSpacing="8" LineSpacing="8" MaxWidth="560">
-      <gpui:TagLabel Classes="neutral" Content="Neutral" />
-      <gpui:TagLabel Classes="gray" Content="Gray" />
-      <gpui:TagLabel Classes="red" Content="Red" />
-      <gpui:TagLabel Classes="orange" Content="Orange" />
-      <gpui:TagLabel Classes="amber" Content="Amber" />
-      <gpui:TagLabel Classes="yellow" Content="Yellow" />
-      <gpui:TagLabel Classes="lime" Content="Lime" />
-      <gpui:TagLabel Classes="green" Content="Green" />
-      <gpui:TagLabel Classes="emerald" Content="Emerald" />
-      <gpui:TagLabel Classes="teal" Content="Teal" />
-      <gpui:TagLabel Classes="cyan" Content="Cyan" />
-      <gpui:TagLabel Classes="sky" Content="Sky" />
-      <gpui:TagLabel Classes="blue" Content="Blue" />
-      <gpui:TagLabel Classes="indigo" Content="Indigo" />
-      <gpui:TagLabel Classes="violet" Content="Violet" />
-      <gpui:TagLabel Classes="purple" Content="Purple" />
-      <gpui:TagLabel Classes="fuchsia" Content="Fuchsia" />
-      <gpui:TagLabel Classes="pink" Content="Pink" />
-      <gpui:TagLabel Classes="rose" Content="Rose" />
+      <uikit:TagLabel Classes="neutral" Content="Neutral" />
+      <uikit:TagLabel Classes="gray" Content="Gray" />
+      <uikit:TagLabel Classes="red" Content="Red" />
+      <uikit:TagLabel Classes="orange" Content="Orange" />
+      <uikit:TagLabel Classes="amber" Content="Amber" />
+      <uikit:TagLabel Classes="yellow" Content="Yellow" />
+      <uikit:TagLabel Classes="lime" Content="Lime" />
+      <uikit:TagLabel Classes="green" Content="Green" />
+      <uikit:TagLabel Classes="emerald" Content="Emerald" />
+      <uikit:TagLabel Classes="teal" Content="Teal" />
+      <uikit:TagLabel Classes="cyan" Content="Cyan" />
+      <uikit:TagLabel Classes="sky" Content="Sky" />
+      <uikit:TagLabel Classes="blue" Content="Blue" />
+      <uikit:TagLabel Classes="indigo" Content="Indigo" />
+      <uikit:TagLabel Classes="violet" Content="Violet" />
+      <uikit:TagLabel Classes="purple" Content="Purple" />
+      <uikit:TagLabel Classes="fuchsia" Content="Fuchsia" />
+      <uikit:TagLabel Classes="pink" Content="Pink" />
+      <uikit:TagLabel Classes="rose" Content="Rose" />
     </WrapPanel>
     <WrapPanel ItemSpacing="8" LineSpacing="8">
-      <gpui:TagLabel Classes="blue outline" Content="Blue" />
-      <gpui:TagLabel Classes="rose outline" Content="Rose" />
+      <uikit:TagLabel Classes="blue outline" Content="Blue" />
+      <uikit:TagLabel Classes="rose outline" Content="Rose" />
     </WrapPanel>
   </StackPanel>
 </UserControl>

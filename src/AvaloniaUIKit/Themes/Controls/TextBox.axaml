@@ -16,11 +16,11 @@
 -->
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:gpui="using:AvaloniaUIKit">
+                    xmlns:uikit="using:AvaloniaUIKit">
   <!-- Button::text().xsmall() with an eye icon: shows the masked text while checked. -->
-  <ControlTheme x:Key="GpuiRevealPasswordToggle" TargetType="ToggleButton">
+  <ControlTheme x:Key="UIKitRevealPasswordToggle" TargetType="ToggleButton">
     <Setter Property="Background" Value="Transparent" />
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Text.Normal.Foreground}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Text.Normal.Foreground}" />
     <Setter Property="Padding" Value="0" />
     <Setter Property="Focusable" Value="False" />
     <Setter Property="Cursor" Value="Hand" />
@@ -29,17 +29,17 @@
       <ControlTemplate>
         <Border Background="{TemplateBinding Background}" CornerRadius="6">
           <Panel>
-            <PathIcon Name="PART_Masked" Classes="xsmall" Data="{StaticResource Gpui.Icon.Eye}" Foreground="{TemplateBinding Foreground}" />
-            <PathIcon Name="PART_Revealed" Classes="xsmall" Data="{StaticResource Gpui.Icon.EyeOff}" Foreground="{TemplateBinding Foreground}" IsVisible="False" />
+            <PathIcon Name="PART_Masked" Classes="xsmall" Data="{StaticResource UIKit.Icon.Eye}" Foreground="{TemplateBinding Foreground}" />
+            <PathIcon Name="PART_Revealed" Classes="xsmall" Data="{StaticResource UIKit.Icon.EyeOff}" Foreground="{TemplateBinding Foreground}" IsVisible="False" />
           </Panel>
         </Border>
       </ControlTemplate>
     </Setter>
     <Style Selector="^:pointerover">
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Text.Hover.Foreground}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Text.Hover.Foreground}" />
     </Style>
     <Style Selector="^:pressed">
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Text.Pressed.Foreground}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Text.Pressed.Foreground}" />
     </Style>
     <Style Selector="^:checked /template/ PathIcon#PART_Masked">
       <Setter Property="IsVisible" Value="False" />
@@ -55,11 +55,11 @@
     weight on a 20px line, the small radius (the theme radius when small); hover
     and press tint it with `muted`. The group applies it to its buttons.
   -->
-  <ControlTheme x:Key="GpuiInputGroupButton" TargetType="Button">
+  <ControlTheme x:Key="UIKitInputGroupButton" TargetType="Button">
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="BorderBrush" Value="Transparent" />
     <Setter Property="BorderThickness" Value="1" />
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
     <Setter Property="Height" Value="24" />
     <Setter Property="MinWidth" Value="0" />
     <Setter Property="Padding" Value="8,0" />
@@ -89,7 +89,7 @@
                             TextWrapping="NoWrap"
                             RecognizesAccessKey="True" />
           <Border Name="PART_FocusRing" Margin="-3" BorderThickness="3" CornerRadius="4.5"
-                  BorderBrush="{DynamicResource Gpui.FocusRing}" IsVisible="False" IsHitTestVisible="False" />
+                  BorderBrush="{DynamicResource UIKit.FocusRing}" IsVisible="False" IsHitTestVisible="False" />
         </Panel>
       </ControlTemplate>
     </Setter>
@@ -110,7 +110,7 @@
       <Setter Property="Padding" Value="0" />
     </Style>
     <Style Selector="^:pointerover, ^:pressed">
-      <Setter Property="Background" Value="{DynamicResource Gpui.InputGroup.Button.Hover}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.InputGroup.Button.Hover}" />
     </Style>
     <Style Selector="^:disabled">
       <Setter Property="Opacity" Value="0.5" />
@@ -121,14 +121,14 @@
   </ControlTheme>
 
   <ControlTheme x:Key="{x:Type TextBox}" TargetType="TextBox">
-    <Setter Property="Background" Value="{DynamicResource Gpui.InputBackground}" />
-    <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Input}" />
+    <Setter Property="Background" Value="{DynamicResource UIKit.InputBackground}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Input}" />
     <Setter Property="BorderThickness" Value="1" />
     <Setter Property="CornerRadius" Value="5.5" />
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
-    <Setter Property="CaretBrush" Value="{DynamicResource Gpui.Caret}" />
-    <Setter Property="SelectionBrush" Value="{DynamicResource Gpui.Selection}" />
-    <Setter Property="PlaceholderForeground" Value="{DynamicResource Gpui.MutedForeground}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
+    <Setter Property="CaretBrush" Value="{DynamicResource UIKit.Caret}" />
+    <Setter Property="SelectionBrush" Value="{DynamicResource UIKit.Selection}" />
+    <Setter Property="PlaceholderForeground" Value="{DynamicResource UIKit.MutedForeground}" />
     <Setter Property="IsInactiveSelectionHighlightEnabled" Value="False" />
     <Setter Property="FontSize" Value="14" />
     <Setter Property="LineHeight" Value="20" />
@@ -150,7 +150,7 @@
                   BackgroundSizing="OuterBorderEdge" />
           <!-- focus_ring (styled.rs): a 3px band outside the border, in ring at 50%. -->
           <Border Name="PART_FocusRing" Margin="-3" BorderThickness="3" CornerRadius="7.5"
-                  BorderBrush="{DynamicResource Gpui.FocusRing}" IsVisible="False" IsHitTestVisible="False" />
+                  BorderBrush="{DynamicResource UIKit.FocusRing}" IsVisible="False" IsHitTestVisible="False" />
           <Border Name="PART_ContentBorder" Margin="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}">
             <Grid ColumnDefinitions="Auto,*,Auto">
               <ContentPresenter Name="PART_InnerLeftContent" Grid.Column="0" Margin="0,0,6,0"
@@ -271,21 +271,21 @@
     </Style>
 
     <Style Selector="^:focus-within">
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Ring}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Ring}" />
     </Style>
     <Style Selector="^:focus-within /template/ Border#PART_FocusRing">
       <Setter Property="IsVisible" Value="True" />
     </Style>
 
     <Style Selector="^:disabled">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Input.Disabled.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Input.Disabled.Text}" />
-      <Setter Property="PlaceholderForeground" Value="{DynamicResource Gpui.Input.Disabled.Placeholder}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Input.Disabled.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Input.Disabled.Text}" />
+      <Setter Property="PlaceholderForeground" Value="{DynamicResource UIKit.Input.Disabled.Placeholder}" />
     </Style>
     <!-- The prefix and suffix fade to half as wholes; their text keeps its own color. -->
     <Style Selector="^:disabled /template/ ContentPresenter#PART_InnerLeftContent, ^:disabled /template/ ContentPresenter#PART_InnerRightContent">
       <Setter Property="Opacity" Value="0.5" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
     </Style>
 
     <!--
@@ -298,15 +298,15 @@
       even when unfocused or disabled. Disabled, the whole group fades to half.
     -->
     <Style Selector="^.group">
-      <Setter Property="Background" Value="{DynamicResource Gpui.InputGroup.Background}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.InputGroup.Background}" />
     </Style>
     <Style Selector="^.group /template/ Border#PART_BorderElement">
-      <Setter Property="gpui:Motion.ColorTransition">
-        <gpui:ColorTransition Duration="0:0:0.12" Easing="0.2,0,0,1" Properties="Background, BorderBrush" />
+      <Setter Property="uikit:Motion.ColorTransition">
+        <uikit:ColorTransition Duration="0:0:0.12" Easing="0.2,0,0,1" Properties="Background, BorderBrush" />
       </Setter>
     </Style>
     <Style Selector="^.group /template/ ContentPresenter#PART_InnerLeftContent, ^.group /template/ ContentPresenter#PART_InnerRightContent">
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.MutedForeground}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.MutedForeground}" />
       <Setter Property="FontWeight" Value="Medium" />
       <Setter Property="LineHeight" Value="22.6525" />
     </Style>
@@ -349,25 +349,25 @@
       <Setter Property="Margin" Value="-2,0,6,0" />
     </Style>
     <Style Selector="^.group:error">
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Danger}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Danger}" />
     </Style>
     <Style Selector="^.group:error /template/ Border#PART_FocusRing">
       <Setter Property="IsVisible" Value="True" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.InputGroup.Invalid.Ring}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.InputGroup.Invalid.Ring}" />
     </Style>
     <Style Selector="^.group:disabled">
-      <Setter Property="Background" Value="{DynamicResource Gpui.InputGroup.Disabled.Background}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.InputGroup.Disabled.Background}" />
       <Setter Property="Opacity" Value="0.5" />
     </Style>
     <Style Selector="^.group:disabled /template/ ContentPresenter#PART_InnerLeftContent, ^.group:disabled /template/ ContentPresenter#PART_InnerRightContent">
       <Setter Property="Opacity" Value="1" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.MutedForeground}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.MutedForeground}" />
     </Style>
 
     <Style Selector="^.revealPasswordButton[AcceptsReturn=False]">
       <Setter Property="InnerRightContent">
         <Template>
-          <ToggleButton Theme="{StaticResource GpuiRevealPasswordToggle}"
+          <ToggleButton Theme="{StaticResource UIKitRevealPasswordToggle}"
                         IsChecked="{Binding $parent[TextBox].RevealPassword, Mode=TwoWay}" />
         </Template>
       </Setter>

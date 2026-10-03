@@ -1,4 +1,4 @@
-# GPUI Kit Clipboard -> gpui:Clipboard: a ghost icon-only button; a click
+# GPUI Kit Clipboard -> uikit:Clipboard: a ghost icon-only button; a click
 # copies and shows a check for two seconds.
 component = "clipboard"
 viewport = [64, 56]

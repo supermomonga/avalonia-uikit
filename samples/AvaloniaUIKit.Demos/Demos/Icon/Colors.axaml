@@ -1,13 +1,13 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:gpui="using:AvaloniaUIKit"
+             xmlns:uikit="using:AvaloniaUIKit"
              x:Class="AvaloniaUIKit.Demos.IconColors">
   <StackPanel Orientation="Horizontal" Spacing="16" HorizontalAlignment="Left">
-    <PathIcon Classes="large" Data="{StaticResource Gpui.Icon.Copy}" />
-    <PathIcon Classes="large" Data="{StaticResource Gpui.Icon.Copy}" Foreground="{DynamicResource Gpui.MutedForeground}" />
-    <PathIcon Classes="large" Data="{StaticResource Gpui.Icon.Copy}" Foreground="{DynamicResource Gpui.Primary}" />
-    <PathIcon Classes="large" Data="{StaticResource Gpui.Icon.Copy}" Foreground="{DynamicResource Gpui.Danger}" />
-    <PathIcon Classes="large" Data="{StaticResource Gpui.Icon.ChevronRight}">
+    <PathIcon Classes="large" Data="{StaticResource UIKit.Icon.Copy}" />
+    <PathIcon Classes="large" Data="{StaticResource UIKit.Icon.Copy}" Foreground="{DynamicResource UIKit.MutedForeground}" />
+    <PathIcon Classes="large" Data="{StaticResource UIKit.Icon.Copy}" Foreground="{DynamicResource UIKit.Primary}" />
+    <PathIcon Classes="large" Data="{StaticResource UIKit.Icon.Copy}" Foreground="{DynamicResource UIKit.Danger}" />
+    <PathIcon Classes="large" Data="{StaticResource UIKit.Icon.ChevronRight}">
       <PathIcon.RenderTransform>
         <RotateTransform Angle="90" />
       </PathIcon.RenderTransform>

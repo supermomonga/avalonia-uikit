@@ -41,7 +41,7 @@ RADIUS = {
 }
 SEGMENTED_INNER_RADIUS = [4, 4, 6, 5]
 # tab_bar.rs TabBar::render: background, horizontal padding and gap.
-BAR_BACKGROUND = {"tab": "{DynamicResource Gpui.TabBar}", "segmented": "{DynamicResource Gpui.TabBarSegmented}"}
+BAR_BACKGROUND = {"tab": "{DynamicResource UIKit.TabBar}", "segmented": "{DynamicResource UIKit.TabBarSegmented}"}
 SEGMENTED_PADDING = [2, 3, 4, 4]
 GAP = {
     "tab": [0, 0, 0, 0],
@@ -56,40 +56,40 @@ T = "Transparent"
 # (foreground, background, border) by state (tab.rs normal / hovered / selected / disabled).
 COLORS = {
     "tab": {
-        "normal": ("Gpui.TabForeground", T, T),
-        "hover": ("Gpui.TabActiveForeground", T, T),
-        "selected": ("Gpui.TabActiveForeground", "Gpui.TabActive", "Gpui.Border"),
-        "disabled": ("Gpui.MutedForeground", T, T),
-        "disabled-selected": ("Gpui.MutedForeground", T, "Gpui.Border"),
+        "normal": ("UIKit.TabForeground", T, T),
+        "hover": ("UIKit.TabActiveForeground", T, T),
+        "selected": ("UIKit.TabActiveForeground", "UIKit.TabActive", "UIKit.Border"),
+        "disabled": ("UIKit.MutedForeground", T, T),
+        "disabled-selected": ("UIKit.MutedForeground", T, "UIKit.Border"),
     },
     "outline": {
-        "normal": ("Gpui.TabForeground", T, "Gpui.Border"),
-        "hover": ("Gpui.SecondaryForeground", "Gpui.SecondaryHover", "Gpui.Border"),
-        "selected": ("Gpui.Primary", T, "Gpui.Primary"),
-        "disabled": ("Gpui.MutedForeground", T, "Gpui.Border"),
-        "disabled-selected": ("Gpui.MutedForeground", T, "Gpui.Primary"),
+        "normal": ("UIKit.TabForeground", T, "UIKit.Border"),
+        "hover": ("UIKit.SecondaryForeground", "UIKit.SecondaryHover", "UIKit.Border"),
+        "selected": ("UIKit.Primary", T, "UIKit.Primary"),
+        "disabled": ("UIKit.MutedForeground", T, "UIKit.Border"),
+        "disabled-selected": ("UIKit.MutedForeground", T, "UIKit.Primary"),
     },
     # The selected pill, segment and underline paint nothing: the indicator does.
     "pill": {
-        "normal": ("Gpui.Foreground", T, T),
-        "hover": ("Gpui.SecondaryForeground", "Gpui.Secondary", T),
-        "selected": ("Gpui.PrimaryForeground", T, T),
-        "disabled": ("Gpui.MutedForeground", T, T),
-        "disabled-selected": ("Gpui.Tab.Pill.Disabled.SelectedForeground", "Gpui.Tab.Pill.Disabled.SelectedBackground", T),
+        "normal": ("UIKit.Foreground", T, T),
+        "hover": ("UIKit.SecondaryForeground", "UIKit.Secondary", T),
+        "selected": ("UIKit.PrimaryForeground", T, T),
+        "disabled": ("UIKit.MutedForeground", T, T),
+        "disabled-selected": ("UIKit.Tab.Pill.Disabled.SelectedForeground", "UIKit.Tab.Pill.Disabled.SelectedBackground", T),
     },
     "segmented": {
-        "normal": ("Gpui.TabForeground", T, T),
-        "hover": ("Gpui.TabActiveForeground", T, T),
-        "selected": ("Gpui.TabActiveForeground", T, T),
-        "disabled": ("Gpui.MutedForeground", "Gpui.TabBar", T),
-        "disabled-selected": ("Gpui.MutedForeground", "Gpui.TabBar", T),
+        "normal": ("UIKit.TabForeground", T, T),
+        "hover": ("UIKit.TabActiveForeground", T, T),
+        "selected": ("UIKit.TabActiveForeground", T, T),
+        "disabled": ("UIKit.MutedForeground", "UIKit.TabBar", T),
+        "disabled-selected": ("UIKit.MutedForeground", "UIKit.TabBar", T),
     },
     "underline": {
-        "normal": ("Gpui.TabForeground", T, T),
-        "hover": ("Gpui.TabActiveForeground", T, T),
-        "selected": ("Gpui.TabActiveForeground", T, T),
-        "disabled": ("Gpui.MutedForeground", T, T),
-        "disabled-selected": ("Gpui.MutedForeground", T, "Gpui.Border"),
+        "normal": ("UIKit.TabForeground", T, T),
+        "hover": ("UIKit.TabActiveForeground", T, T),
+        "selected": ("UIKit.TabActiveForeground", T, T),
+        "disabled": ("UIKit.MutedForeground", T, T),
+        "disabled-selected": ("UIKit.MutedForeground", T, "UIKit.Border"),
     },
 }
 # Later states win: hover only on an enabled, unselected tab; a disabled tab keeps its look.
@@ -135,7 +135,7 @@ def items(variant: str, size: str | None = None, suffix: str = "") -> str:
 def item_theme(item: str, header: bool) -> str:
     source = "Header" if header else "Content"
     return f"""    <ControlTheme x:Key="{{x:Type {item}}}" TargetType="{item}">
-      <Setter Property="Foreground" Value="{{DynamicResource Gpui.TabForeground}}" />
+      <Setter Property="Foreground" Value="{{DynamicResource UIKit.TabForeground}}" />
       <Setter Property="Background" Value="Transparent" />
       <Setter Property="BorderBrush" Value="Transparent" />
       <Setter Property="ClipToBounds" Value="False" />
@@ -169,7 +169,7 @@ def item_theme(item: str, header: bool) -> str:
             </Border>
             <!-- Avalonia-only keyboard focus (GPUI tabs take no focus): the 3px ring band. -->
             <Border Name="PART_FocusRing" Margin="-3" BorderThickness="3"
-                    BorderBrush="{{DynamicResource Gpui.FocusRing}}"
+                    BorderBrush="{{DynamicResource UIKit.FocusRing}}"
                     IsVisible="False" IsHitTestVisible="False" />
           </Panel>
         </ControlTemplate>
@@ -190,13 +190,13 @@ def strip_part_styles() -> str:
         fill = {
             "tab": {"IsVisible": "False"},
             "outline": {"IsVisible": "False"},
-            "pill": {"Background": "{DynamicResource Gpui.Primary}"},
+            "pill": {"Background": "{DynamicResource UIKit.Primary}"},
             "segmented": {
-                "Background": "{DynamicResource Gpui.Background}",
-                "BoxShadow": "{StaticResource Gpui.Shadow.Raised}",
+                "Background": "{DynamicResource UIKit.Background}",
+                "BoxShadow": "{StaticResource UIKit.Shadow.Raised}",
                 "VerticalAlignment": "Center",
             },
-            "underline": {"Background": "{DynamicResource Gpui.Primary}", "Height": "2", "VerticalAlignment": "Bottom"},
+            "underline": {"Background": "{DynamicResource UIKit.Primary}", "Height": "2", "VerticalAlignment": "Bottom"},
         }[v]
         out.append(style(f"^{vs} /template/ Border#PART_IndicatorFill", fill, "      "))
         for i, s in enumerate(SIZES):
@@ -221,17 +221,17 @@ def strip_template() -> str:
             <Panel>
               <!-- Tab and Underline: a 1px border line along the bar's bottom, under the tabs. -->
               <Border Name="PART_Baseline" BorderThickness="0,0,0,1"
-                      BorderBrush="{DynamicResource Gpui.Border}" IsHitTestVisible="False" />
+                      BorderBrush="{DynamicResource UIKit.Border}" IsHitTestVisible="False" />
               <!--
                 The selected tab's indicator (Pill, Segmented, Underline), under the
                 tabs and clipped to the bar's content as GPUI clips its tab row.
               -->
               <Canvas Name="PART_IndicatorLayer" ClipToBounds="True" IsHitTestVisible="False">
-                <Panel Name="PART_Indicator" gpui:Tabs.Indicator="True"
-                       gpui:Motion.Spring="{StaticResource Gpui.Spring.Move}" gpui:Motion.SpringsCanvasLeft="True">
+                <Panel Name="PART_Indicator" uikit:Tabs.Indicator="True"
+                       uikit:Motion.Spring="{StaticResource UIKit.Spring.Move}" uikit:Motion.SpringsCanvasLeft="True">
                   <Border Name="PART_IndicatorFill"
-                          gpui:Motion.Spring="{StaticResource Gpui.Spring.Move}"
-                          Width="{Binding $self.(gpui:Motion.SpringValue)}" />
+                          uikit:Motion.Spring="{StaticResource UIKit.Spring.Move}"
+                          Width="{Binding $self.(uikit:Motion.SpringValue)}" />
                 </Panel>
               </Canvas>
               <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
@@ -309,8 +309,8 @@ def item_styles() -> str:
             out.append(style(items(v, suffix=suffix), {"Foreground": brush(fg), "Background": brush(bg), "BorderBrush": brush(bc)}))
         if v == "pill":
             out.append(style(items(v), {
-                "gpui:Tabs.SelectionFade": "{StaticResource Gpui.Tab.PillFade}",
-                "gpui:Tabs.SelectionFadeFrom": "{DynamicResource Gpui.Foreground}",
+                "uikit:Tabs.SelectionFade": "{StaticResource UIKit.Tab.PillFade}",
+                "uikit:Tabs.SelectionFadeFrom": "{DynamicResource UIKit.Foreground}",
             }))
         for i, s in enumerate(SIZES):
             r = RADIUS[v][i]
@@ -353,7 +353,7 @@ HEADER = """<!--
 
     <TabStrip Classes="pill small" SelectedIndex="0">
       <TabStripItem Content="Account" />
-      <TabStripItem Classes="icon-only"><PathIcon Data="{StaticResource Gpui.Icon.Copy}" /></TabStripItem>
+      <TabStripItem Classes="icon-only"><PathIcon Data="{StaticResource UIKit.Icon.Copy}" /></TabStripItem>
     </TabStrip>
 
   Classes on the TabStrip / TabControl: variant outline pill segmented underline
@@ -370,12 +370,12 @@ def main() -> None:
     text = f"""{HEADER}
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:gpui="using:AvaloniaUIKit">
+        xmlns:uikit="using:AvaloniaUIKit">
   <Styles.Resources>
     <!-- styled.rs raised_shadow(): the segmented indicator. -->
-    <BoxShadows x:Key="Gpui.Shadow.Raised">0 1 3.4641 0 #1A000000, 0 1 1.7321 -1 #1A000000</BoxShadows>
+    <BoxShadows x:Key="UIKit.Shadow.Raised">0 1 3.4641 0 #1A000000, 0 1 1.7321 -1 #1A000000</BoxShadows>
     <!-- tab.rs: the newly selected pill's label, 200ms ease-in-out-cubic. -->
-    <gpui:ColorTransition x:Key="Gpui.Tab.PillFade" Duration="0:0:0.2" Easing="CubicEaseInOut" Properties="Foreground" />
+    <uikit:ColorTransition x:Key="UIKit.Tab.PillFade" Duration="0:0:0.2" Easing="CubicEaseInOut" Properties="Foreground" />
 {item_theme("TabStripItem", header=False)}
 {item_theme("TabItem", header=True)}
 {strip_theme()}

@@ -1,4 +1,4 @@
-# GPUI Kit Avatar -> gpui:Avatar: initials on a color picked from them, an
+# GPUI Kit Avatar -> uikit:Avatar: initials on a color picked from them, an
 # image, or the user icon, in a circle 16 / 24 / 48 / 80px across.
 component = "avatar"
 viewport = [112, 112]

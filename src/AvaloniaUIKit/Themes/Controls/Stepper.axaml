@@ -1,11 +1,11 @@
 <!--
-  GPUI Kit Stepper (crates/component/src/stepper) -> gpui:Stepper with
-  gpui:StepperItem (the content is the label):
+  GPUI Kit Stepper (crates/component/src/stepper) -> uikit:Stepper with
+  uikit:StepperItem (the content is the label):
 
-    <gpui:Stepper SelectedIndex="1">
-      <gpui:StepperItem Content="Order Details" Icon="{StaticResource Gpui.Icon.Calendar}" />
-      <gpui:StepperItem Content="Shipping" />
-    </gpui:Stepper>
+    <uikit:Stepper SelectedIndex="1">
+      <uikit:StepperItem Content="Order Details" Icon="{StaticResource UIKit.Icon.Calendar}" />
+      <uikit:StepperItem Content="Shipping" />
+    </uikit:Stepper>
 
   A step is its indicator (a circle in secondary, primary when checked, with
   the number or the icon) and its label 4px below (8px beside when vertical),
@@ -19,13 +19,13 @@
 -->
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:gpui="using:AvaloniaUIKit"
+                    xmlns:uikit="using:AvaloniaUIKit"
                     xmlns:gconv="using:AvaloniaUIKit.Converters">
-  <ControlTheme x:Key="{x:Type gpui:Stepper}" TargetType="gpui:Stepper">
+  <ControlTheme x:Key="{x:Type uikit:Stepper}" TargetType="uikit:Stepper">
     <Setter Property="ItemsPanel">
       <ItemsPanelTemplate>
-        <gpui:StepperPanel Orientation="{Binding $parent[gpui:Stepper].Orientation}"
-                           SharesEqually="{Binding $parent[gpui:Stepper].CentersSteps}" />
+        <uikit:StepperPanel Orientation="{Binding $parent[uikit:Stepper].Orientation}"
+                           SharesEqually="{Binding $parent[uikit:Stepper].CentersSteps}" />
       </ItemsPanelTemplate>
     </Setter>
     <Setter Property="Template">
@@ -35,7 +35,7 @@
     </Setter>
   </ControlTheme>
 
-  <ControlTheme x:Key="{x:Type gpui:StepperItem}" TargetType="gpui:StepperItem">
+  <ControlTheme x:Key="{x:Type uikit:StepperItem}" TargetType="uikit:StepperItem">
     <Setter Property="FontSize" Value="14" />
     <!-- A centered step's line reaches into the next step. -->
     <Setter Property="ClipToBounds" Value="False" />
@@ -44,18 +44,18 @@
       <ControlTemplate>
         <Panel>
           <Border Name="PART_Line" Height="2" VerticalAlignment="Top" HorizontalAlignment="Stretch"
-                  Background="{DynamicResource Gpui.Border}" />
+                  Background="{DynamicResource UIKit.Border}" />
           <StackPanel Name="PART_Trigger" Spacing="4" HorizontalAlignment="Left" VerticalAlignment="Top"
                       Background="{TemplateBinding Background}">
             <Border Name="PART_Indicator" Width="{TemplateBinding IndicatorSize}" Height="{TemplateBinding IndicatorSize}"
                     CornerRadius="{Binding $self.Bounds, Converter={x:Static gconv:AvatarConverters.Circle}}" HorizontalAlignment="Left"
-                    Background="{DynamicResource Gpui.Secondary}">
+                    Background="{DynamicResource UIKit.Secondary}">
               <Panel>
                 <TextBlock Name="PART_Number" Text="{TemplateBinding Number}" LineHeight="22.5"
-                           Foreground="{DynamicResource Gpui.SecondaryForeground}"
+                           Foreground="{DynamicResource UIKit.SecondaryForeground}"
                            HorizontalAlignment="Center" VerticalAlignment="Center" />
                 <PathIcon Name="PART_Icon" IsVisible="False" Data="{TemplateBinding Icon}" Width="14" Height="14"
-                          Foreground="{DynamicResource Gpui.SecondaryForeground}" />
+                          Foreground="{DynamicResource UIKit.SecondaryForeground}" />
               </Panel>
             </Border>
             <ContentPresenter Name="PART_ContentPresenter" Content="{TemplateBinding Content}"
@@ -69,10 +69,10 @@
     <Style Selector="^ /template/ Border#PART_Line">
       <Setter Property="Margin">
         <MultiBinding Converter="{x:Static gconv:StepperConverters.LineMargin}">
-          <Binding Path="$parent[gpui:StepperItem].Bounds" />
-          <Binding Path="$parent[gpui:StepperItem].IsVertical" />
-          <Binding Path="$parent[gpui:StepperItem].IsCentered" />
-          <Binding Path="$parent[gpui:StepperItem].IndicatorSize" />
+          <Binding Path="$parent[uikit:StepperItem].Bounds" />
+          <Binding Path="$parent[uikit:StepperItem].IsVertical" />
+          <Binding Path="$parent[uikit:StepperItem].IsCentered" />
+          <Binding Path="$parent[uikit:StepperItem].IndicatorSize" />
         </MultiBinding>
       </Setter>
     </Style>
@@ -83,25 +83,25 @@
       <Setter Property="IsVisible" Value="False" />
     </Style>
     <Style Selector="^ /template/ Border#PART_Indicator:pointerover">
-      <Setter Property="Background" Value="{DynamicResource Gpui.SecondaryHover}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.SecondaryHover}" />
     </Style>
     <Style Selector="^:indicator-pressed /template/ Border#PART_Indicator">
-      <Setter Property="Background" Value="{DynamicResource Gpui.SecondaryActive}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.SecondaryActive}" />
     </Style>
     <Style Selector="^:disabled /template/ Border#PART_Indicator">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Secondary}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Secondary}" />
     </Style>
     <Style Selector="^:checked /template/ Border#PART_Indicator">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Primary}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Primary}" />
     </Style>
     <Style Selector="^:checked /template/ TextBlock#PART_Number">
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.PrimaryForeground}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.PrimaryForeground}" />
     </Style>
     <Style Selector="^:checked /template/ PathIcon#PART_Icon">
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.PrimaryForeground}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.PrimaryForeground}" />
     </Style>
     <Style Selector="^:passed /template/ Border#PART_Line">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Primary}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Primary}" />
     </Style>
     <Style Selector="^:last /template/ Border#PART_Line">
       <Setter Property="IsVisible" Value="False" />

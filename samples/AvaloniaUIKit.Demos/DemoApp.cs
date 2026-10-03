@@ -21,13 +21,13 @@ public static class DemoApp
                 new Uri("avares://AvaloniaUIKit.Demos/Assets/Fonts", UriKind.Absolute))))
             .With(new FontManagerOptions { DefaultFamilyName = FontFamilyName });
 
-    /// <summary>Adds the GPUI themes and points the theme font at Inter.</summary>
+    /// <summary>Adds the themes and points the theme font at Inter.</summary>
     public static void ApplyTheme(Application app)
     {
-        app.Styles.Add(new GpuiTheme());
-        app.Styles.Add(new GpuiColorPickerTheme());
-        app.Styles.Add(new GpuiDataGridTheme());
-        app.Resources["Gpui.FontFamily"] = new FontFamily(FontFamilyName);
+        app.Styles.Add(new NovaTheme());
+        app.Styles.Add(new NovaColorPickerTheme());
+        app.Styles.Add(new NovaDataGridTheme());
+        app.Resources["UIKit.FontFamily"] = new FontFamily(FontFamilyName);
         // GPUI opens a submenu as soon as its item is hovered (usage contract, docs/testing.md).
         Avalonia.Controls.Platform.DefaultMenuInteractionHandler.MenuShowDelay = TimeSpan.Zero;
     }

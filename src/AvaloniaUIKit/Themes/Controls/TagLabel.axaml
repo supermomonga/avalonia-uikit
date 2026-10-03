@@ -1,5 +1,5 @@
 <!--
-  GPUI Kit Tag (crates/component/src/tag.rs) -> gpui:TagLabel.
+  GPUI Kit Tag (crates/component/src/tag.rs) -> uikit:TagLabel.
   Classes: color   primary (default) secondary danger success warning info,
                    or a palette color: neutral gray red orange amber yellow lime green emerald teal cyan sky blue indigo violet purple fuchsia pink rose
            outline transparent fill, the color as the text
@@ -10,11 +10,11 @@
 -->
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:gpui="using:AvaloniaUIKit">
-  <ControlTheme x:Key="{x:Type gpui:TagLabel}" TargetType="gpui:TagLabel">
-    <Setter Property="Background" Value="{DynamicResource Gpui.Primary}" />
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.PrimaryForeground}" />
-    <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Primary}" />
+                    xmlns:uikit="using:AvaloniaUIKit">
+  <ControlTheme x:Key="{x:Type uikit:TagLabel}" TargetType="uikit:TagLabel">
+    <Setter Property="Background" Value="{DynamicResource UIKit.Primary}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.PrimaryForeground}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Primary}" />
     <Setter Property="BorderThickness" Value="1" />
     <Setter Property="CornerRadius" Value="5.5" />
     <Setter Property="Padding" Value="10,4" />
@@ -45,144 +45,144 @@
 
     <!-- Theme colors: fill, border, text; outline keeps the border and colors the text. -->
     <Style Selector="^.outline">
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Primary}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Primary}" />
     </Style>
     <Style Selector="^.secondary">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Secondary}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.SecondaryForeground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Secondary}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.SecondaryForeground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Border}" />
     </Style>
     <Style Selector="^.secondary.outline">
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.MutedForeground}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.MutedForeground}" />
     </Style>
     <Style Selector="^.danger">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Danger}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.DangerForeground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Danger}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Danger}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.DangerForeground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Danger}" />
     </Style>
     <Style Selector="^.danger.outline">
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Danger}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Danger}" />
     </Style>
     <Style Selector="^.success">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Success}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.SuccessForeground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Success}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Success}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.SuccessForeground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Success}" />
     </Style>
     <Style Selector="^.success.outline">
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Success}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Success}" />
     </Style>
     <Style Selector="^.warning">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Warning}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.WarningForeground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Warning}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Warning}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.WarningForeground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Warning}" />
     </Style>
     <Style Selector="^.warning.outline">
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Warning}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Warning}" />
     </Style>
     <Style Selector="^.info">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Info}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.InfoForeground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Info}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Info}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.InfoForeground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Info}" />
     </Style>
     <Style Selector="^.info.outline">
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Info}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Info}" />
     </Style>
 
     <!-- Palette colors (TagVariant::Color): the same text with or without outline. -->
     <Style Selector="^.neutral">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Tag.Neutral.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Tag.Neutral.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Tag.Neutral.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Tag.Neutral.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Tag.Neutral.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Tag.Neutral.Border}" />
     </Style>
     <Style Selector="^.gray">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Tag.Gray.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Tag.Gray.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Tag.Gray.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Tag.Gray.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Tag.Gray.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Tag.Gray.Border}" />
     </Style>
     <Style Selector="^.red">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Tag.Red.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Tag.Red.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Tag.Red.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Tag.Red.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Tag.Red.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Tag.Red.Border}" />
     </Style>
     <Style Selector="^.orange">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Tag.Orange.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Tag.Orange.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Tag.Orange.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Tag.Orange.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Tag.Orange.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Tag.Orange.Border}" />
     </Style>
     <Style Selector="^.amber">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Tag.Amber.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Tag.Amber.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Tag.Amber.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Tag.Amber.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Tag.Amber.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Tag.Amber.Border}" />
     </Style>
     <Style Selector="^.yellow">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Tag.Yellow.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Tag.Yellow.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Tag.Yellow.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Tag.Yellow.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Tag.Yellow.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Tag.Yellow.Border}" />
     </Style>
     <Style Selector="^.lime">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Tag.Lime.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Tag.Lime.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Tag.Lime.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Tag.Lime.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Tag.Lime.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Tag.Lime.Border}" />
     </Style>
     <Style Selector="^.green">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Tag.Green.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Tag.Green.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Tag.Green.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Tag.Green.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Tag.Green.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Tag.Green.Border}" />
     </Style>
     <Style Selector="^.emerald">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Tag.Emerald.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Tag.Emerald.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Tag.Emerald.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Tag.Emerald.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Tag.Emerald.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Tag.Emerald.Border}" />
     </Style>
     <Style Selector="^.teal">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Tag.Teal.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Tag.Teal.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Tag.Teal.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Tag.Teal.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Tag.Teal.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Tag.Teal.Border}" />
     </Style>
     <Style Selector="^.cyan">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Tag.Cyan.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Tag.Cyan.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Tag.Cyan.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Tag.Cyan.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Tag.Cyan.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Tag.Cyan.Border}" />
     </Style>
     <Style Selector="^.sky">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Tag.Sky.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Tag.Sky.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Tag.Sky.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Tag.Sky.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Tag.Sky.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Tag.Sky.Border}" />
     </Style>
     <Style Selector="^.blue">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Tag.Blue.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Tag.Blue.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Tag.Blue.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Tag.Blue.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Tag.Blue.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Tag.Blue.Border}" />
     </Style>
     <Style Selector="^.indigo">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Tag.Indigo.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Tag.Indigo.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Tag.Indigo.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Tag.Indigo.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Tag.Indigo.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Tag.Indigo.Border}" />
     </Style>
     <Style Selector="^.violet">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Tag.Violet.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Tag.Violet.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Tag.Violet.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Tag.Violet.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Tag.Violet.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Tag.Violet.Border}" />
     </Style>
     <Style Selector="^.purple">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Tag.Purple.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Tag.Purple.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Tag.Purple.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Tag.Purple.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Tag.Purple.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Tag.Purple.Border}" />
     </Style>
     <Style Selector="^.fuchsia">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Tag.Fuchsia.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Tag.Fuchsia.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Tag.Fuchsia.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Tag.Fuchsia.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Tag.Fuchsia.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Tag.Fuchsia.Border}" />
     </Style>
     <Style Selector="^.pink">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Tag.Pink.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Tag.Pink.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Tag.Pink.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Tag.Pink.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Tag.Pink.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Tag.Pink.Border}" />
     </Style>
     <Style Selector="^.rose">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Tag.Rose.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Tag.Rose.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Tag.Rose.Border}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Tag.Rose.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Tag.Rose.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Tag.Rose.Border}" />
     </Style>
     <Style Selector="^.outline">
       <Setter Property="Background" Value="Transparent" />

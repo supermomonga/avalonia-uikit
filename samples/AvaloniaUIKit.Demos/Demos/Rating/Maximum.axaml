@@ -1,9 +1,9 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:gpui="using:AvaloniaUIKit"
+             xmlns:uikit="using:AvaloniaUIKit"
              x:Class="AvaloniaUIKit.Demos.RatingMaximum">
   <StackPanel Spacing="8" HorizontalAlignment="Left">
-    <gpui:Rating Value="2" Maximum="3" />
-    <gpui:Rating Value="7" Maximum="10" />
+    <uikit:Rating Value="2" Maximum="3" />
+    <uikit:Rating Value="7" Maximum="10" />
   </StackPanel>
 </UserControl>

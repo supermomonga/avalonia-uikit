@@ -1,9 +1,9 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:gpui="using:AvaloniaUIKit"
+             xmlns:uikit="using:AvaloniaUIKit"
              x:Class="AvaloniaUIKit.Demos.TreeRounded">
   <TreeView Width="240" Height="240" HorizontalAlignment="Left"
-            Padding="4" BorderThickness="1" BorderBrush="{DynamicResource Gpui.Border}" CornerRadius="5.5">
+            Padding="4" BorderThickness="1" BorderBrush="{DynamicResource UIKit.Border}" CornerRadius="5.5">
     <TreeView.Styles>
       <Style Selector="TreeViewItem">
         <Setter Property="CornerRadius" Value="6" />

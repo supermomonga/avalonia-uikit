@@ -1,6 +1,6 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:gpui="using:AvaloniaUIKit"
+             xmlns:uikit="using:AvaloniaUIKit"
              x:Class="AvaloniaUIKit.Demos.SidebarDemo">
   <SplitView DisplayMode="CompactInline" OpenPaneLength="200" IsPaneOpen="{Binding #PaneToggle.IsChecked}"
              Width="480" Height="220" HorizontalAlignment="Left">
@@ -8,23 +8,23 @@
       <StackPanel Margin="12" Spacing="12">
         <TextBlock Text="Workspace" FontWeight="Medium" Margin="4,0" />
         <StackPanel Orientation="Horizontal" Spacing="8" Margin="4,0">
-          <PathIcon Data="{StaticResource Gpui.Icon.Inbox}" />
+          <PathIcon Data="{StaticResource UIKit.Icon.Inbox}" />
           <TextBlock Text="Inbox" />
         </StackPanel>
         <StackPanel Orientation="Horizontal" Spacing="8" Margin="4,0">
-          <PathIcon Data="{StaticResource Gpui.Icon.Star}" />
+          <PathIcon Data="{StaticResource UIKit.Icon.Star}" />
           <TextBlock Text="Starred" />
         </StackPanel>
         <StackPanel Orientation="Horizontal" Spacing="8" Margin="4,0">
-          <PathIcon Data="{StaticResource Gpui.Icon.Folder}" />
+          <PathIcon Data="{StaticResource UIKit.Icon.Folder}" />
           <TextBlock Text="Projects" />
         </StackPanel>
       </StackPanel>
     </SplitView.Pane>
-    <Border Background="{DynamicResource Gpui.Muted}">
+    <Border Background="{DynamicResource UIKit.Muted}">
       <ToggleButton Name="PaneToggle" Classes="outline" IsChecked="True" Margin="8"
                     HorizontalAlignment="Left" VerticalAlignment="Top">
-        <PathIcon Data="{StaticResource Gpui.Icon.PanelLeftClose}" />
+        <PathIcon Data="{StaticResource UIKit.Icon.PanelLeftClose}" />
       </ToggleButton>
     </Border>
   </SplitView>

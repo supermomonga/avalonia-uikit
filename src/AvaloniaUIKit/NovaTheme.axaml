@@ -1,7 +1,7 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:gpui="using:AvaloniaUIKit"
-        x:Class="AvaloniaUIKit.GpuiTheme">
+        xmlns:uikit="using:AvaloniaUIKit"
+        x:Class="AvaloniaUIKit.NovaTheme">
   <Styles.Resources>
     <ResourceDictionary>
       <ResourceDictionary.MergedDictionaries>
@@ -75,7 +75,7 @@
 
   <!-- GPUI sizes a text to whole pixels, rounding its width up (text.rs). -->
   <Style Selector=":is(TopLevel)">
-    <Setter Property="gpui:TextLines.RoundsWidthUp" Value="True" />
+    <Setter Property="uikit:TextLines.RoundsWidthUp" Value="True" />
   </Style>
 
   <!-- GPUI tooltips (crates/base/src/tooltip.rs): shown after 500ms, kept for a
@@ -155,7 +155,7 @@
 
   <!-- InputGroupButton: the buttons in an input group's addons. -->
   <Style Selector="TextBox.group Button">
-    <Setter Property="Theme" Value="{StaticResource GpuiInputGroupButton}" />
+    <Setter Property="Theme" Value="{StaticResource UIKitInputGroupButton}" />
   </Style>
   <!-- Its icons: Small (14px), Medium (16px) in a small button. -->
   <Style Selector="TextBox.group Button PathIcon">
@@ -168,18 +168,18 @@
   </Style>
 
   <Style Selector="TextBox:disabled Button.ghost:disabled">
-    <Setter Property="Background" Value="{DynamicResource Gpui.Button.Ghost.Normal.Background}" />
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Ghost.Normal.Foreground}" />
+    <Setter Property="Background" Value="{DynamicResource UIKit.Button.Ghost.Normal.Background}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Ghost.Normal.Foreground}" />
   </Style>
   <Style Selector="TextBox:disabled Button.text:disabled">
-    <Setter Property="Background" Value="{DynamicResource Gpui.Button.Text.Normal.Background}" />
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.Button.Text.Normal.Foreground}" />
+    <Setter Property="Background" Value="{DynamicResource UIKit.Button.Text.Normal.Background}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Text.Normal.Foreground}" />
   </Style>
 
   <!-- PopupMenuItem::Separator (popup_menu.rs): 2px, my_0p5, mx_neg_1. -->
   <Style Selector="ContextMenu Separator, MenuFlyoutPresenter Separator, MenuItem Separator">
     <Setter Property="Height" Value="2" />
-    <Setter Property="Background" Value="{DynamicResource Gpui.Border}" />
+    <Setter Property="Background" Value="{DynamicResource UIKit.Border}" />
     <Setter Property="Margin" Value="-4,2" />
     <Setter Property="CornerRadius" Value="1" />
   </Style>

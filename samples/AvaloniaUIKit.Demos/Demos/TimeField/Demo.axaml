@@ -1,6 +1,6 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:gpui="using:AvaloniaUIKit"
+             xmlns:uikit="using:AvaloniaUIKit"
              x:Class="AvaloniaUIKit.Demos.TimeFieldDemo">
   <Panel MinHeight="350">
     <TimePicker SelectedTime="09:30" ClockIdentifier="24HourClock" HorizontalAlignment="Left" VerticalAlignment="Top" />

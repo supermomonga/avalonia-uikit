@@ -1,4 +1,4 @@
-# GPUI Kit Tag -> gpui:TagLabel.
+# GPUI Kit Tag -> uikit:TagLabel.
 component = "tag"
 viewport = [140, 48]
 anchor = [16, 12]

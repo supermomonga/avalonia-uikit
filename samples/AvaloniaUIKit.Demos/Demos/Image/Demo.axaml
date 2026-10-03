@@ -1,6 +1,6 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:gpui="using:AvaloniaUIKit"
+             xmlns:uikit="using:AvaloniaUIKit"
              x:Class="AvaloniaUIKit.Demos.ImageDemo">
   <StackPanel Orientation="Horizontal" Spacing="16" HorizontalAlignment="Left">
     <Image Classes="rounded-lg" Width="192" Height="96"

@@ -19,7 +19,7 @@ public sealed partial class NotificationTypes
             "error" => NotificationType.Error,
             _ => NotificationType.Information,
         };
-        // The class plain is GPUI's untyped notification: no icon.
+        // The class plain is the notification without a type icon.
         _manager.Show(new Notification("Update available", "A new version is ready to install.", type), type,
             classes: kind == "plain" ? ["plain"] : null);
     }

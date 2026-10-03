@@ -1,19 +1,19 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:gpui="using:AvaloniaUIKit"
+             xmlns:uikit="using:AvaloniaUIKit"
              x:Class="AvaloniaUIKit.Demos.BadgeCount">
   <StackPanel Orientation="Horizontal" Spacing="24" Margin="0,8,12,0" HorizontalAlignment="Left">
-    <gpui:Badge Count="3">
-      <Border Width="32" Height="32" CornerRadius="6" Background="{DynamicResource Gpui.Secondary}" />
-    </gpui:Badge>
-    <gpui:Badge Count="12">
-      <Border Width="32" Height="32" CornerRadius="6" Background="{DynamicResource Gpui.Secondary}" />
-    </gpui:Badge>
-    <gpui:Badge Count="100">
-      <Border Width="32" Height="32" CornerRadius="6" Background="{DynamicResource Gpui.Secondary}" />
-    </gpui:Badge>
-    <gpui:Badge Count="12" Maximum="9">
-      <Border Width="32" Height="32" CornerRadius="6" Background="{DynamicResource Gpui.Secondary}" />
-    </gpui:Badge>
+    <uikit:Badge Count="3">
+      <Border Width="32" Height="32" CornerRadius="6" Background="{DynamicResource UIKit.Secondary}" />
+    </uikit:Badge>
+    <uikit:Badge Count="12">
+      <Border Width="32" Height="32" CornerRadius="6" Background="{DynamicResource UIKit.Secondary}" />
+    </uikit:Badge>
+    <uikit:Badge Count="100">
+      <Border Width="32" Height="32" CornerRadius="6" Background="{DynamicResource UIKit.Secondary}" />
+    </uikit:Badge>
+    <uikit:Badge Count="12" Maximum="9">
+      <Border Width="32" Height="32" CornerRadius="6" Background="{DynamicResource UIKit.Secondary}" />
+    </uikit:Badge>
   </StackPanel>
 </UserControl>

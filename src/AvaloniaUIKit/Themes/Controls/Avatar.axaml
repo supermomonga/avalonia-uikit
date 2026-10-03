@@ -1,6 +1,6 @@
 <!--
   GPUI Kit Avatar and AvatarGroup (crates/component/src/avatar) ->
-  gpui:Avatar and gpui:AvatarGroup.
+  uikit:Avatar and uikit:AvatarGroup.
   A circle on the secondary color with a 1px ring. Inside the ring: the image
   (cover), else the initials on the hue the control picked (the ring takes
   the hue's border), else the placeholder icon at 60% of the size in the
@@ -10,23 +10,23 @@
 -->
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:gpui="using:AvaloniaUIKit"
+                    xmlns:uikit="using:AvaloniaUIKit"
                     xmlns:gconv="using:AvaloniaUIKit.Converters">
-  <gconv:RoundedClipConverter x:Key="Gpui.Avatar.Clip" Radius="9999" />
+  <gconv:RoundedClipConverter x:Key="UIKit.Avatar.Clip" Radius="9999" />
 
-  <ControlTheme x:Key="{x:Type gpui:Avatar}" TargetType="gpui:Avatar">
+  <ControlTheme x:Key="{x:Type uikit:Avatar}" TargetType="uikit:Avatar">
     <Setter Property="Width" Value="48" />
     <Setter Property="Height" Value="48" />
     <Setter Property="FontSize" Value="14" />
     <Setter Property="Background" Value="Transparent" />
-    <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Border}" />
-    <Setter Property="Placeholder" Value="{StaticResource Gpui.Icon.User}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Border}" />
+    <Setter Property="Placeholder" Value="{StaticResource UIKit.Icon.User}" />
     <Setter Property="HorizontalAlignment" Value="Left" />
     <Setter Property="VerticalAlignment" Value="Top" />
     <Setter Property="Template">
       <ControlTemplate>
         <Panel>
-          <Border Name="PART_Base" Background="{DynamicResource Gpui.Secondary}"
+          <Border Name="PART_Base" Background="{DynamicResource UIKit.Secondary}"
                   CornerRadius="{Binding $self.Bounds, Converter={x:Static gconv:AvatarConverters.Circle}}" />
           <Border Name="PART_Fallback" Margin="1" Background="{TemplateBinding Background}" ClipToBounds="True"
                   CornerRadius="{Binding $self.Bounds, Converter={x:Static gconv:AvatarConverters.Circle}}">
@@ -35,11 +35,11 @@
                          Foreground="{TemplateBinding Foreground}" LineHeight="22.5" ClipToBounds="False"
                          HorizontalAlignment="Center" VerticalAlignment="Center" />
               <PathIcon Name="PART_Placeholder" IsVisible="False" Data="{TemplateBinding Placeholder}"
-                        Foreground="{DynamicResource Gpui.Background}" Width="28.8" Height="28.8" />
+                        Foreground="{DynamicResource UIKit.Background}" Width="28.8" Height="28.8" />
             </Panel>
           </Border>
           <Image Name="PART_Image" Margin="1" IsVisible="False" Source="{TemplateBinding Source}" Stretch="UniformToFill"
-                 Clip="{Binding $self.Bounds, Converter={StaticResource Gpui.Avatar.Clip}}" />
+                 Clip="{Binding $self.Bounds, Converter={StaticResource UIKit.Avatar.Clip}}" />
           <Border Name="PART_Ring" BorderThickness="1" BorderBrush="{TemplateBinding BorderBrush}"
                   CornerRadius="{Binding $self.Bounds, Converter={x:Static gconv:AvatarConverters.Ring}}" />
         </Panel>
@@ -61,20 +61,20 @@
     </Style>
 
     <!-- avatar.rs IdentityColor: the hue's fill and text; its border only without an image. -->
-    <Style Selector="^[Hue=0]"><Setter Property="Background" Value="{DynamicResource Gpui.Avatar.Hue0.Background}" /><Setter Property="Foreground" Value="{DynamicResource Gpui.Avatar.Hue0.Foreground}" /><Setter Property="BorderBrush" Value="{DynamicResource Gpui.Avatar.Hue0.Border}" /></Style>
-    <Style Selector="^[Hue=1]"><Setter Property="Background" Value="{DynamicResource Gpui.Avatar.Hue1.Background}" /><Setter Property="Foreground" Value="{DynamicResource Gpui.Avatar.Hue1.Foreground}" /><Setter Property="BorderBrush" Value="{DynamicResource Gpui.Avatar.Hue1.Border}" /></Style>
-    <Style Selector="^[Hue=2]"><Setter Property="Background" Value="{DynamicResource Gpui.Avatar.Hue2.Background}" /><Setter Property="Foreground" Value="{DynamicResource Gpui.Avatar.Hue2.Foreground}" /><Setter Property="BorderBrush" Value="{DynamicResource Gpui.Avatar.Hue2.Border}" /></Style>
-    <Style Selector="^[Hue=3]"><Setter Property="Background" Value="{DynamicResource Gpui.Avatar.Hue3.Background}" /><Setter Property="Foreground" Value="{DynamicResource Gpui.Avatar.Hue3.Foreground}" /><Setter Property="BorderBrush" Value="{DynamicResource Gpui.Avatar.Hue3.Border}" /></Style>
-    <Style Selector="^[Hue=4]"><Setter Property="Background" Value="{DynamicResource Gpui.Avatar.Hue4.Background}" /><Setter Property="Foreground" Value="{DynamicResource Gpui.Avatar.Hue4.Foreground}" /><Setter Property="BorderBrush" Value="{DynamicResource Gpui.Avatar.Hue4.Border}" /></Style>
-    <Style Selector="^[Hue=5]"><Setter Property="Background" Value="{DynamicResource Gpui.Avatar.Hue5.Background}" /><Setter Property="Foreground" Value="{DynamicResource Gpui.Avatar.Hue5.Foreground}" /><Setter Property="BorderBrush" Value="{DynamicResource Gpui.Avatar.Hue5.Border}" /></Style>
-    <Style Selector="^[Hue=6]"><Setter Property="Background" Value="{DynamicResource Gpui.Avatar.Hue6.Background}" /><Setter Property="Foreground" Value="{DynamicResource Gpui.Avatar.Hue6.Foreground}" /><Setter Property="BorderBrush" Value="{DynamicResource Gpui.Avatar.Hue6.Border}" /></Style>
-    <Style Selector="^[Hue=7]"><Setter Property="Background" Value="{DynamicResource Gpui.Avatar.Hue7.Background}" /><Setter Property="Foreground" Value="{DynamicResource Gpui.Avatar.Hue7.Foreground}" /><Setter Property="BorderBrush" Value="{DynamicResource Gpui.Avatar.Hue7.Border}" /></Style>
-    <Style Selector="^[Hue=8]"><Setter Property="Background" Value="{DynamicResource Gpui.Avatar.Hue8.Background}" /><Setter Property="Foreground" Value="{DynamicResource Gpui.Avatar.Hue8.Foreground}" /><Setter Property="BorderBrush" Value="{DynamicResource Gpui.Avatar.Hue8.Border}" /></Style>
-    <Style Selector="^[Hue=9]"><Setter Property="Background" Value="{DynamicResource Gpui.Avatar.Hue9.Background}" /><Setter Property="Foreground" Value="{DynamicResource Gpui.Avatar.Hue9.Foreground}" /><Setter Property="BorderBrush" Value="{DynamicResource Gpui.Avatar.Hue9.Border}" /></Style>
-    <Style Selector="^[Hue=10]"><Setter Property="Background" Value="{DynamicResource Gpui.Avatar.Hue10.Background}" /><Setter Property="Foreground" Value="{DynamicResource Gpui.Avatar.Hue10.Foreground}" /><Setter Property="BorderBrush" Value="{DynamicResource Gpui.Avatar.Hue10.Border}" /></Style>
-    <Style Selector="^[Hue=11]"><Setter Property="Background" Value="{DynamicResource Gpui.Avatar.Hue11.Background}" /><Setter Property="Foreground" Value="{DynamicResource Gpui.Avatar.Hue11.Foreground}" /><Setter Property="BorderBrush" Value="{DynamicResource Gpui.Avatar.Hue11.Border}" /></Style>
+    <Style Selector="^[Hue=0]"><Setter Property="Background" Value="{DynamicResource UIKit.Avatar.Hue0.Background}" /><Setter Property="Foreground" Value="{DynamicResource UIKit.Avatar.Hue0.Foreground}" /><Setter Property="BorderBrush" Value="{DynamicResource UIKit.Avatar.Hue0.Border}" /></Style>
+    <Style Selector="^[Hue=1]"><Setter Property="Background" Value="{DynamicResource UIKit.Avatar.Hue1.Background}" /><Setter Property="Foreground" Value="{DynamicResource UIKit.Avatar.Hue1.Foreground}" /><Setter Property="BorderBrush" Value="{DynamicResource UIKit.Avatar.Hue1.Border}" /></Style>
+    <Style Selector="^[Hue=2]"><Setter Property="Background" Value="{DynamicResource UIKit.Avatar.Hue2.Background}" /><Setter Property="Foreground" Value="{DynamicResource UIKit.Avatar.Hue2.Foreground}" /><Setter Property="BorderBrush" Value="{DynamicResource UIKit.Avatar.Hue2.Border}" /></Style>
+    <Style Selector="^[Hue=3]"><Setter Property="Background" Value="{DynamicResource UIKit.Avatar.Hue3.Background}" /><Setter Property="Foreground" Value="{DynamicResource UIKit.Avatar.Hue3.Foreground}" /><Setter Property="BorderBrush" Value="{DynamicResource UIKit.Avatar.Hue3.Border}" /></Style>
+    <Style Selector="^[Hue=4]"><Setter Property="Background" Value="{DynamicResource UIKit.Avatar.Hue4.Background}" /><Setter Property="Foreground" Value="{DynamicResource UIKit.Avatar.Hue4.Foreground}" /><Setter Property="BorderBrush" Value="{DynamicResource UIKit.Avatar.Hue4.Border}" /></Style>
+    <Style Selector="^[Hue=5]"><Setter Property="Background" Value="{DynamicResource UIKit.Avatar.Hue5.Background}" /><Setter Property="Foreground" Value="{DynamicResource UIKit.Avatar.Hue5.Foreground}" /><Setter Property="BorderBrush" Value="{DynamicResource UIKit.Avatar.Hue5.Border}" /></Style>
+    <Style Selector="^[Hue=6]"><Setter Property="Background" Value="{DynamicResource UIKit.Avatar.Hue6.Background}" /><Setter Property="Foreground" Value="{DynamicResource UIKit.Avatar.Hue6.Foreground}" /><Setter Property="BorderBrush" Value="{DynamicResource UIKit.Avatar.Hue6.Border}" /></Style>
+    <Style Selector="^[Hue=7]"><Setter Property="Background" Value="{DynamicResource UIKit.Avatar.Hue7.Background}" /><Setter Property="Foreground" Value="{DynamicResource UIKit.Avatar.Hue7.Foreground}" /><Setter Property="BorderBrush" Value="{DynamicResource UIKit.Avatar.Hue7.Border}" /></Style>
+    <Style Selector="^[Hue=8]"><Setter Property="Background" Value="{DynamicResource UIKit.Avatar.Hue8.Background}" /><Setter Property="Foreground" Value="{DynamicResource UIKit.Avatar.Hue8.Foreground}" /><Setter Property="BorderBrush" Value="{DynamicResource UIKit.Avatar.Hue8.Border}" /></Style>
+    <Style Selector="^[Hue=9]"><Setter Property="Background" Value="{DynamicResource UIKit.Avatar.Hue9.Background}" /><Setter Property="Foreground" Value="{DynamicResource UIKit.Avatar.Hue9.Foreground}" /><Setter Property="BorderBrush" Value="{DynamicResource UIKit.Avatar.Hue9.Border}" /></Style>
+    <Style Selector="^[Hue=10]"><Setter Property="Background" Value="{DynamicResource UIKit.Avatar.Hue10.Background}" /><Setter Property="Foreground" Value="{DynamicResource UIKit.Avatar.Hue10.Foreground}" /><Setter Property="BorderBrush" Value="{DynamicResource UIKit.Avatar.Hue10.Border}" /></Style>
+    <Style Selector="^[Hue=11]"><Setter Property="Background" Value="{DynamicResource UIKit.Avatar.Hue11.Background}" /><Setter Property="Foreground" Value="{DynamicResource UIKit.Avatar.Hue11.Foreground}" /><Setter Property="BorderBrush" Value="{DynamicResource UIKit.Avatar.Hue11.Border}" /></Style>
     <Style Selector="^:image">
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Border}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Border}" />
     </Style>
 
     <Style Selector="^.xsmall">
@@ -116,7 +116,7 @@
     </Style>
   </ControlTheme>
 
-  <ControlTheme x:Key="{x:Type gpui:AvatarGroup}" TargetType="gpui:AvatarGroup">
+  <ControlTheme x:Key="{x:Type uikit:AvatarGroup}" TargetType="uikit:AvatarGroup">
     <Setter Property="HorizontalAlignment" Value="Left" />
     <Setter Property="VerticalAlignment" Value="Top" />
     <Setter Property="ItemsPanel">
@@ -129,7 +129,7 @@
         <StackPanel Orientation="Horizontal">
           <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
           <!-- avatar_group.rs: the ellipsis is a "⋯" avatar 4px after the last shown one. -->
-          <gpui:Avatar Name="PART_Ellipsis" UserName="⋯" Margin="4,0,0,0"
+          <uikit:Avatar Name="PART_Ellipsis" UserName="⋯" Margin="4,0,0,0"
                        IsVisible="{TemplateBinding IsCut}" />
         </StackPanel>
       </ControlTemplate>

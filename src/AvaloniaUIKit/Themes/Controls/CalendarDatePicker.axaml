@@ -18,11 +18,11 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <!-- The text without a field of its own: the picker's frame is the field. -->
-  <ControlTheme x:Key="GpuiBareTextBox" TargetType="TextBox">
+  <ControlTheme x:Key="UIKitBareTextBox" TargetType="TextBox">
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="BorderThickness" Value="0" />
-    <Setter Property="CaretBrush" Value="{DynamicResource Gpui.Caret}" />
-    <Setter Property="SelectionBrush" Value="{DynamicResource Gpui.Selection}" />
+    <Setter Property="CaretBrush" Value="{DynamicResource UIKit.Caret}" />
+    <Setter Property="SelectionBrush" Value="{DynamicResource UIKit.Selection}" />
     <Setter Property="VerticalContentAlignment" Value="Center" />
     <Setter Property="Template">
       <ControlTemplate>
@@ -54,7 +54,7 @@
   </ControlTheme>
 
   <!-- The calendar icon: no look of its own. -->
-  <ControlTheme x:Key="GpuiDatePickerIconButton" TargetType="Button">
+  <ControlTheme x:Key="UIKitDatePickerIconButton" TargetType="Button">
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="Focusable" Value="False" />
     <Setter Property="Template">
@@ -66,12 +66,12 @@
   </ControlTheme>
 
   <ControlTheme x:Key="{x:Type CalendarDatePicker}" TargetType="CalendarDatePicker">
-    <Setter Property="Background" Value="{DynamicResource Gpui.InputBackground}" />
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
-    <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Input}" />
+    <Setter Property="Background" Value="{DynamicResource UIKit.InputBackground}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Input}" />
     <Setter Property="BorderThickness" Value="1" />
     <Setter Property="CornerRadius" Value="5.5" />
-    <Setter Property="PlaceholderForeground" Value="{DynamicResource Gpui.MutedForeground}" />
+    <Setter Property="PlaceholderForeground" Value="{DynamicResource UIKit.MutedForeground}" />
     <!-- GPUI's calendar always marks today. -->
     <Setter Property="IsTodayHighlighted" Value="True" />
     <Setter Property="Height" Value="32" />
@@ -86,7 +86,7 @@
         <Panel>
           <!-- focus_ring (styled.rs): a 3px band outside the border, in ring at 50%. -->
           <Border Name="PART_FocusRing" Margin="-3" BorderThickness="3" CornerRadius="7.5"
-                  BorderBrush="{DynamicResource Gpui.FocusRing}" IsVisible="False" IsHitTestVisible="False" />
+                  BorderBrush="{DynamicResource UIKit.FocusRing}" IsVisible="False" IsHitTestVisible="False" />
           <Border Name="PART_Frame"
                   BackgroundSizing="OuterBorderEdge"
                   Background="{TemplateBinding Background}"
@@ -96,15 +96,15 @@
                   Padding="{TemplateBinding Padding}">
             <Grid ColumnDefinitions="*,Auto" ColumnSpacing="4">
               <TextBox Name="PART_TextBox"
-                       Theme="{StaticResource GpuiBareTextBox}"
+                       Theme="{StaticResource UIKitBareTextBox}"
                        Foreground="{TemplateBinding Foreground}"
                        PlaceholderText="{TemplateBinding PlaceholderText}"
                        PlaceholderForeground="{TemplateBinding PlaceholderForeground}"
                        LineHeight="{TemplateBinding TextBlock.LineHeight}"
                        TextAlignment="Left" />
-              <Button Name="PART_Button" Grid.Column="1" Theme="{StaticResource GpuiDatePickerIconButton}">
-                <PathIcon Width="12" Height="12" Data="{StaticResource Gpui.Icon.Calendar}"
-                          Foreground="{DynamicResource Gpui.MutedForeground}" />
+              <Button Name="PART_Button" Grid.Column="1" Theme="{StaticResource UIKitDatePickerIconButton}">
+                <PathIcon Width="12" Height="12" Data="{StaticResource UIKit.Icon.Calendar}"
+                          Foreground="{DynamicResource UIKit.MutedForeground}" />
               </Button>
             </Grid>
           </Border>
@@ -117,15 +117,15 @@
             <Border Padding="0,6,0,0" ClipToBounds="False">
               <Panel Name="PART_PopupMotion">
                 <Border Name="PART_PopupRing" Margin="-1" CornerRadius="6"
-                        Background="{DynamicResource Gpui.PopoverRing}" IsHitTestVisible="False" />
+                        Background="{DynamicResource UIKit.PopoverRing}" IsHitTestVisible="False" />
                 <Border Name="PART_PopupShadow" CornerRadius="6"
-                        BoxShadow="{StaticResource Gpui.Shadow.Popover}" IsHitTestVisible="False" />
+                        BoxShadow="{StaticResource UIKit.Shadow.Popover}" IsHitTestVisible="False" />
                 <Border Name="PART_PopupSurface" CornerRadius="6" Padding="12"
-                        Background="{DynamicResource Gpui.Popover}">
+                        Background="{DynamicResource UIKit.Popover}">
                   <Calendar Name="PART_Calendar"
                             Width="224"
                             BorderThickness="0" Padding="0" CornerRadius="0"
-                            Foreground="{DynamicResource Gpui.PopoverForeground}"
+                            Foreground="{DynamicResource UIKit.PopoverForeground}"
                             FirstDayOfWeek="{TemplateBinding FirstDayOfWeek}"
                             IsTodayHighlighted="{TemplateBinding IsTodayHighlighted}"
                             SelectedDate="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SelectedDate, Mode=TwoWay}"
@@ -165,7 +165,7 @@
 
     <!-- Focused, or its calendar open (focus moves into the popup): ring border and band. -->
     <Style Selector="^:focus-within, ^:flyout-open">
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Ring}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Ring}" />
     </Style>
     <Style Selector="^:focus-within /template/ Border#PART_FocusRing, ^:flyout-open /template/ Border#PART_FocusRing">
       <Setter Property="IsVisible" Value="True" />
@@ -173,8 +173,8 @@
 
     <!-- input_style(disabled): the disabled input background, muted text, all at half. -->
     <Style Selector="^:disabled">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Number.Disabled.Background}" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.MutedForeground}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Number.Disabled.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.MutedForeground}" />
     </Style>
     <Style Selector="^:disabled /template/ Border#PART_Frame">
       <Setter Property="Opacity" Value="0.5" />

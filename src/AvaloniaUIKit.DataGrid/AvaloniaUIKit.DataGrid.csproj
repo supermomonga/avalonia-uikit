@@ -2,7 +2,7 @@
   <PropertyGroup>
     <RootNamespace>AvaloniaUIKit</RootNamespace>
     <PackageId>AvaloniaUIKit.DataGrid</PackageId>
-    <Description>GPUI Kit's DataTable look for Avalonia.Controls.DataGrid, on top of AvaloniaUIKit's GpuiTheme.</Description>
+    <Description>GPUI Kit's DataTable look for Avalonia.Controls.DataGrid, on top of AvaloniaUIKit's NovaTheme.</Description>
     <IsAotCompatible>true</IsAotCompatible>
     <IsTrimmable>true</IsTrimmable>
     <EnableTrimAnalyzer>true</EnableTrimAnalyzer>

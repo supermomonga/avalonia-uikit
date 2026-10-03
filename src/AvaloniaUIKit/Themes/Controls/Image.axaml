@@ -14,17 +14,17 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:gconv="using:AvaloniaUIKit.Converters">
   <Styles.Resources>
-    <gconv:RoundedClipConverter x:Key="Gpui.Clip.Rounded" Radius="6" />
-    <gconv:RoundedClipConverter x:Key="Gpui.Clip.RoundedLg" Radius="8" />
-    <gconv:RoundedClipConverter x:Key="Gpui.Clip.RoundedFull" Radius="9999" />
+    <gconv:RoundedClipConverter x:Key="UIKit.Clip.Rounded" Radius="6" />
+    <gconv:RoundedClipConverter x:Key="UIKit.Clip.RoundedLg" Radius="8" />
+    <gconv:RoundedClipConverter x:Key="UIKit.Clip.RoundedFull" Radius="9999" />
   </Styles.Resources>
   <Style Selector="Image.rounded">
-    <Setter Property="Clip" Value="{Binding $self.Bounds, Converter={StaticResource Gpui.Clip.Rounded}}" />
+    <Setter Property="Clip" Value="{Binding $self.Bounds, Converter={StaticResource UIKit.Clip.Rounded}}" />
   </Style>
   <Style Selector="Image.rounded-lg">
-    <Setter Property="Clip" Value="{Binding $self.Bounds, Converter={StaticResource Gpui.Clip.RoundedLg}}" />
+    <Setter Property="Clip" Value="{Binding $self.Bounds, Converter={StaticResource UIKit.Clip.RoundedLg}}" />
   </Style>
   <Style Selector="Image.rounded-full">
-    <Setter Property="Clip" Value="{Binding $self.Bounds, Converter={StaticResource Gpui.Clip.RoundedFull}}" />
+    <Setter Property="Clip" Value="{Binding $self.Bounds, Converter={StaticResource UIKit.Clip.RoundedFull}}" />
   </Style>
 </Styles>

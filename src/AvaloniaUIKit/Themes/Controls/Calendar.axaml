@@ -17,13 +17,13 @@
 -->
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:gpui="using:AvaloniaUIKit"
+        xmlns:uikit="using:AvaloniaUIKit"
         xmlns:gconv="using:AvaloniaUIKit.Converters">
   <Styles.Resources>
     <!-- The previous and next buttons: a square cell around a 16px chevron. -->
-    <ControlTheme x:Key="GpuiCalendarNavButton" TargetType="Button">
+    <ControlTheme x:Key="UIKitCalendarNavButton" TargetType="Button">
       <Setter Property="Background" Value="Transparent" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
       <Setter Property="Width" Value="32" />
       <Setter Property="Height" Value="32" />
       <Setter Property="CornerRadius" Value="6" />
@@ -39,7 +39,7 @@
         </ControlTemplate>
       </Setter>
       <Style Selector="^:pointerover">
-        <Setter Property="Background" Value="{DynamicResource Gpui.SecondaryHover}" />
+        <Setter Property="Background" Value="{DynamicResource UIKit.SecondaryHover}" />
       </Style>
     </ControlTheme>
 
@@ -48,9 +48,9 @@
       previous and next buttons (justify_between). They show the displayed
       date, whatever Avalonia writes into the button.
     -->
-    <ControlTheme x:Key="GpuiCalendarHeaderButton" TargetType="Button">
+    <ControlTheme x:Key="UIKitCalendarHeaderButton" TargetType="Button">
       <Setter Property="Background" Value="Transparent" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
       <Setter Property="FontSize" Value="14" />
       <Setter Property="FontWeight" Value="Medium" />
       <Setter Property="HorizontalAlignment" Value="Stretch" />
@@ -69,14 +69,14 @@
         </ControlTemplate>
       </Setter>
       <Style Selector="^ /template/ Border#PART_MonthPill:pointerover, ^ /template/ Border#PART_YearPill:pointerover">
-        <Setter Property="Background" Value="{DynamicResource Gpui.SecondaryHover}" />
+        <Setter Property="Background" Value="{DynamicResource UIKit.SecondaryHover}" />
       </Style>
     </ControlTheme>
 
     <ControlTheme x:Key="{x:Type CalendarItem}" TargetType="CalendarItem">
       <Setter Property="DayTitleTemplate">
         <Template x:DataType="x:String">
-          <TextBlock Classes="gpui-calendar-weekday" Text="{Binding}" />
+          <TextBlock Classes="uikit-calendar-weekday" Text="{Binding}" />
         </Template>
       </Setter>
       <Setter Property="Template">
@@ -88,12 +88,12 @@
                   Padding="{TemplateBinding Padding}">
             <Grid RowDefinitions="Auto,2,Auto">
               <Grid ColumnDefinitions="Auto,*,Auto">
-                <Button Name="PART_PreviousButton" Theme="{StaticResource GpuiCalendarNavButton}">
-                  <PathIcon Data="{StaticResource Gpui.Icon.ChevronLeft}" />
+                <Button Name="PART_PreviousButton" Theme="{StaticResource UIKitCalendarNavButton}">
+                  <PathIcon Data="{StaticResource UIKit.Icon.ChevronLeft}" />
                 </Button>
-                <Button Name="PART_HeaderButton" Grid.Column="1" Theme="{StaticResource GpuiCalendarHeaderButton}" />
-                <Button Name="PART_NextButton" Grid.Column="2" Theme="{StaticResource GpuiCalendarNavButton}">
-                  <PathIcon Data="{StaticResource Gpui.Icon.ChevronRight}" />
+                <Button Name="PART_HeaderButton" Grid.Column="1" Theme="{StaticResource UIKitCalendarHeaderButton}" />
+                <Button Name="PART_NextButton" Grid.Column="2" Theme="{StaticResource UIKitCalendarNavButton}">
+                  <PathIcon Data="{StaticResource UIKit.Icon.ChevronRight}" />
                 </Button>
               </Grid>
               <!-- Seven cells overflow GPUI's content box by 2px on the right. -->
@@ -102,7 +102,7 @@
                     RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto"
                     ColumnDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto" />
               <Grid Name="PART_YearView" Grid.Row="2" IsVisible="False"
-                    gpui:CalendarGrid.Columns="3" ColumnSpacing="4"
+                    uikit:CalendarGrid.Columns="3" ColumnSpacing="4"
                     RowDefinitions="Auto,Auto,Auto,Auto"
                     ColumnDefinitions="*,*,*" />
             </Grid>
@@ -114,8 +114,8 @@
     <ControlTheme x:Key="{x:Type Calendar}" TargetType="Calendar">
       <Setter Property="Width" Value="248" />
       <Setter Property="Background" Value="Transparent" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Border}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Border}" />
       <Setter Property="BorderThickness" Value="1" />
       <Setter Property="CornerRadius" Value="7.5" />
       <Setter Property="Padding" Value="12" />
@@ -145,7 +145,7 @@
 
     <ControlTheme x:Key="{x:Type CalendarDayButton}" TargetType="CalendarDayButton">
       <Setter Property="Background" Value="Transparent" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
       <Setter Property="Width" Value="32" />
       <Setter Property="Height" Value="32" />
       <Setter Property="CornerRadius" Value="6" />
@@ -164,30 +164,30 @@
       </Setter>
       <!-- Later wins: hover only on a day that is neither selected nor blacked out. -->
       <Style Selector="^:inactive">
-        <Setter Property="Foreground" Value="{DynamicResource Gpui.MutedForeground}" />
+        <Setter Property="Foreground" Value="{DynamicResource UIKit.MutedForeground}" />
       </Style>
       <Style Selector="^:today">
-        <Setter Property="Background" Value="{DynamicResource Gpui.Accent}" />
-        <Setter Property="Foreground" Value="{DynamicResource Gpui.AccentForeground}" />
+        <Setter Property="Background" Value="{DynamicResource UIKit.Accent}" />
+        <Setter Property="Foreground" Value="{DynamicResource UIKit.AccentForeground}" />
       </Style>
       <Style Selector="^:pointerover:not(:selected):not(:blackout)">
-        <Setter Property="Background" Value="{DynamicResource Gpui.SecondaryHover}" />
-        <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+        <Setter Property="Background" Value="{DynamicResource UIKit.SecondaryHover}" />
+        <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
       </Style>
       <Style Selector="^:selected">
-        <Setter Property="Background" Value="{DynamicResource Gpui.Primary}" />
-        <Setter Property="Foreground" Value="{DynamicResource Gpui.PrimaryForeground}" />
+        <Setter Property="Background" Value="{DynamicResource UIKit.Primary}" />
+        <Setter Property="Foreground" Value="{DynamicResource UIKit.PrimaryForeground}" />
       </Style>
       <Style Selector="^:blackout">
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="Foreground" Value="{DynamicResource Gpui.Calendar.Disabled}" />
+        <Setter Property="Foreground" Value="{DynamicResource UIKit.Calendar.Disabled}" />
       </Style>
     </ControlTheme>
 
     <!-- A months (or years) grid item: the cell's height and radius, the column's width. -->
     <ControlTheme x:Key="{x:Type CalendarButton}" TargetType="CalendarButton">
       <Setter Property="Background" Value="Transparent" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
       <Setter Property="Height" Value="32" />
       <Setter Property="Margin" Value="0,4" />
       <Setter Property="CornerRadius" Value="6" />
@@ -209,41 +209,41 @@
         </ControlTemplate>
       </Setter>
       <Style Selector="^:inactive">
-        <Setter Property="Foreground" Value="{DynamicResource Gpui.MutedForeground}" />
+        <Setter Property="Foreground" Value="{DynamicResource UIKit.MutedForeground}" />
       </Style>
       <Style Selector="^:pointerover:not(:selected)">
-        <Setter Property="Background" Value="{DynamicResource Gpui.SecondaryHover}" />
-        <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+        <Setter Property="Background" Value="{DynamicResource UIKit.SecondaryHover}" />
+        <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
       </Style>
       <Style Selector="^:selected">
-        <Setter Property="Background" Value="{DynamicResource Gpui.Primary}" />
-        <Setter Property="Foreground" Value="{DynamicResource Gpui.PrimaryForeground}" />
+        <Setter Property="Background" Value="{DynamicResource UIKit.Primary}" />
+        <Setter Property="Foreground" Value="{DynamicResource UIKit.PrimaryForeground}" />
       </Style>
     </ControlTheme>
   </Styles.Resources>
 
   <!-- Weekday titles: a cell of muted text at half strength. -->
-  <Style Selector="TextBlock.gpui-calendar-weekday">
+  <Style Selector="TextBlock.uikit-calendar-weekday">
     <Setter Property="Width" Value="32" />
     <Setter Property="Height" Value="32" />
     <Setter Property="FontSize" Value="12" />
     <Setter Property="LineHeight" Value="32" />
     <Setter Property="TextAlignment" Value="Center" />
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.Calendar.Weekday}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.Calendar.Weekday}" />
   </Style>
   <!-- The month item stays primary while the months grid shows. -->
   <Style Selector="Calendar[DisplayMode=Year] Button /template/ Border#PART_MonthPill, Calendar[DisplayMode=Decade] Button /template/ Border#PART_YearPill">
-    <Setter Property="Background" Value="{DynamicResource Gpui.Primary}" />
-    <Setter Property="TextElement.Foreground" Value="{DynamicResource Gpui.PrimaryForeground}" />
+    <Setter Property="Background" Value="{DynamicResource UIKit.Primary}" />
+    <Setter Property="TextElement.Foreground" Value="{DynamicResource UIKit.PrimaryForeground}" />
   </Style>
   <!-- Decade mode disables the header button; it keeps its look. -->
 
   <!-- small: 28px cells, radius 3, 12px days (also a small date picker's calendar). -->
-  <Style Selector="Calendar.small CalendarDayButton, Calendar.small TextBlock.gpui-calendar-weekday, CalendarDatePicker.small CalendarDayButton, CalendarDatePicker.small TextBlock.gpui-calendar-weekday">
+  <Style Selector="Calendar.small CalendarDayButton, Calendar.small TextBlock.uikit-calendar-weekday, CalendarDatePicker.small CalendarDayButton, CalendarDatePicker.small TextBlock.uikit-calendar-weekday">
     <Setter Property="Width" Value="28" />
     <Setter Property="Height" Value="28" />
   </Style>
-  <Style Selector="Calendar.small TextBlock.gpui-calendar-weekday, CalendarDatePicker.small TextBlock.gpui-calendar-weekday">
+  <Style Selector="Calendar.small TextBlock.uikit-calendar-weekday, CalendarDatePicker.small TextBlock.uikit-calendar-weekday">
     <Setter Property="LineHeight" Value="28" />
   </Style>
   <Style Selector="Calendar.small CalendarDayButton, CalendarDatePicker.small CalendarDayButton">
@@ -267,11 +267,11 @@
     <Setter Property="CornerRadius" Value="3" />
   </Style>
   <!-- large: 40px cells, radius 12. -->
-  <Style Selector="Calendar.large CalendarDayButton, Calendar.large TextBlock.gpui-calendar-weekday, CalendarDatePicker.large CalendarDayButton, CalendarDatePicker.large TextBlock.gpui-calendar-weekday">
+  <Style Selector="Calendar.large CalendarDayButton, Calendar.large TextBlock.uikit-calendar-weekday, CalendarDatePicker.large CalendarDayButton, CalendarDatePicker.large TextBlock.uikit-calendar-weekday">
     <Setter Property="Width" Value="40" />
     <Setter Property="Height" Value="40" />
   </Style>
-  <Style Selector="Calendar.large TextBlock.gpui-calendar-weekday, CalendarDatePicker.large TextBlock.gpui-calendar-weekday">
+  <Style Selector="Calendar.large TextBlock.uikit-calendar-weekday, CalendarDatePicker.large TextBlock.uikit-calendar-weekday">
     <Setter Property="LineHeight" Value="40" />
   </Style>
   <Style Selector="Calendar.large CalendarDayButton, CalendarDatePicker.large CalendarDayButton">

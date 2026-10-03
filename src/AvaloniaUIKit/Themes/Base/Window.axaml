@@ -5,11 +5,11 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <ControlTheme x:Key="{x:Type Window}" TargetType="Window">
-    <Setter Property="Background" Value="{DynamicResource Gpui.Background}" />
-    <Setter Property="TransparencyBackgroundFallback" Value="{DynamicResource Gpui.Background}" />
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
-    <Setter Property="FontFamily" Value="{DynamicResource Gpui.FontFamily}" />
-    <Setter Property="FontSize" Value="{DynamicResource Gpui.FontSize}" />
+    <Setter Property="Background" Value="{DynamicResource UIKit.Background}" />
+    <Setter Property="TransparencyBackgroundFallback" Value="{DynamicResource UIKit.Background}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
+    <Setter Property="FontFamily" Value="{DynamicResource UIKit.FontFamily}" />
+    <Setter Property="FontSize" Value="{DynamicResource UIKit.FontSize}" />
     <Setter Property="Template">
       <ControlTemplate>
         <Panel>
@@ -30,11 +30,11 @@
   </ControlTheme>
 
   <ControlTheme x:Key="{x:Type EmbeddableControlRoot}" TargetType="EmbeddableControlRoot">
-    <Setter Property="Background" Value="{DynamicResource Gpui.Background}" />
-    <Setter Property="TransparencyBackgroundFallback" Value="{DynamicResource Gpui.Background}" />
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
-    <Setter Property="FontFamily" Value="{DynamicResource Gpui.FontFamily}" />
-    <Setter Property="FontSize" Value="{DynamicResource Gpui.FontSize}" />
+    <Setter Property="Background" Value="{DynamicResource UIKit.Background}" />
+    <Setter Property="TransparencyBackgroundFallback" Value="{DynamicResource UIKit.Background}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
+    <Setter Property="FontFamily" Value="{DynamicResource UIKit.FontFamily}" />
+    <Setter Property="FontSize" Value="{DynamicResource UIKit.FontSize}" />
     <Setter Property="Template">
       <ControlTemplate>
         <Panel>

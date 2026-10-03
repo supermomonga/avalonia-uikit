@@ -1,12 +1,12 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:gpui="using:AvaloniaUIKit"
+             xmlns:uikit="using:AvaloniaUIKit"
              x:Class="AvaloniaUIKit.Demos.MessagePlain">
-  <gpui:Message Width="420" HorizontalAlignment="Left">
-    <gpui:Message.Header>
+  <uikit:Message Width="420" HorizontalAlignment="Left">
+    <uikit:Message.Header>
       <TextBlock Text="Assistant" />
-    </gpui:Message.Header>
+    </uikit:Message.Header>
     <x:String>Sure, here is a summary of the draft.</x:String>
     <x:String>It introduces the new controls one by one.</x:String>
-  </gpui:Message>
+  </uikit:Message>
 </UserControl>

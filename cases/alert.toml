@@ -1,4 +1,4 @@
-# GPUI Kit Alert -> gpui:Alert, 360px wide. The close button (20px: 2px
+# GPUI Kit Alert -> uikit:Alert, 360px wide. The close button (20px: 2px
 # padding around a 16px icon) sits at the top right: center (350, 36) for a
 # medium alert anchored at (16, 16).
 component = "alert"

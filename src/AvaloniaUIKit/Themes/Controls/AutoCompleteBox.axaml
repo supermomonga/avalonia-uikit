@@ -9,9 +9,9 @@
 -->
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-  <ControlTheme x:Key="GpuiDropdownItem" TargetType="ListBoxItem">
+  <ControlTheme x:Key="UIKitDropdownItem" TargetType="ListBoxItem">
     <Setter Property="Background" Value="Transparent" />
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
     <Setter Property="CornerRadius" Value="6" />
     <Setter Property="Padding" Value="7,4" />
     <Setter Property="FontSize" Value="14" />
@@ -37,22 +37,22 @@
       </ControlTemplate>
     </Setter>
     <Style Selector="^:pointerover">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Select.Row.Hover}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Select.Row.Hover}" />
     </Style>
     <Style Selector="^:selected">
-      <Setter Property="Background" Value="{DynamicResource Gpui.Accent}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Accent}" />
     </Style>
     <Style Selector="^:disabled">
       <Setter Property="Background" Value="Transparent" />
-      <Setter Property="Foreground" Value="{DynamicResource Gpui.MutedForeground}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.MutedForeground}" />
     </Style>
   </ControlTheme>
 
-  <ControlTheme x:Key="GpuiDropdownListBox" TargetType="ListBox">
+  <ControlTheme x:Key="UIKitDropdownListBox" TargetType="ListBox">
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="BorderThickness" Value="0" />
     <Setter Property="Padding" Value="4" />
-    <Setter Property="ItemContainerTheme" Value="{StaticResource GpuiDropdownItem}" />
+    <Setter Property="ItemContainerTheme" Value="{StaticResource UIKitDropdownItem}" />
     <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
     <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
     <Setter Property="Template">
@@ -68,12 +68,12 @@
   </ControlTheme>
 
   <ControlTheme x:Key="{x:Type AutoCompleteBox}" TargetType="AutoCompleteBox">
-    <Setter Property="Foreground" Value="{DynamicResource Gpui.Foreground}" />
-    <Setter Property="Background" Value="{DynamicResource Gpui.InputBackground}" />
-    <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Input}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
+    <Setter Property="Background" Value="{DynamicResource UIKit.InputBackground}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Input}" />
     <Setter Property="BorderThickness" Value="1" />
     <Setter Property="CornerRadius" Value="5.5" />
-    <Setter Property="PlaceholderForeground" Value="{DynamicResource Gpui.MutedForeground}" />
+    <Setter Property="PlaceholderForeground" Value="{DynamicResource UIKit.MutedForeground}" />
     <Setter Property="Padding" Value="10,0" />
     <Setter Property="FontSize" Value="14" />
     <Setter Property="MaxDropDownHeight" Value="320" />
@@ -113,15 +113,15 @@
                   <TranslateTransform />
                 </Panel.RenderTransform>
                 <Border Name="PART_PopupRing" Margin="-1" CornerRadius="6"
-                        Background="{DynamicResource Gpui.PopoverRing}" IsHitTestVisible="False" />
+                        Background="{DynamicResource UIKit.PopoverRing}" IsHitTestVisible="False" />
                 <Border Name="PART_PopupShadow" CornerRadius="6"
-                        BoxShadow="{StaticResource Gpui.Shadow.Popover}" IsHitTestVisible="False" />
+                        BoxShadow="{StaticResource UIKit.Shadow.Popover}" IsHitTestVisible="False" />
                 <Border Name="PART_PopupSurface" CornerRadius="6" ClipToBounds="True"
-                        Background="{DynamicResource Gpui.Popover}"
-                        TextElement.Foreground="{DynamicResource Gpui.PopoverForeground}"
+                        Background="{DynamicResource UIKit.Popover}"
+                        TextElement.Foreground="{DynamicResource UIKit.PopoverForeground}"
                         MaxHeight="{TemplateBinding MaxDropDownHeight}">
                   <ListBox Name="PART_SelectingItemsControl"
-                           Theme="{StaticResource GpuiDropdownListBox}"
+                           Theme="{StaticResource UIKitDropdownListBox}"
                            ItemTemplate="{TemplateBinding ItemTemplate}" />
                 </Border>
               </Panel>
@@ -153,7 +153,7 @@
     </Style>
 
     <Style Selector="^[IsDropDownOpen=True] /template/ TextBox#PART_TextBox">
-      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Ring}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Ring}" />
     </Style>
 
     <!-- dropdown_popup, as ComboBox. -->

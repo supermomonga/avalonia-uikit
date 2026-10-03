@@ -6,7 +6,7 @@ Buttons side by side: the action, with its left corners rounded, and a square
 caret button with its right corners rounded and no left edge. Both take the
 DropdownButton's variant, outline and size; a ghost split lights the idle half
 at half the hover background while the other half is hovered (hover_group).
-The colors are the Button's (Gpui.Button.<Variant>[.Outline].<State>.*).
+The colors are the Button's (UIKit.Button.<Variant>[.Outline].<State>.*).
 """
 from pathlib import Path
 import importlib.util
@@ -32,7 +32,7 @@ def pascal(name: str) -> str:
 
 
 def key(variant, outline, state, part):
-    return f"Gpui.Button.{pascal(variant)}{'.Outline' if outline else ''}.{pascal(state)}.{part}"
+    return f"UIKit.Button.{pascal(variant)}{'.Outline' if outline else ''}.{pascal(state)}.{part}"
 
 
 def num(v):
@@ -62,7 +62,7 @@ w("  where GPUI's first Tab lands.")
 w("-->")
 w('<ResourceDictionary xmlns="https://github.com/avaloniaui"')
 w('                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">')
-w('  <ControlTheme x:Key="GpuiSplitButtonPart" TargetType="Button">')
+w('  <ControlTheme x:Key="UIKitSplitButtonPart" TargetType="Button">')
 w('    <Setter Property="ClipToBounds" Value="False" />')
 w('    <Setter Property="HorizontalContentAlignment" Value="Center" />')
 w('    <Setter Property="VerticalContentAlignment" Value="Center" />')
@@ -80,7 +80,7 @@ w('                            Foreground="{TemplateBinding Foreground}"')
 w('                            TextWrapping="NoWrap" RecognizesAccessKey="True" />')
 w(f'          <Border Name="PART_FocusRing" Margin="-{num(RING)}" BorderThickness="{num(RING)}"')
 w(f'                  CornerRadius="{num(R + RING / 2)},{num(RING / 2)},{num(RING / 2)},{num(R + RING / 2)}"')
-w('                  BorderBrush="{DynamicResource Gpui.FocusRing}" IsVisible="False" IsHitTestVisible="False" />')
+w('                  BorderBrush="{DynamicResource UIKit.FocusRing}" IsVisible="False" IsHitTestVisible="False" />')
 w('        </Panel>')
 w('      </ControlTemplate>')
 w('    </Setter>')
@@ -100,14 +100,14 @@ w('    <Setter Property="VerticalAlignment" Value="Top" />')
 w('    <Setter Property="Template">')
 w('      <ControlTemplate>')
 w('        <StackPanel Orientation="Horizontal">')
-w('          <Button Name="PART_PrimaryButton" Theme="{StaticResource GpuiSplitButtonPart}"')
+w('          <Button Name="PART_PrimaryButton" Theme="{StaticResource UIKitSplitButtonPart}"')
 w('                  Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}"')
 w('                  Command="{TemplateBinding Command}" CommandParameter="{TemplateBinding CommandParameter}"')
 w('                  FontSize="{TemplateBinding FontSize}"')
 w('                  Focusable="False" KeyboardNavigation.IsTabStop="False" />')
-w('          <Button Name="PART_SecondaryButton" Theme="{StaticResource GpuiSplitButtonPart}"')
+w('          <Button Name="PART_SecondaryButton" Theme="{StaticResource UIKitSplitButtonPart}"')
 w('                  Padding="0" Focusable="False" KeyboardNavigation.IsTabStop="False">')
-w('            <PathIcon Name="PART_Caret" Data="{StaticResource Gpui.Icon.ChevronDown}" />')
+w('            <PathIcon Name="PART_Caret" Data="{StaticResource UIKit.Icon.ChevronDown}" />')
 w('          </Button>')
 w('        </StackPanel>')
 w('      </ControlTemplate>')
@@ -176,7 +176,7 @@ for variant in VARIANTS:
             w('    </Style>')
 w('')
 w('    <Style Selector="^:focus-visible /template/ Button#PART_PrimaryButton">')
-w('      <Setter Property="BorderBrush" Value="{DynamicResource Gpui.Ring}" />')
+w('      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Ring}" />')
 w('    </Style>')
 w('    <Style Selector="^:focus-visible /template/ Button#PART_PrimaryButton">')
 w('      <Setter Property="Tag" Value="focus-ring" />')

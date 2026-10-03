@@ -1,4 +1,4 @@
-# GPUI Kit Badge -> gpui:Badge. The child is a secondary square the size of a
+# GPUI Kit Badge -> uikit:Badge. The child is a secondary square the size of a
 # matching avatar (24 / 32 / 48px); the badge overflows its top right corner.
 component = "badge"
 viewport = [104, 88]

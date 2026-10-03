@@ -1,4 +1,4 @@
-# GPUI Kit Empty -> gpui:EmptyState, 360px wide.
+# GPUI Kit Empty -> uikit:EmptyState, 360px wide.
 component = "empty"
 viewport = [392, 280]
 anchor = [16, 16]

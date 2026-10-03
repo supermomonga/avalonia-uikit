@@ -1,10 +1,10 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:gpui="using:AvaloniaUIKit"
+             xmlns:uikit="using:AvaloniaUIKit"
              x:Class="AvaloniaUIKit.Demos.BubbleDemo">
   <StackPanel Width="360" Spacing="8" HorizontalAlignment="Left">
-    <gpui:Bubble Classes="secondary start" Content="Can you review this draft?" />
-    <gpui:Bubble Classes="end" Content="Sure, I will take a look this afternoon." />
-    <gpui:Bubble Classes="secondary start" Content="This message is long enough to wrap onto a second line inside the bubble." />
+    <uikit:Bubble Classes="secondary start" Content="Can you review this draft?" />
+    <uikit:Bubble Classes="end" Content="Sure, I will take a look this afternoon." />
+    <uikit:Bubble Classes="secondary start" Content="This message is long enough to wrap onto a second line inside the bubble." />
   </StackPanel>
 </UserControl>
