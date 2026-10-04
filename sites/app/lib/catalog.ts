@@ -63,14 +63,14 @@ const entry = (
 })
 
 export const components: ComponentEntry[] = [
-  entry("accordion", "Accordion", "Accordion", "Expander, StackPanel.accordion", "partial", "Layout"),
+  entry("accordion", "Accordion", "Accordion", "Expander, StackPanel.accordion, uikit:Accordion", "partial", "Layout"),
   entry("alert", "Alert", "Alert", "uikit:Alert", "new", "Feedback"),
   entry("avatar", "Avatar", "Avatar, AvatarGroup", "uikit:Avatar, uikit:AvatarGroup", "new", "Data display"),
   entry("badge", "Badge", "Badge", "uikit:Badge", "new", "Data display"),
   entry("breadcrumb", "Breadcrumb", "Breadcrumb", "uikit:Breadcrumb, uikit:BreadcrumbItem", "new", "Navigation"),
   entry("bubble", "Bubble", "Bubble", "uikit:Bubble", "new", "Data display"),
-  entry("button", "Button", "Button", "Button", "full", "Buttons"),
-  entry("button-group", "Button Group", "ButtonGroup", "StackPanel.button-group", "partial", "Buttons"),
+  entry("button", "Button", "Button", "Button, uikit:Buttons", "full", "Buttons"),
+  entry("button-group", "Button Group", "ButtonGroup", "StackPanel.button-group, uikit:ButtonGroup", "partial", "Buttons"),
   entry("calendar", "Calendar", "Calendar", "Calendar, uikit:CalendarView", "partial", "Forms"),
   entry("carousel", "Carousel", "Carousel", "Carousel, PipsPager.carousel", "partial", "Layout"),
   entry("checkbox", "Checkbox", "Checkbox", "CheckBox", "full", "Forms"),
@@ -127,8 +127,8 @@ export const components: ComponentEntry[] = [
   entry("time-field", "Time Field", "TimeField", "TimePicker, uikit:TimeField", "partial", "Forms"),
   entry("title-bar", "Title Bar", "TitleBar", "WindowDrawnDecorations", "partial", "Layout"),
   entry("toggle", "Toggle", "Toggle", "ToggleButton", "full", "Buttons"),
-  entry("toggle-group", "Toggle Group", "ToggleGroup", "ListBox.toggle-group", "partial", "Buttons"),
-  entry("toolbar", "Toolbar", "Toolbar", "CommandBar", "partial", "Navigation"),
+  entry("toggle-group", "Toggle Group", "ToggleGroup", "ListBox.toggle-group, uikit:ToggleGroup", "partial", "Buttons"),
+  entry("toolbar", "Toolbar", "Toolbar", "CommandBar, uikit:Toolbar", "partial", "Navigation"),
   entry("tooltip", "Tooltip", "Tooltip", "ToolTip", "full", "Overlays"),
   entry("tree", "Tree", "Tree", "TreeView, uikit:Tree", "partial", "Data display", { scroll: true }),
   entry("virtual-list", "Virtual List", "VirtualList", "ListBox, VirtualizingStackPanel", "partial", "Data display", { scroll: true }),

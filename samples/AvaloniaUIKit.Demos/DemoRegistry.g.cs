@@ -20,6 +20,16 @@ public sealed partial class AccordionIcons : UserControl
     public AccordionIcons() => AvaloniaXamlLoader.Load(this);
 }
 
+public sealed partial class AccordionMultiple : UserControl
+{
+    public AccordionMultiple() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class AccordionSingle : UserControl
+{
+    public AccordionSingle() => AvaloniaXamlLoader.Load(this);
+}
+
 public sealed partial class AccordionSizes : UserControl
 {
     public AccordionSizes() => AvaloniaXamlLoader.Load(this);
@@ -110,6 +120,11 @@ public sealed partial class ButtonGroupDemo : UserControl
     public ButtonGroupDemo() => AvaloniaXamlLoader.Load(this);
 }
 
+public sealed partial class ButtonGroupSelection : UserControl
+{
+    public ButtonGroupSelection() => AvaloniaXamlLoader.Load(this);
+}
+
 public sealed partial class ButtonGroupSizes : UserControl
 {
     public ButtonGroupSizes() => AvaloniaXamlLoader.Load(this);
@@ -143,6 +158,16 @@ public sealed partial class ButtonDisabled : UserControl
 public sealed partial class ButtonIcons : UserControl
 {
     public ButtonIcons() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class ButtonKeepFocus : UserControl
+{
+    public ButtonKeepFocus() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class ButtonLoading : UserControl
+{
+    public ButtonLoading() => AvaloniaXamlLoader.Load(this);
 }
 
 public sealed partial class ButtonOutline : UserControl
@@ -1110,6 +1135,11 @@ public sealed partial class ToggleGroupSizes : UserControl
     public ToggleGroupSizes() => AvaloniaXamlLoader.Load(this);
 }
 
+public sealed partial class ToggleGroupToggleButtons : UserControl
+{
+    public ToggleGroupToggleButtons() => AvaloniaXamlLoader.Load(this);
+}
+
 public sealed partial class ToggleGroupVariants : UserControl
 {
     public ToggleGroupVariants() => AvaloniaXamlLoader.Load(this);
@@ -1133,6 +1163,11 @@ public sealed partial class ToggleOutline : UserControl
 public sealed partial class ToggleSizes : UserControl
 {
     public ToggleSizes() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class ToolbarControls : UserControl
+{
+    public ToolbarControls() => AvaloniaXamlLoader.Load(this);
 }
 
 public sealed partial class ToolbarDemo : UserControl
@@ -1198,6 +1233,8 @@ public static partial class DemoRegistry
         ["accordion/borderless"] = static () => new AccordionBorderless(),
         ["accordion/demo"] = static () => new AccordionDemo(),
         ["accordion/icons"] = static () => new AccordionIcons(),
+        ["accordion/multiple"] = static () => new AccordionMultiple(),
+        ["accordion/single"] = static () => new AccordionSingle(),
         ["accordion/sizes"] = static () => new AccordionSizes(),
         ["alert/banner"] = static () => new AlertBanner(),
         ["alert/demo"] = static () => new AlertDemo(),
@@ -1216,6 +1253,7 @@ public static partial class DemoRegistry
         ["bubble/reaction"] = static () => new BubbleReaction(),
         ["bubble/variants"] = static () => new BubbleVariants(),
         ["button-group/demo"] = static () => new ButtonGroupDemo(),
+        ["button-group/selection"] = static () => new ButtonGroupSelection(),
         ["button-group/sizes"] = static () => new ButtonGroupSizes(),
         ["button-group/variants"] = static () => new ButtonGroupVariants(),
         ["button-group/vertical"] = static () => new ButtonGroupVertical(),
@@ -1223,6 +1261,8 @@ public static partial class DemoRegistry
         ["button/demo"] = static () => new ButtonDemo(),
         ["button/disabled"] = static () => new ButtonDisabled(),
         ["button/icons"] = static () => new ButtonIcons(),
+        ["button/keep-focus"] = static () => new ButtonKeepFocus(),
+        ["button/loading"] = static () => new ButtonLoading(),
         ["button/outline"] = static () => new ButtonOutline(),
         ["button/rounded"] = static () => new ButtonRounded(),
         ["button/sizes"] = static () => new ButtonSizes(),
@@ -1416,11 +1456,13 @@ public static partial class DemoRegistry
         ["toggle-group/demo"] = static () => new ToggleGroupDemo(),
         ["toggle-group/icons"] = static () => new ToggleGroupIcons(),
         ["toggle-group/sizes"] = static () => new ToggleGroupSizes(),
+        ["toggle-group/toggle-buttons"] = static () => new ToggleGroupToggleButtons(),
         ["toggle-group/variants"] = static () => new ToggleGroupVariants(),
         ["toggle/demo"] = static () => new ToggleDemo(),
         ["toggle/icons"] = static () => new ToggleIcons(),
         ["toggle/outline"] = static () => new ToggleOutline(),
         ["toggle/sizes"] = static () => new ToggleSizes(),
+        ["toolbar/controls"] = static () => new ToolbarControls(),
         ["toolbar/demo"] = static () => new ToolbarDemo(),
         ["toolbar/disabled"] = static () => new ToolbarDisabled(),
         ["toolbar/sizes"] = static () => new ToolbarSizes(),

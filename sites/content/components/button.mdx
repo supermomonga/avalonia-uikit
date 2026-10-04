@@ -18,6 +18,16 @@ The theme covers `Button`. Every look is a class, and the classes combine, as in
 
 `selected` holds the selected colors, which a button with an open flyout shows too. `link` and `text` buttons have no height or padding, and a link is underlined only in its normal state. The focus ring shows on keyboard focus only (`:focus-visible`), not on a pointer press.
 
+Two attached properties add states Avalonia's buttons lack. They work on `Button` and the controls derived from it (`ToggleButton`, `RepeatButton`, `DropDownButton`, `HyperlinkButton`), including the buttons inside a `TextBox`.
+
+| Property | Effect |
+| --- | --- |
+| `uikit:Buttons.IsLoading` | The button ignores the pointer, Enter, Space, access keys, `IsDefault` and `IsCancel`, raises no `Click` and runs no `Command`, yet stays enabled and focusable. It fades to 80%, keeps its normal colors under the pointer, and its icon turns into a spinning loader. |
+| `uikit:Buttons.LoadingIcon` | The geometry the loading spinner turns (the Lucide loader by default). |
+| `uikit:Buttons.TakesFocusOnPointer` | `False` keeps the focus where it was when the button is pressed with the pointer, so a `TextBox` keeps its focus and selection. Tab still focuses the button. |
+
+The icon that spins is a `PathIcon` that is the button's content, or the first child of a panel that is; a button without one only fades. `LoadingIcon` and `TakesFocusOnPointer` are inherited, so a container can set them for every button inside.
+
 ## Examples
 
 Every color, including the paddingless `link` and `text` variants.
@@ -47,3 +57,11 @@ The corner classes replace the theme radius, from square to a pill.
 `IsEnabled="False"` switches every variant to its disabled colors.
 
 <Demo name="button/disabled" title="Disabled" />
+
+`uikit:Buttons.IsLoading` on buttons with an icon, an icon alone and a label alone, and one with `LoadingIcon`; the last button loads for two seconds when clicked.
+
+<Demo name="button/loading" title="Loading" />
+
+With `uikit:Buttons.TakesFocusOnPointer="False"` on their panel, the buttons change the text selected in the `TextBox` without taking the focus from it.
+
+<Demo name="button/keep-focus" title="Keep focus" />
