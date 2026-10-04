@@ -3,6 +3,7 @@ import { raw } from "hono/html"
 import { createRoute } from "honox/factory"
 import {
   Activity,
+  AppWindow,
   ArrowRight,
   Bell,
   Blocks,
@@ -14,6 +15,7 @@ import {
   Monitor,
   PackagePlus,
   Palette,
+  PanelsTopLeft,
   ScanEye,
   Search,
   Settings,
@@ -31,7 +33,8 @@ import { siteConfig } from "@/lib/site"
 import { bundledThemes } from "@/lib/themes"
 
 const newControls = components.filter((entry) => entry.status === "new").length
-const ownControls = components.length - newControls
+const thirdPartyControls = components.filter((entry) => entry.library).length
+const ownControls = components.length - newControls - thirdPartyControls
 
 const heroCode = `<Window xmlns="https://github.com/avaloniaui"
         xmlns:uikit="using:AvaloniaUIKit"
@@ -506,6 +509,38 @@ const packages: {
     ],
     link: { href: "/components/data-table", label: "Read the Data Table docs" },
   },
+  {
+    icon: AppWindow,
+    name: "AvaloniaUIKit.Tabalonia",
+    title: "Tabalonia's draggable tabs",
+    text: "UIKitTabaloniaTheme gives Tabalonia's TabsControl the tab looks, with close and add buttons and a tab menu.",
+    code: `<Application.Styles>
+  <uikit:UIKitTheme />
+  <uikittabs:UIKitTabaloniaTheme />
+</Application.Styles>`,
+    points: [
+      "Tab, outline, pill, segmented and underline looks",
+      "Reorder by dragging; scrolls when the tabs overflow",
+      "Trimmable and NativeAOT compatible",
+    ],
+    link: { href: "/components/tabalonia", label: "Read the Tabalonia docs" },
+  },
+  {
+    icon: PanelsTopLeft,
+    name: "AvaloniaUIKit.Dock",
+    title: "Dock.Avalonia's docking",
+    text: "UIKitDockTheme gives Dock.Avalonia's dock control the tab bars, title bars, split handles and drop targets of a dock.",
+    code: `<Application.Styles>
+  <uikit:UIKitTheme />
+  <uikitdock:UIKitDockTheme />
+</Application.Styles>`,
+    points: [
+      "Tab bars and title bars with a panel menu",
+      "Drop targets by where the pointer is",
+      "Only for apps that already use Dock.Avalonia",
+    ],
+    link: { href: "/components/dock", label: "Read the Dock docs" },
+  },
 ]
 
 function Packages({ codes }: { codes: string[] }) {
@@ -513,12 +548,13 @@ function Packages({ codes }: { codes: string[] }) {
     <section class="band">
       <div class="band__inner">
         <SectionHead
-          kicker="Three packages. One theme."
+          kicker="Five packages. One theme."
           title="Take only the themes your app uses."
         >
           UIKitTheme covers Avalonia's built-in controls and the new ones.
           Avalonia ships ColorPicker and DataGrid as packages of their own, and
-          so does this library, so an app takes no dependency it does not use.
+          so does this library; the themes for Tabalonia and Dock.Avalonia are
+          separate too, so an app takes no dependency it does not use.
         </SectionHead>
         <div class="paths">
           {packages.map((item, index) => (

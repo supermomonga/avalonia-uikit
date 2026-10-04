@@ -1,0 +1,97 @@
+<!--
+  Dock's global targets (docking at the dock control's own edges), which GPUI Kit
+  does not have: 32px cards on the popover color with the Lucide panel icons at
+  the four edges, and GPUI's drop target color over the part of the dock control
+  the dockable will take (painted beside the indicator Dock fades, as DockTarget's).
+-->
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:uikit="using:AvaloniaUIKit"
+                    x:CompileBindings="True">
+  <ControlTheme x:Key="{x:Type GlobalDockTarget}" TargetType="GlobalDockTarget">
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Panel>
+          <ProportionalStackPanel Orientation="Horizontal">
+            <Panel x:Name="PART_LeftIndicator"
+                   ProportionalStackPanel.Proportion="{x:Static DockSettings.GlobalDockingProportion}"
+                   DockProperties.IndicatorDockOperation="Left" />
+            <Border />
+            <Panel x:Name="PART_RightIndicator"
+                   ProportionalStackPanel.Proportion="{x:Static DockSettings.GlobalDockingProportion}"
+                   DockProperties.IndicatorDockOperation="Right" />
+          </ProportionalStackPanel>
+          <ProportionalStackPanel Orientation="Vertical">
+            <Panel x:Name="PART_TopIndicator"
+                   ProportionalStackPanel.Proportion="{x:Static DockSettings.GlobalDockingProportion}"
+                   DockProperties.IndicatorDockOperation="Top" />
+            <Border />
+            <Panel x:Name="PART_BottomIndicator"
+                   ProportionalStackPanel.Proportion="{x:Static DockSettings.GlobalDockingProportion}"
+                   DockProperties.IndicatorDockOperation="Bottom" />
+          </ProportionalStackPanel>
+          <!-- The fills, outside the indicators Dock fades. -->
+          <ProportionalStackPanel Orientation="Horizontal" IsHitTestVisible="False">
+            <Border Classes="fill"
+                    ProportionalStackPanel.Proportion="{x:Static DockSettings.GlobalDockingProportion}"
+                    IsVisible="{Binding #PART_LeftIndicator.Opacity, Converter={x:Static uikit:DockConverters.IsShown}}" />
+            <Border />
+            <Border Classes="fill"
+                    ProportionalStackPanel.Proportion="{x:Static DockSettings.GlobalDockingProportion}"
+                    IsVisible="{Binding #PART_RightIndicator.Opacity, Converter={x:Static uikit:DockConverters.IsShown}}" />
+          </ProportionalStackPanel>
+          <ProportionalStackPanel Orientation="Vertical" IsHitTestVisible="False">
+            <Border Classes="fill"
+                    ProportionalStackPanel.Proportion="{x:Static DockSettings.GlobalDockingProportion}"
+                    IsVisible="{Binding #PART_TopIndicator.Opacity, Converter={x:Static uikit:DockConverters.IsShown}}" />
+            <Border />
+            <Border Classes="fill"
+                    ProportionalStackPanel.Proportion="{x:Static DockSettings.GlobalDockingProportion}"
+                    IsVisible="{Binding #PART_BottomIndicator.Opacity, Converter={x:Static uikit:DockConverters.IsShown}}" />
+          </ProportionalStackPanel>
+          <Panel x:Name="PART_SelectorPanel">
+            <Border x:Name="PART_TopSelector" Classes="selector"
+                    HorizontalAlignment="Center" VerticalAlignment="Top"
+                    DockProperties.IndicatorDockOperation="Top">
+              <PathIcon Data="{DynamicResource UIKit.Icon.PanelTop}" />
+            </Border>
+            <Border x:Name="PART_BottomSelector" Classes="selector"
+                    HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                    DockProperties.IndicatorDockOperation="Bottom">
+              <PathIcon Data="{DynamicResource UIKit.Icon.PanelBottom}" />
+            </Border>
+            <Border x:Name="PART_LeftSelector" Classes="selector"
+                    HorizontalAlignment="Left" VerticalAlignment="Center"
+                    DockProperties.IndicatorDockOperation="Left">
+              <PathIcon Data="{DynamicResource UIKit.Icon.PanelLeft}" />
+            </Border>
+            <Border x:Name="PART_RightSelector" Classes="selector"
+                    HorizontalAlignment="Right" VerticalAlignment="Center"
+                    DockProperties.IndicatorDockOperation="Right">
+              <PathIcon Data="{DynamicResource UIKit.Icon.PanelRight}" />
+            </Border>
+          </Panel>
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^/template/ Panel">
+      <Setter Property="Opacity" Value="0" />
+    </Style>
+    <Style Selector="^/template/ Panel#PART_SelectorPanel">
+      <Setter Property="Opacity" Value="1" />
+    </Style>
+    <Style Selector="^/template/ Border.fill">
+      <Setter Property="Background" Value="{DynamicResource UIKit.DropTarget}" />
+    </Style>
+    <Style Selector="^/template/ Border.selector">
+      <Setter Property="Width" Value="32" />
+      <Setter Property="Height" Value="32" />
+      <Setter Property="Margin" Value="8" />
+      <Setter Property="CornerRadius" Value="6" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Popover}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Border}" />
+      <Setter Property="BorderThickness" Value="1" />
+      <Setter Property="TextElement.Foreground" Value="{DynamicResource UIKit.PopoverForeground}" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

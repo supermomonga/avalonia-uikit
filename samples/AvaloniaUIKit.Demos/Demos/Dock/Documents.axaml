@@ -1,0 +1,22 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="AvaloniaUIKit.Demos.DockDocuments">
+  <DockControl Width="640" Height="280" InitializeLayout="True" InitializeFactory="True">
+    <DockControl.Factory>
+      <Factory />
+    </DockControl.Factory>
+    <RootDock Id="Root" IsCollapsable="False" DefaultDockable="{Binding #Files}">
+      <DocumentDock x:Name="Files" Id="Files" CanCreateDocument="True" ActiveDockable="{Binding #Program}">
+        <Document x:Name="Program" Id="Program" Title="Program.cs">
+          <TextBlock Text="Program.cs" Margin="16" />
+        </Document>
+        <Document Id="App" Title="App.axaml">
+          <TextBlock Text="App.axaml" Margin="16" />
+        </Document>
+        <Document Id="Readme" Title="README.md">
+          <TextBlock Text="README.md" Margin="16" />
+        </Document>
+      </DocumentDock>
+    </RootDock>
+  </DockControl>
+</UserControl>

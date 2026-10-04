@@ -6,19 +6,23 @@ description: "Add the AvaloniaUIKit package and UIKitTheme to your App.axaml."
 ## Package
 
 <Callout title="Not on NuGet yet" variant="warning">
-The packages are not published to NuGet.org yet. Until they are, reference the projects from a clone of the [repository](https://github.com/supermomonga/avalonia-uikit) (`src/AvaloniaUIKit/AvaloniaUIKit.csproj` and, if needed, the two optional projects), for example as a git submodule with a `ProjectReference`. The commands below show the intended way once the packages are out.
+The packages are not published to NuGet.org yet. Until they are, reference the projects from a clone of the [repository](https://github.com/supermomonga/avalonia-uikit) (`src/AvaloniaUIKit/AvaloniaUIKit.csproj` and, if needed, the optional projects), for example as a git submodule with a `ProjectReference`. The commands below show the intended way once the packages are out.
 </Callout>
 
 ```bash
 dotnet add package AvaloniaUIKit
 ```
 
-The themes for Avalonia's optional packages are separate, so an app that does not use them takes no extra dependency:
+The themes for Avalonia's optional packages, and for the third-party libraries Tabalonia and Dock.Avalonia, are separate, so an app that does not use them takes no extra dependency:
 
 ```bash
 dotnet add package AvaloniaUIKit.ColorPicker
 dotnet add package AvaloniaUIKit.DataGrid
+dotnet add package AvaloniaUIKit.Tabalonia
+dotnet add package AvaloniaUIKit.Dock
 ```
+
+The third-party themes are made for one release of their library (Tabalonia 12.0.0, Dock.Avalonia 12.1.0.6), which their packages depend on exactly. They replace the library's own themes: do not add those as well.
 
 The library targets the current Avalonia 12 release and the latest .NET SDK.
 
@@ -45,11 +49,15 @@ The optional packages add a theme each, after `UIKitTheme`:
              xmlns:uikit="clr-namespace:AvaloniaUIKit;assembly=AvaloniaUIKit"
              xmlns:uikitcolor="clr-namespace:AvaloniaUIKit;assembly=AvaloniaUIKit.ColorPicker"
              xmlns:uikitgrid="clr-namespace:AvaloniaUIKit;assembly=AvaloniaUIKit.DataGrid"
+             xmlns:uikittabs="clr-namespace:AvaloniaUIKit;assembly=AvaloniaUIKit.Tabalonia"
+             xmlns:uikitdock="clr-namespace:AvaloniaUIKit;assembly=AvaloniaUIKit.Dock"
              x:Class="MyApp.App">
   <Application.Styles>
     <uikit:UIKitTheme />
     <uikitcolor:UIKitColorPickerTheme />
     <uikitgrid:UIKitDataGridTheme />
+    <uikittabs:UIKitTabaloniaTheme />
+    <uikitdock:UIKitDockTheme />
   </Application.Styles>
 </Application>
 ```
@@ -73,4 +81,4 @@ xmlns:uikit="using:AvaloniaUIKit"
 
 ## NativeAOT
 
-`AvaloniaUIKit` and `AvaloniaUIKit.ColorPicker` are trimmable and AOT compatible: compiled bindings by default, and reflection is banned by an analyzer. Avalonia's `DataGrid` itself is not trimmable, so `AvaloniaUIKit.DataGrid` gives no NativeAOT guarantee; the basic table is `TableView`, in the main package.
+`AvaloniaUIKit`, `AvaloniaUIKit.ColorPicker` and `AvaloniaUIKit.Tabalonia` are trimmable and AOT compatible: compiled bindings by default, and reflection is banned by an analyzer. Tabalonia is AOT compatible too. Avalonia's `DataGrid` itself is not trimmable, so `AvaloniaUIKit.DataGrid` gives no NativeAOT guarantee; the basic table is `TableView`, in the main package. Dock.Avalonia does not declare itself trimmable either: `AvaloniaUIKit.Dock` has no trimming warnings of its own, but gives no NativeAOT guarantee for Dock (see [Dock](/components/dock)).

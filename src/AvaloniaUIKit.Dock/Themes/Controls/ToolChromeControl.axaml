@@ -1,0 +1,274 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:core="using:Dock.Model.Core"
+                    xmlns:controls="using:Dock.Model.Controls"
+                    x:DataType="controls:IToolDock"
+                    xmlns:converters="using:Dock.Avalonia.Converters"
+                    xmlns:uikit="using:AvaloniaUIKit"
+                    x:CompileBindings="True">
+  <Design.PreviewWith>
+  <ToolChromeControl Width="300" Height="400" />
+  </Design.PreviewWith>
+
+  <MenuFlyout x:Key="ToolChromeControlContextMenu">
+    <MenuItem Header="{DynamicResource ToolChromeControlFloatString}"
+              Command="{Binding Owner.Factory.FloatDockable}"
+              CommandParameter="{Binding ActiveDockable}">
+      <MenuItem.IsVisible>
+        <MultiBinding Converter="{x:Static BoolConverters.And}">
+          <MultiBinding Converter="{x:Static converters:DockCapabilityConverters.CanFloatMultiConverter}">
+            <Binding Path="ActiveDockable" />
+            <Binding Path="ActiveDockable.CanFloat" />
+            <Binding Path="ActiveDockable.DockCapabilityOverrides.CanFloat" />
+            <Binding Path="(core:IDock).DockCapabilityPolicy.CanFloat" />
+          </MultiBinding>
+          <MultiBinding Converter="{x:Static converters:CanRemoveDockableConverter.Instance}">
+            <Binding Path="(core:IDock).CanCloseLastDockable" FallbackValue="{x:True}" />
+            <Binding Path="(core:IDock).VisibleDockables.Count" FallbackValue="0" />
+          </MultiBinding>
+        </MultiBinding>
+      </MenuItem.IsVisible>
+    </MenuItem>
+    <MenuItem Header="{DynamicResource ToolChromeControlDockString}"
+              Command="{Binding Owner.Factory.PinDockable}"
+              CommandParameter="{Binding ActiveDockable}"
+              IsEnabled="{Binding ActiveDockable.OriginalOwner, Converter={x:Static ObjectConverters.IsNotNull}, FallbackValue=False}">
+      <MenuItem.IsVisible>
+        <MultiBinding Converter="{x:Static converters:DockCapabilityConverters.CanPinMultiConverter}">
+          <Binding Path="ActiveDockable" />
+          <Binding Path="ActiveDockable.CanPin" />
+          <Binding Path="ActiveDockable.DockCapabilityOverrides.CanPin" />
+          <Binding Path="(core:IDock).DockCapabilityPolicy.CanPin" />
+        </MultiBinding>
+      </MenuItem.IsVisible>
+    </MenuItem>
+    <MenuItem Header="{DynamicResource ToolChromeControlDockAsDocumentString}"
+              Command="{Binding Owner.Factory.DockAsDocument}"
+              CommandParameter="{Binding ActiveDockable}">
+      <MenuItem.IsVisible>
+        <MultiBinding Converter="{x:Static BoolConverters.And}">
+          <MultiBinding Converter="{x:Static converters:DockCapabilityConverters.CanDockAsDocumentMultiConverter}">
+            <Binding Path="ActiveDockable" />
+            <Binding Path="ActiveDockable.CanDockAsDocument" />
+            <Binding Path="ActiveDockable.DockCapabilityOverrides.CanDockAsDocument" />
+            <Binding Path="(core:IDock).DockCapabilityPolicy.CanDockAsDocument" />
+          </MultiBinding>
+          <Binding Path="ActiveDockable.Owner" Converter="{x:Static OwnerIsToolDockConverter.Instance}" />
+        </MultiBinding>
+      </MenuItem.IsVisible>
+    </MenuItem>
+    <MenuItem Header="{DynamicResource ToolChromeControlAutoHideString}"
+              Command="{Binding Owner.Factory.PinDockable}"
+              CommandParameter="{Binding ActiveDockable}"
+              IsEnabled="{Binding ActiveDockable.OriginalOwner, Converter={x:Static ObjectConverters.IsNull}, FallbackValue=False}">
+      <MenuItem.IsVisible>
+        <MultiBinding Converter="{x:Static BoolConverters.And}">
+          <MultiBinding Converter="{x:Static converters:DockCapabilityConverters.CanPinMultiConverter}">
+            <Binding Path="ActiveDockable" />
+            <Binding Path="ActiveDockable.CanPin" />
+            <Binding Path="ActiveDockable.DockCapabilityOverrides.CanPin" />
+            <Binding Path="(core:IDock).DockCapabilityPolicy.CanPin" />
+          </MultiBinding>
+          <Binding Path="$parent[ToolChromeControl].IsFloating" Converter="{x:Static BoolConverters.Not}" />
+        </MultiBinding>
+      </MenuItem.IsVisible>
+    </MenuItem>
+    <MenuItem Header="{DynamicResource ToolChromeControlCloseString}"
+              Command="{Binding Owner.Factory.CloseDockable}"
+              CommandParameter="{Binding ActiveDockable}">
+      <MenuItem.IsVisible>
+        <MultiBinding Converter="{x:Static BoolConverters.And}">
+          <MultiBinding Converter="{x:Static converters:DockCapabilityConverters.CanCloseMultiConverter}">
+            <Binding Path="ActiveDockable" />
+            <Binding Path="ActiveDockable.CanClose" />
+            <Binding Path="ActiveDockable.DockCapabilityOverrides.CanClose" />
+            <Binding Path="(core:IDock).DockCapabilityPolicy.CanClose" />
+          </MultiBinding>
+          <MultiBinding Converter="{x:Static converters:CanRemoveDockableConverter.Instance}">
+            <Binding Path="(core:IDock).CanCloseLastDockable" FallbackValue="{x:True}" />
+            <Binding Path="(core:IDock).VisibleDockables.Count" FallbackValue="0" />
+          </MultiBinding>
+        </MultiBinding>
+      </MenuItem.IsVisible>
+    </MenuItem>
+  </MenuFlyout>
+
+  <!-- The tool chrome's buttons: GPUI Kit's ghost xsmall toolbar buttons (20px, a 12px icon). -->
+  <ControlTheme x:Key="ChromeButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}" />
+
+  <!--
+    GPUI Kit's tab panel header (dock/tab_panel.rs) for a tool dock: two or more
+    tools show a tab bar (the tabs, the empty space after them, and the toolbar
+    with a left and bottom border on the tab bar color), one tool a 30px title
+    bar (its title and the toolbar). The toolbar is GPUI's ellipsis menu (the
+    chrome's flyout); Dock's pin, maximize and close buttons are in that menu
+    and shown as buttons only where GPUI has none to stand for them (maximize
+    while floating).
+  -->
+  <ControlTheme x:Key="{x:Type ToolChromeControl}" TargetType="ToolChromeControl">
+
+    <Setter Property="(DockProperties.IsDragEnabled)">
+      <Setter.Value>
+        <MultiBinding Converter="{x:Static converters:DockCapabilityConverters.CanDragMultiConverter}">
+          <Binding />
+          <Binding Path="CanDrag" />
+          <Binding Path="DockCapabilityOverrides.CanDrag" />
+          <Binding Path="(core:IDock).DockCapabilityPolicy.CanDrag" />
+        </MultiBinding>
+      </Setter.Value>
+    </Setter>
+    <Setter Property="(DockProperties.IsDropEnabled)">
+      <Setter.Value>
+        <MultiBinding Converter="{x:Static converters:DockCapabilityConverters.CanDropMultiConverter}">
+          <Binding />
+          <Binding Path="CanDrop" />
+          <Binding Path="DockCapabilityOverrides.CanDrop" />
+          <Binding Path="(core:IDock).DockCapabilityPolicy.CanDrop" />
+        </MultiBinding>
+      </Setter.Value>
+    </Setter>
+    <Setter Property="(DockProperties.DockGroup)" Value="{Binding DockGroup}" />
+    <Setter Property="MinWidth" Value="{Binding MinWidth}" />
+    <Setter Property="MaxWidth" Value="{Binding MaxWidth}" />
+    <Setter Property="MinHeight" Value="{Binding MinHeight}" />
+    <Setter Property="MaxHeight" Value="{Binding MaxHeight}" />
+
+    <Setter Property="Background" Value="{DynamicResource UIKit.Background}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Border}" />
+    <Setter Property="BorderThickness" Value="0" />
+    <Setter Property="Padding" Value="0" />
+    <Setter Property="IsPinned" Value="{Binding ActiveDockable.OriginalOwner, FallbackValue=False, Converter={x:Static ObjectConverters.IsNotNull}}" />
+    <Setter Property="IsMaximized" Value="{Binding $parent[Window].WindowState, FallbackValue=False, Converter={x:Static IsMaximizedConverter.Instance}}" />
+    <Setter Property="ToolFlyout" Value="{DynamicResource ToolChromeControlContextMenu}" />
+
+    <Setter Property="Template">
+      <ControlTemplate>
+        <DockPanel Background="{TemplateBinding Background}">
+          <Border x:Name="PART_Border"
+                  DockPanel.Dock="Top"
+                  ContextFlyout="{TemplateBinding ToolFlyout}">
+            <Panel>
+            <!-- The tab bar's color and the 1px border along its bottom, under the tabs. -->
+            <Border x:Name="PART_Bar"
+                    IsHitTestVisible="False"
+                    Classes.tabs="{Binding VisibleDockables.Count, Converter={x:Static uikit:DockConverters.HasTabs}}" />
+            <Grid x:Name="PART_Grip"
+                  ColumnDefinitions="*,Auto"
+                  Classes.tabs="{Binding VisibleDockables.Count, Converter={x:Static uikit:DockConverters.HasTabs}}">
+              <ToolTabStrip x:Name="PART_TabStrip"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            ItemsSource="{Binding VisibleDockables}"
+                            SelectedItem="{Binding ActiveDockable, Mode=TwoWay}"
+                            DockProperties.IsDropArea="True"
+                            DockProperties.DockAdornerHost="{Binding $parent[ToolChromeControl]}" />
+              <TextBlock x:Name="PART_Title"
+                         TextTrimming="CharacterEllipsis"
+                         VerticalAlignment="Center"
+                         Foreground="{TemplateBinding Foreground}"
+                         Text="{Binding ActiveDockable.Title, FallbackValue=TITLE}" />
+              <Border x:Name="PART_Toolbar" Grid.Column="1">
+                <StackPanel Orientation="Horizontal" Spacing="4" VerticalAlignment="Center">
+                  <Button x:Name="PART_MenuButton"
+                          Classes="ghost xsmall icon-only"
+                          Flyout="{TemplateBinding ToolFlyout}">
+                    <PathIcon Classes="xsmall" Data="{DynamicResource UIKit.Icon.Ellipsis}" />
+                  </Button>
+                  <Button x:Name="PART_PinButton"
+                          Classes="ghost xsmall icon-only"
+                          Command="{Binding Owner.Factory.PinDockable}"
+                          CommandParameter="{Binding ActiveDockable}"
+                          IsVisible="False">
+                    <PathIcon x:Name="PART_PinPath" Classes="xsmall" Data="{DynamicResource UIKit.Icon.Pin}" />
+                  </Button>
+                  <Button x:Name="PART_MaximizeRestoreButton"
+                          Classes="ghost xsmall icon-only"
+                          IsVisible="{TemplateBinding IsFloating}">
+                    <PathIcon x:Name="PART_MaximizeRestorePath" Classes="xsmall" Data="{DynamicResource UIKit.Icon.WindowMaximize}" />
+                  </Button>
+                  <Button x:Name="PART_CloseButton"
+                          Classes="ghost xsmall icon-only"
+                          Command="{Binding Owner.Factory.CloseDockable}"
+                          CommandParameter="{Binding ActiveDockable}"
+                          IsVisible="False">
+                    <PathIcon Classes="xsmall" Data="{DynamicResource UIKit.Icon.Close}" />
+                  </Button>
+                </StackPanel>
+              </Border>
+            </Grid>
+            </Panel>
+          </Border>
+          <DeferredContentPresenter x:Name="PART_ContentPresenter"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    Content="{TemplateBinding Content}"
+                                    ContentTemplate="{TemplateBinding ContentTemplate}"
+                                    Padding="{TemplateBinding Padding}" />
+        </DockPanel>
+      </ControlTemplate>
+    </Setter>
+
+    <!-- Dock's grip modes: the header always, on hover only, or never. -->
+    <Style Selector="^/template/ Border#PART_Border">
+      <Setter Property="IsVisible"
+              Value="{Binding GripMode, Converter={x:Static GripModeConverters.IsVisibleVisibleConverter}}" />
+    </Style>
+    <Style Selector="^:pointerover /template/ Border#PART_Border">
+      <Setter Property="IsVisible"
+              Value="{Binding GripMode, Converter={x:Static GripModeConverters.IsVisibleAutoHideOrVisibleConverter}}" />
+    </Style>
+
+    <Style Selector="^/template/ Grid#PART_Grip">
+      <Setter Property="(DockProperties.IsDragArea)" Value="True" />
+      <Setter Property="Background" Value="Transparent" />
+    </Style>
+    <Style Selector="^:floating /template/ Grid#PART_Grip">
+      <Setter Property="(DockProperties.IsDragArea)" Value="{Binding $parent[HostWindow].ToolChromeControlsWholeWindow, Mode=OneWay, Converter={x:Static BoolConverters.Not}}" />
+    </Style>
+
+    <!-- One tool: the 30px title bar, pl_3 pr_2, the toolbar ml_1. -->
+    <Style Selector="^/template/ Grid#PART_Grip">
+      <Setter Property="Height" Value="30" />
+      <Setter Property="Margin" Value="12,0,8,0" />
+    </Style>
+    <Style Selector="^/template/ ToolTabStrip#PART_TabStrip">
+      <Setter Property="IsVisible" Value="False" />
+    </Style>
+    <Style Selector="^/template/ Border#PART_Toolbar">
+      <Setter Property="Margin" Value="4,0,0,0" />
+    </Style>
+
+    <!-- Two or more: the 32px tab bar (its color and a 1px border along the bottom), and the toolbar px_2 with a left and bottom border. -->
+    <Style Selector="^/template/ Border#PART_Bar.tabs">
+      <Setter Property="Background" Value="{DynamicResource UIKit.TabBar}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Border}" />
+      <Setter Property="BorderThickness" Value="0,0,0,1" />
+    </Style>
+    <Style Selector="^/template/ Grid#PART_Grip.tabs">
+      <Setter Property="Height" Value="32" />
+      <Setter Property="Margin" Value="0" />
+    </Style>
+    <Style Selector="^/template/ Grid#PART_Grip.tabs > ToolTabStrip#PART_TabStrip">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+    <Style Selector="^/template/ Grid#PART_Grip.tabs > TextBlock#PART_Title">
+      <Setter Property="IsVisible" Value="False" />
+    </Style>
+    <Style Selector="^/template/ Grid#PART_Grip.tabs > Border#PART_Toolbar">
+      <Setter Property="Margin" Value="0" />
+      <Setter Property="Padding" Value="8,0" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.TabBar}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Border}" />
+      <Setter Property="BorderThickness" Value="1,0,0,1" />
+    </Style>
+
+    <Style Selector="^:pinned /template/ PathIcon#PART_PinPath">
+      <Setter Property="Data" Value="{DynamicResource UIKit.Icon.PinOff}" />
+    </Style>
+    <Style Selector="^:maximized /template/ PathIcon#PART_MaximizeRestorePath">
+      <Setter Property="Data" Value="{DynamicResource UIKit.Icon.WindowRestore}" />
+    </Style>
+  </ControlTheme>
+
+</ResourceDictionary>

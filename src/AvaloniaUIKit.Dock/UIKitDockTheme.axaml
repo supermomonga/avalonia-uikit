@@ -1,0 +1,93 @@
+<!--
+  GPUI Kit Dock (crates/component/src/dock) -> Dock.Avalonia (DockControl and its
+  docks, tab strips, tool chrome, splitters, drop targets and windows).
+  The templates are based on Dock.Avalonia.Themes.Fluent 12.1.0.6 (MIT,
+  Copyright (c) Wiesław Šoltés; see THIRD-PARTY-NOTICES.md): the parts, the
+  docking properties and the commands are kept, the look is GPUI Kit's with
+  UIKitTheme's tokens and icons. Use it instead of Dock's own themes.
+-->
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:Dock.Avalonia.Controls"
+        x:Class="AvaloniaUIKit.UIKitDockTheme">
+  <Styles.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceInclude Source="/Themes/Controls/ProportionalStackPanelSplitter.axaml" />
+        <ResourceInclude Source="/Themes/ControlStrings.axaml" />
+        <ResourceInclude Source="/Themes/Metrics.axaml" />
+        <ResourceInclude Source="/Themes/Controls/ScrollViewer.axaml" />
+        <ResourceInclude Source="/Themes/Controls/DocumentTabStripItem.axaml" />
+        <ResourceInclude Source="/Themes/Controls/DocumentTabStrip.axaml" />
+        <ResourceInclude Source="/Themes/Controls/DockCommandBarHost.axaml" />
+        <ResourceInclude Source="/Themes/Controls/DockSelectorOverlay.axaml" />
+        <ResourceInclude Source="/Themes/Controls/MdiDocumentWindow.axaml" />
+        <ResourceInclude Source="/Themes/Controls/MdiDocumentControl.axaml" />
+        <ResourceInclude Source="/Themes/Controls/ToolTabStripItem.axaml" />
+        <ResourceInclude Source="/Themes/Controls/ToolTabStrip.axaml" />
+        <ResourceInclude Source="/Themes/Controls/DockTarget.axaml" />
+        <ResourceInclude Source="/Themes/Controls/GlobalDockTarget.axaml" />
+        <ResourceInclude Source="/Themes/Controls/DocumentControl.axaml" />
+        <ResourceInclude Source="/Themes/Controls/ToolChromeControl.axaml" />
+        <ResourceInclude Source="/Themes/Controls/ToolControl.axaml" />
+        <ResourceInclude Source="/Themes/Controls/ToolPinItemControl.axaml" />
+        <ResourceInclude Source="/Themes/Controls/ToolPinnedControl.axaml" />
+        <ResourceInclude Source="/Themes/Controls/DockDockControl.axaml" />
+        <ResourceInclude Source="/Themes/Controls/DocumentContentControl.axaml" />
+        <ResourceInclude Source="/Themes/Controls/DocumentDockControl.axaml" />
+        <ResourceInclude Source="/Themes/Controls/PinnedDockControl.axaml" />
+        <ResourceInclude Source="/Themes/Controls/ProportionalDockControl.axaml" />
+        <ResourceInclude Source="/Themes/Controls/StackDockControl.axaml" />
+        <ResourceInclude Source="/Themes/Controls/GridDockControl.axaml" />
+        <ResourceInclude Source="/Themes/Controls/WrapDockControl.axaml" />
+        <ResourceInclude Source="/Themes/Controls/UniformGridDockControl.axaml" />
+        <ResourceInclude Source="/Themes/Controls/RootDockControl.axaml" />
+        <ResourceInclude Source="/Themes/Controls/ToolContentControl.axaml" />
+        <ResourceInclude Source="/Themes/Controls/ToolDockControl.axaml" />
+        <ResourceInclude Source="/Themes/Controls/SplitViewDockControl.axaml" />
+        <ResourceInclude Source="/Themes/Controls/DockControl.axaml" />
+        <ResourceInclude Source="/Themes/Controls/ManagedWindowLayer.axaml" />
+        <ResourceInclude Source="/Themes/Controls/HostWindowTitleBar.axaml" />
+        <ResourceInclude Source="/Themes/Controls/HostWindow.axaml" />
+        <ResourceInclude Source="/Themes/Controls/BusyOverlayControl.axaml" />
+        <ResourceInclude Source="/Themes/Controls/DialogOverlayControl.axaml" />
+        <ResourceInclude Source="/Themes/Controls/ConfirmationOverlayControl.axaml" />
+        <ResourceInclude Source="/Themes/Controls/OverlayLayerStyles.axaml" />
+        <ResourceInclude Source="/Themes/Controls/OverlayLayerDefaults.axaml" />
+        <ResourceInclude Source="/Themes/Controls/OverlayDataTemplates.axaml" />
+        <ResourceInclude Source="/Themes/Controls/DialogShellControl.axaml" />
+        <ResourceInclude Source="/Themes/Controls/ConfirmationDialogControl.axaml" />
+        <ResourceInclude Source="/Themes/Controls/DragPreviewControl.axaml" />
+        <ResourceInclude Source="/Themes/Controls/DragPreviewWindow.axaml" />
+        <ResourceInclude Source="/Themes/Controls/PinnedDockWindow.axaml" />
+        <ResourceInclude Source="/Themes/Controls/DockAdornerWindow.axaml" />
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+  </Styles.Resources>
+
+  <!-- A tab's drop target is its insertion line (DockTarget.axaml): the drag border color. -->
+  <Style Selector="Border.uikit-dock-insert controls|DockTarget /template/ Border.fill">
+    <Setter Property="Background" Value="{DynamicResource UIKit.DragBorder}" />
+  </Style>
+
+  <!-- In a tool chrome a tool dock's tabs are in the chrome's header (ToolChromeControl.axaml). -->
+  <Style Selector="controls|ToolChromeControl controls|ToolControl /template/ controls|ToolTabStrip#PART_TabStrip">
+    <Setter Property="IsVisible" Value="False" />
+  </Style>
+
+  <!-- A managed floating window shows a tool dock without its chrome, and so with the dock's own tabs. -->
+  <Style Selector="controls|ManagedWindowLayer controls|ToolChromeControl controls|ToolControl /template/ controls|ToolTabStrip#PART_TabStrip">
+    <Setter Property="IsVisible" Value="True" />
+  </Style>
+  <Style Selector="controls|ManagedWindowLayer controls|ToolChromeControl">
+    <Setter Property="Template">
+      <ControlTemplate>
+        <ContentPresenter Background="{TemplateBinding Background}"
+                          BorderBrush="{TemplateBinding BorderBrush}"
+                          BorderThickness="{TemplateBinding BorderThickness}"
+                          Content="{TemplateBinding Content}"
+                          Padding="{TemplateBinding Padding}" />
+      </ControlTemplate>
+    </Setter>
+  </Style>
+</Styles>

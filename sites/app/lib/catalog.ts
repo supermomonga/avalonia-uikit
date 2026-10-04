@@ -7,7 +7,11 @@
  */
 export type Status = "full" | "partial" | "new"
 
-export type Package = "AvaloniaUIKit.ColorPicker" | "AvaloniaUIKit.DataGrid"
+export type Package =
+  | "AvaloniaUIKit.ColorPicker"
+  | "AvaloniaUIKit.DataGrid"
+  | "AvaloniaUIKit.Tabalonia"
+  | "AvaloniaUIKit.Dock"
 
 export interface ComponentEntry {
   /** URL slug and the demos' `<component-slug>` (docs/site.md). */
@@ -19,8 +23,10 @@ export interface ComponentEntry {
   avalonia: string[]
   /** `full`: the control's look and motion; `partial`: a documented subset; `new`: a control Avalonia lacks. */
   status: Status
-  /** The optional package whose theme covers it (ADR 16). */
+  /** The optional package whose theme covers it (ADR 16, ADR 28). */
   package?: Package
+  /** The third-party library whose controls the theme covers (ADR 28): its own sidebar group. */
+  library?: string
   group: Group
   /** The demo scrolls, so the live demo keeps wheel events (docs/site.md). */
   scroll?: boolean
@@ -45,7 +51,7 @@ const entry = (
   avalonia: string,
   status: Status,
   group: Group,
-  extras: { package?: Package; scroll?: boolean } = {}
+  extras: { package?: Package; library?: string; scroll?: boolean } = {}
 ): ComponentEntry => ({
   slug,
   title,
@@ -74,6 +80,7 @@ export const components: ComponentEntry[] = [
   entry("combobox", "Combobox", "Combobox", "ComboBox.combobox, AutoCompleteBox", "partial", "Forms"),
   entry("data-table", "Data Table", "DataTable", "TableView, DataGrid", "partial", "Data display", { package: "AvaloniaUIKit.DataGrid", scroll: true }),
   entry("date-picker", "Date Picker", "DatePicker", "CalendarDatePicker", "partial", "Forms"),
+  entry("dock", "Dock", "Dock, DockArea, Panel, TabPanel", "DockControl", "partial", "Layout", { package: "AvaloniaUIKit.Dock", library: "Dock.Avalonia" }),
   entry("description-list", "Description List", "DescriptionList", "uikit:DescriptionList", "new", "Data display"),
   entry("dropdown-button", "Dropdown Button", "DropdownButton", "SplitButton", "full", "Buttons"),
   entry("empty", "Empty", "Empty", "uikit:EmptyState", "new", "Feedback"),
@@ -112,6 +119,7 @@ export const components: ComponentEntry[] = [
   entry("status-bar", "Status Bar", "StatusBar", "uikit:StatusBar", "new", "Data display"),
   entry("stepper", "Stepper", "Stepper", "uikit:Stepper", "new", "Navigation"),
   entry("switch", "Switch", "Switch", "ToggleSwitch", "full", "Forms"),
+  entry("tabalonia", "Tabalonia", "Tabs, TabBar, draggable tabs", "tab:TabsControl", "partial", "Navigation", { package: "AvaloniaUIKit.Tabalonia", library: "Tabalonia" }),
   entry("table", "Table", "Table", "TableView (UIKitTable)", "partial", "Data display", { scroll: true }),
   entry("tabs", "Tabs", "Tabs, TabBar", "TabStrip, TabControl", "partial", "Navigation"),
   entry("tag", "Tag", "Tag", "uikit:TagLabel", "new", "Data display"),

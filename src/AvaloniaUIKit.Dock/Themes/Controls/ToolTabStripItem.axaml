@@ -1,0 +1,221 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:core="using:Dock.Model.Core"
+                    xmlns:converters="using:Dock.Avalonia.Converters"
+                    x:DataType="core:IDockable"
+                    x:CompileBindings="True">
+  <Design.PreviewWith>
+    <Border Padding="20">
+      <StackPanel Spacing="20">
+        <ToolTabStripItem>Leaf</ToolTabStripItem>
+        <ToolTabStripItem IsSelected="True">Arch</ToolTabStripItem>
+        <ToolTabStripItem Background="Yellow">Background</ToolTabStripItem>
+      </StackPanel>
+    </Border>
+  </Design.PreviewWith>
+
+
+  <ContextMenu x:Key="ToolTabStripItemContextMenu">
+    <MenuItem Header="{DynamicResource ToolTabStripItemFloatString}"
+              Command="{Binding Owner.Factory.FloatDockable}"
+              CommandParameter="{Binding}">
+      <MenuItem.IsVisible>
+        <MultiBinding Converter="{x:Static BoolConverters.And}">
+          <MultiBinding Converter="{x:Static converters:DockCapabilityConverters.CanFloatMultiConverter}">
+            <Binding />
+            <Binding Path="CanFloat" />
+            <Binding Path="DockCapabilityOverrides.CanFloat" />
+            <Binding Path="((core:IDock)Owner).DockCapabilityPolicy.CanFloat" />
+          </MultiBinding>
+          <MultiBinding Converter="{x:Static converters:CanRemoveDockableConverter.Instance}">
+            <Binding Path="((core:IDock)Owner).CanCloseLastDockable" FallbackValue="{x:True}" />
+            <Binding Path="((core:IDock)Owner).VisibleDockables.Count" FallbackValue="0" />
+          </MultiBinding>
+        </MultiBinding>
+      </MenuItem.IsVisible>
+    </MenuItem>
+    <MenuItem Header="{DynamicResource ToolTabStripItemFloatAllString}"
+              Command="{Binding Owner.Factory.FloatAllDockables}"
+              CommandParameter="{Binding}">
+      <MenuItem.IsVisible>
+        <MultiBinding Converter="{x:Static BoolConverters.And}">
+          <MultiBinding Converter="{x:Static converters:DockCapabilityConverters.CanFloatMultiConverter}">
+            <Binding />
+            <Binding Path="CanFloat" />
+            <Binding Path="DockCapabilityOverrides.CanFloat" />
+            <Binding Path="((core:IDock)Owner).DockCapabilityPolicy.CanFloat" />
+          </MultiBinding>
+          <MultiBinding Converter="{x:Static converters:CanRemoveDockableConverter.Instance}">
+            <Binding Path="((core:IDock)Owner).CanCloseLastDockable" FallbackValue="{x:True}" />
+            <Binding Path="((core:IDock)Owner).VisibleDockables.Count" FallbackValue="0" />
+          </MultiBinding>
+        </MultiBinding>
+      </MenuItem.IsVisible>
+    </MenuItem>
+    <MenuItem Header="{DynamicResource ToolTabStripItemDockString}"
+              Command="{Binding Owner.Factory.PinDockable}"
+              CommandParameter="{Binding}"
+              IsEnabled="{Binding OriginalOwner, Converter={x:Static ObjectConverters.IsNotNull}, FallbackValue=False}">
+      <MenuItem.IsVisible>
+        <MultiBinding Converter="{x:Static converters:DockCapabilityConverters.CanPinMultiConverter}">
+          <Binding />
+          <Binding Path="CanPin" />
+          <Binding Path="DockCapabilityOverrides.CanPin" />
+          <Binding Path="((core:IDock)Owner).DockCapabilityPolicy.CanPin" />
+        </MultiBinding>
+      </MenuItem.IsVisible>
+    </MenuItem>
+    <MenuItem Header="{DynamicResource ToolTabStripItemDockAsDocumentString}"
+              Command="{Binding Owner.Factory.DockAsDocument}"
+              CommandParameter="{Binding}">
+      <MenuItem.IsVisible>
+        <MultiBinding Converter="{x:Static BoolConverters.And}">
+          <MultiBinding Converter="{x:Static converters:DockCapabilityConverters.CanDockAsDocumentMultiConverter}">
+            <Binding />
+            <Binding Path="CanDockAsDocument" />
+            <Binding Path="DockCapabilityOverrides.CanDockAsDocument" />
+            <Binding Path="((core:IDock)Owner).DockCapabilityPolicy.CanDockAsDocument" />
+          </MultiBinding>
+          <Binding Path="Owner" Converter="{x:Static converters:OwnerIsToolDockConverter.Instance}" />
+        </MultiBinding>
+      </MenuItem.IsVisible>
+    </MenuItem>
+    <MenuItem Header="{DynamicResource ToolTabStripItemAutoHideString}"
+              Command="{Binding Owner.Factory.PinDockable}"
+              CommandParameter="{Binding }"
+              IsEnabled="{Binding OriginalOwner, Converter={x:Static ObjectConverters.IsNull}, FallbackValue=False}">
+      <MenuItem.IsVisible>
+        <MultiBinding Converter="{x:Static BoolConverters.And}">
+          <MultiBinding Converter="{x:Static converters:DockCapabilityConverters.CanPinMultiConverter}">
+            <Binding />
+            <Binding Path="CanPin" />
+            <Binding Path="DockCapabilityOverrides.CanPin" />
+            <Binding Path="((core:IDock)Owner).DockCapabilityPolicy.CanPin" />
+          </MultiBinding>
+          <Binding Path="$parent[HostWindow]" Converter="{x:Static ObjectConverters.IsNull}" />
+        </MultiBinding>
+      </MenuItem.IsVisible>
+    </MenuItem>
+    <MenuItem Header="{DynamicResource ToolTabStripItemCloseString}"
+              Command="{Binding Owner.Factory.CloseDockable}"
+              CommandParameter="{Binding}">
+      <MenuItem.IsVisible>
+        <MultiBinding Converter="{x:Static BoolConverters.And}">
+          <MultiBinding Converter="{x:Static converters:DockCapabilityConverters.CanCloseMultiConverter}">
+            <Binding />
+            <Binding Path="CanClose" />
+            <Binding Path="DockCapabilityOverrides.CanClose" />
+            <Binding Path="((core:IDock)Owner).DockCapabilityPolicy.CanClose" />
+          </MultiBinding>
+          <MultiBinding Converter="{x:Static converters:CanRemoveDockableConverter.Instance}">
+            <Binding Path="((core:IDock)Owner).CanCloseLastDockable" FallbackValue="{x:True}" />
+            <Binding Path="((core:IDock)Owner).VisibleDockables.Count" FallbackValue="0" />
+          </MultiBinding>
+        </MultiBinding>
+      </MenuItem.IsVisible>
+    </MenuItem>
+  </ContextMenu>
+
+  <ControlTheme x:Key="{x:Type ToolTabStripItem}" TargetType="ToolTabStripItem">
+
+    <Setter Property="(AutomationProperties.AutomationId)" Value="{Binding Id}" />
+    <Setter Property="(AutomationProperties.Name)" Value="{Binding Title}" />
+
+    <Setter Property="(DockProperties.IsDragEnabled)">
+      <Setter.Value>
+        <MultiBinding Converter="{x:Static converters:DockCapabilityConverters.CanDragMultiConverter}">
+          <Binding />
+          <Binding Path="CanDrag" />
+          <Binding Path="DockCapabilityOverrides.CanDrag" />
+          <Binding Path="((core:IDock)Owner).DockCapabilityPolicy.CanDrag" />
+        </MultiBinding>
+      </Setter.Value>
+    </Setter>
+    <Setter Property="(DockProperties.IsDropEnabled)">
+      <Setter.Value>
+        <MultiBinding Converter="{x:Static converters:DockCapabilityConverters.CanDropMultiConverter}">
+          <Binding />
+          <Binding Path="CanDrop" />
+          <Binding Path="DockCapabilityOverrides.CanDrop" />
+          <Binding Path="((core:IDock)Owner).DockCapabilityPolicy.CanDrop" />
+        </MultiBinding>
+      </Setter.Value>
+    </Setter>
+    <Setter Property="(DockProperties.DockGroup)" Value="{Binding DockGroup}" />
+
+    <!--
+      GPUI Kit's Tab (tab.rs) in the Tab look at medium size: 32px, the label at
+      14px with 12px on either side, a 1px border left and right (transparent
+      until selected), the tab foreground; hovered, the active foreground;
+      selected, the active tab color with the border. A dock's first tab has no
+      left border (tab_bar_prefix off).
+    -->
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="TextBlock.LineHeight" Value="17.5" />
+    <Setter Property="Height" Value="32" />
+    <Setter Property="Padding" Value="12,0" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.TabForeground}" />
+    <Setter Property="BorderBrush" Value="Transparent" />
+    <Setter Property="BorderThickness" Value="1,0,1,0" />
+    <Setter Property="TabContextMenu" Value="{DynamicResource ToolTabStripItemContextMenu}" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Panel>
+          <Border Background="{TemplateBinding Background}"
+                  BorderBrush="{TemplateBinding BorderBrush}"
+                  BorderThickness="{TemplateBinding BorderThickness}"
+                  ContextMenu="{TemplateBinding TabContextMenu}"
+                  Padding="{TemplateBinding Padding}"
+                  DockProperties.IsDragArea="True"
+                  DockProperties.IsDropArea="True"
+                  DockProperties.IsDockTarget="True"
+                  DockProperties.ShowDockIndicatorOnly="True"
+                  DockProperties.IndicatorDockOperation="Fill"
+                  DockProperties.DockAdornerHost="{Binding #PART_InsertMarker}">
+            <DockableControl TrackingMode="Tab">
+              <StackPanel x:Name="DragTool"
+                          Background="Transparent"
+                          Orientation="Horizontal"
+                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                <ContentPresenter x:Name="PART_IconPresenter"
+                                  ContentTemplate="{Binding $parent[ToolTabStrip].IconTemplate}"
+                                  Content="{Binding}" />
+                <ContentPresenter x:Name="PART_HeaderPresenter"
+                                  ContentTemplate="{Binding $parent[ToolTabStrip].HeaderTemplate}"
+                                  Content="{Binding}" />
+                <ContentPresenter x:Name="PART_ModifiedPresenter"
+                                  ContentTemplate="{Binding $parent[ToolTabStrip].ModifiedTemplate}"
+                                  IsVisible="{Binding IsModified}"
+                                  Content="{Binding}" />
+              </StackPanel>
+            </DockableControl>
+          </Border>
+          <!-- tab_panel.rs: a panel dropped on the tab goes before it; GPUI marks that with a 2px left border. -->
+          <Border x:Name="PART_InsertMarker" Classes="uikit-dock-insert"
+                  Width="2" HorizontalAlignment="Left" IsHitTestVisible="False" />
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^:nth-child(1)">
+      <Setter Property="BorderThickness" Value="0,0,1,0" />
+    </Style>
+    <Style Selector="^:pointerover">
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.TabActiveForeground}" />
+    </Style>
+    <Style Selector="^:selected">
+      <Setter Property="Background" Value="{DynamicResource UIKit.TabActive}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.TabActiveForeground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Border}" />
+    </Style>
+    <!--
+      tab_panel.rs drag_over: the drop target tab paints a 2px left border (the
+      insertion line, which the marker draws) and no right border, without laying
+      the tab out again.
+    -->
+    <Style Selector="^.uikit-drop-target">
+      <Setter Property="BorderBrush" Value="Transparent" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

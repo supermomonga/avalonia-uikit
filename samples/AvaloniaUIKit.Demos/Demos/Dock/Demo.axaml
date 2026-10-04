@@ -1,0 +1,41 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="AvaloniaUIKit.Demos.DockDemo">
+  <DockControl Width="640" Height="360" InitializeLayout="True" InitializeFactory="True">
+    <DockControl.Factory>
+      <Factory />
+    </DockControl.Factory>
+    <RootDock Id="Root" IsCollapsable="False" DefaultDockable="{Binding #Main}">
+      <ProportionalDock x:Name="Main" Id="Main" Orientation="Vertical">
+        <ProportionalDock Id="Top" Orientation="Horizontal">
+          <ToolDock Id="Left" Proportion="0.35" Alignment="Left" ActiveDockable="{Binding #Explorer}">
+            <Tool x:Name="Explorer" Id="Explorer" Title="Explorer">
+              <TextBlock Text="Explorer" Margin="16" />
+            </Tool>
+            <Tool Id="Search" Title="Search">
+              <TextBlock Text="Search" Margin="16" />
+            </Tool>
+          </ToolDock>
+          <ProportionalDockSplitter />
+          <DocumentDock Id="Documents" ActiveDockable="{Binding #Editor}">
+            <Document x:Name="Editor" Id="Editor" Title="Editor">
+              <TextBlock Text="Editor" Margin="16" />
+            </Document>
+            <Document Id="Readme" Title="README.md">
+              <TextBlock Text="README.md" Margin="16" />
+            </Document>
+          </DocumentDock>
+        </ProportionalDock>
+        <ProportionalDockSplitter />
+        <ToolDock Id="Bottom" Proportion="0.35" Alignment="Bottom" ActiveDockable="{Binding #Terminal}">
+          <Tool x:Name="Terminal" Id="Terminal" Title="Terminal">
+            <TextBlock Text="Terminal" Margin="16" />
+          </Tool>
+          <Tool Id="Problems" Title="Problems">
+            <TextBlock Text="Problems" Margin="16" />
+          </Tool>
+        </ToolDock>
+      </ProportionalDock>
+    </RootDock>
+  </DockControl>
+</UserControl>

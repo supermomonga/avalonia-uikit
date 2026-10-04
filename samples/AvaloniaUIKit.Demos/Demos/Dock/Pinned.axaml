@@ -1,0 +1,24 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="AvaloniaUIKit.Demos.DockPinned">
+  <DockControl Width="640" Height="280" InitializeLayout="True" InitializeFactory="True">
+    <DockControl.Factory>
+      <Factory />
+    </DockControl.Factory>
+    <RootDock Id="Root" IsCollapsable="False" DefaultDockable="{Binding #Center}">
+      <RootDock.LeftPinnedDockables>
+        <Tool Id="Outline" Title="Outline">
+          <TextBlock Text="Outline" Margin="16" />
+        </Tool>
+        <Tool Id="Git" Title="Source Control">
+          <TextBlock Text="Source Control" Margin="16" />
+        </Tool>
+      </RootDock.LeftPinnedDockables>
+      <ToolDock x:Name="Center" Id="Center" ActiveDockable="{Binding #Editor}">
+        <Tool x:Name="Editor" Id="Editor" Title="Editor">
+          <TextBlock Text="Editor" Margin="16" />
+        </Tool>
+      </ToolDock>
+    </RootDock>
+  </DockControl>
+</UserControl>

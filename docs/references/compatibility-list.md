@@ -1,18 +1,18 @@
 # GPUI Kit → Avalonia コンポーネント対応表
 
-調査日: 2026-09-11（固定点の更新: 2026-10-03）
+調査日: 2026-09-11（固定点の更新: 2026-10-03、サードパーティのライブラリの追加: 2026-10-05）
 
 ## 結論
 
 GPUI Kit の見た目を、Avalonia の既存コントロールに適用するテーマとして移植することは可能。配色だけでなく、`ControlTheme` と `ControlTemplate` を差し替えることで、余白、輪郭、内部の配置、状態表示、アニメーションも変更できる。ただし、**対応する既存コントロールの機能が上限**となる。
 
-ボタン、入力欄、選択欄、タブ、メニュー、カレンダー、一覧、表、通知などは対象にできる。標準に存在しないコンポーネントのうち、見た目が中心で小さく作れるもの（Badge、Tag、Alert など）は新しいコントロールとして実装する（ADR 19）。標準を超える検索・選択・ドッキング・編集機能や、モーダル・可視化の仕組みは実装しない。対応表の「部分対応」は、記載した部分だけをテーマ化する意味であり、残りの機能を後から自作する予定を意味しない。
+ボタン、入力欄、選択欄、タブ、メニュー、カレンダー、一覧、表、通知などは対象にできる。標準に存在しないコンポーネントのうち、見た目が中心で小さく作れるもの（Badge、Tag、Alert など）は新しいコントロールとして実装する（ADR 19）。標準を超える検索・選択・ドッキング・編集機能や、モーダル・可視化の仕組みは実装しない。ただし、ドッキングと D&D で並べ替えるタブは、それを持つサードパーティのライブラリ（Dock.Avalonia、Tabalonia）を使う人のために、別パッケージのテーマとして対応する（ADR 28）。対応表の「部分対応」は、記載した部分だけをテーマ化する意味であり、残りの機能を後から自作する予定を意味しない。
 
-この資料はもともと、移植範囲を決めるためのソース・資料調査として作った。その後、「対応」の 16 行と「部分対応」の 34 行（DataTable は `TableView` と DataGrid の 2 行）をテーマとして、「新規実装」の 19 行を新しいコントロールとして実装し、GPUI Kit との一致を自動テストで検証した（[実装状況](#実装状況)）。「部分対応」の各行に書いた範囲と対象外は、実装後もそのまま有効である。見た目だけのコードを認めた方針の改定（ADR 15）で対象に戻した動き（タブのインジケーター、自然高の reveal など）は、行の説明も改めた。
+この資料はもともと、移植範囲を決めるためのソース・資料調査として作った。その後、「対応」の 16 行と「部分対応」の 34 行（DataTable は `TableView` と DataGrid の 2 行）をテーマとして、「新規実装」の 19 行を新しいコントロールとして、サードパーティのライブラリの 2 行を別パッケージのテーマとして実装し、GPUI Kit との一致を自動テストで検証した（[実装状況](#実装状況)）。「部分対応」の各行に書いた範囲と対象外は、実装後もそのまま有効である。見た目だけのコードを認めた方針の改定（ADR 15）で対象に戻した動き（タブのインジケーター、自然高の reveal など）は、行の説明も改めた。
 
 ## 実装状況
 
-2026-10-04 時点。「対応」と「部分対応」の全 50 行と「新規実装」の 19 行を実装し、GPUI Kit `2c5162f` が描いた参照データと比べて、Light / Dark、各 Variant・サイズ・状態、動きが一致することを自動テストで確かめた。本体のコントロールは `UIKitTheme`（`src/AvaloniaUIKit`）、公式の別パッケージのコントロールは別のアセンブリ（`src/AvaloniaUIKit.ColorPicker`、`src/AvaloniaUIKit.DataGrid`。ADR 16）にある。全 3586 件のテストが成功している。検証の方法、許容値、緩和 ID の意味、利用側の約束は [テストと一致検証](../testing.md) にまとめた。
+2026-10-05 時点。「対応」と「部分対応」の全 50 行、「新規実装」の 19 行、サードパーティのライブラリの 2 行を実装し、GPUI Kit `2c5162f` が描いた参照データと比べて、Light / Dark、各 Variant・サイズ・状態、動きが一致することを自動テストで確かめた。本体のコントロールは `UIKitTheme`（`src/AvaloniaUIKit`）、公式の別パッケージのコントロールは別のアセンブリ（`src/AvaloniaUIKit.ColorPicker`、`src/AvaloniaUIKit.DataGrid`。ADR 16）、サードパーティのライブラリのテーマはそのライブラリごとのアセンブリ（`src/AvaloniaUIKit.Tabalonia`、`src/AvaloniaUIKit.Dock`。ADR 28）にある。全 3949 件のテストが成功している。検証の方法、許容値、緩和 ID の意味、利用側の約束は [テストと一致検証](../testing.md) にまとめた。
 
 ### 対応
 
@@ -57,7 +57,7 @@ GPUI Kit の見た目を、Avalonia の既存コントロールに適用する�
 | Table | `TableView`（`Theme="{StaticResource UIKitTable}"`） | 22 | – | – | `TableFooter` / `TableCaption` |
 | DataTable | `TableView` | 44 | – | – | ソート、列の移動・固定、セル範囲選択、無限読み込み。右クリックした行の枠（Avalonia は右ボタンで行を選択する） |
 | VirtualList | `ListBox`、`VirtualizingStackPanel` | 12 | – | – | スクロールハンドル、二次元の仮想化 |
-| Tabs / TabBar / Tab | `TabStrip`、`TabControl` | 100 | pill / segmented / underline のインジケーター、途中で戻したとき（`TabControl` も） | R8 | タブを閉じる操作、D&D |
+| Tabs / TabBar / Tab | `TabStrip`、`TabControl` | 100 | pill / segmented / underline のインジケーター、途中で戻したとき（`TabControl` も） | R8 | タブを閉じる操作、D&D（どちらも Tabalonia のテーマで対応） |
 | Accordion | `Expander`、`StackPanel Classes="accordion"` | 32 | 開く・閉じる・途中で戻したとき | R8 | 常に 1 項目だけを開く排他制御 |
 | Collapsible | `Expander`（`Theme="{StaticResource UIKitCollapsible}"`） | 16 | 開く・閉じる・即時・途中で戻したとき | R8 | – |
 | Carousel | `Carousel`、`PipsPager Classes="carousel"` | 22 | 次・前のページ送り（`uikit:SpringSlide`） | R8 | ページ番号での複数ページ飛び、途中での反転、ループ、ドラッグ・ホイール |
@@ -102,12 +102,21 @@ Avalonia に対応するコントロールがないため、新しいコント�
 | Bubble | `uikit:Bubble` | 28 | – | – | リアクションに置く Button の自動の丸め |
 | Message / MessageGroup | `uikit:Message` | 10 | – | – | MessageGroup（StackPanel の Spacing 8 で同じ）、ヘッダー・フッターの inset の個別指定 |
 
+### サードパーティのライブラリ
+
+そのライブラリを使う人のための別パッケージにある（ADR 28）。パッケージは 1 つの版（Tabalonia 12.0.0、Dock.Avalonia 12.1.0.6）に固定する。
+
+| GPUI Kit | Avalonia | 静止ケース | 動き（フレームごとの比較） | 固有の緩和 | 対象外とした機能 |
+| --- | --- | --- | --- | --- | --- |
+| Tabs / TabBar / Tab | Tabalonia の `TabsControl`、`DragTabItem`（`UIKitTabaloniaTheme`） | 172 | pill / segmented / underline のインジケーター。ドラッグしたタブにはばねなしで付いていく | R8 | 文字の幅に合わせたタブの幅（Tabalonia はすべてのタブを `TabItemWidth` の 1 つの幅に並べる）、並べ替え先の挿入線（Tabalonia はドラッグ中にその場で並べ替える） |
+| Dock / DockArea / Panel / TabPanel | Dock.Avalonia の `DockControl` と各部品（`UIKitDockTheme`） | 26 | – | R5、R35、R36 | グループのズーム、左右・下のドックの開閉ボタン。浮いたウィンドウとピン留めの帯は GPUI にないので、GPUI の部品で描くが比べていない。Dock.Avalonia が trim 非対応なので NativeAOT は保証しない |
+
 ### 共通
 
 - 全コンポーネントに共通の緩和: R1（文字のラスタライズ）、R2（縁の AA）、R3（影）、R4（アイコン）、R7（仮想時計がない）、R9（レイアウトの丸め）、R11（色の量子化）、R13（システムフォント）、R14（参照データは macOS で生成）、R15（参照生成器の時計パッチ）、R17（rem は 16 固定）。
 - 静止ケースはすべて Light / Dark の両方で比べる（Tooltip のサイズ違いを除く）。テーマを FluentTheme の上に重ねても同じ見た目になることも確かめている。
 - テーマの既定フォントはシステム UI フォント。検証は同梱の Inter で行っている（R13）。
-- NativeAOT で publish したギャラリー（`samples/AvaloniaUIKit.AotSmoke`）で、DataGrid を除く全コントロール（新規実装を含む）が警告なしにビルドでき、描画できることを確かめている。
+- NativeAOT で publish したギャラリー（`samples/AvaloniaUIKit.AotSmoke`）で、DataGrid と Dock を除く全コントロール（新規実装と Tabalonia を含む）が警告なしにビルドでき、描画できることを確かめている。
 - テーマで書けない見た目と動きは、見た目だけを動かす Behavior と値変換で補った（ADR 15、ADR 17）。一覧は [テストと一致検証](../testing.md#見た目だけのコード) にある。
 
 ## 調査対象と判定基準
@@ -126,7 +135,8 @@ Avalonia に対応するコントロールがないため、新しいコント�
 | --- | --- |
 | Avalonia 本体 | `Avalonia.Controls` と標準の描画・レイアウト・アニメーション機構。テーマの基本対象。`Primitives`、`Notifications`、`Chrome` 名前空間の公開型も含む。 |
 | 公式の別パッケージ | `Avalonia.Controls.ColorPicker`、`Avalonia.Controls.DataGrid`。既存コントロールへのテーマ適用は可能だが、追加参照が必要なため別表に記載する。 |
-| 本体・上記の公式別パッケージにないもの | 原則として非対応。見た目が中心で小さく作れるものだけ、新規実装として新しいコントロールを作る（ADR 19）。FluentAvalonia、第三者製コントロール、Avalonia Pro の Charts / TreeDataGrid / Markdown 等を導入して対象を広げない。公式サイトに紹介ページがあることだけでは、本体標準とは判定しない。 |
+| サードパーティのライブラリ | Tabalonia、Dock.Avalonia。本体が依存しない別パッケージ（`AvaloniaUIKit.Tabalonia`、`AvaloniaUIKit.Dock`）で、ライブラリの 1 つの版に固定してテーマを付ける（2026-10-05 に追加。ADR 28）。ライブラリのテンプレートの約束に GPUI の部品を置けないところだけ、パッケージにコントロールを足す（ADR 29）。 |
+| 本体・上記のパッケージにないもの | 原則として非対応。見た目が中心で小さく作れるものだけ、新規実装として新しいコントロールを作る（ADR 19）。FluentAvalonia、上記以外の第三者製コントロール、Avalonia Pro の Charts / TreeDataGrid / Markdown 等を導入して対象を広げない。公式サイトに紹介ページがあることだけでは、本体標準とは判定しない。 |
 
 判定は **対応**、**部分対応**、**新規実装**、**非対応** の四つ。前二つは既存のコントロールのテーマ、新規実装は新しいコントロール（2026-10-04 に追加。ADR 19）、最後が対象外となる。
 
@@ -181,7 +191,7 @@ Avalonia に対応するコントロールがないため、新しいコント�
 
 | GPUI Kit | 判定 | Avalonia の対応先 | テーマで移植する範囲／対象外 |
 | --- | --- | --- | --- |
-| [Tabs / TabBar / Tab][gp-tabs] | 部分対応 | [`TabControl`][av-tabs] / `TabItem`、[`TabStrip`][av-tabstrip] / `TabStripItem` | タブと内容を持つ場合は `TabControl`、選択列だけなら `TabStrip`。下線・pill・segment 等の外観。選択に付いていくインジケーターは、見た目だけを動かす Behavior（`Tabs.Indicator`）で GPUI と同じばねで動かす（2026-10-03 の方針改定後）。タブの閉じる処理、D&D 移動、GPUI のメニュー API は追加しない。 |
+| [Tabs / TabBar / Tab][gp-tabs] | 部分対応 | [`TabControl`][av-tabs] / `TabItem`、[`TabStrip`][av-tabstrip] / `TabStripItem` | タブと内容を持つ場合は `TabControl`、選択列だけなら `TabStrip`。下線・pill・segment 等の外観。選択に付いていくインジケーターは、見た目だけを動かす Behavior（`Tabs.Indicator`）で GPUI と同じばねで動かす（2026-10-03 の方針改定後）。タブの閉じる処理、D&D 移動、GPUI のメニュー API は追加しない（閉じる操作と D&D は [Tabalonia のテーマ](#サードパーティのライブラリに対応するもの)で対応する）。 |
 | [Accordion / AccordionItem][gp-accordion] | 部分対応 | [`Expander`][av-expander] | 個々の開閉項目、見出し、境界線、矢印。複数の Expander は独立に開閉する。常に一項目だけを開く Accordion 全体の排他制御は非対応。 |
 | [Collapsible][gp-collapsible] | 部分対応 | `Expander` | 一つの領域を展開・折り畳みする表示。GPUI の自然高を測定した可逆なばねアニメーション（`MotionReveal`）は、内容を自然な高さで測る `Canvas` と表示専用の値変換（`RevealConverters`）、`Motion.Spring` で再現する（2026-10-03 の方針改定後）。Accordion の各項目も同じ。 |
 | [Carousel][gp-carousel] | 部分対応 | [`Carousel`][av-carousel]、`PipsPager` | ページ表示と `PageTransition`、標準の `IsSwipeEnabled` / `ViewportFraction` / `WrapSelection` を使用。ページ送りは `PageSlide` の派生（`uikit:SpringSlide`）で、GPUI と同じく 2 ページを 16px 離してばねで動かす。隣接ページの表示と循環も 12.1.3 の既存機能内で扱う。GPUI の任意の item 幅、トラックレイアウト、トラックパッドの慣性・スナップ規則の一致は保証しない。 |
@@ -249,16 +259,24 @@ Avalonia に対応するコントロールがないコンポーネントのう�
 | [Bubble][gp-bubble] と子部品 | 新規実装（第 2 弾） | `Bubble` | メッセージの吹き出しと reaction 領域。 |
 | [Message][gp-message] / MessageGroup と子部品 | 新規実装（第 2 弾） | `Message`、`MessageGroup` | アバター・ヘッダー・本文・フッターの配置と左右の寄せ。会話の末尾への追従（MessageScroller）は対象外。 |
 
+## サードパーティのライブラリに対応するもの
+
+Avalonia に対応先のない機能のうち、それを持つ広く使われたライブラリがあるものは、そのライブラリを使う人のためのテーマを別パッケージにする（2026-10-05 に決定。ADR 28）。本体のテーマはライブラリに依存しない。パッケージはライブラリの 1 つの版に固定し、その版のテンプレートを GPUI の見た目に書き換える。ライブラリのテンプレートの約束に GPUI の部品を置けないところだけ、パッケージに新しいコントロールを足す（ADR 29）。
+
+| GPUI Kit | 判定 | ライブラリ | テーマで移植する範囲／制約 |
+| --- | --- | --- | --- |
+| [Tabs / TabBar / Tab][gp-tabs] | 部分対応 | [Tabalonia][td-tabalonia] 12.0.0 の `TabsControl` / `DragTabItem`（`AvaloniaUIKit.Tabalonia`） | Tabs の 5 種類と 4 サイズ、インジケーター、閉じるボタン、追加ボタン、前後の内容、溢れたタブのスクロール、タブを並べた一覧のメニュー（`TabsMenuButton`）。ドラッグでの並べ替えと別ウィンドウへの切り離しは Tabalonia のもの。Tabalonia はすべてのタブを 1 つの幅に並べるので、GPUI の文字の幅に合わせたタブは表せない。 |
+| [Dock][gp-dock] / DockArea / Panel / TabPanel | 部分対応 | [Dock.Avalonia][td-dock] 12.1.0.6 の `DockControl` と各部品（`AvaloniaUIKit.Dock`） | タブバーとツールバーのメニュー、1 つだけのパネルのタイトルバー、場所を取らない分割のハンドル、ドラッグ中のドロップ先（GPUI と同じ 35% / 30% / 35% の区分）とプレビュー、閉じるボタン。ドッキング、浮いたウィンドウ、ピン留め、配置の保存・復元は Dock.Avalonia のもの。Dock.Avalonia が trim 非対応なので NativeAOT は保証しない。 |
+
 ## 対応する標準コンポーネントがないもの
 
-以下は非対応。モーダル、検索、ドッキング、編集、可視化などの仕組みそのものが要り、新しいコントロールを足しても小さく収まらない（ADR 19）。対応済みのボタン・文字等をアプリ側で使った結果として外観の一部が揃うことは、ここでのコンポーネント対応には数えない。
+以下は非対応。モーダル、検索、編集、可視化などの仕組みそのものが要り、新しいコントロールを足しても小さく収まらない（ADR 19）。対応済みのボタン・文字等をアプリ側で使った結果として外観の一部が揃うことは、ここでのコンポーネント対応には数えない。
 
 | GPUI Kit | 非対応とする理由 |
 | --- | --- |
 | [Dialog][gp-dialog] / [AlertDialog][gp-alert-dialog] と子部品 | 同一画面内のモーダル、背景 overlay、標準アクションを備えた対応コントロールがない。`Window.ShowDialog` は別ウィンドウであり、Popover 用 Popup も同等のモーダル機構ではない。 |
 | [Attachment][gp-attachment] と子部品 | 添付ファイルの preview・metadata・actions・状態表示という専用の構成がない。アップロード状態の管理もテーマの範囲外。 |
 | [Command][gp-command] / CommandGroup / CommandItem | コマンドパレットとしての検索・項目管理・キー表示を持つ標準型がない。標準 `CommandBar` はツールバーであり対応先ではない。 |
-| [Dock][gp-dock] / DockArea / Panel / TabPanel | ドッキング、タブの移動、分離、配置の保存・復元を持つ標準型がない。標準 `DockPanel` は子を辺に配置するレイアウトであり、ドッキング機構ではない。 |
 | [Editor][gp-editor] | シンタックスハイライト、LSP、折り畳み、補完、巨大テキストの編集エンジンは TextBox のテーマでは追加できない。 |
 | [MessageScroller][gp-message-scroller] | 会話の末尾追従・アンカー保持を管理する専用型がない。通常の ScrollViewer のテーマに追従処理は追加しない。 |
 | [OtpInput][gp-otp-input] | 複数桁に分離した入力欄、貼り付け時の配分、桁間移動の標準型がない。MaskedTextBox と同一視しない。 |
@@ -335,7 +353,7 @@ Avalonia に対応するコントロールがないコンポーネントのう�
 
 ## 根拠の参照方法
 
-各 GPUI 名のリンクは調査 commit のドキュメント、Avalonia 型名のリンクは `12.1.3` のソースを指す。別リポジトリの `Avalonia.Controls.DataGrid` には `12.1.3` がないため、本体 `12.1.0` 以上に依存する最新版 `12.1.2` を指す。機能の有無はこの固定ソースを優先し、更新される公式資料とは区別する。対象版または「標準」の範囲が変わった場合は、とくに TableView、DrawerPage、Carousel、ComboBox、ウィンドウ装飾、公式別パッケージを再判定する。
+各 GPUI 名のリンクは調査 commit のドキュメント、Avalonia 型名のリンクは `12.1.3` のソースを指す。別リポジトリの `Avalonia.Controls.DataGrid` には `12.1.3` がないため、本体 `12.1.0` 以上に依存する最新版 `12.1.2` を指す。サードパーティのライブラリのリンクは、パッケージが固定した版のタグを指す。機能の有無はこの固定ソースを優先し、更新される公式資料とは区別する。対象版または「標準」の範囲が変わった場合は、とくに TableView、DrawerPage、Carousel、ComboBox、ウィンドウ装飾、公式別パッケージを再判定する。
 
 [av-arc]: https://github.com/AvaloniaUI/Avalonia/blob/12.1.3/src/Avalonia.Controls/Shapes/Arc.cs
 [av-autocomplete]: https://github.com/AvaloniaUI/Avalonia/blob/12.1.3/src/Avalonia.Controls/AutoCompleteBox/AutoCompleteBox.cs
@@ -492,3 +510,5 @@ Avalonia に対応するコントロールがないコンポーネントのう�
 [gp-breadcrumb-source]: https://github.com/longbridge/gpui-kit/blob/2c5162f8c5b0c7fcec066ed53125d304c632bfe2/crates/component/src/breadcrumb.rs
 [gp-native-menu-source]: https://github.com/longbridge/gpui-kit/blob/2c5162f8c5b0c7fcec066ed53125d304c632bfe2/crates/component/src/native_menu/mod.rs
 [av-platform-settings]: https://github.com/AvaloniaUI/Avalonia/blob/12.1.3/src/Avalonia.Base/Platform/IPlatformSettings.cs
+[td-dock]: https://github.com/wieslawsoltes/Dock/tree/v12.1.0.6
+[td-tabalonia]: https://github.com/egorozh/Tabalonia/tree/v12.0.0

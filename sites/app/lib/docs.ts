@@ -61,10 +61,18 @@ function page(href: string): NavItem {
   return { title: doc.frontmatter.title, href }
 }
 
-/** The components, in alphabetical order, that are or are not new controls. */
-function componentLinks(isNew: boolean): NavItem[] {
+type Kind = "avalonia" | "new" | "third-party"
+
+/** A component's sidebar group: Avalonia's controls, the new `uikit:` controls, or a third-party library's. */
+function kindOf(entry: (typeof components)[number]): Kind {
+  if (entry.library) return "third-party"
+  return entry.status === "new" ? "new" : "avalonia"
+}
+
+/** The components of one sidebar group, in alphabetical order. */
+function componentLinks(kind: Kind): NavItem[] {
   return components
-    .filter((entry) => (entry.status === "new") === isNew)
+    .filter((entry) => kindOf(entry) === kind)
     .sort((a, b) => a.title.localeCompare(b.title, "en"))
     .map((entry) => ({
       title: entry.title,
@@ -96,9 +104,10 @@ export const docsSections: DocsSection[] = [
         title: "Components",
         items: [{ title: "Overview", href: "/components" }],
       },
-      // Themes for Avalonia's own controls, then the new `uikit:` controls.
-      { title: "Avalonia Controls", items: componentLinks(false) },
-      { title: "UIKit Controls", items: componentLinks(true) },
+      // Themes for Avalonia's own controls, the new `uikit:` controls, then third-party libraries' controls.
+      { title: "Avalonia Controls", items: componentLinks("avalonia") },
+      { title: "UIKit Controls", items: componentLinks("new") },
+      { title: "Third-party Controls", items: componentLinks("third-party") },
     ],
   },
 ]

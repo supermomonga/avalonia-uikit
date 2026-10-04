@@ -1,0 +1,74 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:core="clr-namespace:Dock.Model.Core;assembly=Dock.Model"
+                    xmlns:controls="using:Dock.Avalonia.Controls"
+                    xmlns:converters="using:Dock.Avalonia.Converters"
+                    xmlns:recycling="using:Avalonia.Controls.Recycling"
+                    x:CompileBindings="True">
+  <ControlTheme x:Key="{x:Type DragPreviewControl}" TargetType="DragPreviewControl">
+    <!--
+      GPUI Kit's DragPanelPreview (dock/tab_panel.rs): 96px wide, py_1 px_3, the
+      title in the tab foreground on the active tab color, a 1px border, the theme
+      radius, at 75%. Dock's drop status (dock, float, none) is not shown; with
+      ShowDockablePreviewOnDrag the dockable's content follows under the title.
+    -->
+    <Setter Property="Template">
+      <ControlTemplate>
+        <StackPanel>
+          <Border x:Name="PART_Card"
+                  Width="96"
+                  Padding="12,4"
+                  Opacity="0.75"
+                  Background="{DynamicResource UIKit.TabActive}"
+                  BorderBrush="{DynamicResource UIKit.Border}"
+                  BorderThickness="1"
+                  BackgroundSizing="OuterBorderEdge"
+                  CornerRadius="5.5">
+            <ContentPresenter ContentTemplate="{TemplateBinding ContentTemplate}"
+                              Content="{TemplateBinding DataContext}"
+                              Foreground="{DynamicResource UIKit.TabForeground}"
+                              TextWrapping="NoWrap"
+                              VerticalContentAlignment="Center" />
+          </Border>
+          <Border x:Name="PART_ContentHost"
+                  Margin="0,4,0,0"
+                  CornerRadius="6"
+                  ClipToBounds="True"
+                  Background="{DynamicResource UIKit.Background}"
+                  BorderBrush="{DynamicResource UIKit.Border}"
+                  BorderThickness="1"
+                  IsVisible="{TemplateBinding ShowContent}">
+            <Grid>
+              <ContentControl x:Name="PART_PreviewContentPresenter"
+                              Width="{TemplateBinding PreviewContentWidth}"
+                              Height="{TemplateBinding PreviewContentHeight}"
+                              Content="{TemplateBinding PreviewContent}"
+                              IsVisible="{Binding $parent[controls:DragPreviewControl].PreviewContent, Converter={x:Static converters:NotNullConverter.Instance}}"
+                              HorizontalAlignment="Stretch"
+                              VerticalAlignment="Stretch" />
+              <ContentControl x:Name="PART_ContentPresenter"
+                              Width="{TemplateBinding PreviewContentWidth}"
+                              Height="{TemplateBinding PreviewContentHeight}"
+                              Content="{TemplateBinding DataContext}"
+                              IsVisible="{Binding $parent[controls:DragPreviewControl].PreviewContent, Converter={x:Static converters:NotNullConverter.Instance}, ConverterParameter=Not}"
+                              recycling:ControlRecyclingDataTemplate.ControlRecycling="{Binding $parent[controls:DragPreviewControl].ControlRecycling}"
+                              HorizontalAlignment="Stretch"
+                              VerticalAlignment="Stretch">
+                <ContentControl.ContentTemplate>
+                  <recycling:ControlRecyclingDataTemplate Parent="{Binding #PART_ContentPresenter}" />
+                </ContentControl.ContentTemplate>
+              </ContentControl>
+            </Grid>
+          </Border>
+        </StackPanel>
+      </ControlTemplate>
+    </Setter>
+
+    <Setter Property="ContentTemplate">
+      <DataTemplate DataType="core:IDockable">
+        <!-- GPUI's text at the window's 16px on its 26px line. -->
+        <TextBlock Text="{Binding Title}" FontSize="16" LineHeight="26" />
+      </DataTemplate>
+    </Setter>
+  </ControlTheme>
+</ResourceDictionary>

@@ -1,0 +1,105 @@
+<!--
+  GPUI Kit's split handle (resizable.rs, resize_handle.rs) -> ProportionalStackPanelSplitter:
+  it takes no room in the panel and straddles the boundary (DockSplitters.Straddles),
+  a 1px hairline in the border color on the next panel's first pixel, in a 9px band
+  that takes the pointer. A muted pill (3px, rounded) grows along it and fades in
+  with the handle's state: hovered 20px at 35%, pressed 28px at 60%, dragging 44px
+  at 90%, over 120ms (easing_move), as GridSplitter's (AvaloniaUIKit).
+-->
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:uikit="using:AvaloniaUIKit"
+                    xmlns:gconv="using:AvaloniaUIKit.Converters">
+  <!-- resizable.rs: the pill is drawn only while it is longer than half a pixel. -->
+  <gconv:AboveConverter x:Key="UIKitDockSplitterPillShown" Threshold="0.5" />
+
+  <ControlTheme x:Key="{x:Type ProportionalStackPanelSplitter}" TargetType="ProportionalStackPanelSplitter">
+    <Setter Property="Thickness" Value="0" />
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="ClipToBounds" Value="False" />
+    <Setter Property="uikit:DockSplitters.Straddles" Value="True" />
+    <Setter Property="uikit:Splitters.TracksDrag" Value="True" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Panel Name="PART_Band" Background="{TemplateBinding Background}">
+          <Border Name="PART_Line" Background="{DynamicResource UIKit.Border}" />
+          <Border Name="PART_Pill" Background="{DynamicResource UIKit.MutedForeground}"
+                  CornerRadius="1.5" Opacity="0" IsHitTestVisible="False">
+            <Border.IsVisible>
+              <MultiBinding Converter="{StaticResource UIKitDockSplitterPillShown}">
+                <Binding RelativeSource="{RelativeSource Self}" Path="Width" />
+                <Binding RelativeSource="{RelativeSource Self}" Path="Height" />
+              </MultiBinding>
+            </Border.IsVisible>
+            <Border.Transitions>
+              <Transitions>
+                <DoubleTransition Property="Height" Duration="0:0:0.12" Easing="0.2,0,0,1" />
+                <DoubleTransition Property="Width" Duration="0:0:0.12" Easing="0.2,0,0,1" />
+                <DoubleTransition Property="Opacity" Duration="0:0:0.12" Easing="0.2,0,0,1" />
+              </Transitions>
+            </Border.Transitions>
+          </Border>
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+
+    <!-- Between columns: the band runs 4px before and 5px after the boundary, the hairline at its centre. -->
+    <Style Selector="^.columns /template/ Panel#PART_Band">
+      <Setter Property="Margin" Value="-4,0,-5,0" />
+    </Style>
+    <Style Selector="^.columns /template/ Border#PART_Line">
+      <Setter Property="Width" Value="1" />
+      <Setter Property="HorizontalAlignment" Value="Center" />
+    </Style>
+    <Style Selector="^.columns /template/ Border#PART_Pill">
+      <Setter Property="Width" Value="3" />
+      <Setter Property="Height" Value="0" />
+      <Setter Property="HorizontalAlignment" Value="Center" />
+      <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+    <!-- Between rows: across the boundary. -->
+    <Style Selector="^.rows /template/ Panel#PART_Band">
+      <Setter Property="Margin" Value="0,-4,0,-5" />
+    </Style>
+    <Style Selector="^.rows /template/ Border#PART_Line">
+      <Setter Property="Height" Value="1" />
+      <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+    <Style Selector="^.rows /template/ Border#PART_Pill">
+      <Setter Property="Height" Value="3" />
+      <Setter Property="Width" Value="0" />
+      <Setter Property="HorizontalAlignment" Value="Center" />
+      <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+
+    <!-- The handle's states; later wins. A splitter that cannot resize shows none. -->
+    <Style Selector="^[IsResizingEnabled=True]:pointerover /template/ Border#PART_Pill">
+      <Setter Property="Opacity" Value="0.35" />
+    </Style>
+    <Style Selector="^.columns[IsResizingEnabled=True]:pointerover /template/ Border#PART_Pill">
+      <Setter Property="Height" Value="20" />
+    </Style>
+    <Style Selector="^.rows[IsResizingEnabled=True]:pointerover /template/ Border#PART_Pill">
+      <Setter Property="Width" Value="20" />
+    </Style>
+    <Style Selector="^[IsResizingEnabled=True]:pressed /template/ Border#PART_Pill">
+      <Setter Property="Opacity" Value="0.6" />
+    </Style>
+    <Style Selector="^.columns[IsResizingEnabled=True]:pressed /template/ Border#PART_Pill">
+      <Setter Property="Height" Value="28" />
+    </Style>
+    <Style Selector="^.rows[IsResizingEnabled=True]:pressed /template/ Border#PART_Pill">
+      <Setter Property="Width" Value="28" />
+    </Style>
+    <Style Selector="^[IsResizingEnabled=True][(uikit|Splitters.IsDragging)=True] /template/ Border#PART_Pill">
+      <Setter Property="Opacity" Value="0.9" />
+    </Style>
+    <Style Selector="^.columns[IsResizingEnabled=True][(uikit|Splitters.IsDragging)=True] /template/ Border#PART_Pill">
+      <Setter Property="Height" Value="44" />
+    </Style>
+    <Style Selector="^.rows[IsResizingEnabled=True][(uikit|Splitters.IsDragging)=True] /template/ Border#PART_Pill">
+      <Setter Property="Width" Value="44" />
+    </Style>
+  </ControlTheme>
+
+</ResourceDictionary>

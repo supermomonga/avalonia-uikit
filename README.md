@@ -9,19 +9,23 @@ Avalonia themes and controls based on the Nova style of
 - `UIKitTheme` restyles Avalonia's own controls (Button, TextBox, ComboBox,
   Calendar, Tabs, Menus, ScrollViewer and 40 more) and adds the small
   components Avalonia lacks (Badge, Tag, Alert, Avatar, Stepper, Form and
-  others). Optional packages cover `ColorPicker` and `DataGrid`.
+  others). Optional packages cover `ColorPicker` and `DataGrid`, and the
+  third-party libraries [Tabalonia](https://github.com/egorozh/Tabalonia)
+  (draggable tabs) and [Dock.Avalonia](https://github.com/wieslawsoltes/Dock)
+  (docking layouts).
 - Colors come in GPUI Kit's Default Light and Default Dark and in the 36 color
   themes GPUI Kit bundles (Aurora, Ayu, Catppuccin, Tokyo Night and others),
   chosen as theme variants (`UIKitThemeVariants`).
 - Every theme is verified pixel by pixel, frame by frame, against renders of
-  GPUI Kit itself (3,500+ automated cases, `docs/testing.md`).
-- No reflection; NativeAOT and trimming are supported.
+  GPUI Kit itself (3,700+ automated cases, `docs/testing.md`).
+- No reflection; NativeAOT and trimming are supported (except where a
+  dependency is not trimmable: DataGrid, Dock.Avalonia).
 
 ## Repository
 
 | Path | Contents |
 | --- | --- |
-| `src/` | The theme and controls (`AvaloniaUIKit`), `AvaloniaUIKit.ColorPicker`, `AvaloniaUIKit.DataGrid` |
+| `src/` | The theme and controls (`AvaloniaUIKit`), `AvaloniaUIKit.ColorPicker`, `AvaloniaUIKit.DataGrid`, `AvaloniaUIKit.Tabalonia`, `AvaloniaUIKit.Dock` |
 | `samples/` | A NativeAOT gallery, the site's demos, the preview renderer and the browser (WebAssembly) app |
 | `sites/` | The documentation site (HonoX, Cloudflare Workers) — see `docs/site.md` |
 | `tests/` | The comparison tests against GPUI Kit's reference renders |

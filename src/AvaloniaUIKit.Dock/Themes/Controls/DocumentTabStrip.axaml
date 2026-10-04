@@ -1,0 +1,278 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:dmc="using:Dock.Model.Controls"
+                    xmlns:core="using:Dock.Model.Core"
+                    xmlns:converters="using:Dock.Avalonia.Converters"
+                    x:DataType="dmc:IDocumentDock"
+                    x:CompileBindings="True">
+  <Design.PreviewWith>
+    <Border Padding="20">
+      <DocumentTabStrip>
+        <DocumentTabStripItem>Item 1</DocumentTabStripItem>
+        <DocumentTabStripItem>Item 2</DocumentTabStripItem>
+        <DocumentTabStripItem IsEnabled="False">Disabled</DocumentTabStripItem>
+      </DocumentTabStrip>
+    </Border>
+  </Design.PreviewWith>
+
+  <!-- The create button: a ghost xsmall button with the Plus icon, in the tab bar's toolbar. -->
+  <ControlTheme x:Key="ButtonCreateDocument" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+    <Setter Property="Width" Value="20" />
+    <Setter Property="Height" Value="20" />
+    <Setter Property="Padding" Value="0" />
+    <Setter Property="BorderThickness" Value="0" />
+    <Setter Property="CornerRadius" Value="6" />
+    <Setter Property="Background" Value="{DynamicResource UIKit.Button.Ghost.Normal.Background}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Ghost.Normal.Foreground}" />
+    <Style Selector="^:pointerover">
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Ghost.Hover.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Ghost.Hover.Foreground}" />
+    </Style>
+    <Style Selector="^:pressed">
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Ghost.Pressed.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Ghost.Pressed.Foreground}" />
+    </Style>
+  </ControlTheme>
+
+  <DataTemplate x:Key="DockDefaultDocumentCreateButtonTemplate" x:DataType="dmc:IDocumentDock">
+    <Button Command="{Binding CreateDocument}"
+            Theme="{Binding $parent[DocumentTabStrip].CreateButtonTheme}">
+      <PathIcon Classes="xsmall" Data="{DynamicResource UIKit.Icon.Plus}" />
+    </Button>
+  </DataTemplate>
+
+  <!--
+    The dock's tab close button (tab_panel.rs): xsmall (20px, a 12px icon) in a
+    custom variant, the secondary foreground on nothing, the secondary hover and
+    active colors under the pointer.
+  -->
+  <ControlTheme x:Key="DocumentCloseButtonTheme" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+    <Setter Property="Width" Value="20" />
+    <Setter Property="Height" Value="20" />
+    <Setter Property="Padding" Value="0" />
+    <Setter Property="BorderThickness" Value="0" />
+    <Setter Property="CornerRadius" Value="6" />
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.SecondaryForeground}" />
+    <Style Selector="^:pointerover">
+      <Setter Property="Background" Value="{DynamicResource UIKit.SecondaryHover}" />
+    </Style>
+    <Style Selector="^:pressed">
+      <Setter Property="Background" Value="{DynamicResource UIKit.SecondaryActive}" />
+    </Style>
+  </ControlTheme>
+
+  <DataTemplate x:Key="DockDefaultDocumentCloseTemplate" x:DataType="core:IDockable">
+    <Button Command="{Binding Owner.Factory.CloseDockable}"
+            CommandParameter="{Binding}"
+            Theme="{Binding $parent[DocumentTabStrip].CloseButtonTheme}">
+      <Button.IsVisible>
+        <MultiBinding Converter="{x:Static BoolConverters.And}">
+          <MultiBinding Converter="{x:Static converters:DockCapabilityConverters.CanCloseMultiConverter}">
+            <Binding />
+            <Binding Path="CanClose" />
+            <Binding Path="DockCapabilityOverrides.CanClose" />
+            <Binding Path="((core:IDock)Owner).DockCapabilityPolicy.CanClose" />
+          </MultiBinding>
+          <MultiBinding Converter="{x:Static converters:CanRemoveDockableConverter.Instance}">
+            <Binding Path="((core:IDock)Owner).CanCloseLastDockable" FallbackValue="{x:True}" />
+            <Binding Path="((core:IDock)Owner).VisibleDockables.Count" FallbackValue="0" />
+          </MultiBinding>
+          <MultiBinding Converter="{x:Static converters:DocumentCloseButtonVisibilityConverter.Instance}">
+            <Binding Path="((dmc:IDocumentDock)Owner).CloseButtonShowMode" FallbackValue="Always" />
+            <Binding Path="$parent[DocumentTabStripItem].IsSelected" />
+          </MultiBinding>
+        </MultiBinding>
+      </Button.IsVisible>
+
+      <PathIcon Classes="xsmall" Data="{DynamicResource UIKit.Icon.Close}" />
+    </Button>
+  </DataTemplate>
+
+  <!--
+    GPUI Kit's tab panel menu (the toolbar's ellipsis button) for a document dock:
+    the active document's float and close commands, as its tab's context menu has them.
+  -->
+  <MenuFlyout x:Key="UIKitDocumentDockMenu" Placement="BottomEdgeAlignedRight">
+    <MenuItem Header="{DynamicResource DocumentTabStripItemFloatString}"
+              Command="{Binding Factory.FloatDockable}"
+              CommandParameter="{Binding ActiveDockable}">
+      <MenuItem.IsVisible>
+        <MultiBinding Converter="{x:Static converters:DockCapabilityConverters.CanFloatMultiConverter}">
+          <Binding Path="ActiveDockable" />
+          <Binding Path="ActiveDockable.CanFloat" />
+          <Binding Path="ActiveDockable.DockCapabilityOverrides.CanFloat" />
+          <Binding Path="DockCapabilityPolicy.CanFloat" />
+        </MultiBinding>
+      </MenuItem.IsVisible>
+    </MenuItem>
+    <Separator />
+    <MenuItem Header="{DynamicResource DocumentTabStripItemCloseString}"
+              Command="{Binding Factory.CloseDockable}"
+              CommandParameter="{Binding ActiveDockable}">
+      <MenuItem.IsVisible>
+        <MultiBinding Converter="{x:Static converters:DockCapabilityConverters.CanCloseMultiConverter}">
+          <Binding Path="ActiveDockable" />
+          <Binding Path="ActiveDockable.CanClose" />
+          <Binding Path="ActiveDockable.DockCapabilityOverrides.CanClose" />
+          <Binding Path="DockCapabilityPolicy.CanClose" />
+        </MultiBinding>
+      </MenuItem.IsVisible>
+    </MenuItem>
+    <MenuItem Header="{DynamicResource DocumentTabStripItemCloseOtherTabsString}"
+              Command="{Binding Factory.CloseOtherDockables}"
+              CommandParameter="{Binding ActiveDockable}" />
+    <MenuItem Header="{DynamicResource DocumentTabStripItemCloseAllTabsString}"
+              Command="{Binding Factory.CloseAllDockables}"
+              CommandParameter="{Binding ActiveDockable}" />
+  </MenuFlyout>
+
+  <ControlTheme x:Key="{x:Type DocumentTabStrip}" TargetType="DocumentTabStrip">
+
+    <Setter Property="(AutomationProperties.AutomationId)" Value="{Binding Id}" />
+    <Setter Property="(AutomationProperties.Name)" Value="{Binding Title}" />
+
+    <Setter Property="(DockProperties.IsDragEnabled)" Value="{Binding CanDrag}" />
+    <Setter Property="(DockProperties.IsDropEnabled)" Value="{Binding CanDrop}" />
+
+    <Setter Property="EnableWindowDrag" Value="{Binding EnableWindowDrag}" />
+    <Setter Property="EnableWindowStateToggleOnDoubleTap"
+            Value="{DynamicResource DockDocumentTabStripToggleWindowStateOnDoubleTap}" />
+    <Setter Property="CreateButtonTheme" Value="{DynamicResource ButtonCreateDocument}" />
+    <Setter Property="CreateButtonTemplate" Value="{DynamicResource DockDefaultDocumentCreateButtonTemplate}" />
+    <Setter Property="CloseButtonTheme" Value="{DynamicResource DocumentCloseButtonTheme}" />
+    <Setter Property="CloseTemplate" Value="{DynamicResource DockDefaultDocumentCloseTemplate}" />
+    
+    <!-- As ToolTabStrip's (GPUI's dock tab bar); the create button sits in the toolbar after it. -->
+    <Setter Property="Background" Value="{DynamicResource UIKit.TabBar}" />
+    <Setter Property="Focusable" Value="False" />
+    <Setter Property="ClipToBounds" Value="False" />
+    <Setter Property="Height" Value="32" />
+    <Setter Property="ZIndex" Value="1" />
+    <Setter Property="IconTemplate">
+      <DataTemplate DataType="core:IDockable">
+        <Panel />
+      </DataTemplate>
+    </Setter>
+    <Setter Property="HeaderTemplate">
+      <DataTemplate DataType="core:IDockable">
+        <TextBlock Text="{Binding Title}" />
+      </DataTemplate>
+    </Setter>
+    <Setter Property="ModifiedTemplate">
+      <DataTemplate DataType="core:IDockable">
+        <TextBlock Text="*" />
+      </DataTemplate>
+    </Setter>
+    <Setter Property="ItemsPanel">
+      <ItemsPanelTemplate>
+        <StackPanel Orientation="Horizontal" ClipToBounds="False" />
+      </ItemsPanelTemplate>
+    </Setter>
+
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Grid ClipToBounds="False"
+              RowDefinitions="Auto,*,Auto"
+              ColumnDefinitions="Auto,*,Auto">
+          <ContentPresenter Grid.Row="0"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="3"
+                            Content="{TemplateBinding TopContent}"
+                            ContentTemplate="{TemplateBinding TopContentTemplate}" />
+          <ContentPresenter Grid.Row="1"
+                            Grid.Column="0"
+                            Content="{TemplateBinding LeftContent}"
+                            ContentTemplate="{TemplateBinding LeftContentTemplate}" />
+          <ContentPresenter Grid.Row="1"
+                            Grid.Column="2"
+                            Content="{TemplateBinding RightContent}"
+                            ContentTemplate="{TemplateBinding RightContentTemplate}" />
+          <ContentPresenter Grid.Row="2"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="3"
+                            Content="{TemplateBinding BottomContent}"
+                            ContentTemplate="{TemplateBinding BottomContentTemplate}" />
+
+          <Border Grid.Row="1"
+                  Grid.Column="1"
+                  Background="{TemplateBinding Background}"
+                  BorderBrush="{DynamicResource UIKit.Border}"
+                  BorderThickness="0,0,0,1" />
+          <DockPanel Grid.Row="1"
+                     Grid.Column="1"
+                     ClipToBounds="False">
+            <!-- GPUI's toolbar: px_2 gap_1, a left and bottom border, on the tab bar color. -->
+            <Border x:Name="PART_Toolbar"
+                    DockPanel.Dock="Right"
+                    Padding="8,0"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{DynamicResource UIKit.Border}"
+                    BorderThickness="1,0,0,1">
+              <StackPanel Orientation="Horizontal" Spacing="4" VerticalAlignment="Center">
+                <ContentControl x:Name="PART_CreateButtonHost"
+                                IsVisible="{Binding CanCreateDocument}"
+                                Content="{Binding}" />
+                <Button x:Name="PART_MenuButton"
+                        Classes="ghost xsmall icon-only"
+                        Flyout="{DynamicResource UIKitDocumentDockMenu}">
+                  <PathIcon Classes="xsmall" Data="{DynamicResource UIKit.Icon.Ellipsis}" />
+                </Button>
+              </StackPanel>
+            </Border>
+            <Panel Name="PART_Panel">
+              <ScrollViewer x:Name="PART_ScrollViewer"
+                            HorizontalScrollBarVisibility="Hidden"
+                            VerticalScrollBarVisibility="Disabled">
+                <ItemsPresenter x:Name="PART_ItemsPresenter"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Stretch"
+                                ItemsPanel="{TemplateBinding ItemsPanel}" />
+              </ScrollViewer>
+              <Border Name="PART_BorderFill"
+                      Background="Transparent"
+                      DockProperties.IsDropArea="True"
+                      DockProperties.IsDockTarget="True"
+                      DockProperties.ShowDockIndicatorOnly="True"
+                      DockProperties.IndicatorDockOperation="Fill"
+                      DockProperties.DockAdornerHost="{Binding RelativeSource={RelativeSource Self}}">
+                <Border.Margin>
+                  <MultiBinding Converter="{x:Static BorderFillMarginConverter.Instance}">
+                    <Binding Path="#PART_ItemsPresenter.Bounds.Width" />
+                    <Binding Path="#PART_ItemsPresenter.Bounds.Height" />
+                    <Binding Path="#PART_ItemsPresenter.IsVisible" />
+                    <Binding Path="#PART_ItemsPresenter.VerticalAlignment" />
+                    <Binding Path="#PART_ItemsPresenter.HorizontalAlignment" />
+                  </MultiBinding>
+                </Border.Margin>
+              </Border>
+            </Panel>
+          </DockPanel>
+        </Grid>
+      </ControlTemplate>
+    </Setter>
+
+    <Style Selector="^/template/ ContentControl#PART_CreateButtonHost">
+      <Setter Property="ContentTemplate">
+        <Binding Path="CreateButtonTemplate"
+                 RelativeSource="{RelativeSource TemplatedParent}" />
+      </Setter>
+    </Style>
+
+    <!-- GPUI's dock tab bars are horizontal; a vertical layout stacks the tabs. -->
+    <Style Selector="^[Orientation=Vertical]">
+      <Setter Property="Height" Value="NaN" />
+      <Setter Property="ItemsPanel">
+        <ItemsPanelTemplate>
+          <UniformGrid Columns="1" VerticalAlignment="Top" ClipToBounds="False" />
+        </ItemsPanelTemplate>
+      </Setter>
+    </Style>
+
+    <Style Selector="^:not(:create):empty">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+
+  </ControlTheme>
+
+</ResourceDictionary>
