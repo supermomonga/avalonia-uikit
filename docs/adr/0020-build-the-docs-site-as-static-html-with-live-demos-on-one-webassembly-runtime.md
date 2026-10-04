@@ -3,6 +3,9 @@ number: 20
 title: Build the docs site as static HTML with live demos on one WebAssembly runtime
 status: accepted
 date: 2026-10-03
+links:
+- target: 22
+  kind: amendedby
 ---
 
 # Build the docs site as static HTML with live demos on one WebAssembly runtime

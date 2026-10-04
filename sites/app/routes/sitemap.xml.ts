@@ -6,9 +6,9 @@ import { siteConfig } from "@/lib/site"
 export default createRoute((c) => {
   const paths = [
     "/",
-    "/docs/components",
     ...docPages.keys(),
-    ...components.map((entry) => `/docs/components/${entry.slug}`),
+    "/components",
+    ...components.map((entry) => `/components/${entry.slug}`),
   ]
   const urls = paths
     .map((path) => `<url><loc>${new URL(path, siteConfig.url)}</loc></url>`)

@@ -7,14 +7,31 @@ https://avalonia-uikit.omofla.sh の構成と約束事。サイト本体は `sit
 | 場所 | 役割 |
 | --- | --- |
 | `sites/` | HonoX のサイト。`@hono/vite-ssg` で静的に出力し、Cloudflare Workers の static assets として配信する。UI は shadcnui-hono-jsx（`sites/components/ui`）。 |
-| `sites/content/docs/**/*.mdx` | 手書きのページ。`sites/content/docs/components/<slug>.mdx` がコンポーネントのページ。 |
+| `sites/content/docs/*.mdx` | `/docs` 以下のガイド（Introduction、Installation など）。 |
+| `sites/content/components/<slug>.mdx` | `/components/<slug>` のコンポーネントのページ。 |
 | `sites/app/lib/catalog.ts` | コンポーネントの一覧（slug、名前、別名、Avalonia のコントロール、対応状況）。サイドバー、索引、検索、サイトマップの元。 |
 | `samples/AvaloniaUIKit.Demos/` | デモの XAML。サイトのコード例とライブデモ、プレビュー画像の共通の元。 |
-| `samples/AvaloniaUIKit.Previews/` | ヘッドレスで各デモを描き、`sites/public/previews/` に PNG と `manifest.json` を書く。OG 画像も描く。 |
+| `samples/AvaloniaUIKit.Previews/` | ヘッドレスで各デモを描き、`sites/public/previews/` に PNG と `manifest.json` を書く。 |
+| `sites/scripts/images.ts` | OG 画像（`sites/public/og.png`）とアイコンを描く。生成物はコミットする。 |
 | `samples/AvaloniaUIKit.Browser/` | `net10.0-browser` のアプリ。1 つの .NET ランタイムの上に複数の `AvaloniaView` を載せ、ページ内の `<avalonia-demo>` にデモを描く。publish の出力は `sites/public/wasm/<hash>/`（`sites/scripts/publish-wasm.sh`）。 |
 | `.github/workflows/site.yml` | main への push で、デモの publish、プレビュー生成、サイトのビルド、`wrangler deploy` を行う。 |
 
 `sites/public/previews/` と `sites/public/wasm/` は生成物なのでコミットしない。
+
+## デザインと構成
+
+構成と見た目は GPUI Kit の公式サイト（https://gpui-kit.com 、`longbridge/gpui-kit` の `website/`）にそろえる。部品は shadcnui-hono-jsx（`sites/components/ui`）を使い、その CSS 変数を GPUI Kit と同じ neutral の配色で上書きする（`sites/app/style.css`）。
+
+- **セクション:** トップ（`/`）、ガイド（`/docs`）、コンポーネント（`/components`）。ドキュメントの 2 セクションはそれぞれ自分のサイドバーを持つ（`sites/app/lib/docs.ts` の `docsSections`）。旧 URL の `/docs/components/*` は `sites/public/_redirects` で `/components/*` に転送する。
+- **トップ:** blueprint グリッドの上のヒーロー（見出し、2 つのボタン、事実の行、`App.axaml` の 1 行、コードのウィンドウ）、CAPABILITIES の 3×3 グリッド、3 パッケージのカード、PRINCIPLE の帯、フッター。数は `catalog.ts` から数え、文言はドキュメントに書かれた事実だけで組む。
+- **ドキュメント:** 1280px の中に 220px のサイドバー、本文（最大 860px）、200px の目次。見出しは等幅の大文字、本文の型は `sites/app/styles/docs.css`。ページの最初のデモ（`title` なし）は macOS 風のウィンドウに入れたライブの例、`title` 付きのデモは見出し付きの枠になる。
+- **テーマ:** ライト、ダーク、システムに従う、の 3 つ。パレット（T キー）で選び、`localStorage.theme` に `light` / `dark` を保存する（システムに従うときは消す）。
+- **フォント:** サイトはシステムフォント、デモは同梱の Inter。
+- **メタタグ:** `sites/app/routes/_renderer.tsx` が canonical、theme-color、Open Graph、X のカード、アイコン、manifest、JSON-LD（トップは `WebSite`、ほかは `WebPage` と `BreadcrumbList`）を出す。`<title>` は「Button — Components · Avalonia UIKit」の形。
+
+## OG 画像とアイコン
+
+`sites/public/og.png`（2400×1260）は、開発サーバーの `/og-image`（`sites/app/routes/og-image.tsx`、ビルドには含めない）を `sites/scripts/images.ts` が Playwright で 2 倍の解像度で撮ったもの。ロゴ、名前、タグライン、事実の行の横に、デモのプレビュー画像を並べたウィンドウを置く。アイコン（`apple-touch-icon.png`、`icon-192.png`、`icon-512.png`、`favicon.ico`）は同じスクリプトが `sites/public/logo.svg` から描く。どれもコミットし、CI では描かない。ロゴは直角だけで組んだ A で、クロスバーをテーマの青にしたもの（`logo.svg`、`logo-dark.svg`、`favicon.svg`、`site-header.tsx` の `Logo`）。
 
 ## デモ
 
@@ -34,7 +51,6 @@ https://avalonia-uikit.omofla.sh の構成と約束事。サイト本体は `sit
 
 - `sites/public/previews/<component-slug>/<name-slug>.light.png`、`.dark.png`
 - `sites/public/previews/manifest.json`: `{ "<demo id>": { "width": <論理px>, "height": <論理px> } }`
-- `--og sites/public/og.png` で 1200×630 の OG 画像も描く。
 - `--only <component-slug>` で一部だけ描く。
 
 サイトはプレビューを `<img>` として SSR し、JS なし・クローラー・モバイルでも見た目が伝わるようにする。
@@ -67,7 +83,8 @@ Browser 側の JS から呼べる関数（`[JSExport]`、クラス `AvaloniaUIKi
 | 目的 | コマンド |
 | --- | --- |
 | デモの登録を更新 | `bun sites/scripts/demo-registry.ts` |
-| プレビューと OG 画像 | `dotnet run --project samples/AvaloniaUIKit.Previews -- --out sites/public/previews --og sites/public/og.png` |
+| プレビュー | `dotnet run --project samples/AvaloniaUIKit.Previews -- --out sites/public/previews` |
+| OG 画像とアイコン | `cd sites && bun run images`（プレビューを描いてから。Playwright の Chromium が要る） |
 | WASM の publish | `sites/scripts/publish-wasm.sh`（`dotnet publish samples/AvaloniaUIKit.Browser -c Release` して `sites/public/wasm/<hash>/` に置き、`index.json` を書く。`wasm-tools` ワークロードが要る。別の SDK を使うなら `DOTNET=/path/to/dotnet`） |
 | サイトの開発 | `cd sites && bun run dev` |
 | サイトのビルド | `cd sites && bun run build`（`vite build --mode client && vite build`） |

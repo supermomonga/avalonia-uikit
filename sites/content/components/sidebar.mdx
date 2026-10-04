@@ -7,7 +7,7 @@ description: "A sidebar collapsing to icons or off canvas, as SplitView and Draw
 
 ## Usage
 
-`SplitView` carries the sidebar surface: the pane background with a 1px border on the content side, opening to `OpenPaneLength` (255 by default) and moving over 200ms. `DisplayMode` picks the collapse mode: `CompactInline` collapses to icons (the closed pane keeps `CompactPaneLength`, 48px), `Inline` collapses off canvas (closed to nothing), and `Inline` with `IsPaneOpen="True"` is a sidebar that does not collapse. Bind `IsPaneOpen` to a toggle; `PanePlacement="Right"` puts the pane on the right. The overlay modes are the [Sheet](/docs/components/sheet).
+`SplitView` carries the sidebar surface: the pane background with a 1px border on the content side, opening to `OpenPaneLength` (255 by default) and moving over 200ms. `DisplayMode` picks the collapse mode: `CompactInline` collapses to icons (the closed pane keeps `CompactPaneLength`, 48px), `Inline` collapses off canvas (closed to nothing), and `Inline` with `IsPaneOpen="True"` is a sidebar that does not collapse. Bind `IsPaneOpen` to a toggle; `PanePlacement="Right"` puts the pane on the right. The overlay modes are the [Sheet](/components/sheet).
 
 `DrawerPage` adds a header, body and footer with their paddings: `DrawerHeader`, `Drawer` and `DrawerFooter`, 12px inside (8px when collapsed to icons). `DrawerBehavior="Locked"` is the sidebar that does not collapse, `DrawerLayoutBehavior="CompactInline"` the icon mode, with the toggle button in the header, and `"Split"` the off-canvas mode; `IsOpen` opens and closes the drawer.
 

@@ -1,0 +1,25 @@
+---
+title: "Toolbar"
+description: "A toolbar of ghost buttons and separators, as CommandBar."
+---
+
+<Demo name="toolbar/demo" />
+
+## Usage
+
+The theme covers `CommandBar` with `CommandBarButton`, `CommandBarToggleButton` and `CommandBarSeparator`: a transparent row with the bar's `Content` first, then the commands. A button is a compact ghost button with an `Icon` and an optional `Label` to its right (`DefaultLabelPosition` stays `Right`), square without a label; a toggle button is a [Toggle](/components/toggle), in the accent while checked or hovered; a separator is a 20px line taking no width. Sizes: `xsmall`, the default small and `medium` (`large` is the same). The arrow keys move between the commands. The overflow button shows only for `SecondaryCommands`.
+
+## Examples
+
+`xsmall`, the default, and `medium`.
+
+<Demo name="toolbar/sizes" title="Sizes" />
+
+`IsEnabled="False"` on the bar disables every command.
+
+<Demo name="toolbar/disabled" title="Disabled" />
+
+## Not covered
+
+- Arbitrary elements and flexible spacers among the commands.
+- Named groups of commands.

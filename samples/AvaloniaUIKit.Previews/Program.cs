@@ -13,11 +13,9 @@ namespace AvaloniaUIKit.Previews;
 
 /// <summary>
 /// Renders every demo of the documentation site, light and dark at scale 2,
-/// into PNG files plus a manifest of their logical sizes, and the social
-/// image. See docs/site.md.
+/// into PNG files plus a manifest of their logical sizes. See docs/site.md.
 ///
 ///   --out &lt;dir&gt;        previews directory (sites/public/previews)
-///   --og &lt;file&gt;        also render the 1200×630 social image
 ///   --only &lt;component&gt; only the demos of one component slug
 /// </summary>
 internal static class Program
@@ -30,65 +28,55 @@ internal static class Program
 
     public static int Main(string[] args)
     {
-        string? outDir = null, ogPath = null, only = null;
+        string? outDir = null, only = null;
         for (var i = 0; i < args.Length; i++)
         {
             switch (args[i])
             {
                 case "--out": outDir = args[++i]; break;
-                case "--og": ogPath = args[++i]; break;
                 case "--only": only = args[++i]; break;
                 default:
                     Console.Error.WriteLine($"unknown argument {args[i]}");
                     return 2;
             }
         }
-        if (outDir is null && ogPath is null)
+        if (outDir is null)
         {
-            Console.Error.WriteLine("usage: --out <dir> [--og <file>] [--only <component>]");
+            Console.Error.WriteLine("usage: --out <dir> [--only <component>]");
             return 2;
         }
         using var session = HeadlessUnitTestSession.StartNew(typeof(PreviewApp));
-        return session.Dispatch(() => Run(outDir, ogPath, only), CancellationToken.None).GetAwaiter().GetResult();
+        return session.Dispatch(() => Run(outDir, only), CancellationToken.None).GetAwaiter().GetResult();
     }
 
-    private static int Run(string? outDir, string? ogPath, string? only)
+    private static int Run(string outDir, string? only)
     {
         var failures = 0;
-        if (outDir is not null)
+        var manifestPath = Path.Combine(outDir, "manifest.json");
+        var manifest = only is not null && File.Exists(manifestPath)
+            ? JsonSerializer.Deserialize(File.ReadAllText(manifestPath), ManifestContext.Default.SortedDictionaryStringPreviewSize) ?? new()
+            : new SortedDictionary<string, PreviewSize>(StringComparer.Ordinal);
+        foreach (var (id, factory) in DemoRegistry.Factories)
         {
-            var manifestPath = Path.Combine(outDir, "manifest.json");
-            var manifest = only is not null && File.Exists(manifestPath)
-                ? JsonSerializer.Deserialize(File.ReadAllText(manifestPath), ManifestContext.Default.SortedDictionaryStringPreviewSize) ?? new()
-                : new SortedDictionary<string, PreviewSize>(StringComparer.Ordinal);
-            foreach (var (id, factory) in DemoRegistry.Factories)
+            if (only is not null && !id.StartsWith(only + "/", StringComparison.Ordinal)) continue;
+            try
             {
-                if (only is not null && !id.StartsWith(only + "/", StringComparison.Ordinal)) continue;
-                try
-                {
-                    var dir = Path.Combine(outDir, id[..id.IndexOf('/')]);
-                    Directory.CreateDirectory(dir);
-                    var name = id[(id.IndexOf('/') + 1)..];
-                    var light = Render(factory(), dark: false, Path.Combine(dir, $"{name}.light.png"));
-                    var dark = Render(factory(), dark: true, Path.Combine(dir, $"{name}.dark.png"));
-                    manifest[id] = new PreviewSize(Math.Max(light.Width, dark.Width), Math.Max(light.Height, dark.Height));
-                    Console.WriteLine($"{id}: {light.Width}×{light.Height}");
-                }
-                catch (Exception e)
-                {
-                    failures++;
-                    Console.Error.WriteLine($"{id}: {e.GetType().Name}: {e.Message}");
-                }
+                var dir = Path.Combine(outDir, id[..id.IndexOf('/')]);
+                Directory.CreateDirectory(dir);
+                var name = id[(id.IndexOf('/') + 1)..];
+                var light = Render(factory(), dark: false, Path.Combine(dir, $"{name}.light.png"));
+                var dark = Render(factory(), dark: true, Path.Combine(dir, $"{name}.dark.png"));
+                manifest[id] = new PreviewSize(Math.Max(light.Width, dark.Width), Math.Max(light.Height, dark.Height));
+                Console.WriteLine($"{id}: {light.Width}×{light.Height}");
             }
-            Directory.CreateDirectory(outDir);
-            File.WriteAllText(manifestPath, JsonSerializer.Serialize(manifest, ManifestContext.Default.SortedDictionaryStringPreviewSize) + "\n");
+            catch (Exception e)
+            {
+                failures++;
+                Console.Error.WriteLine($"{id}: {e.GetType().Name}: {e.Message}");
+            }
         }
-        if (ogPath is not null)
-        {
-            Directory.CreateDirectory(Path.GetDirectoryName(Path.GetFullPath(ogPath))!);
-            RenderFixed(new OgImage(), dark: false, 1200, 630, scale: 1, ogPath);
-            Console.WriteLine($"og: {ogPath}");
-        }
+        Directory.CreateDirectory(outDir);
+        File.WriteAllText(manifestPath, JsonSerializer.Serialize(manifest, ManifestContext.Default.SortedDictionaryStringPreviewSize) + "\n");
         return failures == 0 ? 0 : 1;
     }
 
@@ -119,29 +107,11 @@ internal static class Program
         return new PreviewSize((int)width, (int)height);
     }
 
-    private static void RenderFixed(Control content, bool dark, double width, double height, double scale, string path)
-    {
-        var window = new Window
-        {
-            Width = width,
-            Height = height,
-            SizeToContent = SizeToContent.Manual,
-            CanResize = false,
-            RequestedThemeVariant = dark ? ThemeVariant.Dark : ThemeVariant.Light,
-            Content = content,
-        };
-        Prepare(window, scale);
-        window.Show();
-        Settle();
-        Capture(window, path);
-        window.Close();
-    }
-
-    private static void Prepare(Window window, double scale = Scale)
+    private static void Prepare(Window window)
     {
         TextOptions.SetTextRenderingMode(window, TextRenderingMode.Antialias);
         TextOptions.SetTextHintingMode(window, TextHintingMode.None);
-        window.SetRenderScaling(scale);
+        window.SetRenderScaling(Scale);
     }
 
     /// <summary>

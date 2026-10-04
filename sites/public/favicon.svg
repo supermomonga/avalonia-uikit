@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" style="color:#0a0a0a">
-  <!-- Avalonia UIKit: a themed control (the blue square) inside Avalonia's frame. -->
-  <style>@media (prefers-color-scheme: dark) { svg { color: #fafafa } }</style>
-  <rect x="3" y="3" width="26" height="26" rx="7" fill="none" stroke="currentColor" stroke-width="2.5" />
-  <rect x="12.5" y="12.5" width="13" height="13" rx="4" fill="#2563EB" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <!-- Avalonia UIKit: a square-cut A whose crossbar is the blue of the theme. -->
+  <style>.a{fill:#1F2023}.bar{fill:#3B82F6}@media (prefers-color-scheme: dark){.a{fill:#ECEDEF}.bar{fill:#419CFF}}</style>
+  <path class="a" d="M4 28V4h24v24h-6V9H10v19H4Z"/>
+  <path class="bar" d="M10 15h12v5H10Z"/>
 </svg>

@@ -1,10 +1,10 @@
 import { components, uncovered } from "@/lib/catalog"
-import { StatusBadge } from "./docs-page"
+import { StatusLabel } from "./docs-layout"
 
 /** Every component with its Avalonia control(s), status and optional package (lib/catalog.ts). */
 export function CompatibilityTable() {
   return (
-    <div class="typeset-scroll scroll-fade-x scrollbar-none *:[table]:w-full">
+    <div class="doc-table">
       <table>
         <thead>
           <tr>
@@ -18,7 +18,7 @@ export function CompatibilityTable() {
           {components.map((entry) => (
             <tr>
               <td>
-                <a href={`/docs/components/${entry.slug}`}>{entry.title}</a>
+                <a href={`/components/${entry.slug}`}>{entry.title}</a>
               </td>
               <td>
                 {entry.avalonia.map((control, index) => (
@@ -29,7 +29,7 @@ export function CompatibilityTable() {
                 ))}
               </td>
               <td>
-                <StatusBadge status={entry.status} />
+                <StatusLabel status={entry.status} />
               </td>
               <td>{entry.package ? <code>{entry.package}</code> : "–"}</td>
             </tr>

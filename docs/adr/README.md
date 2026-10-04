@@ -19,3 +19,4 @@
 * [19. Add controls for small GPUI Kit components that Avalonia lacks](0019-add-controls-for-small-gpui-kit-components-that-avalonia-lacks.md)
 * [20. Build the docs site as static HTML with live demos on one WebAssembly runtime](0020-build-the-docs-site-as-static-html-with-live-demos-on-one-webassembly-runtime.md)
 * [21. Name the themes after Nova and prefix resources with UIKit](0021-name-the-themes-after-nova-and-prefix-resources-with-uikit.md)
+* [22. Model the docs site on gpui-kit.com and render its social image from a site page](0022-model-the-docs-site-on-gpui-kit-com-and-render-its-social-image-from-a-site-page.md)

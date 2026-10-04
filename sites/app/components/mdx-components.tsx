@@ -1,36 +1,29 @@
-import { cn } from "cn"
+import type { Child } from "hono/jsx"
 import { Kbd } from "@/components/ui/kbd"
-import { Callout, Step, Steps } from "./callout"
+import { Callout } from "./callout"
 import { CodeBlock } from "./code-block"
 import { CompatibilityTable, UncoveredList } from "./compatibility-table"
 import { Demo } from "./demo"
 
-function LinkedCard({
-  href,
-  class: className,
-  children,
-}: {
-  href: string
-  class?: string
-  children?: unknown
-}) {
-  return (
-    <a
-      href={href}
-      data-not-typeset=""
-      class={cn(
-        "flex w-full flex-col items-center rounded-2xl bg-surface p-6 text-surface-foreground transition-colors hover:bg-surface/80 sm:p-10",
-        className
+type HeadingProps = { id?: string; children?: Child }
+
+/** A heading with a `#` link in the margin, shown on hover. */
+function heading(Tag: "h2" | "h3" | "h4") {
+  return ({ id, children }: HeadingProps) => (
+    <Tag id={id}>
+      {id && (
+        <a href={`#${id}`} class="heading-anchor" aria-hidden="true" tabindex={-1}>
+          #
+        </a>
       )}
-    >
-      {children as never}
-    </a>
+      {children}
+    </Tag>
   )
 }
 
 function Table(props: Record<string, unknown>) {
   return (
-    <div class="typeset-scroll scroll-fade-x scrollbar-none *:[table]:w-full">
+    <div class="doc-table">
       <table {...props} />
     </div>
   )
@@ -38,14 +31,14 @@ function Table(props: Record<string, unknown>) {
 
 /** Components MDX pages can use, and the elements they replace. */
 export const mdxComponents = {
+  h2: heading("h2"),
+  h3: heading("h3"),
+  h4: heading("h4"),
   table: Table,
   Callout,
   CodeBlock,
   CompatibilityTable,
   Demo,
   Kbd,
-  LinkedCard,
-  Step,
-  Steps,
   UncoveredList,
 }

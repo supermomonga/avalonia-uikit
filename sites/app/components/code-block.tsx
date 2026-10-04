@@ -1,6 +1,6 @@
 import { cn } from "cn"
 import { raw } from "hono/html"
-import { Check, Copy } from "lucide"
+import { Check, Copy, File } from "lucide"
 import { Button } from "@/components/ui/button"
 import { Icon } from "./icon"
 
@@ -14,16 +14,15 @@ export function CopyButton({
 }) {
   return (
     <Button
-      data-slot="copy-button"
       data-copy={value}
-      size="icon"
+      size="icon-xs"
       variant="ghost"
       class={cn(
-        "group/copy absolute top-3 right-2 z-10 size-7 bg-code hover:opacity-100 focus-visible:opacity-100",
+        "group/copy text-muted-foreground hover:bg-secondary hover:text-foreground",
         className
       )}
+      aria-label="Copy"
     >
-      <span class="sr-only">Copy</span>
       <Icon icon={Copy} class="group-data-copied/copy:hidden" />
       <Icon icon={Check} class="hidden group-data-copied/copy:block" />
     </Button>
@@ -45,21 +44,17 @@ export function CodeBlock({
   class?: string
 }) {
   return (
-    <figure
-      data-code-figure=""
-      data-not-typeset=""
-      data-language={language}
-      class={className}
-    >
+    <figure class={cn("code-block", className)} data-language={language}>
       {title && (
-        <figcaption
-          data-code-title=""
-          class="flex items-center gap-2 text-code-foreground"
-        >
+        <figcaption class="code-block__title">
+          <Icon icon={File} class="size-3.5" />
           {title}
         </figcaption>
       )}
-      <CopyButton value={source} class={title ? "top-1.5" : undefined} />
+      <CopyButton
+        value={source}
+        class="code-block__copy bg-code-bg data-copied:opacity-100"
+      />
       {raw(html)}
     </figure>
   )

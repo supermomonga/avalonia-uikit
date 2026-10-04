@@ -1,52 +1,61 @@
 import { siteConfig } from "@/lib/site"
 
+const links = [
+  { href: "/docs/installation", label: "Installation" },
+  { href: "/docs/theming", label: "Theming" },
+  { href: "/docs/icons", label: "Icons" },
+  { href: "/docs/compatibility", label: "Compatibility" },
+  { href: "/components", label: "Components" },
+  { href: siteConfig.links.github, label: "GitHub" },
+  { href: siteConfig.links.issues, label: "Report Bug" },
+]
+
+function Link({ href, children }: { href: string; children?: unknown }) {
+  const external = /^https?:/.test(href)
+  return (
+    <a
+      href={href}
+      class="text-muted-foreground transition-colors hover:text-foreground"
+      {...(external ? { target: "_blank", rel: "noreferrer" } : {})}
+    >
+      {children as never}
+    </a>
+  )
+}
+
+/** The footer of every page, as on gpui-kit.com: credits on the left, links on the right. */
 export function SiteFooter() {
   return (
-    <footer class="group-has-[.docs-nav]/body:pb-20 group-has-[.section-soft]/body:bg-surface/40 group-has-[[data-slot=docs]]/body:hidden group-has-[.docs-nav]/body:sm:pb-0 dark:bg-transparent dark:group-has-[.section-soft]/body:bg-surface/40 3xl:fixed:bg-transparent">
-      <div class="container-wrapper px-4 xl:px-6">
-        <div class="flex h-(--footer-height) items-center justify-between">
-          <div class="w-full px-1 text-center text-xs leading-loose text-muted-foreground sm:text-sm">
-            Built by{" "}
-            <a
-              href="https://github.com/supermomonga"
-              target="_blank"
-              rel="noreferrer"
-              class="font-medium underline underline-offset-4"
-            >
-              supermomonga
-            </a>
-            . Based on{" "}
-            <a
-              href={siteConfig.links.shadcn}
-              target="_blank"
-              rel="noreferrer"
-              class="font-medium underline underline-offset-4"
-            >
-              shadcn/ui
-            </a>{" "}
-            and{" "}
-            <a
-              href={siteConfig.links.gpuiKit}
-              target="_blank"
-              rel="noreferrer"
-              class="font-medium underline underline-offset-4"
-            >
-              GPUI Kit
-            </a>
-            . Not affiliated with shadcn, Longbridge or AvaloniaUI.
-            The source code is available on{" "}
-            <a
-              href={siteConfig.links.github}
-              target="_blank"
-              rel="noreferrer"
-              class="font-medium underline underline-offset-4"
-            >
-              GitHub
-            </a>
-            .
-          </div>
+    <footer class="layout-width mt-auto pt-24">
+      <div class="flex flex-wrap justify-between gap-x-12 gap-y-6 border-t py-10 text-[0.8125rem] leading-relaxed">
+        <div class="max-w-[30rem]">
+          <p class="mb-3 text-[0.9375rem] font-[620] tracking-[-0.015em]">
+            {siteConfig.name}
+          </p>
+          <p class="text-muted-foreground">
+            Themes and controls for <Link href={siteConfig.links.avalonia}>Avalonia</Link>,
+            by <Link href={siteConfig.links.author}>supermomonga</Link>.
+          </p>
+          <p class="mt-2 text-muted-foreground">
+            Modeled on the Nova style of{" "}
+            <Link href={siteConfig.links.shadcn}>shadcn/ui</Link> and on{" "}
+            <Link href={siteConfig.links.gpuiKit}>GPUI Kit</Link>. Not affiliated
+            with shadcn, Longbridge or AvaloniaUI.
+          </p>
         </div>
+        <nav
+          aria-label="Footer"
+          class="flex max-w-[46rem] flex-wrap content-start justify-end gap-x-6 gap-y-2 max-[640px]:justify-start"
+        >
+          {links.map((link) => (
+            <Link href={link.href}>{link.label}</Link>
+          ))}
+        </nav>
       </div>
+      <p class="border-t py-6 text-[0.8125rem] text-muted-foreground">
+        Icons by <Link href={siteConfig.links.lucide}>Lucide</Link>. The demos
+        are set in <Link href={siteConfig.links.inter}>Inter</Link>.
+      </p>
     </footer>
   )
 }
