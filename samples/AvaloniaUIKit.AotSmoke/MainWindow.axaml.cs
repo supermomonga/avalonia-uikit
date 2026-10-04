@@ -18,4 +18,14 @@ public sealed partial class MainWindow : Window
     private void OnPreviousSlide(object? sender, RoutedEventArgs e) => this.FindControl<Carousel>("Slides")!.Previous();
 
     private void OnNextSlide(object? sender, RoutedEventArgs e) => this.FindControl<Carousel>("Slides")!.Next();
+
+    // ButtonGroup::on_click: the app applies the selection the click makes.
+    private void OnButtonGroupClick(object? sender, ButtonGroupClickEventArgs e)
+    {
+        var group = (ButtonGroup)sender!;
+        for (var i = 0; i < group.Children.Count; i++)
+        {
+            group.Children[i].Classes.Set("selected", e.SelectedIndices.Contains(i));
+        }
+    }
 }

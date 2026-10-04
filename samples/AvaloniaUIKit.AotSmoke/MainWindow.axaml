@@ -64,6 +64,20 @@
           </TextBox>
         </WrapPanel>
 
+        <TextBlock Text="uikit:ButtonGroup" Foreground="{DynamicResource UIKit.MutedForeground}" />
+        <WrapPanel ItemSpacing="8" LineSpacing="8">
+          <uikit:ButtonGroup Classes="outline" Click="OnButtonGroupClick">
+            <Button Content="Day" />
+            <Button Classes="selected" Content="Week" />
+            <Button Content="Month" />
+          </uikit:ButtonGroup>
+          <uikit:ButtonGroup Classes="primary small" Multiple="True" Click="OnButtonGroupClick">
+            <Button Classes="selected" Content="B" />
+            <Button Content="I" />
+            <Button Content="U" />
+          </uikit:ButtonGroup>
+        </WrapPanel>
+
         <TextBlock Text="SplitButton" Foreground="{DynamicResource UIKit.MutedForeground}" />
         <WrapPanel ItemSpacing="8" LineSpacing="8">
           <SplitButton Content="Save">
