@@ -1,0 +1,6 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:uikit="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.CalendarMonths">
+  <uikit:CalendarView NumberOfMonths="2" IsRange="True" Date="2025-03-24" EndDate="2025-04-08" />
+</UserControl>

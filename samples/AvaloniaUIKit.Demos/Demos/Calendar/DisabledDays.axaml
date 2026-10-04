@@ -1,0 +1,10 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:uikit="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.CalendarDisabledDays">
+  <uikit:CalendarView Date="2025-03-14" DisabledDaysOfWeek="Sunday, Saturday">
+    <uikit:CalendarView.DisabledDates>
+      <uikit:DateRange Start="2025-03-24" End="2025-03-28" />
+    </uikit:CalendarView.DisabledDates>
+  </uikit:CalendarView>
+</UserControl>

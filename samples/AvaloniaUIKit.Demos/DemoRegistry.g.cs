@@ -165,14 +165,34 @@ public sealed partial class ButtonVariants : UserControl
     public ButtonVariants() => AvaloniaXamlLoader.Load(this);
 }
 
+public sealed partial class CalendarCalendarView : UserControl
+{
+    public CalendarCalendarView() => AvaloniaXamlLoader.Load(this);
+}
+
 public sealed partial class CalendarDemo : UserControl
 {
     public CalendarDemo() => AvaloniaXamlLoader.Load(this);
 }
 
+public sealed partial class CalendarDisabledDays : UserControl
+{
+    public CalendarDisabledDays() => AvaloniaXamlLoader.Load(this);
+}
+
 public sealed partial class CalendarFirstDay : UserControl
 {
     public CalendarFirstDay() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class CalendarMonths : UserControl
+{
+    public CalendarMonths() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class CalendarRange : UserControl
+{
+    public CalendarRange() => AvaloniaXamlLoader.Load(this);
 }
 
 public sealed partial class CalendarSizes : UserControl
@@ -300,9 +320,24 @@ public sealed partial class DataTableStriped : UserControl
     public DataTableStriped() => AvaloniaXamlLoader.Load(this);
 }
 
+public sealed partial class DatePickerDateField : UserControl
+{
+    public DatePickerDateField() => AvaloniaXamlLoader.Load(this);
+}
+
 public sealed partial class DatePickerDemo : UserControl
 {
     public DatePickerDemo() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class DatePickerPresets : UserControl
+{
+    public DatePickerPresets() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class DatePickerRange : UserControl
+{
+    public DatePickerRange() => AvaloniaXamlLoader.Load(this);
 }
 
 public sealed partial class DatePickerSizes : UserControl
@@ -313,6 +348,11 @@ public sealed partial class DatePickerSizes : UserControl
 public sealed partial class DatePickerStates : UserControl
 {
     public DatePickerStates() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class DatePickerTime : UserControl
+{
+    public DatePickerTime() => AvaloniaXamlLoader.Load(this);
 }
 
 public sealed partial class DescriptionListBorderless : UserControl
@@ -1030,6 +1070,16 @@ public sealed partial class TimeFieldFormats : UserControl
     public TimeFieldFormats() => AvaloniaXamlLoader.Load(this);
 }
 
+public sealed partial class TimeFieldSegmented : UserControl
+{
+    public TimeFieldSegmented() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class TimeFieldSegmentedStates : UserControl
+{
+    public TimeFieldSegmentedStates() => AvaloniaXamlLoader.Load(this);
+}
+
 public sealed partial class TimeFieldSizes : UserControl
 {
     public TimeFieldSizes() => AvaloniaXamlLoader.Load(this);
@@ -1177,8 +1227,12 @@ public static partial class DemoRegistry
         ["button/rounded"] = static () => new ButtonRounded(),
         ["button/sizes"] = static () => new ButtonSizes(),
         ["button/variants"] = static () => new ButtonVariants(),
+        ["calendar/calendar-view"] = static () => new CalendarCalendarView(),
         ["calendar/demo"] = static () => new CalendarDemo(),
+        ["calendar/disabled-days"] = static () => new CalendarDisabledDays(),
         ["calendar/first-day"] = static () => new CalendarFirstDay(),
+        ["calendar/months"] = static () => new CalendarMonths(),
+        ["calendar/range"] = static () => new CalendarRange(),
         ["calendar/sizes"] = static () => new CalendarSizes(),
         ["calendar/year"] = static () => new CalendarYear(),
         ["carousel/demo"] = static () => new CarouselDemo(),
@@ -1204,9 +1258,13 @@ public static partial class DemoRegistry
         ["data-table/demo"] = static () => new DataTableDemo(),
         ["data-table/sizes"] = static () => new DataTableSizes(),
         ["data-table/striped"] = static () => new DataTableStriped(),
+        ["date-picker/date-field"] = static () => new DatePickerDateField(),
         ["date-picker/demo"] = static () => new DatePickerDemo(),
+        ["date-picker/presets"] = static () => new DatePickerPresets(),
+        ["date-picker/range"] = static () => new DatePickerRange(),
         ["date-picker/sizes"] = static () => new DatePickerSizes(),
         ["date-picker/states"] = static () => new DatePickerStates(),
+        ["date-picker/time"] = static () => new DatePickerTime(),
         ["description-list/borderless"] = static () => new DescriptionListBorderless(),
         ["description-list/demo"] = static () => new DescriptionListDemo(),
         ["description-list/sizes"] = static () => new DescriptionListSizes(),
@@ -1350,6 +1408,8 @@ public static partial class DemoRegistry
         ["textarea/states"] = static () => new TextareaStates(),
         ["time-field/demo"] = static () => new TimeFieldDemo(),
         ["time-field/formats"] = static () => new TimeFieldFormats(),
+        ["time-field/segmented"] = static () => new TimeFieldSegmented(),
+        ["time-field/segmented-states"] = static () => new TimeFieldSegmentedStates(),
         ["time-field/sizes"] = static () => new TimeFieldSizes(),
         ["time-field/states"] = static () => new TimeFieldStates(),
         ["title-bar/demo"] = static () => new TitleBarDemo(),

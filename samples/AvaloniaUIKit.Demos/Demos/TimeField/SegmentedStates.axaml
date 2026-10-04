@@ -1,0 +1,12 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:uikit="using:AvaloniaUIKit"
+             xmlns:demos="using:AvaloniaUIKit.Demos"
+             x:Class="AvaloniaUIKit.Demos.TimeFieldSegmentedStates">
+  <WrapPanel ItemSpacing="12" LineSpacing="12">
+    <uikit:TimeField Time="09:30" Classes="small" />
+    <uikit:TimeField Time="09:30" IsEnabled="False" />
+    <uikit:TimeField Time="21:05" DataValidationErrors.Errors="{x:Static demos:ValidationErrors.OutsideBusinessHours}" />
+    <uikit:TimeField Time="09:30" Classes="large" />
+  </WrapPanel>
+</UserControl>
