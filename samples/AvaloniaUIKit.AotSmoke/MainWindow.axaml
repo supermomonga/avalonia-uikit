@@ -55,6 +55,7 @@
               <TextBlock Text="Syncing" VerticalAlignment="Center" />
             </StackPanel>
           </Button>
+          <SplitButton Content="Deploy" uikit:Buttons.IsLoading="True" />
           <TextBox Classes="group" Width="200" Text="gpui" uikit:Buttons.TakesFocusOnPointer="False">
             <TextBox.InnerRightContent>
               <Button Classes="icon-only">

@@ -7,9 +7,12 @@
   SplitButton's MenuFlyout Placement="BottomEdgeAlignedRight".
   Avalonia focuses a SplitButton as one stop; its ring shows on the action half,
   where GPUI's first Tab lands.
+  uikit:Buttons.IsLoading loads the action half, as GPUI's DropdownButton with
+  a loading Button: inert, faded and spinning its icon; the menu half still opens.
 -->
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:uikit="using:AvaloniaUIKit">
   <ControlTheme x:Key="UIKitSplitButtonPart" TargetType="Button">
     <Setter Property="ClipToBounds" Value="False" />
     <Setter Property="HorizontalContentAlignment" Value="Center" />
@@ -52,6 +55,7 @@
                   Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}"
                   Command="{TemplateBinding Command}" CommandParameter="{TemplateBinding CommandParameter}"
                   FontSize="{TemplateBinding FontSize}"
+                  uikit:Buttons.IsLoading="{TemplateBinding (uikit:Buttons.IsLoading)}"
                   Focusable="False" KeyboardNavigation.IsTabStop="False" />
           <Button Name="PART_SecondaryButton" Theme="{StaticResource UIKitSplitButtonPart}"
                   Padding="0" Focusable="False" KeyboardNavigation.IsTabStop="False">
@@ -146,6 +150,11 @@
       <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Default.Pressed.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Default.Pressed.Border}" />
     </Style>
+    <Style Selector="^[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton, ^[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton:pointerover, ^[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton:pressed">
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Default.Normal.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Default.Normal.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Default.Normal.Border}" />
+    </Style>
     <Style Selector="^.selected /template/ Button, ^:flyout-open /template/ Button#PART_SecondaryButton">
       <Setter Property="Background" Value="{DynamicResource UIKit.Button.Default.Selected.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Default.Selected.Foreground}" />
@@ -182,6 +191,11 @@
       <Setter Property="Background" Value="{DynamicResource UIKit.Button.Default.Outline.Pressed.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Default.Outline.Pressed.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Default.Outline.Pressed.Border}" />
+    </Style>
+    <Style Selector="^.outline[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton, ^.outline[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton:pointerover, ^.outline[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton:pressed">
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Default.Outline.Normal.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Default.Outline.Normal.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Default.Outline.Normal.Border}" />
     </Style>
     <Style Selector="^.outline.selected /template/ Button, ^.outline:flyout-open /template/ Button#PART_SecondaryButton">
       <Setter Property="Background" Value="{DynamicResource UIKit.Button.Default.Outline.Selected.Background}" />
@@ -220,6 +234,11 @@
       <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Primary.Pressed.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Primary.Pressed.Border}" />
     </Style>
+    <Style Selector="^.primary[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton, ^.primary[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton:pointerover, ^.primary[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton:pressed">
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Primary.Normal.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Primary.Normal.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Primary.Normal.Border}" />
+    </Style>
     <Style Selector="^.primary.selected /template/ Button, ^.primary:flyout-open /template/ Button#PART_SecondaryButton">
       <Setter Property="Background" Value="{DynamicResource UIKit.Button.Primary.Selected.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Primary.Selected.Foreground}" />
@@ -256,6 +275,11 @@
       <Setter Property="Background" Value="{DynamicResource UIKit.Button.Primary.Outline.Pressed.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Primary.Outline.Pressed.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Primary.Outline.Pressed.Border}" />
+    </Style>
+    <Style Selector="^.primary.outline[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton, ^.primary.outline[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton:pointerover, ^.primary.outline[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton:pressed">
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Primary.Outline.Normal.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Primary.Outline.Normal.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Primary.Outline.Normal.Border}" />
     </Style>
     <Style Selector="^.primary.outline.selected /template/ Button, ^.primary.outline:flyout-open /template/ Button#PART_SecondaryButton">
       <Setter Property="Background" Value="{DynamicResource UIKit.Button.Primary.Outline.Selected.Background}" />
@@ -294,6 +318,11 @@
       <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Secondary.Pressed.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Secondary.Pressed.Border}" />
     </Style>
+    <Style Selector="^.secondary[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton, ^.secondary[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton:pointerover, ^.secondary[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton:pressed">
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Secondary.Normal.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Secondary.Normal.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Secondary.Normal.Border}" />
+    </Style>
     <Style Selector="^.secondary.selected /template/ Button, ^.secondary:flyout-open /template/ Button#PART_SecondaryButton">
       <Setter Property="Background" Value="{DynamicResource UIKit.Button.Secondary.Selected.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Secondary.Selected.Foreground}" />
@@ -330,6 +359,11 @@
       <Setter Property="Background" Value="{DynamicResource UIKit.Button.Secondary.Outline.Pressed.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Secondary.Outline.Pressed.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Secondary.Outline.Pressed.Border}" />
+    </Style>
+    <Style Selector="^.secondary.outline[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton, ^.secondary.outline[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton:pointerover, ^.secondary.outline[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton:pressed">
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Secondary.Outline.Normal.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Secondary.Outline.Normal.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Secondary.Outline.Normal.Border}" />
     </Style>
     <Style Selector="^.secondary.outline.selected /template/ Button, ^.secondary.outline:flyout-open /template/ Button#PART_SecondaryButton">
       <Setter Property="Background" Value="{DynamicResource UIKit.Button.Secondary.Outline.Selected.Background}" />
@@ -368,6 +402,11 @@
       <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Danger.Pressed.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Danger.Pressed.Border}" />
     </Style>
+    <Style Selector="^.danger[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton, ^.danger[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton:pointerover, ^.danger[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton:pressed">
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Danger.Normal.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Danger.Normal.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Danger.Normal.Border}" />
+    </Style>
     <Style Selector="^.danger.selected /template/ Button, ^.danger:flyout-open /template/ Button#PART_SecondaryButton">
       <Setter Property="Background" Value="{DynamicResource UIKit.Button.Danger.Selected.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Danger.Selected.Foreground}" />
@@ -404,6 +443,11 @@
       <Setter Property="Background" Value="{DynamicResource UIKit.Button.Danger.Outline.Pressed.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Danger.Outline.Pressed.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Danger.Outline.Pressed.Border}" />
+    </Style>
+    <Style Selector="^.danger.outline[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton, ^.danger.outline[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton:pointerover, ^.danger.outline[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton:pressed">
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Danger.Outline.Normal.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Danger.Outline.Normal.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Danger.Outline.Normal.Border}" />
     </Style>
     <Style Selector="^.danger.outline.selected /template/ Button, ^.danger.outline:flyout-open /template/ Button#PART_SecondaryButton">
       <Setter Property="Background" Value="{DynamicResource UIKit.Button.Danger.Outline.Selected.Background}" />
@@ -442,6 +486,11 @@
       <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Warning.Pressed.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Warning.Pressed.Border}" />
     </Style>
+    <Style Selector="^.warning[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton, ^.warning[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton:pointerover, ^.warning[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton:pressed">
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Warning.Normal.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Warning.Normal.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Warning.Normal.Border}" />
+    </Style>
     <Style Selector="^.warning.selected /template/ Button, ^.warning:flyout-open /template/ Button#PART_SecondaryButton">
       <Setter Property="Background" Value="{DynamicResource UIKit.Button.Warning.Selected.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Warning.Selected.Foreground}" />
@@ -478,6 +527,11 @@
       <Setter Property="Background" Value="{DynamicResource UIKit.Button.Warning.Outline.Pressed.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Warning.Outline.Pressed.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Warning.Outline.Pressed.Border}" />
+    </Style>
+    <Style Selector="^.warning.outline[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton, ^.warning.outline[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton:pointerover, ^.warning.outline[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton:pressed">
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Warning.Outline.Normal.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Warning.Outline.Normal.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Warning.Outline.Normal.Border}" />
     </Style>
     <Style Selector="^.warning.outline.selected /template/ Button, ^.warning.outline:flyout-open /template/ Button#PART_SecondaryButton">
       <Setter Property="Background" Value="{DynamicResource UIKit.Button.Warning.Outline.Selected.Background}" />
@@ -516,6 +570,11 @@
       <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Success.Pressed.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Success.Pressed.Border}" />
     </Style>
+    <Style Selector="^.success[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton, ^.success[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton:pointerover, ^.success[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton:pressed">
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Success.Normal.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Success.Normal.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Success.Normal.Border}" />
+    </Style>
     <Style Selector="^.success.selected /template/ Button, ^.success:flyout-open /template/ Button#PART_SecondaryButton">
       <Setter Property="Background" Value="{DynamicResource UIKit.Button.Success.Selected.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Success.Selected.Foreground}" />
@@ -552,6 +611,11 @@
       <Setter Property="Background" Value="{DynamicResource UIKit.Button.Success.Outline.Pressed.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Success.Outline.Pressed.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Success.Outline.Pressed.Border}" />
+    </Style>
+    <Style Selector="^.success.outline[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton, ^.success.outline[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton:pointerover, ^.success.outline[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton:pressed">
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Success.Outline.Normal.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Success.Outline.Normal.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Success.Outline.Normal.Border}" />
     </Style>
     <Style Selector="^.success.outline.selected /template/ Button, ^.success.outline:flyout-open /template/ Button#PART_SecondaryButton">
       <Setter Property="Background" Value="{DynamicResource UIKit.Button.Success.Outline.Selected.Background}" />
@@ -590,6 +654,11 @@
       <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Info.Pressed.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Info.Pressed.Border}" />
     </Style>
+    <Style Selector="^.info[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton, ^.info[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton:pointerover, ^.info[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton:pressed">
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Info.Normal.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Info.Normal.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Info.Normal.Border}" />
+    </Style>
     <Style Selector="^.info.selected /template/ Button, ^.info:flyout-open /template/ Button#PART_SecondaryButton">
       <Setter Property="Background" Value="{DynamicResource UIKit.Button.Info.Selected.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Info.Selected.Foreground}" />
@@ -626,6 +695,11 @@
       <Setter Property="Background" Value="{DynamicResource UIKit.Button.Info.Outline.Pressed.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Info.Outline.Pressed.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Info.Outline.Pressed.Border}" />
+    </Style>
+    <Style Selector="^.info.outline[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton, ^.info.outline[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton:pointerover, ^.info.outline[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton:pressed">
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Info.Outline.Normal.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Info.Outline.Normal.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Info.Outline.Normal.Border}" />
     </Style>
     <Style Selector="^.info.outline.selected /template/ Button, ^.info.outline:flyout-open /template/ Button#PART_SecondaryButton">
       <Setter Property="Background" Value="{DynamicResource UIKit.Button.Info.Outline.Selected.Background}" />
@@ -667,6 +741,11 @@
       <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Ghost.Pressed.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Ghost.Pressed.Border}" />
     </Style>
+    <Style Selector="^.ghost[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton, ^.ghost[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton:pointerover, ^.ghost[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton:pressed">
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Ghost.Normal.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Ghost.Normal.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Ghost.Normal.Border}" />
+    </Style>
     <Style Selector="^.ghost.selected /template/ Button, ^.ghost:flyout-open /template/ Button#PART_SecondaryButton">
       <Setter Property="Background" Value="{DynamicResource UIKit.Button.Ghost.Selected.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Ghost.Selected.Foreground}" />
@@ -707,6 +786,11 @@
       <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Ghost.Outline.Pressed.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Ghost.Outline.Pressed.Border}" />
     </Style>
+    <Style Selector="^.ghost.outline[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton, ^.ghost.outline[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton:pointerover, ^.ghost.outline[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton:pressed">
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Ghost.Outline.Normal.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Ghost.Outline.Normal.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Ghost.Outline.Normal.Border}" />
+    </Style>
     <Style Selector="^.ghost.outline.selected /template/ Button, ^.ghost.outline:flyout-open /template/ Button#PART_SecondaryButton">
       <Setter Property="Background" Value="{DynamicResource UIKit.Button.Ghost.Outline.Selected.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Ghost.Outline.Selected.Foreground}" />
@@ -743,6 +827,11 @@
       <Setter Property="Background" Value="{DynamicResource UIKit.Button.Link.Pressed.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Link.Pressed.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Link.Pressed.Border}" />
+    </Style>
+    <Style Selector="^.link[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton, ^.link[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton:pointerover, ^.link[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton:pressed">
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Link.Normal.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Link.Normal.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Link.Normal.Border}" />
     </Style>
     <Style Selector="^.link.selected /template/ Button, ^.link:flyout-open /template/ Button#PART_SecondaryButton">
       <Setter Property="Background" Value="{DynamicResource UIKit.Button.Link.Selected.Background}" />
@@ -781,6 +870,11 @@
       <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Link.Outline.Pressed.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Link.Outline.Pressed.Border}" />
     </Style>
+    <Style Selector="^.link.outline[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton, ^.link.outline[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton:pointerover, ^.link.outline[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton:pressed">
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Link.Outline.Normal.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Link.Outline.Normal.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Link.Outline.Normal.Border}" />
+    </Style>
     <Style Selector="^.link.outline.selected /template/ Button, ^.link.outline:flyout-open /template/ Button#PART_SecondaryButton">
       <Setter Property="Background" Value="{DynamicResource UIKit.Button.Link.Outline.Selected.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Link.Outline.Selected.Foreground}" />
@@ -818,6 +912,11 @@
       <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Text.Pressed.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Text.Pressed.Border}" />
     </Style>
+    <Style Selector="^.text[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton, ^.text[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton:pointerover, ^.text[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton:pressed">
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Text.Normal.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Text.Normal.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Text.Normal.Border}" />
+    </Style>
     <Style Selector="^.text.selected /template/ Button, ^.text:flyout-open /template/ Button#PART_SecondaryButton">
       <Setter Property="Background" Value="{DynamicResource UIKit.Button.Text.Selected.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Text.Selected.Foreground}" />
@@ -854,6 +953,11 @@
       <Setter Property="Background" Value="{DynamicResource UIKit.Button.Text.Outline.Pressed.Background}" />
       <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Text.Outline.Pressed.Foreground}" />
       <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Text.Outline.Pressed.Border}" />
+    </Style>
+    <Style Selector="^.text.outline[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton, ^.text.outline[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton:pointerover, ^.text.outline[(uikit|Buttons.IsLoading)=True] /template/ Button#PART_PrimaryButton:pressed">
+      <Setter Property="Background" Value="{DynamicResource UIKit.Button.Text.Outline.Normal.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Text.Outline.Normal.Foreground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Button.Text.Outline.Normal.Border}" />
     </Style>
     <Style Selector="^.text.outline.selected /template/ Button, ^.text.outline:flyout-open /template/ Button#PART_SecondaryButton">
       <Setter Property="Background" Value="{DynamicResource UIKit.Button.Text.Outline.Selected.Background}" />

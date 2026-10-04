@@ -16,6 +16,8 @@
   of a panel that is (GPUI's `icon`; a trailing icon is not). The spinner draws
   uikit:Buttons.LoadingIcon, the Lucide loader by default, turning once every
   0.8s with ease_in_out (spinner.rs). A button without an icon only fades.
+  On a SplitButton the action half loads (GPUI's DropdownButton with a loading
+  Button); SplitButton.axaml passes the property to it.
 -->
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -24,10 +26,10 @@
     <Setter Property="Opacity" Value="0.8" />
   </Style>
 
-  <Style Selector=":is(Button)[(uikit|Buttons.IsLoading)=True] > PathIcon /template/ Path, :is(Button)[(uikit|Buttons.IsLoading)=True] > :is(Panel) > PathIcon:nth-child(1) /template/ Path">
+  <Style Selector=":is(Button)[(uikit|Buttons.IsLoading)=True] > PathIcon /template/ Path, :is(Button)[(uikit|Buttons.IsLoading)=True] > :is(Panel) > PathIcon:nth-child(1) /template/ Path, SplitButton[(uikit|Buttons.IsLoading)=True] > PathIcon /template/ Path, SplitButton[(uikit|Buttons.IsLoading)=True] > :is(Panel) > PathIcon:nth-child(1) /template/ Path">
     <Setter Property="Data" Value="{Binding $self.(uikit:Buttons.LoadingIcon), TargetNullValue={StaticResource UIKit.Icon.Loader}}" />
   </Style>
-  <Style Selector=":is(Button)[(uikit|Buttons.IsLoading)=True] > PathIcon /template/ Border, :is(Button)[(uikit|Buttons.IsLoading)=True] > :is(Panel) > PathIcon:nth-child(1) /template/ Border">
+  <Style Selector=":is(Button)[(uikit|Buttons.IsLoading)=True] > PathIcon /template/ Border, :is(Button)[(uikit|Buttons.IsLoading)=True] > :is(Panel) > PathIcon:nth-child(1) /template/ Border, SplitButton[(uikit|Buttons.IsLoading)=True] > PathIcon /template/ Border, SplitButton[(uikit|Buttons.IsLoading)=True] > :is(Panel) > PathIcon:nth-child(1) /template/ Border">
     <Setter Property="RenderTransformOrigin" Value="50%,50%" />
     <Style.Animations>
       <Animation Duration="0:0:0.8" IterationCount="Infinite" Easing="QuadraticEaseInOut">

@@ -10,7 +10,8 @@ namespace AvaloniaUIKit;
 /// GPUI Kit's Button states that Avalonia's buttons lack (button.rs), as
 /// attached properties for <see cref="Button"/> and the types derived from it
 /// (ToggleButton, RepeatButton, DropDownButton, HyperlinkButton, the buttons
-/// in a TextBox's inner content).
+/// in a TextBox's inner content), and <see cref="SplitButton"/>, whose action
+/// half they apply to (GPUI's DropdownButton with a loading Button).
 /// <list type="bullet">
 /// <item><see cref="IsLoadingProperty"/>: the button ignores the pointer, Enter
 /// and Space, and raises no Click and runs no Command for an access key,
@@ -62,6 +63,12 @@ public static class Buttons
         // nor the Command.
         Button.ClickEvent.AddClassHandler<Button>(BlockClick);
         InputElement.GettingFocusEvent.AddClassHandler<Button>(KeepFocus);
+        // A SplitButton loads its action half (the template passes IsLoading to it);
+        // its own Enter and Space click that half, and its menu half stays live.
+        InputElement.KeyDownEvent.AddClassHandler<SplitButton>(BlockKey, RoutingStrategies.Tunnel);
+        InputElement.KeyUpEvent.AddClassHandler<SplitButton>(BlockKey, RoutingStrategies.Tunnel);
+        SplitButton.ClickEvent.AddClassHandler<SplitButton>(BlockClick);
+        InputElement.GettingFocusEvent.AddClassHandler<SplitButton>(KeepFocus);
     }
 
     /// <summary>Gets whether the button is loading.</summary>
@@ -95,8 +102,8 @@ public static class Buttons
         }
     }
 
-    // Button.OnKeyDown clicks on Enter, and on Space while focused.
-    private static void BlockKey(Button button, KeyEventArgs e)
+    // Button.OnKeyDown and SplitButton.OnKeyUp click on Enter, and on Space while focused.
+    private static void BlockKey(Control button, KeyEventArgs e)
     {
         if (GetIsLoading(button) && (e.Key == Key.Enter || (e.Key == Key.Space && button.IsFocused)))
         {
@@ -104,7 +111,7 @@ public static class Buttons
         }
     }
 
-    private static void BlockClick(Button button, RoutedEventArgs e)
+    private static void BlockClick(Control button, RoutedEventArgs e)
     {
         if (ReferenceEquals(e.Source, button) && GetIsLoading(button))
         {
@@ -114,7 +121,7 @@ public static class Buttons
 
     // FocusManager focuses the first focusable element up from what the pointer
     // pressed; cancelling it there keeps the focus where it was.
-    private static void KeepFocus(Button button, FocusChangingEventArgs e)
+    private static void KeepFocus(Control button, FocusChangingEventArgs e)
     {
         if (e.NavigationMethod == NavigationMethod.Pointer &&
             ReferenceEquals(e.NewFocusedElement, button) &&
