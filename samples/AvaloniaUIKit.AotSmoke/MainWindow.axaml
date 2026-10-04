@@ -41,6 +41,29 @@
           <Button Content="Disabled" IsEnabled="False" />
         </WrapPanel>
 
+        <TextBlock Text="uikit:Buttons" Foreground="{DynamicResource UIKit.MutedForeground}" />
+        <WrapPanel ItemSpacing="8" LineSpacing="8">
+          <Button Classes="primary" uikit:Buttons.IsLoading="True">
+            <StackPanel Orientation="Horizontal" Spacing="8">
+              <PathIcon Data="{StaticResource UIKit.Icon.Check}" />
+              <TextBlock Text="Saving" VerticalAlignment="Center" />
+            </StackPanel>
+          </Button>
+          <Button Classes="outline" uikit:Buttons.IsLoading="True" uikit:Buttons.LoadingIcon="{StaticResource UIKit.Icon.LoaderCircle}">
+            <StackPanel Orientation="Horizontal" Spacing="8">
+              <PathIcon Data="{StaticResource UIKit.Icon.Check}" />
+              <TextBlock Text="Syncing" VerticalAlignment="Center" />
+            </StackPanel>
+          </Button>
+          <TextBox Classes="group" Width="200" Text="gpui" uikit:Buttons.TakesFocusOnPointer="False">
+            <TextBox.InnerRightContent>
+              <Button Classes="icon-only">
+                <PathIcon Data="{StaticResource UIKit.Icon.Copy}" />
+              </Button>
+            </TextBox.InnerRightContent>
+          </TextBox>
+        </WrapPanel>
+
         <TextBlock Text="SplitButton" Foreground="{DynamicResource UIKit.MutedForeground}" />
         <WrapPanel ItemSpacing="8" LineSpacing="8">
           <SplitButton Content="Save">

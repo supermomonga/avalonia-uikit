@@ -112,6 +112,10 @@
     <Style Selector="^:pointerover, ^:pressed">
       <Setter Property="Background" Value="{DynamicResource UIKit.InputGroup.Button.Hover}" />
     </Style>
+    <!-- InputGroupButton::loading: a loading button does not react to the pointer (button.rs). -->
+    <Style Selector="^[(uikit|Buttons.IsLoading)=True]:pointerover, ^[(uikit|Buttons.IsLoading)=True]:pressed">
+      <Setter Property="Background" Value="Transparent" />
+    </Style>
     <Style Selector="^:disabled">
       <Setter Property="Opacity" Value="0.5" />
     </Style>

@@ -1,0 +1,43 @@
+<!--
+  GPUI Kit Button::loading (crates/component/src/button/button.rs,
+  button_icon.rs) -> uikit:Buttons.IsLoading on any button:
+
+    <Button uikit:Buttons.IsLoading="True">
+      <StackPanel Orientation="Horizontal" Spacing="8">
+        <PathIcon Data="{StaticResource UIKit.Icon.Check}" />
+        <TextBlock Text="Saving" />
+      </StackPanel>
+    </Button>
+
+  A loading button fades to 80% as a whole (not while disabled, which has its
+  own look) and keeps its normal colors under the pointer (each button theme
+  drops its hover and pressed looks). Its icon turns into a Spinner of the
+  icon's size: the icon is a PathIcon that is the content, or the first child
+  of a panel that is (GPUI's `icon`; a trailing icon is not). The spinner draws
+  uikit:Buttons.LoadingIcon, the Lucide loader by default, turning once every
+  0.8s with ease_in_out (spinner.rs). A button without an icon only fades.
+-->
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:uikit="using:AvaloniaUIKit">
+  <Style Selector=":is(Button)[(uikit|Buttons.IsLoading)=True]:not(:disabled)">
+    <Setter Property="Opacity" Value="0.8" />
+  </Style>
+
+  <Style Selector=":is(Button)[(uikit|Buttons.IsLoading)=True] > PathIcon /template/ Path, :is(Button)[(uikit|Buttons.IsLoading)=True] > :is(Panel) > PathIcon:nth-child(1) /template/ Path">
+    <Setter Property="Data" Value="{Binding $self.(uikit:Buttons.LoadingIcon), TargetNullValue={StaticResource UIKit.Icon.Loader}}" />
+  </Style>
+  <Style Selector=":is(Button)[(uikit|Buttons.IsLoading)=True] > PathIcon /template/ Border, :is(Button)[(uikit|Buttons.IsLoading)=True] > :is(Panel) > PathIcon:nth-child(1) /template/ Border">
+    <Setter Property="RenderTransformOrigin" Value="50%,50%" />
+    <Style.Animations>
+      <Animation Duration="0:0:0.8" IterationCount="Infinite" Easing="QuadraticEaseInOut">
+        <KeyFrame Cue="0%">
+          <Setter Property="RotateTransform.Angle" Value="0" />
+        </KeyFrame>
+        <KeyFrame Cue="100%">
+          <Setter Property="RotateTransform.Angle" Value="360" />
+        </KeyFrame>
+      </Animation>
+    </Style.Animations>
+  </Style>
+</Styles>

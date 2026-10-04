@@ -4,7 +4,8 @@
   Checked and hovered toggles show the accent; a toggle draws no focus ring.
 -->
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:uikit="using:AvaloniaUIKit">
   <ControlTheme x:Key="{x:Type ToggleButton}" TargetType="ToggleButton">
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
@@ -72,6 +73,14 @@
     <Style Selector="^:pointerover">
       <Setter Property="Background" Value="{DynamicResource UIKit.Accent}" />
       <Setter Property="Foreground" Value="{DynamicResource UIKit.AccentForeground}" />
+    </Style>
+    <!-- A loading toggle (uikit:Buttons.IsLoading) keeps its look under the pointer, as a loading Button. -->
+    <Style Selector="^[(uikit|Buttons.IsLoading)=True]:pointerover">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
+    </Style>
+    <Style Selector="^.outline[(uikit|Buttons.IsLoading)=True]:pointerover">
+      <Setter Property="Background" Value="{DynamicResource UIKit.Background}" />
     </Style>
     <Style Selector="^:checked">
       <Setter Property="Background" Value="{DynamicResource UIKit.Accent}" />

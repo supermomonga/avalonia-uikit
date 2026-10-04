@@ -77,6 +77,7 @@
   <StyleInclude Source="avares://AvaloniaUIKit/Themes/Controls/Bubble.axaml" />
   <StyleInclude Source="avares://AvaloniaUIKit/Themes/Controls/Form.axaml" />
   <StyleInclude Source="avares://AvaloniaUIKit/Themes/Controls/Select.axaml" />
+  <StyleInclude Source="avares://AvaloniaUIKit/Themes/Controls/Buttons.axaml" />
 
   <!-- GPUI sizes a text to whole pixels, rounding its width up (text.rs). -->
   <Style Selector=":is(TopLevel)">
