@@ -346,10 +346,12 @@
   avalonia-demo[data-state="live"] > img {
     visibility: hidden;
   }
+  /* Avalonia focuses the host on a press and draws its own focus rings inside. */
   avalonia-demo > [data-demo-host] {
     position: absolute;
     inset: 0;
     display: none;
+    outline: none;
   }
   avalonia-demo[data-state="loading"] > [data-demo-host],
   avalonia-demo[data-state="live"] > [data-demo-host] {

@@ -61,15 +61,19 @@ https://avalonia-uikit.omofla.sh の構成と約束事。サイト本体は `sit
 
 1. 初期表示は中のプレビュー画像。
 2. 最初の `<avalonia-demo>` が画面に入ったら、`<data-wasm-base>/_framework/dotnet.js` を 1 回だけ読み込んで .NET ランタイムを起動する（`navigator.connection.saveData` のときは読み込まず、ボタンで明示的に読み込む）。
-3. 起動後、画面に入ったデモから順に `Demos.Mount(hostId, demoId)` を呼び、プレビュー画像を `AvaloniaView` に差し替える。
+3. 起動後、画面に入ったデモから順に `Demos.Mount(hostId, demoId, heightChanged)` を呼び、プレビュー画像を `AvaloniaView` に差し替える。
 4. `<html class="dark">` の変化を監視して `Demos.SetTheme(dark)` を呼ぶ。
+
+ライブのデモは、要素の幅（プレビューの幅が上限）で高さを制限せずにレイアウトし、中央に置く。必要な高さは `heightChanged` で要素に返す（`samples/AvaloniaUIKit.Browser/DemoRoot.cs`）。プレビュー画像の縦横比で高さを決めると、狭い画面では折り返したデモの下が切れるため。
+
+Avalonia は自分でホストと IME 用の `<input>` に `focus()` する。キーボードは全ビューで共有なので、あるデモを押すと、直前にフォーカスのあったデモのホストにも `focus()` が呼ばれ、ページがそこまでスクロールしてしまう。そこで `avalonia-demo.ts` はこれらの要素の `focus` を差し替え、押下の処理中は押されたデモの要素だけにフォーカスを許し、常に `preventScroll` を付ける。ホストのブラウザー既定のフォーカスリングは消す（フォーカスリングはデモの中で Avalonia が描く）。
 
 Browser 側の JS から呼べる関数（`[JSExport]`、クラス `AvaloniaUIKit.Browser.Demos`）:
 
 | 関数 | 内容 |
 | --- | --- |
 | `string[] List()` | 登録済みのデモ ID |
-| `bool Mount(string hostId, string demoId)` | `id="hostId"` の要素に `AvaloniaView` を作り、デモを載せる。未知の ID や失敗は false |
+| `bool Mount(string hostId, string demoId, Action<double> heightChanged)` | `id="hostId"` の要素に `AvaloniaView` を作り、デモを載せる。デモが要素の幅で必要とする高さが変わるたびに `heightChanged` を呼ぶ。未知の ID や失敗は false |
 | `void SetTheme(bool dark)` | `RequestedThemeVariant` を切り替える |
 
 ## 配信

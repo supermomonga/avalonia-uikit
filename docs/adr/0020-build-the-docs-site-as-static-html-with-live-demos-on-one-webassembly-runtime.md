@@ -6,6 +6,8 @@ date: 2026-10-03
 links:
 - target: 22
   kind: amendedby
+- target: 23
+  kind: amendedby
 ---
 
 # Build the docs site as static HTML with live demos on one WebAssembly runtime
