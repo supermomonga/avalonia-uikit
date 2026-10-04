@@ -5,6 +5,14 @@
   clearButton (GPUI's cleanable: an x button that clears the text, shown while
   the single-line text is editable and not empty).
 
+  A right click opens GPUI's input menu at the pointer (UIKitTextBoxContextFlyout,
+  the ContextFlyout): Cut, Copy, Paste, a separator and Select All with their
+  shortcuts. Cut needs an editable selection that is not masked, Copy a
+  selection that is not masked, Paste an editable field; Select All is always
+  on. Avalonia keeps the caret where it was (GPUI moves it to the pointer when
+  the click is outside the selection). The labels are the UIKit.Strings.*
+  resources.
+
   The frame: input_h (20/24/32/44), the theme radius, the input background and a
   1px `input` border that turns to `ring`, with the ring band, while the field or
   anything in it has focus (GPUI makes no pointer/keyboard distinction). The
@@ -20,6 +28,36 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:uikit="using:AvaloniaUIKit">
+  <!-- The menu's labels (GPUI Kit's Input.* strings in English); replace them to localize. -->
+  <x:String x:Key="UIKit.Strings.Cut">Cut</x:String>
+  <x:String x:Key="UIKit.Strings.Copy">Copy</x:String>
+  <x:String x:Key="UIKit.Strings.Paste">Paste</x:String>
+  <x:String x:Key="UIKit.Strings.SelectAll">Select All</x:String>
+
+  <!--
+    input.rs on_context_menu (drawn as native_menu/fallback.rs draws a NativeMenu):
+    the items, their order, shortcuts and enabled rules. One menu for every text
+    field; it opens at the pointer, so its presenter drops the trigger gap.
+  -->
+  <MenuFlyout x:Key="UIKitTextBoxContextFlyout" FlyoutPresenterClasses="context">
+    <MenuItem Header="{DynamicResource UIKit.Strings.Cut}"
+              Command="{Binding $parent[TextBox].Cut}"
+              IsEnabled="{Binding $parent[TextBox].CanCut}"
+              InputGesture="{x:Static TextBox.CutGesture}" />
+    <MenuItem Header="{DynamicResource UIKit.Strings.Copy}"
+              Command="{Binding $parent[TextBox].Copy}"
+              IsEnabled="{Binding $parent[TextBox].CanCopy}"
+              InputGesture="{x:Static TextBox.CopyGesture}" />
+    <MenuItem Header="{DynamicResource UIKit.Strings.Paste}"
+              Command="{Binding $parent[TextBox].Paste}"
+              IsEnabled="{Binding $parent[TextBox].CanPaste}"
+              InputGesture="{x:Static TextBox.PasteGesture}" />
+    <Separator />
+    <MenuItem Header="{DynamicResource UIKit.Strings.SelectAll}"
+              Command="{Binding $parent[TextBox].SelectAll}"
+              InputGesture="{x:Static uikit:TextMenus.SelectAllGesture}" />
+  </MenuFlyout>
+
   <!-- Button::text().xsmall() with an eye icon: shows the masked text while checked. -->
   <ControlTheme x:Key="UIKitRevealPasswordToggle" TargetType="ToggleButton">
     <Setter Property="Background" Value="Transparent" />
@@ -172,6 +210,7 @@
     <Setter Property="VerticalAlignment" Value="Top" />
     <Setter Property="ClipToBounds" Value="False" />
     <Setter Property="FocusAdorner" Value="{x:Null}" />
+    <Setter Property="ContextFlyout" Value="{DynamicResource UIKitTextBoxContextFlyout}" />
     <Setter Property="Template">
       <ControlTemplate>
         <Panel>
@@ -314,6 +353,15 @@
 
     <Style Selector="^:focus-within">
       <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Ring}" />
+    </Style>
+    <!--
+      GPUI paints a selection only while the input has focus. Avalonia hides it
+      when focus leaves (IsInactiveSelectionHighlightEnabled), but shows one made
+      before the field was ever focused, and keeps showing it after a right
+      click, which does not focus a TextBox.
+    -->
+    <Style Selector="^[IsInactiveSelectionHighlightEnabled=False]:not(:focus) /template/ TextPresenter#PART_TextPresenter">
+      <Setter Property="SelectionBrush" Value="Transparent" />
     </Style>
     <Style Selector="^:focus-within /template/ Border#PART_FocusRing">
       <Setter Property="IsVisible" Value="True" />

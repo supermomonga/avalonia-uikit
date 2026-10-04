@@ -43,6 +43,8 @@
     <Setter Property="IsInactiveSelectionHighlightEnabled" Value="False" />
     <Setter Property="VerticalContentAlignment" Value="Center" />
     <Setter Property="FocusAdorner" Value="{x:Null}" />
+    <!-- The input menu of the TextBox theme (TextBox.axaml). -->
+    <Setter Property="ContextFlyout" Value="{DynamicResource UIKitTextBoxContextFlyout}" />
     <Setter Property="Template">
       <ControlTemplate>
         <Border Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">

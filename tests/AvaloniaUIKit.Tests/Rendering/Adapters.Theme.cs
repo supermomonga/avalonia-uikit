@@ -63,7 +63,10 @@ public static partial class Adapters
         return number;
     }
 
-    /// <summary>reference/src/cases/input.rs: `cleanable` as the clearButton class.</summary>
+    /// <summary>
+    /// reference/src/cases/input.rs: `cleanable` as the clearButton class;
+    /// `context_menu` is the theme's own right-click menu.
+    /// </summary>
     private static TextBox InputFeatures(TextBox box, GoldenCase c)
     {
         FlagClass(box, c, "cleanable", "clearButton");

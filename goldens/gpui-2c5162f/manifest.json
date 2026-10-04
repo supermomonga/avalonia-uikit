@@ -69423,6 +69423,242 @@
       "png_sha256": "bf8e84078dc4a5594912debe17d1da8390763cd64ee03424a2c2ab0c95005e81"
     },
     {
+      "id": "input-menu/plain.base/right-click+at-160-101/dark",
+      "component": "input-menu",
+      "group": "plain",
+      "params": {
+        "value": "Hello world",
+        "context_menu": true,
+        "width": 200
+      },
+      "state": "right-click+at-160-101",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        200.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/input-menu/plain.base/right-click+at-160-101/dark.png",
+      "scene": "scenes/input-menu/plain.base/right-click+at-160-101/dark.json",
+      "png_sha256": "b4b89cf645cc22a69aa150f4b6a39e8ab13c747794ba66dc5a9ee986ff2029fe"
+    },
+    {
+      "id": "input-menu/plain.base/right-click+at-160-101/light",
+      "component": "input-menu",
+      "group": "plain",
+      "params": {
+        "value": "Hello world",
+        "context_menu": true,
+        "width": 200
+      },
+      "state": "right-click+at-160-101",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        200.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/input-menu/plain.base/right-click+at-160-101/light.png",
+      "scene": "scenes/input-menu/plain.base/right-click+at-160-101/light.json",
+      "png_sha256": "37027300edcb2d575216a2fd1440bcc7ff686a82585c32b6991d6f8360991501"
+    },
+    {
+      "id": "input-menu/plain.base/right-click/dark",
+      "component": "input-menu",
+      "group": "plain",
+      "params": {
+        "value": "Hello world",
+        "context_menu": true,
+        "width": 200
+      },
+      "state": "right-click",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        200.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/input-menu/plain.base/right-click/dark.png",
+      "scene": "scenes/input-menu/plain.base/right-click/dark.json",
+      "png_sha256": "c778519ac4a2467e21a71058a4f3676dfe6fefb13316028add8144f62859e6b6"
+    },
+    {
+      "id": "input-menu/plain.base/right-click/light",
+      "component": "input-menu",
+      "group": "plain",
+      "params": {
+        "value": "Hello world",
+        "context_menu": true,
+        "width": 200
+      },
+      "state": "right-click",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        200.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/input-menu/plain.base/right-click/light.png",
+      "scene": "scenes/input-menu/plain.base/right-click/light.json",
+      "png_sha256": "0a3ac98ff00cfb5d27c2c4016c714bcb1e9344b293fd405953fe2340b4c4d9ba"
+    },
+    {
+      "id": "input-menu/readonly.base/right-click/dark",
+      "component": "input-menu",
+      "group": "readonly",
+      "params": {
+        "value": "Read only",
+        "context_menu": true,
+        "readonly": true,
+        "width": 200
+      },
+      "state": "right-click",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        200.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/input-menu/readonly.base/right-click/dark.png",
+      "scene": "scenes/input-menu/readonly.base/right-click/dark.json",
+      "png_sha256": "1f7d68ca42ae445f8ea39228c1f1f248f8387821e1b18b0c132f2baa2bed26b2"
+    },
+    {
+      "id": "input-menu/readonly.base/right-click/light",
+      "component": "input-menu",
+      "group": "readonly",
+      "params": {
+        "value": "Read only",
+        "context_menu": true,
+        "readonly": true,
+        "width": 200
+      },
+      "state": "right-click",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        200.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/input-menu/readonly.base/right-click/light.png",
+      "scene": "scenes/input-menu/readonly.base/right-click/light.json",
+      "png_sha256": "34144ca38b9ef2d537b0ffacad10079f490dfd9af242ba7e92adea50dfe27630"
+    },
+    {
+      "id": "input-menu/selection.base/right-click-at-60-28/dark",
+      "component": "input-menu",
+      "group": "selection",
+      "params": {
+        "value": "Hello world",
+        "context_menu": true,
+        "select_all": true,
+        "width": 200
+      },
+      "state": "right-click-at-60-28",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        200.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/input-menu/selection.base/right-click-at-60-28/dark.png",
+      "scene": "scenes/input-menu/selection.base/right-click-at-60-28/dark.json",
+      "png_sha256": "45750229ccecdd9352a0bba44ff77addc6d7767c8329247e97f9f9f35f45caaf"
+    },
+    {
+      "id": "input-menu/selection.base/right-click-at-60-28/light",
+      "component": "input-menu",
+      "group": "selection",
+      "params": {
+        "value": "Hello world",
+        "context_menu": true,
+        "select_all": true,
+        "width": 200
+      },
+      "state": "right-click-at-60-28",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        200.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/input-menu/selection.base/right-click-at-60-28/light.png",
+      "scene": "scenes/input-menu/selection.base/right-click-at-60-28/light.json",
+      "png_sha256": "eea973bcaee735b062e634d412cedb18f2c12b1b753fcd96ff71aefc2e34c985"
+    },
+    {
       "id": "input/cleanable-empty.base/normal/dark",
       "component": "input",
       "group": "cleanable-empty",

@@ -24,6 +24,8 @@
     <Setter Property="CaretBrush" Value="{DynamicResource UIKit.Caret}" />
     <Setter Property="SelectionBrush" Value="{DynamicResource UIKit.Selection}" />
     <Setter Property="VerticalContentAlignment" Value="Center" />
+    <!-- The input menu of the TextBox theme (TextBox.axaml). -->
+    <Setter Property="ContextFlyout" Value="{DynamicResource UIKitTextBoxContextFlyout}" />
     <Setter Property="Template">
       <ControlTemplate>
         <Border Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">

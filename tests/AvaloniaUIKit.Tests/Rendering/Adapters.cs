@@ -51,6 +51,7 @@ public static partial class Adapters
         "icon" => IconCase(c),
         "label" => LabelCase(c),
         "input" => InputFeatures(Input(c), c),
+        "input-menu" => InputFeatures(Input(c), c),
         "textarea" => Textarea(c),
         "input-group" => InputGroup(c),
         "input-group-loading" => LoadingInputGroup(c),

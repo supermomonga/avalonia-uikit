@@ -15,7 +15,8 @@
 
   Usage: open a MenuFlyout with Placement="BottomEdgeAlignedLeft" (or
   BottomEdgeAlignedRight for a split button); the presenter keeps GPUI's 4px
-  gap from the trigger. A ContextMenu opens at the pointer.
+  gap from the trigger. A ContextMenu opens at the pointer, and so does a
+  context flyout whose FlyoutPresenterClasses has context (no gap).
 -->
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -53,7 +54,7 @@
     <Setter Property="Template">
       <ControlTemplate>
         <!-- The popover opens 4px from its trigger (popover.rs, 0.25rem). -->
-        <Panel Margin="0,4,0,0">
+        <Panel Name="PART_Root" Margin="0,4,0,0">
           <Border Name="PART_Ring" Margin="-1" CornerRadius="{TemplateBinding CornerRadius}"
                   Background="{DynamicResource UIKit.PopoverRing}" IsHitTestVisible="False" />
           <Border Name="PART_Surface"
@@ -71,6 +72,10 @@
         </Panel>
       </ControlTemplate>
     </Setter>
+    <!-- A context flyout opens at the pointer, as a ContextMenu does. -->
+    <Style Selector="^.context /template/ Panel#PART_Root">
+      <Setter Property="Margin" Value="0" />
+    </Style>
   </ControlTheme>
 
   <ControlTheme x:Key="{x:Type ContextMenu}" TargetType="ContextMenu">

@@ -4,6 +4,7 @@ using Avalonia.Controls.Presenters;
 using Avalonia.Controls.Primitives;
 using Avalonia.Headless;
 using Avalonia.Input;
+using Avalonia.Input.Platform;
 using Avalonia.VisualTree;
 using AvaloniaUIKit.Tests.Golden;
 using AvaloniaUIKit.Tests.Rendering;
@@ -241,5 +242,98 @@ public class ThemeFixBehaviorTests
         box.SelectedIndex = 0;
         host.Flush();
         await Assert.That(clear.IsEffectivelyVisible).IsTrue();
+    }
+
+    private static MenuItem[] MenuItems(CaseHost host) =>
+        host.Window.GetVisualDescendants().OfType<MenuItem>().ToArray();
+
+    /// <summary>The items' enabled states in order, as 1s and 0s.</summary>
+    private static string Enabled(MenuItem[] items) =>
+        string.Concat(items.Select(i => i.IsEffectivelyEnabled ? '1' : '0'));
+
+    private static void ClickItem(CaseHost host, string header)
+    {
+        var item = MenuItems(host).First(i => Equals(i.Header, header));
+        var at = item.TranslatePoint(new Point(item.Bounds.Width / 2, item.Bounds.Height / 2), host.Window)!.Value;
+        host.Window.MouseMove(at);
+        host.Window.MouseDown(at, MouseButton.Left);
+        host.Window.MouseUp(at, MouseButton.Left);
+        host.Flush();
+    }
+
+    // input.rs on_context_menu: Cut, Copy, Paste, a separator and Select All at the
+    // pointer; Cut and Copy need a selection, Cut and Paste an editable field.
+    [Test]
+    public async Task A_right_click_opens_the_input_menu_with_gpui_items_and_rules()
+    {
+        var golden = Case("input-menu/plain.base/right-click/light");
+        using var host = CaseHost.Open(golden, Adapters.Create(golden));
+        var box = (TextBox)host.Control;
+        host.Drive(golden, "right-click");
+        var items = MenuItems(host);
+        await Assert.That(string.Join(",", items.Select(i => i.Header))).IsEqualTo("Cut,Copy,Paste,Select All");
+        await Assert.That(host.Window.GetVisualDescendants().OfType<MenuFlyoutPresenter>().Single()
+            .GetVisualDescendants().OfType<Separator>().Count()).IsEqualTo(1);
+        await Assert.That(Enabled(items)).IsEqualTo("0011");
+        await Assert.That(items.All(i => i.InputGesture is not null)).IsTrue();
+        // The menu's top left at the pointer (the input's center).
+        var surface = host.Window.GetVisualDescendants().OfType<MenuFlyoutPresenter>().Single();
+        await Assert.That(surface.TranslatePoint(default, host.Window)).IsEqualTo(new Point(116, 28));
+        ClickItem(host, "Select All");
+        await Assert.That(box.SelectedText).IsEqualTo("Hello world");
+        host.Drive(golden, "right-click");
+        await Assert.That(Enabled(MenuItems(host))).IsEqualTo("1111");
+        ClickItem(host, "Copy");
+        var clipboard = TopLevel.GetTopLevel(box)!.Clipboard!;
+        await Assert.That(await clipboard.TryGetTextAsync()).IsEqualTo("Hello world");
+        host.Drive(golden, "right-click");
+        ClickItem(host, "Cut");
+        await Assert.That(box.Text).IsEqualTo("");
+        await clipboard.SetTextAsync("Pasted");
+        host.Drive(golden, "right-click");
+        ClickItem(host, "Paste");
+        host.Flush();
+        await Assert.That(box.Text).IsEqualTo("Pasted");
+    }
+
+    [Test]
+    public async Task A_read_only_or_masked_input_disables_what_it_refuses()
+    {
+        var golden = Case("input-menu/readonly.base/right-click/light");
+        using var host = CaseHost.Open(golden, Adapters.Create(golden));
+        var box = (TextBox)host.Control;
+        box.SelectAll();
+        host.Drive(golden, "right-click");
+        // Read-only: Copy only (and Select All).
+        await Assert.That(Enabled(MenuItems(host))).IsEqualTo("0101");
+        host.PressKey("escape");
+        box.IsReadOnly = false;
+        box.PasswordChar = '•';
+        box.SelectAll();
+        host.Drive(golden, "right-click");
+        // Masked: the value stays out of the clipboard.
+        await Assert.That(Enabled(MenuItems(host))).IsEqualTo("0011");
+    }
+
+    [Test]
+    public async Task Every_text_field_of_the_theme_has_the_input_menu()
+    {
+        var golden = Case("input/value.medium/normal/light");
+        var flyout = Avalonia.Application.Current!.FindResource("UIKitTextBoxContextFlyout");
+        await Assert.That(flyout).IsNotNull();
+        Control[] fields =
+        [
+            new TextBox { AcceptsReturn = true, MinLines = 3 },
+            new AutoCompleteBox { Width = 200 },
+            new NumericUpDown { Width = 160, Value = 1 },
+            new ComboBox { Width = 200, IsEditable = true },
+            new CalendarDatePicker { Width = 200 },
+        ];
+        foreach (var field in fields)
+        {
+            using var host = CaseHost.Open(golden, field);
+            var box = field as TextBox ?? field.GetVisualDescendants().OfType<TextBox>().First();
+            await Assert.That(box.ContextFlyout).IsSameReferenceAs(flyout);
+        }
     }
 }

@@ -6,17 +6,22 @@ use crate::{
 };
 use anyhow::Result;
 use gpui_kit::{
-    AppContext as _, IntoElement as _, ParentElement as _, Styled as _, px,
+    AppContext as _, DismissEvent, Entity, Focusable as _, InteractiveElement as _, IntoElement as _, MouseButton,
+    ParentElement as _, Pixels, Point, Styled as _, Subscription, anchored, deferred, div, px,
     component::{
         Colorize as _, Icon, Sizable as _, Size, Theme,
         button::{Button, ButtonVariants as _},
         input::{
-            Input, InputGroup, InputGroupAddon, InputGroupAddonAlignment, InputGroupButton, InputState, Textarea,
-            TextareaState,
+            Copy, Cut, Input, InputGroup, InputGroupAddon, InputGroupAddonAlignment, InputGroupButton, InputState,
+            Paste, SelectAll, Textarea, TextareaState,
         },
+        menu::PopupMenu,
     },
 };
-use std::rc::Rc;
+use std::{cell::RefCell, rc::Rc};
+
+/// The open right-click menu: where it opened, the menu, and its dismissal.
+type OpenMenu = Rc<RefCell<Option<(Point<Pixels>, Entity<PopupMenu>, Subscription)>>>;
 
 pub fn builder(params: &Params) -> Result<Builder> {
     let disabled = disabled(params);
@@ -32,6 +37,9 @@ pub fn builder(params: &Params) -> Result<Builder> {
     let width = param_f32(params, "width", 200.);
     // input.rs cleanable: a clear button after the text while it is editable and not empty.
     let cleanable = param_bool(params, "cleanable");
+    // The right-click menu as GPUI Kit draws it where the OS has no native one.
+    let context_menu = param_bool(params, "context_menu");
+    let open_menu: OpenMenu = Rc::new(RefCell::new(None));
     Ok(Rc::new(move |view, window, cx| {
         if view.state.entity.is_none() {
             let (value, placeholder) = (value.clone(), placeholder.clone());
@@ -70,7 +78,53 @@ pub fn builder(params: &Params) -> Result<Builder> {
         if cleanable {
             input = input.cleanable(true);
         }
-        input.into_any_element()
+        if !context_menu {
+            return input.into_any_element();
+        }
+        // input.rs shows its context menu as a NativeMenu, which the macOS backend
+        // hands to AppKit (nothing to capture here) and native_menu/fallback.rs
+        // draws as a PopupMenu at the pointer: built here the same way, after the
+        // input has handled the click (and moved its caret).
+        let view_entity = cx.entity().downgrade();
+        let slot = open_menu.clone();
+        let mut root = div().child(input).capture_any_mouse_up(move |event, window, cx| {
+            if event.button != MouseButton::Right {
+                return;
+            }
+            let (position, slot, state, view) = (event.position, slot.clone(), state.clone(), view_entity.clone());
+            window.defer(cx, move |window, cx| {
+                let capabilities = state.read(cx).context_menu_capabilities();
+                let enabled = !capabilities.is_disabled();
+                let editable = enabled && !capabilities.is_readonly();
+                let copyable = capabilities.is_copyable();
+                let focus = state.read(cx).focus_handle(cx);
+                let menu = PopupMenu::build(window, cx, move |menu, _, _| {
+                    menu.action_context(focus.clone())
+                        .menu_with_check_and_disabled("Cut", false, Box::new(Cut), !(editable && copyable))
+                        .menu_with_check_and_disabled("Copy", false, Box::new(Copy), !copyable)
+                        .menu_with_check_and_disabled("Paste", false, Box::new(Paste), !editable)
+                        .separator()
+                        .menu_with_check_and_disabled("Select All", false, Box::new(SelectAll), false)
+                });
+                // Weak: the slot holds the subscription.
+                let dismissed = Rc::downgrade(&slot);
+                let subscription = cx.subscribe(&menu, move |_, _: &DismissEvent, _| {
+                    if let Some(slot) = dismissed.upgrade() {
+                        slot.borrow_mut().take();
+                    }
+                });
+                menu.focus_handle(cx).focus(window, cx);
+                *slot.borrow_mut() = Some((position, menu, subscription));
+                let _ = view.update(cx, |_, cx| cx.notify());
+            });
+        });
+        if let Some((position, menu, _)) = open_menu.borrow().as_ref() {
+            root = root.child(
+                deferred(anchored().position(*position).snap_to_window_with_margin(px(8.)).child(menu.clone()))
+                    .with_priority(gpui_kit::base::POPUP_PRIORITY),
+            );
+        }
+        root.into_any_element()
     }))
 }
 

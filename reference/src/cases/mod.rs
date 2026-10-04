@@ -95,6 +95,7 @@ pub fn builder(case: &Case) -> Result<Builder> {
         "icon" => icon::builder(&params),
         "label" => label::builder(&params),
         "input" => input::builder(&params),
+        "input-menu" => input::builder(&params),
         "textarea" => input::textarea(&params),
         "input-group" => input::input_group(&params),
         "input-group-loading" => input::input_group(&params),

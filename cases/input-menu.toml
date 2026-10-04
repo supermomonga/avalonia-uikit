@@ -1,0 +1,25 @@
+# GPUI Kit Input's right-click menu -> TextBox's ContextFlyout (the input
+# builder with context_menu: the menu drawn as native_menu/fallback.rs draws a
+# NativeMenu). Cut, Copy, Paste, a separator and Select All at the pointer.
+# Without a selection Cut and Copy are disabled; read-only, Cut and Paste are.
+# A click inside the selection keeps it (the text is x 27-101); the menu takes
+# the focus, so the input shows no ring or selection. Items are 26px high:
+# Cut, Copy and Paste centered at y 45, 73 and 101 below a click at y 28.
+component = "input-menu"
+viewport = [320, 200]
+anchor = [16, 12]
+
+[[group]]
+name = "plain"
+params = { value = "Hello world", context_menu = true, width = 200 }
+states = ["right-click", "right-click+at-160-101"]
+
+[[group]]
+name = "selection"
+params = { value = "Hello world", context_menu = true, select_all = true, width = 200 }
+states = ["right-click-at-60-28"]
+
+[[group]]
+name = "readonly"
+params = { value = "Read only", context_menu = true, readonly = true, width = 200 }
+states = ["right-click"]

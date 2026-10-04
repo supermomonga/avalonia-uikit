@@ -56,6 +56,8 @@
     <Setter Property="VerticalContentAlignment" Value="Center" />
     <Setter Property="LineHeight" Value="20" />
     <Setter Property="Padding" Value="10,0" />
+    <!-- The input menu of the TextBox theme (TextBox.axaml). -->
+    <Setter Property="ContextFlyout" Value="{DynamicResource UIKitTextBoxContextFlyout}" />
     <Setter Property="Template">
       <ControlTemplate>
         <Border Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
