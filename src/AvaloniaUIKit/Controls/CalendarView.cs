@@ -116,6 +116,7 @@ public class CalendarView : TemplatedControl
     private Decorator? _body;
     private DateTime _today;
     private int _yearPage;
+    private string? _size;
 
     static CalendarView()
     {
@@ -136,7 +137,16 @@ public class CalendarView : TemplatedControl
         _today = DateTime.Today;
         SetCurrentValue(DisplayDateProperty, _today);
         DisabledDates.CollectionChanged += (_, _) => Refresh();
-        Classes.CollectionChanged += (_, _) => Refresh();
+        // The cells take the calendar's size class; pseudo-classes (:pointerover) change nothing.
+        Classes.CollectionChanged += (_, _) =>
+        {
+            var size = Array.Find(SizeClasses, Classes.Contains);
+            if (size != _size)
+            {
+                _size = size;
+                Refresh();
+            }
+        };
         AddHandler(Button.ClickEvent, OnItemClick);
     }
 

@@ -356,7 +356,7 @@ public class DateField : TemplatedControl
             _startTime = _endTime = Truncate(DefaultTime);
             SyncTimeField();
         }
-        else if (change.Property == DateFormatProperty || change.Property == PlaceholderTextProperty ||
+        else if (change.Property == DateFormatProperty || change.Property == PlaceholderTextProperty || change.Property == IsRangeProperty ||
                  change.Property == IsCleanableProperty || change.Property == IsEffectivelyEnabledProperty)
         {
             UpdateState();
