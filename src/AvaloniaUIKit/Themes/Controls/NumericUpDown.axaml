@@ -7,8 +7,11 @@
   input background and a 1px `input` border that turns to `ring` (with the
   ring band) while focused. Inside it: the decrease button, the text centered
   between them, and the increase button. GPUI places the buttons on either
-  side; ButtonSpinnerLocation does not move them.
-  A disabled NumberInput fades as a whole to 50%.
+  side; ButtonSpinnerLocation does not move them. InnerLeftContent and
+  InnerRightContent are GPUI's prefix and suffix: right beside the text (the
+  inner Input's gap_0), inside the text's padding.
+  A disabled NumberInput fades as a whole to 50%, and its prefix and suffix
+  once more (the inner Input's own fade).
 -->
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
@@ -56,32 +59,49 @@
     <Setter Property="Template">
       <ControlTemplate>
         <Border Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
-          <Panel VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
-            <TextBlock Name="PART_Placeholder"
-                       Foreground="{TemplateBinding PlaceholderForeground}"
-                       Text="{TemplateBinding PlaceholderText}"
-                       TextAlignment="{TemplateBinding TextAlignment}"
-                       LineHeight="{TemplateBinding LineHeight}"
-                       IsVisible="{TemplateBinding Text, Converter={x:Static StringConverters.IsNullOrEmpty}}" />
-            <TextPresenter Name="PART_TextPresenter"
-                           CaretBlinkInterval="{TemplateBinding CaretBlinkInterval}"
-                           CaretBrush="{TemplateBinding CaretBrush}"
-                           CaretIndex="{TemplateBinding CaretIndex}"
-                           LineHeight="{TemplateBinding LineHeight}"
-                           SelectionBrush="{TemplateBinding SelectionBrush}"
-                           SelectionEnd="{TemplateBinding SelectionEnd}"
-                           SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
-                           SelectionStart="{TemplateBinding SelectionStart}"
-                           Text="{TemplateBinding Text, Mode=TwoWay}"
-                           TextAlignment="{TemplateBinding TextAlignment}"
-                           TextWrapping="NoWrap" />
-          </Panel>
+          <Grid ColumnDefinitions="Auto,*,Auto">
+            <ContentPresenter Name="PART_InnerLeftContent"
+                              VerticalAlignment="Center"
+                              VerticalContentAlignment="Center"
+                              Content="{TemplateBinding InnerLeftContent}"
+                              IsVisible="{TemplateBinding InnerLeftContent, Converter={x:Static ObjectConverters.IsNotNull}}" />
+            <Panel Grid.Column="1" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+              <TextBlock Name="PART_Placeholder"
+                         Foreground="{TemplateBinding PlaceholderForeground}"
+                         Text="{TemplateBinding PlaceholderText}"
+                         TextAlignment="{TemplateBinding TextAlignment}"
+                         LineHeight="{TemplateBinding LineHeight}"
+                         IsVisible="{TemplateBinding Text, Converter={x:Static StringConverters.IsNullOrEmpty}}" />
+              <TextPresenter Name="PART_TextPresenter"
+                             CaretBlinkInterval="{TemplateBinding CaretBlinkInterval}"
+                             CaretBrush="{TemplateBinding CaretBrush}"
+                             CaretIndex="{TemplateBinding CaretIndex}"
+                             LineHeight="{TemplateBinding LineHeight}"
+                             SelectionBrush="{TemplateBinding SelectionBrush}"
+                             SelectionEnd="{TemplateBinding SelectionEnd}"
+                             SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
+                             SelectionStart="{TemplateBinding SelectionStart}"
+                             Text="{TemplateBinding Text, Mode=TwoWay}"
+                             TextAlignment="{TemplateBinding TextAlignment}"
+                             TextWrapping="NoWrap" />
+            </Panel>
+            <ContentPresenter Name="PART_InnerRightContent" Grid.Column="2"
+                              VerticalAlignment="Center"
+                              VerticalContentAlignment="Center"
+                              Content="{TemplateBinding InnerRightContent}"
+                              IsVisible="{TemplateBinding InnerRightContent, Converter={x:Static ObjectConverters.IsNotNull}}" />
+          </Grid>
         </Border>
       </ControlTemplate>
     </Setter>
     <!-- A disabled field fades its text to half, inside the frame's own fade. -->
     <Style Selector="^:disabled">
       <Setter Property="Foreground" Value="{DynamicResource UIKit.Number.Disabled.Text}" />
+    </Style>
+    <!-- The prefix and suffix fade to half as wholes (input.rs), keeping their own color. -->
+    <Style Selector="^:disabled /template/ ContentPresenter#PART_InnerLeftContent, ^:disabled /template/ ContentPresenter#PART_InnerRightContent">
+      <Setter Property="Opacity" Value="0.5" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
     </Style>
   </ControlTheme>
 
@@ -172,6 +192,8 @@
                      Text="{TemplateBinding Text}"
                      TextAlignment="{TemplateBinding TextAlignment}"
                      PlaceholderText="{TemplateBinding PlaceholderText}"
+                     InnerLeftContent="{TemplateBinding InnerLeftContent}"
+                     InnerRightContent="{TemplateBinding InnerRightContent}"
                      AcceptsReturn="False" />
           </ButtonSpinner>
         </Panel>

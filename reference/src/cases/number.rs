@@ -1,21 +1,28 @@
 //! `NumberInput` (crates/component/src/input/number_input.rs).
-use super::{disabled, size};
+use super::{disabled, icon, size};
 use crate::{harness::Builder, manifest::{Params, param_f32, param_str}};
 use anyhow::Result;
 use gpui_kit::{
-    AppContext as _, IntoElement as _, Styled as _, px,
+    AppContext as _, IntoElement as _, SharedString, Styled as _, px,
     component::{
-        Colorize as _, Disableable as _, Sizable as _, Theme,
+        Colorize as _, Disableable as _, Icon, Sizable as _, Theme,
+        button::{Button, ButtonVariants as _},
         input::{InputState, NumberInput},
     },
 };
 use std::rc::Rc;
 
+/// `prefix` / `suffix` are text; `prefix_icon` a small icon and `suffix_icon` a
+/// text xsmall icon button (the story's info action).
 pub fn builder(params: &Params) -> Result<Builder> {
     let disabled = disabled(params);
     let size = size(params);
     let value = param_str(params, "value", "42").to_string();
     let width = param_f32(params, "width", 160.);
+    let prefix = param_str(params, "prefix", "").to_string();
+    let suffix = param_str(params, "suffix", "").to_string();
+    let prefix_icon = icon(param_str(params, "prefix_icon", ""));
+    let suffix_icon = icon(param_str(params, "suffix_icon", ""));
     Ok(Rc::new(move |view, window, cx| {
         if view.state.entity.is_none() {
             let value = value.clone();
@@ -28,11 +35,18 @@ pub fn builder(params: &Params) -> Result<Builder> {
             .clone()
             .and_then(|e| e.downcast::<InputState>().ok())
             .expect("input state");
-        NumberInput::new(&state)
-            .with_size(size)
-            .disabled(disabled)
-            .w(px(width))
-            .into_any_element()
+        let mut number = NumberInput::new(&state).with_size(size).disabled(disabled).w(px(width));
+        if let Some(name) = prefix_icon.clone() {
+            number = number.prefix(Icon::new(name).small());
+        } else if !prefix.is_empty() {
+            number = number.prefix(SharedString::from(prefix.clone()));
+        }
+        if let Some(name) = suffix_icon.clone() {
+            number = number.suffix(Button::new("suffix").text().icon(name).xsmall());
+        } else if !suffix.is_empty() {
+            number = number.suffix(SharedString::from(suffix.clone()));
+        }
+        number.into_any_element()
     }))
 }
 

@@ -161,6 +161,7 @@
         <TextBlock Text="NumericUpDown, Slider, ProgressBar, Spinner" Foreground="{DynamicResource UIKit.MutedForeground}" />
         <StackPanel Spacing="12" HorizontalAlignment="Left">
           <NumericUpDown Value="42" Width="160" />
+          <NumericUpDown Value="42" Width="160" InnerLeftContent="$" InnerRightContent="kg" />
           <Slider Value="40" Width="240" HorizontalAlignment="Left" />
           <ProgressBar Value="40" Width="240" />
           <ProgressBar IsIndeterminate="True" Width="240" />

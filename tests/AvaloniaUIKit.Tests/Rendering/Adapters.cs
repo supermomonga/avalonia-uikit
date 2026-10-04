@@ -39,7 +39,7 @@ public static partial class Adapters
         "split" => Split(c),
         "split-loading" => LoadingSplit(c),
         "menubar" => MenuBar(),
-        "number" => Number(c),
+        "number" => NumberAffixes(Number(c), c),
         "groupbox" => GroupBox(c),
         "separator" => Separator(c),
         "link" => new HyperlinkButton { Content = c.Str("label", "Documentation") },

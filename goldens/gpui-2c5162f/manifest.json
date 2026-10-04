@@ -75742,6 +75742,1084 @@
       "png_sha256": "a077048eb124db21b3607a4f7e829cdd7d422761b0a329eaa79ad570cf34ad4b"
     },
     {
+      "id": "number/icons.large/disabled/dark",
+      "component": "number",
+      "group": "icons",
+      "params": {
+        "value": "42",
+        "prefix_icon": "search",
+        "suffix_icon": "info",
+        "size": "large",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        44.0
+      ],
+      "png": "png/number/icons.large/disabled/dark.png",
+      "scene": "scenes/number/icons.large/disabled/dark.json",
+      "png_sha256": "326d354de4c48619d4b893115984147b526b912514438a90b89c0247c069accb"
+    },
+    {
+      "id": "number/icons.large/disabled/light",
+      "component": "number",
+      "group": "icons",
+      "params": {
+        "value": "42",
+        "prefix_icon": "search",
+        "suffix_icon": "info",
+        "size": "large",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        44.0
+      ],
+      "png": "png/number/icons.large/disabled/light.png",
+      "scene": "scenes/number/icons.large/disabled/light.json",
+      "png_sha256": "76b840462d297f6cf65bf2fac33e361a07f276c28d8aec9350dd922f44a12e92"
+    },
+    {
+      "id": "number/icons.large/normal/dark",
+      "component": "number",
+      "group": "icons",
+      "params": {
+        "value": "42",
+        "prefix_icon": "search",
+        "suffix_icon": "info",
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        44.0
+      ],
+      "png": "png/number/icons.large/normal/dark.png",
+      "scene": "scenes/number/icons.large/normal/dark.json",
+      "png_sha256": "272b779f7606aa9a260bc3d2156cae3149e605cc743de0580db2ee1bac03cb3c"
+    },
+    {
+      "id": "number/icons.large/normal/light",
+      "component": "number",
+      "group": "icons",
+      "params": {
+        "value": "42",
+        "prefix_icon": "search",
+        "suffix_icon": "info",
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        44.0
+      ],
+      "png": "png/number/icons.large/normal/light.png",
+      "scene": "scenes/number/icons.large/normal/light.json",
+      "png_sha256": "4cebb82fda15abee7551fd992dcdb5de91a4a9e26f3db9cd937e0ad7282547b3"
+    },
+    {
+      "id": "number/icons.medium/disabled/dark",
+      "component": "number",
+      "group": "icons",
+      "params": {
+        "value": "42",
+        "prefix_icon": "search",
+        "suffix_icon": "info",
+        "size": "medium",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        32.0
+      ],
+      "png": "png/number/icons.medium/disabled/dark.png",
+      "scene": "scenes/number/icons.medium/disabled/dark.json",
+      "png_sha256": "bf66342b8f1c00393059f15e40732a5a55577c9655087884136e471c9fc76506"
+    },
+    {
+      "id": "number/icons.medium/disabled/light",
+      "component": "number",
+      "group": "icons",
+      "params": {
+        "value": "42",
+        "prefix_icon": "search",
+        "suffix_icon": "info",
+        "size": "medium",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        32.0
+      ],
+      "png": "png/number/icons.medium/disabled/light.png",
+      "scene": "scenes/number/icons.medium/disabled/light.json",
+      "png_sha256": "8c027d77d0986af888c273efe2917b5004409a00a05bae6759e50904fce8590e"
+    },
+    {
+      "id": "number/icons.medium/normal/dark",
+      "component": "number",
+      "group": "icons",
+      "params": {
+        "value": "42",
+        "prefix_icon": "search",
+        "suffix_icon": "info",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        32.0
+      ],
+      "png": "png/number/icons.medium/normal/dark.png",
+      "scene": "scenes/number/icons.medium/normal/dark.json",
+      "png_sha256": "6e8c07d1d8ab06abca4a6139c45448ab5a2666e3f19d984685d5aa7827b78ea7"
+    },
+    {
+      "id": "number/icons.medium/normal/light",
+      "component": "number",
+      "group": "icons",
+      "params": {
+        "value": "42",
+        "prefix_icon": "search",
+        "suffix_icon": "info",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        32.0
+      ],
+      "png": "png/number/icons.medium/normal/light.png",
+      "scene": "scenes/number/icons.medium/normal/light.json",
+      "png_sha256": "9b174884be72eaeb1c6d1c5c09301f6a0a0979e2944420e5a9029b0ba1523080"
+    },
+    {
+      "id": "number/icons.small/disabled/dark",
+      "component": "number",
+      "group": "icons",
+      "params": {
+        "value": "42",
+        "prefix_icon": "search",
+        "suffix_icon": "info",
+        "size": "small",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        24.0
+      ],
+      "png": "png/number/icons.small/disabled/dark.png",
+      "scene": "scenes/number/icons.small/disabled/dark.json",
+      "png_sha256": "7d58738cd23a85e1e36060ec4448be8008bcd56799f63c3ca2cabab45e8526ae"
+    },
+    {
+      "id": "number/icons.small/disabled/light",
+      "component": "number",
+      "group": "icons",
+      "params": {
+        "value": "42",
+        "prefix_icon": "search",
+        "suffix_icon": "info",
+        "size": "small",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        24.0
+      ],
+      "png": "png/number/icons.small/disabled/light.png",
+      "scene": "scenes/number/icons.small/disabled/light.json",
+      "png_sha256": "663cb33b326bc040cc827e385bb848b8661a687c2bd0fff4f197ae409483fe48"
+    },
+    {
+      "id": "number/icons.small/normal/dark",
+      "component": "number",
+      "group": "icons",
+      "params": {
+        "value": "42",
+        "prefix_icon": "search",
+        "suffix_icon": "info",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        24.0
+      ],
+      "png": "png/number/icons.small/normal/dark.png",
+      "scene": "scenes/number/icons.small/normal/dark.json",
+      "png_sha256": "eb1613a80d1633f9cb94ad6f8cc141a6205423ee8ea19abcf70b2ec404e20ce7"
+    },
+    {
+      "id": "number/icons.small/normal/light",
+      "component": "number",
+      "group": "icons",
+      "params": {
+        "value": "42",
+        "prefix_icon": "search",
+        "suffix_icon": "info",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        24.0
+      ],
+      "png": "png/number/icons.small/normal/light.png",
+      "scene": "scenes/number/icons.small/normal/light.json",
+      "png_sha256": "7ac615bbf6b2d0d8d66d87945b4bd4f3aa286c09ed3b266732fb304a5aba8336"
+    },
+    {
+      "id": "number/icons.xsmall/disabled/dark",
+      "component": "number",
+      "group": "icons",
+      "params": {
+        "value": "42",
+        "prefix_icon": "search",
+        "suffix_icon": "info",
+        "size": "xsmall",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        20.0
+      ],
+      "png": "png/number/icons.xsmall/disabled/dark.png",
+      "scene": "scenes/number/icons.xsmall/disabled/dark.json",
+      "png_sha256": "99c5a574736442cf746cdd243df0c1883a869f1c5185e445552d8b93739b72d1"
+    },
+    {
+      "id": "number/icons.xsmall/disabled/light",
+      "component": "number",
+      "group": "icons",
+      "params": {
+        "value": "42",
+        "prefix_icon": "search",
+        "suffix_icon": "info",
+        "size": "xsmall",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        20.0
+      ],
+      "png": "png/number/icons.xsmall/disabled/light.png",
+      "scene": "scenes/number/icons.xsmall/disabled/light.json",
+      "png_sha256": "8b32ed9dc4bf2d667fc77ef36f0d71123af660a5c33f804dc2312dd2a787c7de"
+    },
+    {
+      "id": "number/icons.xsmall/normal/dark",
+      "component": "number",
+      "group": "icons",
+      "params": {
+        "value": "42",
+        "prefix_icon": "search",
+        "suffix_icon": "info",
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        20.0
+      ],
+      "png": "png/number/icons.xsmall/normal/dark.png",
+      "scene": "scenes/number/icons.xsmall/normal/dark.json",
+      "png_sha256": "1d6720f89d815e7220b2f785c4a7bd42a02fe1bc4fc53a55b3a02d994f606525"
+    },
+    {
+      "id": "number/icons.xsmall/normal/light",
+      "component": "number",
+      "group": "icons",
+      "params": {
+        "value": "42",
+        "prefix_icon": "search",
+        "suffix_icon": "info",
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        20.0
+      ],
+      "png": "png/number/icons.xsmall/normal/light.png",
+      "scene": "scenes/number/icons.xsmall/normal/light.json",
+      "png_sha256": "f4649e7463dcf7e8c8b2a905daa3e268268c45418b0d37ffb32d663cbc0177e4"
+    },
+    {
+      "id": "number/prefix.large/disabled/dark",
+      "component": "number",
+      "group": "prefix",
+      "params": {
+        "value": "42",
+        "prefix": "$",
+        "size": "large",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        44.0
+      ],
+      "png": "png/number/prefix.large/disabled/dark.png",
+      "scene": "scenes/number/prefix.large/disabled/dark.json",
+      "png_sha256": "208283b31e7efed27d104af658b2e8e94230369b6de8818527596810db3c8b22"
+    },
+    {
+      "id": "number/prefix.large/disabled/light",
+      "component": "number",
+      "group": "prefix",
+      "params": {
+        "value": "42",
+        "prefix": "$",
+        "size": "large",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        44.0
+      ],
+      "png": "png/number/prefix.large/disabled/light.png",
+      "scene": "scenes/number/prefix.large/disabled/light.json",
+      "png_sha256": "3692ecc6e27f51684bbf44d42eab53acd2fdd328442e1235c4310da87735c6e5"
+    },
+    {
+      "id": "number/prefix.large/normal/dark",
+      "component": "number",
+      "group": "prefix",
+      "params": {
+        "value": "42",
+        "prefix": "$",
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        44.0
+      ],
+      "png": "png/number/prefix.large/normal/dark.png",
+      "scene": "scenes/number/prefix.large/normal/dark.json",
+      "png_sha256": "2693257543781d0a782c447fd368a7b3007c1fe52c9384d4b0c667e25cded8cc"
+    },
+    {
+      "id": "number/prefix.large/normal/light",
+      "component": "number",
+      "group": "prefix",
+      "params": {
+        "value": "42",
+        "prefix": "$",
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        44.0
+      ],
+      "png": "png/number/prefix.large/normal/light.png",
+      "scene": "scenes/number/prefix.large/normal/light.json",
+      "png_sha256": "28f0a1d4268c47d5f1dfc9c054c336d882014539f8a0d211eace7b61348ff56c"
+    },
+    {
+      "id": "number/prefix.medium/disabled/dark",
+      "component": "number",
+      "group": "prefix",
+      "params": {
+        "value": "42",
+        "prefix": "$",
+        "size": "medium",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        32.0
+      ],
+      "png": "png/number/prefix.medium/disabled/dark.png",
+      "scene": "scenes/number/prefix.medium/disabled/dark.json",
+      "png_sha256": "14afaf19f070ea1b86d40755e4d227624554d4191afa1b98c313bf14a83efb56"
+    },
+    {
+      "id": "number/prefix.medium/disabled/light",
+      "component": "number",
+      "group": "prefix",
+      "params": {
+        "value": "42",
+        "prefix": "$",
+        "size": "medium",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        32.0
+      ],
+      "png": "png/number/prefix.medium/disabled/light.png",
+      "scene": "scenes/number/prefix.medium/disabled/light.json",
+      "png_sha256": "4e32b0ab6f74f7f29257d59cbf15fe197c81d0f40e4249d76e7b1fb849e9ff70"
+    },
+    {
+      "id": "number/prefix.medium/normal/dark",
+      "component": "number",
+      "group": "prefix",
+      "params": {
+        "value": "42",
+        "prefix": "$",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        32.0
+      ],
+      "png": "png/number/prefix.medium/normal/dark.png",
+      "scene": "scenes/number/prefix.medium/normal/dark.json",
+      "png_sha256": "c03f1272a2ab2005546f5b5ab9f23305d1a0ef84cb2eb722e4bf92aeda6a7950"
+    },
+    {
+      "id": "number/prefix.medium/normal/light",
+      "component": "number",
+      "group": "prefix",
+      "params": {
+        "value": "42",
+        "prefix": "$",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        32.0
+      ],
+      "png": "png/number/prefix.medium/normal/light.png",
+      "scene": "scenes/number/prefix.medium/normal/light.json",
+      "png_sha256": "a660f32250333e60da4b61a77e07251101b1b66f91d2045142a6a0a6094f561c"
+    },
+    {
+      "id": "number/prefix.small/disabled/dark",
+      "component": "number",
+      "group": "prefix",
+      "params": {
+        "value": "42",
+        "prefix": "$",
+        "size": "small",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        24.0
+      ],
+      "png": "png/number/prefix.small/disabled/dark.png",
+      "scene": "scenes/number/prefix.small/disabled/dark.json",
+      "png_sha256": "2ce57c640ad68748e4ccdfcd5b100ae158612142885b8e7da71198f8c52d100e"
+    },
+    {
+      "id": "number/prefix.small/disabled/light",
+      "component": "number",
+      "group": "prefix",
+      "params": {
+        "value": "42",
+        "prefix": "$",
+        "size": "small",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        24.0
+      ],
+      "png": "png/number/prefix.small/disabled/light.png",
+      "scene": "scenes/number/prefix.small/disabled/light.json",
+      "png_sha256": "368f420692c24908048ef637ff2d9157b2f3ca9020ac4c2b665892ddcf3688c4"
+    },
+    {
+      "id": "number/prefix.small/normal/dark",
+      "component": "number",
+      "group": "prefix",
+      "params": {
+        "value": "42",
+        "prefix": "$",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        24.0
+      ],
+      "png": "png/number/prefix.small/normal/dark.png",
+      "scene": "scenes/number/prefix.small/normal/dark.json",
+      "png_sha256": "365452b2c66c4c24f9fa6ad602baf20a37fafb50df3357c0db59e099aa04e902"
+    },
+    {
+      "id": "number/prefix.small/normal/light",
+      "component": "number",
+      "group": "prefix",
+      "params": {
+        "value": "42",
+        "prefix": "$",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        24.0
+      ],
+      "png": "png/number/prefix.small/normal/light.png",
+      "scene": "scenes/number/prefix.small/normal/light.json",
+      "png_sha256": "4bedb38a13badef388aaac05b2817592c85eb59b281af63392370b5a78b73457"
+    },
+    {
+      "id": "number/suffix.medium/disabled/dark",
+      "component": "number",
+      "group": "suffix",
+      "params": {
+        "value": "42",
+        "suffix": "kg",
+        "size": "medium",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        32.0
+      ],
+      "png": "png/number/suffix.medium/disabled/dark.png",
+      "scene": "scenes/number/suffix.medium/disabled/dark.json",
+      "png_sha256": "bafd0496fe87b364e7e9e0fa5e39d9f4fe4e4d34b67e5b0467abe7b11b4d2369"
+    },
+    {
+      "id": "number/suffix.medium/disabled/light",
+      "component": "number",
+      "group": "suffix",
+      "params": {
+        "value": "42",
+        "suffix": "kg",
+        "size": "medium",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        32.0
+      ],
+      "png": "png/number/suffix.medium/disabled/light.png",
+      "scene": "scenes/number/suffix.medium/disabled/light.json",
+      "png_sha256": "8486f7419a020dfeac61a6a24fc52945c11a2488e64ddd0573c63f9916753cb1"
+    },
+    {
+      "id": "number/suffix.medium/normal/dark",
+      "component": "number",
+      "group": "suffix",
+      "params": {
+        "value": "42",
+        "suffix": "kg",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        32.0
+      ],
+      "png": "png/number/suffix.medium/normal/dark.png",
+      "scene": "scenes/number/suffix.medium/normal/dark.json",
+      "png_sha256": "73114f703986522f49cfe354ff72f7be5e89ba0f0cef7c7548a6166ed45dee9a"
+    },
+    {
+      "id": "number/suffix.medium/normal/light",
+      "component": "number",
+      "group": "suffix",
+      "params": {
+        "value": "42",
+        "suffix": "kg",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        32.0
+      ],
+      "png": "png/number/suffix.medium/normal/light.png",
+      "scene": "scenes/number/suffix.medium/normal/light.json",
+      "png_sha256": "85e16cb388cb1535d1d14be90839d6a40ed214ee262b2823a1204881e9c5442f"
+    },
+    {
+      "id": "number/suffix.small/disabled/dark",
+      "component": "number",
+      "group": "suffix",
+      "params": {
+        "value": "42",
+        "suffix": "kg",
+        "size": "small",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        24.0
+      ],
+      "png": "png/number/suffix.small/disabled/dark.png",
+      "scene": "scenes/number/suffix.small/disabled/dark.json",
+      "png_sha256": "190b1eec2cffe5928574c75a396844b0918e0eb100e3f13536ca9a0014a5d3e0"
+    },
+    {
+      "id": "number/suffix.small/disabled/light",
+      "component": "number",
+      "group": "suffix",
+      "params": {
+        "value": "42",
+        "suffix": "kg",
+        "size": "small",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        24.0
+      ],
+      "png": "png/number/suffix.small/disabled/light.png",
+      "scene": "scenes/number/suffix.small/disabled/light.json",
+      "png_sha256": "062bc75fce975823396dbea89d2b73a1e214f1c458b2762eaa7a5ce10dcdc0cf"
+    },
+    {
+      "id": "number/suffix.small/normal/dark",
+      "component": "number",
+      "group": "suffix",
+      "params": {
+        "value": "42",
+        "suffix": "kg",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        24.0
+      ],
+      "png": "png/number/suffix.small/normal/dark.png",
+      "scene": "scenes/number/suffix.small/normal/dark.json",
+      "png_sha256": "afaa414a8bbcaf6216231f821d8ab09eb86a62527e4b02adec2112dfeb6fdcc3"
+    },
+    {
+      "id": "number/suffix.small/normal/light",
+      "component": "number",
+      "group": "suffix",
+      "params": {
+        "value": "42",
+        "suffix": "kg",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        200.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        24.0
+      ],
+      "png": "png/number/suffix.small/normal/light.png",
+      "scene": "scenes/number/suffix.small/normal/light.json",
+      "png_sha256": "6f76a897b9704711275a9b335cfcfdf0dd385b77a48efd6f692da82cf5f8acaa"
+    },
+    {
       "id": "number/value.large/disabled/dark",
       "component": "number",
       "group": "value",
