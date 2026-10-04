@@ -8,6 +8,8 @@ links:
   kind: amendedby
 - target: 23
   kind: amendedby
+- target: 24
+  kind: amendedby
 ---
 
 # Build the docs site as static HTML with live demos on one WebAssembly runtime

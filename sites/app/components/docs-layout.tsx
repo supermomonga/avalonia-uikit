@@ -13,20 +13,24 @@ function SidebarLinks({
 }) {
   return (
     <>
-      <p class="docs-sidebar__title">{section.title}</p>
-      <ul>
-        {section.items.map((item) => (
-          <li>
-            <a
-              href={item.href}
-              class="docs-sidebar__link"
-              aria-current={item.href === pathname ? "page" : undefined}
-            >
-              {item.title}
-            </a>
-          </li>
-        ))}
-      </ul>
+      {section.groups.map((group) => (
+        <div class="docs-sidebar__group">
+          <p class="docs-sidebar__title">{group.title}</p>
+          <ul>
+            {group.items.map((item) => (
+              <li>
+                <a
+                  href={item.href}
+                  class="docs-sidebar__link"
+                  aria-current={item.href === pathname ? "page" : undefined}
+                >
+                  {item.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
     </>
   )
 }

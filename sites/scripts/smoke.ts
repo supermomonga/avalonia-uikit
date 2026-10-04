@@ -1,7 +1,7 @@
 /**
  * Checks the built site (dist/): every page exists, internal links, the
  * head's links and scripts, the social image, the redirects' targets and the
- * demos' preview images resolve, the social image's page is not built, no
+ * images resolve, the social image's page is not built, no
  * React prop leaks into the HTML, and the output stays within Cloudflare's
  * static asset limits (20,000 files, 25 MiB per file on the Free plan).
  */
@@ -86,7 +86,7 @@ function sitePath(url: string): string | undefined {
   return parsed.origin === siteConfig.url ? parsed.pathname : undefined
 }
 
-/** Internal links, the head's links and scripts, the demos' images, and React's className. */
+/** Internal links, the head's links and scripts, the site's images, and React's className. */
 async function inspect(html: string) {
   const links: string[] = []
   const head: string[] = []
@@ -124,7 +124,7 @@ async function inspect(html: string) {
         demos++
       },
     })
-    .on("avalonia-demo img[src], img[src^='/previews/']", {
+    .on("img[src^='/']", {
       element(element) {
         images.push(element.getAttribute("src") ?? "")
       },

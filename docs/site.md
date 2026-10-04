@@ -22,10 +22,10 @@ https://avalonia-uikit.omofla.sh の構成と約束事。サイト本体は `sit
 
 構成と見た目は GPUI Kit の公式サイト（https://gpui-kit.com 、`longbridge/gpui-kit` の `website/`）にそろえる。部品は shadcnui-hono-jsx（`sites/components/ui`）を使い、その CSS 変数を GPUI Kit と同じ neutral の配色で上書きする（`sites/app/style.css`）。
 
-- **セクション:** トップ（`/`）、ガイド（`/docs`）、コンポーネント（`/components`）。ドキュメントの 2 セクションはそれぞれ自分のサイドバーを持つ（`sites/app/lib/docs.ts` の `docsSections`）。旧 URL の `/docs/components/*` は `sites/public/_redirects` で `/components/*` に転送する。
+- **セクション:** トップ（`/`）、ガイド（`/docs`）、コンポーネント（`/components`）。ドキュメントの 2 セクションはそれぞれ自分のサイドバーを持つ（`sites/app/lib/docs.ts` の `docsSections`）。コンポーネントのサイドバーは、索引（Overview）の下を「Avalonia Controls」（Avalonia 標準のコントロールのテーマ）と「UIKit Controls」（`uikit:` の新しいコントロール、カタログの `status: "new"`）の 2 つのグループに分け、それぞれアルファベット順に並べる。旧 URL の `/docs/components/*` は `sites/public/_redirects` で `/components/*` に転送する。
 - **トップ:** blueprint グリッドの上のヒーロー（見出し、2 つのボタン、事実の行、`App.axaml` の 1 行、コードのウィンドウ）、CAPABILITIES の 3×3 グリッド、3 パッケージのカード、PRINCIPLE の帯、フッター。数は `catalog.ts` から数え、文言はドキュメントに書かれた事実だけで組む。
 - **ドキュメント:** 1280px の中に 220px のサイドバー、本文（最大 860px）、200px の目次。見出しは等幅の大文字、本文の型は `sites/app/styles/docs.css`。ページの最初のデモ（`title` なし）は macOS 風のウィンドウに入れたライブの例、`title` 付きのデモは見出し付きの枠になる。
-- **GPUI Kit との対応状況は出さない:** 利用者に GPUI Kit との互換性を意識させる必要はないので、Full / Partial の別や、GPUI Kit の機能のうち扱わないもの（Not covered）はサイトに書かない。これらは開発者向けの `docs/references/compatibility-list.md` にだけ書く。カタログの `status` はトップの数え上げ（新しいコントロールの数）にだけ使う。
+- **GPUI Kit との対応状況は出さない:** 利用者に GPUI Kit との互換性を意識させる必要はないので、Full / Partial の別や、GPUI Kit の機能のうち扱わないもの（Not covered）はサイトに書かない。これらは開発者向けの `docs/references/compatibility-list.md` にだけ書く。カタログの `status` は、新しいコントロール（`new`）かどうかを分けるためだけに使う（トップの数え上げとサイドバーのグループ）。
 - **テーマ:** ライト、ダーク、システムに従う、の 3 つ。パレット（T キー）で選び、`localStorage.theme` に `light` / `dark` を保存する（システムに従うときは消す）。
 - **フォント:** サイトはシステムフォント、デモは同梱の Inter。
 - **メタタグ:** `sites/app/routes/_renderer.tsx` が canonical、theme-color、Open Graph、X のカード、アイコン、manifest、JSON-LD（トップは `WebSite`、ほかは `WebPage` と `BreadcrumbList`）を出す。`<title>` は「Button — Components · Avalonia UIKit」の形。
@@ -44,7 +44,7 @@ https://avalonia-uikit.omofla.sh の構成と約束事。サイト本体は `sit
 - デモの中でスクロールするもの（ListBox、ScrollViewer、TreeView、TableView、複数行の TextBox など）はカタログの `scroll: true` で宣言する。宣言のないデモでは、ページのスクロールを妨げないようにホイール操作をデモに渡さない。
 - 登録は `samples/AvaloniaUIKit.Demos/DemoRegistry.g.cs` に生成する（`bun sites/scripts/demo-registry.ts`）。XAML を増やしたら再生成してコミットする。CI は生成結果が一致することを確かめる。
 - フォントは同梱の Inter（`assets/fonts/inter/`）。ブラウザーにはシステムフォントがないので、Browser と Previews の両方で `UIKit.FontFamily` を Inter にする。
-- DataGrid はトリミング非対応なので、WASM では動かないことがある。その場合はプレビュー画像だけを出す。
+- DataGrid はトリミング非対応なので、WASM では動かないことがある。その場合は「Live demo unavailable」と出す（下の「ライブデモ」）。
 
 ## プレビュー画像
 
@@ -54,18 +54,20 @@ https://avalonia-uikit.omofla.sh の構成と約束事。サイト本体は `sit
 - `sites/public/previews/manifest.json`: `{ "<demo id>": { "width": <論理px>, "height": <論理px> } }`
 - `--only <component-slug>` で一部だけ描く。
 
-サイトはプレビューを `<img>` として SSR し、JS なし・クローラー・モバイルでも見た目が伝わるようにする。
+サイトはデモの枠の大きさに `manifest.json` を使う（PNG は OG 画像だけが使い、ページには出さない）。
 
 ## ライブデモ
 
-`sites/app/avalonia-demo.ts` が `<avalonia-demo demo="button/demo" width="…" height="…" data-wasm-base="/wasm/<hash>">` を定義する。`data-wasm-base` はサイトのビルド時に `sites/public/wasm/index.json`（`{"base":"/wasm/<hash>"}`）から埋める。属性がなければ（WASM を publish していなければ）プレビュー画像のままにする。
+`sites/app/avalonia-demo.ts` が `<avalonia-demo demo="button/demo" width="…" height="…" data-wasm-base="/wasm/<hash>">` を定義する。`data-wasm-base` はサイトのビルド時に `sites/public/wasm/index.json`（`{"base":"/wasm/<hash>"}`）から埋める。属性がなければ（WASM を publish していなければ）、またはマウントに失敗したら、スケルトンの点滅を止めて「Live demo unavailable」と出す。
 
-1. 初期表示は中のプレビュー画像。
+1. 初期表示は、プレビューの大きさ（`manifest.json`）のスケルトン（shadcnui-hono-jsx の `Skeleton`）。
 2. 最初の `<avalonia-demo>` が画面に入ったら、`<data-wasm-base>/_framework/dotnet.js` を 1 回だけ読み込んで .NET ランタイムを起動する（`navigator.connection.saveData` のときは読み込まず、ボタンで明示的に読み込む）。
-3. 起動後、画面に入ったデモから順に `Demos.Mount(hostId, demoId, heightChanged)` を呼び、プレビュー画像を `AvaloniaView` に差し替える。
+3. 起動後、画面に入ったデモから順に `Demos.Mount(hostId, demoId, inset, heightChanged)` を呼び、スケルトンを `AvaloniaView` に差し替える。
 4. `<html class="dark">` の変化を監視して `Demos.SetTheme(dark)` を呼ぶ。
 
 ライブのデモは、要素の幅（プレビューの幅が上限）で高さを制限せずにレイアウトし、中央に置く。必要な高さは `heightChanged` で要素に返す（`samples/AvaloniaUIKit.Browser/DemoRoot.cs`）。プレビュー画像の縦横比で高さを決めると、狭い画面では折り返したデモの下が切れるため。
+
+ビューのホストは `<avalonia-demo>` から上下左右に `--demo-inset`（`sites/app/style.css`、12px）だけはみ出させ、`DemoRoot` はその分を `Padding` として空ける。さらにデモのルート（`UserControl`）の `ClipToBounds` を切る（テンプレートを持つコントロールは既定で自分の範囲で切り取る）。デモの位置と大きさは要素のままで、フォーカスリング（`Margin="-3"`）や影のようにデモの外へ描くものが切れない。値は CSS にだけ書き、`avalonia-demo.ts` が読んで `Mount` の `inset` に渡す。
 
 Avalonia は自分でホストと IME 用の `<input>` に `focus()` する。キーボードは全ビューで共有なので、あるデモを押すと、直前にフォーカスのあったデモのホストにも `focus()` が呼ばれ、ページがそこまでスクロールしてしまう。そこで `avalonia-demo.ts` はこれらの要素の `focus` を差し替え、押下の処理中は押されたデモの要素だけにフォーカスを許し、常に `preventScroll` を付ける。ホストのブラウザー既定のフォーカスリングは消す（フォーカスリングはデモの中で Avalonia が描く）。
 
@@ -74,7 +76,7 @@ Browser 側の JS から呼べる関数（`[JSExport]`、クラス `AvaloniaUIKi
 | 関数 | 内容 |
 | --- | --- |
 | `string[] List()` | 登録済みのデモ ID |
-| `bool Mount(string hostId, string demoId, Action<double> heightChanged)` | `id="hostId"` の要素に `AvaloniaView` を作り、デモを載せる。デモが要素の幅で必要とする高さが変わるたびに `heightChanged` を呼ぶ。未知の ID や失敗は false |
+| `bool Mount(string hostId, string demoId, double inset, Action<double> heightChanged)` | `id="hostId"` の要素に `AvaloniaView` を作り、デモを `inset` だけ内側に載せる。デモがその幅で必要とする高さ（`inset` を含まない）が変わるたびに `heightChanged` を呼ぶ。未知の ID や失敗は false |
 | `void SetTheme(bool dark)` | `RequestedThemeVariant` を切り替える |
 
 ## 配信

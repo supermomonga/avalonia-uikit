@@ -22,7 +22,8 @@ for (const [index, id] of ids.entries()) {
   host.id = `host-${index}`;
   section.append(title, host);
   container.append(section);
-  const mounted = api.Mount(host.id, id, (height) => {
+  // No inset: the host is the box itself, so a focus ring at its edge is cut off.
+  const mounted = api.Mount(host.id, id, 0, (height) => {
     host.style.height = `${height}px`;
   });
   if (!mounted) title.textContent += " (failed)";

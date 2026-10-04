@@ -40,13 +40,19 @@ export interface NavItem {
   href: string
 }
 
+/** A headed list of the sidebar's links. */
+export interface NavGroup {
+  title: string
+  items: NavItem[]
+}
+
 /** A section of the site with its own sidebar, as on gpui-kit.com. */
 export interface DocsSection {
-  /** The sidebar's heading. */
+  /** The section's name, which also heads its first group. */
   title: string
   /** The section's top-level path. */
   href: string
-  items: NavItem[]
+  groups: NavGroup[]
 }
 
 function page(href: string): NavItem {
@@ -55,28 +61,44 @@ function page(href: string): NavItem {
   return { title: doc.frontmatter.title, href }
 }
 
+/** The components, in alphabetical order, that are or are not new controls. */
+function componentLinks(isNew: boolean): NavItem[] {
+  return components
+    .filter((entry) => (entry.status === "new") === isNew)
+    .sort((a, b) => a.title.localeCompare(b.title, "en"))
+    .map((entry) => ({
+      title: entry.title,
+      href: `/components/${entry.slug}`,
+    }))
+}
+
 export const docsSections: DocsSection[] = [
   {
     title: "Avalonia UIKit",
     href: "/docs",
-    items: [
-      page("/docs"),
-      page("/docs/installation"),
-      page("/docs/theming"),
-      page("/docs/icons"),
+    groups: [
+      {
+        title: "Avalonia UIKit",
+        items: [
+          page("/docs"),
+          page("/docs/installation"),
+          page("/docs/theming"),
+          page("/docs/icons"),
+        ],
+      },
     ],
   },
   {
     title: "Components",
     href: "/components",
-    items: [
-      { title: "Components", href: "/components" },
-      ...[...components]
-        .sort((a, b) => a.title.localeCompare(b.title, "en"))
-        .map((entry) => ({
-          title: entry.title,
-          href: `/components/${entry.slug}`,
-        })),
+    groups: [
+      {
+        title: "Components",
+        items: [{ title: "Overview", href: "/components" }],
+      },
+      // Themes for Avalonia's own controls, then the new `uikit:` controls.
+      { title: "Avalonia Controls", items: componentLinks(false) },
+      { title: "UIKit Controls", items: componentLinks(true) },
     ],
   },
 ]

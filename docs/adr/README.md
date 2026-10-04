@@ -21,3 +21,4 @@
 * [21. Name the themes after Nova and prefix resources with UIKit](0021-name-the-themes-after-nova-and-prefix-resources-with-uikit.md)
 * [22. Model the docs site on gpui-kit.com and render its social image from a site page](0022-model-the-docs-site-on-gpui-kit-com-and-render-its-social-image-from-a-site-page.md)
 * [23. Fit live demos to their content height and keep Avalonia's focus in the pressed demo](0023-fit-live-demos-to-their-content-height-and-keep-avalonia-s-focus-in-the-pressed-demo.md)
+* [24. Show a skeleton until a live demo mounts and give the view room outside the demo](0024-show-a-skeleton-until-a-live-demo-mounts-and-give-the-view-room-outside-the-demo.md)
