@@ -48,6 +48,13 @@ params = { vertical = true }
 matrix = { value = [0, 40, 100] }
 states = ["normal", "disabled"]
 
+# Aurora Light: the thumb is a gradient (ADR 26).
+[[group]]
+name = "aurora"
+params = { value = 40, pointer_x = 0.4 }
+states = ["normal", "hover+wait-400ms", "pressed+wait-400ms"]
+themes = ["aurora-light"]
+
 # Ring grows on hover (spring_control), shrinks on leave, and turns around mid-flight.
 [[motion]]
 name = "ring"

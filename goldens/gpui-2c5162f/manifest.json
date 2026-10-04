@@ -5762,6 +5762,1878 @@
       "png_sha256": "dd80637cbe415830fbc7d9a5923e33d84314f68480a0bdc2406657fd7bab49ad"
     },
     {
+      "id": "button/aurora.danger.outline/disabled/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "danger",
+        "outline": true,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        66.0,
+        32.0
+      ],
+      "png": "png/button/aurora.danger.outline/disabled/aurora-light.png",
+      "scene": "scenes/button/aurora.danger.outline/disabled/aurora-light.json",
+      "png_sha256": "b47877a59dcf4fe7807e0c8141afa1914bdec88d27441ee77f3c30fbbb84a64f"
+    },
+    {
+      "id": "button/aurora.danger.outline/hover/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "danger",
+        "outline": true
+      },
+      "state": "hover",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        66.0,
+        32.0
+      ],
+      "png": "png/button/aurora.danger.outline/hover/aurora-light.png",
+      "scene": "scenes/button/aurora.danger.outline/hover/aurora-light.json",
+      "png_sha256": "ab7e8d93b90a8419ee5801a2fb5cb4091192b07548be83e290dadf99f6d7b0b0"
+    },
+    {
+      "id": "button/aurora.danger.outline/normal/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "danger",
+        "outline": true
+      },
+      "state": "normal",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        66.0,
+        32.0
+      ],
+      "png": "png/button/aurora.danger.outline/normal/aurora-light.png",
+      "scene": "scenes/button/aurora.danger.outline/normal/aurora-light.json",
+      "png_sha256": "956ab7ad2906a938cff4fe0ea0887cb6bd9216ca4a26d53dc48eef2f3a002a49"
+    },
+    {
+      "id": "button/aurora.danger.outline/pressed/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "danger",
+        "outline": true
+      },
+      "state": "pressed",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        66.0,
+        32.0
+      ],
+      "png": "png/button/aurora.danger.outline/pressed/aurora-light.png",
+      "scene": "scenes/button/aurora.danger.outline/pressed/aurora-light.json",
+      "png_sha256": "3317c8fe48d5bc50d1f0fe692ceac1fe68da1ea8aa5cd7654cbdafc406e9417f"
+    },
+    {
+      "id": "button/aurora.danger/disabled/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "danger",
+        "outline": false,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        64.0,
+        32.0
+      ],
+      "png": "png/button/aurora.danger/disabled/aurora-light.png",
+      "scene": "scenes/button/aurora.danger/disabled/aurora-light.json",
+      "png_sha256": "a479f240b8d5d7ad9f29c13873be6fe11709ab9c497d629e7a3e85a6ca7c5667"
+    },
+    {
+      "id": "button/aurora.danger/hover/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "danger",
+        "outline": false
+      },
+      "state": "hover",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        64.0,
+        32.0
+      ],
+      "png": "png/button/aurora.danger/hover/aurora-light.png",
+      "scene": "scenes/button/aurora.danger/hover/aurora-light.json",
+      "png_sha256": "47d9693045aa4ca0c99dcb305ca6e5843d64bfff143a9afcc4e30fa466456fee"
+    },
+    {
+      "id": "button/aurora.danger/normal/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "danger",
+        "outline": false
+      },
+      "state": "normal",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        64.0,
+        32.0
+      ],
+      "png": "png/button/aurora.danger/normal/aurora-light.png",
+      "scene": "scenes/button/aurora.danger/normal/aurora-light.json",
+      "png_sha256": "48925cd0750e5a4235b5f624b6c72ac4506a6d19a23c40941f36399ebbe4a4ce"
+    },
+    {
+      "id": "button/aurora.danger/pressed/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "danger",
+        "outline": false
+      },
+      "state": "pressed",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        64.0,
+        32.0
+      ],
+      "png": "png/button/aurora.danger/pressed/aurora-light.png",
+      "scene": "scenes/button/aurora.danger/pressed/aurora-light.json",
+      "png_sha256": "3a5a1157b6e0efce265f4fe5597cb0efd478cad20682741ad797567d9b91e556"
+    },
+    {
+      "id": "button/aurora.default.outline/disabled/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "default",
+        "outline": true,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        66.0,
+        32.0
+      ],
+      "png": "png/button/aurora.default.outline/disabled/aurora-light.png",
+      "scene": "scenes/button/aurora.default.outline/disabled/aurora-light.json",
+      "png_sha256": "04ddcdb52be7ddc7c3db03f40f7f66684ec9fe77433a539d1e0d33155f1e8a61"
+    },
+    {
+      "id": "button/aurora.default.outline/hover/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "default",
+        "outline": true
+      },
+      "state": "hover",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        66.0,
+        32.0
+      ],
+      "png": "png/button/aurora.default.outline/hover/aurora-light.png",
+      "scene": "scenes/button/aurora.default.outline/hover/aurora-light.json",
+      "png_sha256": "7a620fadd0910c287eac0af7f52ca61794b0f0efde08c823512538a404012613"
+    },
+    {
+      "id": "button/aurora.default.outline/normal/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "default",
+        "outline": true
+      },
+      "state": "normal",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        66.0,
+        32.0
+      ],
+      "png": "png/button/aurora.default.outline/normal/aurora-light.png",
+      "scene": "scenes/button/aurora.default.outline/normal/aurora-light.json",
+      "png_sha256": "b0b8dc7a2564770b17d5d178cc048a5ba4fe554a3239777b9cd5f72ddba9917a"
+    },
+    {
+      "id": "button/aurora.default.outline/pressed/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "default",
+        "outline": true
+      },
+      "state": "pressed",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        66.0,
+        32.0
+      ],
+      "png": "png/button/aurora.default.outline/pressed/aurora-light.png",
+      "scene": "scenes/button/aurora.default.outline/pressed/aurora-light.json",
+      "png_sha256": "062bd5f38da1417db32ddcc3ee4a242ea7dae4942ba44f1ef5515d560d91c1f1"
+    },
+    {
+      "id": "button/aurora.default/disabled/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "default",
+        "outline": false,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        66.0,
+        32.0
+      ],
+      "png": "png/button/aurora.default/disabled/aurora-light.png",
+      "scene": "scenes/button/aurora.default/disabled/aurora-light.json",
+      "png_sha256": "04ddcdb52be7ddc7c3db03f40f7f66684ec9fe77433a539d1e0d33155f1e8a61"
+    },
+    {
+      "id": "button/aurora.default/hover/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "default",
+        "outline": false
+      },
+      "state": "hover",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        66.0,
+        32.0
+      ],
+      "png": "png/button/aurora.default/hover/aurora-light.png",
+      "scene": "scenes/button/aurora.default/hover/aurora-light.json",
+      "png_sha256": "f7c05ada3332aa7b218b016796b6779cd286b3d29f22addd5d7a475c980253ab"
+    },
+    {
+      "id": "button/aurora.default/normal/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "default",
+        "outline": false
+      },
+      "state": "normal",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        66.0,
+        32.0
+      ],
+      "png": "png/button/aurora.default/normal/aurora-light.png",
+      "scene": "scenes/button/aurora.default/normal/aurora-light.json",
+      "png_sha256": "b1f7ed2e57b1a65df2d48a2c1bc0b8f165c509fd34f16e58ad5631fb9deaa612"
+    },
+    {
+      "id": "button/aurora.default/pressed/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "default",
+        "outline": false
+      },
+      "state": "pressed",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        66.0,
+        32.0
+      ],
+      "png": "png/button/aurora.default/pressed/aurora-light.png",
+      "scene": "scenes/button/aurora.default/pressed/aurora-light.json",
+      "png_sha256": "762aca2bb80cba142d3fea6d09664ce177bb4f14cd8cc1c02fbd89a3632dfb43"
+    },
+    {
+      "id": "button/aurora.ghost.outline/disabled/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "ghost",
+        "outline": true,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        66.0,
+        32.0
+      ],
+      "png": "png/button/aurora.ghost.outline/disabled/aurora-light.png",
+      "scene": "scenes/button/aurora.ghost.outline/disabled/aurora-light.json",
+      "png_sha256": "f12dbd3beef6e40465133e14b5bd7f564f309e11fd30db3b1c35480ec3496a88"
+    },
+    {
+      "id": "button/aurora.ghost.outline/hover/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "ghost",
+        "outline": true
+      },
+      "state": "hover",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        66.0,
+        32.0
+      ],
+      "png": "png/button/aurora.ghost.outline/hover/aurora-light.png",
+      "scene": "scenes/button/aurora.ghost.outline/hover/aurora-light.json",
+      "png_sha256": "fdcb9f4191183e5c3d77836fc9dc6f088d9bf681aca62779d3f47430c19d9271"
+    },
+    {
+      "id": "button/aurora.ghost.outline/normal/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "ghost",
+        "outline": true
+      },
+      "state": "normal",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        66.0,
+        32.0
+      ],
+      "png": "png/button/aurora.ghost.outline/normal/aurora-light.png",
+      "scene": "scenes/button/aurora.ghost.outline/normal/aurora-light.json",
+      "png_sha256": "2809141e19c1f6d4dd58d9124fa6444c87d60b099cf8d8d303a3a6aca008b9e3"
+    },
+    {
+      "id": "button/aurora.ghost.outline/pressed/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "ghost",
+        "outline": true
+      },
+      "state": "pressed",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        66.0,
+        32.0
+      ],
+      "png": "png/button/aurora.ghost.outline/pressed/aurora-light.png",
+      "scene": "scenes/button/aurora.ghost.outline/pressed/aurora-light.json",
+      "png_sha256": "f751dcd04a3bdb54dd36e91ea7ff2ea8287eb08be33fdc306e3a71098e2d894a"
+    },
+    {
+      "id": "button/aurora.ghost/disabled/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "ghost",
+        "outline": false,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        64.0,
+        32.0
+      ],
+      "png": "png/button/aurora.ghost/disabled/aurora-light.png",
+      "scene": "scenes/button/aurora.ghost/disabled/aurora-light.json",
+      "png_sha256": "934ccfa7de0c39ec04505273675299a4bb7e1dcbc53072be196e44d57f71c1b7"
+    },
+    {
+      "id": "button/aurora.ghost/hover/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "ghost",
+        "outline": false
+      },
+      "state": "hover",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        64.0,
+        32.0
+      ],
+      "png": "png/button/aurora.ghost/hover/aurora-light.png",
+      "scene": "scenes/button/aurora.ghost/hover/aurora-light.json",
+      "png_sha256": "c5c57d26ad665c4df3971fa2930d8b69f2eba789bc44bed4d971778fd8afe3bb"
+    },
+    {
+      "id": "button/aurora.ghost/normal/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "ghost",
+        "outline": false
+      },
+      "state": "normal",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        64.0,
+        32.0
+      ],
+      "png": "png/button/aurora.ghost/normal/aurora-light.png",
+      "scene": "scenes/button/aurora.ghost/normal/aurora-light.json",
+      "png_sha256": "9ca9203b5acbc27821dc45e603b554349a313c5fd51071200909d97b2e396694"
+    },
+    {
+      "id": "button/aurora.ghost/pressed/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "ghost",
+        "outline": false
+      },
+      "state": "pressed",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        64.0,
+        32.0
+      ],
+      "png": "png/button/aurora.ghost/pressed/aurora-light.png",
+      "scene": "scenes/button/aurora.ghost/pressed/aurora-light.json",
+      "png_sha256": "34618a5d86e381a08db29a001661cbe074798fa72e6efdb9f4c1b6699b54ac7a"
+    },
+    {
+      "id": "button/aurora.info.outline/disabled/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "info",
+        "outline": true,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        66.0,
+        32.0
+      ],
+      "png": "png/button/aurora.info.outline/disabled/aurora-light.png",
+      "scene": "scenes/button/aurora.info.outline/disabled/aurora-light.json",
+      "png_sha256": "c33d9c7dde10d8831772a9dcdf5c436fdb6ce7ad365aae166248c0dc48ad1e90"
+    },
+    {
+      "id": "button/aurora.info.outline/hover/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "info",
+        "outline": true
+      },
+      "state": "hover",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        66.0,
+        32.0
+      ],
+      "png": "png/button/aurora.info.outline/hover/aurora-light.png",
+      "scene": "scenes/button/aurora.info.outline/hover/aurora-light.json",
+      "png_sha256": "875bde948f0abb9304532ba70ab5ac8ba0fe9372a370e3fd9a7fef76613db672"
+    },
+    {
+      "id": "button/aurora.info.outline/normal/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "info",
+        "outline": true
+      },
+      "state": "normal",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        66.0,
+        32.0
+      ],
+      "png": "png/button/aurora.info.outline/normal/aurora-light.png",
+      "scene": "scenes/button/aurora.info.outline/normal/aurora-light.json",
+      "png_sha256": "c5796e90478e6bd0c8fda8711219ac15512e68c4c207557d90eb16ed0efc7b02"
+    },
+    {
+      "id": "button/aurora.info.outline/pressed/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "info",
+        "outline": true
+      },
+      "state": "pressed",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        66.0,
+        32.0
+      ],
+      "png": "png/button/aurora.info.outline/pressed/aurora-light.png",
+      "scene": "scenes/button/aurora.info.outline/pressed/aurora-light.json",
+      "png_sha256": "6b2d0550b0121face7a3870cd12b4edb5d3e174b3a16c514824e108c4c73d5b6"
+    },
+    {
+      "id": "button/aurora.info/disabled/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "info",
+        "outline": false,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        64.0,
+        32.0
+      ],
+      "png": "png/button/aurora.info/disabled/aurora-light.png",
+      "scene": "scenes/button/aurora.info/disabled/aurora-light.json",
+      "png_sha256": "ebb0aeb48620c53120b26ea13031f0e7a3f2e46be3b18d4159e980debf20188d"
+    },
+    {
+      "id": "button/aurora.info/hover/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "info",
+        "outline": false
+      },
+      "state": "hover",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        64.0,
+        32.0
+      ],
+      "png": "png/button/aurora.info/hover/aurora-light.png",
+      "scene": "scenes/button/aurora.info/hover/aurora-light.json",
+      "png_sha256": "085f04b8bf1aa8ec919bcd2d618ff96fa3528979a9a113337d12b635d419633a"
+    },
+    {
+      "id": "button/aurora.info/normal/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "info",
+        "outline": false
+      },
+      "state": "normal",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        64.0,
+        32.0
+      ],
+      "png": "png/button/aurora.info/normal/aurora-light.png",
+      "scene": "scenes/button/aurora.info/normal/aurora-light.json",
+      "png_sha256": "727e0f00c672647d17895d3a631a19bd24bfebd96c62120390a7a73e49a9a23e"
+    },
+    {
+      "id": "button/aurora.info/pressed/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "info",
+        "outline": false
+      },
+      "state": "pressed",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        64.0,
+        32.0
+      ],
+      "png": "png/button/aurora.info/pressed/aurora-light.png",
+      "scene": "scenes/button/aurora.info/pressed/aurora-light.json",
+      "png_sha256": "c64d5f9548ef2c581f3eaa9b21f8c40fa2575d36931b1c5832f6720dc8bc47e2"
+    },
+    {
+      "id": "button/aurora.primary.outline/disabled/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "primary",
+        "outline": true,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        66.0,
+        32.0
+      ],
+      "png": "png/button/aurora.primary.outline/disabled/aurora-light.png",
+      "scene": "scenes/button/aurora.primary.outline/disabled/aurora-light.json",
+      "png_sha256": "20d8323c712eb6b7880239c4efda4986764b7236c4c6c0090f5f51ffae6760ca"
+    },
+    {
+      "id": "button/aurora.primary.outline/hover/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "primary",
+        "outline": true
+      },
+      "state": "hover",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        66.0,
+        32.0
+      ],
+      "png": "png/button/aurora.primary.outline/hover/aurora-light.png",
+      "scene": "scenes/button/aurora.primary.outline/hover/aurora-light.json",
+      "png_sha256": "fe189aab0df5d19f73abc0275620d6e2abcad079b97e4d1fde13572d458afa06"
+    },
+    {
+      "id": "button/aurora.primary.outline/normal/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "primary",
+        "outline": true
+      },
+      "state": "normal",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        66.0,
+        32.0
+      ],
+      "png": "png/button/aurora.primary.outline/normal/aurora-light.png",
+      "scene": "scenes/button/aurora.primary.outline/normal/aurora-light.json",
+      "png_sha256": "aca20b0dc1e00893d9b116e3684acb7501777a5c01464bf9cb8e7a1b12ab37e4"
+    },
+    {
+      "id": "button/aurora.primary.outline/pressed/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "primary",
+        "outline": true
+      },
+      "state": "pressed",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        66.0,
+        32.0
+      ],
+      "png": "png/button/aurora.primary.outline/pressed/aurora-light.png",
+      "scene": "scenes/button/aurora.primary.outline/pressed/aurora-light.json",
+      "png_sha256": "2aeda359f2eaafeeff817d76ad576f555983daecdbcb94f8e81b68e325a2a131"
+    },
+    {
+      "id": "button/aurora.primary/disabled/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "primary",
+        "outline": false,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        64.0,
+        32.0
+      ],
+      "png": "png/button/aurora.primary/disabled/aurora-light.png",
+      "scene": "scenes/button/aurora.primary/disabled/aurora-light.json",
+      "png_sha256": "9b12825f9d5753e7aebd1d1fc445faa5ea8d79a80985c1322e4c00484660795b"
+    },
+    {
+      "id": "button/aurora.primary/hover/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "primary",
+        "outline": false
+      },
+      "state": "hover",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        64.0,
+        32.0
+      ],
+      "png": "png/button/aurora.primary/hover/aurora-light.png",
+      "scene": "scenes/button/aurora.primary/hover/aurora-light.json",
+      "png_sha256": "cea272f9cd772fe432c50352a27d2fb2949a1d0a2ace4c096f43098ff5c06d57"
+    },
+    {
+      "id": "button/aurora.primary/normal/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "primary",
+        "outline": false
+      },
+      "state": "normal",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        64.0,
+        32.0
+      ],
+      "png": "png/button/aurora.primary/normal/aurora-light.png",
+      "scene": "scenes/button/aurora.primary/normal/aurora-light.json",
+      "png_sha256": "a6cb96be743993d992baeea6e327676a86bd5cbdff69e7f74654dcd4afe64f08"
+    },
+    {
+      "id": "button/aurora.primary/pressed/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "primary",
+        "outline": false
+      },
+      "state": "pressed",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        64.0,
+        32.0
+      ],
+      "png": "png/button/aurora.primary/pressed/aurora-light.png",
+      "scene": "scenes/button/aurora.primary/pressed/aurora-light.json",
+      "png_sha256": "382ed7798647f5f122d98b9d3c604c236e50d0cde8604528b5ac4f650b12401b"
+    },
+    {
+      "id": "button/aurora.secondary.outline/disabled/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "secondary",
+        "outline": true,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        66.0,
+        32.0
+      ],
+      "png": "png/button/aurora.secondary.outline/disabled/aurora-light.png",
+      "scene": "scenes/button/aurora.secondary.outline/disabled/aurora-light.json",
+      "png_sha256": "514baebc6a616b96790d91d721930973e6997b2b04bf4698d5598d84586dfbe5"
+    },
+    {
+      "id": "button/aurora.secondary.outline/hover/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "secondary",
+        "outline": true
+      },
+      "state": "hover",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        66.0,
+        32.0
+      ],
+      "png": "png/button/aurora.secondary.outline/hover/aurora-light.png",
+      "scene": "scenes/button/aurora.secondary.outline/hover/aurora-light.json",
+      "png_sha256": "a39c981ea04a11f8906c3bf4d16a85ea1d5927ae9fdeb92c2f06dd9cc525cd55"
+    },
+    {
+      "id": "button/aurora.secondary.outline/normal/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "secondary",
+        "outline": true
+      },
+      "state": "normal",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        66.0,
+        32.0
+      ],
+      "png": "png/button/aurora.secondary.outline/normal/aurora-light.png",
+      "scene": "scenes/button/aurora.secondary.outline/normal/aurora-light.json",
+      "png_sha256": "3d4e8600edd39f3d56339bdcbf3f779540c3d2d4b2e5fe24243e1a716e807df0"
+    },
+    {
+      "id": "button/aurora.secondary.outline/pressed/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "secondary",
+        "outline": true
+      },
+      "state": "pressed",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        66.0,
+        32.0
+      ],
+      "png": "png/button/aurora.secondary.outline/pressed/aurora-light.png",
+      "scene": "scenes/button/aurora.secondary.outline/pressed/aurora-light.json",
+      "png_sha256": "00929e5fa73f9e2154cf6695cd52e6c61a797098a96f7d03d6ee68106ff391ac"
+    },
+    {
+      "id": "button/aurora.secondary/disabled/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "secondary",
+        "outline": false,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        64.0,
+        32.0
+      ],
+      "png": "png/button/aurora.secondary/disabled/aurora-light.png",
+      "scene": "scenes/button/aurora.secondary/disabled/aurora-light.json",
+      "png_sha256": "b05d5daadf4d9407dd05111463ef2a2ea5c2c7566afb818d88edfd1a871986da"
+    },
+    {
+      "id": "button/aurora.secondary/hover/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "secondary",
+        "outline": false
+      },
+      "state": "hover",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        64.0,
+        32.0
+      ],
+      "png": "png/button/aurora.secondary/hover/aurora-light.png",
+      "scene": "scenes/button/aurora.secondary/hover/aurora-light.json",
+      "png_sha256": "fd03e2fa04a73b81611b03f9bbcb2533d9fd6ba9fb8b216977b26c341c39c8cf"
+    },
+    {
+      "id": "button/aurora.secondary/normal/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "secondary",
+        "outline": false
+      },
+      "state": "normal",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        64.0,
+        32.0
+      ],
+      "png": "png/button/aurora.secondary/normal/aurora-light.png",
+      "scene": "scenes/button/aurora.secondary/normal/aurora-light.json",
+      "png_sha256": "34618a5d86e381a08db29a001661cbe074798fa72e6efdb9f4c1b6699b54ac7a"
+    },
+    {
+      "id": "button/aurora.secondary/pressed/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "secondary",
+        "outline": false
+      },
+      "state": "pressed",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        64.0,
+        32.0
+      ],
+      "png": "png/button/aurora.secondary/pressed/aurora-light.png",
+      "scene": "scenes/button/aurora.secondary/pressed/aurora-light.json",
+      "png_sha256": "f4d433d31f0d386211bfc8feb499aaad19657c57e33dd9a6db6e3f5d6f509b31"
+    },
+    {
+      "id": "button/aurora.success.outline/disabled/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "success",
+        "outline": true,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        66.0,
+        32.0
+      ],
+      "png": "png/button/aurora.success.outline/disabled/aurora-light.png",
+      "scene": "scenes/button/aurora.success.outline/disabled/aurora-light.json",
+      "png_sha256": "a7bc058bdc5dff5fc78ff70d51986d1bcc960bbd5013c488206f9483f2396bbb"
+    },
+    {
+      "id": "button/aurora.success.outline/hover/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "success",
+        "outline": true
+      },
+      "state": "hover",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        66.0,
+        32.0
+      ],
+      "png": "png/button/aurora.success.outline/hover/aurora-light.png",
+      "scene": "scenes/button/aurora.success.outline/hover/aurora-light.json",
+      "png_sha256": "297ffdd6fa54f3a9c37e51ee90ff5dbe8057a5643dd0fbcd5ea56027292d9fd1"
+    },
+    {
+      "id": "button/aurora.success.outline/normal/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "success",
+        "outline": true
+      },
+      "state": "normal",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        66.0,
+        32.0
+      ],
+      "png": "png/button/aurora.success.outline/normal/aurora-light.png",
+      "scene": "scenes/button/aurora.success.outline/normal/aurora-light.json",
+      "png_sha256": "0f1037804f5ef62359e022fb03fac5e737dad83ee9441f5383a687d4e06d941d"
+    },
+    {
+      "id": "button/aurora.success.outline/pressed/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "success",
+        "outline": true
+      },
+      "state": "pressed",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        66.0,
+        32.0
+      ],
+      "png": "png/button/aurora.success.outline/pressed/aurora-light.png",
+      "scene": "scenes/button/aurora.success.outline/pressed/aurora-light.json",
+      "png_sha256": "d0701fe8fb4201d463cec46563f45c4742d02a470841519f399fae29b0a9eed1"
+    },
+    {
+      "id": "button/aurora.success/disabled/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "success",
+        "outline": false,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        64.0,
+        32.0
+      ],
+      "png": "png/button/aurora.success/disabled/aurora-light.png",
+      "scene": "scenes/button/aurora.success/disabled/aurora-light.json",
+      "png_sha256": "443c7235e66af00cb9315cb7ee32f388adfdc91aa0dfb1eb9a5f7c48eebea465"
+    },
+    {
+      "id": "button/aurora.success/hover/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "success",
+        "outline": false
+      },
+      "state": "hover",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        64.0,
+        32.0
+      ],
+      "png": "png/button/aurora.success/hover/aurora-light.png",
+      "scene": "scenes/button/aurora.success/hover/aurora-light.json",
+      "png_sha256": "2f4094b47e56525b8dcb88e44d50772c83dcae70e00029c65a6f3a4132c7f86c"
+    },
+    {
+      "id": "button/aurora.success/normal/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "success",
+        "outline": false
+      },
+      "state": "normal",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        64.0,
+        32.0
+      ],
+      "png": "png/button/aurora.success/normal/aurora-light.png",
+      "scene": "scenes/button/aurora.success/normal/aurora-light.json",
+      "png_sha256": "56d6f37d779abbe3add8f4ab01a8aa4cdbd6972181142308c3e79951b0b9c1a9"
+    },
+    {
+      "id": "button/aurora.success/pressed/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "success",
+        "outline": false
+      },
+      "state": "pressed",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        64.0,
+        32.0
+      ],
+      "png": "png/button/aurora.success/pressed/aurora-light.png",
+      "scene": "scenes/button/aurora.success/pressed/aurora-light.json",
+      "png_sha256": "288b147a680dd46e5c189477241f8f7c9a985d44a5403cc3ca84fd2fc471c5ac"
+    },
+    {
+      "id": "button/aurora.warning.outline/disabled/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "warning",
+        "outline": true,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        66.0,
+        32.0
+      ],
+      "png": "png/button/aurora.warning.outline/disabled/aurora-light.png",
+      "scene": "scenes/button/aurora.warning.outline/disabled/aurora-light.json",
+      "png_sha256": "ca52871a618dd395d5ae4ec17ce26bfcab028ad538a73b680e320b8ec77a8f22"
+    },
+    {
+      "id": "button/aurora.warning.outline/hover/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "warning",
+        "outline": true
+      },
+      "state": "hover",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        66.0,
+        32.0
+      ],
+      "png": "png/button/aurora.warning.outline/hover/aurora-light.png",
+      "scene": "scenes/button/aurora.warning.outline/hover/aurora-light.json",
+      "png_sha256": "d3784cd51dab7448eec35546d5280d9854fced85f9d1f29492d82482eaf64db9"
+    },
+    {
+      "id": "button/aurora.warning.outline/normal/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "warning",
+        "outline": true
+      },
+      "state": "normal",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        66.0,
+        32.0
+      ],
+      "png": "png/button/aurora.warning.outline/normal/aurora-light.png",
+      "scene": "scenes/button/aurora.warning.outline/normal/aurora-light.json",
+      "png_sha256": "bf7fc417d07393e349180393bd28a582487ba0d3515f4e944cd4bb0499b3d009"
+    },
+    {
+      "id": "button/aurora.warning.outline/pressed/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "warning",
+        "outline": true
+      },
+      "state": "pressed",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        66.0,
+        32.0
+      ],
+      "png": "png/button/aurora.warning.outline/pressed/aurora-light.png",
+      "scene": "scenes/button/aurora.warning.outline/pressed/aurora-light.json",
+      "png_sha256": "b9623e379e73fd3d58ac3bac1ed695587f503809f9b5efce249e4a28d0da7eb4"
+    },
+    {
+      "id": "button/aurora.warning/disabled/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "warning",
+        "outline": false,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        64.0,
+        32.0
+      ],
+      "png": "png/button/aurora.warning/disabled/aurora-light.png",
+      "scene": "scenes/button/aurora.warning/disabled/aurora-light.json",
+      "png_sha256": "305d4f659e3104937bfccca9a45cca528548b75521cd3a5bd493204ad474aad2"
+    },
+    {
+      "id": "button/aurora.warning/hover/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "warning",
+        "outline": false
+      },
+      "state": "hover",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        64.0,
+        32.0
+      ],
+      "png": "png/button/aurora.warning/hover/aurora-light.png",
+      "scene": "scenes/button/aurora.warning/hover/aurora-light.json",
+      "png_sha256": "dda0c7839f41c15d36d3e4a1fef3136094508e1232d49fb30daa3ddb85e98a0b"
+    },
+    {
+      "id": "button/aurora.warning/normal/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "warning",
+        "outline": false
+      },
+      "state": "normal",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        64.0,
+        32.0
+      ],
+      "png": "png/button/aurora.warning/normal/aurora-light.png",
+      "scene": "scenes/button/aurora.warning/normal/aurora-light.json",
+      "png_sha256": "b5b93e69412764b877ee689963f6d51e0309bbb79e5fc18726841a00d0ce66eb"
+    },
+    {
+      "id": "button/aurora.warning/pressed/aurora-light",
+      "component": "button",
+      "group": "aurora",
+      "params": {
+        "label": "Button",
+        "variant": "warning",
+        "outline": false
+      },
+      "state": "pressed",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        64.0,
+        32.0
+      ],
+      "png": "png/button/aurora.warning/pressed/aurora-light.png",
+      "scene": "scenes/button/aurora.warning/pressed/aurora-light.json",
+      "png_sha256": "daa627534094de09af7b0dc2211777124ef745eaae7bc546f76b8b41955bc061"
+    },
+    {
       "id": "button/compact.large/normal/dark",
       "component": "button",
       "group": "compact",
@@ -29498,6 +31370,90 @@
       "png_sha256": "8b1a9f2bc83340b36a356b99122673c7bd78a53a7cac96c363b6910e3fd9f1ac"
     },
     {
+      "id": "calendar/aurora.base/at-109-143/aurora-light",
+      "component": "calendar",
+      "group": "aurora",
+      "params": {
+        "date": "2025-03-14",
+        "today": "2025-03-10"
+      },
+      "state": "at-109-143",
+      "theme": "aurora-light",
+      "viewport": [
+        340.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        248.0,
+        284.0
+      ],
+      "png": "png/calendar/aurora.base/at-109-143/aurora-light.png",
+      "scene": "scenes/calendar/aurora.base/at-109-143/aurora-light.json",
+      "png_sha256": "3b04f49a022486994fe9c5babcf6f80c6b4600890b8bc9cea3db390b1e139706"
+    },
+    {
+      "id": "calendar/aurora.base/at-205-175/aurora-light",
+      "component": "calendar",
+      "group": "aurora",
+      "params": {
+        "date": "2025-03-14",
+        "today": "2025-03-10"
+      },
+      "state": "at-205-175",
+      "theme": "aurora-light",
+      "viewport": [
+        340.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        248.0,
+        284.0
+      ],
+      "png": "png/calendar/aurora.base/at-205-175/aurora-light.png",
+      "scene": "scenes/calendar/aurora.base/at-205-175/aurora-light.json",
+      "png_sha256": "9f84caf0245367d13a06f9c0413ec07392ed539d19e1405073d57f76243b018e"
+    },
+    {
+      "id": "calendar/aurora.base/normal/aurora-light",
+      "component": "calendar",
+      "group": "aurora",
+      "params": {
+        "date": "2025-03-14",
+        "today": "2025-03-10"
+      },
+      "state": "normal",
+      "theme": "aurora-light",
+      "viewport": [
+        340.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        248.0,
+        284.0
+      ],
+      "png": "png/calendar/aurora.base/normal/aurora-light.png",
+      "scene": "scenes/calendar/aurora.base/normal/aurora-light.json",
+      "png_sha256": "9f84caf0245367d13a06f9c0413ec07392ed539d19e1405073d57f76243b018e"
+    },
+    {
       "id": "calendar/blackout.base/at-109-207/dark",
       "component": "calendar",
       "group": "blackout",
@@ -31814,6 +33770,176 @@
       "png": "png/carousel/size.xsmall/normal/light.png",
       "scene": "scenes/carousel/size.xsmall/normal/light.json",
       "png_sha256": "4aee1c07e112d757265bbfb21d2c8bd613ee1c11c5759aed7a41f49c59fe6a1b"
+    },
+    {
+      "id": "checkbox/aurora.base/disabled/aurora-light",
+      "component": "checkbox",
+      "group": "aurora",
+      "params": {
+        "label": "Accept",
+        "checked": false,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        71.0,
+        18.0
+      ],
+      "png": "png/checkbox/aurora.base/disabled/aurora-light.png",
+      "scene": "scenes/checkbox/aurora.base/disabled/aurora-light.json",
+      "png_sha256": "86b3104049c3b2c3f34141f4517dbff0ee0540448a2d777720ef3e21a744d129"
+    },
+    {
+      "id": "checkbox/aurora.base/hover/aurora-light",
+      "component": "checkbox",
+      "group": "aurora",
+      "params": {
+        "label": "Accept",
+        "checked": false
+      },
+      "state": "hover",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        71.0,
+        18.0
+      ],
+      "png": "png/checkbox/aurora.base/hover/aurora-light.png",
+      "scene": "scenes/checkbox/aurora.base/hover/aurora-light.json",
+      "png_sha256": "841dc757aebcce5e65adeff90438b78d2598a783f1cd7393e231d9771c0dab0d"
+    },
+    {
+      "id": "checkbox/aurora.base/normal/aurora-light",
+      "component": "checkbox",
+      "group": "aurora",
+      "params": {
+        "label": "Accept",
+        "checked": false
+      },
+      "state": "normal",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        71.0,
+        18.0
+      ],
+      "png": "png/checkbox/aurora.base/normal/aurora-light.png",
+      "scene": "scenes/checkbox/aurora.base/normal/aurora-light.json",
+      "png_sha256": "841dc757aebcce5e65adeff90438b78d2598a783f1cd7393e231d9771c0dab0d"
+    },
+    {
+      "id": "checkbox/aurora.checked/disabled/aurora-light",
+      "component": "checkbox",
+      "group": "aurora",
+      "params": {
+        "label": "Accept",
+        "checked": true,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        71.0,
+        18.0
+      ],
+      "png": "png/checkbox/aurora.checked/disabled/aurora-light.png",
+      "scene": "scenes/checkbox/aurora.checked/disabled/aurora-light.json",
+      "png_sha256": "30308cc11458bbe0d1d4c2d3fb4bc318d9d338e79f211fc6b82a036b159d6dac"
+    },
+    {
+      "id": "checkbox/aurora.checked/hover/aurora-light",
+      "component": "checkbox",
+      "group": "aurora",
+      "params": {
+        "label": "Accept",
+        "checked": true
+      },
+      "state": "hover",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        71.0,
+        18.0
+      ],
+      "png": "png/checkbox/aurora.checked/hover/aurora-light.png",
+      "scene": "scenes/checkbox/aurora.checked/hover/aurora-light.json",
+      "png_sha256": "2dc9e61c637a3abd603702ba6d396535f2f74898c1daaba86b3123de98844e8c"
+    },
+    {
+      "id": "checkbox/aurora.checked/normal/aurora-light",
+      "component": "checkbox",
+      "group": "aurora",
+      "params": {
+        "label": "Accept",
+        "checked": true
+      },
+      "state": "normal",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        71.0,
+        18.0
+      ],
+      "png": "png/checkbox/aurora.checked/normal/aurora-light.png",
+      "scene": "scenes/checkbox/aurora.checked/normal/aurora-light.json",
+      "png_sha256": "2dc9e61c637a3abd603702ba6d396535f2f74898c1daaba86b3123de98844e8c"
     },
     {
       "id": "checkbox/bare.medium.checked/disabled/dark",
@@ -61809,6 +63935,90 @@
       "png_sha256": "048bd7dc4b9a4933c2b0516a99f123399507641632f54276478ecc1880db7e4a"
     },
     {
+      "id": "progress/aurora.value-0/normal/aurora-light",
+      "component": "progress",
+      "group": "aurora",
+      "params": {
+        "width": 200,
+        "value": 0
+      },
+      "state": "normal",
+      "theme": "aurora-light",
+      "viewport": [
+        232.0,
+        26.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        8.0
+      ],
+      "png": "png/progress/aurora.value-0/normal/aurora-light.png",
+      "scene": "scenes/progress/aurora.value-0/normal/aurora-light.json",
+      "png_sha256": "6e9d18a7df58ef045ecce34f6a3ad5fbec4e3ba5ddf2a81fc50f50bf38ce2134"
+    },
+    {
+      "id": "progress/aurora.value-100/normal/aurora-light",
+      "component": "progress",
+      "group": "aurora",
+      "params": {
+        "width": 200,
+        "value": 100
+      },
+      "state": "normal",
+      "theme": "aurora-light",
+      "viewport": [
+        232.0,
+        26.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        8.0
+      ],
+      "png": "png/progress/aurora.value-100/normal/aurora-light.png",
+      "scene": "scenes/progress/aurora.value-100/normal/aurora-light.json",
+      "png_sha256": "668d091b530e48a0094f0cd8bb7cfd67b044345206846baf79e5d21aefbca3e4"
+    },
+    {
+      "id": "progress/aurora.value-40/normal/aurora-light",
+      "component": "progress",
+      "group": "aurora",
+      "params": {
+        "width": 200,
+        "value": 40
+      },
+      "state": "normal",
+      "theme": "aurora-light",
+      "viewport": [
+        232.0,
+        26.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        8.0
+      ],
+      "png": "png/progress/aurora.value-40/normal/aurora-light.png",
+      "scene": "scenes/progress/aurora.value-40/normal/aurora-light.json",
+      "png_sha256": "2450995f7d3411891ffcc4764c4b95e9ad15f46d2b8b1d9ee4f466e893dbc617"
+    },
+    {
       "id": "progress/motion.loading/wait-0ms/light",
       "component": "progress",
       "group": "motion.loading",
@@ -62688,6 +64898,176 @@
       "png": "png/progress/value.xsmall.value-40/normal/light.png",
       "scene": "scenes/progress/value.xsmall.value-40/normal/light.json",
       "png_sha256": "6c9a537b2aa6a6cd49102517ddb12456180e3b3059da804750338046b0eade02"
+    },
+    {
+      "id": "radio/aurora.base/disabled/aurora-light",
+      "component": "radio",
+      "group": "aurora",
+      "params": {
+        "label": "Express",
+        "checked": false,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        77.0,
+        18.0
+      ],
+      "png": "png/radio/aurora.base/disabled/aurora-light.png",
+      "scene": "scenes/radio/aurora.base/disabled/aurora-light.json",
+      "png_sha256": "ac864efae66a7228510ce7e05075798798c2dba860fc40986bfc30402172d5aa"
+    },
+    {
+      "id": "radio/aurora.base/hover/aurora-light",
+      "component": "radio",
+      "group": "aurora",
+      "params": {
+        "label": "Express",
+        "checked": false
+      },
+      "state": "hover",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        77.0,
+        18.0
+      ],
+      "png": "png/radio/aurora.base/hover/aurora-light.png",
+      "scene": "scenes/radio/aurora.base/hover/aurora-light.json",
+      "png_sha256": "71c8d97bf35d0c2e4827f4079fa7984133b64599c4d27eddb6bb8f314caa7340"
+    },
+    {
+      "id": "radio/aurora.base/normal/aurora-light",
+      "component": "radio",
+      "group": "aurora",
+      "params": {
+        "label": "Express",
+        "checked": false
+      },
+      "state": "normal",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        77.0,
+        18.0
+      ],
+      "png": "png/radio/aurora.base/normal/aurora-light.png",
+      "scene": "scenes/radio/aurora.base/normal/aurora-light.json",
+      "png_sha256": "71c8d97bf35d0c2e4827f4079fa7984133b64599c4d27eddb6bb8f314caa7340"
+    },
+    {
+      "id": "radio/aurora.checked/disabled/aurora-light",
+      "component": "radio",
+      "group": "aurora",
+      "params": {
+        "label": "Express",
+        "checked": true,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        77.0,
+        18.0
+      ],
+      "png": "png/radio/aurora.checked/disabled/aurora-light.png",
+      "scene": "scenes/radio/aurora.checked/disabled/aurora-light.json",
+      "png_sha256": "d7d1bbe97b4b0c02424ea6a7fe7f7e0fa48f95ab99e05737db00f522bfc08ea4"
+    },
+    {
+      "id": "radio/aurora.checked/hover/aurora-light",
+      "component": "radio",
+      "group": "aurora",
+      "params": {
+        "label": "Express",
+        "checked": true
+      },
+      "state": "hover",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        77.0,
+        18.0
+      ],
+      "png": "png/radio/aurora.checked/hover/aurora-light.png",
+      "scene": "scenes/radio/aurora.checked/hover/aurora-light.json",
+      "png_sha256": "be62b719e0adbbc1528aa71c714b29be97c349679fb454d6962841670c806bdc"
+    },
+    {
+      "id": "radio/aurora.checked/normal/aurora-light",
+      "component": "radio",
+      "group": "aurora",
+      "params": {
+        "label": "Express",
+        "checked": true
+      },
+      "state": "normal",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        10.0
+      ],
+      "component_bounds": [
+        16.0,
+        10.0,
+        77.0,
+        18.0
+      ],
+      "png": "png/radio/aurora.checked/normal/aurora-light.png",
+      "scene": "scenes/radio/aurora.checked/normal/aurora-light.json",
+      "png_sha256": "be62b719e0adbbc1528aa71c714b29be97c349679fb454d6962841670c806bdc"
     },
     {
       "id": "radio/bare.medium.checked/disabled/dark",
@@ -67370,6 +69750,60 @@
       "png": "png/scroll/always.base/normal/light.png",
       "scene": "scenes/scroll/always.base/normal/light.json",
       "png_sha256": "162eeabb35ce2306363f9db6c6f875c4bcf8a2169cee1b87de7e936883658ff8"
+    },
+    {
+      "id": "scroll/aurora.base/at-164-20+wait-400ms/aurora-light",
+      "component": "scroll",
+      "group": "aurora",
+      "params": {
+        "scrollbar_mode": "always"
+      },
+      "state": "at-164-20+wait-400ms",
+      "theme": "aurora-light",
+      "viewport": [
+        192.0,
+        116.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        100.0
+      ],
+      "png": "png/scroll/aurora.base/at-164-20+wait-400ms/aurora-light.png",
+      "scene": "scenes/scroll/aurora.base/at-164-20+wait-400ms/aurora-light.json",
+      "png_sha256": "738459d2c1fdb796deb2bdbbde4b0fd865af7462d218e19a33193f782d4feaa9"
+    },
+    {
+      "id": "scroll/aurora.base/normal/aurora-light",
+      "component": "scroll",
+      "group": "aurora",
+      "params": {
+        "scrollbar_mode": "always"
+      },
+      "state": "normal",
+      "theme": "aurora-light",
+      "viewport": [
+        192.0,
+        116.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        160.0,
+        100.0
+      ],
+      "png": "png/scroll/aurora.base/normal/aurora-light.png",
+      "scene": "scenes/scroll/aurora.base/normal/aurora-light.json",
+      "png_sha256": "c2b3cd46e9ecfbff35b3e824b954592932655eebe1991d48808c99e0407080e1"
     },
     {
       "id": "scroll/hover.base/at-164-20+wait-400ms/dark",
@@ -73822,6 +76256,90 @@
       "png": "png/skeleton/secondary.base/normal/light.png",
       "scene": "scenes/skeleton/secondary.base/normal/light.json",
       "png_sha256": "27bac81e9f2d9291e64c406ca8de97eab7c3e5986d2ee304316378e4f234233f"
+    },
+    {
+      "id": "slider/aurora.base/hover+wait-400ms/aurora-light",
+      "component": "slider",
+      "group": "aurora",
+      "params": {
+        "value": 40,
+        "pointer_x": 0.4
+      },
+      "state": "hover+wait-400ms",
+      "theme": "aurora-light",
+      "viewport": [
+        232.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/slider/aurora.base/hover+wait-400ms/aurora-light.png",
+      "scene": "scenes/slider/aurora.base/hover+wait-400ms/aurora-light.json",
+      "png_sha256": "9d9081c200c4565e8225b2dcb70e9a05219a5d43c6ff85202e69d0472e5054a0"
+    },
+    {
+      "id": "slider/aurora.base/normal/aurora-light",
+      "component": "slider",
+      "group": "aurora",
+      "params": {
+        "value": 40,
+        "pointer_x": 0.4
+      },
+      "state": "normal",
+      "theme": "aurora-light",
+      "viewport": [
+        232.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/slider/aurora.base/normal/aurora-light.png",
+      "scene": "scenes/slider/aurora.base/normal/aurora-light.json",
+      "png_sha256": "187b9213103593f6041b1ee0116d94acd6ac21269f2897ed11c003e3588ed48c"
+    },
+    {
+      "id": "slider/aurora.base/pressed+wait-400ms/aurora-light",
+      "component": "slider",
+      "group": "aurora",
+      "params": {
+        "value": 40,
+        "pointer_x": 0.4
+      },
+      "state": "pressed+wait-400ms",
+      "theme": "aurora-light",
+      "viewport": [
+        232.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/slider/aurora.base/pressed+wait-400ms/aurora-light.png",
+      "scene": "scenes/slider/aurora.base/pressed+wait-400ms/aurora-light.json",
+      "png_sha256": "9d9081c200c4565e8225b2dcb70e9a05219a5d43c6ff85202e69d0472e5054a0"
     },
     {
       "id": "slider/bar.base/pressed+wait-400ms/dark",
@@ -80279,6 +82797,35 @@
       "png_sha256": "edd7f16e0d6e6eeac23e168820a5419dd4143646bd4daf7a83cf2fc97b01bb50"
     },
     {
+      "id": "statusbar/aurora.base/normal/aurora-light",
+      "component": "statusbar",
+      "group": "aurora",
+      "params": {
+        "left": "main|0 errors",
+        "center": "Ready",
+        "right": "Ln 1, Col 1|UTF-8"
+      },
+      "state": "normal",
+      "theme": "aurora-light",
+      "viewport": [
+        432.0,
+        56.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        400.0,
+        28.5
+      ],
+      "png": "png/statusbar/aurora.base/normal/aurora-light.png",
+      "scene": "scenes/statusbar/aurora.base/normal/aurora-light.json",
+      "png_sha256": "7a52eb646a6b3b20284b7f07e27e87a6e576f30157538d11b117d8eb78c0a5ec"
+    },
+    {
       "id": "statusbar/center.base/normal/dark",
       "component": "statusbar",
       "group": "center",
@@ -80501,6 +83048,60 @@
       "png": "png/statusbar/right.base/normal/light.png",
       "scene": "scenes/statusbar/right.base/normal/light.json",
       "png_sha256": "60106e383575d3d8db6444540cc20442110b5fb4b2f7e006ead1dfefc97cfbc3"
+    },
+    {
+      "id": "stepper/aurora.selected-0/normal/aurora-light",
+      "component": "stepper",
+      "group": "aurora",
+      "params": {
+        "selected": 0
+      },
+      "state": "normal",
+      "theme": "aurora-light",
+      "viewport": [
+        512.0,
+        96.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        480.0,
+        50.5
+      ],
+      "png": "png/stepper/aurora.selected-0/normal/aurora-light.png",
+      "scene": "scenes/stepper/aurora.selected-0/normal/aurora-light.json",
+      "png_sha256": "24ce8eb13bd1324a31e07ae6d21daa49e3897f142c28f463eaad09b6fffdf908"
+    },
+    {
+      "id": "stepper/aurora.selected-2/normal/aurora-light",
+      "component": "stepper",
+      "group": "aurora",
+      "params": {
+        "selected": 2
+      },
+      "state": "normal",
+      "theme": "aurora-light",
+      "viewport": [
+        512.0,
+        96.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        480.0,
+        50.5
+      ],
+      "png": "png/stepper/aurora.selected-2/normal/aurora-light.png",
+      "scene": "scenes/stepper/aurora.selected-2/normal/aurora-light.json",
+      "png_sha256": "9b8cf6354a0dd9cf4ddec0251782dacf723a08c54584ddff69d334ea1c6d9252"
     },
     {
       "id": "stepper/center.base/normal/dark",
@@ -81219,6 +83820,176 @@
       "png": "png/surface/base/normal/light.png",
       "scene": "scenes/surface/base/normal/light.json",
       "png_sha256": "814d6895ff1f9a891e99ac088478c1b1fe4108f60501233d041ebd5802db791d"
+    },
+    {
+      "id": "switch/aurora.base/disabled/aurora-light",
+      "component": "switch",
+      "group": "aurora",
+      "params": {
+        "label": "Wi-Fi",
+        "checked": false,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        80.0,
+        20.0
+      ],
+      "png": "png/switch/aurora.base/disabled/aurora-light.png",
+      "scene": "scenes/switch/aurora.base/disabled/aurora-light.json",
+      "png_sha256": "53b9d0b115c612a408a59053ab40352aeba3ccbe1d4c1678e7990d95a7906fd7"
+    },
+    {
+      "id": "switch/aurora.base/hover/aurora-light",
+      "component": "switch",
+      "group": "aurora",
+      "params": {
+        "label": "Wi-Fi",
+        "checked": false
+      },
+      "state": "hover",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        80.0,
+        20.0
+      ],
+      "png": "png/switch/aurora.base/hover/aurora-light.png",
+      "scene": "scenes/switch/aurora.base/hover/aurora-light.json",
+      "png_sha256": "3ea945a3eff4940fa7aeb1bfd6465e6c2b60d26ca9d0673c0bd09e013881fde3"
+    },
+    {
+      "id": "switch/aurora.base/normal/aurora-light",
+      "component": "switch",
+      "group": "aurora",
+      "params": {
+        "label": "Wi-Fi",
+        "checked": false
+      },
+      "state": "normal",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        80.0,
+        20.0
+      ],
+      "png": "png/switch/aurora.base/normal/aurora-light.png",
+      "scene": "scenes/switch/aurora.base/normal/aurora-light.json",
+      "png_sha256": "3ea945a3eff4940fa7aeb1bfd6465e6c2b60d26ca9d0673c0bd09e013881fde3"
+    },
+    {
+      "id": "switch/aurora.checked/disabled/aurora-light",
+      "component": "switch",
+      "group": "aurora",
+      "params": {
+        "label": "Wi-Fi",
+        "checked": true,
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        80.0,
+        20.0
+      ],
+      "png": "png/switch/aurora.checked/disabled/aurora-light.png",
+      "scene": "scenes/switch/aurora.checked/disabled/aurora-light.json",
+      "png_sha256": "4163d2c7690630400a5092e6807af20870e92d2b94810cc267a1013ca785c2cc"
+    },
+    {
+      "id": "switch/aurora.checked/hover/aurora-light",
+      "component": "switch",
+      "group": "aurora",
+      "params": {
+        "label": "Wi-Fi",
+        "checked": true
+      },
+      "state": "hover",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        80.0,
+        20.0
+      ],
+      "png": "png/switch/aurora.checked/hover/aurora-light.png",
+      "scene": "scenes/switch/aurora.checked/hover/aurora-light.json",
+      "png_sha256": "e5c110f561c347d9be7e662239a3e8c76c728fa4d4e7bc6ec29a6ed493104060"
+    },
+    {
+      "id": "switch/aurora.checked/normal/aurora-light",
+      "component": "switch",
+      "group": "aurora",
+      "params": {
+        "label": "Wi-Fi",
+        "checked": true
+      },
+      "state": "normal",
+      "theme": "aurora-light",
+      "viewport": [
+        128.0,
+        40.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        80.0,
+        20.0
+      ],
+      "png": "png/switch/aurora.checked/normal/aurora-light.png",
+      "scene": "scenes/switch/aurora.checked/normal/aurora-light.json",
+      "png_sha256": "e5c110f561c347d9be7e662239a3e8c76c728fa4d4e7bc6ec29a6ed493104060"
     },
     {
       "id": "switch/bare.large.checked/disabled/dark",
@@ -84617,6 +87388,296 @@
       "png": "png/table/stripe.base/normal/light.png",
       "scene": "scenes/table/stripe.base/normal/light.json",
       "png_sha256": "d1afefed90119137bc03f3b756664b85ae2b6926fcc9b270ed96a7ec201ba994"
+    },
+    {
+      "id": "tabs/aurora.outline/hover/aurora-light",
+      "component": "tabs",
+      "group": "aurora",
+      "params": {
+        "selected": 1,
+        "pointer_x": 0.04,
+        "variant": "outline"
+      },
+      "state": "hover",
+      "theme": "aurora-light",
+      "viewport": [
+        352.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        320.0,
+        32.0
+      ],
+      "png": "png/tabs/aurora.outline/hover/aurora-light.png",
+      "scene": "scenes/tabs/aurora.outline/hover/aurora-light.json",
+      "png_sha256": "83f185bbc4c469cd14b83116d29b39ebd263e463d5897343eb4000e9dd4f105c"
+    },
+    {
+      "id": "tabs/aurora.outline/normal/aurora-light",
+      "component": "tabs",
+      "group": "aurora",
+      "params": {
+        "selected": 1,
+        "pointer_x": 0.04,
+        "variant": "outline"
+      },
+      "state": "normal",
+      "theme": "aurora-light",
+      "viewport": [
+        352.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        320.0,
+        32.0
+      ],
+      "png": "png/tabs/aurora.outline/normal/aurora-light.png",
+      "scene": "scenes/tabs/aurora.outline/normal/aurora-light.json",
+      "png_sha256": "f68b7d92c79029935b67e26e0308c71a9644654c1b50604f776f7e6fa4485900"
+    },
+    {
+      "id": "tabs/aurora.pill/hover/aurora-light",
+      "component": "tabs",
+      "group": "aurora",
+      "params": {
+        "selected": 1,
+        "pointer_x": 0.04,
+        "variant": "pill"
+      },
+      "state": "hover",
+      "theme": "aurora-light",
+      "viewport": [
+        352.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        320.0,
+        32.0
+      ],
+      "png": "png/tabs/aurora.pill/hover/aurora-light.png",
+      "scene": "scenes/tabs/aurora.pill/hover/aurora-light.json",
+      "png_sha256": "609fc4515b139e6abf9af6f52d4c58185ef1822376509cb2c5f613bb18fe3a32"
+    },
+    {
+      "id": "tabs/aurora.pill/normal/aurora-light",
+      "component": "tabs",
+      "group": "aurora",
+      "params": {
+        "selected": 1,
+        "pointer_x": 0.04,
+        "variant": "pill"
+      },
+      "state": "normal",
+      "theme": "aurora-light",
+      "viewport": [
+        352.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        320.0,
+        32.0
+      ],
+      "png": "png/tabs/aurora.pill/normal/aurora-light.png",
+      "scene": "scenes/tabs/aurora.pill/normal/aurora-light.json",
+      "png_sha256": "ab92af736ed8676678309899a4608a9bf098a97554c424286792a9fe20039f45"
+    },
+    {
+      "id": "tabs/aurora.segmented/hover/aurora-light",
+      "component": "tabs",
+      "group": "aurora",
+      "params": {
+        "selected": 1,
+        "pointer_x": 0.04,
+        "variant": "segmented"
+      },
+      "state": "hover",
+      "theme": "aurora-light",
+      "viewport": [
+        352.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        320.0,
+        32.0
+      ],
+      "png": "png/tabs/aurora.segmented/hover/aurora-light.png",
+      "scene": "scenes/tabs/aurora.segmented/hover/aurora-light.json",
+      "png_sha256": "357aeedea77c76b1bf2a7ffb6f56af4fe3d441243bfa1286e250805f186ff8d8"
+    },
+    {
+      "id": "tabs/aurora.segmented/normal/aurora-light",
+      "component": "tabs",
+      "group": "aurora",
+      "params": {
+        "selected": 1,
+        "pointer_x": 0.04,
+        "variant": "segmented"
+      },
+      "state": "normal",
+      "theme": "aurora-light",
+      "viewport": [
+        352.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        320.0,
+        32.0
+      ],
+      "png": "png/tabs/aurora.segmented/normal/aurora-light.png",
+      "scene": "scenes/tabs/aurora.segmented/normal/aurora-light.json",
+      "png_sha256": "83c8192bb90cb6826ad5d4aa0f0af8989440528f487a544734f9ed77e68260c8"
+    },
+    {
+      "id": "tabs/aurora.tab/hover/aurora-light",
+      "component": "tabs",
+      "group": "aurora",
+      "params": {
+        "selected": 1,
+        "pointer_x": 0.04,
+        "variant": "tab"
+      },
+      "state": "hover",
+      "theme": "aurora-light",
+      "viewport": [
+        352.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        320.0,
+        32.0
+      ],
+      "png": "png/tabs/aurora.tab/hover/aurora-light.png",
+      "scene": "scenes/tabs/aurora.tab/hover/aurora-light.json",
+      "png_sha256": "1ca4f884f857938904daeb355eb8bcad582805a72963f80b6afb0015a421d5ef"
+    },
+    {
+      "id": "tabs/aurora.tab/normal/aurora-light",
+      "component": "tabs",
+      "group": "aurora",
+      "params": {
+        "selected": 1,
+        "pointer_x": 0.04,
+        "variant": "tab"
+      },
+      "state": "normal",
+      "theme": "aurora-light",
+      "viewport": [
+        352.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        320.0,
+        32.0
+      ],
+      "png": "png/tabs/aurora.tab/normal/aurora-light.png",
+      "scene": "scenes/tabs/aurora.tab/normal/aurora-light.json",
+      "png_sha256": "ade98ee2f53bd5315c6f1eba0f3377fd923951bc530800e3e894e5719efbb764"
+    },
+    {
+      "id": "tabs/aurora.underline/hover/aurora-light",
+      "component": "tabs",
+      "group": "aurora",
+      "params": {
+        "selected": 1,
+        "pointer_x": 0.04,
+        "variant": "underline"
+      },
+      "state": "hover",
+      "theme": "aurora-light",
+      "viewport": [
+        352.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        320.0,
+        36.0
+      ],
+      "png": "png/tabs/aurora.underline/hover/aurora-light.png",
+      "scene": "scenes/tabs/aurora.underline/hover/aurora-light.json",
+      "png_sha256": "6bed8f7547ced4713b3f3d20287d23565b61fcf5d689e500a75197f7074ae562"
+    },
+    {
+      "id": "tabs/aurora.underline/normal/aurora-light",
+      "component": "tabs",
+      "group": "aurora",
+      "params": {
+        "selected": 1,
+        "pointer_x": 0.04,
+        "variant": "underline"
+      },
+      "state": "normal",
+      "theme": "aurora-light",
+      "viewport": [
+        352.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        320.0,
+        36.0
+      ],
+      "png": "png/tabs/aurora.underline/normal/aurora-light.png",
+      "scene": "scenes/tabs/aurora.underline/normal/aurora-light.json",
+      "png_sha256": "94390fedd15e45a6c0a7f9a0fb86bacb675dc8bb116dd194bd0a40e16c5cb08d"
     },
     {
       "id": "tabs/disabled.outline.disabled_index-1/normal/dark",

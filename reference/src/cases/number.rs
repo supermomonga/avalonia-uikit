@@ -36,13 +36,13 @@ pub fn builder(params: &Params) -> Result<Builder> {
     }))
 }
 
-pub fn derived_colors(theme: &Theme, out: &mut Vec<(String, gpui_kit::Hsla)>) {
+pub fn derived_colors(theme: &Theme, out: &mut Vec<(String, super::Paint)>) {
     // number_input.rs: the step buttons tint to the frame on hover and press;
     // a disabled frame fills with `input` at 80% and borders with it at 50%.
-    out.push(("number.button.hover".into(), theme.input.opacity(0.4)));
-    out.push(("number.button.pressed".into(), theme.input.opacity(0.6)));
-    out.push(("number.disabled.background".into(), theme.input.mix_oklab(theme.transparent, 0.8)));
-    out.push(("number.disabled.border".into(), theme.input.opacity(0.5)));
+    out.push(("number.button.hover".into(), theme.input.opacity(0.4).into()));
+    out.push(("number.button.pressed".into(), theme.input.opacity(0.6).into()));
+    out.push(("number.disabled.background".into(), theme.input.mix_oklab(theme.transparent, 0.8).into()));
+    out.push(("number.disabled.border".into(), theme.input.opacity(0.5).into()));
     // A disabled input draws its text at half strength (inside the frame's own 50% fade).
-    out.push(("number.disabled.text".into(), theme.foreground.opacity(0.5)));
+    out.push(("number.disabled.text".into(), theme.foreground.opacity(0.5).into()));
 }

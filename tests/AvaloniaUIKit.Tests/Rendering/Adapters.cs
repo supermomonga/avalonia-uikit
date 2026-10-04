@@ -250,7 +250,7 @@ public static partial class Adapters
     {
         var uniform = c.Bool("uniform");
         double Row(int i) => uniform ? 34 : (i % 3) switch { 0 => 30, 1 => 45, _ => 60 };
-        var secondary = (Avalonia.Media.IBrush)Avalonia.Application.Current!.FindResource(c.IsDark ? Avalonia.Styling.ThemeVariant.Dark : Avalonia.Styling.ThemeVariant.Light, "UIKit.Secondary")!;
+        var secondary = (Avalonia.Media.IBrush)Avalonia.Application.Current!.FindResource(c.Variant, "UIKit.Secondary")!;
         var bare = new ControlTheme(typeof(ListBoxItem))
         {
             Setters =
@@ -320,7 +320,7 @@ public static partial class Adapters
         {
             tree.Padding = new Avalonia.Thickness(4);
             tree.BorderThickness = new Avalonia.Thickness(1);
-            tree.BorderBrush = (Avalonia.Media.IBrush)Avalonia.Application.Current!.FindResource(c.IsDark ? Avalonia.Styling.ThemeVariant.Dark : Avalonia.Styling.ThemeVariant.Light, "UIKit.Border")!;
+            tree.BorderBrush = (Avalonia.Media.IBrush)Avalonia.Application.Current!.FindResource(c.Variant, "UIKit.Border")!;
             tree.CornerRadius = new Avalonia.CornerRadius(5.5);
             foreach (var item in flat)
             {
@@ -447,7 +447,7 @@ public static partial class Adapters
         if (c.Has("color"))
         {
             var key = c.Str("color") == "muted" ? "UIKit.MutedForeground" : "UIKit.Danger";
-            result.SetValue(TextElement.ForegroundProperty, (Avalonia.Media.IBrush)Avalonia.Application.Current!.FindResource(c.IsDark ? Avalonia.Styling.ThemeVariant.Dark : Avalonia.Styling.ThemeVariant.Light, key)!);
+            result.SetValue(TextElement.ForegroundProperty, (Avalonia.Media.IBrush)Avalonia.Application.Current!.FindResource(c.Variant, key)!);
         }
         return result;
     }
@@ -463,7 +463,7 @@ public static partial class Adapters
         if (c.Has("color"))
         {
             var key = "UIKit." + string.Concat(c.Str("color").Split('-').Select(p => char.ToUpperInvariant(p[0]) + p[1..]));
-            icon.Foreground = (Avalonia.Media.IBrush)Avalonia.Application.Current!.FindResource(c.IsDark ? Avalonia.Styling.ThemeVariant.Dark : Avalonia.Styling.ThemeVariant.Light, key)!;
+            icon.Foreground = (Avalonia.Media.IBrush)Avalonia.Application.Current!.FindResource(c.Variant, key)!;
         }
         if (c.Has("rotate"))
         {

@@ -6,6 +6,8 @@ date: 2026-10-03
 links:
 - target: 21
   kind: amendedby
+- target: 26
+  kind: amendedby
 ---
 
 # Generate color tokens from the resolved GPUI Kit theme

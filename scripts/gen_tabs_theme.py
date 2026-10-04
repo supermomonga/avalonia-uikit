@@ -190,13 +190,13 @@ def strip_part_styles() -> str:
         fill = {
             "tab": {"IsVisible": "False"},
             "outline": {"IsVisible": "False"},
-            "pill": {"Background": "{DynamicResource UIKit.Primary}"},
+            "pill": {"Background": "{DynamicResource UIKit.Primary.Fill}"},
             "segmented": {
                 "Background": "{DynamicResource UIKit.Background}",
                 "BoxShadow": "{StaticResource UIKit.Shadow.Raised}",
                 "VerticalAlignment": "Center",
             },
-            "underline": {"Background": "{DynamicResource UIKit.Primary}", "Height": "2", "VerticalAlignment": "Bottom"},
+            "underline": {"Background": "{DynamicResource UIKit.Primary.Fill}", "Height": "2", "VerticalAlignment": "Bottom"},
         }[v]
         out.append(style(f"^{vs} /template/ Border#PART_IndicatorFill", fill, "      "))
         for i, s in enumerate(SIZES):

@@ -34,8 +34,10 @@ public enum Region : byte
     /// </summary>
     ImageEdge,
     /// <summary>
-    /// Inside a gradient fill: GPUI's shader dithers a gradient by up to two
-    /// 8-bit steps per channel against banding, Skia does not (R32).
+    /// Inside a gradient fill: GPUI's shader dithers a gradient against banding,
+    /// Skia does not (R32). One noise moves each color channel by up to two 8-bit
+    /// steps and the alpha by up to three, so an opaque gradient lets up to 3/255
+    /// of what is under it through.
     /// </summary>
     Gradient,
     /// <summary>Not compared: an area a test excludes for a cited relaxation.</summary>
@@ -66,8 +68,8 @@ public sealed record PixelTolerance(
     double ShadowMax = 12,
     double ImageMean = 3,
     double ImageEdgeMean = 12,
-    double GradientMax = 3,
-    double GradientMean = 1)
+    double GradientMax = 5,
+    double GradientMean = 1.25)
 {
     public static PixelTolerance Default { get; } = new();
 }
@@ -140,8 +142,7 @@ public static class PixelComparison
         foreach (var q in scene.Quads)
         {
             var hasBorder = q.BorderWidths != default && !q.BorderColor.IsTransparent;
-            var visibleFill = q.SolidBackground && !q.Background.IsTransparent;
-            if (!hasBorder && !visibleFill)
+            if (!hasBorder && !VisibleFill(q))
             {
                 continue;
             }
@@ -172,7 +173,7 @@ public static class PixelComparison
         {
             var cut = q.Bounds.Intersect(q.Clip);
             if (cut == q.Bounds || cut.Width <= 0 || cut.Height <= 0 ||
-                (q.BorderWidths == default || q.BorderColor.IsTransparent) && (!q.SolidBackground || q.Background.IsTransparent))
+                (q.BorderWidths == default || q.BorderColor.IsTransparent) && !VisibleFill(q))
             {
                 continue;
             }
@@ -240,6 +241,10 @@ public static class PixelComparison
         }
         return regions;
     }
+
+    // A solid or a gradient fill that shows: its outline is an edge, wherever it is (R2).
+    private static bool VisibleFill(SceneQuad q) =>
+        q.SolidBackground ? !q.Background.IsTransparent : q.Gradient is { } g && !(g.Start.IsTransparent && g.End.IsTransparent);
 
     private static int Priority(Region r) => r switch
     {

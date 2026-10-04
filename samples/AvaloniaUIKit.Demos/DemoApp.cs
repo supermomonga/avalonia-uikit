@@ -24,9 +24,9 @@ public static class DemoApp
     /// <summary>Adds the themes and points the theme font at Inter.</summary>
     public static void ApplyTheme(Application app)
     {
-        app.Styles.Add(new NovaTheme());
-        app.Styles.Add(new NovaColorPickerTheme());
-        app.Styles.Add(new NovaDataGridTheme());
+        app.Styles.Add(new UIKitTheme());
+        app.Styles.Add(new UIKitColorPickerTheme());
+        app.Styles.Add(new UIKitDataGridTheme());
         app.Resources["UIKit.FontFamily"] = new FontFamily(FontFamilyName);
         // GPUI opens a submenu as soon as its item is hovered (usage contract, docs/testing.md).
         Avalonia.Controls.Platform.DefaultMenuInteractionHandler.MenuShowDelay = TimeSpan.Zero;

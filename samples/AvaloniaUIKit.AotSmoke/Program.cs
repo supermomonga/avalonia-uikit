@@ -5,7 +5,8 @@ namespace AvaloniaUIKit.AotSmoke;
 /// <summary>
 /// A gallery of every control the theme covers, published with NativeAOT to
 /// prove the theme needs no reflection. <c>--smoke</c> renders the gallery in
-/// light and dark and exits; <c>--dark</c> starts in the dark theme.
+/// light, dark, Aurora Light and Tokyo Night and exits; <c>--dark</c> starts in
+/// the dark theme.
 /// </summary>
 internal static class Program
 {

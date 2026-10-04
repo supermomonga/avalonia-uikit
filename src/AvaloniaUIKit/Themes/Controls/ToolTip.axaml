@@ -8,7 +8,7 @@
   GPUI's edge snapping renders as a 28.5px bubble: the line is 22.5 here). It keeps a 12px
   margin (m_3) and opens above its trigger, centered, 10.5px from it as GPUI
   places it. It fades in and slides up 4px over 150ms with ease-out-cubic.
-  GPUI shows a tooltip after 500ms; NovaTheme sets ToolTip.ShowDelay and the
+  GPUI shows a tooltip after 500ms; UIKitTheme sets ToolTip.ShowDelay and the
   placement on every control.
 -->
 <ResourceDictionary xmlns="https://github.com/avaloniaui"

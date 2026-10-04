@@ -72,9 +72,9 @@ pub fn builder(params: &Params) -> Result<Builder> {
     }))
 }
 
-pub fn derived_colors(theme: &Theme, out: &mut Vec<(String, gpui_kit::Hsla)>) {
+pub fn derived_colors(theme: &Theme, out: &mut Vec<(String, super::Paint)>) {
     // delegate.rs: the empty list's Inbox icon.
-    out.push(("list.empty".into(), theme.muted_foreground.opacity(0.6)));
+    out.push(("list.empty".into(), theme.muted_foreground.opacity(0.6).into()));
 }
 
 /// `v_virtual_list` (crates/base/src/virtual_list.rs) with its overlay

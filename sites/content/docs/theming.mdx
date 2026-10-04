@@ -1,25 +1,45 @@
 ---
 title: "Theming"
-description: "Light and dark, the color tokens, the font, and the sizes and variants chosen with style classes."
+description: "Default Light and Default Dark, the 36 color themes from GPUI Kit, the color tokens, the font, and the sizes and variants chosen with style classes."
 ---
 
-## Light and dark
+## Color themes
 
-The theme comes in light and dark. Switch with Avalonia's `RequestedThemeVariant`, on the application or on any control:
+`UIKitTheme` comes in GPUI Kit's Default Light and Default Dark, which are Avalonia's `Light` and `Dark` theme variants, and in the 36 color themes GPUI Kit bundles: Aurora, Ayu, Catppuccin, Gruvbox, Solarized, Tokyo Night and the rest. Choose one with Avalonia's `RequestedThemeVariant`, on the application, a window or a `ThemeVariantScope`:
 
 ```xml
 <Application RequestedThemeVariant="Dark">
 ```
 
+The bundled themes are the theme variants in `UIKitThemeVariants`. Each is a light or a dark theme and inherits Avalonia's `Light` or `Dark`, so what other themes such as `FluentTheme` define for that mode still applies:
+
 ```xml
-<Border RequestedThemeVariant="Light">
-  <Button Content="Always light" />
-</Border>
+<Application xmlns:uikit="using:AvaloniaUIKit"
+             RequestedThemeVariant="{x:Static uikit:UIKitThemeVariants.TokyoNight}">
 ```
+
+```xml
+<ThemeVariantScope RequestedThemeVariant="{x:Static uikit:UIKitThemeVariants.AuroraLight}">
+  <Button Classes="primary" Content="Aurora" />
+</ThemeVariantScope>
+```
+
+In code, `UIKitThemeVariants.All` lists them, `UIKitThemeVariants.Find` looks one up by its GPUI Kit name (`Default Light` and `Default Dark` too), and `UIKitThemeVariants.IsDark` tells whether a variant is a dark one:
+
+```csharp
+Application.Current!.RequestedThemeVariant =
+    UIKitThemeVariants.Find("Catppuccin Mocha") ?? ThemeVariant.Dark;
+```
+
+Press <Kbd>T</Kbd> to try them on this site: the site and its live demos take the theme you pick.
+
+<ThemeList />
+
+Aurora Light paints buttons, the primary fill, switches, the slider's thumb, progress bars and scrollbar thumbs with gradients, as GPUI Kit does. The other themes are solid colors.
 
 ## Color tokens
 
-Every color of the theme is a resource with a `UIKit.` prefix: the base tokens (`UIKit.Background`, `UIKit.Foreground`, `UIKit.Border`, `UIKit.Primary`, `UIKit.PrimaryForeground`, `UIKit.Secondary`, `UIKit.Muted`, `UIKit.MutedForeground`, `UIKit.Accent`, `UIKit.Danger`, `UIKit.Warning`, `UIKit.Success`, `UIKit.Info`, `UIKit.Link`, `UIKit.Popover`, `UIKit.FocusRing`, the palette colors `UIKit.Blue`, `UIKit.Green` and so on) and the colors the components derive from them for their states (`UIKit.Button.Primary.Hover.Background`, for example). Each token is a `SolidColorBrush`; the `Color` is the same key with a `.Color` suffix. Use them with `DynamicResource` so they follow the theme variant:
+Every color of the theme is a resource with a `UIKit.` prefix: the base tokens (`UIKit.Background`, `UIKit.Foreground`, `UIKit.Border`, `UIKit.Primary`, `UIKit.PrimaryForeground`, `UIKit.Secondary`, `UIKit.Muted`, `UIKit.MutedForeground`, `UIKit.Accent`, `UIKit.Danger`, `UIKit.Warning`, `UIKit.Success`, `UIKit.Info`, `UIKit.Link`, `UIKit.Popover`, `UIKit.FocusRing`, the palette colors `UIKit.Blue`, `UIKit.Green` and so on) and the colors the components derive from them for their states (`UIKit.Button.Primary.Hover.Background`, for example). A base token is a solid brush; the `Color` is the same key with a `.Color` suffix. Use them with `DynamicResource` so they follow the theme variant:
 
 ```xml
 <Border Background="{DynamicResource UIKit.Muted}"
@@ -27,6 +47,8 @@ Every color of the theme is a resource with a `UIKit.` prefix: the base tokens (
   <TextBlock Foreground="{DynamicResource UIKit.MutedForeground}" Text="Muted" />
 </Border>
 ```
+
+The tokens a theme may give as a gradient also have a `.Fill` brush, which is the gradient where the theme has one (`UIKit.Primary.Fill` is a gradient in Aurora Light, while `UIKit.Primary` is its first color). Use `.Fill` for a background that should look like the theme's primary button or switch; the derived background colors are already gradients where the theme's are.
 
 The tokens are generated, so they are not meant to be edited by hand. An application can still override one in `Application.Resources`, which Avalonia checks before the theme; the derived colors are resources of their own and do not follow the override.
 

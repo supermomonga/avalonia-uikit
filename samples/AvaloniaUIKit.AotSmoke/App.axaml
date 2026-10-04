@@ -4,7 +4,7 @@
              xmlns:uikitcolor="clr-namespace:AvaloniaUIKit;assembly=AvaloniaUIKit.ColorPicker"
              x:Class="AvaloniaUIKit.AotSmoke.App">
   <Application.Styles>
-    <uikit:NovaTheme />
-    <uikitcolor:NovaColorPickerTheme />
+    <uikit:UIKitTheme />
+    <uikitcolor:UIKitColorPickerTheme />
   </Application.Styles>
 </Application>

@@ -175,7 +175,7 @@
         <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
       </Style>
       <Style Selector="^:selected">
-        <Setter Property="Background" Value="{DynamicResource UIKit.Primary}" />
+        <Setter Property="Background" Value="{DynamicResource UIKit.Primary.Fill}" />
         <Setter Property="Foreground" Value="{DynamicResource UIKit.PrimaryForeground}" />
       </Style>
       <Style Selector="^:blackout">
@@ -216,7 +216,7 @@
         <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
       </Style>
       <Style Selector="^:selected">
-        <Setter Property="Background" Value="{DynamicResource UIKit.Primary}" />
+        <Setter Property="Background" Value="{DynamicResource UIKit.Primary.Fill}" />
         <Setter Property="Foreground" Value="{DynamicResource UIKit.PrimaryForeground}" />
       </Style>
     </ControlTheme>
@@ -233,7 +233,7 @@
   </Style>
   <!-- The month item stays primary while the months grid shows. -->
   <Style Selector="Calendar[DisplayMode=Year] Button /template/ Border#PART_MonthPill, Calendar[DisplayMode=Decade] Button /template/ Border#PART_YearPill">
-    <Setter Property="Background" Value="{DynamicResource UIKit.Primary}" />
+    <Setter Property="Background" Value="{DynamicResource UIKit.Primary.Fill}" />
     <Setter Property="TextElement.Foreground" Value="{DynamicResource UIKit.PrimaryForeground}" />
   </Style>
   <!-- Decade mode disables the header button; it keeps its look. -->

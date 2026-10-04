@@ -36,7 +36,7 @@
   <!-- The thumb spans the strip's width, as GPUI's thumb hitbox does; the pill
        inside it is what paints. -->
   <ControlTheme x:Key="UIKitScrollBarThumb" TargetType="Thumb">
-    <Setter Property="Background" Value="{DynamicResource UIKit.ScrollbarThumb}" />
+    <Setter Property="Background" Value="{DynamicResource UIKit.ScrollbarThumb.Fill}" />
     <Setter Property="CornerRadius" Value="4" />
     <Setter Property="Template">
       <ControlTemplate>
@@ -54,7 +54,7 @@
     </Setter>
     <!-- Hovered where it rests (Scrollbars.IsThumbHovered), or dragged. -->
     <Style Selector="^[(uikit|Scrollbars.IsThumbHovered)=True], ^:pressed">
-      <Setter Property="Background" Value="{DynamicResource UIKit.ScrollbarThumbHover}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.ScrollbarThumbHover.Fill}" />
     </Style>
     <!-- Vertical: 6px (8px when active) wide, 4px in from the right edge. -->
     <Style Selector="^[Tag=vertical] /template/ Border#PART_Pill">

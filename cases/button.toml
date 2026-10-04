@@ -38,3 +38,11 @@ name = "icon"
 params = { icon = "copy" }
 matrix = { variant = ["default", "primary", "ghost"], size = ["xsmall", "small", "medium", "large"] }
 states = ["normal", "hover"]
+
+# Aurora Light paints the token backgrounds as gradients (ADR 26).
+[[group]]
+name = "aurora"
+params = { label = "Button" }
+matrix = { variant = ["default", "primary", "secondary", "danger", "warning", "success", "info", "ghost"], outline = [false, true] }
+states = ["normal", "hover", "pressed", "disabled"]
+themes = ["aurora-light"]

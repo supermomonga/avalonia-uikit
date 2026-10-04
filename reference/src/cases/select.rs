@@ -106,10 +106,10 @@ pub fn combobox(params: &Params) -> Result<Builder> {
     }))
 }
 
-pub fn derived_colors(theme: &Theme, out: &mut Vec<(String, gpui_kit::Hsla)>) {
+pub fn derived_colors(theme: &Theme, out: &mut Vec<(String, super::Paint)>) {
     // searchable_list/item.rs: a hovered row; select.rs: the empty view's icon
     // and a disabled frame (before the frame fades to half).
-    out.push(("select.row.hover".into(), theme.accent.opacity(0.7)));
-    out.push(("select.empty".into(), theme.muted_foreground.opacity(0.6)));
-    out.push(("select.disabled.background".into(), theme.input.mix_oklab(theme.transparent, 0.8)));
+    out.push(("select.row.hover".into(), theme.accent.opacity(0.7).into()));
+    out.push(("select.empty".into(), theme.muted_foreground.opacity(0.6).into()));
+    out.push(("select.disabled.background".into(), theme.input.mix_oklab(theme.transparent, 0.8).into()));
 }

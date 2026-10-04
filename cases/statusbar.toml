@@ -19,3 +19,9 @@ params = { center = "Ready", right = "UTF-8" }
 [[group]]
 name = "center"
 params = { center = "Indexing…|42%" }
+
+# Aurora Light: the bar is a gradient (ADR 26).
+[[group]]
+name = "aurora"
+params = { left = "main|0 errors", center = "Ready", right = "Ln 1, Col 1|UTF-8" }
+themes = ["aurora-light"]

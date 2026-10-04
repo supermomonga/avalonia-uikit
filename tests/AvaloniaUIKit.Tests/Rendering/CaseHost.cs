@@ -42,7 +42,7 @@ public sealed class CaseHost : IDisposable
             Width = golden.Viewport.Width,
             Height = golden.Viewport.Height,
             SizeToContent = SizeToContent.Manual,
-            RequestedThemeVariant = golden.IsDark ? ThemeVariant.Dark : ThemeVariant.Light,
+            RequestedThemeVariant = golden.Variant,
             Content = canvas,
         };
         TextOptions.SetTextRenderingMode(window, TextRenderingMode.Antialias);

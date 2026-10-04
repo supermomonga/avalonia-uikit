@@ -28,7 +28,7 @@ pub fn builder(params: &Params) -> Result<Builder> {
     }))
 }
 
-pub fn derived_colors(theme: &gpui_kit::component::Theme, out: &mut Vec<(String, gpui_kit::Hsla)>) {
+pub fn derived_colors(theme: &gpui_kit::component::Theme, out: &mut Vec<(String, super::Paint)>) {
     // skeleton.rs: the secondary skeleton is the skeleton color at 50%.
-    out.push(("skeleton.secondary".into(), theme.skeleton.opacity(0.5)));
+    out.push(("skeleton.secondary".into(), theme.skeleton.opacity(0.5).into()));
 }

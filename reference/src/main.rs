@@ -4,6 +4,7 @@
 //!
 //! Usage:
 //!   reference generate [--only <id-prefix>]
+//!   reference tokens
 //!   reference verify-determinism [--only <id-prefix>]
 mod cases;
 mod derived;
@@ -12,10 +13,11 @@ mod harness;
 mod icons;
 mod manifest;
 mod scene_json;
+mod themes;
 mod tokens;
 
 use anyhow::{Context as _, Result, bail};
-use gpui_kit::component::{ThemeMode, scroll::ScrollbarMode};
+use gpui_kit::component::scroll::ScrollbarMode;
 use harness::Harness;
 use manifest::{Case, param_str};
 use serde_json::{Value, json};
@@ -47,6 +49,7 @@ fn main() -> Result<()> {
     let out = root.join("goldens").join(format!("gpui-{}", &GPUI_KIT_REV[..7]));
     match command {
         "generate" => generate(&root, &out, only.as_deref()),
+        "tokens" => write_tokens(&mut Harness::new(&root)?, &root, &out),
         "verify-determinism" => verify_determinism(&root, only.as_deref()),
         other => bail!("unknown command {other}"),
     }
@@ -61,10 +64,6 @@ fn png_bytes(image: &image::RgbaImage) -> Result<Vec<u8>> {
     let mut bytes = Vec::new();
     image.write_to(&mut std::io::Cursor::new(&mut bytes), image::ImageFormat::Png)?;
     Ok(bytes)
-}
-
-fn mode(case: &Case) -> ThemeMode {
-    if case.theme == "dark" { ThemeMode::Dark } else { ThemeMode::Light }
 }
 
 fn scrollbar_mode(case: &Case) -> ScrollbarMode {
@@ -97,7 +96,7 @@ fn bounds_json(b: gpui_kit::Bounds<gpui_kit::Pixels>) -> Value {
 }
 
 fn run_case(harness: &mut Harness, case: &Case) -> Result<Captured> {
-    harness.set_theme(mode(case), scrollbar_mode(case));
+    harness.set_theme(&case.theme, scrollbar_mode(case))?;
     let window = harness.open(
         (case.viewport[0], case.viewport[1]),
         (case.anchor[0], case.anchor[1]),
@@ -181,9 +180,7 @@ fn all_cases(root: &Path, only: Option<&str>) -> Result<Vec<Case>> {
 
 fn generate(root: &Path, out: &Path, only: Option<&str>) -> Result<()> {
     let mut harness = Harness::new(root)?;
-    let tokens = tokens::dump(&mut harness)?;
-    write(&out.join("tokens/gpui-theme.json"), &serde_json::to_vec_pretty(&tokens)?)?;
-    tokens::write_xaml(root, &tokens)?;
+    write_tokens(&mut harness, root, out)?;
     icons::write_xaml(root)?;
 
     let cases = all_cases(root, only)?;
@@ -230,6 +227,17 @@ fn generate(root: &Path, out: &Path, only: Option<&str>) -> Result<()> {
     });
     write(&manifest_path, &serde_json::to_vec_pretty(&manifest)?)?;
     eprintln!("wrote {}", out.display());
+    Ok(())
+}
+
+/// The resolved themes for the tests, the Avalonia theme and the site.
+fn write_tokens(harness: &mut Harness, root: &Path, out: &Path) -> Result<()> {
+    let tokens = tokens::dump(harness)?;
+    write(&out.join("tokens/gpui-theme.json"), &serde_json::to_vec_pretty(&tokens)?)?;
+    let bundled = tokens::dump_bundled(harness)?;
+    write(&out.join("tokens/gpui-themes.json"), &serde_json::to_vec_pretty(&bundled)?)?;
+    tokens::write_csharp(root, &tokens, &bundled)?;
+    tokens::write_site(root, &bundled, &harness.themes)?;
     Ok(())
 }
 

@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Publishes the gallery with NativeAOT (trim and AOT warnings are errors) and
-# runs it once: it renders every control in light and dark, then exits.
+# runs it once: it renders every control in light, dark and two bundled
+# themes, then exits.
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"

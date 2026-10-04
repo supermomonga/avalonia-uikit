@@ -1,11 +1,12 @@
 import { components } from "./catalog"
+import { bundledThemes } from "./themes"
 
 export const siteConfig = {
   name: "Avalonia UIKit",
   url: "https://avalonia-uikit.omofla.sh",
   /** The home page's headline, also on the social image. */
   tagline: "Modern looks and motion for Avalonia apps.",
-  description: `Themes and controls for Avalonia in the Nova style of shadcn/ui and GPUI Kit: ${components.length} components in light and dark, verified pixel by pixel and frame by frame, NativeAOT ready.`,
+  description: `Themes and controls for Avalonia in the Nova style of shadcn/ui and GPUI Kit: ${components.length} components in light, dark and ${bundledThemes.length} more color themes, verified pixel by pixel and frame by frame, NativeAOT ready.`,
   /** The social image (public/og.png, rendered by scripts/images.ts from routes/og-image.tsx). */
   ogImage: {
     url: "/og.png",

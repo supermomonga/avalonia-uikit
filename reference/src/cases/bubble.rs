@@ -56,13 +56,13 @@ pub fn builder(params: &Params) -> Result<Builder> {
     }))
 }
 
-pub fn derived_colors(theme: &gpui_kit::component::Theme, out: &mut Vec<(String, gpui_kit::Hsla)>) {
+pub fn derived_colors(theme: &gpui_kit::component::Theme, out: &mut Vec<(String, super::Paint)>) {
     use gpui_kit::component::Colorize as _;
     // bubble.rs: Tinted mixes the primary into the background (12%, dark 24%);
     // Destructive is the destructive color at 10% (dark 20%).
     let tokens = theme.semantic_tokens();
     let dark = theme.is_dark();
-    out.push(("bubble.tinted".into(), tokens.colors.primary.mix_oklab(tokens.colors.background, if dark { 0.24 } else { 0.12 })));
-    out.push(("bubble.destructive".into(), tokens.colors.destructive.opacity(if dark { 0.2 } else { 0.1 })));
-    out.push(("bubble.destructive-foreground".into(), tokens.colors.destructive));
+    out.push(("bubble.tinted".into(), tokens.colors.primary.mix_oklab(tokens.colors.background, if dark { 0.24 } else { 0.12 }).into()));
+    out.push(("bubble.destructive".into(), tokens.colors.destructive.opacity(if dark { 0.2 } else { 0.1 }).into()));
+    out.push(("bubble.destructive-foreground".into(), tokens.colors.destructive.into()));
 }

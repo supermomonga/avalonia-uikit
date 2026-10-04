@@ -20,7 +20,7 @@
                     xmlns:uikit="using:AvaloniaUIKit"
                     xmlns:gconv="using:AvaloniaUIKit.Converters">
   <ControlTheme x:Key="{x:Type ProgressBar}" TargetType="ProgressBar">
-    <Setter Property="Foreground" Value="{DynamicResource UIKit.ProgressBar}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.ProgressBar.Fill}" />
     <Setter Property="Background" Value="{DynamicResource UIKit.Progress.Track}" />
     <Setter Property="Height" Value="8" />
     <Setter Property="MinWidth" Value="0" />

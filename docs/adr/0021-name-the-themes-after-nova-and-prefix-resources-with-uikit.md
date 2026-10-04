@@ -14,6 +14,8 @@ links:
   kind: amends
 - target: 16
   kind: amends
+- target: 26
+  kind: amendedby
 ---
 
 # Name the themes after Nova and prefix resources with UIKit

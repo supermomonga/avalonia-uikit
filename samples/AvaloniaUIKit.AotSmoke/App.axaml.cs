@@ -28,18 +28,27 @@ public sealed class App : Application
             desktop.MainWindow = window;
             if (Smoke)
             {
-                // Render the gallery in both themes, then exit: a theme that needed
-                // reflection would have failed to load or to apply by now.
-                DispatcherTimer.RunOnce(() =>
+                // Render the gallery in both modes and in two bundled themes (Aurora Light
+                // paints gradients), then exit: a theme that needed reflection would have
+                // failed to load or to apply by now.
+                var variants = new Queue<ThemeVariant>([
+                    RequestedThemeVariant == ThemeVariant.Dark ? ThemeVariant.Light : ThemeVariant.Dark,
+                    UIKitThemeVariants.AuroraLight,
+                    UIKitThemeVariants.TokyoNight,
+                ]);
+                void Next()
                 {
-                    RequestedThemeVariant = RequestedThemeVariant == ThemeVariant.Dark ? ThemeVariant.Light : ThemeVariant.Dark;
-                    DispatcherTimer.RunOnce(() =>
+                    if (variants.TryDequeue(out var variant))
                     {
-                        var ok = window.Background is ISolidColorBrush && window.IsVisible;
-                        Console.WriteLine(ok ? "smoke: ok" : "smoke: the gallery did not render");
-                        desktop.Shutdown(ok ? 0 : 1);
-                    }, TimeSpan.FromMilliseconds(800));
-                }, TimeSpan.FromMilliseconds(800));
+                        RequestedThemeVariant = variant;
+                        DispatcherTimer.RunOnce(Next, TimeSpan.FromMilliseconds(800));
+                        return;
+                    }
+                    var ok = window.Background is ISolidColorBrush && window.IsVisible;
+                    Console.WriteLine(ok ? "smoke: ok" : "smoke: the gallery did not render");
+                    desktop.Shutdown(ok ? 0 : 1);
+                }
+                DispatcherTimer.RunOnce(Next, TimeSpan.FromMilliseconds(800));
             }
         }
         base.OnFrameworkInitializationCompleted();

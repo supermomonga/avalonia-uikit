@@ -44,3 +44,10 @@ name = "months"
 params = { date = "2025-03-14", view = "month" }
 matrix = { size = ["small", "medium", "large"] }
 states = ["normal", "at-140-83"]
+
+# Aurora Light: the selected day is the primary gradient (ADR 26).
+[[group]]
+name = "aurora"
+params = { date = "2025-03-14", today = "2025-03-10" }
+states = ["normal", "at-205-175", "at-109-143"]
+themes = ["aurora-light"]

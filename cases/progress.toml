@@ -8,6 +8,13 @@ name = "value"
 params = { width = 200 }
 matrix = { size = ["xsmall", "small", "medium", "large"], value = [0, 40, 100] }
 
+# Aurora Light: the bar and its track are gradients (ADR 26).
+[[group]]
+name = "aurora"
+params = { width = 200 }
+matrix = { value = [0, 40, 100] }
+themes = ["aurora-light"]
+
 [[motion]]
 name = "value"
 params = { width = 200, value = 20, value_to = 80 }

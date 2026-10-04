@@ -2,6 +2,7 @@ using System.Globalization;
 using System.Text.Json;
 using System.Text.Json.Nodes;
 using Avalonia;
+using Avalonia.Styling;
 using AvaloniaUIKit.Tests.Infrastructure;
 
 namespace AvaloniaUIKit.Tests.Golden;
@@ -30,7 +31,19 @@ public sealed record GoldenCase(
     string? Scene,
     GoldenMotion? Motion)
 {
-    public bool IsDark => Theme == "dark";
+    /// <summary>
+    /// The theme variant the case was rendered in: <c>light</c> and <c>dark</c> are GPUI Kit's
+    /// Default Light and Default Dark, another theme is a bundled one by its slug (<c>aurora-light</c>).
+    /// </summary>
+    public ThemeVariant Variant => Theme switch
+    {
+        "light" => ThemeVariant.Light,
+        "dark" => ThemeVariant.Dark,
+        _ => UIKitThemeVariants.All.FirstOrDefault(v => GoldenManifest.Slug((string)v.Key) == Theme)
+            ?? throw new KeyNotFoundException($"no theme variant {Theme}"),
+    };
+
+    public bool IsDark => UIKitThemeVariants.IsDark(Variant);
 
     public string Str(string key, string fallback = "") =>
         Params.TryGetPropertyValue(key, out var node) && node is JsonValue v && v.TryGetValue<string>(out var s) ? s : fallback;
@@ -111,6 +124,19 @@ public static class GoldenManifest
         var path = Path.Combine(Repo.Goldens, "tokens", "gpui-theme.json");
         return JsonNode.Parse(File.ReadAllText(path))![mode]!.AsObject();
     }
+
+    /// <summary>The resolved tokens of every theme GPUI Kit bundles, by name (<c>Ayu Dark</c>).</summary>
+    public static IReadOnlyDictionary<string, JsonObject> BundledTokens()
+    {
+        var path = Path.Combine(Repo.Goldens, "tokens", "gpui-themes.json");
+        return JsonNode.Parse(File.ReadAllText(path))!["themes"]!.AsArray()
+            .ToDictionary(t => (string)t!["name"]!, t => t!["theme"]!.AsObject());
+    }
+
+    /// <summary>A theme's slug as the generator writes it (reference/src/themes.rs): <c>Ayu Dark</c> -> <c>ayu-dark</c>.</summary>
+    public static string Slug(string name) =>
+        string.Join('-', System.Text.RegularExpressions.Regex.Split(name, "[^A-Za-z0-9]+")
+            .Where(p => p.Length > 0).Select(p => p.ToLowerInvariant()));
 
     internal static string Format(double v) => v.ToString("0.###", CultureInfo.InvariantCulture);
 }

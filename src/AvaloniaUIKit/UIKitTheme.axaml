@@ -1,0 +1,197 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:uikit="using:AvaloniaUIKit"
+        x:Class="AvaloniaUIKit.UIKitTheme">
+  <Styles.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Tokens/Metrics.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Icons/Lucide.g.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Base/PathIcon.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Base/Window.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Base/Hosts.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/Button.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/ToggleButton.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/CheckBox.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/RadioButton.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/ToggleSwitch.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/Separator.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/Menus.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/Flyout.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/Notification.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/GridSplitter.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/CalendarDatePicker.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/TimePicker.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/Carousel.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/SplitView.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/DrawerPage.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/WindowDecorations.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/SplitButton.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/NumericUpDown.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/TextBox.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/ListBox.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/ComboBox.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/AutoCompleteBox.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/TreeView.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/GroupBox.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/HyperlinkButton.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/ProgressBar.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/ToolTip.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/ScrollViewer.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/Badge.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/TagLabel.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/Alert.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/Skeleton.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/StatusBar.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/Breadcrumb.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/Kbd.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/Rating.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/Avatar.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/EmptyState.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/DescriptionList.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/Stepper.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/HoverCard.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/ShimmerText.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/Marker.axaml" />
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+  </Styles.Resources>
+
+  <StyleInclude Source="avares://AvaloniaUIKit/Themes/Controls/ButtonGroup.axaml" />
+  <StyleInclude Source="avares://AvaloniaUIKit/Themes/Controls/ToggleGroup.axaml" />
+  <StyleInclude Source="avares://AvaloniaUIKit/Themes/Controls/Label.axaml" />
+  <StyleInclude Source="avares://AvaloniaUIKit/Themes/Controls/PipsPager.axaml" />
+  <StyleInclude Source="avares://AvaloniaUIKit/Themes/Controls/Tabs.axaml" />
+  <StyleInclude Source="avares://AvaloniaUIKit/Themes/Controls/CommandBar.axaml" />
+  <StyleInclude Source="avares://AvaloniaUIKit/Themes/Controls/Slider.axaml" />
+  <StyleInclude Source="avares://AvaloniaUIKit/Themes/Controls/Expander.axaml" />
+  <StyleInclude Source="avares://AvaloniaUIKit/Themes/Controls/Image.axaml" />
+  <StyleInclude Source="avares://AvaloniaUIKit/Themes/Controls/Calendar.axaml" />
+  <StyleInclude Source="avares://AvaloniaUIKit/Themes/Controls/TableView.axaml" />
+  <StyleInclude Source="avares://AvaloniaUIKit/Themes/Controls/Clipboard.axaml" />
+  <StyleInclude Source="avares://AvaloniaUIKit/Themes/Controls/Bubble.axaml" />
+  <StyleInclude Source="avares://AvaloniaUIKit/Themes/Controls/Form.axaml" />
+
+  <!-- GPUI sizes a text to whole pixels, rounding its width up (text.rs). -->
+  <Style Selector=":is(TopLevel)">
+    <Setter Property="uikit:TextLines.RoundsWidthUp" Value="True" />
+  </Style>
+
+  <!-- GPUI tooltips (crates/base/src/tooltip.rs): shown after 500ms, kept for a
+       300ms grace while moving to another trigger, above the trigger. -->
+  <Style Selector=":is(Control)">
+    <Setter Property="ToolTip.ShowDelay" Value="500" />
+    <Setter Property="ToolTip.BetweenShowDelay" Value="300" />
+    <Setter Property="ToolTip.Placement" Value="Top" />
+    <Setter Property="ToolTip.HorizontalOffset" Value="0" />
+    <Setter Property="ToolTip.VerticalOffset" Value="1.5" />
+  </Style>
+
+  <!-- Icons inside a button take the button's icon size (Size -> icon_size, icon.rs). -->
+  <Style Selector="Button.xsmall PathIcon">
+    <Setter Property="Width" Value="12" />
+    <Setter Property="Height" Value="12" />
+  </Style>
+  <Style Selector="Button.small PathIcon">
+    <Setter Property="Width" Value="14" />
+    <Setter Property="Height" Value="14" />
+  </Style>
+  <Style Selector="Button.large PathIcon">
+    <Setter Property="Width" Value="24" />
+    <Setter Property="Height" Value="24" />
+  </Style>
+
+  <!-- A toggle's icon follows its text size (Icon without a size, icon.rs). -->
+  <Style Selector="ToggleButton PathIcon">
+    <Setter Property="Width" Value="14" />
+    <Setter Property="Height" Value="14" />
+  </Style>
+  <Style Selector="ToggleButton.xsmall PathIcon">
+    <Setter Property="Width" Value="12" />
+    <Setter Property="Height" Value="12" />
+  </Style>
+  <Style Selector="ToggleButton.large PathIcon">
+    <Setter Property="Width" Value="16" />
+    <Setter Property="Height" Value="16" />
+  </Style>
+
+  <!--
+    A disabled Input fades its prefix and suffix to half as wholes, keeping their
+    own look (input.rs). Avalonia disables the buttons inside too, so the ghost
+    and text buttons GPUI uses there keep their normal colors.
+  -->
+  <!-- Select rows by the ComboBox's size (list_size, input_text_size). -->
+  <Style Selector="ComboBox.xsmall ComboBoxItem">
+    <Setter Property="Padding" Value="1,4" />
+    <Setter Property="FontSize" Value="12" />
+  </Style>
+  <Style Selector="ComboBox.xsmall ComboBoxItem /template/ ContentPresenter#PART_ContentPresenter">
+    <Setter Property="LineHeight" Value="19.5" />
+  </Style>
+  <Style Selector="ComboBox.small ComboBoxItem">
+    <Setter Property="Padding" Value="5,2" />
+  </Style>
+  <Style Selector="ComboBox.large ComboBoxItem">
+    <Setter Property="Padding" Value="9,8" />
+    <Setter Property="FontSize" Value="16" />
+  </Style>
+  <Style Selector="ComboBox.large ComboBoxItem /template/ ContentPresenter#PART_ContentPresenter">
+    <Setter Property="LineHeight" Value="26" />
+  </Style>
+
+  <!-- AutoCompleteBox suggestion rows by its size, as Select rows. -->
+  <Style Selector="AutoCompleteBox.xsmall ListBoxItem">
+    <Setter Property="Padding" Value="1,4" />
+    <Setter Property="FontSize" Value="12" />
+  </Style>
+  <Style Selector="AutoCompleteBox.small ListBoxItem">
+    <Setter Property="Padding" Value="5,2" />
+  </Style>
+  <Style Selector="AutoCompleteBox.large ListBoxItem">
+    <Setter Property="Padding" Value="9,8" />
+    <Setter Property="FontSize" Value="16" />
+  </Style>
+
+  <!-- InputGroupButton: the buttons in an input group's addons. -->
+  <Style Selector="TextBox.group Button">
+    <Setter Property="Theme" Value="{StaticResource UIKitInputGroupButton}" />
+  </Style>
+  <!-- Its icons: Small (14px), Medium (16px) in a small button. -->
+  <Style Selector="TextBox.group Button PathIcon">
+    <Setter Property="Width" Value="14" />
+    <Setter Property="Height" Value="14" />
+  </Style>
+  <Style Selector="TextBox.group Button.small PathIcon">
+    <Setter Property="Width" Value="16" />
+    <Setter Property="Height" Value="16" />
+  </Style>
+
+  <Style Selector="TextBox:disabled Button.ghost:disabled">
+    <Setter Property="Background" Value="{DynamicResource UIKit.Button.Ghost.Normal.Background}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Ghost.Normal.Foreground}" />
+  </Style>
+  <Style Selector="TextBox:disabled Button.text:disabled">
+    <Setter Property="Background" Value="{DynamicResource UIKit.Button.Text.Normal.Background}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Text.Normal.Foreground}" />
+  </Style>
+
+  <!--
+    PopupMenuItem::Separator (popup_menu.rs): border_b(2px) on a 2px box, my_0p5,
+    mx_neg_1, radius 1. GPUI's shader paints a border no further than the middle
+    of its box, so the line is the bottom 1px. The radius sits on the middle of
+    the 1px border (ADR 8): 1 - 0.5 below, 1 above where no border is.
+  -->
+  <Style Selector="ContextMenu Separator, MenuFlyoutPresenter Separator, MenuItem Separator">
+    <Setter Property="Height" Value="2" />
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Border}" />
+    <Setter Property="BorderThickness" Value="0,0,0,1" />
+    <Setter Property="Margin" Value="-4,2" />
+    <Setter Property="CornerRadius" Value="1,1,0.5,0.5" />
+  </Style>
+  <!-- render_icon: menu icons are Size::XSmall (12px). -->
+  <Style Selector="MenuItem PathIcon">
+    <Setter Property="Width" Value="12" />
+    <Setter Property="Height" Value="12" />
+  </Style>
+</Styles>

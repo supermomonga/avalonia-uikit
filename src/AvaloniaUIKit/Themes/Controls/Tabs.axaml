@@ -193,7 +193,7 @@
         <Setter Property="Background" Value="Transparent" />
       </Style>
       <Style Selector="^.pill /template/ Border#PART_IndicatorFill">
-        <Setter Property="Background" Value="{DynamicResource UIKit.Primary}" />
+        <Setter Property="Background" Value="{DynamicResource UIKit.Primary.Fill}" />
       </Style>
       <Style Selector="^.pill.xsmall /template/ StackPanel#PART_TabsPanel">
         <Setter Property="Spacing" Value="4" />
@@ -281,7 +281,7 @@
         <Setter Property="Background" Value="Transparent" />
       </Style>
       <Style Selector="^.underline /template/ Border#PART_IndicatorFill">
-        <Setter Property="Background" Value="{DynamicResource UIKit.Primary}" />
+        <Setter Property="Background" Value="{DynamicResource UIKit.Primary.Fill}" />
         <Setter Property="Height" Value="2" />
         <Setter Property="VerticalAlignment" Value="Bottom" />
       </Style>
@@ -396,7 +396,7 @@
         <Setter Property="Background" Value="Transparent" />
       </Style>
       <Style Selector="^.pill /template/ Border#PART_IndicatorFill">
-        <Setter Property="Background" Value="{DynamicResource UIKit.Primary}" />
+        <Setter Property="Background" Value="{DynamicResource UIKit.Primary.Fill}" />
       </Style>
       <Style Selector="^.pill.xsmall /template/ StackPanel#PART_TabsPanel">
         <Setter Property="Spacing" Value="4" />
@@ -484,7 +484,7 @@
         <Setter Property="Background" Value="Transparent" />
       </Style>
       <Style Selector="^.underline /template/ Border#PART_IndicatorFill">
-        <Setter Property="Background" Value="{DynamicResource UIKit.Primary}" />
+        <Setter Property="Background" Value="{DynamicResource UIKit.Primary.Fill}" />
         <Setter Property="Height" Value="2" />
         <Setter Property="VerticalAlignment" Value="Bottom" />
       </Style>

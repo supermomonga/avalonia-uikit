@@ -33,11 +33,11 @@
                     BorderBrush="{DynamicResource UIKit.FocusRing}" IsVisible="False" IsHitTestVisible="False" />
             <Border Name="PART_Track" Width="36" Height="20" BorderThickness="1" Padding="1"
                     CornerRadius="9.5" BackgroundSizing="OuterBorderEdge"
-                    BorderBrush="Transparent" Background="{DynamicResource UIKit.Switch}">
+                    BorderBrush="Transparent" Background="{DynamicResource UIKit.Switch.Fill}">
               <Canvas Name="PART_SwitchKnob" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Center">
                 <Panel Name="PART_MovingKnobs" Width="16" Height="16"
                        uikit:Motion.Spring="{StaticResource UIKit.Spring.Move}" uikit:Motion.SpringsCanvasLeft="True">
-                  <Border Name="PART_Thumb" CornerRadius="8" Background="{DynamicResource UIKit.SwitchThumb}" />
+                  <Border Name="PART_Thumb" CornerRadius="8" Background="{DynamicResource UIKit.SwitchThumb.Fill}" />
                 </Panel>
               </Canvas>
             </Border>
@@ -114,7 +114,7 @@
     </Style>
 
     <Style Selector="^:checked /template/ Border#PART_Track">
-      <Setter Property="Background" Value="{DynamicResource UIKit.Primary}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Primary.Fill}" />
     </Style>
     <Style Selector="^:disabled">
       <Setter Property="Foreground" Value="{DynamicResource UIKit.MutedForeground}" />

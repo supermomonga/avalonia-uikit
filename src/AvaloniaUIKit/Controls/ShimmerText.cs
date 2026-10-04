@@ -200,7 +200,7 @@ public class ShimmerText : TemplatedControl
     // text already has that lightness; each layer at 1 - (1 - peak)^(1/12).
     private Color LayerColor()
     {
-        var dark = ActualThemeVariant == ThemeVariant.Dark;
+        var dark = UIKitThemeVariants.IsDark(ActualThemeVariant);
         var text = (Foreground as ISolidColorBrush)?.Color ?? Colors.Black;
         var highlight = HighlightColor ?? Mixed(text, dark);
         var peak = dark ? 0.6 : 0.75;

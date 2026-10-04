@@ -6,10 +6,13 @@ Avalonia themes and controls based on the Nova style of
 
 **Documentation and live demos: [avalonia-uikit.omofla.sh](https://avalonia-uikit.omofla.sh)**
 
-- `NovaTheme` restyles Avalonia's own controls (Button, TextBox, ComboBox,
+- `UIKitTheme` restyles Avalonia's own controls (Button, TextBox, ComboBox,
   Calendar, Tabs, Menus, ScrollViewer and 40 more) and adds the small
   components Avalonia lacks (Badge, Tag, Alert, Avatar, Stepper, Form and
   others). Optional packages cover `ColorPicker` and `DataGrid`.
+- Colors come in GPUI Kit's Default Light and Default Dark and in the 36 color
+  themes GPUI Kit bundles (Aurora, Ayu, Catppuccin, Tokyo Night and others),
+  chosen as theme variants (`UIKitThemeVariants`).
 - Every theme is verified pixel by pixel, frame by frame, against renders of
   GPUI Kit itself (3,500+ automated cases, `docs/testing.md`).
 - No reflection; NativeAOT and trimming are supported.

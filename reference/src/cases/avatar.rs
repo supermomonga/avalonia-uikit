@@ -46,7 +46,7 @@ pub fn group(params: &Params) -> Result<Builder> {
     }))
 }
 
-pub fn derived_colors(theme: &gpui_kit::component::Theme, out: &mut Vec<(String, gpui_kit::Hsla)>) {
+pub fn derived_colors(theme: &gpui_kit::component::Theme, out: &mut Vec<(String, super::Paint)>) {
     use gpui_kit::component::oklch;
     // avatar.rs IdentityColor::from_hue: twelve OkLCH hues, 30 degrees apart,
     // at a fixed lightness and chroma per theme (background, foreground, border).
@@ -57,8 +57,8 @@ pub fn derived_colors(theme: &gpui_kit::component::Theme, out: &mut Vec<(String,
         } else {
             (oklch(0.97, 0.032, hue), oklch(0.50, 0.145, hue), oklch(0.89, 0.05, hue))
         };
-        out.push((format!("avatar.hue-{step}.background"), background));
-        out.push((format!("avatar.hue-{step}.foreground"), foreground));
-        out.push((format!("avatar.hue-{step}.border"), border));
+        out.push((format!("avatar.hue-{step}.background"), background.into()));
+        out.push((format!("avatar.hue-{step}.foreground"), foreground.into()));
+        out.push((format!("avatar.hue-{step}.border"), border.into()));
     }
 }

@@ -58,9 +58,9 @@ pub fn link(params: &Params) -> Result<Builder> {
     }))
 }
 
-pub fn derived_colors(theme: &gpui_kit::component::Theme, out: &mut Vec<(String, gpui_kit::Hsla)>) {
+pub fn derived_colors(theme: &gpui_kit::component::Theme, out: &mut Vec<(String, super::Paint)>) {
     // link.rs: the text fades on hover and press; its underline is at half until then.
-    out.push(("link.underline".into(), theme.link.opacity(0.5)));
-    out.push(("link.hover".into(), theme.link.opacity(0.8)));
-    out.push(("link.pressed".into(), theme.link.opacity(0.6)));
+    out.push(("link.underline".into(), theme.link.opacity(0.5).into()));
+    out.push(("link.hover".into(), theme.link.opacity(0.8).into()));
+    out.push(("link.pressed".into(), theme.link.opacity(0.6).into()));
 }

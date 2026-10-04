@@ -30,16 +30,16 @@ pub fn builder(params: &Params) -> Result<Builder> {
     }))
 }
 
-pub fn derived_colors(theme: &Theme, out: &mut Vec<(String, Hsla)>) {
+pub fn derived_colors(theme: &Theme, out: &mut Vec<(String, super::Paint)>) {
     // default_title_bar_background: the gradient's top, 55% title_bar and 45%
     // background mixed per sRGB channel; it ends in title_bar.
     let (tb, bg) = (theme.title_bar.to_rgb(), theme.background.to_rgb());
     let mix = |a: f32, b: f32| a * 0.55 + b * 0.45;
     out.push((
         "title-bar.gradient-top".into(),
-        Hsla::from(Rgba { r: mix(tb.r, bg.r), g: mix(tb.g, bg.g), b: mix(tb.b, bg.b), a: mix(tb.a, bg.a) }),
+        Hsla::from(Rgba { r: mix(tb.r, bg.r), g: mix(tb.g, bg.g), b: mix(tb.b, bg.b), a: mix(tb.a, bg.a) }).into(),
     ));
     // window_border.rs: the client-decorated frame, a fixed gray by mode.
     let frame = if theme.mode.is_dark() { hsla(0., 0., 0.2, 1.) } else { hsla(0., 0., 0.8, 1.) };
-    out.push(("window-frame".into(), frame));
+    out.push(("window-frame".into(), frame.into()));
 }

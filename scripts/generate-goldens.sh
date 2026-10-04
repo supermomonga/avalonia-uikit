@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Regenerates the GPUI Kit reference data under goldens/ and the generated
-# theme resources (Colors.g.axaml, Lucide.g.axaml). macOS with Metal only.
+# theme resources (Palettes.g.cs, Lucide.g.axaml, the site's themes). macOS
+# with Metal only. `reference tokens` rewrites only the colors.
 # Arguments go to `reference generate` (e.g. --only button/).
 set -euo pipefail
 

@@ -56,8 +56,8 @@ pub fn builder(params: &Params) -> Result<Builder> {
     }))
 }
 
-pub fn derived_colors(theme: &gpui_kit::component::Theme, out: &mut Vec<(String, gpui_kit::Hsla)>) {
+pub fn derived_colors(theme: &gpui_kit::component::Theme, out: &mut Vec<(String, super::Paint)>) {
     // tab.rs disabled(): a disabled selected pill at half strength.
-    out.push(("tab.pill.disabled.selected-background".into(), theme.primary.opacity(0.5)));
-    out.push(("tab.pill.disabled.selected-foreground".into(), theme.primary_foreground.opacity(0.5)));
+    out.push(("tab.pill.disabled.selected-background".into(), theme.primary.opacity(0.5).into()));
+    out.push(("tab.pill.disabled.selected-foreground".into(), theme.primary_foreground.opacity(0.5).into()));
 }

@@ -73,8 +73,8 @@ pub fn spinner(params: &Params) -> Result<Builder> {
     Ok(Rc::new(move |_, _, _| Spinner::new().with_size(size).into_any_element()))
 }
 
-pub fn derived_colors(theme: &gpui_kit::component::Theme, out: &mut Vec<(String, gpui_kit::Hsla)>) {
+pub fn derived_colors(theme: &gpui_kit::component::Theme, out: &mut Vec<(String, super::Paint)>) {
     // progress.rs: the track is the bar color at 20%.
     let bar: gpui_kit::Background = theme.tokens.progress_bar.into();
-    out.push(("progress.track".into(), bar.opacity(0.2).as_solid().unwrap()));
+    out.push(("progress.track".into(), bar.opacity(0.2)));
 }

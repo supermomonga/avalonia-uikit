@@ -35,25 +35,41 @@ document.addEventListener("click", (event) => {
 })
 
 // Theme (components/theme-palette.tsx): `localStorage.theme` is light, dark,
-// or absent to follow the system.
-type ThemeChoice = "system" | "light" | "dark"
+// a bundled theme's id, or absent to follow the system. A bundled theme sets
+// `<html data-theme>` (styles/themes.g.css) and, by its mode, `dark`.
 const systemDark = matchMedia("(prefers-color-scheme: dark)")
 
-function storedTheme(): ThemeChoice {
+function themeOptions() {
+  return [
+    ...document.querySelectorAll<HTMLElement>("[data-theme-option]"),
+  ]
+}
+
+function themeOption(choice: string) {
+  return themeOptions().find((o) => o.dataset.themeOption === choice)
+}
+
+function storedTheme(): string {
   try {
     const value = localStorage.theme
-    return value === "light" || value === "dark" ? value : "system"
+    return typeof value === "string" && themeOption(value) ? value : "system"
   } catch {
     return "system"
   }
 }
 
-function applyTheme(choice: ThemeChoice) {
-  const dark = choice === "dark" || (choice === "system" && systemDark.matches)
-  document.documentElement.classList.toggle("dark", dark)
+function applyTheme(choice: string) {
+  const mode = themeOption(choice)?.dataset.mode ?? "system"
+  const root = document.documentElement
+  root.classList.toggle(
+    "dark",
+    mode === "dark" || (mode === "system" && systemDark.matches)
+  )
+  if (["system", "light", "dark"].includes(choice)) delete root.dataset.theme
+  else root.dataset.theme = choice
 }
 
-function saveTheme(choice: ThemeChoice) {
+function saveTheme(choice: string) {
   try {
     if (choice === "system") localStorage.removeItem("theme")
     else localStorage.theme = choice
@@ -63,25 +79,37 @@ function saveTheme(choice: ThemeChoice) {
 
 systemDark.addEventListener("change", () => applyTheme(storedTheme()))
 
-function themeOptions() {
-  return [
-    ...document.querySelectorAll<HTMLElement>("[data-theme-option]"),
-  ]
+function visibleThemeOptions() {
+  return themeOptions().filter((o) => !o.closest("[hidden]") && !o.hidden)
 }
 
-function highlightTheme(index: number, preview: boolean) {
-  const options = themeOptions()
-  for (const [i, option] of options.entries()) {
-    option.toggleAttribute("data-highlighted", i === index)
+function highlightTheme(option: HTMLElement | undefined, preview: boolean) {
+  for (const o of themeOptions()) {
+    o.toggleAttribute("data-highlighted", o === option)
   }
-  const option = options[index]
   if (!option) return
-  option.focus()
-  if (preview) applyTheme(option.dataset.themeOption as ThemeChoice)
+  option.scrollIntoView({ block: "nearest" })
+  if (preview) applyTheme(option.dataset.themeOption!)
+}
+
+/** Shows the options whose name, family or mode contains the query. */
+function filterThemes(query: string) {
+  const q = query.trim().toLowerCase()
+  for (const option of themeOptions()) {
+    option.hidden = !option.dataset.search?.includes(q)
+  }
+  for (const group of document.querySelectorAll<HTMLElement>("[data-theme-group]")) {
+    group.hidden = !group.querySelector("[data-theme-option]:not([hidden])")
+  }
+  const visible = visibleThemeOptions()
+  const empty = document.querySelector<HTMLElement>("[data-theme-empty]")
+  if (empty) empty.hidden = visible.length > 0
+  const highlighted = visible.find((o) => o.hasAttribute("data-highlighted"))
+  if (!highlighted) highlightTheme(visible[0], false)
 }
 
 /** The theme to restore when the palette closes without a choice. */
-let committedTheme: ThemeChoice | undefined
+let committedTheme: string | undefined
 
 function openThemePalette() {
   const palette = dialog("theme-palette")
@@ -96,17 +124,19 @@ document.addEventListener(
     if (target.id !== "theme-palette") return
     if (target.open) {
       committedTheme = storedTheme()
-      const options = themeOptions()
-      for (const option of options) {
+      for (const option of themeOptions()) {
         option.setAttribute(
           "aria-selected",
           String(option.dataset.themeOption === committedTheme)
         )
       }
-      highlightTheme(
-        options.findIndex((o) => o.dataset.themeOption === committedTheme),
-        false
-      )
+      const input = target.querySelector<HTMLInputElement>("[data-theme-search]")
+      if (input) {
+        input.value = ""
+        input.focus()
+      }
+      filterThemes("")
+      highlightTheme(themeOption(committedTheme), false)
     } else if (committedTheme) {
       applyTheme(committedTheme)
       committedTheme = undefined
@@ -120,8 +150,7 @@ document.addEventListener("click", (event) => {
     "[data-theme-option]"
   )
   if (!option) return
-  const choice = option.dataset.themeOption as ThemeChoice
-  saveTheme(choice)
+  saveTheme(option.dataset.themeOption!)
   committedTheme = undefined
   dialog("theme-palette")?.close()
 })
@@ -131,7 +160,7 @@ document.addEventListener("mousemove", (event) => {
     "[data-theme-option]"
   )
   if (!option || option.hasAttribute("data-highlighted")) return
-  highlightTheme(themeOptions().indexOf(option), false)
+  highlightTheme(option, false)
 })
 
 // Search (components/search.tsx): it filters /search.json.
@@ -232,12 +261,13 @@ document.addEventListener("keydown", (event) => {
     return
   }
   if (palette?.open) {
-    const options = themeOptions()
+    const options = visibleThemeOptions()
     const current = options.findIndex((o) => o.hasAttribute("data-highlighted"))
-    if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+    if ((event.key === "ArrowDown" || event.key === "ArrowUp") && options.length > 0) {
       event.preventDefault()
       const step = event.key === "ArrowDown" ? 1 : -1
-      highlightTheme((current + step + options.length) % options.length, true)
+      const next = current < 0 && step < 0 ? options.length - 1 : (current + step + options.length) % options.length
+      highlightTheme(options[next], true)
     } else if (event.key === "Enter" && options[current]) {
       event.preventDefault()
       options[current].click()
@@ -257,6 +287,7 @@ document.addEventListener("keydown", (event) => {
 document.addEventListener("input", (event) => {
   const input = event.target as HTMLInputElement
   if (input.matches("[data-search-input]")) void renderSearch(input.value)
+  if (input.matches("[data-theme-search]")) filterThemes(input.value)
 })
 
 document.addEventListener(

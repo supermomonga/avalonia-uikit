@@ -28,7 +28,7 @@ public static partial class Adapters
 
     /// <summary>A theme brush for the case's theme.</summary>
     private static IBrush ThemeBrush(GoldenCase c, string key) =>
-        (IBrush)Avalonia.Application.Current!.FindResource(c.IsDark ? Avalonia.Styling.ThemeVariant.Dark : Avalonia.Styling.ThemeVariant.Light, key)!;
+        (IBrush)Avalonia.Application.Current!.FindResource(c.Variant, key)!;
 
     private static T Sized<T>(T control, GoldenCase c) where T : Control
     {

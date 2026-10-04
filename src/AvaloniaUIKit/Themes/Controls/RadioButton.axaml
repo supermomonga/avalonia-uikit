@@ -104,7 +104,7 @@
     </Style>
 
     <Style Selector="^:checked /template/ Border#PART_Indicator">
-      <Setter Property="Background" Value="{DynamicResource UIKit.Primary}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Primary.Fill}" />
       <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Primary}" />
     </Style>
     <Style Selector="^:checked /template/ PathIcon#PART_Mark">
@@ -125,7 +125,7 @@
     </Style>
     <!-- Avalonia only: the indeterminate state shows a minus mark (not compared, R16). -->
     <Style Selector="^:indeterminate /template/ Border#PART_Indicator">
-      <Setter Property="Background" Value="{DynamicResource UIKit.Primary}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Primary.Fill}" />
       <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Primary}" />
     </Style>
     <Style Selector="^:indeterminate /template/ PathIcon#PART_Mark">
