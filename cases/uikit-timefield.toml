@@ -1,0 +1,74 @@
+# GPUI Kit TimeField -> uikit:TimeField. The timefield groups first (the same
+# look as the themed TimePicker field), then the segment editing only
+# TimeField does: the selected segment moved by keys and clicks, and typing.
+# 09:30:15 unless stated.
+component = "uikit-timefield"
+viewport = [160, 60]
+anchor = [16, 10]
+
+[[group]]
+name = "size"
+params = { time = "09:30:15" }
+matrix = { size = ["xsmall", "small", "medium", "large"] }
+states = ["normal", "disabled"]
+
+[[group]]
+name = "format"
+params = { time = "09:30:15" }
+matrix = { precision = ["minute", "second"], cycle = ["h23", "h12"] }
+states = ["normal"]
+
+# 12-hour PM with seconds, every size (period segment width per size).
+[[group]]
+name = "pm"
+params = { time = "21:05:09", precision = "second", cycle = "h12" }
+matrix = { size = ["xsmall", "small", "medium", "large"] }
+states = ["normal"]
+
+# Focus selects the hour segment.
+[[group]]
+name = "focus"
+params = { time = "09:30:15" }
+matrix = { size = ["xsmall", "small", "medium", "large"] }
+states = ["focus"]
+
+[[group]]
+name = "invalid"
+params = { time = "21:05:00", invalid = true }
+states = ["normal", "focus"]
+
+[[group]]
+name = "hover"
+params = { time = "09:30:15" }
+states = ["hover"]
+
+# Moving the selection: right to the minute (and no further), left stays.
+[[group]]
+name = "segment"
+params = { time = "09:30:15" }
+states = ["focus+key-right", "focus+key-right+key-right", "focus+key-left", "focus+key-tab"]
+
+# Typing: "14" fills the hour and moves on; "2" then "5" cannot be 25, so 05;
+# "1" waits for a second digit; up, down and backspace on the hour.
+[[group]]
+name = "typed"
+params = { time = "09:30:15" }
+states = ["focus+key-1+key-4", "focus+key-2+key-5", "focus+key-1", "focus+key-up", "focus+key-down", "focus+key-backspace", "focus+key-right+key-down"]
+
+# Seconds: Tab walks to the second; typing a minute moves on to the second.
+[[group]]
+name = "seconds"
+params = { time = "09:30:15", precision = "second" }
+states = ["focus+key-tab+key-tab", "focus+key-tab+key-5+key-9"]
+
+# 12-hour clock: to the period, p for PM; 1 then 2 is 12 AM.
+[[group]]
+name = "twelve"
+params = { time = "09:30:15", cycle = "h12" }
+states = ["focus+key-right+key-right", "focus+key-right+key-right+key-p", "focus+key-1+key-2"]
+
+# A click on the minute focuses the field and selects it.
+[[group]]
+name = "click"
+params = { time = "09:30:15" }
+states = ["click-at-58-26"]

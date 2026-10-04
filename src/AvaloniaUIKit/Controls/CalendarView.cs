@@ -191,6 +191,11 @@ public class CalendarView : TemplatedControl
         set
         {
             _today = value.Date;
+            // CalendarState::new: without a value the calendar opens on today's month.
+            if (Date is null)
+            {
+                SetCurrentValue(DisplayDateProperty, _today);
+            }
             if (DisplayMode == CalendarViewMode.Year)
             {
                 _yearPage = PageOf(DisplayDate.Year);
