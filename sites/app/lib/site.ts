@@ -19,6 +19,7 @@ export const siteConfig = {
   links: {
     github: "https://github.com/supermomonga/avalonia-uikit",
     issues: "https://github.com/supermomonga/avalonia-uikit/issues",
+    license: "https://github.com/supermomonga/avalonia-uikit/blob/main/LICENSE",
     author: "https://github.com/supermomonga",
     avalonia: "https://avaloniaui.net",
     avaloniaDocs: "https://docs.avaloniaui.net",

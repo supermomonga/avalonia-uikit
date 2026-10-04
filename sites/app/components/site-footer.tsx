@@ -52,6 +52,7 @@ export function SiteFooter() {
         </nav>
       </div>
       <p class="border-t py-6 text-[0.8125rem] text-muted-foreground">
+        Released under the <Link href={siteConfig.links.license}>MIT License</Link>.
         Icons by <Link href={siteConfig.links.lucide}>Lucide</Link>. The demos
         are set in <Link href={siteConfig.links.inter}>Inter</Link>.
       </p>

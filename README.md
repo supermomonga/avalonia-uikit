@@ -35,3 +35,9 @@ scripts/aot-smoke.sh       # publish the gallery with NativeAOT
 ```
 
 The site's demos, previews and WebAssembly bundle are described in `docs/site.md`.
+
+## License
+
+[MIT](LICENSE). The themes are ported from GPUI Kit (Apache-2.0) and bundle
+Lucide icons (ISC); [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md) lists
+these and the other third-party material, and ships in the NuGet packages.
