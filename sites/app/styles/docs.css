@@ -26,6 +26,9 @@
   .docs-sidebar:hover {
     scrollbar-width: thin;
   }
+  .docs-sidebar__group + .docs-sidebar__group {
+    margin-top: 1.25rem;
+  }
   .docs-sidebar__title {
     padding: 0.5rem 0.5rem 0.75rem;
     font: 620 0.68rem/1 var(--font-mono);
@@ -512,7 +515,7 @@
   }
 }
 
-/* The live example's dot turns grey when the demo stays a picture. */
+/* The live example's dot turns grey when the demo cannot run. */
 .example:has(avalonia-demo:is([data-state="static"], [data-state="error"]))
   .example__dot {
   background: var(--muted-foreground);

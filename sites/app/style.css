@@ -330,35 +330,36 @@
   }
 
   /*
-   * Live demos (app/avalonia-demo.ts): the preview image until the .NET
-   * runtime mounts an AvaloniaView into the host, which then covers it.
+   * Live demos (app/avalonia-demo.ts): a skeleton until the .NET runtime
+   * mounts an AvaloniaView into the host, which then covers it. The host
+   * reaches past the demo's box by --demo-inset on every side, so that focus
+   * rings and shadows drawn outside the demo's bounds are not cut off
+   * (samples/AvaloniaUIKit.Browser/DemoRoot.cs keeps the demo inside it).
    */
   avalonia-demo {
+    --demo-inset: 12px;
     display: block;
     position: relative;
     max-width: 100%;
   }
-  avalonia-demo > img {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-  avalonia-demo[data-state="live"] > img {
+  avalonia-demo[data-state="live"] > [data-slot="skeleton"] {
     visibility: hidden;
+  }
+  [data-demo-unavailable] {
+    display: none;
+    font-size: 0.75rem;
+    color: var(--muted-foreground);
   }
   /* Avalonia focuses the host on a press and draws its own focus rings inside. */
   avalonia-demo > [data-demo-host] {
     position: absolute;
-    inset: 0;
+    inset: calc(-1 * var(--demo-inset));
     display: none;
     outline: none;
   }
   avalonia-demo[data-state="loading"] > [data-demo-host],
   avalonia-demo[data-state="live"] > [data-demo-host] {
     display: block;
-  }
-  avalonia-demo[data-state="loading"] > img {
-    opacity: 0.6;
   }
 
   /* Native dialogs (search, theme palette): the shadcn Dialog, restyled. */
@@ -376,4 +377,21 @@
  */
 avalonia-demo:not([scroll]) [data-demo-host] {
   touch-action: pan-y !important;
+}
+
+/*
+ * Live demos (app/avalonia-demo.ts) that cannot run (no bundle, or the
+ * mount failed) say so on a still skeleton. Unlayered, to stop the
+ * skeleton's animate-pulse utility.
+ */
+avalonia-demo:is([data-state="static"], [data-state="error"])
+  > [data-slot="skeleton"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: none;
+}
+avalonia-demo:is([data-state="static"], [data-state="error"])
+  [data-demo-unavailable] {
+  display: block;
 }

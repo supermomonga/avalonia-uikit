@@ -1,8 +1,9 @@
 import { Button } from "@/components/ui/button"
+import { Skeleton } from "@/components/ui/skeleton"
 import { findComponent } from "@/lib/catalog"
 import { demoSource } from "@/lib/demos"
 import { highlight } from "@/lib/highlight"
-import { previewSize, previewUrls, wasmBase } from "@/lib/previews"
+import { previewSize, wasmBase } from "@/lib/previews"
 import { siteConfig } from "@/lib/site"
 import { CodeBlock } from "./code-block"
 
@@ -10,16 +11,18 @@ import { CodeBlock } from "./code-block"
 const COLLAPSE_AFTER = 12
 
 /** The badge's text before app/avalonia-demo.ts takes over. */
-const initialBadge = wasmBase ? "Interactive" : "Preview"
+const initialBadge = wasmBase ? "Interactive" : "Unavailable"
 
-/** The demo's preview images, which app/avalonia-demo.ts replaces with the live control. */
-function LiveDemo({ name, alt }: { name: string; alt: string }) {
+/**
+ * A skeleton the size of the demo's preview, which app/avalonia-demo.ts
+ * replaces with the live control.
+ */
+function LiveDemo({ name }: { name: string }) {
   const size = previewSize(name)
   const entry = findComponent(name.split("/")[0])
   if (!size) {
     return <p class="text-sm text-muted-foreground">Preview not generated yet</p>
   }
-  const urls = previewUrls(name)
   return (
     <avalonia-demo
       demo={name}
@@ -28,26 +31,11 @@ function LiveDemo({ name, alt }: { name: string; alt: string }) {
       scroll={entry?.scroll ? "" : undefined}
       data-state="idle"
       data-wasm-base={wasmBase}
-      style={`width:${size.width}px`}
+      style={`width:${size.width}px;height:${size.height}px`}
     >
-      <img
-        src={urls.light}
-        alt={alt}
-        width={size.width}
-        height={size.height}
-        loading="lazy"
-        decoding="async"
-        class="dark:hidden"
-      />
-      <img
-        src={urls.dark}
-        alt={alt}
-        width={size.width}
-        height={size.height}
-        loading="lazy"
-        decoding="async"
-        class="hidden dark:block"
-      />
+      <Skeleton class="size-full">
+        <span data-demo-unavailable="">Live demo unavailable</span>
+      </Skeleton>
     </avalonia-demo>
   )
 }
@@ -82,7 +70,7 @@ async function DemoCode({ name }: { name: string }) {
 }
 
 /**
- * A demo of samples/AvaloniaUIKit.Demos (docs/site.md): the preview, which
+ * A demo of samples/AvaloniaUIKit.Demos (docs/site.md): a skeleton, which
  * becomes the live control once the .NET runtime is up, and its XAML. The
  * page's first demo (no title) is its live example, in a window as on
  * gpui-kit.com; the others are framed examples with a caption.
@@ -95,9 +83,7 @@ export async function Demo({
   name: string
   title?: string
 }) {
-  const entry = findComponent(name.split("/")[0])
-  const component = entry?.title ?? name
-  const alt = `${component} demo${title ? `: ${title}` : ""}`
+  const component = findComponent(name.split("/")[0])?.title ?? name
   if (!title) {
     return (
       <section class="example" data-demo-frame="" aria-label="Example">
@@ -118,7 +104,7 @@ export async function Demo({
             </span>
           </div>
           <div class="demo__stage">
-            <LiveDemo name={name} alt={alt} />
+            <LiveDemo name={name} />
           </div>
         </div>
         <DemoCode name={name} />
@@ -134,7 +120,7 @@ export async function Demo({
         </span>
       </figcaption>
       <div class="demo__stage">
-        <LiveDemo name={name} alt={alt} />
+        <LiveDemo name={name} />
       </div>
       <DemoCode name={name} />
     </figure>

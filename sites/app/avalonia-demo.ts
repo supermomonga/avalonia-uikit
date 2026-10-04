@@ -1,7 +1,7 @@
 /**
  * `<avalonia-demo demo="button/demo" width="…" height="…" [scroll]
- * data-wasm-base="/wasm/<hash>">`: the preview image inside it until the
- * .NET runtime (samples/AvaloniaUIKit.Browser) mounts an AvaloniaView over it.
+ * data-wasm-base="/wasm/<hash>">`: the skeleton inside it until the .NET
+ * runtime (samples/AvaloniaUIKit.Browser) mounts an AvaloniaView over it.
  * See docs/site.md, "ライブデモ". Framework-free: this is a client entry.
  *
  * - The runtime loads once, when the first demo nears the viewport (not on
@@ -9,7 +9,9 @@
  * - `data-state`: idle | loading | live | error | static (no bundle).
  * - Without `scroll`, wheel and touch events stop here so the page scrolls.
  * - Live, the element takes the height the demo needs at its width, so a
- *   narrow page wraps the demo instead of cutting it off.
+ *   narrow page wraps the demo instead of cutting it off. The view reaches
+ *   past the element by `--demo-inset` (app/style.css), where focus rings
+ *   and shadows outside the demo still show.
  * - Avalonia focuses its elements itself; see `ownFocus`.
  */
 type State = "idle" | "loading" | "live" | "error" | "static"
@@ -20,6 +22,7 @@ interface DemosApi {
   Mount(
     hostId: string,
     demoId: string,
+    inset: number,
     heightChanged: (height: number) => void
   ): boolean | Promise<boolean>
   SetTheme(dark: boolean): void
@@ -43,8 +46,8 @@ const BADGE_TEXT: Record<State, string> = {
   idle: "Interactive",
   loading: "Loading…",
   live: "Live",
-  error: "Preview",
-  static: "Preview",
+  error: "Unavailable",
+  static: "Unavailable",
 }
 
 const isDark = () => document.documentElement.classList.contains("dark")
@@ -214,7 +217,9 @@ class AvaloniaDemo extends HTMLElement {
         return
       }
       const host = this.host
-      const mounted = await api.Mount(host.id, demo, (height) => {
+      const inset =
+        Number.parseFloat(getComputedStyle(this).getPropertyValue("--demo-inset")) || 0
+      const mounted = await api.Mount(host.id, demo, inset, (height) => {
         this.style.height = `${height}px`
       })
       for (const element of [host, ...host.querySelectorAll("input")]) {

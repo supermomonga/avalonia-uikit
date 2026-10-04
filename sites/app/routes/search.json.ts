@@ -6,7 +6,7 @@ import { componentPages, docsSections } from "@/lib/docs"
 export default createRoute((c) =>
   c.json({
     pages: [
-      ...docsSections[0].items.map((item) => ({
+      ...docsSections[0].groups[0].items.map((item) => ({
         title: item.title,
         href: item.href,
       })),

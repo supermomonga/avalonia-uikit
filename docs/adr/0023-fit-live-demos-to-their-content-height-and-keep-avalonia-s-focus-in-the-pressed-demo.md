@@ -6,6 +6,8 @@ date: 2026-10-04
 links:
 - target: 20
   kind: amends
+- target: 24
+  kind: amendedby
 ---
 
 # Fit live demos to their content height and keep Avalonia's focus in the pressed demo
