@@ -73,6 +73,7 @@ pub fn builder(case: &Case) -> Result<Builder> {
         "uikit-buttongroup" => button::group(&params),
         "toggle" => toggle::builder(&params),
         "togglegroup" => toggle::group(&params),
+        "uikit-togglegroup" => toggle::group(&params),
         "checkbox" => check::checkbox(&params),
         "radio" => check::radio(&params),
         "switch" => check::switch(&params),

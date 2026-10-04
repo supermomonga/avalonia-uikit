@@ -92,4 +92,26 @@ public static partial class Adapters
         }
         return group;
     }
+
+    /// <summary>The togglegroup cases as a uikit:ToggleGroup of ToggleButtons.</summary>
+    private static ToggleGroup ToggleGroupCase(GoldenCase c)
+    {
+        var group = new ToggleGroup { IsEnabled = !c.Bool("disabled") };
+        ClassFrom(group, c, "variant", "ghost");
+        ClassFrom(group, c, "size", "medium");
+        FlagClass(group, c, "segmented");
+        var labels = c.Str("labels", "").Split(',', StringSplitOptions.RemoveEmptyEntries);
+        var icons = c.Str("icons", "").Split(',', StringSplitOptions.RemoveEmptyEntries);
+        var checkedMask = c.Str("checked", "");
+        for (var i = 0; i < Math.Max(labels.Length, icons.Length); i++)
+        {
+            group.Children.Add(new Avalonia.Controls.Primitives.ToggleButton
+            {
+                Content = i < icons.Length ? Icon(icons[i]) : labels[i],
+                IsChecked = i < checkedMask.Length && checkedMask[i] == '1',
+            });
+        }
+        return group;
+    }
 }
+

@@ -25,6 +25,7 @@ public static partial class Adapters
         "uikit-buttongroup" => ButtonGroupCase(c),
         "toggle" => Toggle(c),
         "togglegroup" => ToggleGroup(c),
+        "uikit-togglegroup" => ToggleGroupCase(c),
         "checkbox" => Check(new CheckBox(), c),
         "radio" => Check(new RadioButton(), c),
         "switch" => Check(new ToggleSwitch(), c),

@@ -144254,6 +144254,2678 @@
       "png_sha256": "7802d382dc64bc4e5915d783cb03733802ac2eb677b1ac773bf974e8fe47dbf8"
     },
     {
+      "id": "uikit-togglegroup/checked.ghost.segmented/click+hover/dark",
+      "component": "uikit-togglegroup",
+      "group": "checked",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "pointer_x": 0.42,
+        "variant": "ghost",
+        "segmented": true
+      },
+      "state": "click+hover",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        175.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/checked.ghost.segmented/click+hover/dark.png",
+      "scene": "scenes/uikit-togglegroup/checked.ghost.segmented/click+hover/dark.json",
+      "png_sha256": "ad83d46579d380c4d7c8f4eb79f5a9eb0820a3440ee3de268b079f8c061ecc25"
+    },
+    {
+      "id": "uikit-togglegroup/checked.ghost.segmented/click+hover/light",
+      "component": "uikit-togglegroup",
+      "group": "checked",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "pointer_x": 0.42,
+        "variant": "ghost",
+        "segmented": true
+      },
+      "state": "click+hover",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        175.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/checked.ghost.segmented/click+hover/light.png",
+      "scene": "scenes/uikit-togglegroup/checked.ghost.segmented/click+hover/light.json",
+      "png_sha256": "87a01b6fa6a6a5af42226ee7e875b9cd9906c44d202c156234944dae041fe50b"
+    },
+    {
+      "id": "uikit-togglegroup/checked.ghost.segmented/hover/dark",
+      "component": "uikit-togglegroup",
+      "group": "checked",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "pointer_x": 0.42,
+        "variant": "ghost",
+        "segmented": true
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        175.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/checked.ghost.segmented/hover/dark.png",
+      "scene": "scenes/uikit-togglegroup/checked.ghost.segmented/hover/dark.json",
+      "png_sha256": "ad83d46579d380c4d7c8f4eb79f5a9eb0820a3440ee3de268b079f8c061ecc25"
+    },
+    {
+      "id": "uikit-togglegroup/checked.ghost.segmented/hover/light",
+      "component": "uikit-togglegroup",
+      "group": "checked",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "pointer_x": 0.42,
+        "variant": "ghost",
+        "segmented": true
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        175.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/checked.ghost.segmented/hover/light.png",
+      "scene": "scenes/uikit-togglegroup/checked.ghost.segmented/hover/light.json",
+      "png_sha256": "87a01b6fa6a6a5af42226ee7e875b9cd9906c44d202c156234944dae041fe50b"
+    },
+    {
+      "id": "uikit-togglegroup/checked.ghost/click+hover/dark",
+      "component": "uikit-togglegroup",
+      "group": "checked",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "pointer_x": 0.42,
+        "variant": "ghost",
+        "segmented": false
+      },
+      "state": "click+hover",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        191.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/checked.ghost/click+hover/dark.png",
+      "scene": "scenes/uikit-togglegroup/checked.ghost/click+hover/dark.json",
+      "png_sha256": "f80c6b680b968c49ce30bb155928631c5f6b091f42e9b513bc72c0245714a2ff"
+    },
+    {
+      "id": "uikit-togglegroup/checked.ghost/click+hover/light",
+      "component": "uikit-togglegroup",
+      "group": "checked",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "pointer_x": 0.42,
+        "variant": "ghost",
+        "segmented": false
+      },
+      "state": "click+hover",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        191.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/checked.ghost/click+hover/light.png",
+      "scene": "scenes/uikit-togglegroup/checked.ghost/click+hover/light.json",
+      "png_sha256": "8b449561e2b3a9ec47ab4066cdc261fd52afad902afa40a921a64b20fa318a26"
+    },
+    {
+      "id": "uikit-togglegroup/checked.ghost/hover/dark",
+      "component": "uikit-togglegroup",
+      "group": "checked",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "pointer_x": 0.42,
+        "variant": "ghost",
+        "segmented": false
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        191.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/checked.ghost/hover/dark.png",
+      "scene": "scenes/uikit-togglegroup/checked.ghost/hover/dark.json",
+      "png_sha256": "f80c6b680b968c49ce30bb155928631c5f6b091f42e9b513bc72c0245714a2ff"
+    },
+    {
+      "id": "uikit-togglegroup/checked.ghost/hover/light",
+      "component": "uikit-togglegroup",
+      "group": "checked",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "pointer_x": 0.42,
+        "variant": "ghost",
+        "segmented": false
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        191.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/checked.ghost/hover/light.png",
+      "scene": "scenes/uikit-togglegroup/checked.ghost/hover/light.json",
+      "png_sha256": "8b449561e2b3a9ec47ab4066cdc261fd52afad902afa40a921a64b20fa318a26"
+    },
+    {
+      "id": "uikit-togglegroup/checked.outline.segmented/click+hover/dark",
+      "component": "uikit-togglegroup",
+      "group": "checked",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "pointer_x": 0.42,
+        "variant": "outline",
+        "segmented": true
+      },
+      "state": "click+hover",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        179.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/checked.outline.segmented/click+hover/dark.png",
+      "scene": "scenes/uikit-togglegroup/checked.outline.segmented/click+hover/dark.json",
+      "png_sha256": "5cf75d020cccb9dabe17bc439796b1cd0fa0bb966d7638996a83206fd54730b9"
+    },
+    {
+      "id": "uikit-togglegroup/checked.outline.segmented/click+hover/light",
+      "component": "uikit-togglegroup",
+      "group": "checked",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "pointer_x": 0.42,
+        "variant": "outline",
+        "segmented": true
+      },
+      "state": "click+hover",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        179.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/checked.outline.segmented/click+hover/light.png",
+      "scene": "scenes/uikit-togglegroup/checked.outline.segmented/click+hover/light.json",
+      "png_sha256": "cfd8a02d34b8c001f4369ca1145b689d5828f9d7fe3fb486fe80dd9f9545b33b"
+    },
+    {
+      "id": "uikit-togglegroup/checked.outline.segmented/hover/dark",
+      "component": "uikit-togglegroup",
+      "group": "checked",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "pointer_x": 0.42,
+        "variant": "outline",
+        "segmented": true
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        179.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/checked.outline.segmented/hover/dark.png",
+      "scene": "scenes/uikit-togglegroup/checked.outline.segmented/hover/dark.json",
+      "png_sha256": "5cf75d020cccb9dabe17bc439796b1cd0fa0bb966d7638996a83206fd54730b9"
+    },
+    {
+      "id": "uikit-togglegroup/checked.outline.segmented/hover/light",
+      "component": "uikit-togglegroup",
+      "group": "checked",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "pointer_x": 0.42,
+        "variant": "outline",
+        "segmented": true
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        179.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/checked.outline.segmented/hover/light.png",
+      "scene": "scenes/uikit-togglegroup/checked.outline.segmented/hover/light.json",
+      "png_sha256": "cfd8a02d34b8c001f4369ca1145b689d5828f9d7fe3fb486fe80dd9f9545b33b"
+    },
+    {
+      "id": "uikit-togglegroup/checked.outline/click+hover/dark",
+      "component": "uikit-togglegroup",
+      "group": "checked",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "pointer_x": 0.42,
+        "variant": "outline",
+        "segmented": false
+      },
+      "state": "click+hover",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        197.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/checked.outline/click+hover/dark.png",
+      "scene": "scenes/uikit-togglegroup/checked.outline/click+hover/dark.json",
+      "png_sha256": "5005f7a1886d2ac90fe4efff16ad6a2fcbe83122076ecc7f35e3f12a7c33fdb0"
+    },
+    {
+      "id": "uikit-togglegroup/checked.outline/click+hover/light",
+      "component": "uikit-togglegroup",
+      "group": "checked",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "pointer_x": 0.42,
+        "variant": "outline",
+        "segmented": false
+      },
+      "state": "click+hover",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        197.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/checked.outline/click+hover/light.png",
+      "scene": "scenes/uikit-togglegroup/checked.outline/click+hover/light.json",
+      "png_sha256": "3f12e1b342e1372d96e0047901f838ca2cc79b22aeb4eb43a495ad0c55dadca8"
+    },
+    {
+      "id": "uikit-togglegroup/checked.outline/hover/dark",
+      "component": "uikit-togglegroup",
+      "group": "checked",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "pointer_x": 0.42,
+        "variant": "outline",
+        "segmented": false
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        197.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/checked.outline/hover/dark.png",
+      "scene": "scenes/uikit-togglegroup/checked.outline/hover/dark.json",
+      "png_sha256": "5005f7a1886d2ac90fe4efff16ad6a2fcbe83122076ecc7f35e3f12a7c33fdb0"
+    },
+    {
+      "id": "uikit-togglegroup/checked.outline/hover/light",
+      "component": "uikit-togglegroup",
+      "group": "checked",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "pointer_x": 0.42,
+        "variant": "outline",
+        "segmented": false
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        197.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/checked.outline/hover/light.png",
+      "scene": "scenes/uikit-togglegroup/checked.outline/hover/light.json",
+      "png_sha256": "3f12e1b342e1372d96e0047901f838ca2cc79b22aeb4eb43a495ad0c55dadca8"
+    },
+    {
+      "id": "uikit-togglegroup/disabled.ghost/disabled+hover/dark",
+      "component": "uikit-togglegroup",
+      "group": "disabled",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "pointer_x": 0.12,
+        "variant": "ghost",
+        "disabled": true
+      },
+      "state": "disabled+hover",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        191.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/disabled.ghost/disabled+hover/dark.png",
+      "scene": "scenes/uikit-togglegroup/disabled.ghost/disabled+hover/dark.json",
+      "png_sha256": "f80c6b680b968c49ce30bb155928631c5f6b091f42e9b513bc72c0245714a2ff"
+    },
+    {
+      "id": "uikit-togglegroup/disabled.ghost/disabled+hover/light",
+      "component": "uikit-togglegroup",
+      "group": "disabled",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "pointer_x": 0.12,
+        "variant": "ghost",
+        "disabled": true
+      },
+      "state": "disabled+hover",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        191.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/disabled.ghost/disabled+hover/light.png",
+      "scene": "scenes/uikit-togglegroup/disabled.ghost/disabled+hover/light.json",
+      "png_sha256": "8b449561e2b3a9ec47ab4066cdc261fd52afad902afa40a921a64b20fa318a26"
+    },
+    {
+      "id": "uikit-togglegroup/disabled.outline/disabled+hover/dark",
+      "component": "uikit-togglegroup",
+      "group": "disabled",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "pointer_x": 0.12,
+        "variant": "outline",
+        "disabled": true
+      },
+      "state": "disabled+hover",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        197.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/disabled.outline/disabled+hover/dark.png",
+      "scene": "scenes/uikit-togglegroup/disabled.outline/disabled+hover/dark.json",
+      "png_sha256": "5005f7a1886d2ac90fe4efff16ad6a2fcbe83122076ecc7f35e3f12a7c33fdb0"
+    },
+    {
+      "id": "uikit-togglegroup/disabled.outline/disabled+hover/light",
+      "component": "uikit-togglegroup",
+      "group": "disabled",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "pointer_x": 0.12,
+        "variant": "outline",
+        "disabled": true
+      },
+      "state": "disabled+hover",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        197.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/disabled.outline/disabled+hover/light.png",
+      "scene": "scenes/uikit-togglegroup/disabled.outline/disabled+hover/light.json",
+      "png_sha256": "3f12e1b342e1372d96e0047901f838ca2cc79b22aeb4eb43a495ad0c55dadca8"
+    },
+    {
+      "id": "uikit-togglegroup/icon.ghost.large/normal/dark",
+      "component": "uikit-togglegroup",
+      "group": "icon",
+      "params": {
+        "icons": "check,copy,plus",
+        "checked": "100",
+        "variant": "ghost",
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        136.0,
+        36.0
+      ],
+      "png": "png/uikit-togglegroup/icon.ghost.large/normal/dark.png",
+      "scene": "scenes/uikit-togglegroup/icon.ghost.large/normal/dark.json",
+      "png_sha256": "3f33c3df5f78a86e9e730143f927638245e8bdf642d2c2ebece6e1e359d6310f"
+    },
+    {
+      "id": "uikit-togglegroup/icon.ghost.large/normal/light",
+      "component": "uikit-togglegroup",
+      "group": "icon",
+      "params": {
+        "icons": "check,copy,plus",
+        "checked": "100",
+        "variant": "ghost",
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        136.0,
+        36.0
+      ],
+      "png": "png/uikit-togglegroup/icon.ghost.large/normal/light.png",
+      "scene": "scenes/uikit-togglegroup/icon.ghost.large/normal/light.json",
+      "png_sha256": "df1e0352e1678b919ef084cb923ad963aab5bcbb7ebb36e4ff2c6d55ae01a7af"
+    },
+    {
+      "id": "uikit-togglegroup/icon.ghost.medium/normal/dark",
+      "component": "uikit-togglegroup",
+      "group": "icon",
+      "params": {
+        "icons": "check,copy,plus",
+        "checked": "100",
+        "variant": "ghost",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        112.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/icon.ghost.medium/normal/dark.png",
+      "scene": "scenes/uikit-togglegroup/icon.ghost.medium/normal/dark.json",
+      "png_sha256": "b5750f9780460120d6d2bac03d974ef2360f12fb8a9bf1da16415cfe86241b1a"
+    },
+    {
+      "id": "uikit-togglegroup/icon.ghost.medium/normal/light",
+      "component": "uikit-togglegroup",
+      "group": "icon",
+      "params": {
+        "icons": "check,copy,plus",
+        "checked": "100",
+        "variant": "ghost",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        112.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/icon.ghost.medium/normal/light.png",
+      "scene": "scenes/uikit-togglegroup/icon.ghost.medium/normal/light.json",
+      "png_sha256": "8cbff4dbb923bdc268ac29cc13a0f3466914429127601bc12ba632cea72ff514"
+    },
+    {
+      "id": "uikit-togglegroup/icon.ghost.small/normal/dark",
+      "component": "uikit-togglegroup",
+      "group": "icon",
+      "params": {
+        "icons": "check,copy,plus",
+        "checked": "100",
+        "variant": "ghost",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        88.0,
+        24.0
+      ],
+      "png": "png/uikit-togglegroup/icon.ghost.small/normal/dark.png",
+      "scene": "scenes/uikit-togglegroup/icon.ghost.small/normal/dark.json",
+      "png_sha256": "c12be71a082aed80565047b325598a26a46aa3e06995391974e0db8e29d39445"
+    },
+    {
+      "id": "uikit-togglegroup/icon.ghost.small/normal/light",
+      "component": "uikit-togglegroup",
+      "group": "icon",
+      "params": {
+        "icons": "check,copy,plus",
+        "checked": "100",
+        "variant": "ghost",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        88.0,
+        24.0
+      ],
+      "png": "png/uikit-togglegroup/icon.ghost.small/normal/light.png",
+      "scene": "scenes/uikit-togglegroup/icon.ghost.small/normal/light.json",
+      "png_sha256": "427005bf9d5e6df8f75a2ef589909098bb30b1574c136a84cd3095612c2eef76"
+    },
+    {
+      "id": "uikit-togglegroup/icon.ghost.xsmall/normal/dark",
+      "component": "uikit-togglegroup",
+      "group": "icon",
+      "params": {
+        "icons": "check,copy,plus",
+        "checked": "100",
+        "variant": "ghost",
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        76.0,
+        20.0
+      ],
+      "png": "png/uikit-togglegroup/icon.ghost.xsmall/normal/dark.png",
+      "scene": "scenes/uikit-togglegroup/icon.ghost.xsmall/normal/dark.json",
+      "png_sha256": "7e4b969b189c1b1c6a539956e53372b861cf1075e23903a1bd07ddd1797f5e3c"
+    },
+    {
+      "id": "uikit-togglegroup/icon.ghost.xsmall/normal/light",
+      "component": "uikit-togglegroup",
+      "group": "icon",
+      "params": {
+        "icons": "check,copy,plus",
+        "checked": "100",
+        "variant": "ghost",
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        76.0,
+        20.0
+      ],
+      "png": "png/uikit-togglegroup/icon.ghost.xsmall/normal/light.png",
+      "scene": "scenes/uikit-togglegroup/icon.ghost.xsmall/normal/light.json",
+      "png_sha256": "7975f446a8db5d5127b1688a5c55997108a515cd061165ef35209430626fc3d6"
+    },
+    {
+      "id": "uikit-togglegroup/icon.outline.large/normal/dark",
+      "component": "uikit-togglegroup",
+      "group": "icon",
+      "params": {
+        "icons": "check,copy,plus",
+        "checked": "100",
+        "variant": "outline",
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        142.0,
+        36.0
+      ],
+      "png": "png/uikit-togglegroup/icon.outline.large/normal/dark.png",
+      "scene": "scenes/uikit-togglegroup/icon.outline.large/normal/dark.json",
+      "png_sha256": "7f8f628a750a2e4d7839e44acb19fbf84ebf3a1b3577cd9fc58cd0feefdaa7b4"
+    },
+    {
+      "id": "uikit-togglegroup/icon.outline.large/normal/light",
+      "component": "uikit-togglegroup",
+      "group": "icon",
+      "params": {
+        "icons": "check,copy,plus",
+        "checked": "100",
+        "variant": "outline",
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        142.0,
+        36.0
+      ],
+      "png": "png/uikit-togglegroup/icon.outline.large/normal/light.png",
+      "scene": "scenes/uikit-togglegroup/icon.outline.large/normal/light.json",
+      "png_sha256": "cb0689beb8919b411376c78b59f037ce5ce648f2a8e6b0466035de3e3b56ab27"
+    },
+    {
+      "id": "uikit-togglegroup/icon.outline.medium/normal/dark",
+      "component": "uikit-togglegroup",
+      "group": "icon",
+      "params": {
+        "icons": "check,copy,plus",
+        "checked": "100",
+        "variant": "outline",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        112.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/icon.outline.medium/normal/dark.png",
+      "scene": "scenes/uikit-togglegroup/icon.outline.medium/normal/dark.json",
+      "png_sha256": "2de06d79a040bc5ad7e5e895bfb7f414ebefc7f5e2ed35ac1cc15ada7ce00b65"
+    },
+    {
+      "id": "uikit-togglegroup/icon.outline.medium/normal/light",
+      "component": "uikit-togglegroup",
+      "group": "icon",
+      "params": {
+        "icons": "check,copy,plus",
+        "checked": "100",
+        "variant": "outline",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        112.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/icon.outline.medium/normal/light.png",
+      "scene": "scenes/uikit-togglegroup/icon.outline.medium/normal/light.json",
+      "png_sha256": "fd61f3d2ad9599400d1b6d5186404810cd93dec611c950dfb64006d4b0818dd8"
+    },
+    {
+      "id": "uikit-togglegroup/icon.outline.small/normal/dark",
+      "component": "uikit-togglegroup",
+      "group": "icon",
+      "params": {
+        "icons": "check,copy,plus",
+        "checked": "100",
+        "variant": "outline",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        88.0,
+        24.0
+      ],
+      "png": "png/uikit-togglegroup/icon.outline.small/normal/dark.png",
+      "scene": "scenes/uikit-togglegroup/icon.outline.small/normal/dark.json",
+      "png_sha256": "192461bbeacdb138519fbd02f1ff22c2dc880851f4c36db03dc637f0662c6acf"
+    },
+    {
+      "id": "uikit-togglegroup/icon.outline.small/normal/light",
+      "component": "uikit-togglegroup",
+      "group": "icon",
+      "params": {
+        "icons": "check,copy,plus",
+        "checked": "100",
+        "variant": "outline",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        88.0,
+        24.0
+      ],
+      "png": "png/uikit-togglegroup/icon.outline.small/normal/light.png",
+      "scene": "scenes/uikit-togglegroup/icon.outline.small/normal/light.json",
+      "png_sha256": "3f9cf4f73c33e0968ed4994a2b0d83760fdc5994de77b458a341246a3f32a546"
+    },
+    {
+      "id": "uikit-togglegroup/icon.outline.xsmall/normal/dark",
+      "component": "uikit-togglegroup",
+      "group": "icon",
+      "params": {
+        "icons": "check,copy,plus",
+        "checked": "100",
+        "variant": "outline",
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        76.0,
+        20.0
+      ],
+      "png": "png/uikit-togglegroup/icon.outline.xsmall/normal/dark.png",
+      "scene": "scenes/uikit-togglegroup/icon.outline.xsmall/normal/dark.json",
+      "png_sha256": "12e3268e9c7ec4492889202a8886a2849b38f860bc936ac6e65bc06e2f2498ec"
+    },
+    {
+      "id": "uikit-togglegroup/icon.outline.xsmall/normal/light",
+      "component": "uikit-togglegroup",
+      "group": "icon",
+      "params": {
+        "icons": "check,copy,plus",
+        "checked": "100",
+        "variant": "outline",
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        76.0,
+        20.0
+      ],
+      "png": "png/uikit-togglegroup/icon.outline.xsmall/normal/light.png",
+      "scene": "scenes/uikit-togglegroup/icon.outline.xsmall/normal/light.json",
+      "png_sha256": "0be42451f29034f91d597b1c03fb1a7f58610d5721be479e2a1892f847f67d2e"
+    },
+    {
+      "id": "uikit-togglegroup/keys.ghost/focus+focus/dark",
+      "component": "uikit-togglegroup",
+      "group": "keys",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "variant": "ghost"
+      },
+      "state": "focus+focus",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        191.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/keys.ghost/focus+focus/dark.png",
+      "scene": "scenes/uikit-togglegroup/keys.ghost/focus+focus/dark.json",
+      "png_sha256": "f80c6b680b968c49ce30bb155928631c5f6b091f42e9b513bc72c0245714a2ff"
+    },
+    {
+      "id": "uikit-togglegroup/keys.ghost/focus+focus/light",
+      "component": "uikit-togglegroup",
+      "group": "keys",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "variant": "ghost"
+      },
+      "state": "focus+focus",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        191.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/keys.ghost/focus+focus/light.png",
+      "scene": "scenes/uikit-togglegroup/keys.ghost/focus+focus/light.json",
+      "png_sha256": "8b449561e2b3a9ec47ab4066cdc261fd52afad902afa40a921a64b20fa318a26"
+    },
+    {
+      "id": "uikit-togglegroup/keys.ghost/focus+key-right/dark",
+      "component": "uikit-togglegroup",
+      "group": "keys",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "variant": "ghost"
+      },
+      "state": "focus+key-right",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        191.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/keys.ghost/focus+key-right/dark.png",
+      "scene": "scenes/uikit-togglegroup/keys.ghost/focus+key-right/dark.json",
+      "png_sha256": "f80c6b680b968c49ce30bb155928631c5f6b091f42e9b513bc72c0245714a2ff"
+    },
+    {
+      "id": "uikit-togglegroup/keys.ghost/focus+key-right/light",
+      "component": "uikit-togglegroup",
+      "group": "keys",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "variant": "ghost"
+      },
+      "state": "focus+key-right",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        191.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/keys.ghost/focus+key-right/light.png",
+      "scene": "scenes/uikit-togglegroup/keys.ghost/focus+key-right/light.json",
+      "png_sha256": "8b449561e2b3a9ec47ab4066cdc261fd52afad902afa40a921a64b20fa318a26"
+    },
+    {
+      "id": "uikit-togglegroup/keys.ghost/focus/dark",
+      "component": "uikit-togglegroup",
+      "group": "keys",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "variant": "ghost"
+      },
+      "state": "focus",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        191.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/keys.ghost/focus/dark.png",
+      "scene": "scenes/uikit-togglegroup/keys.ghost/focus/dark.json",
+      "png_sha256": "f80c6b680b968c49ce30bb155928631c5f6b091f42e9b513bc72c0245714a2ff"
+    },
+    {
+      "id": "uikit-togglegroup/keys.ghost/focus/light",
+      "component": "uikit-togglegroup",
+      "group": "keys",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "variant": "ghost"
+      },
+      "state": "focus",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        191.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/keys.ghost/focus/light.png",
+      "scene": "scenes/uikit-togglegroup/keys.ghost/focus/light.json",
+      "png_sha256": "8b449561e2b3a9ec47ab4066cdc261fd52afad902afa40a921a64b20fa318a26"
+    },
+    {
+      "id": "uikit-togglegroup/keys.outline/focus+focus/dark",
+      "component": "uikit-togglegroup",
+      "group": "keys",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "variant": "outline"
+      },
+      "state": "focus+focus",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        197.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/keys.outline/focus+focus/dark.png",
+      "scene": "scenes/uikit-togglegroup/keys.outline/focus+focus/dark.json",
+      "png_sha256": "5005f7a1886d2ac90fe4efff16ad6a2fcbe83122076ecc7f35e3f12a7c33fdb0"
+    },
+    {
+      "id": "uikit-togglegroup/keys.outline/focus+focus/light",
+      "component": "uikit-togglegroup",
+      "group": "keys",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "variant": "outline"
+      },
+      "state": "focus+focus",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        197.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/keys.outline/focus+focus/light.png",
+      "scene": "scenes/uikit-togglegroup/keys.outline/focus+focus/light.json",
+      "png_sha256": "3f12e1b342e1372d96e0047901f838ca2cc79b22aeb4eb43a495ad0c55dadca8"
+    },
+    {
+      "id": "uikit-togglegroup/keys.outline/focus+key-right/dark",
+      "component": "uikit-togglegroup",
+      "group": "keys",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "variant": "outline"
+      },
+      "state": "focus+key-right",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        197.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/keys.outline/focus+key-right/dark.png",
+      "scene": "scenes/uikit-togglegroup/keys.outline/focus+key-right/dark.json",
+      "png_sha256": "5005f7a1886d2ac90fe4efff16ad6a2fcbe83122076ecc7f35e3f12a7c33fdb0"
+    },
+    {
+      "id": "uikit-togglegroup/keys.outline/focus+key-right/light",
+      "component": "uikit-togglegroup",
+      "group": "keys",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "variant": "outline"
+      },
+      "state": "focus+key-right",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        197.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/keys.outline/focus+key-right/light.png",
+      "scene": "scenes/uikit-togglegroup/keys.outline/focus+key-right/light.json",
+      "png_sha256": "3f12e1b342e1372d96e0047901f838ca2cc79b22aeb4eb43a495ad0c55dadca8"
+    },
+    {
+      "id": "uikit-togglegroup/keys.outline/focus/dark",
+      "component": "uikit-togglegroup",
+      "group": "keys",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "variant": "outline"
+      },
+      "state": "focus",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        197.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/keys.outline/focus/dark.png",
+      "scene": "scenes/uikit-togglegroup/keys.outline/focus/dark.json",
+      "png_sha256": "5005f7a1886d2ac90fe4efff16ad6a2fcbe83122076ecc7f35e3f12a7c33fdb0"
+    },
+    {
+      "id": "uikit-togglegroup/keys.outline/focus/light",
+      "component": "uikit-togglegroup",
+      "group": "keys",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "variant": "outline"
+      },
+      "state": "focus",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        197.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/keys.outline/focus/light.png",
+      "scene": "scenes/uikit-togglegroup/keys.outline/focus/light.json",
+      "png_sha256": "3f12e1b342e1372d96e0047901f838ca2cc79b22aeb4eb43a495ad0c55dadca8"
+    },
+    {
+      "id": "uikit-togglegroup/label.ghost.large/normal/dark",
+      "component": "uikit-togglegroup",
+      "group": "label",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "variant": "ghost",
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        232.0,
+        36.0
+      ],
+      "png": "png/uikit-togglegroup/label.ghost.large/normal/dark.png",
+      "scene": "scenes/uikit-togglegroup/label.ghost.large/normal/dark.json",
+      "png_sha256": "0f87c4eb11bbb27fb29db345de7570f33d41ff52ff869a3d981525bffd168436"
+    },
+    {
+      "id": "uikit-togglegroup/label.ghost.large/normal/light",
+      "component": "uikit-togglegroup",
+      "group": "label",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "variant": "ghost",
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        232.0,
+        36.0
+      ],
+      "png": "png/uikit-togglegroup/label.ghost.large/normal/light.png",
+      "scene": "scenes/uikit-togglegroup/label.ghost.large/normal/light.json",
+      "png_sha256": "2d96fb432cf0ba6be51d08a929effcbceccf3f262c0ec52497a0a9fc83853b6c"
+    },
+    {
+      "id": "uikit-togglegroup/label.ghost.medium/normal/dark",
+      "component": "uikit-togglegroup",
+      "group": "label",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "variant": "ghost",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        191.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/label.ghost.medium/normal/dark.png",
+      "scene": "scenes/uikit-togglegroup/label.ghost.medium/normal/dark.json",
+      "png_sha256": "f80c6b680b968c49ce30bb155928631c5f6b091f42e9b513bc72c0245714a2ff"
+    },
+    {
+      "id": "uikit-togglegroup/label.ghost.medium/normal/light",
+      "component": "uikit-togglegroup",
+      "group": "label",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "variant": "ghost",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        191.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/label.ghost.medium/normal/light.png",
+      "scene": "scenes/uikit-togglegroup/label.ghost.medium/normal/light.json",
+      "png_sha256": "8b449561e2b3a9ec47ab4066cdc261fd52afad902afa40a921a64b20fa318a26"
+    },
+    {
+      "id": "uikit-togglegroup/label.ghost.small/normal/dark",
+      "component": "uikit-togglegroup",
+      "group": "label",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "variant": "ghost",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        167.0,
+        24.0
+      ],
+      "png": "png/uikit-togglegroup/label.ghost.small/normal/dark.png",
+      "scene": "scenes/uikit-togglegroup/label.ghost.small/normal/dark.json",
+      "png_sha256": "79ebae0ae47b6281a97caf3d3e78d43658648778d624c672460408c3b21c9251"
+    },
+    {
+      "id": "uikit-togglegroup/label.ghost.small/normal/light",
+      "component": "uikit-togglegroup",
+      "group": "label",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "variant": "ghost",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        167.0,
+        24.0
+      ],
+      "png": "png/uikit-togglegroup/label.ghost.small/normal/light.png",
+      "scene": "scenes/uikit-togglegroup/label.ghost.small/normal/light.json",
+      "png_sha256": "b616d769f38467d0e67c5fba6f77316f8482569f4271d39cefff31c375fdc428"
+    },
+    {
+      "id": "uikit-togglegroup/label.ghost.xsmall/normal/dark",
+      "component": "uikit-togglegroup",
+      "group": "label",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "variant": "ghost",
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        136.0,
+        20.0
+      ],
+      "png": "png/uikit-togglegroup/label.ghost.xsmall/normal/dark.png",
+      "scene": "scenes/uikit-togglegroup/label.ghost.xsmall/normal/dark.json",
+      "png_sha256": "808bc085c8e05577a1edaf2ed52172144c8dec622c85ae91f26e1290f648555e"
+    },
+    {
+      "id": "uikit-togglegroup/label.ghost.xsmall/normal/light",
+      "component": "uikit-togglegroup",
+      "group": "label",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "variant": "ghost",
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        136.0,
+        20.0
+      ],
+      "png": "png/uikit-togglegroup/label.ghost.xsmall/normal/light.png",
+      "scene": "scenes/uikit-togglegroup/label.ghost.xsmall/normal/light.json",
+      "png_sha256": "a48f200b254b1122f16f22a88cd7f8104f9d845a77c81c898f4ca2c2ad8bea30"
+    },
+    {
+      "id": "uikit-togglegroup/label.outline.large/normal/dark",
+      "component": "uikit-togglegroup",
+      "group": "label",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "variant": "outline",
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        238.0,
+        36.0
+      ],
+      "png": "png/uikit-togglegroup/label.outline.large/normal/dark.png",
+      "scene": "scenes/uikit-togglegroup/label.outline.large/normal/dark.json",
+      "png_sha256": "2cd85ed071596ac3cc5daf18e80a0aadfaf98c54836bd6a17c49622830bf1078"
+    },
+    {
+      "id": "uikit-togglegroup/label.outline.large/normal/light",
+      "component": "uikit-togglegroup",
+      "group": "label",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "variant": "outline",
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        238.0,
+        36.0
+      ],
+      "png": "png/uikit-togglegroup/label.outline.large/normal/light.png",
+      "scene": "scenes/uikit-togglegroup/label.outline.large/normal/light.json",
+      "png_sha256": "bfafbc91ab980f2d20cfb269b1410e486735952facfb726eb6a040326e5c48aa"
+    },
+    {
+      "id": "uikit-togglegroup/label.outline.medium/normal/dark",
+      "component": "uikit-togglegroup",
+      "group": "label",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "variant": "outline",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        197.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/label.outline.medium/normal/dark.png",
+      "scene": "scenes/uikit-togglegroup/label.outline.medium/normal/dark.json",
+      "png_sha256": "5005f7a1886d2ac90fe4efff16ad6a2fcbe83122076ecc7f35e3f12a7c33fdb0"
+    },
+    {
+      "id": "uikit-togglegroup/label.outline.medium/normal/light",
+      "component": "uikit-togglegroup",
+      "group": "label",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "variant": "outline",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        197.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/label.outline.medium/normal/light.png",
+      "scene": "scenes/uikit-togglegroup/label.outline.medium/normal/light.json",
+      "png_sha256": "3f12e1b342e1372d96e0047901f838ca2cc79b22aeb4eb43a495ad0c55dadca8"
+    },
+    {
+      "id": "uikit-togglegroup/label.outline.small/normal/dark",
+      "component": "uikit-togglegroup",
+      "group": "label",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "variant": "outline",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        173.0,
+        24.0
+      ],
+      "png": "png/uikit-togglegroup/label.outline.small/normal/dark.png",
+      "scene": "scenes/uikit-togglegroup/label.outline.small/normal/dark.json",
+      "png_sha256": "6ff38ef51470fc14f1e51f8d1d41beafb69fb27d1f269b8df99369b0112d5345"
+    },
+    {
+      "id": "uikit-togglegroup/label.outline.small/normal/light",
+      "component": "uikit-togglegroup",
+      "group": "label",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "variant": "outline",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        173.0,
+        24.0
+      ],
+      "png": "png/uikit-togglegroup/label.outline.small/normal/light.png",
+      "scene": "scenes/uikit-togglegroup/label.outline.small/normal/light.json",
+      "png_sha256": "bc6027a7f5a06f5a1ea69274c19fd0c48d62578d42686ed707a583f7995c2d8b"
+    },
+    {
+      "id": "uikit-togglegroup/label.outline.xsmall/normal/dark",
+      "component": "uikit-togglegroup",
+      "group": "label",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "variant": "outline",
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        142.0,
+        20.0
+      ],
+      "png": "png/uikit-togglegroup/label.outline.xsmall/normal/dark.png",
+      "scene": "scenes/uikit-togglegroup/label.outline.xsmall/normal/dark.json",
+      "png_sha256": "e37e9d4a83cd3b2e39824fba7189bcfe226443717821fa9a11bf73e8a04c4969"
+    },
+    {
+      "id": "uikit-togglegroup/label.outline.xsmall/normal/light",
+      "component": "uikit-togglegroup",
+      "group": "label",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "variant": "outline",
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        142.0,
+        20.0
+      ],
+      "png": "png/uikit-togglegroup/label.outline.xsmall/normal/light.png",
+      "scene": "scenes/uikit-togglegroup/label.outline.xsmall/normal/light.json",
+      "png_sha256": "e41bf3542df7fc73e9a2bb1980300e6ad37f96a2d07335f67d06685598eaaf26"
+    },
+    {
+      "id": "uikit-togglegroup/segmented.ghost.medium/normal/dark",
+      "component": "uikit-togglegroup",
+      "group": "segmented",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "segmented": true,
+        "variant": "ghost",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        175.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/segmented.ghost.medium/normal/dark.png",
+      "scene": "scenes/uikit-togglegroup/segmented.ghost.medium/normal/dark.json",
+      "png_sha256": "ad83d46579d380c4d7c8f4eb79f5a9eb0820a3440ee3de268b079f8c061ecc25"
+    },
+    {
+      "id": "uikit-togglegroup/segmented.ghost.medium/normal/light",
+      "component": "uikit-togglegroup",
+      "group": "segmented",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "segmented": true,
+        "variant": "ghost",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        175.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/segmented.ghost.medium/normal/light.png",
+      "scene": "scenes/uikit-togglegroup/segmented.ghost.medium/normal/light.json",
+      "png_sha256": "87a01b6fa6a6a5af42226ee7e875b9cd9906c44d202c156234944dae041fe50b"
+    },
+    {
+      "id": "uikit-togglegroup/segmented.ghost.small/normal/dark",
+      "component": "uikit-togglegroup",
+      "group": "segmented",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "segmented": true,
+        "variant": "ghost",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        151.0,
+        24.0
+      ],
+      "png": "png/uikit-togglegroup/segmented.ghost.small/normal/dark.png",
+      "scene": "scenes/uikit-togglegroup/segmented.ghost.small/normal/dark.json",
+      "png_sha256": "acef7f728b9570586b8cf255b0743330149f364af3c9041bbdc1cb736ea0afa4"
+    },
+    {
+      "id": "uikit-togglegroup/segmented.ghost.small/normal/light",
+      "component": "uikit-togglegroup",
+      "group": "segmented",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "segmented": true,
+        "variant": "ghost",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        151.0,
+        24.0
+      ],
+      "png": "png/uikit-togglegroup/segmented.ghost.small/normal/light.png",
+      "scene": "scenes/uikit-togglegroup/segmented.ghost.small/normal/light.json",
+      "png_sha256": "79ef3dff1d8127eeb2e0e5ed1bcc9cfb876c86c946c29a13e3df69fba44dd0cb"
+    },
+    {
+      "id": "uikit-togglegroup/segmented.outline.medium/normal/dark",
+      "component": "uikit-togglegroup",
+      "group": "segmented",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "segmented": true,
+        "variant": "outline",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        179.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/segmented.outline.medium/normal/dark.png",
+      "scene": "scenes/uikit-togglegroup/segmented.outline.medium/normal/dark.json",
+      "png_sha256": "5cf75d020cccb9dabe17bc439796b1cd0fa0bb966d7638996a83206fd54730b9"
+    },
+    {
+      "id": "uikit-togglegroup/segmented.outline.medium/normal/light",
+      "component": "uikit-togglegroup",
+      "group": "segmented",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "segmented": true,
+        "variant": "outline",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        179.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/segmented.outline.medium/normal/light.png",
+      "scene": "scenes/uikit-togglegroup/segmented.outline.medium/normal/light.json",
+      "png_sha256": "cfd8a02d34b8c001f4369ca1145b689d5828f9d7fe3fb486fe80dd9f9545b33b"
+    },
+    {
+      "id": "uikit-togglegroup/segmented.outline.small/normal/dark",
+      "component": "uikit-togglegroup",
+      "group": "segmented",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "segmented": true,
+        "variant": "outline",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        155.0,
+        24.0
+      ],
+      "png": "png/uikit-togglegroup/segmented.outline.small/normal/dark.png",
+      "scene": "scenes/uikit-togglegroup/segmented.outline.small/normal/dark.json",
+      "png_sha256": "7576d2422488ebed5974afe86cd91b8f55f5a2ec4f1ed33f00c2d1769eba8e74"
+    },
+    {
+      "id": "uikit-togglegroup/segmented.outline.small/normal/light",
+      "component": "uikit-togglegroup",
+      "group": "segmented",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "segmented": true,
+        "variant": "outline",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        155.0,
+        24.0
+      ],
+      "png": "png/uikit-togglegroup/segmented.outline.small/normal/light.png",
+      "scene": "scenes/uikit-togglegroup/segmented.outline.small/normal/light.json",
+      "png_sha256": "0232f07ef2739cf3aecc0ef233d6d9e0be199b447aeccca6d588215aaf276640"
+    },
+    {
+      "id": "uikit-togglegroup/unchecked.ghost.segmented/click+hover/dark",
+      "component": "uikit-togglegroup",
+      "group": "unchecked",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "pointer_x": 0.12,
+        "variant": "ghost",
+        "segmented": true
+      },
+      "state": "click+hover",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        175.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/unchecked.ghost.segmented/click+hover/dark.png",
+      "scene": "scenes/uikit-togglegroup/unchecked.ghost.segmented/click+hover/dark.json",
+      "png_sha256": "7b2a47dbb85f99acecb1fe5bb414cba2ee5177ef973767000d1dd9e5e74081fa"
+    },
+    {
+      "id": "uikit-togglegroup/unchecked.ghost.segmented/click+hover/light",
+      "component": "uikit-togglegroup",
+      "group": "unchecked",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "pointer_x": 0.12,
+        "variant": "ghost",
+        "segmented": true
+      },
+      "state": "click+hover",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        175.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/unchecked.ghost.segmented/click+hover/light.png",
+      "scene": "scenes/uikit-togglegroup/unchecked.ghost.segmented/click+hover/light.json",
+      "png_sha256": "3b688bef3a81819a2a6b5a1f4c2fd8f430e5f2ace3fdda16bbb94646092e1702"
+    },
+    {
+      "id": "uikit-togglegroup/unchecked.ghost.segmented/hover/dark",
+      "component": "uikit-togglegroup",
+      "group": "unchecked",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "pointer_x": 0.12,
+        "variant": "ghost",
+        "segmented": true
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        175.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/unchecked.ghost.segmented/hover/dark.png",
+      "scene": "scenes/uikit-togglegroup/unchecked.ghost.segmented/hover/dark.json",
+      "png_sha256": "7b2a47dbb85f99acecb1fe5bb414cba2ee5177ef973767000d1dd9e5e74081fa"
+    },
+    {
+      "id": "uikit-togglegroup/unchecked.ghost.segmented/hover/light",
+      "component": "uikit-togglegroup",
+      "group": "unchecked",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "pointer_x": 0.12,
+        "variant": "ghost",
+        "segmented": true
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        175.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/unchecked.ghost.segmented/hover/light.png",
+      "scene": "scenes/uikit-togglegroup/unchecked.ghost.segmented/hover/light.json",
+      "png_sha256": "3b688bef3a81819a2a6b5a1f4c2fd8f430e5f2ace3fdda16bbb94646092e1702"
+    },
+    {
+      "id": "uikit-togglegroup/unchecked.ghost/click+hover/dark",
+      "component": "uikit-togglegroup",
+      "group": "unchecked",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "pointer_x": 0.12,
+        "variant": "ghost",
+        "segmented": false
+      },
+      "state": "click+hover",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        191.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/unchecked.ghost/click+hover/dark.png",
+      "scene": "scenes/uikit-togglegroup/unchecked.ghost/click+hover/dark.json",
+      "png_sha256": "f9f824f8874d1a11baf373ec96742b46574e8ff5a767e975efb4cae51e34dc76"
+    },
+    {
+      "id": "uikit-togglegroup/unchecked.ghost/click+hover/light",
+      "component": "uikit-togglegroup",
+      "group": "unchecked",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "pointer_x": 0.12,
+        "variant": "ghost",
+        "segmented": false
+      },
+      "state": "click+hover",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        191.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/unchecked.ghost/click+hover/light.png",
+      "scene": "scenes/uikit-togglegroup/unchecked.ghost/click+hover/light.json",
+      "png_sha256": "a3a7735532c24065379a874ca2d975c2a75e9303379e750c3bf0bf1d70049204"
+    },
+    {
+      "id": "uikit-togglegroup/unchecked.ghost/hover/dark",
+      "component": "uikit-togglegroup",
+      "group": "unchecked",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "pointer_x": 0.12,
+        "variant": "ghost",
+        "segmented": false
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        191.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/unchecked.ghost/hover/dark.png",
+      "scene": "scenes/uikit-togglegroup/unchecked.ghost/hover/dark.json",
+      "png_sha256": "f9f824f8874d1a11baf373ec96742b46574e8ff5a767e975efb4cae51e34dc76"
+    },
+    {
+      "id": "uikit-togglegroup/unchecked.ghost/hover/light",
+      "component": "uikit-togglegroup",
+      "group": "unchecked",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "pointer_x": 0.12,
+        "variant": "ghost",
+        "segmented": false
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        191.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/unchecked.ghost/hover/light.png",
+      "scene": "scenes/uikit-togglegroup/unchecked.ghost/hover/light.json",
+      "png_sha256": "a3a7735532c24065379a874ca2d975c2a75e9303379e750c3bf0bf1d70049204"
+    },
+    {
+      "id": "uikit-togglegroup/unchecked.outline.segmented/click+hover/dark",
+      "component": "uikit-togglegroup",
+      "group": "unchecked",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "pointer_x": 0.12,
+        "variant": "outline",
+        "segmented": true
+      },
+      "state": "click+hover",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        179.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/unchecked.outline.segmented/click+hover/dark.png",
+      "scene": "scenes/uikit-togglegroup/unchecked.outline.segmented/click+hover/dark.json",
+      "png_sha256": "8a322a8e834eaca90867b8475cd94d0a0b6d91f1f056bd00d46b8229d5dbcbb6"
+    },
+    {
+      "id": "uikit-togglegroup/unchecked.outline.segmented/click+hover/light",
+      "component": "uikit-togglegroup",
+      "group": "unchecked",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "pointer_x": 0.12,
+        "variant": "outline",
+        "segmented": true
+      },
+      "state": "click+hover",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        179.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/unchecked.outline.segmented/click+hover/light.png",
+      "scene": "scenes/uikit-togglegroup/unchecked.outline.segmented/click+hover/light.json",
+      "png_sha256": "dadc5394c1363bd7a3d9d658065bb0c1dcf7687489d17d6c52838ed7f91d20eb"
+    },
+    {
+      "id": "uikit-togglegroup/unchecked.outline.segmented/hover/dark",
+      "component": "uikit-togglegroup",
+      "group": "unchecked",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "pointer_x": 0.12,
+        "variant": "outline",
+        "segmented": true
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        179.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/unchecked.outline.segmented/hover/dark.png",
+      "scene": "scenes/uikit-togglegroup/unchecked.outline.segmented/hover/dark.json",
+      "png_sha256": "8a322a8e834eaca90867b8475cd94d0a0b6d91f1f056bd00d46b8229d5dbcbb6"
+    },
+    {
+      "id": "uikit-togglegroup/unchecked.outline.segmented/hover/light",
+      "component": "uikit-togglegroup",
+      "group": "unchecked",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "pointer_x": 0.12,
+        "variant": "outline",
+        "segmented": true
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        179.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/unchecked.outline.segmented/hover/light.png",
+      "scene": "scenes/uikit-togglegroup/unchecked.outline.segmented/hover/light.json",
+      "png_sha256": "dadc5394c1363bd7a3d9d658065bb0c1dcf7687489d17d6c52838ed7f91d20eb"
+    },
+    {
+      "id": "uikit-togglegroup/unchecked.outline/click+hover/dark",
+      "component": "uikit-togglegroup",
+      "group": "unchecked",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "pointer_x": 0.12,
+        "variant": "outline",
+        "segmented": false
+      },
+      "state": "click+hover",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        197.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/unchecked.outline/click+hover/dark.png",
+      "scene": "scenes/uikit-togglegroup/unchecked.outline/click+hover/dark.json",
+      "png_sha256": "e264271ad8aeb8e822ed68f61cf19b5bd79db7a9327446bd7957d68ac78d2312"
+    },
+    {
+      "id": "uikit-togglegroup/unchecked.outline/click+hover/light",
+      "component": "uikit-togglegroup",
+      "group": "unchecked",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "pointer_x": 0.12,
+        "variant": "outline",
+        "segmented": false
+      },
+      "state": "click+hover",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        197.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/unchecked.outline/click+hover/light.png",
+      "scene": "scenes/uikit-togglegroup/unchecked.outline/click+hover/light.json",
+      "png_sha256": "f7dc2ba67f3b17341e6ce4c126e16822a43cf8a667729e36884710dba524149f"
+    },
+    {
+      "id": "uikit-togglegroup/unchecked.outline/hover/dark",
+      "component": "uikit-togglegroup",
+      "group": "unchecked",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "pointer_x": 0.12,
+        "variant": "outline",
+        "segmented": false
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        197.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/unchecked.outline/hover/dark.png",
+      "scene": "scenes/uikit-togglegroup/unchecked.outline/hover/dark.json",
+      "png_sha256": "e264271ad8aeb8e822ed68f61cf19b5bd79db7a9327446bd7957d68ac78d2312"
+    },
+    {
+      "id": "uikit-togglegroup/unchecked.outline/hover/light",
+      "component": "uikit-togglegroup",
+      "group": "unchecked",
+      "params": {
+        "labels": "Bold,Italic,Underline",
+        "checked": "010",
+        "pointer_x": 0.12,
+        "variant": "outline",
+        "segmented": false
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        197.0,
+        32.0
+      ],
+      "png": "png/uikit-togglegroup/unchecked.outline/hover/light.png",
+      "scene": "scenes/uikit-togglegroup/unchecked.outline/hover/light.json",
+      "png_sha256": "f7dc2ba67f3b17341e6ce4c126e16822a43cf8a667729e36884710dba524149f"
+    },
+    {
       "id": "uikit-tree/big-bottom.base/at-260-250/dark",
       "component": "uikit-tree",
       "group": "big-bottom",

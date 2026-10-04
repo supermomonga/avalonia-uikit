@@ -209,5 +209,54 @@ public class ButtonsBehaviorTests
         group.Children.Remove(own);
         await Assert.That(string.Join(" ", own.Classes.Where(c => !c.StartsWith(':')).Order())).IsEqualTo("rounded-large");
     }
+
+    // base/toggle.rs: every toggle is its own Tab stop and the arrow keys do
+    // nothing; Space and Enter flip the focused toggle.
+    [Test]
+    public async Task A_toggle_group_tabs_between_toggles_and_ignores_arrow_keys()
+    {
+        var golden = Case("uikit-togglegroup/keys.ghost/focus/light");
+        var group = (ToggleGroup)Adapters.Create(golden);
+        using var host = CaseHost.Open(golden, group);
+        var toggles = group.Children.OfType<Avalonia.Controls.Primitives.ToggleButton>().ToArray();
+        host.Drive(golden, "focus+key-right+key-left+key-down");
+        await Assert.That(toggles[0].IsFocused).IsTrue();
+        await Assert.That(string.Join(",", group.Checked)).IsEqualTo("False,True,False");
+        host.Drive(golden, "focus");
+        await Assert.That(toggles[1].IsFocused).IsTrue();
+        // GPUI's group reports pointer clicks only (its "legacy" keyboard rule); here
+        // the toggle flips on Space and the group reports it like a click.
+        var reports = new List<string>();
+        group.Click += (_, e) => reports.Add(string.Join(",", e.Checked));
+        host.Drive(golden, "key-space");
+        await Assert.That(string.Join(" ", reports)).IsEqualTo("False,False,False");
+    }
+
+    // toggle.rs on_click: the states after the clicked toggle flips.
+    [Test]
+    public async Task A_toggle_group_reports_the_states_a_click_leaves()
+    {
+        var golden = Case("uikit-togglegroup/unchecked.ghost/hover/light");
+        var group = (ToggleGroup)Adapters.Create(golden);
+        using var host = CaseHost.Open(golden, group);
+        var reports = new List<string>();
+        group.Click += (_, e) => reports.Add(string.Join(",", e.Checked));
+        host.Drive(golden, "click");
+        host.Drive(golden, "click");
+        await Assert.That(string.Join(" ", reports)).IsEqualTo("True,True,False False,True,False");
+        group.IsEnabled = false;
+        host.Drive(golden, "click");
+        await Assert.That(reports.Count).IsEqualTo(2);
+    }
+
+    // toggle.rs: the group's size and variant go on every toggle.
+    [Test]
+    public async Task A_toggle_group_passes_its_classes_to_its_toggles()
+    {
+        var group = new ToggleGroup { Classes = { "outline", "large", "segmented" } };
+        var toggle = new Avalonia.Controls.Primitives.ToggleButton();
+        group.Children.Add(toggle);
+        await Assert.That(string.Join(" ", toggle.Classes.Where(c => !c.StartsWith(':')).Order())).IsEqualTo("large outline");
+    }
 }
 
