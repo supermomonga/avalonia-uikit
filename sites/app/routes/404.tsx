@@ -1,26 +1,5 @@
 import { createRoute } from "honox/factory"
-import {
-  PageActions,
-  PageHeader,
-  PageHeaderDescription,
-  PageHeaderHeading,
-} from "@/components/page-header"
-import { Button } from "@/components/ui/button"
+import { NotFound } from "@/components/not-found"
 
-export default createRoute((c) =>
-  c.render(
-    <PageHeader>
-      <PageHeaderHeading>404</PageHeaderHeading>
-      <PageHeaderDescription>
-        This page could not be found.
-      </PageHeaderDescription>
-      <PageActions>
-        <Button render={<a href="/" />}>Go home</Button>
-        <Button variant="ghost" render={<a href="/docs" />}>
-          Read the docs
-        </Button>
-      </PageActions>
-    </PageHeader>,
-    { title: "Not Found" }
-  )
-)
+/** dist/404.html, which Cloudflare serves for missing paths (wrangler.jsonc). */
+export default createRoute((c) => c.render(<NotFound />, { title: "Not Found" }))

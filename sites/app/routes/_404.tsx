@@ -1,26 +1,9 @@
 import type { NotFoundHandler } from "hono"
-import {
-  PageActions,
-  PageHeader,
-  PageHeaderDescription,
-  PageHeaderHeading,
-} from "@/components/page-header"
-import { Button } from "@/components/ui/button"
+import { NotFound } from "@/components/not-found"
 
 const handler: NotFoundHandler = (c) => {
   c.status(404)
-  return c.render(
-    <PageHeader>
-      <PageHeaderHeading>404</PageHeaderHeading>
-      <PageHeaderDescription>
-        This page could not be found.
-      </PageHeaderDescription>
-      <PageActions>
-        <Button render={<a href="/" />}>Go home</Button>
-      </PageActions>
-    </PageHeader>,
-    { title: "Not Found" }
-  )
+  return c.render(<NotFound />, { title: "Not Found" })
 }
 
 export default handler

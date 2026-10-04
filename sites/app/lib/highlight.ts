@@ -1,4 +1,8 @@
-import { createHighlighter, type Highlighter } from "shiki"
+import {
+  createHighlighter,
+  type Highlighter,
+  type ThemeRegistration,
+} from "shiki"
 
 /** XAML is highlighted as XML. */
 const LANGUAGES = [
@@ -13,32 +17,81 @@ const LANGUAGES = [
   "diff",
 ] as const
 
+/**
+ * A theme of CSS variables (app/style.css), so code follows the site's light
+ * and dark themes: the code colors of gpui-kit.com, which take after Xcode's
+ * classic themes.
+ */
+const theme: ThemeRegistration = {
+  name: "uikit",
+  type: "light",
+  colors: {
+    "editor.foreground": "var(--code-fg)",
+    "editor.background": "var(--code-bg)",
+  },
+  tokenColors: [
+    {
+      scope: ["comment", "punctuation.definition.comment"],
+      settings: { foreground: "var(--code-comment)" },
+    },
+    {
+      scope: ["string", "punctuation.definition.string", "string.quoted"],
+      settings: { foreground: "var(--code-string)" },
+    },
+    {
+      scope: [
+        "entity.name.tag",
+        "keyword",
+        "storage",
+        "storage.type",
+        "storage.modifier",
+        "constant.language",
+        "punctuation.definition.tag",
+      ],
+      settings: { foreground: "var(--code-keyword)" },
+    },
+    {
+      scope: [
+        "entity.other.attribute-name",
+        "support.type.property-name",
+        "entity.name.type",
+        "entity.name.class",
+        "support.class",
+        "support.type",
+      ],
+      settings: { foreground: "var(--code-type)" },
+    },
+    {
+      scope: [
+        "entity.name.function",
+        "support.function",
+        "constant.numeric",
+        "constant.character",
+        "variable.parameter",
+      ],
+      settings: { foreground: "var(--code-fn)" },
+    },
+  ],
+}
+
 let highlighter: Promise<Highlighter> | undefined
 
-/** Code highlighted at build time with GitHub's themes. */
+/** Code highlighted at build time, colored by the site's CSS variables. */
 export async function highlight(code: string, lang = "xml"): Promise<string> {
-  highlighter ??= createHighlighter({
-    themes: ["github-light", "github-dark"],
-    langs: [...LANGUAGES],
-  })
+  highlighter ??= createHighlighter({ themes: [theme], langs: [...LANGUAGES] })
   const h = await highlighter
   const language = (LANGUAGES as readonly string[]).includes(lang)
     ? lang
     : "text"
   return h.codeToHtml(code.replace(/\n$/, ""), {
     lang: language,
-    themes: { light: "github-light", dark: "github-dark" },
-    defaultColor: false,
+    theme: "uikit",
     transformers: [
       {
         pre(node) {
-          node.properties.class =
-            "no-scrollbar min-w-0 overflow-x-auto overflow-y-auto overscroll-x-contain overscroll-y-auto px-4 py-3.5 outline-none !bg-transparent"
+          node.properties.class = "shiki"
           delete node.properties.style
           delete node.properties.tabindex
-        },
-        line(node) {
-          node.properties["data-line"] = ""
         },
       },
     ],

@@ -37,7 +37,7 @@ const BADGE_TEXT: Record<State, string> = {
   loading: "Loading…",
   live: "Live",
   error: "Preview",
-  static: "",
+  static: "Preview",
 }
 
 const isDark = () => document.documentElement.classList.contains("dark")

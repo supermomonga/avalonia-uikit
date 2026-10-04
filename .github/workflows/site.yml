@@ -70,8 +70,9 @@ jobs:
       - name: The demo registry is up to date
         run: bun sites/scripts/demo-registry.ts --check
 
-      - name: Render the previews and the social image
-        run: dotnet run --project samples/AvaloniaUIKit.Previews -c Release -- --out sites/public/previews --og sites/public/og.png
+      # The social image and the icons are committed (sites/scripts/images.ts).
+      - name: Render the previews
+        run: dotnet run --project samples/AvaloniaUIKit.Previews -c Release -- --out sites/public/previews
 
       - name: Publish the browser app
         run: sites/scripts/publish-wasm.sh

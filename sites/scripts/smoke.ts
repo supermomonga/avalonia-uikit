@@ -1,8 +1,9 @@
 /**
  * Checks the built site (dist/): every page exists, internal links, the
- * head's links and scripts, and the demos' preview images resolve, no React
- * prop leaks into the HTML, and the output stays within Cloudflare's static
- * asset limits (20,000 files, 25 MiB per file on the Free plan).
+ * head's links and scripts, the social image, the redirects' targets and the
+ * demos' preview images resolve, the social image's page is not built, no
+ * React prop leaks into the HTML, and the output stays within Cloudflare's
+ * static asset limits (20,000 files, 25 MiB per file on the Free plan).
  */
 import { readdirSync, readFileSync, statSync } from "node:fs"
 import path from "node:path"
@@ -11,7 +12,6 @@ import { siteConfig } from "../app/lib/site"
 
 const dist = path.resolve(import.meta.dirname, "../dist")
 const failures: string[] = []
-const warnings: string[] = []
 
 function walk(dir: string): string[] {
   return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
@@ -49,25 +49,36 @@ const pages = [
   "/docs/theming.html",
   "/docs/icons.html",
   "/docs/compatibility.html",
-  "/docs/components.html",
+  "/components.html",
   "/sitemap.xml",
   "/search.json",
   "/favicon.ico",
   "/favicon.svg",
+  "/logo.svg",
+  "/logo-dark.svg",
+  "/og.png",
   "/apple-touch-icon.png",
   "/icon-192.png",
   "/icon-512.png",
   "/manifest.webmanifest",
   "/robots.txt",
   "/_headers",
-  ...components.map((entry) => `/docs/components/${entry.slug}.html`),
+  "/_redirects",
+  ...components.map((entry) => `/components/${entry.slug}.html`),
 ]
 for (const page of pages) {
   if (!relative.has(page)) failures.push(`missing ${page}`)
 }
-// The social image is rendered by samples/AvaloniaUIKit.Previews, separately.
-if (!relative.has(siteConfig.ogImage.url)) {
-  warnings.push(`${siteConfig.ogImage.url} is not built yet`)
+// The social image's page (routes/og-image.tsx) is only for scripts/images.ts.
+if (relative.has("/og-image.html")) failures.push("og-image.html is built")
+
+// The redirects point at pages that exist.
+const redirects = readFileSync(path.join(dist, "_redirects"), "utf8")
+for (const line of redirects.split("\n")) {
+  const [from, to] = line.trim().split(/\s+/)
+  if (!from || from.startsWith("#") || !to) continue
+  const target = to.replace(":splat", components[0].slug)
+  if (!resolves(target)) failures.push(`_redirects points at missing ${to}`)
 }
 
 /** The path of a URL on the site, or undefined for other sites. */
@@ -133,7 +144,6 @@ for (const file of files.filter((f) => f.endsWith(".html"))) {
   if (className) failures.push(`${name} renders className`)
   for (const url of head) {
     const href = sitePath(url)
-    if (href === siteConfig.ogImage.url && !resolves(href)) continue
     if (href && !resolves(href))
       failures.push(`${name} links to missing ${url}`)
   }
@@ -161,7 +171,6 @@ for (const entry of [...search.pages, ...search.components]) {
   if (!resolves(entry.href)) failures.push(`search.json lists missing ${entry.href}`)
 }
 
-for (const warning of warnings) console.warn(`- ${warning}`)
 if (failures.length > 0) {
   console.error(failures.map((failure) => `- ${failure}`).join("\n"))
   process.exit(1)
