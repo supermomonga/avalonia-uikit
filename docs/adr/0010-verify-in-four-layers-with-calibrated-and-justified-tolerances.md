@@ -3,6 +3,9 @@ number: 10
 title: Verify in four layers with calibrated and justified tolerances
 status: accepted
 date: 2026-10-03
+links:
+- target: 25
+  kind: amendedby
 ---
 
 # Verify in four layers with calibrated and justified tolerances

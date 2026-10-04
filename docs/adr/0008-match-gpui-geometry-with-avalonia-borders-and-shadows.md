@@ -3,6 +3,9 @@ number: 8
 title: Match GPUI geometry with Avalonia borders and shadows
 status: accepted
 date: 2026-10-03
+links:
+- target: 25
+  kind: amendedby
 ---
 
 # Match GPUI geometry with Avalonia borders and shadows

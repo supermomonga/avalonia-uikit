@@ -30,6 +30,9 @@
         xmlns:uikit="using:AvaloniaUIKit"
         xmlns:gconv="using:AvaloniaUIKit.Converters">
   <Styles.Resources>
+    <!-- The card's inside edge: radius_lg (8) less its 1px border. -->
+    <gconv:RoundedClipConverter x:Key="UIKit.Accordion.Clip" Radius="7" />
+
     <!-- A header row without a look of its own; the whole row takes the pointer. -->
     <ControlTheme x:Key="UIKitExpanderHeader" TargetType="ToggleButton">
       <Setter Property="Background" Value="Transparent" />
@@ -203,5 +206,13 @@
     <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Border}" />
     <Setter Property="CornerRadius" Value="7.5" />
     <Setter Property="ClipToBounds" Value="True" />
+  </Style>
+  <!--
+    GPUI paints a border over the children; Avalonia paints the children over
+    it, and the card's own clip follows its outer edge. Clipped to the inside
+    edge, the items' backgrounds leave the rounded corners of the border showing.
+  -->
+  <Style Selector="Border.accordion > StackPanel.accordion">
+    <Setter Property="Clip" Value="{Binding $self.Bounds, Converter={StaticResource UIKit.Accordion.Clip}}" />
   </Style>
 </Styles>

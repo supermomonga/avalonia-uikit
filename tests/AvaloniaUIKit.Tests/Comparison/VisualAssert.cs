@@ -49,8 +49,10 @@ public static class VisualAssert
         var regions = PixelComparison.Classify(scene, expected.Width, expected.Height, CaseHost.Scale, primitives);
         PixelComparison.Exclude(regions, expected.Width, expected.Height, CaseHost.Scale, excluded);
         var inkMass = PixelComparison.InkMass(expected, actual, regions, scene, CaseHost.Scale);
-        var report = PixelComparison.Compare(expected, actual, regions, tolerance ?? PixelTolerance.Default, inkMass);
+        var bandMasses = PixelComparison.BandMasses(expected, actual, regions, scene, CaseHost.Scale);
+        var report = PixelComparison.Compare(expected, actual, regions, tolerance ?? PixelTolerance.Default, inkMass, bandMasses);
         Calibration.RecordInk(golden.Id, inkMass);
+        Calibration.RecordBands(golden.Id, bandMasses);
         failures.AddRange(report.Failures);
 
         var structure = StructuralComparison.Compare(scene, primitives, geometryTolerance);

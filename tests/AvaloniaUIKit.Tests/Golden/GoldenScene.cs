@@ -73,14 +73,15 @@ public sealed record GoldenScene(
             {
                 gradient = new SceneGradient(D(bg["angle"]), Rgba.From(stops[0]!["rgba"]), Rgba.From(stops[1]!["rgba"]));
             }
+            var bounds = GoldenManifest.ReadRect(q["bounds"]);
             return new SceneQuad(
                 (int)q["order"]!.GetValue<double>(),
-                GoldenManifest.ReadRect(q["bounds"]),
+                bounds,
                 GoldenManifest.ReadRect(q["clip"]),
                 solid ? Rgba.From(bg["rgba"]) : default,
                 solid,
                 Rgba.From(q["border_color"]),
-                new Thickness(D(w[3]), D(w[0]), D(w[1]), D(w[2])),
+                PaintedWidths(new Thickness(D(w[3]), D(w[0]), D(w[1]), D(w[2])), bounds),
                 new CornerRadius(D(r[0]), D(r[1]), D(r[2]), D(r[3])),
                 gradient);
         }).ToList();
@@ -129,6 +130,13 @@ public sealed record GoldenScene(
     }
 
     private static double D(JsonNode? n) => n!.GetValue<double>();
+
+    // GPUI's quad shader takes a point's border widths from the quadrant it lies
+    // in, so a border paints no further than the middle of its box: the menu
+    // separator's 2px bottom border on a 2px box is a 1px line.
+    private static Thickness PaintedWidths(Thickness w, Rect bounds) => new(
+        Math.Min(w.Left, bounds.Width / 2), Math.Min(w.Top, bounds.Height / 2),
+        Math.Min(w.Right, bounds.Width / 2), Math.Min(w.Bottom, bounds.Height / 2));
 
     private static CornerRadius Radii(JsonNode? n)
     {
