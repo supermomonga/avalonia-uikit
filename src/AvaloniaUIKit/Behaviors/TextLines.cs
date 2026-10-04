@@ -1,5 +1,6 @@
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Controls.Presenters;
 using Avalonia.Data;
 using Avalonia.Layout;
 using Avalonia.Media;
@@ -36,9 +37,30 @@ public static class TextLines
     private static readonly AttachedProperty<IDisposable?> RoundedWidthProperty =
         AvaloniaProperty.RegisterAttached<TextBlock, IDisposable?>("RoundedWidth", typeof(TextLines));
 
+    /// <summary>
+    /// On a ContentPresenter that centers its text: while the text is trimmed,
+    /// it is aligned to the start instead. GPUI shrinks an ellipsized label's
+    /// box to the room it has (a tab under TabBar's max_width) and draws the
+    /// text from the box's start; Avalonia would center the shorter, trimmed text.
+    /// </summary>
+    public static readonly AttachedProperty<bool> StartsTrimmedTextProperty =
+        AvaloniaProperty.RegisterAttached<ContentPresenter, bool>("StartsTrimmedText", typeof(TextLines));
+
 
     static TextLines()
     {
+        StartsTrimmedTextProperty.Changed.AddClassHandler<ContentPresenter>((presenter, e) =>
+        {
+            presenter.LayoutUpdated -= OnPresenterLaidOut;
+            if (e.GetNewValue<bool>())
+            {
+                presenter.LayoutUpdated += OnPresenterLaidOut;
+            }
+            else
+            {
+                presenter.ClearValue(ContentPresenter.HorizontalContentAlignmentProperty);
+            }
+        });
         RoundsWidthUpProperty.Changed.AddClassHandler<TextBlock>((text, e) =>
         {
             text.SizeChanged -= OnSizeChanged;
@@ -70,6 +92,27 @@ public static class TextLines
 
     /// <summary>Sets whether the TextBlock centers glyphs taller than its lines.</summary>
     public static void SetCentersTallGlyphs(TextBlock text, bool value) => text.SetValue(CentersTallGlyphsProperty, value);
+
+    /// <summary>Gets whether the presenter aligns its text to the start while it is trimmed.</summary>
+    public static bool GetStartsTrimmedText(ContentPresenter presenter) => presenter.GetValue(StartsTrimmedTextProperty);
+
+    /// <summary>Sets whether the presenter aligns its text to the start while it is trimmed.</summary>
+    public static void SetStartsTrimmedText(ContentPresenter presenter, bool value) => presenter.SetValue(StartsTrimmedTextProperty, value);
+
+    // Whether the text is trimmed does not depend on where it is aligned, so this settles at once.
+    private static void OnPresenterLaidOut(object? sender, EventArgs e)
+    {
+        var presenter = (ContentPresenter)sender!;
+        var trimmed = presenter.Child is TextBlock text && text.TextLayout.TextLines.Any(line => line.HasCollapsed);
+        if (trimmed && presenter.HorizontalContentAlignment != HorizontalAlignment.Left)
+        {
+            presenter.HorizontalContentAlignment = HorizontalAlignment.Left;
+        }
+        else if (!trimmed && presenter.IsSet(ContentPresenter.HorizontalContentAlignmentProperty))
+        {
+            presenter.ClearValue(ContentPresenter.HorizontalContentAlignmentProperty);
+        }
+    }
 
     /// <summary>Gets whether TextBlocks below the element round their width up.</summary>
     public static bool GetRoundsWidthUp(Control element) => element.GetValue(RoundsWidthUpProperty);
