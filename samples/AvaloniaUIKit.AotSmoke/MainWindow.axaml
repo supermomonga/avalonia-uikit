@@ -2,6 +2,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="using:AvaloniaUIKit.AotSmoke"
         xmlns:uikit="using:AvaloniaUIKit"
+        xmlns:tab="clr-namespace:Tabalonia.Controls;assembly=Tabalonia"
         x:Class="AvaloniaUIKit.AotSmoke.MainWindow"
         Title="AvaloniaUIKit gallery" Width="760" Height="860">
   <DockPanel>
@@ -259,6 +260,16 @@
             <TabItem Header="Account"><TextBlock Text="Account settings" Margin="0,8" /></TabItem>
             <TabItem Header="Profile"><TextBlock Text="Profile" Margin="0,8" /></TabItem>
           </TabControl>
+          <tab:TabsControl Classes="segmented menu" Width="360" HorizontalAlignment="Left"
+                           TabItemWidth="120" EnableTabDetaching="False" ShowDefaultAddButton="False">
+            <tab:TabsControl.ItemsSource>
+              <local:TabList>
+                <tab:DragTabItem Header="Account"><TextBlock Text="Account settings" Margin="0,8" /></tab:DragTabItem>
+                <tab:DragTabItem Header="Profile"><TextBlock Text="Profile" Margin="0,8" /></tab:DragTabItem>
+                <tab:DragTabItem Header="Settings"><TextBlock Text="Settings" Margin="0,8" /></tab:DragTabItem>
+              </local:TabList>
+            </tab:TabsControl.ItemsSource>
+          </tab:TabsControl>
           <PipsPager NumberOfPages="5" SelectedPageIndex="2" />
           <PipsPager Classes="compact small" NumberOfPages="5" SelectedPageIndex="0" />
         </StackPanel>

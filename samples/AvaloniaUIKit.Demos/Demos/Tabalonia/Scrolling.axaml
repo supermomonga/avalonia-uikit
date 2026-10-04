@@ -1,0 +1,38 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:tab="clr-namespace:Tabalonia.Controls;assembly=Tabalonia"
+             xmlns:local="using:AvaloniaUIKit.Demos"
+             x:Class="AvaloniaUIKit.Demos.TabaloniaScrolling">
+  <StackPanel Spacing="16" HorizontalAlignment="Left" MinHeight="280">
+    <tab:TabsControl Classes="menu" Width="400" HorizontalAlignment="Left" TabItemWidth="110"
+                     EnableTabDetaching="False" ShowDefaultAddButton="False" ShowDefaultCloseButton="False">
+      <tab:TabsControl.ItemsSource>
+        <local:TabList>
+          <tab:DragTabItem Header="Account" />
+          <tab:DragTabItem Header="Profile" />
+          <tab:DragTabItem Header="Documents" />
+          <tab:DragTabItem Header="Mail" />
+          <tab:DragTabItem Header="Appearance" />
+          <tab:DragTabItem Header="Settings" />
+          <tab:DragTabItem Header="About" />
+          <tab:DragTabItem Header="License" />
+        </local:TabList>
+      </tab:TabsControl.ItemsSource>
+    </tab:TabsControl>
+    <tab:TabsControl Classes="segmented menu" Width="400" HorizontalAlignment="Left" TabItemWidth="110"
+                     EnableTabDetaching="False" ShowDefaultAddButton="False" ShowDefaultCloseButton="False">
+      <tab:TabsControl.ItemsSource>
+        <local:TabList>
+          <tab:DragTabItem Header="Account" />
+          <tab:DragTabItem Header="Profile" />
+          <tab:DragTabItem Header="Documents" />
+          <tab:DragTabItem Header="Mail" />
+          <tab:DragTabItem Header="Appearance" />
+          <tab:DragTabItem Header="Settings" />
+          <tab:DragTabItem Header="About" />
+          <tab:DragTabItem Header="License" />
+        </local:TabList>
+      </tab:TabsControl.ItemsSource>
+    </tab:TabsControl>
+  </StackPanel>
+</UserControl>
