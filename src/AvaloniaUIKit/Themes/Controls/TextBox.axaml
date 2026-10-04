@@ -18,10 +18,10 @@
   anything in it has focus (GPUI makes no pointer/keyboard distinction). The
   text sits on a 20px line centered in the frame, input_px from the border.
   InnerLeftContent / InnerRightContent are GPUI's prefix and suffix, a size's gap
-  (6/4/6/8) from the text. After the text come, a gap apart, GPUI's mask toggle,
-  clear button and suffix, in that order. No hover look. A disabled field fills with the
-  disabled background and draws its text, placeholder and inner content at half
-  strength. GPUI shows a selection only while focused, so an unfocused TextBox
+  (6/4/6/8) from the text; between the text and the suffix come the mask toggle
+  and the clear button, each a gap apart (GPUI's order). No hover look. A
+  disabled field fills with the disabled background and draws its text,
+  placeholder and inner content at half strength. GPUI shows a selection only while focused, so an unfocused TextBox
   hides it (IsInactiveSelectionHighlightEnabled=False). Apps mask a password
   with PasswordChar="•" (U+2022, GPUI's mask character).
 -->
@@ -354,17 +354,16 @@
     <Style Selector="^:focus-within">
       <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Ring}" />
     </Style>
+    <Style Selector="^:focus-within /template/ Border#PART_FocusRing">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
     <!--
       GPUI paints a selection only while the input has focus. Avalonia hides it
-      when focus leaves (IsInactiveSelectionHighlightEnabled), but shows one made
-      before the field was ever focused, and keeps showing it after a right
-      click, which does not focus a TextBox.
+      when focus leaves (IsInactiveSelectionHighlightEnabled), but not one made
+      before the field ever had focus, as a right click does not focus it.
     -->
     <Style Selector="^[IsInactiveSelectionHighlightEnabled=False]:not(:focus) /template/ TextPresenter#PART_TextPresenter">
       <Setter Property="SelectionBrush" Value="Transparent" />
-    </Style>
-    <Style Selector="^:focus-within /template/ Border#PART_FocusRing">
-      <Setter Property="IsVisible" Value="True" />
     </Style>
 
     <Style Selector="^:disabled">
