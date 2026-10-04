@@ -7,7 +7,7 @@ description: "An on-off switch, with the thumb sliding on a spring."
 
 ## Usage
 
-The theme covers `ToggleSwitch` in full. The track is 28×16 for `xsmall` and `small` (they differ in the label's text size), 36×20 at medium (the default) and 44×24 for `large`; `IsChecked` colors it. The thumb travels on the `UIKit.Spring.Move` spring, keeping its velocity when the switch is toggled back mid-flight, and follows the pointer at once while dragged.
+The theme covers `ToggleSwitch`. The track is 28×16 for `xsmall` and `small` (they differ in the label's text size), 36×20 at medium (the default) and 44×24 for `large`; `IsChecked` colors it. The thumb travels on the `UIKit.Spring.Move` spring, keeping its velocity when the switch is toggled back mid-flight, and follows the pointer at once while dragged.
 
 `Content` is the label after the track; `Classes="label-left"` puts it before. Unlike a button, a pointer press focuses a switch, so its ring shows on `:focus`.
 
@@ -20,7 +20,3 @@ The four sizes.
 `label-left` for a settings row where the label leads.
 
 <Demo name="switch/label-left" title="Label left" />
-
-## Not covered
-
-- Custom track colors.

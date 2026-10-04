@@ -101,7 +101,7 @@
     color: var(--foreground);
   }
 
-  /* Maturity-style labels under a page's title (the port's status, the package). */
+  /* Maturity-style labels under a page's title (the optional package). */
   .doc-labels {
     display: flex;
     flex-wrap: wrap;

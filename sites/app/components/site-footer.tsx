@@ -4,7 +4,6 @@ const links = [
   { href: "/docs/installation", label: "Installation" },
   { href: "/docs/theming", label: "Theming" },
   { href: "/docs/icons", label: "Icons" },
-  { href: "/docs/compatibility", label: "Compatibility" },
   { href: "/components", label: "Components" },
   { href: siteConfig.links.github, label: "GitHub" },
   { href: siteConfig.links.issues, label: "Report Bug" },

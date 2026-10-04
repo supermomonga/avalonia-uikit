@@ -33,7 +33,6 @@ export const siteConfig = {
   ],
   /** The top bar's Resources menu. */
   resources: [
-    { href: "/docs/compatibility", label: "Compatibility" },
     { href: "https://github.com/supermomonga/avalonia-uikit", label: "GitHub" },
     { href: "https://github.com/supermomonga/avalonia-uikit/issues", label: "Issues" },
     { href: "https://docs.avaloniaui.net", label: "Avalonia Docs" },

@@ -7,7 +7,7 @@ description: "Popup menus and a menu bar: Menu, ContextMenu and MenuFlyout."
 
 ## Usage
 
-The theme covers `Menu`, `MenuItem`, `ContextMenu` and `MenuFlyoutPresenter` in full: the popover surface with its hairline ring and shadow, 26px items 2px apart, an icon column when any item has an `Icon` or a check, `ToggleType="CheckBox"` and `"Radio"` items, submenus with a chevron, `Separator`s, and `InputGesture` shown as a shortcut. `Menu` is a menu bar drawn in the window: its top-level items are small ghost buttons, shown selected while open.
+The theme covers `Menu`, `MenuItem`, `ContextMenu` and `MenuFlyoutPresenter`: the popover surface with its hairline ring and shadow, 26px items 2px apart, an icon column when any item has an `Icon` or a check, `ToggleType="CheckBox"` and `"Radio"` items, submenus with a chevron, `Separator`s, and `InputGesture` shown as a shortcut. `Menu` is a menu bar drawn in the window: its top-level items are small ghost buttons, shown selected while open.
 
 Two settings are left to the app. Submenus open as soon as they are hovered: set `DefaultMenuInteractionHandler.MenuShowDelay` to zero at startup, as Avalonia waits otherwise:
 
@@ -26,7 +26,3 @@ A `ContextMenu` on a control: an icon, a shortcut, a check item, a separator, a 
 A dropdown menu: a `Button` with a `MenuFlyout`, placed below its left edge.
 
 <Demo name="menu/dropdown" title="Dropdown" />
-
-## Not covered
-
-- Link items (open the link from a `Click` handler).

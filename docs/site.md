@@ -25,6 +25,7 @@ https://avalonia-uikit.omofla.sh の構成と約束事。サイト本体は `sit
 - **セクション:** トップ（`/`）、ガイド（`/docs`）、コンポーネント（`/components`）。ドキュメントの 2 セクションはそれぞれ自分のサイドバーを持つ（`sites/app/lib/docs.ts` の `docsSections`）。旧 URL の `/docs/components/*` は `sites/public/_redirects` で `/components/*` に転送する。
 - **トップ:** blueprint グリッドの上のヒーロー（見出し、2 つのボタン、事実の行、`App.axaml` の 1 行、コードのウィンドウ）、CAPABILITIES の 3×3 グリッド、3 パッケージのカード、PRINCIPLE の帯、フッター。数は `catalog.ts` から数え、文言はドキュメントに書かれた事実だけで組む。
 - **ドキュメント:** 1280px の中に 220px のサイドバー、本文（最大 860px）、200px の目次。見出しは等幅の大文字、本文の型は `sites/app/styles/docs.css`。ページの最初のデモ（`title` なし）は macOS 風のウィンドウに入れたライブの例、`title` 付きのデモは見出し付きの枠になる。
+- **GPUI Kit との対応状況は出さない:** 利用者に GPUI Kit との互換性を意識させる必要はないので、Full / Partial の別や、GPUI Kit の機能のうち扱わないもの（Not covered）はサイトに書かない。これらは開発者向けの `docs/references/compatibility-list.md` にだけ書く。カタログの `status` はトップの数え上げ（新しいコントロールの数）にだけ使う。
 - **テーマ:** ライト、ダーク、システムに従う、の 3 つ。パレット（T キー）で選び、`localStorage.theme` に `light` / `dark` を保存する（システムに従うときは消す）。
 - **フォント:** サイトはシステムフォント、デモは同梱の Inter。
 - **メタタグ:** `sites/app/routes/_renderer.tsx` が canonical、theme-color、Open Graph、X のカード、アイコン、manifest、JSON-LD（トップは `WebSite`、ほかは `WebPage` と `BreadcrumbList`）を出す。`<title>` は「Button — Components · Avalonia UIKit」の形。
