@@ -64,6 +64,7 @@ public static partial class Adapters
         "pagination" => Pagination(c),
         "tabs" => TabStrip(c),
         "toolbar" => Toolbar(c),
+        "uikit-toolbar" => ToolbarCase(c),
         "popover" => Popover(c),
         "accordion" => Accordion(c),
         "uikit-accordion" => AccordionCase(c),

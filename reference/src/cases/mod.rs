@@ -118,6 +118,7 @@ pub fn builder(case: &Case) -> Result<Builder> {
         "datatable" => table::data_table(&params),
         "datagrid" => table::data_table(&params),
         "toolbar" => toolbar::builder(&params),
+        "uikit-toolbar" => toolbar::builder(&params),
         "popover" => popover::popover(&params),
         "accordion" => accordion::builder(&params),
         "uikit-accordion" => accordion::builder(&params),

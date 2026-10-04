@@ -1,0 +1,56 @@
+# GPUI Kit Toolbar -> uikit:Toolbar of Buttons, Separators and a ToggleButton:
+# the toolbar cases, then a ToolbarGroup, a flexible spacer, and the arrow
+# keys wrapping at the ends. One bar: [undo] [redo] | [+ New] | [B toggle].
+component = "uikit-toolbar"
+viewport = [320, 80]
+anchor = [16, 16]
+
+[[group]]
+name = "bar"
+matrix = { size = ["xsmall", "small", "medium"], checked = [false, true] }
+
+[[group]]
+name = "small"
+params = { size = "small" }
+states = ["at-32-32", "pressed-at-32-32", "at-100-32", "pressed-at-100-32", "at-160-32", "focus", "focus+key-right"]
+
+[[group]]
+name = "xsmall"
+params = { size = "xsmall" }
+states = ["at-30-30", "pressed-at-30-30", "focus"]
+
+[[group]]
+name = "medium"
+params = { size = "medium" }
+states = ["at-40-40", "pressed-at-40-40", "focus"]
+
+[[group]]
+name = "disabled"
+matrix = { size = ["xsmall", "small", "medium"] }
+states = ["disabled"]
+
+# Leading Content: text at the bar's text size before the commands.
+[[group]]
+name = "content"
+params = { content = "Files" }
+matrix = { size = ["xsmall", "small", "medium"] }
+
+# base/toolbar.rs: Left on the first item wraps to the last; Right on the last
+# wraps to the first.
+[[group]]
+name = "wrap"
+params = { size = "small" }
+states = ["focus+key-left", "focus+key-left+key-right"]
+
+# ToolbarGroup (gap_1) of undo and redo: it takes the bar's size and passes it on.
+[[group]]
+name = "group"
+params = { group = true }
+matrix = { size = ["xsmall", "small", "medium"] }
+states = ["normal", "focus+key-right"]
+
+# content(div().flex_1()): the toggle goes to the end of a 288px bar.
+[[group]]
+name = "spacer"
+params = { spacer = true, width = 288, content = "Files" }
+matrix = { size = ["xsmall", "small", "medium"] }

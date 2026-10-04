@@ -310,5 +310,75 @@ public class ButtonsBehaviorTests
         await Assert.That(string.Join(",", accordion.OpenIndices)).IsEqualTo("0");
         await Assert.That(accordion.Items.OfType<Expander>().All(i => i.Classes.Contains("small"))).IsTrue();
     }
+
+    // base/toolbar.rs: Left and Right move the focus along the bar and wrap; a
+    // hosted text input keeps the arrow keys for its caret.
+    [Test]
+    public async Task A_toolbar_moves_the_focus_with_the_arrow_keys_and_wraps()
+    {
+        var golden = Case("uikit-toolbar/wrap.base/focus+key-left/light");
+        var bar = (Toolbar)Adapters.Create(golden);
+        var input = new TextBox { Width = 60, Text = "ab" };
+        bar.Children.Add(input);
+        using var host = CaseHost.Open(golden, bar);
+        var buttons = bar.Children.OfType<Button>().ToArray();
+        host.Drive(golden, "focus");
+        await Assert.That(buttons[0].IsFocused).IsTrue();
+        host.Drive(golden, "key-right");
+        await Assert.That(buttons[1].IsFocused).IsTrue();
+        await Assert.That(buttons[1].Classes.Contains(":focus-visible")).IsTrue();
+        host.Drive(golden, "key-left+key-left");
+        await Assert.That(input.IsFocused).IsTrue();
+        input.CaretIndex = 1;
+        host.Drive(golden, "key-left");
+        await Assert.That((input.IsFocused, input.CaretIndex)).IsEqualTo((true, 0));
+        host.Drive(golden, "key-tab");
+        await Assert.That(input.IsFocused).IsFalse();
+    }
+
+    // toolbar.rs: the size goes on every control (ToolbarItem::sized), buttons turn
+    // ghost and compact (prepare_for_toolbar), a group passes its size on, and
+    // content keeps its own; Large falls back to Medium (no class).
+    [Test]
+    public async Task A_toolbar_passes_its_size_to_its_controls()
+    {
+        static string Own(Control c) => string.Join(" ", c.Classes.Where(n => !n.StartsWith(':')).Order());
+        var button = new Button();
+        var toggle = new Avalonia.Controls.Primitives.ToggleButton();
+        var content = new Button { Classes = { "primary" } };
+        Toolbar.SetTakesSize(content, false);
+        var separator = new Separator { Classes = { "vertical" } };
+        var grouped = new Button();
+        var group = new ToolbarGroup { Children = { grouped } };
+        var bar = new Toolbar { Classes = { "xsmall" }, Children = { button, toggle, content, separator, group, new ToolbarSpacer() } };
+        await Assert.That(Own(button)).IsEqualTo("compact ghost xsmall");
+        await Assert.That(Own(toggle)).IsEqualTo("xsmall");
+        await Assert.That(Own(content)).IsEqualTo("primary");
+        await Assert.That(Own(separator)).IsEqualTo("vertical");
+        await Assert.That(Own(group)).IsEqualTo("xsmall");
+        await Assert.That(Own(grouped)).IsEqualTo("compact ghost xsmall");
+        bar.Classes.Remove("xsmall");
+        bar.Classes.Add("large");
+        await Assert.That(Own(button)).IsEqualTo("compact ghost");
+        await Assert.That(Own(grouped)).IsEqualTo("compact ghost");
+        Toolbar.SetTakesSize(content, true);
+        await Assert.That(Own(content)).IsEqualTo("compact ghost primary");
+    }
+
+    // A ToolbarSpacer takes the width the other items leave; several share it.
+    [Test]
+    public async Task Toolbar_spacers_share_the_width_left()
+    {
+        var golden = Case("uikit-toolbar/spacer.small/normal/light");
+        var first = new Border { Width = 20, Height = 10 };
+        var last = new Border { Width = 20, Height = 10 };
+        var spacers = new[] { new ToolbarSpacer(), new ToolbarSpacer() };
+        var bar = new Toolbar { Width = 200, Children = { first, spacers[0], new Border { Width = 40, Height = 10 }, spacers[1], last } };
+        using var host = CaseHost.Open(golden, bar);
+        host.Flush();
+        // 192 inside, 80 taken, 4 gaps of 4: 96 left, 48 each.
+        await Assert.That(spacers.Select(s => s.Bounds.Width)).IsEquivalentTo(new[] { 48.0, 48.0 });
+        await Assert.That(last.Bounds.Right).IsEqualTo(196.0);
+    }
 }
 

@@ -11,12 +11,14 @@ public static partial class Adapters
     /// GPUI's Button with an icon before its label: the icon and the text in a row,
     /// gap_1 (xsmall, small) or gap_2 apart (button.rs).
     /// </summary>
-    private static object LabelledIcon(GoldenCase c) => new StackPanel
+    private static StackPanel LabelledIcon(string icon, string label, string size) => new()
     {
         Orientation = Orientation.Horizontal,
-        Spacing = c.Str("size", "medium") is "xsmall" or "small" ? 4 : 8,
-        Children = { Icon(c.Str("icon")), new TextBlock { Text = c.Str("label"), VerticalAlignment = VerticalAlignment.Center } },
+        Spacing = size is "xsmall" or "small" ? 4 : 8,
+        Children = { Icon(icon), new TextBlock { Text = label, VerticalAlignment = VerticalAlignment.Center } },
     };
+
+    private static StackPanel LabelledIcon(GoldenCase c) => LabelledIcon(c.Str("icon"), c.Str("label"), c.Str("size", "medium"));
 
     /// <summary>A button case (button.rs) with Button::loading and loading_icon.</summary>
     private static Button LoadingButton(GoldenCase c)
@@ -161,6 +163,47 @@ public static partial class Adapters
             });
         }
         return accordion;
+    }
+
+    /// <summary>
+    /// The toolbar cases as a uikit:Toolbar: optional text, undo and redo (in a
+    /// ToolbarGroup with `group`), a separator, New, a separator, a spacer with
+    /// `spacer`, and the bold toggle. The toolbar sizes its controls.
+    /// </summary>
+    private static Toolbar ToolbarCase(GoldenCase c)
+    {
+        var enabled = !c.Bool("disabled");
+        var bar = new Toolbar();
+        if (c.Has("width"))
+        {
+            bar.Width = c.Num("width", 0);
+        }
+        ClassFrom(bar, c, "size", "small");
+        if (c.Has("content"))
+        {
+            bar.Children.Add(new TextBlock { Text = c.Str("content") });
+        }
+        Button IconButton(string icon) => new() { Classes = { "icon-only" }, Content = Icon(icon), IsEnabled = enabled };
+        if (c.Bool("group"))
+        {
+            var history = new ToolbarGroup { Spacing = 4, Children = { IconButton("undo-2"), IconButton("redo-2") } };
+            Avalonia.Automation.AutomationProperties.SetName(history, "History");
+            bar.Children.Add(history);
+        }
+        else
+        {
+            bar.Children.Add(IconButton("undo-2"));
+            bar.Children.Add(IconButton("redo-2"));
+        }
+        bar.Children.Add(new Separator { Classes = { "vertical" }, Height = 20 });
+        bar.Children.Add(new Button { Content = LabelledIcon("plus", "New", c.Str("size", "small")), IsEnabled = enabled });
+        bar.Children.Add(new Separator { Classes = { "vertical" }, Height = 20 });
+        if (c.Bool("spacer"))
+        {
+            bar.Children.Add(new ToolbarSpacer());
+        }
+        bar.Children.Add(new Avalonia.Controls.Primitives.ToggleButton { Content = "B", IsChecked = c.Bool("checked"), IsEnabled = enabled });
+        return bar;
     }
 }
 
