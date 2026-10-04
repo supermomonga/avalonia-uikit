@@ -11,6 +11,8 @@ The theme covers `SplitButton`. The action half is the `Content`, run by `Click`
 
 The classes are the Button's: the colors `primary`, `secondary`, `danger`, `warning`, `success`, `info`, `ghost`, `link` and `text`, the modifiers `outline` and `selected`, and the sizes `xsmall`, `small` and `large`. While the menu is open the caret half keeps the pressed look. Avalonia focuses a `SplitButton` as one tab stop; its ring shows on the action half.
 
+`uikit:Buttons.IsLoading` loads the action half as it loads a [Button](/components/button): the half fades, keeps its look under the pointer, spins its icon and ignores clicks, Enter and Space, while the caret half still opens the menu. `uikit:Buttons.TakesFocusOnPointer="False"` keeps the focus where it was when either half is pressed.
+
 ## Examples
 
 The main colors, plain and outlined, and a disabled one. The demo keeps one `MenuFlyout` in the panel's resources and shares it through `Flyout="{StaticResource SaveMenu}"`.
@@ -20,3 +22,7 @@ The main colors, plain and outlined, and a disabled one. The demo keeps one `Men
 The four sizes scale both halves and the caret.
 
 <Demo name="dropdown-button/sizes" title="Sizes" />
+
+A loading action half; the caret half still opens the menu.
+
+<Demo name="dropdown-button/loading" title="Loading" />

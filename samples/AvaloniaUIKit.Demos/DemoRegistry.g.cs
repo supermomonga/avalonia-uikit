@@ -420,6 +420,11 @@ public sealed partial class DropdownButtonDemo : UserControl
     public DropdownButtonDemo() => AvaloniaXamlLoader.Load(this);
 }
 
+public sealed partial class DropdownButtonLoading : UserControl
+{
+    public DropdownButtonLoading() => AvaloniaXamlLoader.Load(this);
+}
+
 public sealed partial class DropdownButtonSizes : UserControl
 {
     public DropdownButtonSizes() => AvaloniaXamlLoader.Load(this);
@@ -1313,6 +1318,7 @@ public static partial class DemoRegistry
         ["dock/documents"] = static () => new DockDocuments(),
         ["dock/pinned"] = static () => new DockPinned(),
         ["dropdown-button/demo"] = static () => new DropdownButtonDemo(),
+        ["dropdown-button/loading"] = static () => new DropdownButtonLoading(),
         ["dropdown-button/sizes"] = static () => new DropdownButtonSizes(),
         ["dropdown-button/variants"] = static () => new DropdownButtonVariants(),
         ["empty/demo"] = static () => new EmptyDemo(),

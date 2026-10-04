@@ -1,0 +1,19 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:uikit="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.DropdownButtonLoading">
+  <Panel MinHeight="150">
+    <SplitButton Classes="primary" uikit:Buttons.IsLoading="True" HorizontalAlignment="Left" VerticalAlignment="Top">
+      <StackPanel Orientation="Horizontal" Spacing="8">
+        <PathIcon Data="{StaticResource UIKit.Icon.Check}" />
+        <TextBlock Text="Deploy" VerticalAlignment="Center" />
+      </StackPanel>
+      <SplitButton.Flyout>
+        <MenuFlyout Placement="BottomEdgeAlignedRight">
+          <MenuItem Header="Cancel deploy" />
+          <MenuItem Header="View logs" />
+        </MenuFlyout>
+      </SplitButton.Flyout>
+    </SplitButton>
+  </Panel>
+</UserControl>
