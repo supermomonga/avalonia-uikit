@@ -15,7 +15,8 @@
   (12px above and below it) with the muted "Time" and a time field. Sizes:
   xsmall small large (medium is the default); the popup's calendar and time
   field take the field's size. Disabled, the field fades to half without the
-  icon. plain (GPUI's appearance(false)) drops the frame and the focus ring.
+  icon; an error turns the border danger. plain (GPUI's appearance(false))
+  drops the frame and the focus ring.
 -->
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -171,6 +172,10 @@
     </Style>
     <Style Selector="^:focus-within /template/ Border#PART_FocusRing, ^:open /template/ Border#PART_FocusRing">
       <Setter Property="IsVisible" Value="True" />
+    </Style>
+    <!-- After focus: an invalid field (DataValidationErrors) keeps the danger border, as an invalid Input does. -->
+    <Style Selector="^:error">
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Danger}" />
     </Style>
 
     <!-- input_style(disabled): the disabled input background, muted text, all at half, no icon. -->

@@ -571,6 +571,18 @@ public class DatesBehaviorTests
         await Assert.That(field.IsDropDownOpen).IsFalse();
     }
 
+    [Test]
+    public async Task An_invalid_field_has_the_danger_border()
+    {
+        var (host, field, _) = Picker();
+        using var _h = host;
+        DataValidationErrors.SetError(field, new Exception("invalid"));
+        host.Flush();
+        var border = (Avalonia.Media.ISolidColorBrush)host.Part<Border>("PART_Frame").BorderBrush!;
+        var danger = (Avalonia.Media.ISolidColorBrush)host.Window.FindResource("UIKit.Danger")!;
+        await Assert.That(border.Color).IsEqualTo(danger.Color);
+    }
+
     // date_picker.rs display_format: "%Y/%m/%d", with the edited time in its precision and clock.
     [Test]
     [Arguments(null, HourCycle.H23, null, "2025/03/14")]
