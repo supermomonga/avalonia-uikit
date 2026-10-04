@@ -81,6 +81,21 @@ In the documentation site only: `sites/components/ui/`, `sites/styles/shadcn/`
 and `sites/public/shadcn/`. The library follows the Nova style of shadcn/ui
 through GPUI Kit's design; it contains no shadcn/ui code.
 
+## Dock.Avalonia
+
+- Source: <https://github.com/wieslawsoltes/Dock>, release `v12.1.0.6`
+- Copyright (c) Wiesław Šoltés
+- License: MIT License (full text below)
+
+In the `AvaloniaUIKit.Dock` package: the control templates
+(`src/AvaloniaUIKit.Dock/Themes/Controls/`) are based on those of
+Dock.Avalonia.Themes.Fluent and Dock.Controls.ProportionalStackPanel, restyled
+with GPUI Kit's look, and the menu and window strings
+(`src/AvaloniaUIKit.Dock/Themes/ControlStrings.axaml`) and the layout metrics
+(`src/AvaloniaUIKit.Dock/Themes/Metrics.axaml`) are copied from
+Dock.Avalonia.Themes.Fluent. The package references Dock.Avalonia; it does not
+include Dock's code.
+
 ## License texts
 
 ### Apache License 2.0 (GPUI Kit, GPUI)
@@ -262,6 +277,32 @@ TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
    of your accepting any such warranty or additional liability.
 
 END OF TERMS AND CONDITIONS
+```
+
+### Dock.Avalonia: MIT License
+
+```text
+The MIT License (MIT)
+
+Copyright (c) Wiesław Šoltés
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 ```
 
 ### Lucide: ISC License, and MIT License for the icons derived from Feather

@@ -1,0 +1,127 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=netstandard"
+                    xmlns:core="using:Dock.Model.Core">
+
+
+    <sys:Double x:Key="DockFontSizeNormal">12</sys:Double>
+
+    <!-- Semantic token aliases shared across theme variants/presets -->
+
+
+
+
+
+    <sys:Double x:Key="DockCornerRadiusSmall">0</sys:Double>
+    <sys:Double x:Key="DockHeaderHeight">26</sys:Double>
+    <sys:Double x:Key="DockTabHeight">30</sys:Double>
+    <sys:Double x:Key="DockTabHorizontalPadding">10</sys:Double>
+    <sys:Double x:Key="DockIconSizeSmall">12</sys:Double>
+    <sys:Double x:Key="DockIconSizeNormal">14</sys:Double>
+
+    <sys:Double x:Key="DockTabItemMinHeight">24</sys:Double>
+    <sys:Double x:Key="DockDocumentTabItemMinHeight">24</sys:Double>
+    <sys:Double x:Key="DockDocumentTabItemMinWidth">64</sys:Double>
+    <sys:Double x:Key="DockToolTabItemMinHeight">0</sys:Double>
+    <sys:Double x:Key="DockDocumentTabStripMinHeight">0</sys:Double>
+    <sys:Double x:Key="DockDocumentTabStripLeadingSpacerWidth">0</sys:Double>
+    <sys:Double x:Key="DockDocumentTabItemSeparatorOpacity">0</sys:Double>
+    <Thickness x:Key="DockDocumentTabItemMargin">0</Thickness>
+    <Thickness x:Key="DockDocumentTabItemPadding">4,0,4,0</Thickness>
+    <CornerRadius x:Key="DockDocumentTabItemCornerRadius">0</CornerRadius>
+    <CornerRadius x:Key="DockDocumentTabCreateButtonCornerRadius">0</CornerRadius>
+    <Thickness x:Key="DockToolTabItemPadding">4,1,4,0</Thickness>
+    <Thickness x:Key="DockToolTabItemSelectedPadding">4,2,4,0</Thickness>
+    <sys:Double x:Key="DockCreateButtonWidth">26</sys:Double>
+    <sys:Double x:Key="DockCreateButtonHeight">24</sys:Double>
+    <sys:Double x:Key="DockCloseButtonSize">14</sys:Double>
+    <sys:Double x:Key="DockChromeButtonWidth">18</sys:Double>
+    <sys:Double x:Key="DockChromeButtonHeight">16</sys:Double>
+    <Thickness x:Key="DockChromeButtonPadding">3</Thickness>
+    <Thickness x:Key="DockChromeButtonMargin">2,0,0,0</Thickness>
+    <sys:Double x:Key="DockMdiTitleIconSize">12</sys:Double>
+    <Thickness x:Key="DockMdiHeaderDragPadding">6,4</Thickness>
+    <Thickness x:Key="DockHeaderContentPadding">2</Thickness>
+    <Thickness x:Key="DockModifiedIndicatorMargin">0,0,2,0</Thickness>
+    <sys:Double x:Key="DockTabContentSpacing">2</sys:Double>
+    <sys:Double x:Key="DockDocumentTabHeaderContentSpacing">0</sys:Double>
+    <Thickness x:Key="DockTabContentMargin">2</Thickness>
+    <Thickness x:Key="DockCreateButtonIconMargin">5</Thickness>
+    <Thickness x:Key="DockDocumentTabStripHorizontalCreateButtonMargin">0</Thickness>
+    <Thickness x:Key="DockDocumentTabStripHorizontalScrollViewerMargin">0</Thickness>
+    <Thickness x:Key="DockDocumentTabStripHorizontalScrollViewerPadding">0</Thickness>
+    <Thickness x:Key="DockToolChromeHeaderMargin">8,0</Thickness>
+    <Thickness x:Key="DockToolChromeTitleMargin">0,4,8,4</Thickness>
+    <Thickness x:Key="DockToolChromeMenuIconMargin">2</Thickness>
+    <sys:Double x:Key="DockToolChromeDividerThickness">1</sys:Double>
+    <sys:Double x:Key="DockChromeGripHeight">5</sys:Double>
+    <Thickness x:Key="DockChromeGripMargin">0,0,2,0</Thickness>
+    <sys:Double x:Key="DockMdiHeaderColumnSpacing">4</sys:Double>
+    <sys:Double x:Key="DockMdiButtonStripSpacing">2</sys:Double>
+    <Thickness x:Key="DockMdiButtonStripMargin">2,0</Thickness>
+    <sys:Double x:Key="DockMdiResizeEdgeThickness">4</sys:Double>
+    <sys:Double x:Key="DockMdiResizeCornerSize">6</sys:Double>
+    <sys:Double x:Key="DockTargetSelectorSize">40</sys:Double>
+    <sys:Double x:Key="DockTargetSelectorGridMaxSize">125</sys:Double>
+    <CornerRadius x:Key="DockSelectorOverlayCornerRadius">6</CornerRadius>
+    <Thickness x:Key="DockSelectorOverlayPadding">12</Thickness>
+    <sys:Double x:Key="DockSelectorOverlayMinWidth">280</sys:Double>
+    <sys:Double x:Key="DockSelectorOverlayMaxWidth">520</sys:Double>
+    <sys:Double x:Key="DockSelectorOverlaySpacing">8</sys:Double>
+    <sys:Double x:Key="DockSelectorOverlayListMinHeight">120</sys:Double>
+    <sys:Double x:Key="DockSelectorOverlayListMaxHeight">320</sys:Double>
+    <Thickness x:Key="DockSelectorOverlayItemPadding">6</Thickness>
+    <CornerRadius x:Key="DockSelectorOverlayItemCornerRadius">4</CornerRadius>
+    <sys:Double x:Key="DockSelectorOverlayBadgeSpacing">4</sys:Double>
+    <Thickness x:Key="DockSelectorOverlayBadgeMargin">8,0,0,0</Thickness>
+    <CornerRadius x:Key="DockSelectorOverlayBadgeCornerRadius">3</CornerRadius>
+    <Thickness x:Key="DockSelectorOverlayBadgePadding">4,1</Thickness>
+    <sys:Double x:Key="DockSelectorOverlayBadgeFontSize">10</sys:Double>
+    <Thickness x:Key="DockCommandBarPadding">4,2</Thickness>
+    <sys:Double x:Key="DockCommandBarSpacing">4</sys:Double>
+    <CornerRadius x:Key="DockDragPreviewCornerRadius">4</CornerRadius>
+    <Thickness x:Key="DockDragPreviewHeaderPadding">4</Thickness>
+    <sys:Double x:Key="DockDragPreviewHeaderSpacing">4</sys:Double>
+    <sys:Double x:Key="DockDragPreviewStatusSpacing">2</sys:Double>
+    <sys:Double x:Key="DockDragPreviewStatusIconSize">10</sys:Double>
+    <sys:Double x:Key="DockHostTitleBarMouseTrackerHeight">1</sys:Double>
+    <Thickness x:Key="DockOverlayReloadButtonMargin">16</Thickness>
+    <CornerRadius x:Key="DockOverlayCardCornerRadius">8</CornerRadius>
+    <Thickness x:Key="DockOverlayCardPadding">24</Thickness>
+    <sys:Double x:Key="DockOverlayCardSpacing">8</sys:Double>
+    <sys:Double x:Key="DockOverlayMessageFontSize">14</sys:Double>
+    <sys:Double x:Key="DockOverlayProgressWidth">200</sys:Double>
+    <sys:Double x:Key="DockOverlayProgressHeight">6</sys:Double>
+    <CornerRadius x:Key="DockDialogCornerRadius">10</CornerRadius>
+    <Thickness x:Key="DockDialogPadding">20</Thickness>
+    <sys:Double x:Key="DockDialogMinWidth">360</sys:Double>
+    <sys:Double x:Key="DockDialogMaxWidth">640</sys:Double>
+    <sys:Double x:Key="DockDialogSpacing">12</sys:Double>
+    <sys:Double x:Key="DockDialogTitleFontSize">16</sys:Double>
+    <sys:Double x:Key="DockDialogCloseButtonSize">28</sys:Double>
+    <Thickness x:Key="DockConfirmationDialogPadding">24</Thickness>
+    <sys:Double x:Key="DockConfirmationDialogMaxWidth">480</sys:Double>
+    <sys:Double x:Key="DockConfirmationDialogStackSpacing">12</sys:Double>
+    <sys:Double x:Key="DockConfirmationDialogActionsSpacing">8</sys:Double>
+
+    <!-- Brushes used by ToolChromeControl icons and grip -->
+
+    <!-- Geometry resources for tool icons -->
+    <sys:Double x:Key="DockDragPreviewFontSize">10</sys:Double>
+    <Dock x:Key="DockDocumentTabStripHorizontalCreateButtonDock">Right</Dock>
+    <HorizontalAlignment x:Key="DockDocumentTabStripHorizontalCreateButtonAlignment">Right</HorizontalAlignment>
+    <core:DockOperation x:Key="DockDocumentControlIndicatorDockOperation">Fill</core:DockOperation>
+    <x:Boolean x:Key="DockDocumentTabStripHideWhenEmpty">True</x:Boolean>
+    <x:Boolean x:Key="DockDocumentTabStripToggleWindowStateOnDoubleTap">False</x:Boolean>
+    <x:Boolean x:Key="DockDocumentControlTabStripVisible">True</x:Boolean>
+    <x:Boolean x:Key="DockDocumentControlShowDockIndicatorOnly">False</x:Boolean>
+    <x:Boolean x:Key="DockDocumentTabStripSeparatorVisible">True</x:Boolean>
+    <sys:Double x:Key="DockDocumentControlVerticalSpacing">0</sys:Double>
+    <sys:Double x:Key="DockDocumentTabStripSeparatorSize">2</sys:Double>
+    <Thickness x:Key="DockDocumentContentBorderThickness">1,1,1,1</Thickness>
+    <ItemsPanelTemplate x:Key="DockDocumentTabStripHorizontalItemsPanel">
+      <StackPanel Orientation="Horizontal" ClipToBounds="False" />
+    </ItemsPanelTemplate>
+
+    <x:Double x:Key="ScrollBarButtonArrowIconFontSize">12</x:Double>
+</ResourceDictionary>
