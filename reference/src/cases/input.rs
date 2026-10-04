@@ -30,6 +30,8 @@ pub fn builder(params: &Params) -> Result<Builder> {
     let prefix = icon(param_str(params, "prefix", ""));
     let suffix = icon(param_str(params, "suffix", ""));
     let width = param_f32(params, "width", 200.);
+    // input.rs cleanable: a clear button after the text while it is editable and not empty.
+    let cleanable = param_bool(params, "cleanable");
     Ok(Rc::new(move |view, window, cx| {
         if view.state.entity.is_none() {
             let (value, placeholder) = (value.clone(), placeholder.clone());
@@ -64,6 +66,9 @@ pub fn builder(params: &Params) -> Result<Builder> {
         }
         if mask_toggle {
             input = input.mask_toggle();
+        }
+        if cleanable {
+            input = input.cleanable(true);
         }
         input.into_any_element()
     }))

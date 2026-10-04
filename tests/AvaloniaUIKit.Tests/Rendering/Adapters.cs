@@ -50,7 +50,7 @@ public static partial class Adapters
         "scroll" => Scroll(c),
         "icon" => IconCase(c),
         "label" => LabelCase(c),
-        "input" => Input(c),
+        "input" => InputFeatures(Input(c), c),
         "textarea" => Textarea(c),
         "input-group" => InputGroup(c),
         "input-group-loading" => LoadingInputGroup(c),

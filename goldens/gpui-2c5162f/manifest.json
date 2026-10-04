@@ -69423,6 +69423,1096 @@
       "png_sha256": "bf8e84078dc4a5594912debe17d1da8390763cd64ee03424a2c2ab0c95005e81"
     },
     {
+      "id": "input/cleanable-empty.base/normal/dark",
+      "component": "input",
+      "group": "cleanable-empty",
+      "params": {
+        "placeholder": "Enter your name...",
+        "cleanable": true,
+        "width": 200
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        68.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/input/cleanable-empty.base/normal/dark.png",
+      "scene": "scenes/input/cleanable-empty.base/normal/dark.json",
+      "png_sha256": "2f5e43b16c2df58706c3fc0c14bcb13872b6442a2ccc2ab9a78169f06b59672f"
+    },
+    {
+      "id": "input/cleanable-empty.base/normal/light",
+      "component": "input",
+      "group": "cleanable-empty",
+      "params": {
+        "placeholder": "Enter your name...",
+        "cleanable": true,
+        "width": 200
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        68.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/input/cleanable-empty.base/normal/light.png",
+      "scene": "scenes/input/cleanable-empty.base/normal/light.json",
+      "png_sha256": "3105f0344207409fcb9b30e6674c83f6716b4b30df06f3545b0dcdd196d8a520"
+    },
+    {
+      "id": "input/cleanable-pointer.base/at-199-28/dark",
+      "component": "input",
+      "group": "cleanable-pointer",
+      "params": {
+        "value": "Hello",
+        "cleanable": true,
+        "width": 200
+      },
+      "state": "at-199-28",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        68.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/input/cleanable-pointer.base/at-199-28/dark.png",
+      "scene": "scenes/input/cleanable-pointer.base/at-199-28/dark.json",
+      "png_sha256": "f517bf5fca734c9ff04541282c885bca191fb4d41ff152454f276e53d7e2726c"
+    },
+    {
+      "id": "input/cleanable-pointer.base/at-199-28/light",
+      "component": "input",
+      "group": "cleanable-pointer",
+      "params": {
+        "value": "Hello",
+        "cleanable": true,
+        "width": 200
+      },
+      "state": "at-199-28",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        68.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/input/cleanable-pointer.base/at-199-28/light.png",
+      "scene": "scenes/input/cleanable-pointer.base/at-199-28/light.json",
+      "png_sha256": "30d29b409e7b97ca053073a72047b92738841c15768a1eefe8f6647ff3dcc6b9"
+    },
+    {
+      "id": "input/cleanable-pointer.base/click-at-199-28/dark",
+      "component": "input",
+      "group": "cleanable-pointer",
+      "params": {
+        "value": "Hello",
+        "cleanable": true,
+        "width": 200
+      },
+      "state": "click-at-199-28",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        68.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/input/cleanable-pointer.base/click-at-199-28/dark.png",
+      "scene": "scenes/input/cleanable-pointer.base/click-at-199-28/dark.json",
+      "png_sha256": "e02f2ffb5bbf82c77f0037c9ffb4800c3ee144324d9257c673c240585ca1f879"
+    },
+    {
+      "id": "input/cleanable-pointer.base/click-at-199-28/light",
+      "component": "input",
+      "group": "cleanable-pointer",
+      "params": {
+        "value": "Hello",
+        "cleanable": true,
+        "width": 200
+      },
+      "state": "click-at-199-28",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        68.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/input/cleanable-pointer.base/click-at-199-28/light.png",
+      "scene": "scenes/input/cleanable-pointer.base/click-at-199-28/light.json",
+      "png_sha256": "334e2dcdaa5e34c3f126d293c703f0d9c1e99aac816d1c2ee5da3e18e0859626"
+    },
+    {
+      "id": "input/cleanable-readonly.base/normal/dark",
+      "component": "input",
+      "group": "cleanable-readonly",
+      "params": {
+        "value": "Read only",
+        "readonly": true,
+        "cleanable": true,
+        "width": 200
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        68.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/input/cleanable-readonly.base/normal/dark.png",
+      "scene": "scenes/input/cleanable-readonly.base/normal/dark.json",
+      "png_sha256": "fb3afadce28355e0f45f13ceadc2d652eb212929d842f611d0df42c5223010ef"
+    },
+    {
+      "id": "input/cleanable-readonly.base/normal/light",
+      "component": "input",
+      "group": "cleanable-readonly",
+      "params": {
+        "value": "Read only",
+        "readonly": true,
+        "cleanable": true,
+        "width": 200
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        68.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/input/cleanable-readonly.base/normal/light.png",
+      "scene": "scenes/input/cleanable-readonly.base/normal/light.json",
+      "png_sha256": "bbb76773a47979ed4054e4d16b820aec353c6a4502c1a83c372eaaa6228df5af"
+    },
+    {
+      "id": "input/cleanable-suffix.base/focus/dark",
+      "component": "input",
+      "group": "cleanable-suffix",
+      "params": {
+        "value": "password123",
+        "masked": true,
+        "mask_toggle": true,
+        "cleanable": true,
+        "suffix": "info",
+        "width": 200
+      },
+      "state": "focus",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        68.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/input/cleanable-suffix.base/focus/dark.png",
+      "scene": "scenes/input/cleanable-suffix.base/focus/dark.json",
+      "png_sha256": "872b4c3a69670135d9f17a5754eca4c9a92cccaaf11b055a2d95c9a5bd27faae"
+    },
+    {
+      "id": "input/cleanable-suffix.base/focus/light",
+      "component": "input",
+      "group": "cleanable-suffix",
+      "params": {
+        "value": "password123",
+        "masked": true,
+        "mask_toggle": true,
+        "cleanable": true,
+        "suffix": "info",
+        "width": 200
+      },
+      "state": "focus",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        68.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/input/cleanable-suffix.base/focus/light.png",
+      "scene": "scenes/input/cleanable-suffix.base/focus/light.json",
+      "png_sha256": "df7ac67c4e4c4b3adbc15d04e392e78a305b2fc8cc8897c4b50d05d89a93611f"
+    },
+    {
+      "id": "input/cleanable-suffix.base/normal/dark",
+      "component": "input",
+      "group": "cleanable-suffix",
+      "params": {
+        "value": "password123",
+        "masked": true,
+        "mask_toggle": true,
+        "cleanable": true,
+        "suffix": "info",
+        "width": 200
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        68.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/input/cleanable-suffix.base/normal/dark.png",
+      "scene": "scenes/input/cleanable-suffix.base/normal/dark.json",
+      "png_sha256": "bb3f8cb355b11ef012c77e8a6bcd63bfc146245cab4f5ca34e8ca3f4d2e4042e"
+    },
+    {
+      "id": "input/cleanable-suffix.base/normal/light",
+      "component": "input",
+      "group": "cleanable-suffix",
+      "params": {
+        "value": "password123",
+        "masked": true,
+        "mask_toggle": true,
+        "cleanable": true,
+        "suffix": "info",
+        "width": 200
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        68.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/input/cleanable-suffix.base/normal/light.png",
+      "scene": "scenes/input/cleanable-suffix.base/normal/light.json",
+      "png_sha256": "2567d7e557bd97ffc7b86de4841ae7cb3b54a883665d1dfb54ae32a4d21e3429"
+    },
+    {
+      "id": "input/cleanable.large/disabled/dark",
+      "component": "input",
+      "group": "cleanable",
+      "params": {
+        "value": "Hello",
+        "cleanable": true,
+        "width": 200,
+        "size": "large",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        68.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        200.0,
+        44.0
+      ],
+      "png": "png/input/cleanable.large/disabled/dark.png",
+      "scene": "scenes/input/cleanable.large/disabled/dark.json",
+      "png_sha256": "18951588d7b73daa3038f76b8326f5b66e0ee4d0df93b177b62a063438542aaa"
+    },
+    {
+      "id": "input/cleanable.large/disabled/light",
+      "component": "input",
+      "group": "cleanable",
+      "params": {
+        "value": "Hello",
+        "cleanable": true,
+        "width": 200,
+        "size": "large",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        68.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        200.0,
+        44.0
+      ],
+      "png": "png/input/cleanable.large/disabled/light.png",
+      "scene": "scenes/input/cleanable.large/disabled/light.json",
+      "png_sha256": "3d708f0d7a846bbffdf7eda31cdb7ae9fb1b5e147a9506b8431bfd3f8546cca8"
+    },
+    {
+      "id": "input/cleanable.large/focus/dark",
+      "component": "input",
+      "group": "cleanable",
+      "params": {
+        "value": "Hello",
+        "cleanable": true,
+        "width": 200,
+        "size": "large"
+      },
+      "state": "focus",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        68.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        200.0,
+        44.0
+      ],
+      "png": "png/input/cleanable.large/focus/dark.png",
+      "scene": "scenes/input/cleanable.large/focus/dark.json",
+      "png_sha256": "88a7a9cba61bc8a55811806c85004ee3d816e2f1cbdf8e8c5903cbb479baddff"
+    },
+    {
+      "id": "input/cleanable.large/focus/light",
+      "component": "input",
+      "group": "cleanable",
+      "params": {
+        "value": "Hello",
+        "cleanable": true,
+        "width": 200,
+        "size": "large"
+      },
+      "state": "focus",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        68.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        200.0,
+        44.0
+      ],
+      "png": "png/input/cleanable.large/focus/light.png",
+      "scene": "scenes/input/cleanable.large/focus/light.json",
+      "png_sha256": "028894294bd201cb1a7e16f3681eac2bc6d107d0a0aaf177973657544014637d"
+    },
+    {
+      "id": "input/cleanable.large/normal/dark",
+      "component": "input",
+      "group": "cleanable",
+      "params": {
+        "value": "Hello",
+        "cleanable": true,
+        "width": 200,
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        68.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        200.0,
+        44.0
+      ],
+      "png": "png/input/cleanable.large/normal/dark.png",
+      "scene": "scenes/input/cleanable.large/normal/dark.json",
+      "png_sha256": "18dffa537daaa1483102dfafe82e2e621cd0d79d7bb5fdb2df5f3c9d59b47aef"
+    },
+    {
+      "id": "input/cleanable.large/normal/light",
+      "component": "input",
+      "group": "cleanable",
+      "params": {
+        "value": "Hello",
+        "cleanable": true,
+        "width": 200,
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        68.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        200.0,
+        44.0
+      ],
+      "png": "png/input/cleanable.large/normal/light.png",
+      "scene": "scenes/input/cleanable.large/normal/light.json",
+      "png_sha256": "8a892f3fd0b5aea56980c96462de4973631f19ab888aff9a593b545395ffe9c6"
+    },
+    {
+      "id": "input/cleanable.medium/disabled/dark",
+      "component": "input",
+      "group": "cleanable",
+      "params": {
+        "value": "Hello",
+        "cleanable": true,
+        "width": 200,
+        "size": "medium",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        68.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/input/cleanable.medium/disabled/dark.png",
+      "scene": "scenes/input/cleanable.medium/disabled/dark.json",
+      "png_sha256": "595829cd4ed671e1f16475ef53c72f2868abf6995538303d5812f5e255180f1e"
+    },
+    {
+      "id": "input/cleanable.medium/disabled/light",
+      "component": "input",
+      "group": "cleanable",
+      "params": {
+        "value": "Hello",
+        "cleanable": true,
+        "width": 200,
+        "size": "medium",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        68.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/input/cleanable.medium/disabled/light.png",
+      "scene": "scenes/input/cleanable.medium/disabled/light.json",
+      "png_sha256": "b19c96264586e457108b449e2cf3a1dee8c41f83e7d17360d66e5c24f27266d2"
+    },
+    {
+      "id": "input/cleanable.medium/focus/dark",
+      "component": "input",
+      "group": "cleanable",
+      "params": {
+        "value": "Hello",
+        "cleanable": true,
+        "width": 200,
+        "size": "medium"
+      },
+      "state": "focus",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        68.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/input/cleanable.medium/focus/dark.png",
+      "scene": "scenes/input/cleanable.medium/focus/dark.json",
+      "png_sha256": "714c225a968876632ec943e7f597c5b3ce597acdc93534aa2aed6568fb61d9f5"
+    },
+    {
+      "id": "input/cleanable.medium/focus/light",
+      "component": "input",
+      "group": "cleanable",
+      "params": {
+        "value": "Hello",
+        "cleanable": true,
+        "width": 200,
+        "size": "medium"
+      },
+      "state": "focus",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        68.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/input/cleanable.medium/focus/light.png",
+      "scene": "scenes/input/cleanable.medium/focus/light.json",
+      "png_sha256": "ed2cf422b45198af764c7241163394575a989b61ecb7ab75ebac507d0d9cf104"
+    },
+    {
+      "id": "input/cleanable.medium/normal/dark",
+      "component": "input",
+      "group": "cleanable",
+      "params": {
+        "value": "Hello",
+        "cleanable": true,
+        "width": 200,
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        68.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/input/cleanable.medium/normal/dark.png",
+      "scene": "scenes/input/cleanable.medium/normal/dark.json",
+      "png_sha256": "539f71b2bf5159100e5ac6b17757909417af9f76bfe3175662bd0cce0ffe413e"
+    },
+    {
+      "id": "input/cleanable.medium/normal/light",
+      "component": "input",
+      "group": "cleanable",
+      "params": {
+        "value": "Hello",
+        "cleanable": true,
+        "width": 200,
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        68.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/input/cleanable.medium/normal/light.png",
+      "scene": "scenes/input/cleanable.medium/normal/light.json",
+      "png_sha256": "e49c7499238aeb832c810ba23d6842b979d8d5c921083e396d4ae9518d49ca08"
+    },
+    {
+      "id": "input/cleanable.small/disabled/dark",
+      "component": "input",
+      "group": "cleanable",
+      "params": {
+        "value": "Hello",
+        "cleanable": true,
+        "width": 200,
+        "size": "small",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        68.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/input/cleanable.small/disabled/dark.png",
+      "scene": "scenes/input/cleanable.small/disabled/dark.json",
+      "png_sha256": "a89cacf59192196e34435a21383cabeab68779cdb07ca1820d9b09056de96d94"
+    },
+    {
+      "id": "input/cleanable.small/disabled/light",
+      "component": "input",
+      "group": "cleanable",
+      "params": {
+        "value": "Hello",
+        "cleanable": true,
+        "width": 200,
+        "size": "small",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        68.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/input/cleanable.small/disabled/light.png",
+      "scene": "scenes/input/cleanable.small/disabled/light.json",
+      "png_sha256": "d64dc32a488ebabd600441063ecbe9078b0b35473ff40c462e8cbd35916f2381"
+    },
+    {
+      "id": "input/cleanable.small/focus/dark",
+      "component": "input",
+      "group": "cleanable",
+      "params": {
+        "value": "Hello",
+        "cleanable": true,
+        "width": 200,
+        "size": "small"
+      },
+      "state": "focus",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        68.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/input/cleanable.small/focus/dark.png",
+      "scene": "scenes/input/cleanable.small/focus/dark.json",
+      "png_sha256": "4377301f975b5729ae70bb0300d6aad89d847927a2ea551cdc77451f91b84641"
+    },
+    {
+      "id": "input/cleanable.small/focus/light",
+      "component": "input",
+      "group": "cleanable",
+      "params": {
+        "value": "Hello",
+        "cleanable": true,
+        "width": 200,
+        "size": "small"
+      },
+      "state": "focus",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        68.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/input/cleanable.small/focus/light.png",
+      "scene": "scenes/input/cleanable.small/focus/light.json",
+      "png_sha256": "ee7c61be01c0efcce3092e46546467d9eae569e7464ab7a9f906fb3de5295a73"
+    },
+    {
+      "id": "input/cleanable.small/normal/dark",
+      "component": "input",
+      "group": "cleanable",
+      "params": {
+        "value": "Hello",
+        "cleanable": true,
+        "width": 200,
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        68.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/input/cleanable.small/normal/dark.png",
+      "scene": "scenes/input/cleanable.small/normal/dark.json",
+      "png_sha256": "41575385d4306db69455d087247763ef069b2162abb79f49ff2a81098fb8482d"
+    },
+    {
+      "id": "input/cleanable.small/normal/light",
+      "component": "input",
+      "group": "cleanable",
+      "params": {
+        "value": "Hello",
+        "cleanable": true,
+        "width": 200,
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        68.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/input/cleanable.small/normal/light.png",
+      "scene": "scenes/input/cleanable.small/normal/light.json",
+      "png_sha256": "305f54f71d7f9e2de7c28fb6c266942aebb35fc554823858de502ba5d0e15e91"
+    },
+    {
+      "id": "input/cleanable.xsmall/disabled/dark",
+      "component": "input",
+      "group": "cleanable",
+      "params": {
+        "value": "Hello",
+        "cleanable": true,
+        "width": 200,
+        "size": "xsmall",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        68.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        200.0,
+        20.0
+      ],
+      "png": "png/input/cleanable.xsmall/disabled/dark.png",
+      "scene": "scenes/input/cleanable.xsmall/disabled/dark.json",
+      "png_sha256": "5239067a78ff648cffa44283ad4626a52dd037ae51b1efcb2ff6064467cef7d6"
+    },
+    {
+      "id": "input/cleanable.xsmall/disabled/light",
+      "component": "input",
+      "group": "cleanable",
+      "params": {
+        "value": "Hello",
+        "cleanable": true,
+        "width": 200,
+        "size": "xsmall",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        68.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        200.0,
+        20.0
+      ],
+      "png": "png/input/cleanable.xsmall/disabled/light.png",
+      "scene": "scenes/input/cleanable.xsmall/disabled/light.json",
+      "png_sha256": "0c9467483bec495c10e38a4479b910699e01e51016604fc2ef0cf7c9778359b5"
+    },
+    {
+      "id": "input/cleanable.xsmall/focus/dark",
+      "component": "input",
+      "group": "cleanable",
+      "params": {
+        "value": "Hello",
+        "cleanable": true,
+        "width": 200,
+        "size": "xsmall"
+      },
+      "state": "focus",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        68.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        200.0,
+        20.0
+      ],
+      "png": "png/input/cleanable.xsmall/focus/dark.png",
+      "scene": "scenes/input/cleanable.xsmall/focus/dark.json",
+      "png_sha256": "05a78505079ae16716a42c069c4d6d9cde327770afb67d02dd9b10a74c2396c6"
+    },
+    {
+      "id": "input/cleanable.xsmall/focus/light",
+      "component": "input",
+      "group": "cleanable",
+      "params": {
+        "value": "Hello",
+        "cleanable": true,
+        "width": 200,
+        "size": "xsmall"
+      },
+      "state": "focus",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        68.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        200.0,
+        20.0
+      ],
+      "png": "png/input/cleanable.xsmall/focus/light.png",
+      "scene": "scenes/input/cleanable.xsmall/focus/light.json",
+      "png_sha256": "909c4d2f13371a80f84cb43605717383c1d358c1c0538ed36049665bc40988f2"
+    },
+    {
+      "id": "input/cleanable.xsmall/normal/dark",
+      "component": "input",
+      "group": "cleanable",
+      "params": {
+        "value": "Hello",
+        "cleanable": true,
+        "width": 200,
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        68.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        200.0,
+        20.0
+      ],
+      "png": "png/input/cleanable.xsmall/normal/dark.png",
+      "scene": "scenes/input/cleanable.xsmall/normal/dark.json",
+      "png_sha256": "49eb8d344743596e6e75d3b3f0201bc39f29037a33b233e057d992d5a80f7d0c"
+    },
+    {
+      "id": "input/cleanable.xsmall/normal/light",
+      "component": "input",
+      "group": "cleanable",
+      "params": {
+        "value": "Hello",
+        "cleanable": true,
+        "width": 200,
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        68.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        200.0,
+        20.0
+      ],
+      "png": "png/input/cleanable.xsmall/normal/light.png",
+      "scene": "scenes/input/cleanable.xsmall/normal/light.json",
+      "png_sha256": "459c79a578870126fb6844910605bb3b27fb616021cda19d8d83a87e985c339f"
+    },
+    {
       "id": "input/hover.base/hover/dark",
       "component": "input",
       "group": "hover",

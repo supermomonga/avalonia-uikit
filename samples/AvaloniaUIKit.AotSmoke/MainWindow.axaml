@@ -344,6 +344,7 @@
         <StackPanel Spacing="12" HorizontalAlignment="Left" Width="320">
           <TextBox PlaceholderText="Your name" />
           <TextBox Classes="revealPasswordButton" PasswordChar="•" Text="secret" />
+          <TextBox Classes="clearButton" Text="Clear me" />
           <TextBox AcceptsReturn="True" MinLines="3" Text="Multi-line" />
           <TextBox Classes="group" PlaceholderText="Search" />
         </StackPanel>

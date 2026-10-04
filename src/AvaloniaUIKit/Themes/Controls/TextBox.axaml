@@ -1,14 +1,17 @@
 <!--
   GPUI Kit Input (crates/component/src/input/input.rs) -> TextBox (MaskedTextBox
   shares the theme). Classes: xsmall small large (medium is the default);
-  revealPasswordButton (GPUI's mask_toggle: an eye button that shows the text).
+  revealPasswordButton (GPUI's mask_toggle: an eye button that shows the text);
+  clearButton (GPUI's cleanable: an x button that clears the text, shown while
+  the single-line text is editable and not empty).
 
   The frame: input_h (20/24/32/44), the theme radius, the input background and a
   1px `input` border that turns to `ring`, with the ring band, while the field or
   anything in it has focus (GPUI makes no pointer/keyboard distinction). The
   text sits on a 20px line centered in the frame, input_px from the border.
   InnerLeftContent / InnerRightContent are GPUI's prefix and suffix, a size's gap
-  (6/4/6/8) from the text. No hover look. A disabled field fills with the
+  (6/4/6/8) from the text. After the text come, a gap apart, GPUI's mask toggle,
+  clear button and suffix, in that order. No hover look. A disabled field fills with the
   disabled background and draws its text, placeholder and inner content at half
   strength. GPUI shows a selection only while focused, so an unfocused TextBox
   hides it (IsInactiveSelectionHighlightEnabled=False). Apps mask a password
@@ -46,6 +49,32 @@
     </Style>
     <Style Selector="^:checked /template/ PathIcon#PART_Revealed">
       <Setter Property="IsVisible" Value="True" />
+    </Style>
+  </ControlTheme>
+
+  <!-- clear_button (input/clear_button.rs): Button::text().xsmall() with the Close icon, no tab stop. -->
+  <ControlTheme x:Key="UIKitClearButton" TargetType="Button">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Text.Normal.Foreground}" />
+    <Setter Property="Padding" Value="0" />
+    <Setter Property="Focusable" Value="False" />
+    <Setter Property="Cursor" Value="Hand" />
+    <Setter Property="VerticalAlignment" Value="Center" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Background="{TemplateBinding Background}" CornerRadius="6">
+          <PathIcon Classes="xsmall" Data="{StaticResource UIKit.Icon.Close}" Foreground="{TemplateBinding Foreground}" />
+        </Border>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^:pointerover">
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Text.Hover.Foreground}" />
+    </Style>
+    <Style Selector="^:pressed">
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Text.Pressed.Foreground}" />
+    </Style>
+    <Style Selector="^:disabled">
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Text.Disabled.Foreground}" />
     </Style>
   </ControlTheme>
 
@@ -156,7 +185,7 @@
           <Border Name="PART_FocusRing" Margin="-3" BorderThickness="3" CornerRadius="7.5"
                   BorderBrush="{DynamicResource UIKit.FocusRing}" IsVisible="False" IsHitTestVisible="False" />
           <Border Name="PART_ContentBorder" Margin="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}">
-            <Grid ColumnDefinitions="Auto,*,Auto">
+            <Grid ColumnDefinitions="Auto,*,Auto,Auto,Auto">
               <ContentPresenter Name="PART_InnerLeftContent" Grid.Column="0" Margin="0,0,6,0"
                                 VerticalAlignment="Center"
                                 VerticalContentAlignment="Center"
@@ -203,7 +232,16 @@
                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
                 </Panel>
               </ScrollViewer>
-              <ContentPresenter Name="PART_InnerRightContent" Grid.Column="2" Margin="6,0,0,0"
+              <!-- input.rs: the suffix row, a gap apart: mask toggle, clear button, the app's suffix. -->
+              <ToggleButton Name="PART_RevealButton" Grid.Column="2" Margin="6,0,0,0"
+                            Theme="{StaticResource UIKitRevealPasswordToggle}"
+                            IsChecked="{TemplateBinding RevealPassword, Mode=TwoWay}"
+                            IsVisible="False" />
+              <Button Name="PART_ClearButton" Grid.Column="3" Margin="6,0,0,0"
+                      Theme="{StaticResource UIKitClearButton}"
+                      Command="{Binding $parent[TextBox].Clear}"
+                      IsVisible="False" />
+              <ContentPresenter Name="PART_InnerRightContent" Grid.Column="4" Margin="6,0,0,0"
                                 VerticalAlignment="Center"
                                 VerticalContentAlignment="Center"
                                 Content="{TemplateBinding InnerRightContent}"
@@ -227,7 +265,7 @@
     <Style Selector="^.small /template/ ContentPresenter#PART_InnerLeftContent">
       <Setter Property="Margin" Value="0,0,4,0" />
     </Style>
-    <Style Selector="^.small /template/ ContentPresenter#PART_InnerRightContent">
+    <Style Selector="^.small /template/ ContentPresenter#PART_InnerRightContent, ^.small /template/ ToggleButton#PART_RevealButton, ^.small /template/ Button#PART_ClearButton">
       <Setter Property="Margin" Value="4,0,0,0" />
     </Style>
     <Style Selector="^.large">
@@ -238,7 +276,7 @@
     <Style Selector="^.large /template/ ContentPresenter#PART_InnerLeftContent">
       <Setter Property="Margin" Value="0,0,8,0" />
     </Style>
-    <Style Selector="^.large /template/ ContentPresenter#PART_InnerRightContent">
+    <Style Selector="^.large /template/ ContentPresenter#PART_InnerRightContent, ^.large /template/ ToggleButton#PART_RevealButton, ^.large /template/ Button#PART_ClearButton">
       <Setter Property="Margin" Value="8,0,0,0" />
     </Style>
 
@@ -290,6 +328,9 @@
     <Style Selector="^:disabled /template/ ContentPresenter#PART_InnerLeftContent, ^:disabled /template/ ContentPresenter#PART_InnerRightContent">
       <Setter Property="Opacity" Value="0.5" />
       <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
+    </Style>
+    <Style Selector="^:disabled /template/ ToggleButton#PART_RevealButton">
+      <Setter Property="Opacity" Value="0.5" />
     </Style>
 
     <!--
@@ -368,13 +409,15 @@
       <Setter Property="Foreground" Value="{DynamicResource UIKit.MutedForeground}" />
     </Style>
 
-    <Style Selector="^.revealPasswordButton[AcceptsReturn=False]">
-      <Setter Property="InnerRightContent">
-        <Template>
-          <ToggleButton Theme="{StaticResource UIKitRevealPasswordToggle}"
-                        IsChecked="{Binding $parent[TextBox].RevealPassword, Mode=TwoWay}" />
-        </Template>
-      </Setter>
+    <Style Selector="^.revealPasswordButton[AcceptsReturn=False] /template/ ToggleButton#PART_RevealButton">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+    <!-- input.rs show_clear_button: cleanable, editable (enabled, not read-only), not empty, single-line. -->
+    <Style Selector="^.clearButton[AcceptsReturn=False][IsReadOnly=False]:not(:empty) /template/ Button#PART_ClearButton">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+    <Style Selector="^.clearButton:disabled /template/ Button#PART_ClearButton">
+      <Setter Property="IsVisible" Value="False" />
     </Style>
   </ControlTheme>
 </ResourceDictionary>

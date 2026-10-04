@@ -169,4 +169,56 @@ public class ThemeFixBehaviorTests
         host.Flush();
         await Assert.That(box.IsDropDownOpen).IsTrue();
     }
+
+    // input.rs cleanable: the clear button shows while the single-line text is
+    // editable and not empty; a click clears the text and focuses the input.
+    [Test]
+    public async Task A_clear_button_clears_the_text_and_focuses_the_input()
+    {
+        var golden = Case("input/cleanable-pointer.base/click-at-199-28/light");
+        using var host = CaseHost.Open(golden, Adapters.Create(golden));
+        var box = (TextBox)host.Control;
+        var clear = Part<Button>(box, "PART_ClearButton");
+        await Assert.That(clear.IsEffectivelyVisible).IsTrue();
+        host.Drive(golden, "click-at-199-28");
+        await Assert.That(box.Text).IsEqualTo("");
+        await Assert.That(box.IsFocused).IsTrue();
+        await Assert.That(clear.IsEffectivelyVisible).IsFalse();
+        host.Window.KeyTextInput("Hi");
+        host.Flush();
+        await Assert.That(clear.IsEffectivelyVisible).IsTrue();
+        box.IsReadOnly = true;
+        host.Flush();
+        await Assert.That(clear.IsEffectivelyVisible).IsFalse();
+        box.IsReadOnly = false;
+        box.IsEnabled = false;
+        host.Flush();
+        await Assert.That(clear.IsEffectivelyVisible).IsFalse();
+    }
+
+    [Test]
+    public async Task A_multi_line_text_box_shows_no_clear_button()
+    {
+        var box = new TextBox { Classes = { "clearButton" }, AcceptsReturn = true, Text = "Hello", Width = 200 };
+        var golden = Case("input/cleanable.medium/normal/light");
+        using var host = CaseHost.Open(golden, box);
+        await Assert.That(Part<Button>(box, "PART_ClearButton").IsEffectivelyVisible).IsFalse();
+    }
+
+    // GPUI's suffix row: mask toggle, clear button, the app's suffix, a gap apart.
+    [Test]
+    public async Task The_suffix_row_keeps_gpui_order()
+    {
+        var golden = Case("input/cleanable-suffix.base/normal/light");
+        using var host = CaseHost.Open(golden, Adapters.Create(golden));
+        var box = (TextBox)host.Control;
+        double X(Visual v) => v.TranslatePoint(default, box)!.Value.X;
+        var reveal = Part<ToggleButton>(box, "PART_RevealButton");
+        var clear = Part<Button>(box, "PART_ClearButton");
+        var suffix = Part<ContentPresenter>(box, "PART_InnerRightContent");
+        await Assert.That(X(reveal)).IsLessThan(X(clear));
+        await Assert.That(X(clear)).IsLessThan(X(suffix));
+        host.Drive(golden, "click-at-155-28");
+        await Assert.That(box.RevealPassword).IsTrue();
+    }
 }

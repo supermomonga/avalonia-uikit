@@ -50,3 +50,32 @@ states = ["normal", "focus"]
 name = "selection"
 params = { value = "Hello world", select_all = true, width = 200 }
 states = ["activate+focus+wait-600ms"]
+
+# Input::cleanable(true): a clear button (text xsmall, the Close icon) after the
+# text while it is editable and not empty: none when empty, read-only or
+# disabled. The pointer on it (x 193-205) tints its icon; a click clears the
+# text and focuses the input.
+[[group]]
+name = "cleanable"
+params = { value = "Hello", cleanable = true, width = 200 }
+matrix = { size = ["xsmall", "small", "medium", "large"] }
+states = ["normal", "focus", "disabled"]
+
+[[group]]
+name = "cleanable-pointer"
+params = { value = "Hello", cleanable = true, width = 200 }
+states = ["at-199-28", "click-at-199-28"]
+
+[[group]]
+name = "cleanable-empty"
+params = { placeholder = "Enter your name...", cleanable = true, width = 200 }
+
+[[group]]
+name = "cleanable-readonly"
+params = { value = "Read only", readonly = true, cleanable = true, width = 200 }
+
+# GPUI's suffix order: the mask toggle, the clear button, the app's suffix.
+[[group]]
+name = "cleanable-suffix"
+params = { value = "password123", masked = true, mask_toggle = true, cleanable = true, suffix = "info", width = 200 }
+states = ["normal", "focus"]
