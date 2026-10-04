@@ -437,6 +437,20 @@ public class SelectBehaviorTests
         await Assert.That(select.SelectedIndex).IsEqualTo(2);
     }
 
+    // Invalid (DataValidationErrors), the frame takes the danger border, as ComboBox's does.
+    [Test]
+    public async Task A_validation_error_shows_the_danger_border()
+    {
+        var golden = Case("uikit-select/closed.medium/normal/light");
+        var (host, select) = Open(golden);
+        using var _ = host;
+        DataValidationErrors.SetError(select, new InvalidOperationException("Required"));
+        host.Flush();
+        var frame = host.Part<Border>("PART_Background");
+        var danger = (Avalonia.Media.ISolidColorBrush)Avalonia.Application.Current!.FindResource(golden.Variant, "UIKit.Danger")!;
+        await Assert.That(((Avalonia.Media.ISolidColorBrush)frame.BorderBrush!).Color).IsEqualTo(danger.Color);
+    }
+
     // The rows are virtualized: a long list creates only the rows it shows.
     [Test]
     public async Task A_long_list_creates_only_the_rows_it_shows()

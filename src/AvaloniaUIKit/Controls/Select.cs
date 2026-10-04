@@ -46,10 +46,10 @@ public class Select : ItemsControl
     public static readonly StyledProperty<SelectionMode> SelectionModeProperty =
         AvaloniaProperty.Register<Select, SelectionMode>(nameof(SelectionMode), SelectionMode.Single);
 
-    /// <summary>The first selected item.</summary>
+    /// <summary>The first selected item. A binding's validation error shows the invalid frame (<c>:error</c>).</summary>
     public static readonly DirectProperty<Select, object?> SelectedItemProperty =
         AvaloniaProperty.RegisterDirect<Select, object?>(nameof(SelectedItem), o => o.SelectedItem, (o, v) => o.SelectedItem = v,
-            defaultBindingMode: BindingMode.TwoWay);
+            defaultBindingMode: BindingMode.TwoWay, enableDataValidation: true);
 
     /// <summary>The position of <see cref="SelectedItem"/> among the items, sections flattened; -1 for none.</summary>
     public static readonly DirectProperty<Select, int> SelectedIndexProperty =
