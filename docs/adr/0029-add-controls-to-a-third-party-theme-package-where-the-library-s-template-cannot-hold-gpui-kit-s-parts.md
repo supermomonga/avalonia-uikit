@@ -1,8 +1,11 @@
 ---
 number: 29
 title: Add controls to a third-party theme package where the library's template cannot hold GPUI Kit's parts
-status: proposed
+status: accepted
 date: 2026-10-04
+links:
+- target: 15
+  kind: amends
 ---
 
 # Add controls to a third-party theme package where the library's template cannot hold GPUI Kit's parts
@@ -34,7 +37,8 @@ Chosen option: "テーマのパッケージに、テンプレートの部品と�
 
 * **スクロールはテンプレートで済む。** `TopPanel` が求めるのは 6 つの名前の子だけなので、`TopPanel` ごとテンプレートの `ScrollViewer` に入れられる。prefix と suffix（`LeftContent` / `RightContent`）はスクロールの外の別の `ContentPresenter` に出し、`TopPanel` の中の 2 つの部品は空の `Panel` にする。これで、スクロールのためのラッパーは要らなくなった。
 * **対象:** ライブラリのテンプレートの約束では GPUI Kit の部品を置けず、見た目だけのコードでも作れないもの。最初の例は `TabsMenuButton`（GPUI の `menu(true)`）。Button の派生で、Button のテーマを使う。テンプレートが `TabsControl` の `menu` クラスで表示する。
-* **置き場所:** そのライブラリのテーマのパッケージ（名前空間 `AvaloniaUIKit`）。ライブラリの型に依存する Behavior（`DragTabs.FollowsDrag`）も同じパッケージに置く。
+* **置き場所:** そのライブラリのテーマのパッケージ（名前空間 `AvaloniaUIKit`）。ライブラリの型に依存する見た目だけのコード（ADR 15 の範囲）も同じパッケージに置く。Tabalonia の `DragTabs.FollowsDrag`、Dock の `DockSplitters.Straddles`（分割線を境界の上に重ね、向きをクラスで渡す）、`DockTargets.MarksTab`（ドロップ先のタブにクラスを付ける）、`DockConverters`。
+* **テンプレートの構造で済むものはコードにしない:** Dock のドロップ先の決め方（GPUI の 35% / 65% の領域）は、Dock の十字のセレクターを、領域を覆う透明な要素に置き換えるだけで再現できた。
 * **処理の範囲:** 足したコントロールは、ライブラリのコントロールが持つ操作（選択、閉じる、追加）を呼ぶだけで、データは持たない。
 * **ラッパー:** アプリが書くコントロールを変えるラッパーは、テンプレートの中ではどうしても作れない場合に限って作る。
 

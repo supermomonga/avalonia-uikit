@@ -6,6 +6,8 @@ date: 2026-10-03
 links:
 - target: 19
   kind: amendedby
+- target: 29
+  kind: amendedby
 ---
 
 # Allow presentation-only code alongside the theme

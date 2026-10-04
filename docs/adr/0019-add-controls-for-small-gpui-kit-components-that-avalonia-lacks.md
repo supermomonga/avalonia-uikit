@@ -6,6 +6,8 @@ date: 2026-10-03
 links:
 - target: 15
   kind: amends
+- target: 28
+  kind: amendedby
 ---
 
 # Add controls for small GPUI Kit components that Avalonia lacks

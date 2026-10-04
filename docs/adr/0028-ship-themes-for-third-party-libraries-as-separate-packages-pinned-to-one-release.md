@@ -1,8 +1,13 @@
 ---
 number: 28
 title: Ship themes for third-party libraries as separate packages pinned to one release
-status: proposed
+status: accepted
 date: 2026-10-04
+links:
+- target: 16
+  kind: amends
+- target: 19
+  kind: amends
 ---
 
 # Ship themes for third-party libraries as separate packages pinned to one release
@@ -50,8 +55,8 @@ Chosen option: "ライブラリごとに別パッケージのテーマを作り�
 * **トークンとアイコン:** `UIKitTheme` のものを `DynamicResource` で使う（ADR 16、ADR 21）。足りないアイコンは `UIKitTheme` の Lucide に加える。
 * **NativeAOT:** どちらのアセンブリも `IsAotCompatible` で、自身の解析警告はない。
   * Tabalonia のテーマは NativeAOT を保証し、ギャラリー（`samples/AvaloniaUIKit.AotSmoke`）に入れる。
-  * Dock のテーマは DataGrid と同じく NativeAOT を保証せず、ギャラリーに入れない。Dock 本体の警告はアプリ側の判断になる。テーマが使う分割線のプロパティは、テーマのパッケージが `DynamicDependency` でトリミングから守る。
-* **ブラウザ:** サイトのデモは、Tabalonia のタブの切り離し（新しい `Window` を作る）を切り、Dock の浮動ウィンドウを管理モード（DockControl の中に描く）にする。
+  * Dock のテーマは DataGrid と同じく NativeAOT を保証せず、ギャラリーに入れない。Dock 本体の警告はアプリ側の判断になる。分割線のモデル（`ProportionalDockSplitter`）の型はアプリが選ぶモデルのパッケージ（Dock.Model.Avalonia、Dock.Model.Mvvm など）にあるので、その `CanResize` と `ResizePreview` をトリミングから守る `DynamicDependency` もアプリが付ける。サイトのページに書く。
+* **ブラウザ:** サイトのデモは、Tabalonia のタブの切り離し（新しい `Window` を作る）を切り、Dock の浮動ウィンドウを管理モード（DockControl の中に描く）にする。Dock 12.1.0.6 の管理モードのドラッグのプレビューは、Avalonia 12 では位置を求められず（視覚ツリーの根を `TopLevel` と仮定している）、DockControl の左上に残る。上流の不具合で、テーマでは直さない。テストはプレビューを Dock がデスクトップで置く位置（別ウィンドウ、すべての上）に置いて比べる（緩和 R35）。
 * **検証:** GPUI Kit の描画との比較（ADR 10）で確かめる。ライブラリにしかない部分（ドラッグの最中、浮動ウィンドウ、追加ボタン）は挙動テストで確かめる。
 * **ADR 19 との関係:** 範囲外にした Dock を、Dock.Avalonia を使う場合に限って対応に改める。ほかの範囲外のコンポーネントはそのまま。
 
