@@ -65,6 +65,20 @@
     </ResourceDictionary>
   </Styles.Resources>
 
+  <!-- A tab's drop target is its insertion line (DockTarget.axaml): the drag border color. -->
+  <Style Selector="Border.uikit-dock-insert controls|DockTarget /template/ Border.fill">
+    <Setter Property="Background" Value="{DynamicResource UIKit.DragBorder}" />
+  </Style>
+
+  <!-- In a tool chrome a tool dock's tabs are in the chrome's header (ToolChromeControl.axaml). -->
+  <Style Selector="controls|ToolChromeControl controls|ToolControl /template/ controls|ToolTabStrip#PART_TabStrip">
+    <Setter Property="IsVisible" Value="False" />
+  </Style>
+
+  <!-- A managed floating window shows a tool dock without its chrome, and so with the dock's own tabs. -->
+  <Style Selector="controls|ManagedWindowLayer controls|ToolChromeControl controls|ToolControl /template/ controls|ToolTabStrip#PART_TabStrip">
+    <Setter Property="IsVisible" Value="True" />
+  </Style>
   <Style Selector="controls|ManagedWindowLayer controls|ToolChromeControl">
     <Setter Property="Template">
       <ControlTemplate>

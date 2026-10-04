@@ -6,90 +6,69 @@
                     xmlns:recycling="using:Avalonia.Controls.Recycling"
                     x:CompileBindings="True">
   <ControlTheme x:Key="{x:Type DragPreviewControl}" TargetType="DragPreviewControl">
+    <!--
+      GPUI Kit's DragPanelPreview (dock/tab_panel.rs): 96px wide, py_1 px_3, the
+      title in the tab foreground on the active tab color, a 1px border, the theme
+      radius, at 75%. Dock's drop status (dock, float, none) is not shown; with
+      ShowDockablePreviewOnDrag the dockable's content follows under the title.
+    -->
     <Setter Property="Template">
       <ControlTemplate>
-        <Border Background="{DynamicResource UIKit.TabActive}"
-                CornerRadius="{DynamicResource DockDragPreviewCornerRadius}">
-          <DockPanel>
-            <Border DockPanel.Dock="Top"
-                    Padding="{DynamicResource DockDragPreviewHeaderPadding}">
-              <StackPanel Orientation="Horizontal" Spacing="{DynamicResource DockDragPreviewHeaderSpacing}" VerticalAlignment="Center">
-                <ContentPresenter ContentTemplate="{TemplateBinding ContentTemplate}"
-                                  Content="{TemplateBinding DataContext}"
-                                  VerticalAlignment="Center"
-                                  VerticalContentAlignment="Center" />
-                <StackPanel Orientation="Horizontal" Spacing="{DynamicResource DockDragPreviewStatusSpacing}" VerticalAlignment="Center">
-                  <Path x:Name="PART_StatusIcon" />
-                  <TextBlock x:Name="PART_StatusText"
-                             Text="{TemplateBinding Status}"
-                             FontSize="{DynamicResource DockDragPreviewFontSize}"
-                             VerticalAlignment="Center"/>
-                </StackPanel>
-              </StackPanel>
-            </Border>
-            <Border x:Name="PART_ContentHost"
-                    Background="{DynamicResource UIKit.TabBar}"
-                    IsVisible="{TemplateBinding ShowContent}">
-              <Grid>
-                <ContentControl x:Name="PART_PreviewContentPresenter"
-                                Width="{TemplateBinding PreviewContentWidth}"
-                                Height="{TemplateBinding PreviewContentHeight}"
-                                Content="{TemplateBinding PreviewContent}"
-                                IsVisible="{Binding $parent[controls:DragPreviewControl].PreviewContent, Converter={x:Static converters:NotNullConverter.Instance}}"
-                                HorizontalAlignment="Stretch"
-                                VerticalAlignment="Stretch" />
-                <ContentControl x:Name="PART_ContentPresenter"
-                                Width="{TemplateBinding PreviewContentWidth}"
-                                Height="{TemplateBinding PreviewContentHeight}"
-                                Content="{TemplateBinding DataContext}"
-                                IsVisible="{Binding $parent[controls:DragPreviewControl].PreviewContent, Converter={x:Static converters:NotNullConverter.Instance}, ConverterParameter=Not}"
-                                recycling:ControlRecyclingDataTemplate.ControlRecycling="{Binding $parent[controls:DragPreviewControl].ControlRecycling}"
-                                HorizontalAlignment="Stretch"
-                                VerticalAlignment="Stretch">
-                  <ContentControl.ContentTemplate>
-                    <recycling:ControlRecyclingDataTemplate Parent="{Binding #PART_ContentPresenter}" />
-                  </ContentControl.ContentTemplate>
-                </ContentControl>
-              </Grid>
-            </Border>
-          </DockPanel>
-        </Border>
+        <StackPanel>
+          <Border x:Name="PART_Card"
+                  Width="96"
+                  Padding="12,4"
+                  Opacity="0.75"
+                  Background="{DynamicResource UIKit.TabActive}"
+                  BorderBrush="{DynamicResource UIKit.Border}"
+                  BorderThickness="1"
+                  BackgroundSizing="OuterBorderEdge"
+                  CornerRadius="5.5">
+            <ContentPresenter ContentTemplate="{TemplateBinding ContentTemplate}"
+                              Content="{TemplateBinding DataContext}"
+                              Foreground="{DynamicResource UIKit.TabForeground}"
+                              TextWrapping="NoWrap"
+                              VerticalContentAlignment="Center" />
+          </Border>
+          <Border x:Name="PART_ContentHost"
+                  Margin="0,4,0,0"
+                  CornerRadius="6"
+                  ClipToBounds="True"
+                  Background="{DynamicResource UIKit.Background}"
+                  BorderBrush="{DynamicResource UIKit.Border}"
+                  BorderThickness="1"
+                  IsVisible="{TemplateBinding ShowContent}">
+            <Grid>
+              <ContentControl x:Name="PART_PreviewContentPresenter"
+                              Width="{TemplateBinding PreviewContentWidth}"
+                              Height="{TemplateBinding PreviewContentHeight}"
+                              Content="{TemplateBinding PreviewContent}"
+                              IsVisible="{Binding $parent[controls:DragPreviewControl].PreviewContent, Converter={x:Static converters:NotNullConverter.Instance}}"
+                              HorizontalAlignment="Stretch"
+                              VerticalAlignment="Stretch" />
+              <ContentControl x:Name="PART_ContentPresenter"
+                              Width="{TemplateBinding PreviewContentWidth}"
+                              Height="{TemplateBinding PreviewContentHeight}"
+                              Content="{TemplateBinding DataContext}"
+                              IsVisible="{Binding $parent[controls:DragPreviewControl].PreviewContent, Converter={x:Static converters:NotNullConverter.Instance}, ConverterParameter=Not}"
+                              recycling:ControlRecyclingDataTemplate.ControlRecycling="{Binding $parent[controls:DragPreviewControl].ControlRecycling}"
+                              HorizontalAlignment="Stretch"
+                              VerticalAlignment="Stretch">
+                <ContentControl.ContentTemplate>
+                  <recycling:ControlRecyclingDataTemplate Parent="{Binding #PART_ContentPresenter}" />
+                </ContentControl.ContentTemplate>
+              </ContentControl>
+            </Grid>
+          </Border>
+        </StackPanel>
       </ControlTemplate>
     </Setter>
-    
+
     <Setter Property="ContentTemplate">
       <DataTemplate DataType="core:IDockable">
-        <TextBlock Text="{Binding Title}" 
-                   Padding="{DynamicResource DockHeaderContentPadding}"  />
+        <!-- GPUI's text at the window's 16px on its 26px line. -->
+        <TextBlock Text="{Binding Title}" FontSize="16" LineHeight="26" />
       </DataTemplate>
     </Setter>
-
-    <Style Selector="^/template/ Path#PART_StatusIcon">
-      <Setter Property="Width" Value="{DynamicResource DockDragPreviewStatusIconSize}" />
-      <Setter Property="Height" Value="{DynamicResource DockDragPreviewStatusIconSize}" />
-      <Setter Property="Stretch" Value="Uniform" />
-      <Setter Property="Fill" Value="{DynamicResource UIKit.TabForeground}" />
-    </Style>
-
-    <Style Selector="^[Status=Dock]/template/ Path#PART_StatusIcon">
-      <Setter Property="Data" Value="{DynamicResource UIKit.Icon.Plus}" />
-    </Style>
-    <Style Selector="^[Status=Dock]/template/ TextBlock#PART_StatusText">
-      <Setter Property="Text" Value="{DynamicResource DragPreviewControlDockString}" />
-    </Style>
-
-    <Style Selector="^[Status=Float]/template/ Path#PART_StatusIcon">
-      <Setter Property="Data" Value="{DynamicResource UIKit.Icon.WindowMaximize}" />
-    </Style>
-    <Style Selector="^[Status=Float]/template/ TextBlock#PART_StatusText">
-      <Setter Property="Text" Value="{DynamicResource DragPreviewControlFloatString}" />
-    </Style>
-
-    <Style Selector="^[Status=None]/template/ Path#PART_StatusIcon">
-      <Setter Property="IsVisible" Value="False" />
-    </Style>
-    <Style Selector="^[Status=None]/template/ TextBlock#PART_StatusText">
-      <Setter Property="Text" Value="{DynamicResource DragPreviewControlNoneString}" />
-    </Style>
   </ControlTheme>
 </ResourceDictionary>

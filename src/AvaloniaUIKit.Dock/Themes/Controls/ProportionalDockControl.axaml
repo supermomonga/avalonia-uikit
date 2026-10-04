@@ -15,10 +15,12 @@
     <Setter Property="(DockProperties.IsDragEnabled)" Value="{Binding CanDrag}" />
     <Setter Property="(DockProperties.IsDropEnabled)" Value="{Binding CanDrop}" />
     <Setter Property="(DockProperties.DockGroup)" Value="{Binding DockGroup}" />
+    <!-- dock.rs: a split's frame is the tab bar color. -->
+    <Setter Property="Background" Value="{DynamicResource UIKit.TabBar}" />
 
     <Setter Property="Template">
       <ControlTemplate>
-        <DockableControl TrackingMode="Visible">
+        <DockableControl TrackingMode="Visible" Background="{TemplateBinding Background}">
           <ItemsControl ItemsSource="{Binding VisibleDockables}" 
                         Name="PART_ItemsControl"
                         Classes="ProportionalStackPanel">

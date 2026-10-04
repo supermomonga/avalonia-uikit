@@ -2,6 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:dmc="using:Dock.Model.Controls"
                     xmlns:core="using:Dock.Model.Core"
+                    xmlns:uikit="using:AvaloniaUIKit"
                     x:DataType="dmc:IToolDock"
                     x:CompileBindings="True">
   <Design.PreviewWith>
@@ -26,7 +27,7 @@
 
     <Setter Property="HeaderTemplate">
       <DataTemplate DataType="core:IDockable">
-        <TextBlock Text="{Binding Title}" Padding="{DynamicResource DockHeaderContentPadding}" />
+        <TextBlock Text="{Binding Title}" />
       </DataTemplate>
     </Setter>
 
@@ -49,10 +50,11 @@
                         IconTemplate="{TemplateBinding IconTemplate}"
                         HeaderTemplate="{TemplateBinding HeaderTemplate}"
                         ModifiedTemplate="{TemplateBinding ModifiedTemplate}"
-                        DockPanel.Dock="Bottom"
+                        DockPanel.Dock="Top"
                         DockProperties.IsDropArea="True"
                         DockProperties.DockAdornerHost="{Binding #PART_DockPanel}" />
-          <Border x:Name="PART_Border">
+          <Border x:Name="PART_Border"
+                  Classes.tabs="{Binding VisibleDockables.Count, Converter={x:Static uikit:DockConverters.HasTabs}}">
             <DockableControl DataContext="{Binding ActiveDockable}"
                              TrackingMode="Visible">
               <DeferredContentControl x:Name="PART_ContentPresenter"
@@ -74,12 +76,12 @@
       <Setter Property="ZIndex" Value="1" />
     </Style>
 
+    <!-- GPUI's tab panel content: pt_2 under a tab bar, on the group's background (the chrome's). -->
     <Style Selector="^/template/ Border#PART_Border">
       <Setter Property="ZIndex" Value="-1" />
-      <Setter Property="Background" Value="{DynamicResource UIKit.Background}" />
-      <Setter Property="Margin" Value="0" />
-      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Border}" />
-      <Setter Property="BorderThickness" Value="1 0 1 0" />
+    </Style>
+    <Style Selector="^/template/ Border#PART_Border.tabs">
+      <Setter Property="Padding" Value="0,8,0,0" />
     </Style>
 
   </ControlTheme>

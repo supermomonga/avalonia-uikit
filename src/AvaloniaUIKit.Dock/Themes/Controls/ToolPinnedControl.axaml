@@ -15,12 +15,32 @@
     <Setter Property="(DockProperties.DockGroup)" Value="{Binding DockGroup}" />
 
     <Setter Property="Orientation" Value="Vertical" />
+    <!-- A strip of pinned (auto-hidden) tools, which GPUI Kit does not have: a tab bar on its edge. -->
+    <Setter Property="Background" Value="{DynamicResource UIKit.TabBar}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Border}" />
 
     <Setter Property="Template">
       <ControlTemplate>
-        <ItemsPresenter ItemsPanel="{TemplateBinding ItemsPanel}" />
+        <Border Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}">
+          <ItemsPresenter ItemsPanel="{TemplateBinding ItemsPanel}" />
+        </Border>
       </ControlTemplate>
     </Setter>
+
+    <Style Selector="^.left">
+      <Setter Property="BorderThickness" Value="0,0,1,0" />
+    </Style>
+    <Style Selector="^.right">
+      <Setter Property="BorderThickness" Value="1,0,0,0" />
+    </Style>
+    <Style Selector="^.top">
+      <Setter Property="BorderThickness" Value="0,0,0,1" />
+    </Style>
+    <Style Selector="^.bottom">
+      <Setter Property="BorderThickness" Value="0,1,0,0" />
+    </Style>
 
     <Setter Property="ItemsPanel">
       <ItemsPanelTemplate>

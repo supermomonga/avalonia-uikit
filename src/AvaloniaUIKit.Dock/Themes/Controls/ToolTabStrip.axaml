@@ -1,6 +1,7 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:dmc="using:Dock.Model.Controls"
+                    xmlns:core="using:Dock.Model.Core"
                     x:DataType="dmc:IToolDock"
                     x:CompileBindings="True">
   <Design.PreviewWith>
@@ -13,41 +14,61 @@
     </Border>
   </Design.PreviewWith>
 
+  <!--
+    GPUI Kit's TabBar in the Tab look at medium size, as a dock's tab panel draws
+    it (dock/tab_panel.rs): the tab bar color, a 1px border along the bottom under
+    the tabs, and the tabs scrolling sideways. The empty space after the tabs is
+    a drop target for the whole group.
+  -->
   <ControlTheme x:Key="{x:Type ToolTabStrip}" TargetType="ToolTabStrip">
-
     <Setter Property="(DockProperties.IsDragEnabled)" Value="{Binding CanDrag}" />
     <Setter Property="(DockProperties.IsDropEnabled)" Value="{Binding CanDrop}" />
     <Setter Property="(DockProperties.DockGroup)" Value="{Binding DockGroup}" />
-
-    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Background" Value="{DynamicResource UIKit.TabBar}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Border}" />
+    <Setter Property="BorderThickness" Value="0,0,0,1" />
     <Setter Property="Focusable" Value="False" />
     <Setter Property="ClipToBounds" Value="False" />
     <Setter Property="ZIndex" Value="1" />
-
+    <!-- As ToolControl's: no icon, the title, and * while modified. -->
+    <Setter Property="IconTemplate">
+      <DataTemplate DataType="core:IDockable">
+        <Panel />
+      </DataTemplate>
+    </Setter>
+    <Setter Property="HeaderTemplate">
+      <DataTemplate DataType="core:IDockable">
+        <TextBlock Text="{Binding Title}" />
+      </DataTemplate>
+    </Setter>
+    <Setter Property="ModifiedTemplate">
+      <DataTemplate DataType="core:IDockable">
+        <TextBlock Text="*" />
+      </DataTemplate>
+    </Setter>
     <Setter Property="Template">
       <ControlTemplate>
         <Panel>
           <Border Name="PART_Border"
                   Background="{TemplateBinding Background}"
                   BorderBrush="{TemplateBinding BorderBrush}"
-                  BorderThickness="{TemplateBinding BorderThickness}"
-                  CornerRadius="{TemplateBinding CornerRadius}"
-                  Padding="{TemplateBinding Padding}"
-                  DockPanel.Dock="Left">
-            <ScrollViewer x:Name="PART_ScrollViewer">
-              <ItemsPresenter Name="PART_ItemsPresenter"
-                              ItemsPanel="{TemplateBinding ItemsPanel}" />
-            </ScrollViewer>
-          </Border>
-          <Border Name="PART_BorderLeftFill"
-                  IsHitTestVisible="False" />
-          <Border Name="PART_BorderRightFill"
-                  IsHitTestVisible="False" />
+                  BorderThickness="{TemplateBinding BorderThickness}" />
+          <ScrollViewer x:Name="PART_ScrollViewer"
+                        HorizontalScrollBarVisibility="Hidden"
+                        VerticalScrollBarVisibility="Disabled">
+            <ItemsPresenter Name="PART_ItemsPresenter"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Stretch"
+                            ItemsPanel="{TemplateBinding ItemsPanel}" />
+          </ScrollViewer>
+          <!-- tab_bar.rs's empty space: dropping here adds to the group; GPUI fills the space (not the group) with the drop target color. -->
           <Border Name="PART_BorderFill"
+                  Background="Transparent"
                   DockProperties.IsDropArea="True"
                   DockProperties.IsDockTarget="True"
                   DockProperties.ShowDockIndicatorOnly="True"
-                  DockProperties.IndicatorDockOperation="Fill">
+                  DockProperties.IndicatorDockOperation="Fill"
+                  DockProperties.DockAdornerHost="{Binding RelativeSource={RelativeSource Self}}">
             <Border.Margin>
               <MultiBinding Converter="{x:Static BorderFillMarginConverter.Instance}">
                 <Binding Path="#PART_ItemsPresenter.Bounds.Width" />
@@ -61,46 +82,10 @@
         </Panel>
       </ControlTemplate>
     </Setter>
-
     <Setter Property="ItemsPanel">
       <ItemsPanelTemplate>
         <StackPanel Orientation="Horizontal" ClipToBounds="False" />
       </ItemsPanelTemplate>
     </Setter>
-
-    <Style Selector="^/template/ ItemsPresenter#PART_ItemsPresenter">
-      <Setter Property="VerticalAlignment" Value="Stretch" />
-      <Setter Property="HorizontalAlignment" Value="Left" />
-    </Style>
-
-    <Style Selector="^:singleitem /template/ ItemsPresenter#PART_ItemsPresenter">
-      <Setter Property="IsVisible" Value="False" />
-    </Style>
-
-    <Style Selector="^/template/ Border#PART_BorderFill">
-      <Setter Property="Background" Value="Transparent" />
-      <Setter Property="BorderBrush" Value="Transparent" />
-      <Setter Property="BorderThickness" Value="0" />
-    </Style>
-
-    <Style Selector="^/template/ Border#PART_BorderLeftFill">
-      <Setter Property="Background" Value="Transparent" />
-      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Border}" />
-      <Setter Property="BorderThickness" Value="0 1 0  0" />
-    </Style>
-
-    <Style Selector="^/template/ Border#PART_BorderRightFill">
-      <Setter Property="Background" Value="Transparent" />
-      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Border}" />
-      <Setter Property="BorderThickness" Value="0 1 0  0" />
-    </Style>
-
-    <Style Selector="^/template/ ScrollViewer#PART_ScrollViewer">
-      <Setter Property="Theme" Value="{DynamicResource DockTabStripScrollViewerHorizontal}" />
-      <Setter Property="HorizontalScrollBarVisibility" Value="Hidden" />
-      <Setter Property="VerticalScrollBarVisibility" Value="Disabled" />
-    </Style>
-
   </ControlTheme>
-
 </ResourceDictionary>

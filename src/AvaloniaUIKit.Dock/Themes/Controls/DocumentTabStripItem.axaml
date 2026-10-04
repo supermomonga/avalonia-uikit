@@ -311,144 +311,109 @@
     </Setter>
     <Setter Property="(DockProperties.DockGroup)" Value="{Binding DockGroup}" />
 
-    <Setter Property="(TextElement.FontSize)" Value="{DynamicResource DockFontSizeNormal}" />
+    <!--
+      GPUI Kit's Tab (tab.rs) in the Tab look at medium size, as a dock's tab
+      panel draws it: 32px, the label at 14px with 12px on either side, a 1px
+      border left and right (transparent until selected), the tab foreground;
+      hovered, the active foreground; selected, the active tab color with the
+      border. A dock's first tab has no left border. The close button is the
+      dock's (tab_panel.rs): 8px after the label and 8px before the tab's end.
+    -->
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="TextBlock.LineHeight" Value="17.5" />
     <Setter Property="FontWeight" Value="Normal" />
-    <Setter Property="MinHeight" Value="{DynamicResource DockDocumentTabItemMinHeight}" />
-    <Setter Property="MinWidth" Value="{DynamicResource DockDocumentTabItemMinWidth}" />
+    <Setter Property="Height" Value="32" />
     <Setter Property="VerticalContentAlignment" Value="Center" />
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="Foreground" Value="{DynamicResource UIKit.TabForeground}" />
-    <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Border}" />
-    <Setter Property="BorderThickness" Value="0" />
-    <Setter Property="Margin" Value="{DynamicResource DockDocumentTabItemMargin}" />
-    <Setter Property="Padding" Value="{DynamicResource DockDocumentTabItemPadding}" />
-    <Setter Property="CornerRadius" Value="{DynamicResource DockDocumentTabItemCornerRadius}" />
+    <Setter Property="BorderBrush" Value="Transparent" />
+    <Setter Property="BorderThickness" Value="1,0,1,0" />
+    <Setter Property="Padding" Value="12,0,0,0" />
     <Setter Property="DocumentContextMenu" Value="{DynamicResource DocumentTabStripItemContextMenu}" />
 
     <Setter Property="Template">
       <ControlTemplate>
-        <Panel Background="{DynamicResource UIKit.TabBar}">
-          <Border x:Name="PART_TabGutter"
-                  Background="Transparent">
-            <Border x:Name="PART_TabBody"
-                    Background="{TemplateBinding Background}"
-                    TextElement.FontFamily="{TemplateBinding FontFamily}"
-                    TextElement.FontSize="{TemplateBinding FontSize}"
-                    TextElement.FontWeight="{TemplateBinding FontWeight}"
-                    BorderBrush="{TemplateBinding BorderBrush}"
-                    BorderThickness="{TemplateBinding BorderThickness}"
-                    ContextMenu="{TemplateBinding DocumentContextMenu}"
-                    Padding="{TemplateBinding Padding}"
-                    CornerRadius="{TemplateBinding CornerRadius}"
-                    DockProperties.IsDragArea="True"
-                    DockProperties.IsDropArea="True"
-                    DockProperties.IsDockTarget="True"
-                    DockProperties.ShowDockIndicatorOnly="True"
-                    DockProperties.IndicatorDockOperation="Fill">
-              <DockableControl TrackingMode="Tab"
-                               VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
-                <DockPanel Background="Transparent">
-                  <Grid Background="Transparent"
-                        ColumnDefinitions="*,Auto"
-                        ColumnSpacing="{DynamicResource DockTabContentSpacing}">
-                    <StackPanel Grid.Column="0"
-                                x:Name="PART_HeaderHost"
-                                Margin="{DynamicResource DockTabContentMargin}"
-                                Orientation="Horizontal"
-                                Spacing="{DynamicResource DockDocumentTabHeaderContentSpacing}"
-                                ClipToBounds="True">
-                      <Grid x:Name="PART_IconCloseHost"
-                            ClipToBounds="False">
-                        <ContentPresenter x:Name="PART_IconPresenter"
-                                          ContentTemplate="{Binding $parent[DocumentTabStrip].IconTemplate}"
-                                          Content="{Binding}" />
-                        <ContentPresenter x:Name="PART_CompactClosePresenter"
-                                          IsVisible="False"
-                                          ContentTemplate="{Binding $parent[DocumentTabStrip].CloseTemplate}"
-                                          Content="{Binding}" />
-                      </Grid>
-                      <ContentPresenter x:Name="PART_HeaderPresenter"
-                                        ContentTemplate="{Binding $parent[DocumentTabStrip].HeaderTemplate}"
-                                        Content="{Binding}" />
-                      <ContentPresenter x:Name="PART_ModifiedPresenter"
-                                        ContentTemplate="{Binding $parent[DocumentTabStrip].ModifiedTemplate}"
-                                        IsVisible="{Binding IsModified}"
-                                        Content="{Binding}" />
-                    </StackPanel>
-                    <ContentPresenter x:Name="PART_ClosePresenter"
-                                      Grid.Column="1"
-                                      HorizontalAlignment="Right"
-                                      VerticalAlignment="Center"
-                                      Margin="{DynamicResource DockTabContentMargin}"
+        <Panel>
+          <Border x:Name="PART_TabBody"
+                  Background="{TemplateBinding Background}"
+                  BorderBrush="{TemplateBinding BorderBrush}"
+                  BorderThickness="{TemplateBinding BorderThickness}"
+                  ContextMenu="{TemplateBinding DocumentContextMenu}"
+                  Padding="{TemplateBinding Padding}"
+                  DockProperties.IsDragArea="True"
+                  DockProperties.IsDropArea="True"
+                  DockProperties.IsDockTarget="True"
+                  DockProperties.ShowDockIndicatorOnly="True"
+                  DockProperties.IndicatorDockOperation="Fill"
+                  DockProperties.DockAdornerHost="{Binding #PART_InsertMarker}">
+            <DockableControl TrackingMode="Tab"
+                             VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+              <Grid Background="Transparent" ColumnDefinitions="*,Auto">
+                <StackPanel x:Name="PART_HeaderHost"
+                            Margin="0,0,12,0"
+                            Orientation="Horizontal"
+                            ClipToBounds="True">
+                  <Grid x:Name="PART_IconCloseHost">
+                    <ContentPresenter x:Name="PART_IconPresenter"
+                                      ContentTemplate="{Binding $parent[DocumentTabStrip].IconTemplate}"
+                                      Content="{Binding}" />
+                    <ContentPresenter x:Name="PART_CompactClosePresenter"
+                                      IsVisible="False"
                                       ContentTemplate="{Binding $parent[DocumentTabStrip].CloseTemplate}"
                                       Content="{Binding}" />
                   </Grid>
-                </DockPanel>
-              </DockableControl>
-            </Border>
+                  <ContentPresenter x:Name="PART_HeaderPresenter"
+                                    ContentTemplate="{Binding $parent[DocumentTabStrip].HeaderTemplate}"
+                                    Content="{Binding}" />
+                  <ContentPresenter x:Name="PART_ModifiedPresenter"
+                                    ContentTemplate="{Binding $parent[DocumentTabStrip].ModifiedTemplate}"
+                                    IsVisible="{Binding IsModified}"
+                                    Content="{Binding}" />
+                </StackPanel>
+                <!-- gap_1, then ml(-8) and mr_2 on the button. -->
+                <ContentPresenter x:Name="PART_ClosePresenter"
+                                  Grid.Column="1"
+                                  Margin="-4,0,8,0"
+                                  VerticalAlignment="Center"
+                                  ContentTemplate="{Binding $parent[DocumentTabStrip].CloseTemplate}"
+                                  Content="{Binding}" />
+              </Grid>
+            </DockableControl>
           </Border>
-          <Border x:Name="PART_TabSeparatorRight"
-                  IsHitTestVisible="False"
-                  UseLayoutRounding="True"
-                  Width="1"
-                  Margin="0,7,0,7"
-                  HorizontalAlignment="Right"
-                  VerticalAlignment="Stretch" />
+          <!-- tab_panel.rs: a panel dropped on the tab goes before it; GPUI marks that with a 2px left border. -->
+          <Border x:Name="PART_InsertMarker" Classes="uikit-dock-insert"
+                  Width="2" HorizontalAlignment="Left" IsHitTestVisible="False" />
         </Panel>
       </ControlTemplate>
     </Setter>
 
-    <Style Selector="^:not(:active):selected">
-      <Setter Property="Background" Value="{DynamicResource UIKit.TabBar}" />
+    <Style Selector="^:nth-child(1)">
+      <Setter Property="BorderThickness" Value="0,0,1,0" />
+    </Style>
+    <Style Selector="^:pointerover">
       <Setter Property="Foreground" Value="{DynamicResource UIKit.TabActiveForeground}" />
     </Style>
-
-    <Style Selector="^:active:selected">
+    <Style Selector="^:selected">
       <Setter Property="Background" Value="{DynamicResource UIKit.TabActive}" />
       <Setter Property="Foreground" Value="{DynamicResource UIKit.TabActiveForeground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Border}" />
+    </Style>
+    <!--
+      tab_panel.rs drag_over: the drop target tab paints a 2px left border (the
+      insertion line, which the marker draws) and no right border, without laying
+      the tab out again.
+    -->
+    <Style Selector="^.uikit-drop-target">
+      <Setter Property="BorderBrush" Value="Transparent" />
     </Style>
 
-    <Style Selector="^:dragging:not(:selected)">
-      <Setter Property="Background" Value="{DynamicResource UIKit.SecondaryHover}" />
-      <Setter Property="Foreground" Value="{DynamicResource UIKit.TabActiveForeground}" />
-    </Style>
-
-    <Style Selector="^:dragging:selected:not(:active)">
-      <Setter Property="Background" Value="{DynamicResource UIKit.TabBar}" />
-      <Setter Property="Foreground" Value="{DynamicResource UIKit.TabActiveForeground}" />
-    </Style>
-
-    <Style Selector="^:dragging:active:selected">
-      <Setter Property="Background" Value="{DynamicResource UIKit.TabActive}" />
-      <Setter Property="Foreground" Value="{DynamicResource UIKit.TabActiveForeground}" />
-    </Style>
-
-    <Style Selector="^:pointerover:not(:selected):not(:dragging)">
-      <Setter Property="Background" Value="{DynamicResource UIKit.SecondaryHover}" />
-      <Setter Property="Foreground" Value="{DynamicResource UIKit.TabActiveForeground}" />
-    </Style>
-
-    <Style Selector="^:selected:pointerover:not(:dragging)">
-      <Setter Property="Foreground" Value="{DynamicResource UIKit.TabActiveForeground}" />
-    </Style>
-
-    <Style Selector="^/template/ Border#PART_TabSeparatorRight">
-      <Setter Property="Background" Value="{DynamicResource UIKit.Border}" />
-      <Setter Property="Opacity" Value="{DynamicResource DockDocumentTabItemSeparatorOpacity}" />
-    </Style>
-
+    <!-- A tab too narrow for its label and button shows the button over the icon on hover. -->
     <Style Selector="^:ultracompact /template/ ContentPresenter#PART_ClosePresenter">
       <Setter Property="IsVisible" Value="False" />
     </Style>
-
-    <Style Selector="^:ultracompact /template/ ContentPresenter#PART_CompactClosePresenter">
-      <Setter Property="IsVisible" Value="False" />
-    </Style>
-
     <Style Selector="^:ultracompact:pointerover /template/ ContentPresenter#PART_CompactClosePresenter">
       <Setter Property="IsVisible" Value="True" />
     </Style>
-
     <Style Selector="^:ultracompact:pointerover /template/ ContentPresenter#PART_IconPresenter">
       <Setter Property="IsVisible" Value="False" />
     </Style>

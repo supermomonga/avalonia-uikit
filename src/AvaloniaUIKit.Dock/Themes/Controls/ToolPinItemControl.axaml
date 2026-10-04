@@ -75,6 +75,28 @@
     </MenuItem>
   </ContextMenu>
 
+  <!-- A pinned tool on its strip: GPUI Kit's tab text (14px, 12px on either side, 32px across), lit under the pointer. -->
+  <ControlTheme x:Key="UIKitDockPinButton" TargetType="Button">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.TabForeground}" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="Height" Value="32" />
+    <Setter Property="Padding" Value="12,0" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <ContentPresenter Background="{TemplateBinding Background}"
+                          Padding="{TemplateBinding Padding}"
+                          Foreground="{TemplateBinding Foreground}"
+                          Content="{TemplateBinding Content}"
+                          VerticalContentAlignment="Center"
+                          LineHeight="17.5" />
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^:pointerover">
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.TabActiveForeground}" />
+    </Style>
+  </ControlTheme>
+
   <ControlTheme x:Key="{x:Type ToolPinItemControl}" TargetType="ToolPinItemControl">
 
     <Setter Property="(AutomationProperties.AutomationId)" Value="{Binding Id}" />
@@ -115,10 +137,7 @@
                     DockProperties.IsDockTarget="True"
                     DockProperties.ShowDockIndicatorOnly="True"
                     DockProperties.IndicatorDockOperation="Fill">
-              <Button Background="Transparent"
-                      BorderBrush="Transparent"
-                      BorderThickness="0"
-                      CornerRadius="0"
+              <Button Theme="{StaticResource UIKitDockPinButton}"
                       Command="{Binding Owner.Factory.TogglePreviewPinnedDockable}"
                       CommandParameter="{Binding}">
                 <Button.IsVisible>
