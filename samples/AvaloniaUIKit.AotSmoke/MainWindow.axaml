@@ -98,6 +98,13 @@
           </uikit:ToggleGroup>
         </WrapPanel>
 
+        <TextBlock Text="uikit:Accordion" Foreground="{DynamicResource UIKit.MutedForeground}" />
+        <uikit:Accordion Width="360" HorizontalAlignment="Left">
+          <Expander Header="Is it accessible?" Content="Yes, it is." IsExpanded="True" />
+          <Expander Header="Is it styled?" Content="Yes, by the theme." />
+          <Expander Header="Is it animated?" Content="Yes, with a spring." />
+        </uikit:Accordion>
+
         <TextBlock Text="SplitButton" Foreground="{DynamicResource UIKit.MutedForeground}" />
         <WrapPanel ItemSpacing="8" LineSpacing="8">
           <SplitButton Content="Save">

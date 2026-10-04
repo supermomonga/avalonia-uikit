@@ -1,0 +1,63 @@
+<!--
+  GPUI Kit Accordion (crates/component/src/accordion.rs) -> uikit:Accordion:
+
+    <uikit:Accordion>
+      <Expander Header="Is it accessible?" Content="Yes, it is." />
+      ...
+    </uikit:Accordion>
+
+  The same look as Border.accordion > StackPanel.accordion (Expander.axaml):
+  the items are the themed Expanders, every one but the last with GPUI's 1px
+  separator below, in a card with a 1px border and radius_lg (IsBordered,
+  GPUI's bordered(true)). The items are clipped to the card's inside edge, so
+  their backgrounds leave the border's rounded corners showing (ADR 25).
+  Without the card the items stand alone. Sizes: xsmall small large, passed to
+  the items.
+-->
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:uikit="using:AvaloniaUIKit"
+        xmlns:gconv="using:AvaloniaUIKit.Converters">
+  <Styles.Resources>
+    <!-- The card's inside edge: radius_lg (8) less its 1px border. -->
+    <gconv:RoundedClipConverter x:Key="UIKit.Accordion.CardClip" Radius="7" />
+
+    <ControlTheme x:Key="{x:Type uikit:Accordion}" TargetType="uikit:Accordion">
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Border}" />
+      <Setter Property="BorderThickness" Value="1" />
+      <Setter Property="CornerRadius" Value="7.5" />
+      <Setter Property="ClipToBounds" Value="True" />
+      <Setter Property="ItemsPanel">
+        <ItemsPanelTemplate>
+          <StackPanel />
+        </ItemsPanelTemplate>
+      </Setter>
+      <Setter Property="Template">
+        <ControlTemplate>
+          <Border Name="PART_Card"
+                  Background="{TemplateBinding Background}"
+                  BorderBrush="{TemplateBinding BorderBrush}"
+                  BorderThickness="{TemplateBinding BorderThickness}"
+                  CornerRadius="{TemplateBinding CornerRadius}">
+            <ItemsPresenter Name="PART_ItemsPresenter"
+                            ItemsPanel="{TemplateBinding ItemsPanel}"
+                            Clip="{Binding $self.Bounds, Converter={StaticResource UIKit.Accordion.CardClip}}" />
+          </Border>
+        </ControlTemplate>
+      </Setter>
+      <Style Selector="^[IsBordered=False]">
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="CornerRadius" Value="0" />
+        <Setter Property="ClipToBounds" Value="False" />
+      </Style>
+      <Style Selector="^[IsBordered=False] /template/ ItemsPresenter#PART_ItemsPresenter">
+        <Setter Property="Clip" Value="{x:Null}" />
+      </Style>
+    </ControlTheme>
+  </Styles.Resources>
+
+  <!-- GPUI's separator: every item but the last has a 1px border below. -->
+  <Style Selector="uikit|Accordion > Expander:not(:nth-last-child(1))">
+    <Setter Property="BorderThickness" Value="0,0,0,1" />
+  </Style>
+</Styles>
