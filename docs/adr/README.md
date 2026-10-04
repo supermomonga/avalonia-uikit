@@ -27,3 +27,4 @@
 * [27. License the project under MIT and ship third-party notices with the packages](0027-license-the-project-under-mit-and-ship-third-party-notices-with-the-packages.md)
 * [28. Ship themes for third-party libraries as separate packages pinned to one release](0028-ship-themes-for-third-party-libraries-as-separate-packages-pinned-to-one-release.md)
 * [29. Add controls to a third-party theme package where the library's template cannot hold GPUI Kit's parts](0029-add-controls-to-a-third-party-theme-package-where-the-library-s-template-cannot-hold-gpui-kit-s-parts.md)
+* [30. Build the GPUI Kit features Avalonia's controls lack as attached properties and new controls](0030-build-the-gpui-kit-features-avalonia-s-controls-lack-as-attached-properties-and-new-controls.md)
