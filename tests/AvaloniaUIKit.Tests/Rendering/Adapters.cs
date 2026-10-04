@@ -36,6 +36,7 @@ public static partial class Adapters
         },
         "context" => ContextArea(),
         "split" => Split(c),
+        "split-loading" => LoadingSplit(c),
         "menubar" => MenuBar(),
         "number" => Number(c),
         "groupbox" => GroupBox(c),

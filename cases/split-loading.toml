@@ -1,0 +1,26 @@
+# GPUI Kit DropdownButton with a loading Button -> SplitButton with
+# uikit:Buttons.IsLoading: the action half fades, spins its icon and keeps its
+# look under the pointer; the menu half still hovers and opens the menu.
+# The halves meet at x = 16 + action width; at-107-24 is on the caret half.
+component = "split-loading"
+viewport = [160, 48]
+anchor = [16, 8]
+
+[[group]]
+name = "icon"
+params = { label = "Save", icon = "check", loading = true, pointer_x = 0.3 }
+matrix = { variant = ["default", "primary", "ghost"], outline = [false, true] }
+states = ["normal", "hover", "pressed", "at-107-24", "focus"]
+
+[[group]]
+name = "label"
+params = { label = "Save", loading = true }
+matrix = { variant = ["default", "primary"], size = ["small", "large"] }
+
+[[group]]
+name = "open"
+viewport = [600, 260]
+anchor = [200, 8]
+params = { label = "Save", icon = "check", loading = true }
+matrix = { variant = ["default", "ghost"] }
+states = ["click-at-291-24"]

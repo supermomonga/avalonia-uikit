@@ -80,6 +80,7 @@ pub fn builder(case: &Case) -> Result<Builder> {
         "dropdown" => menu::dropdown(&params),
         "context" => menu::context(&params),
         "split" => menu::split(&params),
+        "split-loading" => menu::split(&params),
         "menubar" => menu::menubar(&params),
         "number" => number::builder(&params),
         "groupbox" => display::group_box(&params),

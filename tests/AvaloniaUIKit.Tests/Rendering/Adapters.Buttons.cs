@@ -36,6 +36,18 @@ public static partial class Adapters
         return button;
     }
 
+    /// <summary>A split case (menu.rs split) whose action Button loads, with an icon before its label.</summary>
+    private static SplitButton LoadingSplit(GoldenCase c)
+    {
+        var split = Split(c);
+        if (c.Has("icon"))
+        {
+            split.Content = LabelledIcon(c.Str("icon"), c.Str("label", "Save"), c.Str("size", "medium"));
+        }
+        Buttons.SetIsLoading(split, c.Bool("loading"));
+        return split;
+    }
+
     /// <summary>An input-group case whose buttons load, or leave the focus in the input when pressed.</summary>
     private static TextBox LoadingInputGroup(GoldenCase c)
     {

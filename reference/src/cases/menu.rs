@@ -74,9 +74,16 @@ pub fn split(params: &Params) -> Result<Builder> {
     let disabled = disabled(params);
     let size = size(params);
     let label = param_str(params, "label", "Save").to_string();
+    // The action Button's icon and Button::loading (dropdown_button.rs keeps them).
+    let icon = super::icon(param_str(params, "icon", ""));
+    let loading = param_bool(params, "loading");
     Ok(Rc::new(move |_, _, _| {
+        let mut action = Button::new("action").label(label.clone()).loading(loading);
+        if let Some(icon) = icon.clone() {
+            action = action.icon(icon);
+        }
         let mut button = DropdownButton::new("case")
-            .button(Button::new("action").label(label.clone()))
+            .button(action)
             .dropdown_menu(standard_menu)
             .with_variant(variant)
             .with_size(size)

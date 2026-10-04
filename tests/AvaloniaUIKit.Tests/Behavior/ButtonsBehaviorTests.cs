@@ -82,6 +82,30 @@ public class ButtonsBehaviorTests
         await Assert.That(command.Count).IsEqualTo(2);
     }
 
+    // dropdown_button.rs: the action half is the app's Button, loading on its own;
+    // the menu half stays live.
+    [Test]
+    public async Task A_loading_split_button_ignores_its_action_but_opens_its_menu()
+    {
+        var golden = Case("split-loading/open.default/click-at-291-24/light");
+        var command = new CountingCommand();
+        var split = (SplitButton)Adapters.Create(golden);
+        split.Command = command;
+        using var host = CaseHost.Open(golden, split);
+        var clicks = 0;
+        split.Click += (_, _) => clicks++;
+        host.Drive(golden, "click-at-230-24");
+        host.Drive(golden, "focus+key-enter+key-space");
+        await Assert.That((clicks, command.Count)).IsEqualTo((0, 0));
+        await Assert.That(split.Flyout!.IsOpen).IsFalse();
+        host.Drive(golden, "click-at-291-24");
+        await Assert.That(split.Flyout!.IsOpen).IsTrue();
+        split.Flyout.Hide();
+        Buttons.SetIsLoading(split, false);
+        host.Drive(golden, "click-at-230-24");
+        await Assert.That((clicks, command.Count)).IsEqualTo((1, 1));
+    }
+
     // IsDefault (and access keys, IsCancel) reach Button.OnClick without a key on
     // the button: the loading button raises no Click and runs no Command.
     [Test]

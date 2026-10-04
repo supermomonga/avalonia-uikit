@@ -90553,6 +90553,2286 @@
       }
     },
     {
+      "id": "split-loading/icon.default.outline/at-107-24/dark",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "default",
+        "outline": true
+      },
+      "state": "at-107-24",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        111.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.default.outline/at-107-24/dark.png",
+      "scene": "scenes/split-loading/icon.default.outline/at-107-24/dark.json",
+      "png_sha256": "efc177be240895b31857ed5fe26843bc440ddb72eea86ec0030a42efdf95b28b"
+    },
+    {
+      "id": "split-loading/icon.default.outline/at-107-24/light",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "default",
+        "outline": true
+      },
+      "state": "at-107-24",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        111.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.default.outline/at-107-24/light.png",
+      "scene": "scenes/split-loading/icon.default.outline/at-107-24/light.json",
+      "png_sha256": "d4236840d326628375909f4dfad6f0e5777c82b8c1e634d648121bc92745c1d2"
+    },
+    {
+      "id": "split-loading/icon.default.outline/focus/dark",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "default",
+        "outline": true
+      },
+      "state": "focus",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        111.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.default.outline/focus/dark.png",
+      "scene": "scenes/split-loading/icon.default.outline/focus/dark.json",
+      "png_sha256": "d9ddd6cd0ea4ea0ea4f6884c403cc0e630f5f11f416a4b8631fd802581f9d1e3"
+    },
+    {
+      "id": "split-loading/icon.default.outline/focus/light",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "default",
+        "outline": true
+      },
+      "state": "focus",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        111.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.default.outline/focus/light.png",
+      "scene": "scenes/split-loading/icon.default.outline/focus/light.json",
+      "png_sha256": "580d3d662cf440a7db717e0584a13e61852f4dbb7d9fcb3ac5ae0c39f4c61450"
+    },
+    {
+      "id": "split-loading/icon.default.outline/hover/dark",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "default",
+        "outline": true
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        111.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.default.outline/hover/dark.png",
+      "scene": "scenes/split-loading/icon.default.outline/hover/dark.json",
+      "png_sha256": "fbe18498e0e7e06c5dd24a60da985fb72f91404b4019a1823603456ad8cdfd82"
+    },
+    {
+      "id": "split-loading/icon.default.outline/hover/light",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "default",
+        "outline": true
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        111.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.default.outline/hover/light.png",
+      "scene": "scenes/split-loading/icon.default.outline/hover/light.json",
+      "png_sha256": "1dc3af2f6cf7e84746b19fd2a7c9295186e14ca4f7838a74a30d627772c985ce"
+    },
+    {
+      "id": "split-loading/icon.default.outline/normal/dark",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "default",
+        "outline": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        111.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.default.outline/normal/dark.png",
+      "scene": "scenes/split-loading/icon.default.outline/normal/dark.json",
+      "png_sha256": "fbe18498e0e7e06c5dd24a60da985fb72f91404b4019a1823603456ad8cdfd82"
+    },
+    {
+      "id": "split-loading/icon.default.outline/normal/light",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "default",
+        "outline": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        111.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.default.outline/normal/light.png",
+      "scene": "scenes/split-loading/icon.default.outline/normal/light.json",
+      "png_sha256": "1dc3af2f6cf7e84746b19fd2a7c9295186e14ca4f7838a74a30d627772c985ce"
+    },
+    {
+      "id": "split-loading/icon.default.outline/pressed/dark",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "default",
+        "outline": true
+      },
+      "state": "pressed",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        111.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.default.outline/pressed/dark.png",
+      "scene": "scenes/split-loading/icon.default.outline/pressed/dark.json",
+      "png_sha256": "fbe18498e0e7e06c5dd24a60da985fb72f91404b4019a1823603456ad8cdfd82"
+    },
+    {
+      "id": "split-loading/icon.default.outline/pressed/light",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "default",
+        "outline": true
+      },
+      "state": "pressed",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        111.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.default.outline/pressed/light.png",
+      "scene": "scenes/split-loading/icon.default.outline/pressed/light.json",
+      "png_sha256": "1dc3af2f6cf7e84746b19fd2a7c9295186e14ca4f7838a74a30d627772c985ce"
+    },
+    {
+      "id": "split-loading/icon.default/at-107-24/dark",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "default",
+        "outline": false
+      },
+      "state": "at-107-24",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        111.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.default/at-107-24/dark.png",
+      "scene": "scenes/split-loading/icon.default/at-107-24/dark.json",
+      "png_sha256": "efc177be240895b31857ed5fe26843bc440ddb72eea86ec0030a42efdf95b28b"
+    },
+    {
+      "id": "split-loading/icon.default/at-107-24/light",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "default",
+        "outline": false
+      },
+      "state": "at-107-24",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        111.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.default/at-107-24/light.png",
+      "scene": "scenes/split-loading/icon.default/at-107-24/light.json",
+      "png_sha256": "d4236840d326628375909f4dfad6f0e5777c82b8c1e634d648121bc92745c1d2"
+    },
+    {
+      "id": "split-loading/icon.default/focus/dark",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "default",
+        "outline": false
+      },
+      "state": "focus",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        111.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.default/focus/dark.png",
+      "scene": "scenes/split-loading/icon.default/focus/dark.json",
+      "png_sha256": "d9ddd6cd0ea4ea0ea4f6884c403cc0e630f5f11f416a4b8631fd802581f9d1e3"
+    },
+    {
+      "id": "split-loading/icon.default/focus/light",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "default",
+        "outline": false
+      },
+      "state": "focus",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        111.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.default/focus/light.png",
+      "scene": "scenes/split-loading/icon.default/focus/light.json",
+      "png_sha256": "580d3d662cf440a7db717e0584a13e61852f4dbb7d9fcb3ac5ae0c39f4c61450"
+    },
+    {
+      "id": "split-loading/icon.default/hover/dark",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "default",
+        "outline": false
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        111.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.default/hover/dark.png",
+      "scene": "scenes/split-loading/icon.default/hover/dark.json",
+      "png_sha256": "fbe18498e0e7e06c5dd24a60da985fb72f91404b4019a1823603456ad8cdfd82"
+    },
+    {
+      "id": "split-loading/icon.default/hover/light",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "default",
+        "outline": false
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        111.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.default/hover/light.png",
+      "scene": "scenes/split-loading/icon.default/hover/light.json",
+      "png_sha256": "1dc3af2f6cf7e84746b19fd2a7c9295186e14ca4f7838a74a30d627772c985ce"
+    },
+    {
+      "id": "split-loading/icon.default/normal/dark",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "default",
+        "outline": false
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        111.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.default/normal/dark.png",
+      "scene": "scenes/split-loading/icon.default/normal/dark.json",
+      "png_sha256": "fbe18498e0e7e06c5dd24a60da985fb72f91404b4019a1823603456ad8cdfd82"
+    },
+    {
+      "id": "split-loading/icon.default/normal/light",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "default",
+        "outline": false
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        111.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.default/normal/light.png",
+      "scene": "scenes/split-loading/icon.default/normal/light.json",
+      "png_sha256": "1dc3af2f6cf7e84746b19fd2a7c9295186e14ca4f7838a74a30d627772c985ce"
+    },
+    {
+      "id": "split-loading/icon.default/pressed/dark",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "default",
+        "outline": false
+      },
+      "state": "pressed",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        111.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.default/pressed/dark.png",
+      "scene": "scenes/split-loading/icon.default/pressed/dark.json",
+      "png_sha256": "fbe18498e0e7e06c5dd24a60da985fb72f91404b4019a1823603456ad8cdfd82"
+    },
+    {
+      "id": "split-loading/icon.default/pressed/light",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "default",
+        "outline": false
+      },
+      "state": "pressed",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        111.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.default/pressed/light.png",
+      "scene": "scenes/split-loading/icon.default/pressed/light.json",
+      "png_sha256": "1dc3af2f6cf7e84746b19fd2a7c9295186e14ca4f7838a74a30d627772c985ce"
+    },
+    {
+      "id": "split-loading/icon.ghost.outline/at-107-24/dark",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "ghost",
+        "outline": true
+      },
+      "state": "at-107-24",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        111.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.ghost.outline/at-107-24/dark.png",
+      "scene": "scenes/split-loading/icon.ghost.outline/at-107-24/dark.json",
+      "png_sha256": "9af41c9dacf09557e4ed8461691e5ab9b849b21291fa741ebaa70dfa11c8b946"
+    },
+    {
+      "id": "split-loading/icon.ghost.outline/at-107-24/light",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "ghost",
+        "outline": true
+      },
+      "state": "at-107-24",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        111.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.ghost.outline/at-107-24/light.png",
+      "scene": "scenes/split-loading/icon.ghost.outline/at-107-24/light.json",
+      "png_sha256": "94cacb048ec82f118d8e7f1defcc7551147cb6d7764fc1c0f10f0fb10359e5b1"
+    },
+    {
+      "id": "split-loading/icon.ghost.outline/focus/dark",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "ghost",
+        "outline": true
+      },
+      "state": "focus",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        111.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.ghost.outline/focus/dark.png",
+      "scene": "scenes/split-loading/icon.ghost.outline/focus/dark.json",
+      "png_sha256": "a13e922a97fdbe3a26fe09785d3e1c62e6fa031c4317d24fd984e86937dcad63"
+    },
+    {
+      "id": "split-loading/icon.ghost.outline/focus/light",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "ghost",
+        "outline": true
+      },
+      "state": "focus",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        111.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.ghost.outline/focus/light.png",
+      "scene": "scenes/split-loading/icon.ghost.outline/focus/light.json",
+      "png_sha256": "9d843064cefdab7775fceb1ae9077accab143efe4542a000930a10708338fd0c"
+    },
+    {
+      "id": "split-loading/icon.ghost.outline/hover/dark",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "ghost",
+        "outline": true
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        111.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.ghost.outline/hover/dark.png",
+      "scene": "scenes/split-loading/icon.ghost.outline/hover/dark.json",
+      "png_sha256": "81ed26a3b9f8f6dcbd5f5e07bc72d05e9e81878b0593913e5960abc1a7ecae9b"
+    },
+    {
+      "id": "split-loading/icon.ghost.outline/hover/light",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "ghost",
+        "outline": true
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        111.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.ghost.outline/hover/light.png",
+      "scene": "scenes/split-loading/icon.ghost.outline/hover/light.json",
+      "png_sha256": "7dbafba4a110af50cb856302efc7b8309ed37306fd89b750e7946e0b0cd69ac6"
+    },
+    {
+      "id": "split-loading/icon.ghost.outline/normal/dark",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "ghost",
+        "outline": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        111.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.ghost.outline/normal/dark.png",
+      "scene": "scenes/split-loading/icon.ghost.outline/normal/dark.json",
+      "png_sha256": "eff318f7cb2c79508227ea1131f04c537c6b07f9b0100ad6ec42d0193bfd86eb"
+    },
+    {
+      "id": "split-loading/icon.ghost.outline/normal/light",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "ghost",
+        "outline": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        111.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.ghost.outline/normal/light.png",
+      "scene": "scenes/split-loading/icon.ghost.outline/normal/light.json",
+      "png_sha256": "9196b08964fb02a62e278d703eb0f8a8bef8449a188b947e94e467fc90cf59fb"
+    },
+    {
+      "id": "split-loading/icon.ghost.outline/pressed/dark",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "ghost",
+        "outline": true
+      },
+      "state": "pressed",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        111.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.ghost.outline/pressed/dark.png",
+      "scene": "scenes/split-loading/icon.ghost.outline/pressed/dark.json",
+      "png_sha256": "81ed26a3b9f8f6dcbd5f5e07bc72d05e9e81878b0593913e5960abc1a7ecae9b"
+    },
+    {
+      "id": "split-loading/icon.ghost.outline/pressed/light",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "ghost",
+        "outline": true
+      },
+      "state": "pressed",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        111.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.ghost.outline/pressed/light.png",
+      "scene": "scenes/split-loading/icon.ghost.outline/pressed/light.json",
+      "png_sha256": "7dbafba4a110af50cb856302efc7b8309ed37306fd89b750e7946e0b0cd69ac6"
+    },
+    {
+      "id": "split-loading/icon.ghost/at-107-24/dark",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "ghost",
+        "outline": false
+      },
+      "state": "at-107-24",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        109.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.ghost/at-107-24/dark.png",
+      "scene": "scenes/split-loading/icon.ghost/at-107-24/dark.json",
+      "png_sha256": "d7867d09e69eaef8ab6921a5b3e084a52d2e1a5eeb45078db0f4a9ae91c14798"
+    },
+    {
+      "id": "split-loading/icon.ghost/at-107-24/light",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "ghost",
+        "outline": false
+      },
+      "state": "at-107-24",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        109.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.ghost/at-107-24/light.png",
+      "scene": "scenes/split-loading/icon.ghost/at-107-24/light.json",
+      "png_sha256": "243613dfb0924950526889d64a4a935aecae642c4aa6c75ebc15102cac0eebaf"
+    },
+    {
+      "id": "split-loading/icon.ghost/focus/dark",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "ghost",
+        "outline": false
+      },
+      "state": "focus",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        109.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.ghost/focus/dark.png",
+      "scene": "scenes/split-loading/icon.ghost/focus/dark.json",
+      "png_sha256": "073cbe646493029524630faf7521ed0cae34fb23c8ec0f6832d123e55f1ff44c"
+    },
+    {
+      "id": "split-loading/icon.ghost/focus/light",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "ghost",
+        "outline": false
+      },
+      "state": "focus",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        109.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.ghost/focus/light.png",
+      "scene": "scenes/split-loading/icon.ghost/focus/light.json",
+      "png_sha256": "6545dd27ce75645c192013b4523936f4f479600ec04ca475abe9b9c9782ef985"
+    },
+    {
+      "id": "split-loading/icon.ghost/hover/dark",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "ghost",
+        "outline": false
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        109.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.ghost/hover/dark.png",
+      "scene": "scenes/split-loading/icon.ghost/hover/dark.json",
+      "png_sha256": "1a096614a8035aa0e857665830022df6a6f6e6851ca62716611b7cd32e89d292"
+    },
+    {
+      "id": "split-loading/icon.ghost/hover/light",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "ghost",
+        "outline": false
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        109.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.ghost/hover/light.png",
+      "scene": "scenes/split-loading/icon.ghost/hover/light.json",
+      "png_sha256": "c000cfd4ae051d68b7af888e7c89330ff61859e24a70fb24c073805f4b98f36d"
+    },
+    {
+      "id": "split-loading/icon.ghost/normal/dark",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "ghost",
+        "outline": false
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        109.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.ghost/normal/dark.png",
+      "scene": "scenes/split-loading/icon.ghost/normal/dark.json",
+      "png_sha256": "dda9be22d6d3d42010ae21cdc7f89ac198067d518b8adefdfd8cdc57aeeffc64"
+    },
+    {
+      "id": "split-loading/icon.ghost/normal/light",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "ghost",
+        "outline": false
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        109.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.ghost/normal/light.png",
+      "scene": "scenes/split-loading/icon.ghost/normal/light.json",
+      "png_sha256": "09ffca377c043f6f1748a630678e01f379dcddff1d0cc7923f070673a308b21a"
+    },
+    {
+      "id": "split-loading/icon.ghost/pressed/dark",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "ghost",
+        "outline": false
+      },
+      "state": "pressed",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        109.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.ghost/pressed/dark.png",
+      "scene": "scenes/split-loading/icon.ghost/pressed/dark.json",
+      "png_sha256": "1a096614a8035aa0e857665830022df6a6f6e6851ca62716611b7cd32e89d292"
+    },
+    {
+      "id": "split-loading/icon.ghost/pressed/light",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "ghost",
+        "outline": false
+      },
+      "state": "pressed",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        109.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.ghost/pressed/light.png",
+      "scene": "scenes/split-loading/icon.ghost/pressed/light.json",
+      "png_sha256": "c000cfd4ae051d68b7af888e7c89330ff61859e24a70fb24c073805f4b98f36d"
+    },
+    {
+      "id": "split-loading/icon.primary.outline/at-107-24/dark",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "primary",
+        "outline": true
+      },
+      "state": "at-107-24",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        111.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.primary.outline/at-107-24/dark.png",
+      "scene": "scenes/split-loading/icon.primary.outline/at-107-24/dark.json",
+      "png_sha256": "f78adebed77341490002d105efcae626c46ae062e78edc57cef57fcab5416fce"
+    },
+    {
+      "id": "split-loading/icon.primary.outline/at-107-24/light",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "primary",
+        "outline": true
+      },
+      "state": "at-107-24",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        111.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.primary.outline/at-107-24/light.png",
+      "scene": "scenes/split-loading/icon.primary.outline/at-107-24/light.json",
+      "png_sha256": "e92cc634c2e80874b71e518df1ca441c361e190396db5dae5f014f81fe95ad10"
+    },
+    {
+      "id": "split-loading/icon.primary.outline/focus/dark",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "primary",
+        "outline": true
+      },
+      "state": "focus",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        111.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.primary.outline/focus/dark.png",
+      "scene": "scenes/split-loading/icon.primary.outline/focus/dark.json",
+      "png_sha256": "20daf8bc34be99244fa8e144cf70300b80b9a82e243fba60845fd675a0b31cbe"
+    },
+    {
+      "id": "split-loading/icon.primary.outline/focus/light",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "primary",
+        "outline": true
+      },
+      "state": "focus",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        111.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.primary.outline/focus/light.png",
+      "scene": "scenes/split-loading/icon.primary.outline/focus/light.json",
+      "png_sha256": "89ceb8470cc1d4ebb5b6a5daebbbc02a47d3935022f588da44d4e314b5814171"
+    },
+    {
+      "id": "split-loading/icon.primary.outline/hover/dark",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "primary",
+        "outline": true
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        111.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.primary.outline/hover/dark.png",
+      "scene": "scenes/split-loading/icon.primary.outline/hover/dark.json",
+      "png_sha256": "f3ca2bc521f716f53e8a73bc30b913e68eff7fd4145fbb54b644cffeee46d25c"
+    },
+    {
+      "id": "split-loading/icon.primary.outline/hover/light",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "primary",
+        "outline": true
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        111.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.primary.outline/hover/light.png",
+      "scene": "scenes/split-loading/icon.primary.outline/hover/light.json",
+      "png_sha256": "94afa00c1babfabef41c8f94a4e611b01ceb88f7b2a719307d07f6a7938fe6f9"
+    },
+    {
+      "id": "split-loading/icon.primary.outline/normal/dark",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "primary",
+        "outline": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        111.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.primary.outline/normal/dark.png",
+      "scene": "scenes/split-loading/icon.primary.outline/normal/dark.json",
+      "png_sha256": "f3ca2bc521f716f53e8a73bc30b913e68eff7fd4145fbb54b644cffeee46d25c"
+    },
+    {
+      "id": "split-loading/icon.primary.outline/normal/light",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "primary",
+        "outline": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        111.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.primary.outline/normal/light.png",
+      "scene": "scenes/split-loading/icon.primary.outline/normal/light.json",
+      "png_sha256": "94afa00c1babfabef41c8f94a4e611b01ceb88f7b2a719307d07f6a7938fe6f9"
+    },
+    {
+      "id": "split-loading/icon.primary.outline/pressed/dark",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "primary",
+        "outline": true
+      },
+      "state": "pressed",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        111.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.primary.outline/pressed/dark.png",
+      "scene": "scenes/split-loading/icon.primary.outline/pressed/dark.json",
+      "png_sha256": "f3ca2bc521f716f53e8a73bc30b913e68eff7fd4145fbb54b644cffeee46d25c"
+    },
+    {
+      "id": "split-loading/icon.primary.outline/pressed/light",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "primary",
+        "outline": true
+      },
+      "state": "pressed",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        111.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.primary.outline/pressed/light.png",
+      "scene": "scenes/split-loading/icon.primary.outline/pressed/light.json",
+      "png_sha256": "94afa00c1babfabef41c8f94a4e611b01ceb88f7b2a719307d07f6a7938fe6f9"
+    },
+    {
+      "id": "split-loading/icon.primary/at-107-24/dark",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "primary",
+        "outline": false
+      },
+      "state": "at-107-24",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        109.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.primary/at-107-24/dark.png",
+      "scene": "scenes/split-loading/icon.primary/at-107-24/dark.json",
+      "png_sha256": "bac2f539703adcd43fd0ac83b4ad6b51f572cd58e1d8b8f89e210dca51e91adb"
+    },
+    {
+      "id": "split-loading/icon.primary/at-107-24/light",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "primary",
+        "outline": false
+      },
+      "state": "at-107-24",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        109.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.primary/at-107-24/light.png",
+      "scene": "scenes/split-loading/icon.primary/at-107-24/light.json",
+      "png_sha256": "9f48399295acb081dc2fa3427c83bfc95e1291a95c3b25a43c96c4f9a593b05e"
+    },
+    {
+      "id": "split-loading/icon.primary/focus/dark",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "primary",
+        "outline": false
+      },
+      "state": "focus",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        109.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.primary/focus/dark.png",
+      "scene": "scenes/split-loading/icon.primary/focus/dark.json",
+      "png_sha256": "c67a5837de7b37847bc5ea9c08e3c614c563d978135af1cc49a97f73be144641"
+    },
+    {
+      "id": "split-loading/icon.primary/focus/light",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "primary",
+        "outline": false
+      },
+      "state": "focus",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        109.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.primary/focus/light.png",
+      "scene": "scenes/split-loading/icon.primary/focus/light.json",
+      "png_sha256": "168b716a145d02eea66b42e7498f184c9682c1392db17d23ca1876f0b23be70b"
+    },
+    {
+      "id": "split-loading/icon.primary/hover/dark",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "primary",
+        "outline": false
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        109.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.primary/hover/dark.png",
+      "scene": "scenes/split-loading/icon.primary/hover/dark.json",
+      "png_sha256": "669cfe43bfebcc1ef4908648f37158e6f4091e40ff78ca71799e0367eaee6c91"
+    },
+    {
+      "id": "split-loading/icon.primary/hover/light",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "primary",
+        "outline": false
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        109.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.primary/hover/light.png",
+      "scene": "scenes/split-loading/icon.primary/hover/light.json",
+      "png_sha256": "392735756e5aec169d0200a0c82df0fd447297aed73201d1b5505d4c6e8889fd"
+    },
+    {
+      "id": "split-loading/icon.primary/normal/dark",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "primary",
+        "outline": false
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        109.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.primary/normal/dark.png",
+      "scene": "scenes/split-loading/icon.primary/normal/dark.json",
+      "png_sha256": "669cfe43bfebcc1ef4908648f37158e6f4091e40ff78ca71799e0367eaee6c91"
+    },
+    {
+      "id": "split-loading/icon.primary/normal/light",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "primary",
+        "outline": false
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        109.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.primary/normal/light.png",
+      "scene": "scenes/split-loading/icon.primary/normal/light.json",
+      "png_sha256": "392735756e5aec169d0200a0c82df0fd447297aed73201d1b5505d4c6e8889fd"
+    },
+    {
+      "id": "split-loading/icon.primary/pressed/dark",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "primary",
+        "outline": false
+      },
+      "state": "pressed",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        109.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.primary/pressed/dark.png",
+      "scene": "scenes/split-loading/icon.primary/pressed/dark.json",
+      "png_sha256": "669cfe43bfebcc1ef4908648f37158e6f4091e40ff78ca71799e0367eaee6c91"
+    },
+    {
+      "id": "split-loading/icon.primary/pressed/light",
+      "component": "split-loading",
+      "group": "icon",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "pointer_x": 0.3,
+        "variant": "primary",
+        "outline": false
+      },
+      "state": "pressed",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        109.0,
+        32.0
+      ],
+      "png": "png/split-loading/icon.primary/pressed/light.png",
+      "scene": "scenes/split-loading/icon.primary/pressed/light.json",
+      "png_sha256": "392735756e5aec169d0200a0c82df0fd447297aed73201d1b5505d4c6e8889fd"
+    },
+    {
+      "id": "split-loading/label.default.large/normal/dark",
+      "component": "split-loading",
+      "group": "label",
+      "params": {
+        "label": "Save",
+        "loading": true,
+        "variant": "default",
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        96.0,
+        32.0
+      ],
+      "png": "png/split-loading/label.default.large/normal/dark.png",
+      "scene": "scenes/split-loading/label.default.large/normal/dark.json",
+      "png_sha256": "6be6056a99e5dcf99f012de423f3b809b91fd2760b696a02123ffc9a4d77ac86"
+    },
+    {
+      "id": "split-loading/label.default.large/normal/light",
+      "component": "split-loading",
+      "group": "label",
+      "params": {
+        "label": "Save",
+        "loading": true,
+        "variant": "default",
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        96.0,
+        32.0
+      ],
+      "png": "png/split-loading/label.default.large/normal/light.png",
+      "scene": "scenes/split-loading/label.default.large/normal/light.json",
+      "png_sha256": "99e4b3e39da5dac690c67b8c282093d1cae1b5caac20af934d4f66b173cd51f4"
+    },
+    {
+      "id": "split-loading/label.default.small/normal/dark",
+      "component": "split-loading",
+      "group": "label",
+      "params": {
+        "label": "Save",
+        "loading": true,
+        "variant": "default",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        75.0,
+        24.0
+      ],
+      "png": "png/split-loading/label.default.small/normal/dark.png",
+      "scene": "scenes/split-loading/label.default.small/normal/dark.json",
+      "png_sha256": "3f35d96d087d6d7f724284f4284c4da688704e62f5113a54bf978c850d8756dc"
+    },
+    {
+      "id": "split-loading/label.default.small/normal/light",
+      "component": "split-loading",
+      "group": "label",
+      "params": {
+        "label": "Save",
+        "loading": true,
+        "variant": "default",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        75.0,
+        24.0
+      ],
+      "png": "png/split-loading/label.default.small/normal/light.png",
+      "scene": "scenes/split-loading/label.default.small/normal/light.json",
+      "png_sha256": "2a7201df9a4e3f55ea8dbf08c0b6f023326d5ce1af271bad353160fc2c07846f"
+    },
+    {
+      "id": "split-loading/label.primary.large/normal/dark",
+      "component": "split-loading",
+      "group": "label",
+      "params": {
+        "label": "Save",
+        "loading": true,
+        "variant": "primary",
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        94.0,
+        32.0
+      ],
+      "png": "png/split-loading/label.primary.large/normal/dark.png",
+      "scene": "scenes/split-loading/label.primary.large/normal/dark.json",
+      "png_sha256": "819eb08fa58063e223de0fe98b814fdc6fd54ccd442a126e8039d0b2758cc663"
+    },
+    {
+      "id": "split-loading/label.primary.large/normal/light",
+      "component": "split-loading",
+      "group": "label",
+      "params": {
+        "label": "Save",
+        "loading": true,
+        "variant": "primary",
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        94.0,
+        32.0
+      ],
+      "png": "png/split-loading/label.primary.large/normal/light.png",
+      "scene": "scenes/split-loading/label.primary.large/normal/light.json",
+      "png_sha256": "f6077acf9a6016d3a40540ece2514d1c605af0cb79c044d12e9209af819dc180"
+    },
+    {
+      "id": "split-loading/label.primary.small/normal/dark",
+      "component": "split-loading",
+      "group": "label",
+      "params": {
+        "label": "Save",
+        "loading": true,
+        "variant": "primary",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        73.0,
+        24.0
+      ],
+      "png": "png/split-loading/label.primary.small/normal/dark.png",
+      "scene": "scenes/split-loading/label.primary.small/normal/dark.json",
+      "png_sha256": "b6ac04390f8aedcb34b2dabd807bde8ae319637e538cb2e5945bc1e3026e7d1c"
+    },
+    {
+      "id": "split-loading/label.primary.small/normal/light",
+      "component": "split-loading",
+      "group": "label",
+      "params": {
+        "label": "Save",
+        "loading": true,
+        "variant": "primary",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        160.0,
+        48.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        73.0,
+        24.0
+      ],
+      "png": "png/split-loading/label.primary.small/normal/light.png",
+      "scene": "scenes/split-loading/label.primary.small/normal/light.json",
+      "png_sha256": "875497c01c3453ab936412c590448dd1cddac921d4d0d8ba1657256606897f6a"
+    },
+    {
+      "id": "split-loading/open.default/click-at-291-24/dark",
+      "component": "split-loading",
+      "group": "open",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "variant": "default"
+      },
+      "state": "click-at-291-24",
+      "theme": "dark",
+      "viewport": [
+        600.0,
+        260.0
+      ],
+      "anchor": [
+        200.0,
+        8.0
+      ],
+      "component_bounds": [
+        200.0,
+        8.0,
+        111.0,
+        32.0
+      ],
+      "png": "png/split-loading/open.default/click-at-291-24/dark.png",
+      "scene": "scenes/split-loading/open.default/click-at-291-24/dark.json",
+      "png_sha256": "4b9b5319053e6b4657a3a6057eded23196c6366a8d1970e426d5ed1692250de0"
+    },
+    {
+      "id": "split-loading/open.default/click-at-291-24/light",
+      "component": "split-loading",
+      "group": "open",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "variant": "default"
+      },
+      "state": "click-at-291-24",
+      "theme": "light",
+      "viewport": [
+        600.0,
+        260.0
+      ],
+      "anchor": [
+        200.0,
+        8.0
+      ],
+      "component_bounds": [
+        200.0,
+        8.0,
+        111.0,
+        32.0
+      ],
+      "png": "png/split-loading/open.default/click-at-291-24/light.png",
+      "scene": "scenes/split-loading/open.default/click-at-291-24/light.json",
+      "png_sha256": "0a03331ad23e57126d56f2612ff37216f1f07f7708a10a52a131df1b852def15"
+    },
+    {
+      "id": "split-loading/open.ghost/click-at-291-24/dark",
+      "component": "split-loading",
+      "group": "open",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "variant": "ghost"
+      },
+      "state": "click-at-291-24",
+      "theme": "dark",
+      "viewport": [
+        600.0,
+        260.0
+      ],
+      "anchor": [
+        200.0,
+        8.0
+      ],
+      "component_bounds": [
+        200.0,
+        8.0,
+        109.0,
+        32.0
+      ],
+      "png": "png/split-loading/open.ghost/click-at-291-24/dark.png",
+      "scene": "scenes/split-loading/open.ghost/click-at-291-24/dark.json",
+      "png_sha256": "7cd20e38d5ff8b999845022c92869959e07940e93c1847c16ccbdb4b1c8365cf"
+    },
+    {
+      "id": "split-loading/open.ghost/click-at-291-24/light",
+      "component": "split-loading",
+      "group": "open",
+      "params": {
+        "label": "Save",
+        "icon": "check",
+        "loading": true,
+        "variant": "ghost"
+      },
+      "state": "click-at-291-24",
+      "theme": "light",
+      "viewport": [
+        600.0,
+        260.0
+      ],
+      "anchor": [
+        200.0,
+        8.0
+      ],
+      "component_bounds": [
+        200.0,
+        8.0,
+        109.0,
+        32.0
+      ],
+      "png": "png/split-loading/open.ghost/click-at-291-24/light.png",
+      "scene": "scenes/split-loading/open.ghost/click-at-291-24/light.json",
+      "png_sha256": "6d848a3b3e9e36285fc995458cd7b317ec29454b19df81f87041b84082abefb8"
+    },
+    {
       "id": "split/label.danger.large/disabled/dark",
       "component": "split",
       "group": "label",
