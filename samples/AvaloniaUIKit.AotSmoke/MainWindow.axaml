@@ -368,6 +368,10 @@
             <ComboBoxItem Content="Apple" />
             <ComboBoxItem Content="Banana" />
           </ComboBox>
+          <ComboBox Classes="clearButton" Width="200" SelectedIndex="1">
+            <ComboBoxItem Content="Apple" />
+            <ComboBoxItem Content="Banana" />
+          </ComboBox>
           <AutoCompleteBox Width="200" PlaceholderText="Fruit" />
           <uikit:Select Width="200" IsSearchable="True" IsCleanable="True" PlaceholderText="Select a fruit" SelectedIndex="1">
             <x:String>Apple</x:String>

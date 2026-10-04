@@ -56,7 +56,7 @@ public static partial class Adapters
         "input-group-loading" => LoadingInputGroup(c),
         "list" => List(c),
         "virtual" => VirtualList(c),
-        "select" => Select(c),
+        "select" => SelectFeatures(Select(c), c),
         "combobox" => Select(c, "combobox"),
         "uikit-select" => SelectCase(c, combobox: false),
         "uikit-combobox" => SelectCase(c, combobox: true),

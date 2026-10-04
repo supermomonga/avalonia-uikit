@@ -49,6 +49,8 @@ pub fn builder(params: &Params) -> Result<Builder> {
     let count = param_f32(params, "count", 4.) as usize;
     let width = param_f32(params, "width", 200.);
     let placeholder = param_str(params, "placeholder", "Select a fruit").to_string();
+    // select.rs cleanable: a clear button stands in for the caret while a value is selected.
+    let cleanable = param_bool(params, "cleanable");
     Ok(Rc::new(move |view, window, cx| {
         if view.state.entity.is_none() {
             let items: Vec<Fruit> = super::list::names(count)
@@ -70,6 +72,7 @@ pub fn builder(params: &Params) -> Result<Builder> {
             .placeholder(placeholder.clone())
             .with_size(size)
             .disabled(disabled)
+            .cleanable(cleanable)
             .w(px(width))
             .into_any_element()
     }))

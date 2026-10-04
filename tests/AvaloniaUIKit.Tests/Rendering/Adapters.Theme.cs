@@ -70,6 +70,13 @@ public static partial class Adapters
         return box;
     }
 
+    /// <summary>reference/src/cases/select.rs: `cleanable` as the clearButton class.</summary>
+    private static ComboBox SelectFeatures(ComboBox box, GoldenCase c)
+    {
+        FlagClass(box, c, "cleanable", "clearButton");
+        return box;
+    }
+
     /// <summary>
     /// A select case's ComboBox with IsEditable: the field shows the selected
     /// item's text where the title is, in the same frame.

@@ -221,4 +221,25 @@ public class ThemeFixBehaviorTests
         host.Drive(golden, "click-at-155-28");
         await Assert.That(box.RevealPassword).IsTrue();
     }
+
+    // select.rs cleanable: the clear button clears the selection without opening the list.
+    [Test]
+    public async Task A_combo_box_clear_button_clears_the_selection()
+    {
+        var golden = Case("select/cleanable-pointer.base/at-199-24/light");
+        using var host = CaseHost.Open(golden, Adapters.Create(golden));
+        var box = (ComboBox)host.Control;
+        var clear = Part<Button>(box, "PART_ClearButton");
+        var caret = Part<PathIcon>(box, "PART_Caret");
+        await Assert.That(clear.IsEffectivelyVisible).IsTrue();
+        await Assert.That(caret.IsEffectivelyVisible).IsFalse();
+        host.Drive(golden, "click-at-199-24");
+        await Assert.That(box.SelectedIndex).IsEqualTo(-1);
+        await Assert.That(box.IsDropDownOpen).IsFalse();
+        await Assert.That(clear.IsEffectivelyVisible).IsFalse();
+        await Assert.That(caret.IsEffectivelyVisible).IsTrue();
+        box.SelectedIndex = 0;
+        host.Flush();
+        await Assert.That(clear.IsEffectivelyVisible).IsTrue();
+    }
 }
