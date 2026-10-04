@@ -53,6 +53,8 @@
         <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/HoverCard.axaml" />
         <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/ShimmerText.axaml" />
         <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/Marker.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/ListView.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/Tree.axaml" />
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
   </Styles.Resources>

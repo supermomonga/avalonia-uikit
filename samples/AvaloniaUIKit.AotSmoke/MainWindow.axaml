@@ -267,6 +267,21 @@
             </TreeViewItem>
             <TreeViewItem Header="Cargo.toml" />
           </TreeView>
+          <uikit:ListView Width="240" Height="200" IsSearchable="True" SelectedItem="Banana">
+            <uikit:ListSection Header="Fruits" Footer="2 items">
+              <x:String>Apple</x:String>
+              <x:String>Banana</x:String>
+            </uikit:ListSection>
+            <uikit:ListSection Header="Citrus">
+              <x:String>Lemon</x:String>
+            </uikit:ListSection>
+          </uikit:ListView>
+          <uikit:Tree Width="240" Height="120">
+            <uikit:TreeItem Label="src" IsExpanded="True">
+              <uikit:TreeItem Label="main.rs" />
+            </uikit:TreeItem>
+            <uikit:TreeItem Label="Cargo.toml" />
+          </uikit:Tree>
           <TabStrip Classes="pill" SelectedIndex="0">
             <TabStripItem Content="Account" />
             <TabStripItem Content="Profile" />

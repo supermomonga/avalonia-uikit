@@ -1,0 +1,280 @@
+<!--
+  GPUI Kit List / ListItem (crates/component/src/list) -> uikit:ListView /
+  uikit:ListItem, with the look of the ListBox theme.
+
+  ListItem: a 34px row (16px text on GPUI's default line, 26px at scale 2, with
+  12px by 4px of padding), square and full width. A hovered row shows
+  list_hover, the selected row list_active; the right-clicked row
+  (secondary_selected) gets a 1px frame in the selection color over the row; a
+  confirmed row shows its 14px check icon in muted, centered in a 20px column
+  4px after the content. A selected, right-clicked or confirmed row shows no
+  hover. A disabled row shows muted text and nothing else.
+
+  ListView: no chrome of its own; the rows are virtualized under the overlay
+  scrollbar (the ScrollViewer theme), the Padding inside the scrolling area.
+  The search field (searchable) is a borderless 32px input with the 14px search
+  icon, 6px from the 14px text, and Button::text().xsmall()'s clear button
+  10px from the end, in a bar 8px in from the sides with a bottom border.
+  Loading shows three skeleton rows (loading.rs): 10px down, 12px apart, each a
+  ListItem holding a 20px bar 192px wide over a 12px secondary bar 256px wide
+  (at most the row's width), 6px apart. An empty list shows the 48px Inbox
+  icon, centered (delegate.rs render_empty). Section headers and footers have
+  the story's look: 14px muted text (a 22.5px line) with 8px of side padding
+  and 4px below; 12px muted text (19.5px) with 4px above and 20px below.
+-->
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:uikit="using:AvaloniaUIKit">
+  <ControlTheme x:Key="{x:Type uikit:ListItem}" TargetType="uikit:ListItem">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
+    <Setter Property="FontSize" Value="16" />
+    <Setter Property="Padding" Value="12,4" />
+    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Panel>
+          <Border Name="PART_Background"
+                  Background="{TemplateBinding Background}"
+                  BorderBrush="{TemplateBinding BorderBrush}"
+                  BorderThickness="{TemplateBinding BorderThickness}"
+                  CornerRadius="{TemplateBinding CornerRadius}"
+                  Padding="{TemplateBinding Padding}">
+            <Grid ColumnDefinitions="*,Auto,Auto">
+              <ContentPresenter Name="PART_ContentPresenter"
+                                Content="{TemplateBinding Content}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}"
+                                Foreground="{TemplateBinding Foreground}"
+                                HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                LineHeight="26" />
+              <!-- list_item.rs: check_icon's w_5 column, the icon small and muted while confirmed. -->
+              <Panel Name="PART_Check" Grid.Column="1" Width="20" Margin="4,0,0,0"
+                     IsVisible="{TemplateBinding CheckIcon, Converter={x:Static ObjectConverters.IsNotNull}}">
+                <PathIcon Name="PART_CheckIcon" Width="14" Height="14"
+                          HorizontalAlignment="Center" VerticalAlignment="Center"
+                          Data="{TemplateBinding CheckIcon}" Foreground="{DynamicResource UIKit.MutedForeground}"
+                          IsVisible="False" />
+              </Panel>
+              <ContentPresenter Name="PART_Suffix" Grid.Column="2" Margin="4,0,0,0" VerticalAlignment="Center"
+                                Content="{TemplateBinding Suffix}"
+                                IsVisible="{TemplateBinding Suffix, Converter={x:Static ObjectConverters.IsNotNull}}" />
+            </Grid>
+          </Border>
+          <!-- secondary_selected: an inset frame over the row, with the row's own corners. -->
+          <Border Name="PART_SecondaryFrame" BorderThickness="1" BorderBrush="{DynamicResource UIKit.Selection}"
+                  CornerRadius="{TemplateBinding CornerRadius}" IsVisible="False" IsHitTestVisible="False" />
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^:pointerover">
+      <Setter Property="Background" Value="{DynamicResource UIKit.ListHover}" />
+    </Style>
+    <!-- An active row (selected, right-clicked or confirmed) shows no hover. -->
+    <Style Selector="^:secondary-selected, ^:confirmed">
+      <Setter Property="Background" Value="Transparent" />
+    </Style>
+    <Style Selector="^:selected">
+      <Setter Property="Background" Value="{DynamicResource UIKit.ListActive}" />
+    </Style>
+    <Style Selector="^:secondary-selected /template/ Border#PART_SecondaryFrame">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+    <Style Selector="^:confirmed /template/ PathIcon#PART_CheckIcon">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+    <Style Selector="^:disabled">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.MutedForeground}" />
+    </Style>
+    <Style Selector="^:disabled /template/ Border#PART_SecondaryFrame">
+      <Setter Property="IsVisible" Value="False" />
+    </Style>
+  </ControlTheme>
+
+  <!-- The story's section header and footer (list_story.rs). -->
+  <ControlTheme x:Key="UIKitListSectionHeader" TargetType="ContentPresenter">
+    <Setter Property="Padding" Value="8,0,8,4" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="LineHeight" Value="22.5" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.MutedForeground}" />
+  </ControlTheme>
+  <ControlTheme x:Key="UIKitListSectionFooter" TargetType="ContentPresenter">
+    <Setter Property="Padding" Value="8,4,8,20" />
+    <Setter Property="FontSize" Value="12" />
+    <Setter Property="LineHeight" Value="19.5" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.MutedForeground}" />
+  </ControlTheme>
+
+  <!-- input/clear_button.rs: Button::text().xsmall() with the close icon. -->
+  <ControlTheme x:Key="UIKitListSearchClearButton" TargetType="Button">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Text.Normal.Foreground}" />
+    <Setter Property="Padding" Value="0" />
+    <Setter Property="Focusable" Value="False" />
+    <Setter Property="Cursor" Value="Hand" />
+    <Setter Property="VerticalAlignment" Value="Center" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Background="{TemplateBinding Background}" CornerRadius="6">
+          <PathIcon Width="12" Height="12" Data="{StaticResource UIKit.Icon.Close}" Foreground="{TemplateBinding Foreground}" />
+        </Border>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^:pointerover">
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Text.Hover.Foreground}" />
+    </Style>
+    <Style Selector="^:pressed">
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Text.Pressed.Foreground}" />
+    </Style>
+  </ControlTheme>
+
+  <!--
+    list.rs: the search input, Input::new().prefix(search icon).cleanable(true)
+    .p_0().appearance(false): no frame, the 14px text on a 20px line, the clear
+    button while there is text (input.rs adds pr(input_px) with it).
+  -->
+  <ControlTheme x:Key="UIKitListSearchBox" TargetType="TextBox">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
+    <Setter Property="CaretBrush" Value="{DynamicResource UIKit.Caret}" />
+    <Setter Property="SelectionBrush" Value="{DynamicResource UIKit.Selection}" />
+    <Setter Property="PlaceholderForeground" Value="{DynamicResource UIKit.MutedForeground}" />
+    <Setter Property="IsInactiveSelectionHighlightEnabled" Value="False" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="LineHeight" Value="20" />
+    <Setter Property="Height" Value="32" />
+    <Setter Property="Padding" Value="0" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="FocusAdorner" Value="{x:Null}" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Grid ColumnDefinitions="Auto,*,Auto" Background="{TemplateBinding Background}" Margin="{TemplateBinding Padding}">
+          <PathIcon Width="14" Height="14" Margin="0,0,6,0" VerticalAlignment="Center"
+                    Data="{StaticResource UIKit.Icon.Search}" Foreground="{DynamicResource UIKit.MutedForeground}" />
+          <Panel Grid.Column="1" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+            <TextBlock Name="PART_Placeholder"
+                       Foreground="{TemplateBinding PlaceholderForeground}"
+                       Text="{TemplateBinding PlaceholderText}"
+                       LineHeight="{TemplateBinding LineHeight}"
+                       TextTrimming="CharacterEllipsis"
+                       IsVisible="{TemplateBinding Text, Converter={x:Static StringConverters.IsNullOrEmpty}}" />
+            <TextPresenter Name="PART_TextPresenter"
+                           CaretBlinkInterval="{TemplateBinding CaretBlinkInterval}"
+                           CaretBrush="{TemplateBinding CaretBrush}"
+                           CaretIndex="{TemplateBinding CaretIndex}"
+                           LineHeight="{TemplateBinding LineHeight}"
+                           SelectionBrush="{TemplateBinding SelectionBrush}"
+                           SelectionEnd="{TemplateBinding SelectionEnd}"
+                           SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
+                           SelectionStart="{TemplateBinding SelectionStart}"
+                           Text="{TemplateBinding Text, Mode=TwoWay}"
+                           TextWrapping="NoWrap" />
+          </Panel>
+          <Button Name="PART_ClearButton" Grid.Column="2" Margin="6,0,10,0"
+                  Theme="{StaticResource UIKitListSearchClearButton}"
+                  Command="{Binding $parent[TextBox].Clear}"
+                  IsVisible="{TemplateBinding Text, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
+        </Grid>
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+
+  <!-- The rows: a virtualizing stack under the overlay scrollbar. -->
+  <ControlTheme x:Key="{x:Type uikit:ListRows}" TargetType="uikit:ListRows">
+    <Setter Property="ItemsPanel">
+      <ItemsPanelTemplate>
+        <VirtualizingStackPanel />
+      </ItemsPanelTemplate>
+    </Setter>
+    <Setter Property="Template">
+      <ControlTemplate>
+        <ScrollViewer Name="PART_ScrollViewer"
+                      HorizontalScrollBarVisibility="Disabled"
+                      VerticalScrollBarVisibility="Auto"
+                      AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
+                      IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}">
+          <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" Margin="{TemplateBinding Padding}" />
+        </ScrollViewer>
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type uikit:ListView}" TargetType="uikit:ListView">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Border}" />
+    <Setter Property="BorderThickness" Value="0" />
+    <Setter Property="Padding" Value="0" />
+    <Setter Property="FocusAdorner" Value="{x:Null}" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Name="border"
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                CornerRadius="{TemplateBinding CornerRadius}">
+          <DockPanel>
+            <Border Name="PART_SearchBar" DockPanel.Dock="Top" Padding="8,0"
+                    BorderThickness="0,0,0,1" BorderBrush="{DynamicResource UIKit.Border}"
+                    IsVisible="{TemplateBinding IsSearchable}">
+              <TextBox Name="PART_SearchBox" Theme="{StaticResource UIKitListSearchBox}"
+                       Text="{TemplateBinding SearchText, Mode=TwoWay}"
+                       PlaceholderText="{TemplateBinding SearchPlaceholder}" />
+            </Border>
+            <Panel>
+              <uikit:ListRows Name="PART_Rows"
+                              Padding="{TemplateBinding Padding}"
+                              ScrollViewer.AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
+                              ScrollViewer.IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}" />
+              <Panel Name="PART_EmptyView" IsVisible="False">
+                <PathIcon Width="48" Height="48" HorizontalAlignment="Center" VerticalAlignment="Center"
+                          Data="{StaticResource UIKit.Icon.Inbox}" Foreground="{DynamicResource UIKit.List.Empty}"
+                          IsVisible="{TemplateBinding EmptyContent, Converter={x:Static ObjectConverters.IsNull}}"
+                          IsHitTestVisible="False" />
+                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"
+                                  Content="{TemplateBinding EmptyContent}" />
+              </Panel>
+              <!-- The bars' widths (w_48 / w_64, max_w_full) in unrounded grids: a
+                   rounded grid hands its leftover half pixel to a capped column. -->
+              <StackPanel Name="PART_Loading" Spacing="12" Margin="0,10" VerticalAlignment="Top" IsVisible="False">
+                <uikit:ListItem IsEnabled="False">
+                  <StackPanel Spacing="6">
+                    <Grid UseLayoutRounding="False"><Grid.ColumnDefinitions><ColumnDefinition Width="*" MaxWidth="192" /></Grid.ColumnDefinitions><uikit:Skeleton Height="20" /></Grid>
+                    <Grid UseLayoutRounding="False"><Grid.ColumnDefinitions><ColumnDefinition Width="*" MaxWidth="256" /></Grid.ColumnDefinitions><uikit:Skeleton Classes="secondary" Height="12" /></Grid>
+                  </StackPanel>
+                </uikit:ListItem>
+                <uikit:ListItem IsEnabled="False">
+                  <StackPanel Spacing="6">
+                    <Grid UseLayoutRounding="False"><Grid.ColumnDefinitions><ColumnDefinition Width="*" MaxWidth="192" /></Grid.ColumnDefinitions><uikit:Skeleton Height="20" /></Grid>
+                    <Grid UseLayoutRounding="False"><Grid.ColumnDefinitions><ColumnDefinition Width="*" MaxWidth="256" /></Grid.ColumnDefinitions><uikit:Skeleton Classes="secondary" Height="12" /></Grid>
+                  </StackPanel>
+                </uikit:ListItem>
+                <uikit:ListItem IsEnabled="False">
+                  <StackPanel Spacing="6">
+                    <Grid UseLayoutRounding="False"><Grid.ColumnDefinitions><ColumnDefinition Width="*" MaxWidth="192" /></Grid.ColumnDefinitions><uikit:Skeleton Height="20" /></Grid>
+                    <Grid UseLayoutRounding="False"><Grid.ColumnDefinitions><ColumnDefinition Width="*" MaxWidth="256" /></Grid.ColumnDefinitions><uikit:Skeleton Classes="secondary" Height="12" /></Grid>
+                  </StackPanel>
+                </uikit:ListItem>
+              </StackPanel>
+            </Panel>
+          </DockPanel>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+    <!-- list.rs: a searchable list's focus is its search field's. -->
+    <Style Selector="^[IsSearchable=True]">
+      <Setter Property="IsTabStop" Value="False" />
+    </Style>
+    <Style Selector="^:empty /template/ Panel#PART_EmptyView">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+    <Style Selector="^:loading /template/ uikit|ListRows#PART_Rows">
+      <Setter Property="IsVisible" Value="False" />
+    </Style>
+    <Style Selector="^:loading /template/ StackPanel#PART_Loading">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>
