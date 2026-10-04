@@ -16,6 +16,7 @@
                DockProperties.IsDockTarget="True"
                DockProperties.ShowDockIndicatorOnly="{DynamicResource DockDocumentControlShowDockIndicatorOnly}"
                DockProperties.IndicatorDockOperation="{DynamicResource DockDocumentControlIndicatorDockOperation}"
+               DockProperties.DockAdornerHost="{Binding #PART_Border}"
                VerticalSpacing="{DynamicResource DockDocumentControlVerticalSpacing}"
                ZIndex="1">
       <DocumentTabStrip x:Name="PART_TabStrip"
@@ -71,6 +72,7 @@
                DockProperties.IsDockTarget="True"
                DockProperties.ShowDockIndicatorOnly="{DynamicResource DockDocumentControlShowDockIndicatorOnly}"
                DockProperties.IndicatorDockOperation="{DynamicResource DockDocumentControlIndicatorDockOperation}"
+               DockProperties.DockAdornerHost="{Binding #PART_Border}"
                VerticalSpacing="{DynamicResource DockDocumentControlVerticalSpacing}"
                ZIndex="1">
       <DocumentTabStrip x:Name="PART_TabStrip"
@@ -187,7 +189,10 @@
       <Setter Property="IsVisible" Value="{DynamicResource DockDocumentControlTabStripVisible}" />
     </Style>
 
-    <!-- GPUI's tab panel: the background under the whole group, and pt_2 under a tab bar. -->
+    <!--
+      GPUI's tab panel: the background under the whole group, and pt_2 under a tab
+      bar. A dragged dockable's placeholder covers the content, not the tab bar.
+    -->
     <Style Selector="^/template/ DockPanel#PART_DockPanel">
       <Setter Property="Background" Value="{DynamicResource UIKit.Background}" />
     </Style>
