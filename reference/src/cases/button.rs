@@ -93,13 +93,20 @@ pub fn builder(params: &Params) -> Result<Builder> {
         .map(|s| s.to_string());
     let icon = icon(param_str(params, "icon", ""));
     let rounded = rounded(params);
+    // Button::loading and loading_icon (button.rs, button_icon.rs).
+    let loading = param_bool(params, "loading");
+    let loading_icon = super::icon(param_str(params, "loading_icon", ""));
     Ok(Rc::new(move |_, _, _| {
         let mut button = Button::new("case")
             .with_variant(variant)
             .with_size(size)
             .rounded(rounded)
             .disabled(disabled)
-            .selected(selected);
+            .selected(selected)
+            .loading(loading);
+        if let Some(name) = loading_icon.clone() {
+            button = button.loading_icon(name);
+        }
         if outline {
             button = button.outline();
         }

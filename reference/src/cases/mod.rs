@@ -68,6 +68,7 @@ pub fn builder(case: &Case) -> Result<Builder> {
     match case.component.as_str() {
         "surface" => surface::builder(&params),
         "button" => button::builder(&params),
+        "button-loading" => button::builder(&params),
         "buttongroup" => button::group(&params),
         "toggle" => toggle::builder(&params),
         "togglegroup" => toggle::group(&params),
@@ -92,6 +93,7 @@ pub fn builder(case: &Case) -> Result<Builder> {
         "input" => input::builder(&params),
         "textarea" => input::textarea(&params),
         "input-group" => input::input_group(&params),
+        "input-group-loading" => input::input_group(&params),
         "list" => list::builder(&params),
         "virtual" => list::virtual_list(&params),
         "select" => select::builder(&params),
@@ -283,6 +285,7 @@ pub fn icon(name: &str) -> Option<IconName> {
         "chevron-up" => IconName::ChevronUp,
         "calendar" => IconName::Calendar,
         "loader" => IconName::Loader,
+        "loader-circle" => IconName::LoaderCircle,
         "undo-2" => IconName::Undo2,
         "redo-2" => IconName::Redo2,
         "ellipsis" => IconName::Ellipsis,

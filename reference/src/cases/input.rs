@@ -126,6 +126,8 @@ pub fn input_group(params: &Params) -> Result<Builder> {
     let end_button = param_str(params, "end_button", "").to_string();
     let end_icon = param_str(params, "end_icon", "").to_string();
     let button_size = if param_str(params, "button_size", "xsmall") == "small" { Size::Small } else { Size::XSmall };
+    // InputGroupButton::loading (group.rs).
+    let loading = param_bool(params, "loading");
     let width = param_f32(params, "width", 240.);
     Ok(Rc::new(move |view, window, cx| {
         if view.state.entity.is_none() {
@@ -159,11 +161,11 @@ pub fn input_group(params: &Params) -> Result<Builder> {
             has_tail = true;
         }
         if !end_button.is_empty() {
-            tail = tail.child(InputGroupButton::new("btn").label(end_button.clone()).with_size(button_size));
+            tail = tail.child(InputGroupButton::new("btn").label(end_button.clone()).with_size(button_size).loading(loading));
             has_tail = true;
         }
         if let Some(name) = icon(&end_icon) {
-            tail = tail.child(InputGroupButton::new("btn").icon(name).with_size(button_size));
+            tail = tail.child(InputGroupButton::new("btn").icon(name).with_size(button_size).loading(loading));
             has_tail = true;
         }
         if has_tail {

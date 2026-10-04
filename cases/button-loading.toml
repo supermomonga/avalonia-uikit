@@ -1,0 +1,56 @@
+# GPUI Kit Button::loading -> Button with uikit:Buttons.IsLoading.
+# The button fades to 80% and keeps its normal look under the pointer; an icon
+# (check, copy) turns into the spinner, a label alone only fades.
+component = "button-loading"
+viewport = [160, 48]
+anchor = [16, 8]
+
+[[group]]
+name = "label"
+params = { label = "Button", loading = true }
+matrix = { variant = ["default", "primary", "secondary", "danger", "warning", "success", "info", "ghost", "link", "text"], size = ["xsmall", "small", "medium", "large"] }
+states = ["normal", "hover"]
+
+[[group]]
+name = "icon"
+params = { label = "Button", icon = "check", loading = true }
+matrix = { variant = ["default", "primary", "secondary", "danger", "warning", "success", "info", "ghost", "link", "text"], size = ["xsmall", "small", "medium", "large"] }
+
+[[group]]
+name = "icon-only"
+params = { icon = "copy", loading = true }
+matrix = { variant = ["default", "primary", "ghost"], size = ["xsmall", "small", "medium", "large"] }
+states = ["normal", "hover"]
+
+[[group]]
+name = "outline"
+params = { label = "Button", icon = "check", loading = true, outline = true }
+matrix = { variant = ["default", "primary", "secondary", "danger", "warning", "success", "info", "ghost"], size = ["small", "medium"] }
+
+# Pressing and clicking do nothing; Tab still focuses it and shows the ring.
+# 300ms later the spinner has turned (0.8s a turn, ease_in_out).
+[[group]]
+name = "state"
+params = { label = "Button", icon = "check", loading = true }
+matrix = { variant = ["default", "primary"] }
+states = ["pressed", "click", "focus", "wait-300ms"]
+
+# Disabled wins over loading: the disabled look, without the fade.
+[[group]]
+name = "disabled"
+params = { label = "Button", icon = "check", loading = true }
+matrix = { variant = ["default", "primary"] }
+states = ["disabled"]
+
+[[group]]
+name = "selected"
+params = { label = "Button", icon = "check", loading = true, selected = true }
+matrix = { variant = ["default", "primary"] }
+states = ["normal", "hover"]
+
+# Button::loading_icon: the spinner turns another icon.
+[[group]]
+name = "loading-icon"
+params = { label = "Button", icon = "check", loading = true, loading_icon = "loader-circle" }
+matrix = { variant = ["default", "primary"] }
+states = ["normal", "wait-300ms"]

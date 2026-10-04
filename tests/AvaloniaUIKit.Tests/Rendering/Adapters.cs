@@ -20,6 +20,7 @@ public static partial class Adapters
     {
         "surface" => new Border { Width = 1, Height = 1 },
         "button" => Button(c),
+        "button-loading" => LoadingButton(c),
         "buttongroup" => ButtonGroup(c),
         "toggle" => Toggle(c),
         "togglegroup" => ToggleGroup(c),
@@ -48,6 +49,7 @@ public static partial class Adapters
         "input" => Input(c),
         "textarea" => Textarea(c),
         "input-group" => InputGroup(c),
+        "input-group-loading" => LoadingInputGroup(c),
         "list" => List(c),
         "virtual" => VirtualList(c),
         "select" => Select(c),
