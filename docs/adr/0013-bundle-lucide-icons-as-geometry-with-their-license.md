@@ -6,6 +6,8 @@ date: 2026-10-03
 links:
 - target: 21
   kind: amendedby
+- target: 27
+  kind: amendedby
 ---
 
 # Bundle Lucide icons as geometry with their license

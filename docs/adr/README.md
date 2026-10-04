@@ -24,3 +24,4 @@
 * [24. Show a skeleton until a live demo mounts and give the view room outside the demo](0024-show-a-skeleton-until-a-live-demo-mounts-and-give-the-view-room-outside-the-demo.md)
 * [25. Keep children inside rounded borders and check each border's ink](0025-keep-children-inside-rounded-borders-and-check-each-border-s-ink.md)
 * [26. Ship GPUI Kit's color themes as theme variants of UIKitTheme](0026-ship-gpui-kit-s-color-themes-as-theme-variants-of-uikittheme.md)
+* [27. License the project under MIT and ship third-party notices with the packages](0027-license-the-project-under-mit-and-ship-third-party-notices-with-the-packages.md)
