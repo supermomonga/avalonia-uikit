@@ -30,7 +30,7 @@ pub fn init(cx: &mut App) {
 }
 
 /// The menu every popup case shows.
-fn standard_menu(menu: PopupMenu, window: &mut Window, cx: &mut Context<PopupMenu>) -> PopupMenu {
+pub(crate) fn standard_menu(menu: PopupMenu, window: &mut Window, cx: &mut Context<PopupMenu>) -> PopupMenu {
     menu.menu("New File", Box::new(NewFile))
         .menu("Refresh", Box::new(Refresh))
         .menu_with_check("Word Wrap", true, Box::new(Wrap))

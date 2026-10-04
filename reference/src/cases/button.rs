@@ -6,11 +6,12 @@ use crate::{
 };
 use anyhow::{Result, bail};
 use gpui_kit::{
-    Hsla, IntoElement as _, transparent_white,
+    Hsla, IntoElement as _, Styled as _, px, transparent_white,
     component::{
         Colorize as _, Theme,
         Disableable as _, Selectable as _, Sizable as _,
         button::{Button, ButtonGroup, ButtonRounded, ButtonVariant, ButtonVariants as _},
+        menu::DropdownMenu as _,
     },
 };
 use std::rc::Rc;
@@ -112,6 +113,10 @@ pub fn builder(params: &Params) -> Result<Builder> {
     // Button::loading and loading_icon (button.rs, button_icon.rs).
     let loading = param_bool(params, "loading");
     let loading_icon = super::icon(param_str(params, "loading_icon", ""));
+    // `dropdownbutton`: the caret after the content, a fixed width, the standard menu on click.
+    let dropdown_caret = param_bool(params, "dropdown_caret");
+    let menu = param_bool(params, "menu");
+    let width = params.get("width").and_then(serde_json::Value::as_f64).map(|w| w as f32);
     Ok(Rc::new(move |_, _, _| {
         let mut button = Button::new("case")
             .with_variant(variant)
@@ -134,6 +139,15 @@ pub fn builder(params: &Params) -> Result<Builder> {
         }
         if let Some(label) = label.clone() {
             button = button.label(label);
+        }
+        if dropdown_caret {
+            button = button.dropdown_caret(true);
+        }
+        if let Some(width) = width {
+            button = button.w(px(width));
+        }
+        if menu {
+            return button.dropdown_menu(super::menu::standard_menu).into_any_element();
         }
         button.into_any_element()
     }))

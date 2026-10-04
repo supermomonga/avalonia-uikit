@@ -74,6 +74,7 @@
   <StyleInclude Source="avares://AvaloniaUIKit/Themes/Controls/Calendar.axaml" />
   <StyleInclude Source="avares://AvaloniaUIKit/Themes/Controls/TableView.axaml" />
   <StyleInclude Source="avares://AvaloniaUIKit/Themes/Controls/Clipboard.axaml" />
+  <StyleInclude Source="avares://AvaloniaUIKit/Themes/Controls/DropDownButton.axaml" />
   <StyleInclude Source="avares://AvaloniaUIKit/Themes/Controls/Bubble.axaml" />
   <StyleInclude Source="avares://AvaloniaUIKit/Themes/Controls/Form.axaml" />
   <StyleInclude Source="avares://AvaloniaUIKit/Themes/Controls/Select.axaml" />

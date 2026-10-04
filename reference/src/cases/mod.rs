@@ -69,6 +69,7 @@ pub fn builder(case: &Case) -> Result<Builder> {
         "surface" => surface::builder(&params),
         "button" => button::builder(&params),
         "button-loading" => button::builder(&params),
+        "dropdownbutton" => button::builder(&params),
         "buttongroup" => button::group(&params),
         "uikit-buttongroup" => button::group(&params),
         "toggle" => toggle::builder(&params),

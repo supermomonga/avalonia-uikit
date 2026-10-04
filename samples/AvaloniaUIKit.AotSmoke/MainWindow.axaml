@@ -135,6 +135,15 @@
           </SplitButton>
           <SplitButton Classes="primary" Content="Deploy" />
           <SplitButton Classes="ghost" Content="Ghost" />
+          <DropDownButton Content="Open">
+            <DropDownButton.Flyout>
+              <MenuFlyout Placement="BottomEdgeAlignedLeft">
+                <MenuItem Header="New File" />
+                <MenuItem Header="Open..." />
+              </MenuFlyout>
+            </DropDownButton.Flyout>
+          </DropDownButton>
+          <DropDownButton Classes="primary small" Content="Primary" />
         </WrapPanel>
 
         <TextBlock Text="Toggle, Checkbox, Radio, Switch" Foreground="{DynamicResource UIKit.MutedForeground}" />

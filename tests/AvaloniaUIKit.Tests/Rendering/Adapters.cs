@@ -21,6 +21,7 @@ public static partial class Adapters
         "surface" => new Border { Width = 1, Height = 1 },
         "button" => Button(c),
         "button-loading" => LoadingButton(c),
+        "dropdownbutton" => DropDownButtonCase(c),
         "buttongroup" => ButtonGroup(c),
         "uikit-buttongroup" => ButtonGroupCase(c),
         "toggle" => Toggle(c),

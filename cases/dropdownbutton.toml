@@ -1,0 +1,34 @@
+# GPUI Kit Button::dropdown_caret(true) -> DropDownButton (the Button theme with a caret).
+component = "dropdownbutton"
+viewport = [140, 48]
+anchor = [16, 8]
+
+[[group]]
+name = "label"
+params = { label = "Open", dropdown_caret = true }
+matrix = { variant = ["default", "primary", "secondary", "ghost", "link"], size = ["xsmall", "small", "medium", "large"] }
+states = ["normal", "disabled"]
+
+[[group]]
+name = "state"
+params = { label = "Open", dropdown_caret = true }
+matrix = { variant = ["default", "primary", "ghost"], outline = [false, true] }
+states = ["hover", "pressed", "focus"]
+
+[[group]]
+name = "selected"
+params = { label = "Open", dropdown_caret = true, selected = true }
+matrix = { variant = ["default", "primary"] }
+
+# Wider than its content: the label at the start, the caret at the end.
+[[group]]
+name = "width"
+params = { label = "Open", dropdown_caret = true, width = 108 }
+matrix = { variant = ["default", "ghost"] }
+
+# The standard menu, 4px below; the trigger shows as selected while it is open.
+[[group]]
+name = "open"
+viewport = [600, 260]
+params = { label = "Open", dropdown_caret = true, menu = true }
+states = ["click", "click+at-60-61"]
