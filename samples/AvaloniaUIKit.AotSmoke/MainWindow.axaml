@@ -245,6 +245,22 @@
             <ComboBoxItem Content="Banana" />
           </ComboBox>
           <AutoCompleteBox Width="200" PlaceholderText="Fruit" />
+          <uikit:Select Width="200" IsSearchable="True" IsCleanable="True" PlaceholderText="Select a fruit" SelectedIndex="1">
+            <x:String>Apple</x:String>
+            <x:String>Banana</x:String>
+          </uikit:Select>
+          <uikit:Select Classes="combobox" Width="200" SelectionMode="Multiple" IsSearchable="True" PlaceholderText="Select food">
+            <uikit:SelectGroup Title="Fruits">
+              <x:String>Apple</x:String>
+              <x:String>Banana</x:String>
+            </uikit:SelectGroup>
+            <uikit:SelectGroup Title="Vegetables">
+              <x:String>Carrot</x:String>
+            </uikit:SelectGroup>
+            <uikit:Select.Footer>
+              <Button Classes="ghost" Content="New food" HorizontalAlignment="Stretch" />
+            </uikit:Select.Footer>
+          </uikit:Select>
           <TreeView Width="240">
             <TreeViewItem Header="src" IsExpanded="True">
               <TreeViewItem Header="main.rs" />
