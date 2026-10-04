@@ -1,0 +1,235 @@
+<!--
+  GPUI Kit DatePicker (crates/component/src/time/date_picker.rs) -> uikit:DateField:
+
+    <uikit:DateField Date="2025-03-14" IsCleanable="True" Classes="small" />
+
+  The look of the themed CalendarDatePicker (CalendarDatePicker.axaml): an
+  input-styled field (the input border and background, radius 6) with the
+  date or the muted placeholder and a 12px muted calendar icon at its end (a
+  text xsmall clear button instead while it is cleanable and has a value); the
+  border turns ring with the focus band while it has the focus or its calendar
+  is open. The popup opens 6px below on GPUI's popover surface (12px of
+  padding), sliding 8px down and fading in over 150ms: the presets as small
+  ghost buttons, 12px, then the calendar without its card (224px per month,
+  196 small, 280 large) and, when the time is edited, a row under a border
+  (12px above and below it) with the muted "Time" and a time field. Sizes:
+  xsmall small large (medium is the default); the popup's calendar and time
+  field take the field's size. Disabled, the field fades to half without the
+  icon. plain (GPUI's appearance(false)) drops the frame and the focus ring.
+-->
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:uikit="using:AvaloniaUIKit">
+  <!-- t!("DatePicker.time"): the time row's label; replace the resource to translate it. -->
+  <x:String x:Key="UIKit.DateField.TimeLabel">Time</x:String>
+
+  <ControlTheme x:Key="{x:Type uikit:DateField}" TargetType="uikit:DateField">
+    <Setter Property="Background" Value="{DynamicResource UIKit.InputBackground}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Input}" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="CornerRadius" Value="5.5" />
+    <Setter Property="Height" Value="32" />
+    <Setter Property="Padding" Value="10,0" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="TextBlock.LineHeight" Value="22.5" />
+    <Setter Property="HorizontalAlignment" Value="Stretch" />
+    <Setter Property="VerticalAlignment" Value="Top" />
+    <Setter Property="ClipToBounds" Value="False" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Panel>
+          <!-- focus_ring (styled.rs): a 3px band outside the border, in ring at 50%. -->
+          <Border Name="PART_FocusRing" Margin="-3" BorderThickness="3" CornerRadius="7.5"
+                  BorderBrush="{DynamicResource UIKit.FocusRing}" IsVisible="False" IsHitTestVisible="False" />
+          <Border Name="PART_Frame"
+                  BackgroundSizing="OuterBorderEdge"
+                  Background="{TemplateBinding Background}"
+                  BorderBrush="{TemplateBinding BorderBrush}"
+                  BorderThickness="{TemplateBinding BorderThickness}"
+                  CornerRadius="{TemplateBinding CornerRadius}"
+                  Padding="{TemplateBinding Padding}">
+            <!-- h_flex justify_between gap_1: the text, then the icon or the clear button. -->
+            <Grid ColumnDefinitions="*,Auto" ColumnSpacing="4">
+              <Panel Name="PART_TextPanel" VerticalAlignment="Center">
+                <TextBlock Name="PART_Placeholder" Text="{TemplateBinding PlaceholderText}"
+                           Foreground="{DynamicResource UIKit.MutedForeground}" TextTrimming="CharacterEllipsis" IsVisible="False" />
+                <TextBlock Name="PART_Text" Text="{TemplateBinding Text}" TextTrimming="CharacterEllipsis" />
+              </Panel>
+              <PathIcon Name="PART_Icon" Grid.Column="1" Width="12" Height="12" VerticalAlignment="Center"
+                        Data="{StaticResource UIKit.Icon.Calendar}"
+                        Foreground="{DynamicResource UIKit.MutedForeground}" />
+              <!-- clear_button (input/clear_button.rs): a text xsmall button with the close icon. -->
+              <Button Name="PART_ClearButton" Grid.Column="1" Classes="text xsmall" Focusable="False"
+                      VerticalAlignment="Center" IsVisible="False">
+                <PathIcon Data="{StaticResource UIKit.Icon.Close}" />
+              </Button>
+            </Grid>
+          </Border>
+          <Popup Name="PART_Popup"
+                 PlacementTarget="PART_Frame"
+                 Placement="BottomEdgeAlignedLeft"
+                 IsLightDismissEnabled="True"
+                 WindowManagerAddShadowHint="False"
+                 IsOpen="{TemplateBinding IsDropDownOpen, Mode=TwoWay}">
+            <!-- dropdown_positioner: 6px below the field. -->
+            <Border Padding="0,6,0,0" ClipToBounds="False">
+              <Panel Name="PART_PopupMotion">
+                <Border Name="PART_PopupRing" Margin="-1" CornerRadius="6"
+                        Background="{DynamicResource UIKit.PopoverRing}" IsHitTestVisible="False" />
+                <Border Name="PART_PopupShadow" CornerRadius="6"
+                        BoxShadow="{StaticResource UIKit.Shadow.Popover}" IsHitTestVisible="False" />
+                <Border Name="PART_PopupSurface" CornerRadius="6" Padding="12"
+                        Background="{DynamicResource UIKit.Popover}"
+                        TextElement.Foreground="{DynamicResource UIKit.PopoverForeground}">
+                  <!-- h_flex gap_3 items_start: the presets, then the calendar and the time. -->
+                  <StackPanel Orientation="Horizontal" Spacing="12">
+                    <!-- v_flex my_1 gap_2: small ghost buttons, outside the Tab order. -->
+                    <ItemsControl Name="PART_Presets" Margin="0,4" VerticalAlignment="Top" IsVisible="False">
+                      <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                          <StackPanel Spacing="8" />
+                        </ItemsPanelTemplate>
+                      </ItemsControl.ItemsPanel>
+                      <ItemsControl.ItemTemplate>
+                        <DataTemplate x:DataType="uikit:DateRangePreset">
+                          <Button Classes="small ghost" Focusable="False" Content="{Binding Label}" />
+                        </DataTemplate>
+                      </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                    <StackPanel VerticalAlignment="Top">
+                      <uikit:CalendarView Name="PART_Calendar" Classes="dropdown"
+                                          Foreground="{DynamicResource UIKit.PopoverForeground}" />
+                      <!-- The time row: mt_3 pt_3 (mt_2 pt_2 small), border_t_1, justify_between gap_3. -->
+                      <Border Name="PART_TimeRow" IsVisible="False" Margin="0,12,0,0" Padding="0,12,0,0"
+                              BorderThickness="0,1,0,0" BorderBrush="{DynamicResource UIKit.Border}">
+                        <Grid ColumnDefinitions="*,Auto" ColumnSpacing="12">
+                          <TextBlock Name="PART_TimeLabel" VerticalAlignment="Center" FontSize="14" LineHeight="22.5"
+                                     Foreground="{DynamicResource UIKit.MutedForeground}"
+                                     Text="{DynamicResource UIKit.DateField.TimeLabel}" />
+                          <uikit:TimeField Name="PART_TimeField" Grid.Column="1" />
+                        </Grid>
+                      </Border>
+                    </StackPanel>
+                  </StackPanel>
+                </Border>
+              </Panel>
+            </Border>
+          </Popup>
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+
+    <Style Selector="^.xsmall">
+      <Setter Property="Height" Value="20" />
+      <Setter Property="Padding" Value="4,0" />
+      <Setter Property="FontSize" Value="12" />
+      <Setter Property="TextBlock.LineHeight" Value="19.5" />
+    </Style>
+    <Style Selector="^.small">
+      <Setter Property="Height" Value="24" />
+      <Setter Property="Padding" Value="8,0" />
+    </Style>
+    <Style Selector="^.large">
+      <Setter Property="Height" Value="44" />
+      <Setter Property="Padding" Value="12,0" />
+      <Setter Property="FontSize" Value="16" />
+      <Setter Property="TextBlock.LineHeight" Value="26" />
+    </Style>
+    <Style Selector="^.small /template/ Border#PART_TimeRow">
+      <Setter Property="Margin" Value="0,8,0,0" />
+      <Setter Property="Padding" Value="0,8,0,0" />
+    </Style>
+    <Style Selector="^.small /template/ TextBlock#PART_TimeLabel">
+      <Setter Property="FontSize" Value="12" />
+      <Setter Property="LineHeight" Value="19.5" />
+    </Style>
+
+    <Style Selector="^:empty /template/ TextBlock#PART_Placeholder">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+    <Style Selector="^:empty /template/ TextBlock#PART_Text">
+      <Setter Property="IsVisible" Value="False" />
+    </Style>
+    <!-- The value updates live while its time is typed: tabular figures. -->
+    <Style Selector="^:time /template/ Panel#PART_TextPanel">
+      <Setter Property="TextElement.FontFeatures" Value="+tnum" />
+    </Style>
+    <Style Selector="^:time /template/ Border#PART_TimeRow, ^:presets /template/ ItemsControl#PART_Presets">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+    <Style Selector="^:cleanable /template/ Button#PART_ClearButton">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+    <Style Selector="^:cleanable /template/ PathIcon#PART_Icon">
+      <Setter Property="IsVisible" Value="False" />
+    </Style>
+
+    <!-- Focused, or its calendar open: ring border and band. -->
+    <Style Selector="^:focus-within, ^:open">
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Ring}" />
+    </Style>
+    <Style Selector="^:focus-within /template/ Border#PART_FocusRing, ^:open /template/ Border#PART_FocusRing">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+
+    <!-- input_style(disabled): the disabled input background, muted text, all at half, no icon. -->
+    <Style Selector="^:disabled">
+      <Setter Property="Background" Value="{DynamicResource UIKit.Number.Disabled.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.MutedForeground}" />
+    </Style>
+    <Style Selector="^:disabled /template/ Border#PART_Frame">
+      <Setter Property="Opacity" Value="0.5" />
+    </Style>
+    <Style Selector="^:disabled /template/ PathIcon#PART_Icon, ^:disabled /template/ Button#PART_ClearButton">
+      <Setter Property="IsVisible" Value="False" />
+    </Style>
+
+    <!-- appearance(false): the text and icon alone, without the frame or the ring. -->
+    <Style Selector="^.plain">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="BorderThickness" Value="0" />
+    </Style>
+    <Style Selector="^.plain /template/ Border#PART_FocusRing">
+      <Setter Property="IsVisible" Value="False" />
+    </Style>
+
+    <!--
+      dropdown_popup: 8px down and a fade over 150ms; the ring and shadow inks
+      ramp by the cube of the progress inside the panel's fade (ComboBox.axaml).
+      The slide moves the layout (a margin), so its position snaps to device
+      pixels as GPUI's top offset does.
+    -->
+    <Style Selector="^:open /template/ Panel#PART_PopupMotion">
+      <Style.Animations>
+        <Animation Duration="0:0:0.15" Easing="CubicEaseOut">
+          <KeyFrame Cue="0%">
+            <Setter Property="Opacity" Value="0" />
+            <Setter Property="Margin" Value="0,-8,0,8" />
+          </KeyFrame>
+          <KeyFrame Cue="100%">
+            <Setter Property="Opacity" Value="1" />
+            <Setter Property="Margin" Value="0" />
+          </KeyFrame>
+        </Animation>
+      </Style.Animations>
+    </Style>
+    <Style Selector="^:open /template/ Border#PART_PopupRing, ^:open /template/ Border#PART_PopupShadow">
+      <Style.Animations>
+        <Animation Duration="0:0:0.15" Easing="CubicEaseOut">
+          <KeyFrame Cue="0%"><Setter Property="Opacity" Value="0" /></KeyFrame>
+          <KeyFrame Cue="10%"><Setter Property="Opacity" Value="0.001" /></KeyFrame>
+          <KeyFrame Cue="20%"><Setter Property="Opacity" Value="0.008" /></KeyFrame>
+          <KeyFrame Cue="30%"><Setter Property="Opacity" Value="0.027" /></KeyFrame>
+          <KeyFrame Cue="40%"><Setter Property="Opacity" Value="0.064" /></KeyFrame>
+          <KeyFrame Cue="50%"><Setter Property="Opacity" Value="0.125" /></KeyFrame>
+          <KeyFrame Cue="60%"><Setter Property="Opacity" Value="0.216" /></KeyFrame>
+          <KeyFrame Cue="70%"><Setter Property="Opacity" Value="0.343" /></KeyFrame>
+          <KeyFrame Cue="80%"><Setter Property="Opacity" Value="0.512" /></KeyFrame>
+          <KeyFrame Cue="90%"><Setter Property="Opacity" Value="0.729" /></KeyFrame>
+          <KeyFrame Cue="100%"><Setter Property="Opacity" Value="1" /></KeyFrame>
+        </Animation>
+      </Style.Animations>
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

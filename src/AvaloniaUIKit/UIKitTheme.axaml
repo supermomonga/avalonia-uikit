@@ -24,6 +24,7 @@
         <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/TimePicker.axaml" />
         <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/CalendarView.axaml" />
         <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/TimeField.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/DateField.axaml" />
         <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/Carousel.axaml" />
         <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/SplitView.axaml" />
         <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/DrawerPage.axaml" />

@@ -124,7 +124,7 @@
 
         <TimePicker SelectedTime="09:30" ClockIdentifier="24HourClock" />
 
-        <TextBlock Text="CalendarView, TimeField" Foreground="{DynamicResource UIKit.MutedForeground}" />
+        <TextBlock Text="CalendarView, DateField, TimeField" Foreground="{DynamicResource UIKit.MutedForeground}" />
         <StackPanel Orientation="Horizontal" Spacing="12">
           <uikit:CalendarView Date="2025-03-14" EndDate="2025-03-20" IsRange="True" NumberOfMonths="2"
                               DisabledDaysOfWeek="Sunday, Saturday" />
@@ -135,6 +135,12 @@
           </uikit:CalendarView>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Spacing="12">
+          <uikit:DateField Width="220" Date="2025-03-14 09:30" IsCleanable="True" TimePrecision="Minute" />
+          <uikit:DateField Width="240" IsRange="True" NumberOfMonths="2" Classes="small">
+            <uikit:DateField.Presets>
+              <uikit:DateRangePreset Label="Last 7 Days" Date="2025-03-07" EndDate="2025-03-14" />
+            </uikit:DateField.Presets>
+          </uikit:DateField>
           <uikit:TimeField Time="21:05:09" Precision="Second" HourCycle="H12" />
           <uikit:TimeField Classes="small" />
         </StackPanel>
