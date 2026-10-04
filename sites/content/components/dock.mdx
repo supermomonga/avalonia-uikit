@@ -1,0 +1,49 @@
+---
+title: "Dock"
+description: "Dock.Avalonia's docking layouts with a dock's tab bars, split handles and drop targets, from the AvaloniaUIKit.Dock package."
+---
+
+<Demo name="dock/demo" />
+
+## Usage
+
+[Dock.Avalonia](https://github.com/wieslawsoltes/Dock) lays out tools and documents in groups that can be split, resized, dragged between groups and floated. Its theme is a separate package: add `AvaloniaUIKit.Dock` and put `UIKitDockTheme` after `UIKitTheme` in the application's styles, instead of Dock's own `DockFluentTheme` or `DockSimpleTheme`. The package is made for Dock.Avalonia 12.1.0.6.
+
+```xml title="App.axaml"
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:uikit="clr-namespace:AvaloniaUIKit;assembly=AvaloniaUIKit"
+             xmlns:uikitdock="clr-namespace:AvaloniaUIKit;assembly=AvaloniaUIKit.Dock">
+  <Application.Styles>
+    <uikit:UIKitTheme />
+    <uikitdock:UIKitDockTheme />
+  </Application.Styles>
+</Application>
+```
+
+A group of two or more dockables has a tab bar: the tabs, the empty space after them (drop a tab there to add it to the group) and a toolbar with the group's menu (float, dock, auto hide, close). A tool dock with one tool has a title bar with the tool's title and the menu instead. Document tabs have a close button (Dock's `CloseButtonShowMode`) and, with `CanCreateDocument`, a create button in the toolbar.
+
+The split handles take no room: a hairline between the groups, with a pill that grows as the pointer hovers, presses and drags. While a tab is dragged, the group under the pointer shows where it will go: its left or right third splits it sideways, its top or bottom third (in the middle) splits it up or down, and its middle adds the tab to it. A tab or a tab bar's empty space adds the tab there. Tools pinned to an edge (auto hide) sit on a strip along it.
+
+### Floating windows and the browser
+
+Dock floats a dragged tool or document into a window of its own. Where there are no windows, as in a browser, set `DockSettings.UseManagedWindows` (or a root dock's `FloatingWindowHostMode`) to draw them inside the dock control. Dock 12.1.0.6 then leaves the drag preview in the dock control's corner, under Avalonia 12; the live demos here hide it.
+
+### NativeAOT
+
+`AvaloniaUIKit.Dock` has no trimming warnings of its own, but Dock.Avalonia is not trimmable, so there is no NativeAOT guarantee. Dock binds its split handles' `CanResize` and `ResizePreview` by name: when trimming, keep those on the splitter model of your model package.
+
+```csharp title="Program.cs"
+[DynamicDependency(DynamicallyAccessedMemberTypes.PublicProperties,
+    typeof(Dock.Model.Avalonia.Controls.ProportionalDockSplitter))]
+public static void Main(string[] args) => ...
+```
+
+## Examples
+
+A document dock with close buttons and the create button.
+
+<Demo name="dock/documents" title="Documents" />
+
+Tools pinned to the left edge; click one to show it.
+
+<Demo name="dock/pinned" title="Pinned tools" />

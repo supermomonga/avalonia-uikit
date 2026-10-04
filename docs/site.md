@@ -23,8 +23,8 @@ https://avalonia-uikit.omofla.sh の構成と約束事。サイト本体は `sit
 
 構成と見た目は GPUI Kit の公式サイト（https://gpui-kit.com 、`longbridge/gpui-kit` の `website/`）にそろえる。部品は shadcnui-hono-jsx（`sites/components/ui`）を使い、その CSS 変数を GPUI Kit と同じ neutral の配色で上書きする（`sites/app/style.css`）。
 
-- **セクション:** トップ（`/`）、ガイド（`/docs`）、コンポーネント（`/components`）。ドキュメントの 2 セクションはそれぞれ自分のサイドバーを持つ（`sites/app/lib/docs.ts` の `docsSections`）。コンポーネントのサイドバーは、索引（Overview）の下を「Avalonia Controls」（Avalonia 標準のコントロールのテーマ）と「UIKit Controls」（`uikit:` の新しいコントロール、カタログの `status: "new"`）の 2 つのグループに分け、それぞれアルファベット順に並べる。旧 URL の `/docs/components/*` は `sites/public/_redirects` で `/components/*` に転送する。
-- **トップ:** blueprint グリッドの上のヒーロー（見出し、2 つのボタン、事実の行、`App.axaml` の 1 行、コードのウィンドウ）、CAPABILITIES の 3×3 グリッド、3 パッケージのカード、PRINCIPLE の帯、フッター。数は `catalog.ts` から数え、文言はドキュメントに書かれた事実だけで組む。
+- **セクション:** トップ（`/`）、ガイド（`/docs`）、コンポーネント（`/components`）。ドキュメントの 2 セクションはそれぞれ自分のサイドバーを持つ（`sites/app/lib/docs.ts` の `docsSections`）。コンポーネントのサイドバーは、索引（Overview）の下を「Avalonia Controls」（Avalonia 標準のコントロールのテーマ）、「UIKit Controls」（`uikit:` の新しいコントロール、カタログの `status: "new"`）、「Third-party Controls」（第三者のライブラリのコントロールのテーマ、カタログの `library`。ADR 28）の 3 つのグループに分け、それぞれアルファベット順に並べる。旧 URL の `/docs/components/*` は `sites/public/_redirects` で `/components/*` に転送する。
+- **トップ:** blueprint グリッドの上のヒーロー（見出し、2 つのボタン、事実の行、`App.axaml` の 1 行、コードのウィンドウ）、CAPABILITIES の 3×3 グリッド、5 パッケージのカード、PRINCIPLE の帯、フッター。数は `catalog.ts` から数え、文言はドキュメントに書かれた事実だけで組む。
 - **ドキュメント:** 1280px の中に 220px のサイドバー、本文（最大 860px）、200px の目次。見出しは等幅の大文字、本文の型は `sites/app/styles/docs.css`。ページの最初のデモ（`title` なし）は macOS 風のウィンドウに入れたライブの例、`title` 付きのデモは見出し付きの枠になる。
 - **GPUI Kit との対応状況は出さない:** 利用者に GPUI Kit との互換性を意識させる必要はないので、Full / Partial の別や、GPUI Kit の機能のうち扱わないもの（Not covered）はサイトに書かない。これらは開発者向けの `docs/references/compatibility-list.md` にだけ書く。カタログの `status` は、新しいコントロール（`new`）かどうかを分けるためだけに使う（トップの数え上げとサイドバーのグループ）。
 - **テーマ:** gpui-kit.com と同じく、システムに従う、Default Light、Default Dark と、GPUI Kit が同梱する 36 のテーマ（Light と Dark に分けて名前順）。パレット（T キー）で選ぶ。入力で絞り込み、↑↓ でプレビュー、Enter で決定、Esc で元に戻す。`localStorage.theme` に `light` / `dark` / 同梱テーマの slug を保存する（システムに従うときは消す）。同梱テーマは `<html data-theme="<slug>">` で `themes.g.css` の色に切り替え、モードで `dark` クラスを付ける。描画前に `THEME_SCRIPT`（`components/theme-palette.tsx`）が同じことをする。サイトの色への対応は gpui-kit.com（`website/src/lib/theme-catalog.ts`）にそろえ、値は GPUI Kit が解決した色を使う（`tokens.rs` の `SITE_VARS`）。コードの色はテーマのファイルの `highlight` から取る。ライブデモも同じテーマで描く（下の「ライブデモ」）。
@@ -46,6 +46,7 @@ https://avalonia-uikit.omofla.sh の構成と約束事。サイト本体は `sit
 - 登録は `samples/AvaloniaUIKit.Demos/DemoRegistry.g.cs` に生成する（`bun sites/scripts/demo-registry.ts`）。XAML を増やしたら再生成してコミットする。CI は生成結果が一致することを確かめる。
 - フォントは同梱の Inter（`assets/fonts/inter/`）。ブラウザーにはシステムフォントがないので、Browser と Previews の両方で `UIKit.FontFamily` を Inter にする。
 - DataGrid はトリミング非対応なので、WASM では動かないことがある。その場合は「Live demo unavailable」と出す（下の「ライブデモ」）。
+- 第三者のライブラリのデモ（ADR 28）は、ページにウィンドウがないことに合わせる。Tabalonia は `EnableTabDetaching="False"`、Dock は Browser のアプリが `DockSettings.UseManagedWindows` で浮動ウィンドウを DockControl の中に描く。Dock 12.1.0.6 の管理モードのドラッグのプレビューは Avalonia 12 では左上に残る（`docs/testing.md` の R35）ので、Browser のアプリはそれを隠す。Tabalonia の `ItemsSource` は変更できるリストでなければならないので、デモは `TabList`（`ObservableCollection`）に `DragTabItem` を並べる。
 
 ## プレビュー画像
 
