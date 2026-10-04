@@ -69,6 +69,7 @@ public static partial class Adapters
         "table" => Table(c),
         "datatable" => DataTable(c),
         "datagrid" => DataGridCase(c),
+        "tabalonia" => TabaloniaCase(c),
         "carousel" => CarouselCase(c),
         "sidebar" => c.Str("host", "splitview") == "drawer" ? SidebarDrawer(c) : Sidebar(c),
         "sheet" => Sheet(c),

@@ -86796,6 +86796,6635 @@
       }
     },
     {
+      "id": "tabalonia/aurora.outline/hover/aurora-light",
+      "component": "tabalonia",
+      "group": "aurora",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "pointer_x": 0.04,
+        "variant": "outline"
+      },
+      "state": "hover",
+      "theme": "aurora-light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/aurora.outline/hover/aurora-light.png",
+      "scene": "scenes/tabalonia/aurora.outline/hover/aurora-light.json",
+      "png_sha256": "8aa845f99ef01239e02888c3ea72bfad11147c06305e24b346da313c9d7b8fdf"
+    },
+    {
+      "id": "tabalonia/aurora.outline/normal/aurora-light",
+      "component": "tabalonia",
+      "group": "aurora",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "pointer_x": 0.04,
+        "variant": "outline"
+      },
+      "state": "normal",
+      "theme": "aurora-light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/aurora.outline/normal/aurora-light.png",
+      "scene": "scenes/tabalonia/aurora.outline/normal/aurora-light.json",
+      "png_sha256": "f052a20ae50ce7fd5217972ae162113eecb414afd7f05555a7d0c14006c8d29d"
+    },
+    {
+      "id": "tabalonia/aurora.pill/hover/aurora-light",
+      "component": "tabalonia",
+      "group": "aurora",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "pointer_x": 0.04,
+        "variant": "pill"
+      },
+      "state": "hover",
+      "theme": "aurora-light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/aurora.pill/hover/aurora-light.png",
+      "scene": "scenes/tabalonia/aurora.pill/hover/aurora-light.json",
+      "png_sha256": "d3ea3ed422b7602025e9eff5a6ae4e9f21eeddc9b0003b0ec8d49e8e6031eecd"
+    },
+    {
+      "id": "tabalonia/aurora.pill/normal/aurora-light",
+      "component": "tabalonia",
+      "group": "aurora",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "pointer_x": 0.04,
+        "variant": "pill"
+      },
+      "state": "normal",
+      "theme": "aurora-light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/aurora.pill/normal/aurora-light.png",
+      "scene": "scenes/tabalonia/aurora.pill/normal/aurora-light.json",
+      "png_sha256": "00188cd1d759916427ea7e302be3cc51938ecbf7d66de806b2e3c673ae6cd18e"
+    },
+    {
+      "id": "tabalonia/aurora.segmented/hover/aurora-light",
+      "component": "tabalonia",
+      "group": "aurora",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "pointer_x": 0.04,
+        "variant": "segmented"
+      },
+      "state": "hover",
+      "theme": "aurora-light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/aurora.segmented/hover/aurora-light.png",
+      "scene": "scenes/tabalonia/aurora.segmented/hover/aurora-light.json",
+      "png_sha256": "f1054c59ca07f60f760a1bd0fb3771288645cf3458bd78ab42dd93a0500c2b26"
+    },
+    {
+      "id": "tabalonia/aurora.segmented/normal/aurora-light",
+      "component": "tabalonia",
+      "group": "aurora",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "pointer_x": 0.04,
+        "variant": "segmented"
+      },
+      "state": "normal",
+      "theme": "aurora-light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/aurora.segmented/normal/aurora-light.png",
+      "scene": "scenes/tabalonia/aurora.segmented/normal/aurora-light.json",
+      "png_sha256": "a4717299834595fb455ce4adb32c25d00ec5f4fb61d588100e8d98db941f8994"
+    },
+    {
+      "id": "tabalonia/aurora.tab/hover/aurora-light",
+      "component": "tabalonia",
+      "group": "aurora",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "pointer_x": 0.04,
+        "variant": "tab"
+      },
+      "state": "hover",
+      "theme": "aurora-light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/aurora.tab/hover/aurora-light.png",
+      "scene": "scenes/tabalonia/aurora.tab/hover/aurora-light.json",
+      "png_sha256": "71c07aaec5dadeca0cc3abc33cb6864db51697e94aa9b55459058828de10272e"
+    },
+    {
+      "id": "tabalonia/aurora.tab/normal/aurora-light",
+      "component": "tabalonia",
+      "group": "aurora",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "pointer_x": 0.04,
+        "variant": "tab"
+      },
+      "state": "normal",
+      "theme": "aurora-light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/aurora.tab/normal/aurora-light.png",
+      "scene": "scenes/tabalonia/aurora.tab/normal/aurora-light.json",
+      "png_sha256": "087b337eff614626f58b627489a85e837d7cae9faff8de287a47e66869555914"
+    },
+    {
+      "id": "tabalonia/aurora.underline/hover/aurora-light",
+      "component": "tabalonia",
+      "group": "aurora",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "pointer_x": 0.04,
+        "variant": "underline"
+      },
+      "state": "hover",
+      "theme": "aurora-light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        36.0
+      ],
+      "png": "png/tabalonia/aurora.underline/hover/aurora-light.png",
+      "scene": "scenes/tabalonia/aurora.underline/hover/aurora-light.json",
+      "png_sha256": "80712510ecc9c234a2091fc950213e72fcbe43058088925fafa3771106f6cbbf"
+    },
+    {
+      "id": "tabalonia/aurora.underline/normal/aurora-light",
+      "component": "tabalonia",
+      "group": "aurora",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "pointer_x": 0.04,
+        "variant": "underline"
+      },
+      "state": "normal",
+      "theme": "aurora-light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        36.0
+      ],
+      "png": "png/tabalonia/aurora.underline/normal/aurora-light.png",
+      "scene": "scenes/tabalonia/aurora.underline/normal/aurora-light.json",
+      "png_sha256": "ee99e7d1c0309bcb9b132fbe3a5de2f80932981dc8b338786755ae1b2bbc75ec"
+    },
+    {
+      "id": "tabalonia/bar.outline/normal/dark",
+      "component": "tabalonia",
+      "group": "bar",
+      "params": {
+        "selected": 0,
+        "width": 440,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "bar_prefix": true,
+        "bar_suffix": true,
+        "variant": "outline"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        472.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        440.0,
+        32.0
+      ],
+      "png": "png/tabalonia/bar.outline/normal/dark.png",
+      "scene": "scenes/tabalonia/bar.outline/normal/dark.json",
+      "png_sha256": "1394449617ec7644463a4e7ff16986a66a03180acbdce5a1361626889e2c9cdc"
+    },
+    {
+      "id": "tabalonia/bar.outline/normal/light",
+      "component": "tabalonia",
+      "group": "bar",
+      "params": {
+        "selected": 0,
+        "width": 440,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "bar_prefix": true,
+        "bar_suffix": true,
+        "variant": "outline"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        472.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        440.0,
+        32.0
+      ],
+      "png": "png/tabalonia/bar.outline/normal/light.png",
+      "scene": "scenes/tabalonia/bar.outline/normal/light.json",
+      "png_sha256": "5df360c203b7ad3cd593c6fc68967feed2f50b555bb5bd5cc5b1f61b65ce3d03"
+    },
+    {
+      "id": "tabalonia/bar.pill/normal/dark",
+      "component": "tabalonia",
+      "group": "bar",
+      "params": {
+        "selected": 0,
+        "width": 440,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "bar_prefix": true,
+        "bar_suffix": true,
+        "variant": "pill"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        472.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        440.0,
+        32.0
+      ],
+      "png": "png/tabalonia/bar.pill/normal/dark.png",
+      "scene": "scenes/tabalonia/bar.pill/normal/dark.json",
+      "png_sha256": "99a8b69ce4be58686e918fafdf8db115de0721b512c3c9bbc879addcb1ff5358"
+    },
+    {
+      "id": "tabalonia/bar.pill/normal/light",
+      "component": "tabalonia",
+      "group": "bar",
+      "params": {
+        "selected": 0,
+        "width": 440,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "bar_prefix": true,
+        "bar_suffix": true,
+        "variant": "pill"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        472.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        440.0,
+        32.0
+      ],
+      "png": "png/tabalonia/bar.pill/normal/light.png",
+      "scene": "scenes/tabalonia/bar.pill/normal/light.json",
+      "png_sha256": "68c476f2bb8104e0e3ad7ef8cb21d04c990c7c39c0d94e945d86e29ff73c3861"
+    },
+    {
+      "id": "tabalonia/bar.segmented/normal/dark",
+      "component": "tabalonia",
+      "group": "bar",
+      "params": {
+        "selected": 0,
+        "width": 440,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "bar_prefix": true,
+        "bar_suffix": true,
+        "variant": "segmented"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        472.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        440.0,
+        32.0
+      ],
+      "png": "png/tabalonia/bar.segmented/normal/dark.png",
+      "scene": "scenes/tabalonia/bar.segmented/normal/dark.json",
+      "png_sha256": "f5a4629554354afb3ea8bf0e06270489b594b40ebd079c0fb1d0f987ef0e1e38"
+    },
+    {
+      "id": "tabalonia/bar.segmented/normal/light",
+      "component": "tabalonia",
+      "group": "bar",
+      "params": {
+        "selected": 0,
+        "width": 440,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "bar_prefix": true,
+        "bar_suffix": true,
+        "variant": "segmented"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        472.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        440.0,
+        32.0
+      ],
+      "png": "png/tabalonia/bar.segmented/normal/light.png",
+      "scene": "scenes/tabalonia/bar.segmented/normal/light.json",
+      "png_sha256": "96a37c7614dc854be1a88815ac330be1c85845749ee9a2f3763a6a2206db2a6b"
+    },
+    {
+      "id": "tabalonia/bar.tab/normal/dark",
+      "component": "tabalonia",
+      "group": "bar",
+      "params": {
+        "selected": 0,
+        "width": 440,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "bar_prefix": true,
+        "bar_suffix": true,
+        "variant": "tab"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        472.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        440.0,
+        32.0
+      ],
+      "png": "png/tabalonia/bar.tab/normal/dark.png",
+      "scene": "scenes/tabalonia/bar.tab/normal/dark.json",
+      "png_sha256": "6c94dbc83a50252b637503ed344a69e2b20901034f5e622360a4a6d4a699839c"
+    },
+    {
+      "id": "tabalonia/bar.tab/normal/light",
+      "component": "tabalonia",
+      "group": "bar",
+      "params": {
+        "selected": 0,
+        "width": 440,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "bar_prefix": true,
+        "bar_suffix": true,
+        "variant": "tab"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        472.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        440.0,
+        32.0
+      ],
+      "png": "png/tabalonia/bar.tab/normal/light.png",
+      "scene": "scenes/tabalonia/bar.tab/normal/light.json",
+      "png_sha256": "dca4793497a9e7f2ef2452b3b86611606e9236440fa0fad3d706e33702b78995"
+    },
+    {
+      "id": "tabalonia/bar.underline/normal/dark",
+      "component": "tabalonia",
+      "group": "bar",
+      "params": {
+        "selected": 0,
+        "width": 440,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "bar_prefix": true,
+        "bar_suffix": true,
+        "variant": "underline"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        472.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        440.0,
+        36.0
+      ],
+      "png": "png/tabalonia/bar.underline/normal/dark.png",
+      "scene": "scenes/tabalonia/bar.underline/normal/dark.json",
+      "png_sha256": "958a1072c03745cd65b34fe7c2d2d77295e8b96ce865183f9a5836fb06c0139f"
+    },
+    {
+      "id": "tabalonia/bar.underline/normal/light",
+      "component": "tabalonia",
+      "group": "bar",
+      "params": {
+        "selected": 0,
+        "width": 440,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "bar_prefix": true,
+        "bar_suffix": true,
+        "variant": "underline"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        472.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        440.0,
+        36.0
+      ],
+      "png": "png/tabalonia/bar.underline/normal/light.png",
+      "scene": "scenes/tabalonia/bar.underline/normal/light.json",
+      "png_sha256": "13aea1aecee4ad01c5d6b98e56edf929622bb0ee65baaf7fe200a62dda6aebf7"
+    },
+    {
+      "id": "tabalonia/closable.outline.large/normal/dark",
+      "component": "tabalonia",
+      "group": "closable",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "closable": true,
+        "variant": "outline",
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        36.0
+      ],
+      "png": "png/tabalonia/closable.outline.large/normal/dark.png",
+      "scene": "scenes/tabalonia/closable.outline.large/normal/dark.json",
+      "png_sha256": "9671fc3207e06347663cb4344c8fb21b101c0d08fc1071d4bf721a56c5a02e67"
+    },
+    {
+      "id": "tabalonia/closable.outline.large/normal/light",
+      "component": "tabalonia",
+      "group": "closable",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "closable": true,
+        "variant": "outline",
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        36.0
+      ],
+      "png": "png/tabalonia/closable.outline.large/normal/light.png",
+      "scene": "scenes/tabalonia/closable.outline.large/normal/light.json",
+      "png_sha256": "f7b81b2e179db1fba913f2985abfa6b7243bee6c3ab721eafb1cd85056c53a77"
+    },
+    {
+      "id": "tabalonia/closable.outline.medium/normal/dark",
+      "component": "tabalonia",
+      "group": "closable",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "closable": true,
+        "variant": "outline",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/closable.outline.medium/normal/dark.png",
+      "scene": "scenes/tabalonia/closable.outline.medium/normal/dark.json",
+      "png_sha256": "2fbb47d7c9b9cb2b13f2db7faf52c87906c8fe246c16049a974ed57d8d7a24f7"
+    },
+    {
+      "id": "tabalonia/closable.outline.medium/normal/light",
+      "component": "tabalonia",
+      "group": "closable",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "closable": true,
+        "variant": "outline",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/closable.outline.medium/normal/light.png",
+      "scene": "scenes/tabalonia/closable.outline.medium/normal/light.json",
+      "png_sha256": "fa34a01a5b9ea41bc0b11d1ef0c235df90a7ce750ddb42d8b363194855737847"
+    },
+    {
+      "id": "tabalonia/closable.outline.small/normal/dark",
+      "component": "tabalonia",
+      "group": "closable",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "closable": true,
+        "variant": "outline",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        24.0
+      ],
+      "png": "png/tabalonia/closable.outline.small/normal/dark.png",
+      "scene": "scenes/tabalonia/closable.outline.small/normal/dark.json",
+      "png_sha256": "73fc65ef73fc580c753f16de6b71fa05419c8158a6aabbb077614fa3ca38835b"
+    },
+    {
+      "id": "tabalonia/closable.outline.small/normal/light",
+      "component": "tabalonia",
+      "group": "closable",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "closable": true,
+        "variant": "outline",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        24.0
+      ],
+      "png": "png/tabalonia/closable.outline.small/normal/light.png",
+      "scene": "scenes/tabalonia/closable.outline.small/normal/light.json",
+      "png_sha256": "4b856f61fd4d91c5eceb4aac93279679f88e0bbcd7c14e619a06034ae595562b"
+    },
+    {
+      "id": "tabalonia/closable.outline.xsmall/normal/dark",
+      "component": "tabalonia",
+      "group": "closable",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "closable": true,
+        "variant": "outline",
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        20.0
+      ],
+      "png": "png/tabalonia/closable.outline.xsmall/normal/dark.png",
+      "scene": "scenes/tabalonia/closable.outline.xsmall/normal/dark.json",
+      "png_sha256": "ffce829d1503cfd73892a9cd1d37fded6990f23be635c84b25aa65a18ff6c6c2"
+    },
+    {
+      "id": "tabalonia/closable.outline.xsmall/normal/light",
+      "component": "tabalonia",
+      "group": "closable",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "closable": true,
+        "variant": "outline",
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        20.0
+      ],
+      "png": "png/tabalonia/closable.outline.xsmall/normal/light.png",
+      "scene": "scenes/tabalonia/closable.outline.xsmall/normal/light.json",
+      "png_sha256": "ead0c0b5834aa88be16c47bd14c20de2b90016df19587427f721ebe83f6a3e1a"
+    },
+    {
+      "id": "tabalonia/closable.pill.large/normal/dark",
+      "component": "tabalonia",
+      "group": "closable",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "closable": true,
+        "variant": "pill",
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        36.0
+      ],
+      "png": "png/tabalonia/closable.pill.large/normal/dark.png",
+      "scene": "scenes/tabalonia/closable.pill.large/normal/dark.json",
+      "png_sha256": "01915255d84058fec6c4ee43d5b54d6b7f4ecac0ee83dbc771fc2ce8779c14ab"
+    },
+    {
+      "id": "tabalonia/closable.pill.large/normal/light",
+      "component": "tabalonia",
+      "group": "closable",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "closable": true,
+        "variant": "pill",
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        36.0
+      ],
+      "png": "png/tabalonia/closable.pill.large/normal/light.png",
+      "scene": "scenes/tabalonia/closable.pill.large/normal/light.json",
+      "png_sha256": "e54d014210e273ddc1b7e82d19485419823152bd76b7a33faa5f67b26714201d"
+    },
+    {
+      "id": "tabalonia/closable.pill.medium/normal/dark",
+      "component": "tabalonia",
+      "group": "closable",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "closable": true,
+        "variant": "pill",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/closable.pill.medium/normal/dark.png",
+      "scene": "scenes/tabalonia/closable.pill.medium/normal/dark.json",
+      "png_sha256": "c6afcc3209676cf409a65740cc782634016dc5dc6db8fe7549468f5e8a767258"
+    },
+    {
+      "id": "tabalonia/closable.pill.medium/normal/light",
+      "component": "tabalonia",
+      "group": "closable",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "closable": true,
+        "variant": "pill",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/closable.pill.medium/normal/light.png",
+      "scene": "scenes/tabalonia/closable.pill.medium/normal/light.json",
+      "png_sha256": "e9020dcdfc7a4697e610339f9eefa5a7d1b5e3043f29cf125b6a71bd7e12d2e6"
+    },
+    {
+      "id": "tabalonia/closable.pill.small/normal/dark",
+      "component": "tabalonia",
+      "group": "closable",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "closable": true,
+        "variant": "pill",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        24.0
+      ],
+      "png": "png/tabalonia/closable.pill.small/normal/dark.png",
+      "scene": "scenes/tabalonia/closable.pill.small/normal/dark.json",
+      "png_sha256": "3a9138a0767090ae36535402bb4d52a10c39fd270130072f599af00c93808df0"
+    },
+    {
+      "id": "tabalonia/closable.pill.small/normal/light",
+      "component": "tabalonia",
+      "group": "closable",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "closable": true,
+        "variant": "pill",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        24.0
+      ],
+      "png": "png/tabalonia/closable.pill.small/normal/light.png",
+      "scene": "scenes/tabalonia/closable.pill.small/normal/light.json",
+      "png_sha256": "b8f8869a4810815ed68d0127dd63581494841d56b773b60df1b8c58a556baed7"
+    },
+    {
+      "id": "tabalonia/closable.pill.xsmall/normal/dark",
+      "component": "tabalonia",
+      "group": "closable",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "closable": true,
+        "variant": "pill",
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        20.0
+      ],
+      "png": "png/tabalonia/closable.pill.xsmall/normal/dark.png",
+      "scene": "scenes/tabalonia/closable.pill.xsmall/normal/dark.json",
+      "png_sha256": "d0be9298264289b041e1f53fc9fa519e102fe1aa0e624a2a5cea14981cc5e90e"
+    },
+    {
+      "id": "tabalonia/closable.pill.xsmall/normal/light",
+      "component": "tabalonia",
+      "group": "closable",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "closable": true,
+        "variant": "pill",
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        20.0
+      ],
+      "png": "png/tabalonia/closable.pill.xsmall/normal/light.png",
+      "scene": "scenes/tabalonia/closable.pill.xsmall/normal/light.json",
+      "png_sha256": "fc911e8c8a2deb06a9bdae789ee7daa4e4b7420690b809c68f462b32721887c3"
+    },
+    {
+      "id": "tabalonia/closable.segmented.large/normal/dark",
+      "component": "tabalonia",
+      "group": "closable",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "closable": true,
+        "variant": "segmented",
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        36.0
+      ],
+      "png": "png/tabalonia/closable.segmented.large/normal/dark.png",
+      "scene": "scenes/tabalonia/closable.segmented.large/normal/dark.json",
+      "png_sha256": "bd4c79050968fe2e72be7832325f44d2979c66dc69743efdebf8ff867efff8a0"
+    },
+    {
+      "id": "tabalonia/closable.segmented.large/normal/light",
+      "component": "tabalonia",
+      "group": "closable",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "closable": true,
+        "variant": "segmented",
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        36.0
+      ],
+      "png": "png/tabalonia/closable.segmented.large/normal/light.png",
+      "scene": "scenes/tabalonia/closable.segmented.large/normal/light.json",
+      "png_sha256": "1a1c5e999b6edd8a1621f6185ef0823d42e7210ab6ee11d033c46f3bb6b3f00c"
+    },
+    {
+      "id": "tabalonia/closable.segmented.medium/normal/dark",
+      "component": "tabalonia",
+      "group": "closable",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "closable": true,
+        "variant": "segmented",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/closable.segmented.medium/normal/dark.png",
+      "scene": "scenes/tabalonia/closable.segmented.medium/normal/dark.json",
+      "png_sha256": "ddc83c6a2005b4e265a52e9d0cc4b1e2e86416ad0cfe766822c7d83b98e3ad31"
+    },
+    {
+      "id": "tabalonia/closable.segmented.medium/normal/light",
+      "component": "tabalonia",
+      "group": "closable",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "closable": true,
+        "variant": "segmented",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/closable.segmented.medium/normal/light.png",
+      "scene": "scenes/tabalonia/closable.segmented.medium/normal/light.json",
+      "png_sha256": "21da0be48b2fcbbccf62eaf01c77e8adbe93f6a3a79e62dbc39687dc3b0e8ed6"
+    },
+    {
+      "id": "tabalonia/closable.segmented.small/normal/dark",
+      "component": "tabalonia",
+      "group": "closable",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "closable": true,
+        "variant": "segmented",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        24.0
+      ],
+      "png": "png/tabalonia/closable.segmented.small/normal/dark.png",
+      "scene": "scenes/tabalonia/closable.segmented.small/normal/dark.json",
+      "png_sha256": "afe696b9501729eb887b97f10a488f2b92a1765ffa6f8ec788cbd540770ee895"
+    },
+    {
+      "id": "tabalonia/closable.segmented.small/normal/light",
+      "component": "tabalonia",
+      "group": "closable",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "closable": true,
+        "variant": "segmented",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        24.0
+      ],
+      "png": "png/tabalonia/closable.segmented.small/normal/light.png",
+      "scene": "scenes/tabalonia/closable.segmented.small/normal/light.json",
+      "png_sha256": "f09f81aaa81157c4b2c2517496225aeb11f8132215ffad47b128a5ee364c756c"
+    },
+    {
+      "id": "tabalonia/closable.segmented.xsmall/normal/dark",
+      "component": "tabalonia",
+      "group": "closable",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "closable": true,
+        "variant": "segmented",
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        20.0
+      ],
+      "png": "png/tabalonia/closable.segmented.xsmall/normal/dark.png",
+      "scene": "scenes/tabalonia/closable.segmented.xsmall/normal/dark.json",
+      "png_sha256": "01de221dca2f803e15cd6819a77436a9a34d77c65f51940f07ef6b51cdd87310"
+    },
+    {
+      "id": "tabalonia/closable.segmented.xsmall/normal/light",
+      "component": "tabalonia",
+      "group": "closable",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "closable": true,
+        "variant": "segmented",
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        20.0
+      ],
+      "png": "png/tabalonia/closable.segmented.xsmall/normal/light.png",
+      "scene": "scenes/tabalonia/closable.segmented.xsmall/normal/light.json",
+      "png_sha256": "8de9888aff0c7b364cca88ed0e02368031cfd483cf30f36f2c28b14a8838f6fa"
+    },
+    {
+      "id": "tabalonia/closable.tab.large/normal/dark",
+      "component": "tabalonia",
+      "group": "closable",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "closable": true,
+        "variant": "tab",
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        36.0
+      ],
+      "png": "png/tabalonia/closable.tab.large/normal/dark.png",
+      "scene": "scenes/tabalonia/closable.tab.large/normal/dark.json",
+      "png_sha256": "7b1b3e6d8c316b936b9834b820448601220fb6e12d83de510dcbff21b1f894b2"
+    },
+    {
+      "id": "tabalonia/closable.tab.large/normal/light",
+      "component": "tabalonia",
+      "group": "closable",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "closable": true,
+        "variant": "tab",
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        36.0
+      ],
+      "png": "png/tabalonia/closable.tab.large/normal/light.png",
+      "scene": "scenes/tabalonia/closable.tab.large/normal/light.json",
+      "png_sha256": "b1fcb5018e5cbfd94deecf93b6ecdde159751bf25d1e90893858ebfa28dea3c5"
+    },
+    {
+      "id": "tabalonia/closable.tab.medium/normal/dark",
+      "component": "tabalonia",
+      "group": "closable",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "closable": true,
+        "variant": "tab",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/closable.tab.medium/normal/dark.png",
+      "scene": "scenes/tabalonia/closable.tab.medium/normal/dark.json",
+      "png_sha256": "d60d3ee7e7314acadb5bd7bb9fd2865e6429b4257e9b6f120e62f21599f62470"
+    },
+    {
+      "id": "tabalonia/closable.tab.medium/normal/light",
+      "component": "tabalonia",
+      "group": "closable",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "closable": true,
+        "variant": "tab",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/closable.tab.medium/normal/light.png",
+      "scene": "scenes/tabalonia/closable.tab.medium/normal/light.json",
+      "png_sha256": "91214e7a7aa83f1a301672b52345e32eba9f7ea7e5e68059866de798e27b09a2"
+    },
+    {
+      "id": "tabalonia/closable.tab.small/normal/dark",
+      "component": "tabalonia",
+      "group": "closable",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "closable": true,
+        "variant": "tab",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        24.0
+      ],
+      "png": "png/tabalonia/closable.tab.small/normal/dark.png",
+      "scene": "scenes/tabalonia/closable.tab.small/normal/dark.json",
+      "png_sha256": "c8b936185c7c3c01db1ee96c083aafa690cd711a0b3bf0b892de594f71cd28f6"
+    },
+    {
+      "id": "tabalonia/closable.tab.small/normal/light",
+      "component": "tabalonia",
+      "group": "closable",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "closable": true,
+        "variant": "tab",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        24.0
+      ],
+      "png": "png/tabalonia/closable.tab.small/normal/light.png",
+      "scene": "scenes/tabalonia/closable.tab.small/normal/light.json",
+      "png_sha256": "d09e672dce696aa879714c859b823f54b470064da164f887cf5125968d47d5b6"
+    },
+    {
+      "id": "tabalonia/closable.tab.xsmall/normal/dark",
+      "component": "tabalonia",
+      "group": "closable",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "closable": true,
+        "variant": "tab",
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        20.0
+      ],
+      "png": "png/tabalonia/closable.tab.xsmall/normal/dark.png",
+      "scene": "scenes/tabalonia/closable.tab.xsmall/normal/dark.json",
+      "png_sha256": "9417031a42522856f11cd4f6f8de41e1a6109fefa1ddd6a1486aa9c082c2c0bf"
+    },
+    {
+      "id": "tabalonia/closable.tab.xsmall/normal/light",
+      "component": "tabalonia",
+      "group": "closable",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "closable": true,
+        "variant": "tab",
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        20.0
+      ],
+      "png": "png/tabalonia/closable.tab.xsmall/normal/light.png",
+      "scene": "scenes/tabalonia/closable.tab.xsmall/normal/light.json",
+      "png_sha256": "bef7e6468b12fd2737921e27497e6b31e9eda4c0dab29d70f870dbb0ad658d78"
+    },
+    {
+      "id": "tabalonia/closable.underline.large/normal/dark",
+      "component": "tabalonia",
+      "group": "closable",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "closable": true,
+        "variant": "underline",
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        44.0
+      ],
+      "png": "png/tabalonia/closable.underline.large/normal/dark.png",
+      "scene": "scenes/tabalonia/closable.underline.large/normal/dark.json",
+      "png_sha256": "7c8f80cabc21cfec6ab71b606c4a5b88dd417e6f6d0450d382dd99b022b16294"
+    },
+    {
+      "id": "tabalonia/closable.underline.large/normal/light",
+      "component": "tabalonia",
+      "group": "closable",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "closable": true,
+        "variant": "underline",
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        44.0
+      ],
+      "png": "png/tabalonia/closable.underline.large/normal/light.png",
+      "scene": "scenes/tabalonia/closable.underline.large/normal/light.json",
+      "png_sha256": "1b0c8c864633f249dc480c0ac4c556930160a6756a72aa0e85970e0842559e0a"
+    },
+    {
+      "id": "tabalonia/closable.underline.medium/normal/dark",
+      "component": "tabalonia",
+      "group": "closable",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "closable": true,
+        "variant": "underline",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        36.0
+      ],
+      "png": "png/tabalonia/closable.underline.medium/normal/dark.png",
+      "scene": "scenes/tabalonia/closable.underline.medium/normal/dark.json",
+      "png_sha256": "eff7c8a8b9f5a470c952d8931951c1dfa42de2420c121d2b38ac63027f54ea42"
+    },
+    {
+      "id": "tabalonia/closable.underline.medium/normal/light",
+      "component": "tabalonia",
+      "group": "closable",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "closable": true,
+        "variant": "underline",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        36.0
+      ],
+      "png": "png/tabalonia/closable.underline.medium/normal/light.png",
+      "scene": "scenes/tabalonia/closable.underline.medium/normal/light.json",
+      "png_sha256": "d62faa3fe93aca7e58c19cd81e1f21e889014cfed8e67232c5b6f06bd089d69d"
+    },
+    {
+      "id": "tabalonia/closable.underline.small/normal/dark",
+      "component": "tabalonia",
+      "group": "closable",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "closable": true,
+        "variant": "underline",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        30.0
+      ],
+      "png": "png/tabalonia/closable.underline.small/normal/dark.png",
+      "scene": "scenes/tabalonia/closable.underline.small/normal/dark.json",
+      "png_sha256": "36d020613154248b824b4763da426dca87c5ca87579d83793be762b14fc27bdf"
+    },
+    {
+      "id": "tabalonia/closable.underline.small/normal/light",
+      "component": "tabalonia",
+      "group": "closable",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "closable": true,
+        "variant": "underline",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        30.0
+      ],
+      "png": "png/tabalonia/closable.underline.small/normal/light.png",
+      "scene": "scenes/tabalonia/closable.underline.small/normal/light.json",
+      "png_sha256": "082cfa4b67c3abe1d43937e2b6de9553531525877357921ec7a9b13dbb5c6c77"
+    },
+    {
+      "id": "tabalonia/closable.underline.xsmall/normal/dark",
+      "component": "tabalonia",
+      "group": "closable",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "closable": true,
+        "variant": "underline",
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        26.0
+      ],
+      "png": "png/tabalonia/closable.underline.xsmall/normal/dark.png",
+      "scene": "scenes/tabalonia/closable.underline.xsmall/normal/dark.json",
+      "png_sha256": "b3726da697a233678b1674f539f74228739f28403bbafbb990294efcf7ee2094"
+    },
+    {
+      "id": "tabalonia/closable.underline.xsmall/normal/light",
+      "component": "tabalonia",
+      "group": "closable",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "closable": true,
+        "variant": "underline",
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        26.0
+      ],
+      "png": "png/tabalonia/closable.underline.xsmall/normal/light.png",
+      "scene": "scenes/tabalonia/closable.underline.xsmall/normal/light.json",
+      "png_sha256": "97c6eed58a88378f3e1f2ba7a15ce9c136441d40d0c28caaeca3a5c19456a1eb"
+    },
+    {
+      "id": "tabalonia/close.tab/at-97-24/dark",
+      "component": "tabalonia",
+      "group": "close",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "closable": true,
+        "variant": "tab"
+      },
+      "state": "at-97-24",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/close.tab/at-97-24/dark.png",
+      "scene": "scenes/tabalonia/close.tab/at-97-24/dark.json",
+      "png_sha256": "2acbf3c280bdfed12025b2843d2d7b7ebb77160ccf9f19ae5c19a85f42c87435"
+    },
+    {
+      "id": "tabalonia/close.tab/at-97-24/light",
+      "component": "tabalonia",
+      "group": "close",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "closable": true,
+        "variant": "tab"
+      },
+      "state": "at-97-24",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/close.tab/at-97-24/light.png",
+      "scene": "scenes/tabalonia/close.tab/at-97-24/light.json",
+      "png_sha256": "b5b568efff27eba55c4e5bc36f0c51c9975567d44cd51a1debf7e0d5129eb2f1"
+    },
+    {
+      "id": "tabalonia/close.tab/pressed-at-97-24/dark",
+      "component": "tabalonia",
+      "group": "close",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "closable": true,
+        "variant": "tab"
+      },
+      "state": "pressed-at-97-24",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/close.tab/pressed-at-97-24/dark.png",
+      "scene": "scenes/tabalonia/close.tab/pressed-at-97-24/dark.json",
+      "png_sha256": "ad27bf3477f3d518decc3f6b8ebfa6bc031e67fd47531646dc306f318371b331"
+    },
+    {
+      "id": "tabalonia/close.tab/pressed-at-97-24/light",
+      "component": "tabalonia",
+      "group": "close",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "closable": true,
+        "variant": "tab"
+      },
+      "state": "pressed-at-97-24",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/close.tab/pressed-at-97-24/light.png",
+      "scene": "scenes/tabalonia/close.tab/pressed-at-97-24/light.json",
+      "png_sha256": "d40a9851d1efe959445a5e6516dd109e9ad39b7f8c06117acab8ec3f004f4eeb"
+    },
+    {
+      "id": "tabalonia/disabled.outline.disabled_index-1/normal/dark",
+      "component": "tabalonia",
+      "group": "disabled",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "outline",
+        "disabled_index": 1
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/disabled.outline.disabled_index-1/normal/dark.png",
+      "scene": "scenes/tabalonia/disabled.outline.disabled_index-1/normal/dark.json",
+      "png_sha256": "5035fc1ae39499b47928d856f12819107266794b8d6598c0f91cea5742d87405"
+    },
+    {
+      "id": "tabalonia/disabled.outline.disabled_index-1/normal/light",
+      "component": "tabalonia",
+      "group": "disabled",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "outline",
+        "disabled_index": 1
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/disabled.outline.disabled_index-1/normal/light.png",
+      "scene": "scenes/tabalonia/disabled.outline.disabled_index-1/normal/light.json",
+      "png_sha256": "c7fb6c9d5d39cfc39d926831935f7e2a7c2db2db5aa876cfa8b405045cd2b960"
+    },
+    {
+      "id": "tabalonia/disabled.outline.disabled_index-2/normal/dark",
+      "component": "tabalonia",
+      "group": "disabled",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "outline",
+        "disabled_index": 2
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/disabled.outline.disabled_index-2/normal/dark.png",
+      "scene": "scenes/tabalonia/disabled.outline.disabled_index-2/normal/dark.json",
+      "png_sha256": "9c0e84c442d814ef0f2dcce98f0100379670b05fe6be64d8976a4f742476b229"
+    },
+    {
+      "id": "tabalonia/disabled.outline.disabled_index-2/normal/light",
+      "component": "tabalonia",
+      "group": "disabled",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "outline",
+        "disabled_index": 2
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/disabled.outline.disabled_index-2/normal/light.png",
+      "scene": "scenes/tabalonia/disabled.outline.disabled_index-2/normal/light.json",
+      "png_sha256": "d89020fb3f85d93c2b0656f5031c8e52834ae91afefe8d5b5f81de4ceee13b9d"
+    },
+    {
+      "id": "tabalonia/disabled.pill.disabled_index-1/normal/dark",
+      "component": "tabalonia",
+      "group": "disabled",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "pill",
+        "disabled_index": 1
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/disabled.pill.disabled_index-1/normal/dark.png",
+      "scene": "scenes/tabalonia/disabled.pill.disabled_index-1/normal/dark.json",
+      "png_sha256": "4984697a09c45764016449963b6e226419b9cb0d194ba0902806979a41a9e423"
+    },
+    {
+      "id": "tabalonia/disabled.pill.disabled_index-1/normal/light",
+      "component": "tabalonia",
+      "group": "disabled",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "pill",
+        "disabled_index": 1
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/disabled.pill.disabled_index-1/normal/light.png",
+      "scene": "scenes/tabalonia/disabled.pill.disabled_index-1/normal/light.json",
+      "png_sha256": "8b7c6958de8eac5c034967967dc8ada91698371a109cd308d87ac33a9cd3a675"
+    },
+    {
+      "id": "tabalonia/disabled.pill.disabled_index-2/normal/dark",
+      "component": "tabalonia",
+      "group": "disabled",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "pill",
+        "disabled_index": 2
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/disabled.pill.disabled_index-2/normal/dark.png",
+      "scene": "scenes/tabalonia/disabled.pill.disabled_index-2/normal/dark.json",
+      "png_sha256": "129f02adcf3a3585eee9eb39960d03021dd2c8eb2460f712a4fa5ad95bed6241"
+    },
+    {
+      "id": "tabalonia/disabled.pill.disabled_index-2/normal/light",
+      "component": "tabalonia",
+      "group": "disabled",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "pill",
+        "disabled_index": 2
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/disabled.pill.disabled_index-2/normal/light.png",
+      "scene": "scenes/tabalonia/disabled.pill.disabled_index-2/normal/light.json",
+      "png_sha256": "5cb62649398a31f10a0ad175223ca20ba1f40faa7ab878ef5d5c9a6f14cb7358"
+    },
+    {
+      "id": "tabalonia/disabled.segmented.disabled_index-1/normal/dark",
+      "component": "tabalonia",
+      "group": "disabled",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "segmented",
+        "disabled_index": 1
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/disabled.segmented.disabled_index-1/normal/dark.png",
+      "scene": "scenes/tabalonia/disabled.segmented.disabled_index-1/normal/dark.json",
+      "png_sha256": "510339f6bc47a4fcfc099489322b2525d5376645383b92e5d6161b540f997120"
+    },
+    {
+      "id": "tabalonia/disabled.segmented.disabled_index-1/normal/light",
+      "component": "tabalonia",
+      "group": "disabled",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "segmented",
+        "disabled_index": 1
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/disabled.segmented.disabled_index-1/normal/light.png",
+      "scene": "scenes/tabalonia/disabled.segmented.disabled_index-1/normal/light.json",
+      "png_sha256": "f71f4c3c14674f3dc77b06b8486f3ee9128e1d27ae1a6db4d25f068c4017c23b"
+    },
+    {
+      "id": "tabalonia/disabled.segmented.disabled_index-2/normal/dark",
+      "component": "tabalonia",
+      "group": "disabled",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "segmented",
+        "disabled_index": 2
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/disabled.segmented.disabled_index-2/normal/dark.png",
+      "scene": "scenes/tabalonia/disabled.segmented.disabled_index-2/normal/dark.json",
+      "png_sha256": "e1981cc73e10b46836686c84c0b45b4b6e7d5097028f384e125b921a0be26244"
+    },
+    {
+      "id": "tabalonia/disabled.segmented.disabled_index-2/normal/light",
+      "component": "tabalonia",
+      "group": "disabled",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "segmented",
+        "disabled_index": 2
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/disabled.segmented.disabled_index-2/normal/light.png",
+      "scene": "scenes/tabalonia/disabled.segmented.disabled_index-2/normal/light.json",
+      "png_sha256": "6939131d54ee31cbd6baa308c0abc62dec70374d59d7075b862d50f4cf53b744"
+    },
+    {
+      "id": "tabalonia/disabled.tab.disabled_index-1/normal/dark",
+      "component": "tabalonia",
+      "group": "disabled",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "tab",
+        "disabled_index": 1
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/disabled.tab.disabled_index-1/normal/dark.png",
+      "scene": "scenes/tabalonia/disabled.tab.disabled_index-1/normal/dark.json",
+      "png_sha256": "d02fa75a36a8ffea15edc7a01a8b0ae7d67c03133fbff25ba2ebf0821c239ed3"
+    },
+    {
+      "id": "tabalonia/disabled.tab.disabled_index-1/normal/light",
+      "component": "tabalonia",
+      "group": "disabled",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "tab",
+        "disabled_index": 1
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/disabled.tab.disabled_index-1/normal/light.png",
+      "scene": "scenes/tabalonia/disabled.tab.disabled_index-1/normal/light.json",
+      "png_sha256": "5e7de5f02a3dba1ed32ddea8b6ce01115fb35716b74d1e86c9d7d5daf228f1c3"
+    },
+    {
+      "id": "tabalonia/disabled.tab.disabled_index-2/normal/dark",
+      "component": "tabalonia",
+      "group": "disabled",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "tab",
+        "disabled_index": 2
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/disabled.tab.disabled_index-2/normal/dark.png",
+      "scene": "scenes/tabalonia/disabled.tab.disabled_index-2/normal/dark.json",
+      "png_sha256": "047eacc15b47b207f4bf87309a04992f9d45024d8e5299eda2174cdc0c8206a9"
+    },
+    {
+      "id": "tabalonia/disabled.tab.disabled_index-2/normal/light",
+      "component": "tabalonia",
+      "group": "disabled",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "tab",
+        "disabled_index": 2
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/disabled.tab.disabled_index-2/normal/light.png",
+      "scene": "scenes/tabalonia/disabled.tab.disabled_index-2/normal/light.json",
+      "png_sha256": "3c17fd8a639a1ce57446b36c75d9a3e1bb5fd99f44a86fe1dbe00c4f02dd58e9"
+    },
+    {
+      "id": "tabalonia/disabled.underline.disabled_index-1/normal/dark",
+      "component": "tabalonia",
+      "group": "disabled",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "underline",
+        "disabled_index": 1
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        36.0
+      ],
+      "png": "png/tabalonia/disabled.underline.disabled_index-1/normal/dark.png",
+      "scene": "scenes/tabalonia/disabled.underline.disabled_index-1/normal/dark.json",
+      "png_sha256": "12e5aa919070de1a87e9a8d85bbfb49f0607bb964064996447b747dee9e7b713"
+    },
+    {
+      "id": "tabalonia/disabled.underline.disabled_index-1/normal/light",
+      "component": "tabalonia",
+      "group": "disabled",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "underline",
+        "disabled_index": 1
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        36.0
+      ],
+      "png": "png/tabalonia/disabled.underline.disabled_index-1/normal/light.png",
+      "scene": "scenes/tabalonia/disabled.underline.disabled_index-1/normal/light.json",
+      "png_sha256": "8b3bf476cb0d480b20b35c13be891800accabcc9708a02456ec77834246bd5d2"
+    },
+    {
+      "id": "tabalonia/disabled.underline.disabled_index-2/normal/dark",
+      "component": "tabalonia",
+      "group": "disabled",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "underline",
+        "disabled_index": 2
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        36.0
+      ],
+      "png": "png/tabalonia/disabled.underline.disabled_index-2/normal/dark.png",
+      "scene": "scenes/tabalonia/disabled.underline.disabled_index-2/normal/dark.json",
+      "png_sha256": "afb63d4003d5aa83153d01f2ddbfaa9522b537c95aca1b095a89e8ba73c96333"
+    },
+    {
+      "id": "tabalonia/disabled.underline.disabled_index-2/normal/light",
+      "component": "tabalonia",
+      "group": "disabled",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "underline",
+        "disabled_index": 2
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        36.0
+      ],
+      "png": "png/tabalonia/disabled.underline.disabled_index-2/normal/light.png",
+      "scene": "scenes/tabalonia/disabled.underline.disabled_index-2/normal/light.json",
+      "png_sha256": "ccf8b24807b05afb2eedd6992d6dad92db3784d3ea65b88fc297fd5878e2ee72"
+    },
+    {
+      "id": "tabalonia/hover.outline/hover/dark",
+      "component": "tabalonia",
+      "group": "hover",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "pointer_x": 0.04,
+        "variant": "outline"
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/hover.outline/hover/dark.png",
+      "scene": "scenes/tabalonia/hover.outline/hover/dark.json",
+      "png_sha256": "5dcad35ef536c3ae2c56dbbe44a3f4c8f5b5618f81d2c8408313f952f46bcf47"
+    },
+    {
+      "id": "tabalonia/hover.outline/hover/light",
+      "component": "tabalonia",
+      "group": "hover",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "pointer_x": 0.04,
+        "variant": "outline"
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/hover.outline/hover/light.png",
+      "scene": "scenes/tabalonia/hover.outline/hover/light.json",
+      "png_sha256": "07e188095e64188b2a1b58a080028477c56d16fb00d8b11feee9d331d407ba69"
+    },
+    {
+      "id": "tabalonia/hover.outline/normal/dark",
+      "component": "tabalonia",
+      "group": "hover",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "pointer_x": 0.04,
+        "variant": "outline"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/hover.outline/normal/dark.png",
+      "scene": "scenes/tabalonia/hover.outline/normal/dark.json",
+      "png_sha256": "e7a2d4ad89f2bf99aa673cc506f518bb5d164c3c1d7463f11afa39adef3ef2c7"
+    },
+    {
+      "id": "tabalonia/hover.outline/normal/light",
+      "component": "tabalonia",
+      "group": "hover",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "pointer_x": 0.04,
+        "variant": "outline"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/hover.outline/normal/light.png",
+      "scene": "scenes/tabalonia/hover.outline/normal/light.json",
+      "png_sha256": "c8c53103c7445ccf60fbdcdbb2233ecc6560b2fcedd59d9aba3cb3adf386d8bd"
+    },
+    {
+      "id": "tabalonia/hover.pill/hover/dark",
+      "component": "tabalonia",
+      "group": "hover",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "pointer_x": 0.04,
+        "variant": "pill"
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/hover.pill/hover/dark.png",
+      "scene": "scenes/tabalonia/hover.pill/hover/dark.json",
+      "png_sha256": "6b0a4f8625c006f09ccf00843ae4fbb35381a0317c894a3843e6e38519797b41"
+    },
+    {
+      "id": "tabalonia/hover.pill/hover/light",
+      "component": "tabalonia",
+      "group": "hover",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "pointer_x": 0.04,
+        "variant": "pill"
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/hover.pill/hover/light.png",
+      "scene": "scenes/tabalonia/hover.pill/hover/light.json",
+      "png_sha256": "b95091056f4d4d66fd37f6dc916fc8a49d4e40475ee437d01531f1d0d7fddf80"
+    },
+    {
+      "id": "tabalonia/hover.pill/normal/dark",
+      "component": "tabalonia",
+      "group": "hover",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "pointer_x": 0.04,
+        "variant": "pill"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/hover.pill/normal/dark.png",
+      "scene": "scenes/tabalonia/hover.pill/normal/dark.json",
+      "png_sha256": "b6e1ae50d7c79c35a526ef2ba3291e3d5b7ef34152c263d4e9fe635d0772cbe2"
+    },
+    {
+      "id": "tabalonia/hover.pill/normal/light",
+      "component": "tabalonia",
+      "group": "hover",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "pointer_x": 0.04,
+        "variant": "pill"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/hover.pill/normal/light.png",
+      "scene": "scenes/tabalonia/hover.pill/normal/light.json",
+      "png_sha256": "c741fb28fe188c74ca5754c84da6017fc83b5f4d0a99dcfa4182d86ad1430053"
+    },
+    {
+      "id": "tabalonia/hover.segmented/hover/dark",
+      "component": "tabalonia",
+      "group": "hover",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "pointer_x": 0.04,
+        "variant": "segmented"
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/hover.segmented/hover/dark.png",
+      "scene": "scenes/tabalonia/hover.segmented/hover/dark.json",
+      "png_sha256": "377aa71ccd1786e59bc72c8e9665276ff1b22aba5ab122df19c948c43a0c0ec2"
+    },
+    {
+      "id": "tabalonia/hover.segmented/hover/light",
+      "component": "tabalonia",
+      "group": "hover",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "pointer_x": 0.04,
+        "variant": "segmented"
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/hover.segmented/hover/light.png",
+      "scene": "scenes/tabalonia/hover.segmented/hover/light.json",
+      "png_sha256": "d95921448dde80cd7e126dca8aea36e5fd2a50d6c60a5d7369f97eabf61e7fdb"
+    },
+    {
+      "id": "tabalonia/hover.segmented/normal/dark",
+      "component": "tabalonia",
+      "group": "hover",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "pointer_x": 0.04,
+        "variant": "segmented"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/hover.segmented/normal/dark.png",
+      "scene": "scenes/tabalonia/hover.segmented/normal/dark.json",
+      "png_sha256": "1472770081c77701e05e480de3fe4dcef101fea6f3214d80a762cdd81f59eca1"
+    },
+    {
+      "id": "tabalonia/hover.segmented/normal/light",
+      "component": "tabalonia",
+      "group": "hover",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "pointer_x": 0.04,
+        "variant": "segmented"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/hover.segmented/normal/light.png",
+      "scene": "scenes/tabalonia/hover.segmented/normal/light.json",
+      "png_sha256": "80257755636cf34de45e758129b0d88896ff8d76e80f723cbfa9c4a98689395c"
+    },
+    {
+      "id": "tabalonia/hover.tab/hover/dark",
+      "component": "tabalonia",
+      "group": "hover",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "pointer_x": 0.04,
+        "variant": "tab"
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/hover.tab/hover/dark.png",
+      "scene": "scenes/tabalonia/hover.tab/hover/dark.json",
+      "png_sha256": "149f8def9f94ddfe69ee50d2cd92daf7d7be280cf4d001831794a7e0607fcd16"
+    },
+    {
+      "id": "tabalonia/hover.tab/hover/light",
+      "component": "tabalonia",
+      "group": "hover",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "pointer_x": 0.04,
+        "variant": "tab"
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/hover.tab/hover/light.png",
+      "scene": "scenes/tabalonia/hover.tab/hover/light.json",
+      "png_sha256": "8ebf37cabc83459669adc1856aa5fb1f368e4a246904a4c5c5730cf4a6e9f553"
+    },
+    {
+      "id": "tabalonia/hover.tab/normal/dark",
+      "component": "tabalonia",
+      "group": "hover",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "pointer_x": 0.04,
+        "variant": "tab"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/hover.tab/normal/dark.png",
+      "scene": "scenes/tabalonia/hover.tab/normal/dark.json",
+      "png_sha256": "9bd43d22786e477d8a7baed81ead656ae89715bb32f385796537ace2d3b38645"
+    },
+    {
+      "id": "tabalonia/hover.tab/normal/light",
+      "component": "tabalonia",
+      "group": "hover",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "pointer_x": 0.04,
+        "variant": "tab"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/hover.tab/normal/light.png",
+      "scene": "scenes/tabalonia/hover.tab/normal/light.json",
+      "png_sha256": "5ab3e988b7146707ebb7056926c39a4eede59d6ddbb2e24faaabb882bc8c4754"
+    },
+    {
+      "id": "tabalonia/hover.underline/hover/dark",
+      "component": "tabalonia",
+      "group": "hover",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "pointer_x": 0.04,
+        "variant": "underline"
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        36.0
+      ],
+      "png": "png/tabalonia/hover.underline/hover/dark.png",
+      "scene": "scenes/tabalonia/hover.underline/hover/dark.json",
+      "png_sha256": "5a9dab24cae665b85f25ae9e4f31c841dcf0e679aa82790e1281ccc06a23dbb7"
+    },
+    {
+      "id": "tabalonia/hover.underline/hover/light",
+      "component": "tabalonia",
+      "group": "hover",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "pointer_x": 0.04,
+        "variant": "underline"
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        36.0
+      ],
+      "png": "png/tabalonia/hover.underline/hover/light.png",
+      "scene": "scenes/tabalonia/hover.underline/hover/light.json",
+      "png_sha256": "5c4dbacf935ee2a6430cf1a1d485dd08141f17e3ec6c5d66506cb0946d601e5a"
+    },
+    {
+      "id": "tabalonia/hover.underline/normal/dark",
+      "component": "tabalonia",
+      "group": "hover",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "pointer_x": 0.04,
+        "variant": "underline"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        36.0
+      ],
+      "png": "png/tabalonia/hover.underline/normal/dark.png",
+      "scene": "scenes/tabalonia/hover.underline/normal/dark.json",
+      "png_sha256": "c0e0265f14e3ed6949ccf08a0f287ea6769eb0b0ad8cc7b78c6e763d42951194"
+    },
+    {
+      "id": "tabalonia/hover.underline/normal/light",
+      "component": "tabalonia",
+      "group": "hover",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "pointer_x": 0.04,
+        "variant": "underline"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        36.0
+      ],
+      "png": "png/tabalonia/hover.underline/normal/light.png",
+      "scene": "scenes/tabalonia/hover.underline/normal/light.json",
+      "png_sha256": "e9785b7125a837ee76245a80a8d0e59e6540818adc025221593d952d72a35551"
+    },
+    {
+      "id": "tabalonia/icon.outline.medium/normal/dark",
+      "component": "tabalonia",
+      "group": "icon",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          48,
+          48,
+          48
+        ],
+        "icons": true,
+        "variant": "outline",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/icon.outline.medium/normal/dark.png",
+      "scene": "scenes/tabalonia/icon.outline.medium/normal/dark.json",
+      "png_sha256": "948bef62cc882f946efd6160723ef27abbc1bdc18a4280ef11d0c3c10d50cbb3"
+    },
+    {
+      "id": "tabalonia/icon.outline.medium/normal/light",
+      "component": "tabalonia",
+      "group": "icon",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          48,
+          48,
+          48
+        ],
+        "icons": true,
+        "variant": "outline",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/icon.outline.medium/normal/light.png",
+      "scene": "scenes/tabalonia/icon.outline.medium/normal/light.json",
+      "png_sha256": "db904b2d757c5d7947cb2ac9552a23bb9b42882c95857bf8fa278faa15d40457"
+    },
+    {
+      "id": "tabalonia/icon.outline.small/normal/dark",
+      "component": "tabalonia",
+      "group": "icon",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          48,
+          48,
+          48
+        ],
+        "icons": true,
+        "variant": "outline",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        24.0
+      ],
+      "png": "png/tabalonia/icon.outline.small/normal/dark.png",
+      "scene": "scenes/tabalonia/icon.outline.small/normal/dark.json",
+      "png_sha256": "2905a143621bdb11afb7a4f8771a367c46257a27df520e2c6e340afaf0c918aa"
+    },
+    {
+      "id": "tabalonia/icon.outline.small/normal/light",
+      "component": "tabalonia",
+      "group": "icon",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          48,
+          48,
+          48
+        ],
+        "icons": true,
+        "variant": "outline",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        24.0
+      ],
+      "png": "png/tabalonia/icon.outline.small/normal/light.png",
+      "scene": "scenes/tabalonia/icon.outline.small/normal/light.json",
+      "png_sha256": "1e0ce7d33c6ea38fa4801d9e0c7b7e328c9b0a49a89acafb31f7f94db65221c3"
+    },
+    {
+      "id": "tabalonia/icon.pill.medium/normal/dark",
+      "component": "tabalonia",
+      "group": "icon",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          48,
+          48,
+          48
+        ],
+        "icons": true,
+        "variant": "pill",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/icon.pill.medium/normal/dark.png",
+      "scene": "scenes/tabalonia/icon.pill.medium/normal/dark.json",
+      "png_sha256": "bbdb725831d874f9042d5dc8a4550d6f76704bfdaf54059582022f151447adc8"
+    },
+    {
+      "id": "tabalonia/icon.pill.medium/normal/light",
+      "component": "tabalonia",
+      "group": "icon",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          48,
+          48,
+          48
+        ],
+        "icons": true,
+        "variant": "pill",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/icon.pill.medium/normal/light.png",
+      "scene": "scenes/tabalonia/icon.pill.medium/normal/light.json",
+      "png_sha256": "3118534dce2c0227f73023f326701ff2a3322fa3f89bca4c9c81e3325f2d9615"
+    },
+    {
+      "id": "tabalonia/icon.pill.small/normal/dark",
+      "component": "tabalonia",
+      "group": "icon",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          48,
+          48,
+          48
+        ],
+        "icons": true,
+        "variant": "pill",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        24.0
+      ],
+      "png": "png/tabalonia/icon.pill.small/normal/dark.png",
+      "scene": "scenes/tabalonia/icon.pill.small/normal/dark.json",
+      "png_sha256": "40549707d5b2f2ff9f506ce8e4c08dc8375cfca58e015a3fb68b2d7e35c155cf"
+    },
+    {
+      "id": "tabalonia/icon.pill.small/normal/light",
+      "component": "tabalonia",
+      "group": "icon",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          48,
+          48,
+          48
+        ],
+        "icons": true,
+        "variant": "pill",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        24.0
+      ],
+      "png": "png/tabalonia/icon.pill.small/normal/light.png",
+      "scene": "scenes/tabalonia/icon.pill.small/normal/light.json",
+      "png_sha256": "e33365ced1cdbc1124a1f9dccda7bb85a3782a5a6fb962121fe540866aa13219"
+    },
+    {
+      "id": "tabalonia/icon.segmented.medium/normal/dark",
+      "component": "tabalonia",
+      "group": "icon",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          48,
+          48,
+          48
+        ],
+        "icons": true,
+        "variant": "segmented",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/icon.segmented.medium/normal/dark.png",
+      "scene": "scenes/tabalonia/icon.segmented.medium/normal/dark.json",
+      "png_sha256": "33c5c735a04c17ca4d1746b4cc11ec1fa6e07ff70812ae9faccc0d5737108e07"
+    },
+    {
+      "id": "tabalonia/icon.segmented.medium/normal/light",
+      "component": "tabalonia",
+      "group": "icon",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          48,
+          48,
+          48
+        ],
+        "icons": true,
+        "variant": "segmented",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/icon.segmented.medium/normal/light.png",
+      "scene": "scenes/tabalonia/icon.segmented.medium/normal/light.json",
+      "png_sha256": "1323e5ac4f591c1d86893c51d1a4a429cdd4f8f9872d039830dfb305444e7f22"
+    },
+    {
+      "id": "tabalonia/icon.segmented.small/normal/dark",
+      "component": "tabalonia",
+      "group": "icon",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          48,
+          48,
+          48
+        ],
+        "icons": true,
+        "variant": "segmented",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        24.0
+      ],
+      "png": "png/tabalonia/icon.segmented.small/normal/dark.png",
+      "scene": "scenes/tabalonia/icon.segmented.small/normal/dark.json",
+      "png_sha256": "8b4243bf9c1440701405ac61a28dce82b2ab6e1cc2856da625a893b6d661976b"
+    },
+    {
+      "id": "tabalonia/icon.segmented.small/normal/light",
+      "component": "tabalonia",
+      "group": "icon",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          48,
+          48,
+          48
+        ],
+        "icons": true,
+        "variant": "segmented",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        24.0
+      ],
+      "png": "png/tabalonia/icon.segmented.small/normal/light.png",
+      "scene": "scenes/tabalonia/icon.segmented.small/normal/light.json",
+      "png_sha256": "ed21a3af03fabd4371fd7e7a1533acbb5fde8474f7bff6d774ff6a76f4b32d8f"
+    },
+    {
+      "id": "tabalonia/icon.tab.medium/normal/dark",
+      "component": "tabalonia",
+      "group": "icon",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          48,
+          48,
+          48
+        ],
+        "icons": true,
+        "variant": "tab",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/icon.tab.medium/normal/dark.png",
+      "scene": "scenes/tabalonia/icon.tab.medium/normal/dark.json",
+      "png_sha256": "efc0a22ff3e68fd2ea646d9e87d76b0d33aa6093557615ec9aa07974a46a2b26"
+    },
+    {
+      "id": "tabalonia/icon.tab.medium/normal/light",
+      "component": "tabalonia",
+      "group": "icon",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          48,
+          48,
+          48
+        ],
+        "icons": true,
+        "variant": "tab",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/icon.tab.medium/normal/light.png",
+      "scene": "scenes/tabalonia/icon.tab.medium/normal/light.json",
+      "png_sha256": "ae28979ff44eadedd3a3aaae0e70b8dfdd2569d42a4faafe6b6c6198086f760a"
+    },
+    {
+      "id": "tabalonia/icon.tab.small/normal/dark",
+      "component": "tabalonia",
+      "group": "icon",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          48,
+          48,
+          48
+        ],
+        "icons": true,
+        "variant": "tab",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        24.0
+      ],
+      "png": "png/tabalonia/icon.tab.small/normal/dark.png",
+      "scene": "scenes/tabalonia/icon.tab.small/normal/dark.json",
+      "png_sha256": "49e683cc2c626c5c58a3b2f78fda7f968e5849072dae78d8a8a9717534d451dd"
+    },
+    {
+      "id": "tabalonia/icon.tab.small/normal/light",
+      "component": "tabalonia",
+      "group": "icon",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          48,
+          48,
+          48
+        ],
+        "icons": true,
+        "variant": "tab",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        24.0
+      ],
+      "png": "png/tabalonia/icon.tab.small/normal/light.png",
+      "scene": "scenes/tabalonia/icon.tab.small/normal/light.json",
+      "png_sha256": "4883f09ccea5bab7f1b9f63585e6f58e90518989821cc9ed9f3d5259f3a5fbab"
+    },
+    {
+      "id": "tabalonia/icon.underline.medium/normal/dark",
+      "component": "tabalonia",
+      "group": "icon",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          48,
+          48,
+          48
+        ],
+        "icons": true,
+        "variant": "underline",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        36.0
+      ],
+      "png": "png/tabalonia/icon.underline.medium/normal/dark.png",
+      "scene": "scenes/tabalonia/icon.underline.medium/normal/dark.json",
+      "png_sha256": "8611f03578bfea2fa932ca578d307af7f159698dc6a28a1bbaede8ea41b6df99"
+    },
+    {
+      "id": "tabalonia/icon.underline.medium/normal/light",
+      "component": "tabalonia",
+      "group": "icon",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          48,
+          48,
+          48
+        ],
+        "icons": true,
+        "variant": "underline",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        36.0
+      ],
+      "png": "png/tabalonia/icon.underline.medium/normal/light.png",
+      "scene": "scenes/tabalonia/icon.underline.medium/normal/light.json",
+      "png_sha256": "9f0cd04cac619600467e92961cd7cc6183daca8faff84dfc94d0a7ff45ee4d1b"
+    },
+    {
+      "id": "tabalonia/icon.underline.small/normal/dark",
+      "component": "tabalonia",
+      "group": "icon",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          48,
+          48,
+          48
+        ],
+        "icons": true,
+        "variant": "underline",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        30.0
+      ],
+      "png": "png/tabalonia/icon.underline.small/normal/dark.png",
+      "scene": "scenes/tabalonia/icon.underline.small/normal/dark.json",
+      "png_sha256": "d65d6ffd983ebdcf8201d28b560fbed44854981217c065ddc7de7dee279fc311"
+    },
+    {
+      "id": "tabalonia/icon.underline.small/normal/light",
+      "component": "tabalonia",
+      "group": "icon",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          48,
+          48,
+          48
+        ],
+        "icons": true,
+        "variant": "underline",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        30.0
+      ],
+      "png": "png/tabalonia/icon.underline.small/normal/light.png",
+      "scene": "scenes/tabalonia/icon.underline.small/normal/light.json",
+      "png_sha256": "ea6d6efbc3314824fe6687d7c77bb7fc42749e83f3eb57961766d3182cadcebc"
+    },
+    {
+      "id": "tabalonia/label.outline.large/normal/dark",
+      "component": "tabalonia",
+      "group": "label",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "outline",
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        36.0
+      ],
+      "png": "png/tabalonia/label.outline.large/normal/dark.png",
+      "scene": "scenes/tabalonia/label.outline.large/normal/dark.json",
+      "png_sha256": "4f863bed46c652dd745ff9d3eb3c9c96caed2c8a11a63cf5b23d9ad832430660"
+    },
+    {
+      "id": "tabalonia/label.outline.large/normal/light",
+      "component": "tabalonia",
+      "group": "label",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "outline",
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        36.0
+      ],
+      "png": "png/tabalonia/label.outline.large/normal/light.png",
+      "scene": "scenes/tabalonia/label.outline.large/normal/light.json",
+      "png_sha256": "e82bf2753f1bdff2e4954548af489a3f0c6fab8a4ba9fd46aaae1a97dcb39bba"
+    },
+    {
+      "id": "tabalonia/label.outline.medium/normal/dark",
+      "component": "tabalonia",
+      "group": "label",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "outline",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/label.outline.medium/normal/dark.png",
+      "scene": "scenes/tabalonia/label.outline.medium/normal/dark.json",
+      "png_sha256": "47048fe0134e92d18098f1bf0ea90c616c739d418ecb2b09f330700720d48410"
+    },
+    {
+      "id": "tabalonia/label.outline.medium/normal/light",
+      "component": "tabalonia",
+      "group": "label",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "outline",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/label.outline.medium/normal/light.png",
+      "scene": "scenes/tabalonia/label.outline.medium/normal/light.json",
+      "png_sha256": "d0b92a6bceb50957ebd5592e075afe7e440332ecff915e9567f34d3c410ea8cd"
+    },
+    {
+      "id": "tabalonia/label.outline.small/normal/dark",
+      "component": "tabalonia",
+      "group": "label",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "outline",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        24.0
+      ],
+      "png": "png/tabalonia/label.outline.small/normal/dark.png",
+      "scene": "scenes/tabalonia/label.outline.small/normal/dark.json",
+      "png_sha256": "18ef594ddb0fc8014dbccc4dcd285537180ed1eb13c2bc39d6f0483d7d7053ca"
+    },
+    {
+      "id": "tabalonia/label.outline.small/normal/light",
+      "component": "tabalonia",
+      "group": "label",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "outline",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        24.0
+      ],
+      "png": "png/tabalonia/label.outline.small/normal/light.png",
+      "scene": "scenes/tabalonia/label.outline.small/normal/light.json",
+      "png_sha256": "caa66bc3ca51ba7fcdd898fde509d7135d01258f8dabf7f9f6c5ec83ad8bd794"
+    },
+    {
+      "id": "tabalonia/label.outline.xsmall/normal/dark",
+      "component": "tabalonia",
+      "group": "label",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "outline",
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        20.0
+      ],
+      "png": "png/tabalonia/label.outline.xsmall/normal/dark.png",
+      "scene": "scenes/tabalonia/label.outline.xsmall/normal/dark.json",
+      "png_sha256": "03695b704964d7315baead0f4beeaa5a0c22a8c9a7b15dd308b9b934a9c19bb6"
+    },
+    {
+      "id": "tabalonia/label.outline.xsmall/normal/light",
+      "component": "tabalonia",
+      "group": "label",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "outline",
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        20.0
+      ],
+      "png": "png/tabalonia/label.outline.xsmall/normal/light.png",
+      "scene": "scenes/tabalonia/label.outline.xsmall/normal/light.json",
+      "png_sha256": "a093ca82067d4f37da74daa6cc1409927b7b28f46e8412407e6b289e5085115f"
+    },
+    {
+      "id": "tabalonia/label.pill.large/normal/dark",
+      "component": "tabalonia",
+      "group": "label",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "pill",
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        36.0
+      ],
+      "png": "png/tabalonia/label.pill.large/normal/dark.png",
+      "scene": "scenes/tabalonia/label.pill.large/normal/dark.json",
+      "png_sha256": "30d02ec755df1d637f8177092b7f201f8efd4112a03b17c5b2bfc85eb5c2983d"
+    },
+    {
+      "id": "tabalonia/label.pill.large/normal/light",
+      "component": "tabalonia",
+      "group": "label",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "pill",
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        36.0
+      ],
+      "png": "png/tabalonia/label.pill.large/normal/light.png",
+      "scene": "scenes/tabalonia/label.pill.large/normal/light.json",
+      "png_sha256": "4d4dafa86c9a59814ef9d96d6f6ef87e181acf17934182458e9ec94c2461249d"
+    },
+    {
+      "id": "tabalonia/label.pill.medium/normal/dark",
+      "component": "tabalonia",
+      "group": "label",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "pill",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/label.pill.medium/normal/dark.png",
+      "scene": "scenes/tabalonia/label.pill.medium/normal/dark.json",
+      "png_sha256": "54855023e0b39cf5f20b41f330e7117f515e71df4ee0c967f6554954808952c4"
+    },
+    {
+      "id": "tabalonia/label.pill.medium/normal/light",
+      "component": "tabalonia",
+      "group": "label",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "pill",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/label.pill.medium/normal/light.png",
+      "scene": "scenes/tabalonia/label.pill.medium/normal/light.json",
+      "png_sha256": "141508d0081e507be291cfe2fec6ac67ba9076023a31a24216509416adbef463"
+    },
+    {
+      "id": "tabalonia/label.pill.small/normal/dark",
+      "component": "tabalonia",
+      "group": "label",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "pill",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        24.0
+      ],
+      "png": "png/tabalonia/label.pill.small/normal/dark.png",
+      "scene": "scenes/tabalonia/label.pill.small/normal/dark.json",
+      "png_sha256": "470a052fdde10ee42a1957f0cbf006c66a283fab946240892eb2019d1ecf2376"
+    },
+    {
+      "id": "tabalonia/label.pill.small/normal/light",
+      "component": "tabalonia",
+      "group": "label",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "pill",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        24.0
+      ],
+      "png": "png/tabalonia/label.pill.small/normal/light.png",
+      "scene": "scenes/tabalonia/label.pill.small/normal/light.json",
+      "png_sha256": "a97f9f3ebfaa21b73a7a770fe853092f3185b34e051430a131e7dd662d62271e"
+    },
+    {
+      "id": "tabalonia/label.pill.xsmall/normal/dark",
+      "component": "tabalonia",
+      "group": "label",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "pill",
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        20.0
+      ],
+      "png": "png/tabalonia/label.pill.xsmall/normal/dark.png",
+      "scene": "scenes/tabalonia/label.pill.xsmall/normal/dark.json",
+      "png_sha256": "90bafaaef825dc09e2b6d21fa20d31ab0dd0f70a59ccb38dce9e7aa340a69623"
+    },
+    {
+      "id": "tabalonia/label.pill.xsmall/normal/light",
+      "component": "tabalonia",
+      "group": "label",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "pill",
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        20.0
+      ],
+      "png": "png/tabalonia/label.pill.xsmall/normal/light.png",
+      "scene": "scenes/tabalonia/label.pill.xsmall/normal/light.json",
+      "png_sha256": "034b4e75ab108b099303bd6e2564bcc20660df0adee95c2792f262ec60921ea4"
+    },
+    {
+      "id": "tabalonia/label.segmented.large/normal/dark",
+      "component": "tabalonia",
+      "group": "label",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "segmented",
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        36.0
+      ],
+      "png": "png/tabalonia/label.segmented.large/normal/dark.png",
+      "scene": "scenes/tabalonia/label.segmented.large/normal/dark.json",
+      "png_sha256": "ed749f15045b3fc9c45858f1a113de9408599cc10e263095f8fd245f54da8d3d"
+    },
+    {
+      "id": "tabalonia/label.segmented.large/normal/light",
+      "component": "tabalonia",
+      "group": "label",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "segmented",
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        36.0
+      ],
+      "png": "png/tabalonia/label.segmented.large/normal/light.png",
+      "scene": "scenes/tabalonia/label.segmented.large/normal/light.json",
+      "png_sha256": "00a9fa2b52f349c324eb9d0e0c2c08b3d97f72435090fe861d32251c7565c6ff"
+    },
+    {
+      "id": "tabalonia/label.segmented.medium/normal/dark",
+      "component": "tabalonia",
+      "group": "label",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "segmented",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/label.segmented.medium/normal/dark.png",
+      "scene": "scenes/tabalonia/label.segmented.medium/normal/dark.json",
+      "png_sha256": "2244fba1348e765eebbd118e0b7f0249c2bd02fc67fa48505a54603bc9c987a7"
+    },
+    {
+      "id": "tabalonia/label.segmented.medium/normal/light",
+      "component": "tabalonia",
+      "group": "label",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "segmented",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/label.segmented.medium/normal/light.png",
+      "scene": "scenes/tabalonia/label.segmented.medium/normal/light.json",
+      "png_sha256": "f5293e70f715bfa6e771b5572ae7843c0fd5ffc7bdae5d127a36e9cbd4a27c33"
+    },
+    {
+      "id": "tabalonia/label.segmented.small/normal/dark",
+      "component": "tabalonia",
+      "group": "label",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "segmented",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        24.0
+      ],
+      "png": "png/tabalonia/label.segmented.small/normal/dark.png",
+      "scene": "scenes/tabalonia/label.segmented.small/normal/dark.json",
+      "png_sha256": "18cf127200a10e8aef3fa2a88062f30b00e68d630887bbeade94dfedf494b73c"
+    },
+    {
+      "id": "tabalonia/label.segmented.small/normal/light",
+      "component": "tabalonia",
+      "group": "label",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "segmented",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        24.0
+      ],
+      "png": "png/tabalonia/label.segmented.small/normal/light.png",
+      "scene": "scenes/tabalonia/label.segmented.small/normal/light.json",
+      "png_sha256": "c0f62365d6d4003fa8dd44f2f280e81da6d05ae369c99682692a287d20d2f32c"
+    },
+    {
+      "id": "tabalonia/label.segmented.xsmall/normal/dark",
+      "component": "tabalonia",
+      "group": "label",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "segmented",
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        20.0
+      ],
+      "png": "png/tabalonia/label.segmented.xsmall/normal/dark.png",
+      "scene": "scenes/tabalonia/label.segmented.xsmall/normal/dark.json",
+      "png_sha256": "44f261682bf77a1d555e674175cb35527011056c64a2d88c24e46395ca628705"
+    },
+    {
+      "id": "tabalonia/label.segmented.xsmall/normal/light",
+      "component": "tabalonia",
+      "group": "label",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "segmented",
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        20.0
+      ],
+      "png": "png/tabalonia/label.segmented.xsmall/normal/light.png",
+      "scene": "scenes/tabalonia/label.segmented.xsmall/normal/light.json",
+      "png_sha256": "446ab434c3a505dbd6e9f5b78d0c5ef823fafa8df69cb478b544d521b6503315"
+    },
+    {
+      "id": "tabalonia/label.tab.large/normal/dark",
+      "component": "tabalonia",
+      "group": "label",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "tab",
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        36.0
+      ],
+      "png": "png/tabalonia/label.tab.large/normal/dark.png",
+      "scene": "scenes/tabalonia/label.tab.large/normal/dark.json",
+      "png_sha256": "277f6faf2a0a6e1562fede77da7712c7a3746a824d8152f90272e008f23a813d"
+    },
+    {
+      "id": "tabalonia/label.tab.large/normal/light",
+      "component": "tabalonia",
+      "group": "label",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "tab",
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        36.0
+      ],
+      "png": "png/tabalonia/label.tab.large/normal/light.png",
+      "scene": "scenes/tabalonia/label.tab.large/normal/light.json",
+      "png_sha256": "4f85b56f04ebe6af1d6f37b6b84c46c8eb5762d40ef5eccd22ee536464e64b7c"
+    },
+    {
+      "id": "tabalonia/label.tab.medium/normal/dark",
+      "component": "tabalonia",
+      "group": "label",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "tab",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/label.tab.medium/normal/dark.png",
+      "scene": "scenes/tabalonia/label.tab.medium/normal/dark.json",
+      "png_sha256": "fa3fdc1576ea6aa96e3b321ed35a3b45cc5899c46164f407b8758c15dfb90bff"
+    },
+    {
+      "id": "tabalonia/label.tab.medium/normal/light",
+      "component": "tabalonia",
+      "group": "label",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "tab",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/label.tab.medium/normal/light.png",
+      "scene": "scenes/tabalonia/label.tab.medium/normal/light.json",
+      "png_sha256": "56876e7330e5c63ebe4d8560621947622de10e553dcdde59e6dbda66940454e0"
+    },
+    {
+      "id": "tabalonia/label.tab.small/normal/dark",
+      "component": "tabalonia",
+      "group": "label",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "tab",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        24.0
+      ],
+      "png": "png/tabalonia/label.tab.small/normal/dark.png",
+      "scene": "scenes/tabalonia/label.tab.small/normal/dark.json",
+      "png_sha256": "dce8b58ba080e71c5fee47b120a45b637e924cf72dcc107d461007560dbc209c"
+    },
+    {
+      "id": "tabalonia/label.tab.small/normal/light",
+      "component": "tabalonia",
+      "group": "label",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "tab",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        24.0
+      ],
+      "png": "png/tabalonia/label.tab.small/normal/light.png",
+      "scene": "scenes/tabalonia/label.tab.small/normal/light.json",
+      "png_sha256": "b4c0d955bdb586788d3d11cafff378848b588182627945eadd12b60c3aceb09c"
+    },
+    {
+      "id": "tabalonia/label.tab.xsmall/normal/dark",
+      "component": "tabalonia",
+      "group": "label",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "tab",
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        20.0
+      ],
+      "png": "png/tabalonia/label.tab.xsmall/normal/dark.png",
+      "scene": "scenes/tabalonia/label.tab.xsmall/normal/dark.json",
+      "png_sha256": "ff1d9e704cd3b49dacff8cc55ee896d07d851ba63b32d7427c8789f266962343"
+    },
+    {
+      "id": "tabalonia/label.tab.xsmall/normal/light",
+      "component": "tabalonia",
+      "group": "label",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "tab",
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        20.0
+      ],
+      "png": "png/tabalonia/label.tab.xsmall/normal/light.png",
+      "scene": "scenes/tabalonia/label.tab.xsmall/normal/light.json",
+      "png_sha256": "f418fe76703424aee63622aa97819cc93f7fd8efd512a990777048ac98541323"
+    },
+    {
+      "id": "tabalonia/label.underline.large/normal/dark",
+      "component": "tabalonia",
+      "group": "label",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "underline",
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        44.0
+      ],
+      "png": "png/tabalonia/label.underline.large/normal/dark.png",
+      "scene": "scenes/tabalonia/label.underline.large/normal/dark.json",
+      "png_sha256": "ea317537f81e2ee92f025b0f1e87c63e7400d75089eab334441018f0897fa5e4"
+    },
+    {
+      "id": "tabalonia/label.underline.large/normal/light",
+      "component": "tabalonia",
+      "group": "label",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "underline",
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        44.0
+      ],
+      "png": "png/tabalonia/label.underline.large/normal/light.png",
+      "scene": "scenes/tabalonia/label.underline.large/normal/light.json",
+      "png_sha256": "8f2a1f029849569f9475969665b98d991bd38f0c6df9eb78cf561f51e7474a28"
+    },
+    {
+      "id": "tabalonia/label.underline.medium/normal/dark",
+      "component": "tabalonia",
+      "group": "label",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "underline",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        36.0
+      ],
+      "png": "png/tabalonia/label.underline.medium/normal/dark.png",
+      "scene": "scenes/tabalonia/label.underline.medium/normal/dark.json",
+      "png_sha256": "39985fbd938decc3c2ee47d51456b44618c942ade600f8526de8383ecaecfaf1"
+    },
+    {
+      "id": "tabalonia/label.underline.medium/normal/light",
+      "component": "tabalonia",
+      "group": "label",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "underline",
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        36.0
+      ],
+      "png": "png/tabalonia/label.underline.medium/normal/light.png",
+      "scene": "scenes/tabalonia/label.underline.medium/normal/light.json",
+      "png_sha256": "e37a2b0459f797da5fbaf32b8354102f885b50b99ba4b8b686a8c1feca92be21"
+    },
+    {
+      "id": "tabalonia/label.underline.small/normal/dark",
+      "component": "tabalonia",
+      "group": "label",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "underline",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        30.0
+      ],
+      "png": "png/tabalonia/label.underline.small/normal/dark.png",
+      "scene": "scenes/tabalonia/label.underline.small/normal/dark.json",
+      "png_sha256": "8dbb97bed87fb0ce2ef21724b4541924f05a6f535b1cca4c3854d1d5284f6858"
+    },
+    {
+      "id": "tabalonia/label.underline.small/normal/light",
+      "component": "tabalonia",
+      "group": "label",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "underline",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        30.0
+      ],
+      "png": "png/tabalonia/label.underline.small/normal/light.png",
+      "scene": "scenes/tabalonia/label.underline.small/normal/light.json",
+      "png_sha256": "6dabfb62deaf60021acdd08b76dc505268fd6c610fdc58b49a984f94cfe0d9d7"
+    },
+    {
+      "id": "tabalonia/label.underline.xsmall/normal/dark",
+      "component": "tabalonia",
+      "group": "label",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "underline",
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        26.0
+      ],
+      "png": "png/tabalonia/label.underline.xsmall/normal/dark.png",
+      "scene": "scenes/tabalonia/label.underline.xsmall/normal/dark.json",
+      "png_sha256": "7659344d24c01e1fff98f9a4383b516402a86d1d7284570c5f75d1be8cab9b29"
+    },
+    {
+      "id": "tabalonia/label.underline.xsmall/normal/light",
+      "component": "tabalonia",
+      "group": "label",
+      "params": {
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "variant": "underline",
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        26.0
+      ],
+      "png": "png/tabalonia/label.underline.xsmall/normal/light.png",
+      "scene": "scenes/tabalonia/label.underline.xsmall/normal/light.json",
+      "png_sha256": "48727d409a9335f072a2abb97d47f77345d4afc7b131078928f346ca34a8a360"
+    },
+    {
+      "id": "tabalonia/menu.tab/click-at-366-24/dark",
+      "component": "tabalonia",
+      "group": "menu",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "menu": true,
+        "variant": "tab"
+      },
+      "state": "click-at-366-24",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/menu.tab/click-at-366-24/dark.png",
+      "scene": "scenes/tabalonia/menu.tab/click-at-366-24/dark.json",
+      "png_sha256": "605b375b4a9dad7a688c377a8d7d35ac070926f58d881f5b464ae2a9c2b42d6f"
+    },
+    {
+      "id": "tabalonia/menu.tab/click-at-366-24/light",
+      "component": "tabalonia",
+      "group": "menu",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "menu": true,
+        "variant": "tab"
+      },
+      "state": "click-at-366-24",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/menu.tab/click-at-366-24/light.png",
+      "scene": "scenes/tabalonia/menu.tab/click-at-366-24/light.json",
+      "png_sha256": "94eecd808195505532fb96b4e68cc397796c65ea0538c7835c1e2c12ed5b7725"
+    },
+    {
+      "id": "tabalonia/menu.tab/normal/dark",
+      "component": "tabalonia",
+      "group": "menu",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "menu": true,
+        "variant": "tab"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/menu.tab/normal/dark.png",
+      "scene": "scenes/tabalonia/menu.tab/normal/dark.json",
+      "png_sha256": "f4471733d678b85b6cae5fb74c2af65430dae9b936dcd794269f1af8b965c037"
+    },
+    {
+      "id": "tabalonia/menu.tab/normal/light",
+      "component": "tabalonia",
+      "group": "menu",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "menu": true,
+        "variant": "tab"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "png": "png/tabalonia/menu.tab/normal/light.png",
+      "scene": "scenes/tabalonia/menu.tab/normal/light.json",
+      "png_sha256": "38e953fd66bbba53e1ba21da1ecff2829c28b1468407752fc1eb513348f8662d"
+    },
+    {
+      "id": "tabalonia/menu.underline/click-at-366-24/dark",
+      "component": "tabalonia",
+      "group": "menu",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "menu": true,
+        "variant": "underline"
+      },
+      "state": "click-at-366-24",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        36.0
+      ],
+      "png": "png/tabalonia/menu.underline/click-at-366-24/dark.png",
+      "scene": "scenes/tabalonia/menu.underline/click-at-366-24/dark.json",
+      "png_sha256": "a845213a5d505b1b87c030323f8c91c777eedf477b1e0616a8cad58e0998a8af"
+    },
+    {
+      "id": "tabalonia/menu.underline/click-at-366-24/light",
+      "component": "tabalonia",
+      "group": "menu",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "menu": true,
+        "variant": "underline"
+      },
+      "state": "click-at-366-24",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        36.0
+      ],
+      "png": "png/tabalonia/menu.underline/click-at-366-24/light.png",
+      "scene": "scenes/tabalonia/menu.underline/click-at-366-24/light.json",
+      "png_sha256": "0350670152c1c8b10a4497f61765f3fcaef27d7782341e9630eefa1190f2a655"
+    },
+    {
+      "id": "tabalonia/menu.underline/normal/dark",
+      "component": "tabalonia",
+      "group": "menu",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "menu": true,
+        "variant": "underline"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        36.0
+      ],
+      "png": "png/tabalonia/menu.underline/normal/dark.png",
+      "scene": "scenes/tabalonia/menu.underline/normal/dark.json",
+      "png_sha256": "5c9c2625a5cedbff36c7eaa9f90ec2e36a4600316ca6ed819488ba4891a84296"
+    },
+    {
+      "id": "tabalonia/menu.underline/normal/light",
+      "component": "tabalonia",
+      "group": "menu",
+      "params": {
+        "selected": 1,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100,
+        "menu": true,
+        "variant": "underline"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        36.0
+      ],
+      "png": "png/tabalonia/menu.underline/normal/light.png",
+      "scene": "scenes/tabalonia/menu.underline/normal/light.json",
+      "png_sha256": "3e138bf1aee57d881e2f5211c3aaaee9b89b13dbc0dacc6c611629c676a7d5f7"
+    },
+    {
+      "id": "tabalonia/motion.pill/click-at-274-24/light",
+      "component": "tabalonia",
+      "group": "motion.pill",
+      "params": {
+        "variant": "pill",
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "motion": {
+        "name": "pill",
+        "trigger": "click-at-274-24",
+        "from": "normal",
+        "frames": [
+          {
+            "t_ms": 0,
+            "png": "png/tabalonia/motion.pill/click-at-274-24/light/0000ms.png",
+            "scene": "scenes/tabalonia/motion.pill/click-at-274-24/light/0000ms.json",
+            "png_sha256": "3eb5669f98c214c432766ccd048f298e3e7be95b436b5c345c056c1b2f62db20"
+          },
+          {
+            "t_ms": 16,
+            "png": "png/tabalonia/motion.pill/click-at-274-24/light/0016ms.png",
+            "scene": "scenes/tabalonia/motion.pill/click-at-274-24/light/0016ms.json",
+            "png_sha256": "62d36f7f5421f34520bdd8704be6fa177b1220df02903c101e58f7825ca48598"
+          },
+          {
+            "t_ms": 33,
+            "png": "png/tabalonia/motion.pill/click-at-274-24/light/0033ms.png",
+            "scene": "scenes/tabalonia/motion.pill/click-at-274-24/light/0033ms.json",
+            "png_sha256": "52283ba65c57cf5278a8c0481b7fc3cc99cbf44b9e9c5e0a93e4c5c96030c13b"
+          },
+          {
+            "t_ms": 50,
+            "png": "png/tabalonia/motion.pill/click-at-274-24/light/0050ms.png",
+            "scene": "scenes/tabalonia/motion.pill/click-at-274-24/light/0050ms.json",
+            "png_sha256": "b490aac50371e07b6e9b49affa62b402ccafef841fa17d76ae3527f5d0c8dbd6"
+          },
+          {
+            "t_ms": 66,
+            "png": "png/tabalonia/motion.pill/click-at-274-24/light/0066ms.png",
+            "scene": "scenes/tabalonia/motion.pill/click-at-274-24/light/0066ms.json",
+            "png_sha256": "d046f4d7379e973fa57a7e801c5430f8d9143abd10fafe8cf9e7497827ba11d9"
+          },
+          {
+            "t_ms": 83,
+            "png": "png/tabalonia/motion.pill/click-at-274-24/light/0083ms.png",
+            "scene": "scenes/tabalonia/motion.pill/click-at-274-24/light/0083ms.json",
+            "png_sha256": "6e27af5e2416da4e4ce47cec081329fd9b95ccadd1fc0ccafe64f302029e5a15"
+          },
+          {
+            "t_ms": 100,
+            "png": "png/tabalonia/motion.pill/click-at-274-24/light/0100ms.png",
+            "scene": "scenes/tabalonia/motion.pill/click-at-274-24/light/0100ms.json",
+            "png_sha256": "db2fcfdb29ee2589143bebeb0d821ccedfeff2630ed73f310f33250194080b86"
+          },
+          {
+            "t_ms": 133,
+            "png": "png/tabalonia/motion.pill/click-at-274-24/light/0133ms.png",
+            "scene": "scenes/tabalonia/motion.pill/click-at-274-24/light/0133ms.json",
+            "png_sha256": "878a575b7ba06a5f4de5788511789f94a395919f07cbf23a2a83c355cc0ff53d"
+          },
+          {
+            "t_ms": 166,
+            "png": "png/tabalonia/motion.pill/click-at-274-24/light/0166ms.png",
+            "scene": "scenes/tabalonia/motion.pill/click-at-274-24/light/0166ms.json",
+            "png_sha256": "76e725b2892785f7db3e7d974db89d8248f7eb179b92efd3c85225e1fe7fab52"
+          },
+          {
+            "t_ms": 200,
+            "png": "png/tabalonia/motion.pill/click-at-274-24/light/0200ms.png",
+            "scene": "scenes/tabalonia/motion.pill/click-at-274-24/light/0200ms.json",
+            "png_sha256": "71590e5a76898d903b6496378385ebb0a89dce737de7996fccf5044a2648c1f0"
+          },
+          {
+            "t_ms": 250,
+            "png": "png/tabalonia/motion.pill/click-at-274-24/light/0250ms.png",
+            "scene": "scenes/tabalonia/motion.pill/click-at-274-24/light/0250ms.json",
+            "png_sha256": "ca926c6720ab84afe9894ad62291ab13f9b662af604640eccf281daef31a427a"
+          },
+          {
+            "t_ms": 300,
+            "png": "png/tabalonia/motion.pill/click-at-274-24/light/0300ms.png",
+            "scene": "scenes/tabalonia/motion.pill/click-at-274-24/light/0300ms.json",
+            "png_sha256": "ca926c6720ab84afe9894ad62291ab13f9b662af604640eccf281daef31a427a"
+          },
+          {
+            "t_ms": 350,
+            "png": "png/tabalonia/motion.pill/click-at-274-24/light/0350ms.png",
+            "scene": "scenes/tabalonia/motion.pill/click-at-274-24/light/0350ms.json",
+            "png_sha256": "8e018b8943d9b42e5a54c363b8a49ca7fdda98b77cb05fc64678672f8258fe4d"
+          },
+          {
+            "t_ms": 400,
+            "png": "png/tabalonia/motion.pill/click-at-274-24/light/0400ms.png",
+            "scene": "scenes/tabalonia/motion.pill/click-at-274-24/light/0400ms.json",
+            "png_sha256": "734b7a066b69b9ca8f16500b6ec6d43a88be7b58507cac9ed64641b6b38516b0"
+          },
+          {
+            "t_ms": 500,
+            "png": "png/tabalonia/motion.pill/click-at-274-24/light/0500ms.png",
+            "scene": "scenes/tabalonia/motion.pill/click-at-274-24/light/0500ms.json",
+            "png_sha256": "734b7a066b69b9ca8f16500b6ec6d43a88be7b58507cac9ed64641b6b38516b0"
+          }
+        ]
+      }
+    },
+    {
+      "id": "tabalonia/motion.segmented/click-at-274-24/light",
+      "component": "tabalonia",
+      "group": "motion.segmented",
+      "params": {
+        "variant": "segmented",
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        32.0
+      ],
+      "motion": {
+        "name": "segmented",
+        "trigger": "click-at-274-24",
+        "from": "normal",
+        "frames": [
+          {
+            "t_ms": 0,
+            "png": "png/tabalonia/motion.segmented/click-at-274-24/light/0000ms.png",
+            "scene": "scenes/tabalonia/motion.segmented/click-at-274-24/light/0000ms.json",
+            "png_sha256": "73aae90ad5a649687119bf7dc3de4a8972bff8330daf140f1df29d70f0a9d46f"
+          },
+          {
+            "t_ms": 16,
+            "png": "png/tabalonia/motion.segmented/click-at-274-24/light/0016ms.png",
+            "scene": "scenes/tabalonia/motion.segmented/click-at-274-24/light/0016ms.json",
+            "png_sha256": "7dda0514f9547211a0b63dbf6e5ce8852473b3d5b0cf368339dc3666539ea869"
+          },
+          {
+            "t_ms": 33,
+            "png": "png/tabalonia/motion.segmented/click-at-274-24/light/0033ms.png",
+            "scene": "scenes/tabalonia/motion.segmented/click-at-274-24/light/0033ms.json",
+            "png_sha256": "abd18a8d9e6b806d870d496ac0938b6103a19cd47c6f149955ae647d7c152b51"
+          },
+          {
+            "t_ms": 50,
+            "png": "png/tabalonia/motion.segmented/click-at-274-24/light/0050ms.png",
+            "scene": "scenes/tabalonia/motion.segmented/click-at-274-24/light/0050ms.json",
+            "png_sha256": "439af8a4d1aa1e7af1a74184c1d8da30e84c6141f5fda2779542ae922aa14bf7"
+          },
+          {
+            "t_ms": 66,
+            "png": "png/tabalonia/motion.segmented/click-at-274-24/light/0066ms.png",
+            "scene": "scenes/tabalonia/motion.segmented/click-at-274-24/light/0066ms.json",
+            "png_sha256": "ade33aed5361cfe7bc9f910bb338a845ee4ab0a2cc1e23692e763649973c1adf"
+          },
+          {
+            "t_ms": 83,
+            "png": "png/tabalonia/motion.segmented/click-at-274-24/light/0083ms.png",
+            "scene": "scenes/tabalonia/motion.segmented/click-at-274-24/light/0083ms.json",
+            "png_sha256": "7a9f0715149d4c8aa091df6d9bd809f5064243b84fdc675e48c712566f766f3c"
+          },
+          {
+            "t_ms": 100,
+            "png": "png/tabalonia/motion.segmented/click-at-274-24/light/0100ms.png",
+            "scene": "scenes/tabalonia/motion.segmented/click-at-274-24/light/0100ms.json",
+            "png_sha256": "f6888adfc5ced324e769ef612d8a42fd3bac77ecc257925db7190ec84e5f5d80"
+          },
+          {
+            "t_ms": 133,
+            "png": "png/tabalonia/motion.segmented/click-at-274-24/light/0133ms.png",
+            "scene": "scenes/tabalonia/motion.segmented/click-at-274-24/light/0133ms.json",
+            "png_sha256": "0a32a7234fa01bdbac8ef52fec3c34e40307012c7041088466060d574b11e3e5"
+          },
+          {
+            "t_ms": 166,
+            "png": "png/tabalonia/motion.segmented/click-at-274-24/light/0166ms.png",
+            "scene": "scenes/tabalonia/motion.segmented/click-at-274-24/light/0166ms.json",
+            "png_sha256": "33090313aa03effbcc98a5ab61cb291e1551463e4d05a07ab11c0b63b21673ac"
+          },
+          {
+            "t_ms": 200,
+            "png": "png/tabalonia/motion.segmented/click-at-274-24/light/0200ms.png",
+            "scene": "scenes/tabalonia/motion.segmented/click-at-274-24/light/0200ms.json",
+            "png_sha256": "91fa760d8dac99ade468150c93a2894729b6f871682262728478fe588c8c1648"
+          },
+          {
+            "t_ms": 250,
+            "png": "png/tabalonia/motion.segmented/click-at-274-24/light/0250ms.png",
+            "scene": "scenes/tabalonia/motion.segmented/click-at-274-24/light/0250ms.json",
+            "png_sha256": "531ed64983416a7d5d4034d44b5cb1db033b89ca24de46948c036b461e786316"
+          },
+          {
+            "t_ms": 300,
+            "png": "png/tabalonia/motion.segmented/click-at-274-24/light/0300ms.png",
+            "scene": "scenes/tabalonia/motion.segmented/click-at-274-24/light/0300ms.json",
+            "png_sha256": "531ed64983416a7d5d4034d44b5cb1db033b89ca24de46948c036b461e786316"
+          },
+          {
+            "t_ms": 350,
+            "png": "png/tabalonia/motion.segmented/click-at-274-24/light/0350ms.png",
+            "scene": "scenes/tabalonia/motion.segmented/click-at-274-24/light/0350ms.json",
+            "png_sha256": "7cf1ea852222b23f83aa5ed26fd0acb88aa9912db474388be14957514ac11184"
+          },
+          {
+            "t_ms": 400,
+            "png": "png/tabalonia/motion.segmented/click-at-274-24/light/0400ms.png",
+            "scene": "scenes/tabalonia/motion.segmented/click-at-274-24/light/0400ms.json",
+            "png_sha256": "230da80030d5bf084e6865a9f298dfd01085ed35f3e6085b48ee526b90e23d87"
+          },
+          {
+            "t_ms": 500,
+            "png": "png/tabalonia/motion.segmented/click-at-274-24/light/0500ms.png",
+            "scene": "scenes/tabalonia/motion.segmented/click-at-274-24/light/0500ms.json",
+            "png_sha256": "230da80030d5bf084e6865a9f298dfd01085ed35f3e6085b48ee526b90e23d87"
+          }
+        ]
+      }
+    },
+    {
+      "id": "tabalonia/motion.underline/click-at-298-26/light",
+      "component": "tabalonia",
+      "group": "motion.underline",
+      "params": {
+        "variant": "underline",
+        "selected": 0,
+        "width": 360,
+        "tab_widths": [
+          100,
+          100,
+          100
+        ],
+        "max_width": 100
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        60.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        360.0,
+        36.0
+      ],
+      "motion": {
+        "name": "underline",
+        "trigger": "click-at-298-26",
+        "from": "normal",
+        "frames": [
+          {
+            "t_ms": 0,
+            "png": "png/tabalonia/motion.underline/click-at-298-26/light/0000ms.png",
+            "scene": "scenes/tabalonia/motion.underline/click-at-298-26/light/0000ms.json",
+            "png_sha256": "373b50bfea70c7b37c14c60cbc184c13c5ba7ebbddb69d6662540c2e59dfb78c"
+          },
+          {
+            "t_ms": 16,
+            "png": "png/tabalonia/motion.underline/click-at-298-26/light/0016ms.png",
+            "scene": "scenes/tabalonia/motion.underline/click-at-298-26/light/0016ms.json",
+            "png_sha256": "0fc900b774f411a86b496723e51481973d7d084363a60550dbf3ab95ee9431f3"
+          },
+          {
+            "t_ms": 33,
+            "png": "png/tabalonia/motion.underline/click-at-298-26/light/0033ms.png",
+            "scene": "scenes/tabalonia/motion.underline/click-at-298-26/light/0033ms.json",
+            "png_sha256": "f5f62c9ca36dfb856f2399a3aae60167a31cbe30af2c816455bc5f58c3faab64"
+          },
+          {
+            "t_ms": 50,
+            "png": "png/tabalonia/motion.underline/click-at-298-26/light/0050ms.png",
+            "scene": "scenes/tabalonia/motion.underline/click-at-298-26/light/0050ms.json",
+            "png_sha256": "d9df0fa5cd1a9249e7aa1e4a12ab8e233447081c89832bc2c19a0df5f8465b9b"
+          },
+          {
+            "t_ms": 66,
+            "png": "png/tabalonia/motion.underline/click-at-298-26/light/0066ms.png",
+            "scene": "scenes/tabalonia/motion.underline/click-at-298-26/light/0066ms.json",
+            "png_sha256": "4a74dace72bc2387729d5f41fe89851b36b5213863aad1952c56e1fff9d8ec83"
+          },
+          {
+            "t_ms": 83,
+            "png": "png/tabalonia/motion.underline/click-at-298-26/light/0083ms.png",
+            "scene": "scenes/tabalonia/motion.underline/click-at-298-26/light/0083ms.json",
+            "png_sha256": "2918c7889ed3f7960ba6a276545ae52b3911c8f233eca1451f7384d277a09e3b"
+          },
+          {
+            "t_ms": 100,
+            "png": "png/tabalonia/motion.underline/click-at-298-26/light/0100ms.png",
+            "scene": "scenes/tabalonia/motion.underline/click-at-298-26/light/0100ms.json",
+            "png_sha256": "cf4e6e7cad8ae0c1e67a917e687c6fbdd72c9aba6039f7f866f49828bde0f3f6"
+          },
+          {
+            "t_ms": 133,
+            "png": "png/tabalonia/motion.underline/click-at-298-26/light/0133ms.png",
+            "scene": "scenes/tabalonia/motion.underline/click-at-298-26/light/0133ms.json",
+            "png_sha256": "c4f84d47961ff820c93bdf2feecdb6bcd0a8fb824acb6b10330fa845cfde04ec"
+          },
+          {
+            "t_ms": 166,
+            "png": "png/tabalonia/motion.underline/click-at-298-26/light/0166ms.png",
+            "scene": "scenes/tabalonia/motion.underline/click-at-298-26/light/0166ms.json",
+            "png_sha256": "9b96ba8d97b248a3451dd61f5c072605bc4d7b294cdb146bafbac9fa15832817"
+          },
+          {
+            "t_ms": 200,
+            "png": "png/tabalonia/motion.underline/click-at-298-26/light/0200ms.png",
+            "scene": "scenes/tabalonia/motion.underline/click-at-298-26/light/0200ms.json",
+            "png_sha256": "d21f6f0f79203fe1203b0da48d6c8650d03b4b73bbe1899ba46f6ad9eaf378d1"
+          },
+          {
+            "t_ms": 250,
+            "png": "png/tabalonia/motion.underline/click-at-298-26/light/0250ms.png",
+            "scene": "scenes/tabalonia/motion.underline/click-at-298-26/light/0250ms.json",
+            "png_sha256": "d9de33a0e6462a4e9325be5907429e7db8a5deb71ae50c9642d18e0de5adaa05"
+          },
+          {
+            "t_ms": 300,
+            "png": "png/tabalonia/motion.underline/click-at-298-26/light/0300ms.png",
+            "scene": "scenes/tabalonia/motion.underline/click-at-298-26/light/0300ms.json",
+            "png_sha256": "0980188c4ffedc6bae3aef83e3aa9a25bc950597fb6e6c296469c8756849b986"
+          },
+          {
+            "t_ms": 350,
+            "png": "png/tabalonia/motion.underline/click-at-298-26/light/0350ms.png",
+            "scene": "scenes/tabalonia/motion.underline/click-at-298-26/light/0350ms.json",
+            "png_sha256": "21e3db6ff4116b7b5b93d3b02d91e1bed472790d929e36582cbb32ad47a09f7b"
+          },
+          {
+            "t_ms": 400,
+            "png": "png/tabalonia/motion.underline/click-at-298-26/light/0400ms.png",
+            "scene": "scenes/tabalonia/motion.underline/click-at-298-26/light/0400ms.json",
+            "png_sha256": "e0825e19a8e32699549222b1210cdffa06c849682bd096a8714eaf205c925888"
+          },
+          {
+            "t_ms": 500,
+            "png": "png/tabalonia/motion.underline/click-at-298-26/light/0500ms.png",
+            "scene": "scenes/tabalonia/motion.underline/click-at-298-26/light/0500ms.json",
+            "png_sha256": "e0825e19a8e32699549222b1210cdffa06c849682bd096a8714eaf205c925888"
+          }
+        ]
+      }
+    },
+    {
       "id": "table/bordered.large/normal/dark",
       "component": "table",
       "group": "bordered",

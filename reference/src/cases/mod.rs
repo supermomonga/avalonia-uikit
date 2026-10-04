@@ -98,6 +98,7 @@ pub fn builder(case: &Case) -> Result<Builder> {
         "combobox" => select::combobox(&params),
         "tree" => tree::builder(&params),
         "tabs" => tabs::builder(&params),
+        "tabalonia" => tabs::builder(&params),
         "table" => table::builder(&params),
         "carousel" => carousel::builder(&params),
         "sidebar" => sidebar::builder(&params),
