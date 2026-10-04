@@ -63,6 +63,17 @@ public static partial class Adapters
         return number;
     }
 
+    /// <summary>
+    /// A select case's ComboBox with IsEditable: the field shows the selected
+    /// item's text where the title is, in the same frame.
+    /// </summary>
+    public static ComboBox EditableSelect(GoldenCase c)
+    {
+        var box = Select(c);
+        box.IsEditable = true;
+        return box;
+    }
+
     /// <summary>The case's row height by size (sizing.rs table_row_height).</summary>
     private static double TableRowHeight(GoldenCase c) =>
         c.Str("size", "medium") switch { "xsmall" => 26, "small" => 30, "large" => 40, _ => 32 };

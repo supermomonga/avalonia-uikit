@@ -2,6 +2,7 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Presenters;
 using Avalonia.Controls.Primitives;
+using Avalonia.Headless;
 using Avalonia.Input;
 using Avalonia.VisualTree;
 using AvaloniaUIKit.Tests.Golden;
@@ -118,5 +119,54 @@ public class ThemeFixBehaviorTests
         marked = Marked();
         await Assert.That(marked.Length).IsEqualTo(1);
         await Assert.That(((Adapters.Person)marked[0].DataContext!).Name).IsEqualTo("Linus");
+    }
+
+    // An editable ComboBox (Avalonia's rules): Tab lands in the field, typing an
+    // item's text selects it, F4 and Alt+Down open the list, a selection writes
+    // its text into the field.
+    [Test]
+    public async Task An_editable_combo_box_types_into_its_field()
+    {
+        var golden = Case("select/openplaceholder.base/click+wait-200ms/light");
+        using var host = CaseHost.Open(golden, Adapters.EditableSelect(golden));
+        var box = (ComboBox)host.Control;
+        var field = Part<TextBox>(box, "PART_EditableTextBox");
+        await Assert.That(field.IsEffectivelyVisible).IsTrue();
+        host.Drive(golden, "focus");
+        await Assert.That(field.IsFocused).IsTrue();
+        await Assert.That(Part<Border>(box, "PART_FocusRing").IsVisible).IsTrue();
+        host.Window.KeyTextInput("cherry");
+        host.Flush();
+        await Assert.That(box.SelectedIndex).IsEqualTo(2);
+        await Assert.That(field.Text).IsEqualTo("cherry");
+        box.SelectedIndex = 3;
+        host.Flush();
+        await Assert.That(field.Text).IsEqualTo("Grape");
+    }
+
+    [Test]
+    [Arguments("f4")]
+    [Arguments("alt-down")]
+    public async Task An_editable_combo_box_opens_from_the_keyboard(string key)
+    {
+        var golden = Case("select/openplaceholder.base/click+wait-200ms/light");
+        using var host = CaseHost.Open(golden, Adapters.EditableSelect(golden));
+        var box = (ComboBox)host.Control;
+        host.Drive(golden, "focus");
+        // Enter and Space edit the text instead (ComboBox.OnKeyDown).
+        host.PressKey("enter");
+        host.Flush();
+        await Assert.That(box.IsDropDownOpen).IsFalse();
+        if (key == "f4")
+        {
+            host.Window.KeyPressQwerty(PhysicalKey.F4, RawInputModifiers.None);
+            host.Window.KeyReleaseQwerty(PhysicalKey.F4, RawInputModifiers.None);
+        }
+        else
+        {
+            host.PressKey(key);
+        }
+        host.Flush();
+        await Assert.That(box.IsDropDownOpen).IsTrue();
     }
 }

@@ -19,11 +19,60 @@
   fourth power of the progress (dropdown_popup in popover.rs). While open, the
   trigger shows the item under the cursor, as GPUI titles it from the list's
   cursor (Selects.CursorItem).
+
+  IsEditable: the title becomes a text field (PART_EditableTextBox), GPUI's
+  Input without its own frame inside the Select frame: the title's place and
+  line, the placeholder, the caret and selection colors. The frame shows the
+  ring while the field has focus. Avalonia's rules for an editable ComboBox
+  apply: typing selects the item with that text, F4 or Alt+Down opens the
+  list, a click on the text does not.
 -->
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:uikit="using:AvaloniaUIKit"
                     xmlns:gconv="using:AvaloniaUIKit.Converters">
+  <!-- The editable field: Input with appearance(false), no frame or padding of its own. -->
+  <ControlTheme x:Key="UIKitComboBoxTextBox" TargetType="TextBox">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="BorderThickness" Value="0" />
+    <Setter Property="Padding" Value="0" />
+    <Setter Property="CaretBrush" Value="{DynamicResource UIKit.Caret}" />
+    <Setter Property="SelectionBrush" Value="{DynamicResource UIKit.Selection}" />
+    <Setter Property="IsInactiveSelectionHighlightEnabled" Value="False" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="FocusAdorner" Value="{x:Null}" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
+          <ScrollViewer Name="PART_ScrollViewer"
+                        HorizontalScrollBarVisibility="Hidden"
+                        VerticalScrollBarVisibility="Disabled"
+                        BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}">
+            <Panel VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+              <TextBlock Name="PART_Placeholder"
+                         Foreground="{TemplateBinding PlaceholderForeground}"
+                         Text="{TemplateBinding PlaceholderText}"
+                         LineHeight="{TemplateBinding LineHeight}"
+                         TextTrimming="CharacterEllipsis"
+                         IsVisible="{TemplateBinding Text, Converter={x:Static StringConverters.IsNullOrEmpty}}" />
+              <TextPresenter Name="PART_TextPresenter"
+                             Text="{TemplateBinding Text, Mode=TwoWay}"
+                             CaretBlinkInterval="{TemplateBinding CaretBlinkInterval}"
+                             CaretIndex="{TemplateBinding CaretIndex}"
+                             SelectionStart="{TemplateBinding SelectionStart}"
+                             SelectionEnd="{TemplateBinding SelectionEnd}"
+                             LineHeight="{TemplateBinding LineHeight}"
+                             SelectionBrush="{TemplateBinding SelectionBrush}"
+                             SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
+                             CaretBrush="{TemplateBinding CaretBrush}"
+                             TextWrapping="NoWrap" />
+            </Panel>
+          </ScrollViewer>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+
   <ControlTheme x:Key="{x:Type ComboBox}" TargetType="ComboBox">
     <Setter Property="Background" Value="{DynamicResource UIKit.InputBackground}" />
     <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Input}" />
@@ -61,13 +110,20 @@
                          Foreground="{TemplateBinding PlaceholderForeground}"
                          Text="{TemplateBinding PlaceholderText}"
                          LineHeight="22.5"
-                         TextTrimming="CharacterEllipsis"
-                         IsVisible="{TemplateBinding SelectionBoxItem, Converter={x:Static ObjectConverters.IsNull}}" />
+                         TextTrimming="CharacterEllipsis">
+                <TextBlock.IsVisible>
+                  <MultiBinding Converter="{x:Static BoolConverters.And}">
+                    <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="SelectionBoxItem" Converter="{x:Static ObjectConverters.IsNull}" />
+                    <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="!IsEditable" />
+                  </MultiBinding>
+                </TextBlock.IsVisible>
+              </TextBlock>
               <ContentPresenter Name="ContentPresenter"
                                 VerticalAlignment="Center"
                                 ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
                                 LineHeight="22.5"
-                                TextTrimming="CharacterEllipsis">
+                                TextTrimming="CharacterEllipsis"
+                                IsVisible="{TemplateBinding IsEditable, Converter={x:Static BoolConverters.Not}}">
                 <ContentPresenter.Content>
                   <MultiBinding Converter="{x:Static gconv:FirstNonNullConverter.Instance}">
                     <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="(uikit:Selects.CursorItem)" />
@@ -75,6 +131,14 @@
                   </MultiBinding>
                 </ContentPresenter.Content>
               </ContentPresenter>
+              <TextBox Name="PART_EditableTextBox"
+                       Theme="{StaticResource UIKitComboBoxTextBox}"
+                       Foreground="{TemplateBinding Foreground}"
+                       PlaceholderForeground="{TemplateBinding PlaceholderForeground}"
+                       PlaceholderText="{TemplateBinding PlaceholderText}"
+                       Text="{TemplateBinding Text, Mode=TwoWay}"
+                       LineHeight="22.5"
+                       IsVisible="{TemplateBinding IsEditable}" />
               <PathIcon Name="PART_Caret" Grid.Column="1" VerticalAlignment="Center"
                         Data="{StaticResource UIKit.Icon.ChevronDown}" Foreground="{DynamicResource UIKit.MutedForeground}" />
             </Grid>
@@ -121,6 +185,12 @@
       </ControlTemplate>
     </Setter>
 
+    <!-- Tab goes straight into the editable field (as Fluent's theme does). -->
+    <Style Selector="^[IsEditable=True]">
+      <Setter Property="IsTabStop" Value="False" />
+      <Setter Property="KeyboardNavigation.TabNavigation" Value="Local" />
+    </Style>
+
     <!-- GPUI Kit's Combobox titles the trigger with the committed item only. -->
     <Style Selector="^.combobox">
       <Setter Property="uikit:Selects.TracksCursor" Value="False" />
@@ -150,6 +220,9 @@
     <Style Selector="^.xsmall /template/ TextBlock#PlaceholderTextBlock, ^.xsmall /template/ ContentPresenter#ContentPresenter">
       <Setter Property="TextBlock.LineHeight" Value="19.5" />
     </Style>
+    <Style Selector="^.xsmall /template/ TextBox#PART_EditableTextBox">
+      <Setter Property="LineHeight" Value="19.5" />
+    </Style>
     <Style Selector="^.small">
       <Setter Property="Height" Value="24" />
       <Setter Property="Padding" Value="8,0" />
@@ -166,11 +239,21 @@
     <Style Selector="^.large /template/ TextBlock#PlaceholderTextBlock, ^.large /template/ ContentPresenter#ContentPresenter">
       <Setter Property="TextBlock.LineHeight" Value="26" />
     </Style>
+    <Style Selector="^.large /template/ TextBox#PART_EditableTextBox">
+      <Setter Property="LineHeight" Value="26" />
+    </Style>
 
     <Style Selector="^:focus, ^:dropdownopen">
       <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Ring}" />
     </Style>
     <Style Selector="^:focus /template/ Border#PART_FocusRing, ^:dropdownopen /template/ Border#PART_FocusRing">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+    <!-- Editable, the focus is in the field. -->
+    <Style Selector="^[IsEditable=True]:focus-within">
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Ring}" />
+    </Style>
+    <Style Selector="^[IsEditable=True]:focus-within /template/ Border#PART_FocusRing">
       <Setter Property="IsVisible" Value="True" />
     </Style>
     <Style Selector="^:disabled">
