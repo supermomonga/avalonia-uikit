@@ -10,8 +10,14 @@
   selected fills, resize hairlines in the header, the sort indicator (idle
   chevrons at half strength on every header while the grid sorts) and a ring
   for keyboard focus. Right-align a column with CellStyleClasses="text-right"
-  and a right-aligned header. GPUI's cell selection, column selection, drag
-  ghost and fixed-column divider have no DataGrid counterpart here.
+  and a right-aligned header. A grid without rows shows the empty view (the
+  Inbox icon) under the header.
+
+  The class cell-selectable is GPUI's cell_selectable: the current cell of the
+  selected row fills with table_active (TableSelection::Cell) and the row
+  itself keeps its unselected look; HeadersVisibility="All" adds the 12px row
+  header column (row_header). GPUI's column selection, drag ghost and
+  fixed-column divider have no DataGrid counterpart here.
 -->
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -42,6 +48,9 @@
                                 ContentTemplate="{TemplateBinding ContentTemplate}"
                                 Foreground="{TemplateBinding Foreground}" />
               <Rectangle Name="PART_RightGridLine" Grid.Column="1" Width="1" VerticalAlignment="Stretch" />
+              <!-- state.rs: a selected cell lays table_active over its whole box, content included. -->
+              <Border Name="PART_SelectedCell" Grid.ColumnSpan="2" IsVisible="False" IsHitTestVisible="False"
+                      Background="{DynamicResource UIKit.TableActive}" />
             </Grid>
           </ControlTemplate>
         </Setter>
@@ -161,15 +170,22 @@
         </Style>
       </ControlTheme>
 
+      <!-- The row header's head cell: its own table_head fill and right rule, down to the header's rule. -->
       <ControlTheme x:Key="UIKitDataGridTopLeftHeader" TargetType="DataGridColumnHeader">
         <Setter Property="Template">
           <ControlTemplate>
-            <Border BorderThickness="0,0,1,0" BorderBrush="{DynamicResource UIKit.TableRowBorder}" />
+            <Border Background="{DynamicResource UIKit.TableHead}"
+                    BackgroundSizing="OuterBorderEdge"
+                    BorderThickness="0,0,1,0" BorderBrush="{DynamicResource UIKit.TableRowBorder}" />
           </ControlTemplate>
         </Setter>
       </ControlTheme>
 
-      <!-- The row header (cell mode's 12px column): table_head with a table_row_border rule on its right. -->
+      <!--
+        The row header (cell mode's w_3 column): table_head with a table_row_border
+        rule on its right, above the row's rule. GPUI pads it like a cell, so it
+        is 12px wide only while the padding fits (17px when medium).
+      -->
       <ControlTheme x:Key="{x:Type DataGridRowHeader}" TargetType="DataGridRowHeader">
         <Setter Property="Background" Value="{DynamicResource UIKit.TableHead}" />
         <Setter Property="SeparatorBrush" Value="{DynamicResource UIKit.TableRowBorder}" />
@@ -202,10 +218,11 @@
                     CornerRadius="{TemplateBinding CornerRadius}">
               <DataGridFrozenGrid Name="PART_Root" ColumnDefinitions="Auto,*" RowDefinitions="*,Auto,Auto">
                 <Border Name="BackgroundRectangle" Grid.RowSpan="3" Grid.ColumnSpan="2" />
-                <DataGridRowHeader Name="PART_RowHeader" Grid.RowSpan="3" DataGridFrozenGrid.IsFrozen="True" />
+                <DataGridRowHeader Name="PART_RowHeader" Grid.RowSpan="2" DataGridFrozenGrid.IsFrozen="True" />
                 <DataGridCellsPresenter Name="PART_CellsPresenter" Grid.Column="1" DataGridFrozenGrid.IsFrozen="True" />
                 <DataGridDetailsPresenter Name="PART_DetailsPresenter" Grid.Row="1" Grid.Column="1" />
-                <Rectangle Name="PART_BottomGridLine" Grid.Row="2" Grid.Column="1" Height="1" HorizontalAlignment="Stretch" />
+                <!-- The row's rule runs under the row header too (the header is a cell of GPUI's row). -->
+                <Rectangle Name="PART_BottomGridLine" Grid.Row="2" Grid.ColumnSpan="2" Height="1" HorizontalAlignment="Stretch" />
               </DataGridFrozenGrid>
             </Border>
           </ControlTemplate>
@@ -280,7 +297,7 @@
         <!-- sizing.rs: the row height less the 1px grid line DataGrid adds under the cells. -->
         <Setter Property="RowHeight" Value="31" />
         <Setter Property="ColumnHeaderHeight" Value="31" />
-        <Setter Property="RowHeaderWidth" Value="12" />
+        <Setter Property="RowHeaderWidth" Value="17" />
         <Setter Property="uikit:Tables.CellPadding" Value="8,4" />
         <Setter Property="uikit:Tables.TracksKeyboardFocus" Value="True" />
         <!-- state.rs: the column-move drop bar, 2px of drag_border. -->
@@ -301,17 +318,24 @@
                     ColumnDefinitions="Auto,*,Auto"
                     RowDefinitions="Auto,Auto,*,Auto"
                     ClipToBounds="True">
-                <!-- The header and its scroll area both fill with table_head, as GPUI's do. -->
+                <!-- The header and its scroll area both fill with table_head, as GPUI's do; the
+                     header row's fill starts after the row header's head cell, which fills itself. -->
                 <Border Name="PART_HeaderBand" Grid.RowSpan="2" Grid.ColumnSpan="3"
-                        Background="{DynamicResource UIKit.TableHead}">
-                  <Border Background="{DynamicResource UIKit.TableHead}" />
-                </Border>
-                <DataGridColumnHeader Name="PART_TopLeftCornerHeader" Theme="{StaticResource UIKitDataGridTopLeftHeader}" />
+                        Background="{DynamicResource UIKit.TableHead}" />
+                <Border Name="PART_HeaderRow" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="2"
+                        Background="{DynamicResource UIKit.TableHead}" />
+                <DataGridColumnHeader Name="PART_TopLeftCornerHeader" Grid.RowSpan="2" Theme="{StaticResource UIKitDataGridTopLeftHeader}" />
                 <DataGridColumnHeadersPresenter Name="PART_ColumnHeadersPresenter" Grid.Column="1" Grid.ColumnSpan="2" />
-                <Border Name="PART_ColumnHeadersAndRowsSeparator" Grid.Row="1" Grid.ColumnSpan="3"
+                <!-- The header's rule runs under the columns, not the row header's head cell. -->
+                <Border Name="PART_ColumnHeadersAndRowsSeparator" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"
                         Height="1" Background="{DynamicResource UIKit.Border}" />
                 <DataGridRowsPresenter Name="PART_RowsPresenter" Grid.Row="2" Grid.RowSpan="2" Grid.ColumnSpan="3"
                                        ScrollViewer.IsScrollInertiaEnabled="{TemplateBinding IsScrollInertiaEnabled}" />
+                <!-- delegate.rs render_empty: a 48px Inbox icon in muted_foreground at 60% (List's), centered in the body. -->
+                <Panel Name="PART_Empty" Grid.Row="2" Grid.RowSpan="2" Grid.ColumnSpan="3" IsVisible="False" IsHitTestVisible="False">
+                  <PathIcon Width="48" Height="48" HorizontalAlignment="Center" VerticalAlignment="Center"
+                            Data="{StaticResource UIKit.Icon.Inbox}" Foreground="{DynamicResource UIKit.List.Empty}" />
+                </Panel>
                 <Panel Name="PART_BottomRightCorner" Grid.Column="2" Grid.Row="3" />
                 <ScrollBar Name="PART_VerticalScrollbar" Grid.Column="2" Grid.Row="2" Orientation="Vertical"
                            AllowAutoHide="{Binding (ScrollViewer.AllowAutoHide), RelativeSource={RelativeSource TemplatedParent}}" />
@@ -341,9 +365,13 @@
           <Style Selector="^ /template/ Border#PART_ColumnHeadersAndRowsSeparator">
             <Setter Property="IsVisible" Value="False" />
           </Style>
-          <Style Selector="^ /template/ Border#PART_HeaderBand">
+          <Style Selector="^ /template/ Border#PART_HeaderBand, ^ /template/ Border#PART_HeaderRow">
             <Setter Property="IsVisible" Value="False" />
           </Style>
+        </Style>
+
+        <Style Selector="^:empty-rows /template/ Panel#PART_Empty">
+          <Setter Property="IsVisible" Value="True" />
         </Style>
 
         <Style Selector="^.borderless">
@@ -364,6 +392,7 @@
           <Setter Property="RowTheme" Value="{StaticResource UIKitDataGridStripeRow}" />
         </Style>
         <Style Selector="^.xsmall">
+          <Setter Property="RowHeaderWidth" Value="12" />
           <Setter Property="RowHeight" Value="25" />
           <Setter Property="ColumnHeaderHeight" Value="25" />
           <Setter Property="uikit:Tables.CellPadding" Value="4,2" />
@@ -371,11 +400,13 @@
           <Setter Property="TextBlock.LineHeight" Value="19.5" />
         </Style>
         <Style Selector="^.small">
+          <Setter Property="RowHeaderWidth" Value="13" />
           <Setter Property="RowHeight" Value="29" />
           <Setter Property="ColumnHeaderHeight" Value="29" />
           <Setter Property="uikit:Tables.CellPadding" Value="6,3" />
         </Style>
         <Style Selector="^.large">
+          <Setter Property="RowHeaderWidth" Value="25" />
           <Setter Property="RowHeight" Value="39" />
           <Setter Property="ColumnHeaderHeight" Value="39" />
           <Setter Property="uikit:Tables.CellPadding" Value="12,8" />
@@ -385,6 +416,24 @@
       </ControlTheme>
     </ResourceDictionary>
   </Styles.Resources>
+
+  <!--
+    cell-selectable (state.rs TableSelection::Cell): GPUI selects a cell, not its
+    row, so the selected row keeps its unselected fill (its stripe, or the hover
+    under the pointer) and its current cell shows table_active.
+  -->
+  <Style Selector="DataGrid.cell-selectable DataGridRow:selected /template/ Border#BackgroundRectangle">
+    <Setter Property="Background" Value="{x:Null}" />
+  </Style>
+  <Style Selector="DataGrid.cell-selectable.stripe DataGridRow:nth-child(2n):selected /template/ Border#BackgroundRectangle">
+    <Setter Property="Background" Value="{DynamicResource UIKit.TableEven}" />
+  </Style>
+  <Style Selector="DataGrid.cell-selectable DataGridRow:selected:pointerover /template/ Border#BackgroundRectangle">
+    <Setter Property="Background" Value="{DynamicResource UIKit.TableHover}" />
+  </Style>
+  <Style Selector="DataGrid.cell-selectable DataGridRow:selected DataGridCell:current /template/ Border#PART_SelectedCell">
+    <Setter Property="IsVisible" Value="True" />
+  </Style>
 
   <!-- A cell's text overflows from the side it is aligned to (GPUI's justified content). -->
   <Style Selector="DataGridCell TextBlock">

@@ -62,4 +62,56 @@ public static partial class Adapters
         }
         return number;
     }
+
+    /// <summary>The case's row height by size (sizing.rs table_row_height).</summary>
+    private static double TableRowHeight(GoldenCase c) =>
+        c.Str("size", "medium") switch { "xsmall" => 26, "small" => 30, "large" => 40, _ => 32 };
+
+    /// <summary>
+    /// reference/src/cases/table.rs `rows`: the first rows only (none for the empty
+    /// view), a DataTable as tall as the header, those rows and `extra`.
+    /// </summary>
+    private static TableView TableRows(TableView table, GoldenCase c)
+    {
+        if (!c.Has("rows"))
+        {
+            return table;
+        }
+        var count = (int)c.Num("rows", 5);
+        if (table.Theme is null)
+        {
+            table.ItemsSource = People.Take(count).ToArray();
+            table.Height = (c.Bool("borderless") ? 0 : 2) + TableRowHeight(c) * (count + 1) + c.Num("extra", 10);
+        }
+        else
+        {
+            table.ItemsSource = Invoices.Take(count).ToArray();
+        }
+        return table;
+    }
+
+    /// <summary>
+    /// reference/src/cases/table.rs on DataGrid: `rows` as for the DataTable,
+    /// `cell_selectable` as the cell-selectable class, `row_header` as the row
+    /// header column and `fixed_columns` as columns that do not resize.
+    /// </summary>
+    private static DataGrid DataGridCells(DataGrid grid, GoldenCase c)
+    {
+        if (c.Bool("fixed_columns"))
+        {
+            grid.CanUserResizeColumns = false;
+        }
+        if (c.Has("rows"))
+        {
+            var count = (int)c.Num("rows", 5);
+            grid.ItemsSource = new Avalonia.Collections.DataGridCollectionView(People.Take(count).ToArray());
+            grid.Height = (c.Bool("borderless") ? 0 : 2) + TableRowHeight(c) * (count + 1) + c.Num("extra", 10);
+        }
+        FlagClass(grid, c, "cell_selectable", "cell-selectable");
+        if (c.Bool("row_header"))
+        {
+            grid.HeadersVisibility = DataGridHeadersVisibility.All;
+        }
+        return grid;
+    }
 }

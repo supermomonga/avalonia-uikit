@@ -50835,6 +50835,686 @@
       "png_sha256": "81e2bf752d5f0b7e9a3c1ddf7919a48f8794665f514aa233baf54554cc1f439e"
     },
     {
+      "id": "datagrid/cell-header.base/click-at-200-97+at-200-270/dark",
+      "component": "datagrid",
+      "group": "cell-header",
+      "params": {
+        "sort": "none",
+        "cell_selectable": true,
+        "row_header": true,
+        "fixed_columns": true,
+        "widths": [
+          105,
+          116,
+          104
+        ]
+      },
+      "state": "click-at-200-97+at-200-270",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        204.0
+      ],
+      "png": "png/datagrid/cell-header.base/click-at-200-97+at-200-270/dark.png",
+      "scene": "scenes/datagrid/cell-header.base/click-at-200-97+at-200-270/dark.json",
+      "png_sha256": "c5f21a4a32659fde4856211b720dcb4d7a0346221af39797233243343177bfbe"
+    },
+    {
+      "id": "datagrid/cell-header.base/click-at-200-97+at-200-270/light",
+      "component": "datagrid",
+      "group": "cell-header",
+      "params": {
+        "sort": "none",
+        "cell_selectable": true,
+        "row_header": true,
+        "fixed_columns": true,
+        "widths": [
+          105,
+          116,
+          104
+        ]
+      },
+      "state": "click-at-200-97+at-200-270",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        204.0
+      ],
+      "png": "png/datagrid/cell-header.base/click-at-200-97+at-200-270/light.png",
+      "scene": "scenes/datagrid/cell-header.base/click-at-200-97+at-200-270/light.json",
+      "png_sha256": "881cd80ae646bd8e363614c068a90558e37057d6daf8cd10da87d33b1751d3a7"
+    },
+    {
+      "id": "datagrid/cell-header.base/normal/dark",
+      "component": "datagrid",
+      "group": "cell-header",
+      "params": {
+        "sort": "none",
+        "cell_selectable": true,
+        "row_header": true,
+        "fixed_columns": true,
+        "widths": [
+          105,
+          116,
+          104
+        ]
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        204.0
+      ],
+      "png": "png/datagrid/cell-header.base/normal/dark.png",
+      "scene": "scenes/datagrid/cell-header.base/normal/dark.json",
+      "png_sha256": "0a8f4c533260477a7a20f88759a31a35609355d8c9a27aa94f8a86df8d84d97c"
+    },
+    {
+      "id": "datagrid/cell-header.base/normal/light",
+      "component": "datagrid",
+      "group": "cell-header",
+      "params": {
+        "sort": "none",
+        "cell_selectable": true,
+        "row_header": true,
+        "fixed_columns": true,
+        "widths": [
+          105,
+          116,
+          104
+        ]
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        204.0
+      ],
+      "png": "png/datagrid/cell-header.base/normal/light.png",
+      "scene": "scenes/datagrid/cell-header.base/normal/light.json",
+      "png_sha256": "2a4c049ef2ee4307511e1658b0c06687ead64fd3728d28b53e7d62db784f6355"
+    },
+    {
+      "id": "datagrid/cell-stripe.base/click-at-200-129+at-200-270/dark",
+      "component": "datagrid",
+      "group": "cell-stripe",
+      "params": {
+        "sort": "none",
+        "cell_selectable": true,
+        "stripe": true,
+        "widths": [
+          120,
+          116,
+          104
+        ]
+      },
+      "state": "click-at-200-129+at-200-270",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        204.0
+      ],
+      "png": "png/datagrid/cell-stripe.base/click-at-200-129+at-200-270/dark.png",
+      "scene": "scenes/datagrid/cell-stripe.base/click-at-200-129+at-200-270/dark.json",
+      "png_sha256": "ff3dc2478bf070a40c6b46412f3d2d1fcfa047f9899f9e15e5a13a2ed825bd1a"
+    },
+    {
+      "id": "datagrid/cell-stripe.base/click-at-200-129+at-200-270/light",
+      "component": "datagrid",
+      "group": "cell-stripe",
+      "params": {
+        "sort": "none",
+        "cell_selectable": true,
+        "stripe": true,
+        "widths": [
+          120,
+          116,
+          104
+        ]
+      },
+      "state": "click-at-200-129+at-200-270",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        204.0
+      ],
+      "png": "png/datagrid/cell-stripe.base/click-at-200-129+at-200-270/light.png",
+      "scene": "scenes/datagrid/cell-stripe.base/click-at-200-129+at-200-270/light.json",
+      "png_sha256": "e8e3da1e4f6746e63f987eac09e6d24e52c89c4adbe0510b8321cd87e20834b7"
+    },
+    {
+      "id": "datagrid/cell-stripe.base/click-at-200-97+at-200-270/dark",
+      "component": "datagrid",
+      "group": "cell-stripe",
+      "params": {
+        "sort": "none",
+        "cell_selectable": true,
+        "stripe": true,
+        "widths": [
+          120,
+          116,
+          104
+        ]
+      },
+      "state": "click-at-200-97+at-200-270",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        204.0
+      ],
+      "png": "png/datagrid/cell-stripe.base/click-at-200-97+at-200-270/dark.png",
+      "scene": "scenes/datagrid/cell-stripe.base/click-at-200-97+at-200-270/dark.json",
+      "png_sha256": "e81042880ec8797eaf270f850f19967c8cc2440752c6c71e605df88169130e61"
+    },
+    {
+      "id": "datagrid/cell-stripe.base/click-at-200-97+at-200-270/light",
+      "component": "datagrid",
+      "group": "cell-stripe",
+      "params": {
+        "sort": "none",
+        "cell_selectable": true,
+        "stripe": true,
+        "widths": [
+          120,
+          116,
+          104
+        ]
+      },
+      "state": "click-at-200-97+at-200-270",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        204.0
+      ],
+      "png": "png/datagrid/cell-stripe.base/click-at-200-97+at-200-270/light.png",
+      "scene": "scenes/datagrid/cell-stripe.base/click-at-200-97+at-200-270/light.json",
+      "png_sha256": "e7eb07bb332c391196b1f8c195c70c9a2d64d92dd6fc64e7b15aa4e5d6ed4aa7"
+    },
+    {
+      "id": "datagrid/cell.base/click-at-200-97+at-200-270+key-down/dark",
+      "component": "datagrid",
+      "group": "cell",
+      "params": {
+        "sort": "none",
+        "cell_selectable": true,
+        "widths": [
+          120,
+          116,
+          104
+        ]
+      },
+      "state": "click-at-200-97+at-200-270+key-down",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        204.0
+      ],
+      "png": "png/datagrid/cell.base/click-at-200-97+at-200-270+key-down/dark.png",
+      "scene": "scenes/datagrid/cell.base/click-at-200-97+at-200-270+key-down/dark.json",
+      "png_sha256": "3b743ae31596ab793289632013d7dfc5ff37be45edebd4557c42b98b5d061e75"
+    },
+    {
+      "id": "datagrid/cell.base/click-at-200-97+at-200-270+key-down/light",
+      "component": "datagrid",
+      "group": "cell",
+      "params": {
+        "sort": "none",
+        "cell_selectable": true,
+        "widths": [
+          120,
+          116,
+          104
+        ]
+      },
+      "state": "click-at-200-97+at-200-270+key-down",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        204.0
+      ],
+      "png": "png/datagrid/cell.base/click-at-200-97+at-200-270+key-down/light.png",
+      "scene": "scenes/datagrid/cell.base/click-at-200-97+at-200-270+key-down/light.json",
+      "png_sha256": "bd96269864ac3379addd4ef3de5154b314a22eb5e1df3fc06e8b429d090d682e"
+    },
+    {
+      "id": "datagrid/cell.base/click-at-200-97+at-80-161/dark",
+      "component": "datagrid",
+      "group": "cell",
+      "params": {
+        "sort": "none",
+        "cell_selectable": true,
+        "widths": [
+          120,
+          116,
+          104
+        ]
+      },
+      "state": "click-at-200-97+at-80-161",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        204.0
+      ],
+      "png": "png/datagrid/cell.base/click-at-200-97+at-80-161/dark.png",
+      "scene": "scenes/datagrid/cell.base/click-at-200-97+at-80-161/dark.json",
+      "png_sha256": "62e0253037c2d96292b7c1103db9e8a56ac5e6d25fa446bec3a046ddc1122a9b"
+    },
+    {
+      "id": "datagrid/cell.base/click-at-200-97+at-80-161/light",
+      "component": "datagrid",
+      "group": "cell",
+      "params": {
+        "sort": "none",
+        "cell_selectable": true,
+        "widths": [
+          120,
+          116,
+          104
+        ]
+      },
+      "state": "click-at-200-97+at-80-161",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        204.0
+      ],
+      "png": "png/datagrid/cell.base/click-at-200-97+at-80-161/light.png",
+      "scene": "scenes/datagrid/cell.base/click-at-200-97+at-80-161/light.json",
+      "png_sha256": "a4596977388abe62cf0948c7d5f9fc8286c18f25518fe712e3f3af725060057e"
+    },
+    {
+      "id": "datagrid/cell.base/click-at-200-97/dark",
+      "component": "datagrid",
+      "group": "cell",
+      "params": {
+        "sort": "none",
+        "cell_selectable": true,
+        "widths": [
+          120,
+          116,
+          104
+        ]
+      },
+      "state": "click-at-200-97",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        204.0
+      ],
+      "png": "png/datagrid/cell.base/click-at-200-97/dark.png",
+      "scene": "scenes/datagrid/cell.base/click-at-200-97/dark.json",
+      "png_sha256": "dbddf35ef95a8ce65fbb664a1361d994858e6c0a5961afa7524623f5b93f6904"
+    },
+    {
+      "id": "datagrid/cell.base/click-at-200-97/light",
+      "component": "datagrid",
+      "group": "cell",
+      "params": {
+        "sort": "none",
+        "cell_selectable": true,
+        "widths": [
+          120,
+          116,
+          104
+        ]
+      },
+      "state": "click-at-200-97",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        204.0
+      ],
+      "png": "png/datagrid/cell.base/click-at-200-97/light.png",
+      "scene": "scenes/datagrid/cell.base/click-at-200-97/light.json",
+      "png_sha256": "6cfb1c0408938a10b2d5400c20afb87ae53066b527339111a77c342374517e6c"
+    },
+    {
+      "id": "datagrid/cell.base/click-at-300-65+at-200-270/dark",
+      "component": "datagrid",
+      "group": "cell",
+      "params": {
+        "sort": "none",
+        "cell_selectable": true,
+        "widths": [
+          120,
+          116,
+          104
+        ]
+      },
+      "state": "click-at-300-65+at-200-270",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        204.0
+      ],
+      "png": "png/datagrid/cell.base/click-at-300-65+at-200-270/dark.png",
+      "scene": "scenes/datagrid/cell.base/click-at-300-65+at-200-270/dark.json",
+      "png_sha256": "fa394f31cabe0484f7a3ba5d439052e01ecb591195ffca8b31a79e7c80f2b9e0"
+    },
+    {
+      "id": "datagrid/cell.base/click-at-300-65+at-200-270/light",
+      "component": "datagrid",
+      "group": "cell",
+      "params": {
+        "sort": "none",
+        "cell_selectable": true,
+        "widths": [
+          120,
+          116,
+          104
+        ]
+      },
+      "state": "click-at-300-65+at-200-270",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        204.0
+      ],
+      "png": "png/datagrid/cell.base/click-at-300-65+at-200-270/light.png",
+      "scene": "scenes/datagrid/cell.base/click-at-300-65+at-200-270/light.json",
+      "png_sha256": "1f0ca70bbb2b3fe52b40e28f4b62bab40b46f8327d54ea8ffc58edd25b9c45c0"
+    },
+    {
+      "id": "datagrid/empty.medium/normal/dark",
+      "component": "datagrid",
+      "group": "empty",
+      "params": {
+        "sort": "none",
+        "rows": 0,
+        "extra": 128,
+        "widths": [
+          120,
+          116,
+          104
+        ],
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        162.0
+      ],
+      "png": "png/datagrid/empty.medium/normal/dark.png",
+      "scene": "scenes/datagrid/empty.medium/normal/dark.json",
+      "png_sha256": "5e0f4dfe47af265103e0ecb24a5b296fc1669fcdef8f5a11dddb04cb3145b661"
+    },
+    {
+      "id": "datagrid/empty.medium/normal/light",
+      "component": "datagrid",
+      "group": "empty",
+      "params": {
+        "sort": "none",
+        "rows": 0,
+        "extra": 128,
+        "widths": [
+          120,
+          116,
+          104
+        ],
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        162.0
+      ],
+      "png": "png/datagrid/empty.medium/normal/light.png",
+      "scene": "scenes/datagrid/empty.medium/normal/light.json",
+      "png_sha256": "9126032886723e89d1af5fa6c8b2950007454476d255e6352ca172779a29fe99"
+    },
+    {
+      "id": "datagrid/empty.small/normal/dark",
+      "component": "datagrid",
+      "group": "empty",
+      "params": {
+        "sort": "none",
+        "rows": 0,
+        "extra": 128,
+        "widths": [
+          120,
+          116,
+          104
+        ],
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        160.0
+      ],
+      "png": "png/datagrid/empty.small/normal/dark.png",
+      "scene": "scenes/datagrid/empty.small/normal/dark.json",
+      "png_sha256": "f67c9ce9263c510484a846c269d0d8de8c620593b3c8925b4aae212cb1027379"
+    },
+    {
+      "id": "datagrid/empty.small/normal/light",
+      "component": "datagrid",
+      "group": "empty",
+      "params": {
+        "sort": "none",
+        "rows": 0,
+        "extra": 128,
+        "widths": [
+          120,
+          116,
+          104
+        ],
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        160.0
+      ],
+      "png": "png/datagrid/empty.small/normal/light.png",
+      "scene": "scenes/datagrid/empty.small/normal/light.json",
+      "png_sha256": "51afbc005da1981b9926865808f573cdac0efd1759382e1d3920d31e85f937ea"
+    },
+    {
       "id": "datagrid/medium.base/at-121-33/dark",
       "component": "datagrid",
       "group": "medium",
@@ -51979,6 +52659,238 @@
       "png": "png/datatable/borderless.base/normal/light.png",
       "scene": "scenes/datatable/borderless.base/normal/light.json",
       "png_sha256": "39ef237ad9ff5cd5dbf205d69fb480272bfe46d0c090e229aa3980564b3e6f1f"
+    },
+    {
+      "id": "datatable/empty-stripe.base/normal/dark",
+      "component": "datatable",
+      "group": "empty-stripe",
+      "params": {
+        "rows": 0,
+        "extra": 128,
+        "stripe": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        162.0
+      ],
+      "png": "png/datatable/empty-stripe.base/normal/dark.png",
+      "scene": "scenes/datatable/empty-stripe.base/normal/dark.json",
+      "png_sha256": "e086c881ac6472df7811131eeb2ed9cf8eaea18f049a4e48a7d04384e5897ed7"
+    },
+    {
+      "id": "datatable/empty-stripe.base/normal/light",
+      "component": "datatable",
+      "group": "empty-stripe",
+      "params": {
+        "rows": 0,
+        "extra": 128,
+        "stripe": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        162.0
+      ],
+      "png": "png/datatable/empty-stripe.base/normal/light.png",
+      "scene": "scenes/datatable/empty-stripe.base/normal/light.json",
+      "png_sha256": "6d07a9ac47d1365b99b5ce22c3fcf6a8b4abe32d7d76af79aca0f245b683ae20"
+    },
+    {
+      "id": "datatable/empty.large/normal/dark",
+      "component": "datatable",
+      "group": "empty",
+      "params": {
+        "rows": 0,
+        "extra": 128,
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        170.0
+      ],
+      "png": "png/datatable/empty.large/normal/dark.png",
+      "scene": "scenes/datatable/empty.large/normal/dark.json",
+      "png_sha256": "8185ec35c808d453f2473dca33498ed9c7fa3a6b0dd28b8268f023bb17af783a"
+    },
+    {
+      "id": "datatable/empty.large/normal/light",
+      "component": "datatable",
+      "group": "empty",
+      "params": {
+        "rows": 0,
+        "extra": 128,
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        170.0
+      ],
+      "png": "png/datatable/empty.large/normal/light.png",
+      "scene": "scenes/datatable/empty.large/normal/light.json",
+      "png_sha256": "336f2bbbfe83bc14cf03caff6aa86e3c24ccfd34469f0b71dd5ee969100ae8c3"
+    },
+    {
+      "id": "datatable/empty.medium/normal/dark",
+      "component": "datatable",
+      "group": "empty",
+      "params": {
+        "rows": 0,
+        "extra": 128,
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        162.0
+      ],
+      "png": "png/datatable/empty.medium/normal/dark.png",
+      "scene": "scenes/datatable/empty.medium/normal/dark.json",
+      "png_sha256": "e086c881ac6472df7811131eeb2ed9cf8eaea18f049a4e48a7d04384e5897ed7"
+    },
+    {
+      "id": "datatable/empty.medium/normal/light",
+      "component": "datatable",
+      "group": "empty",
+      "params": {
+        "rows": 0,
+        "extra": 128,
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        162.0
+      ],
+      "png": "png/datatable/empty.medium/normal/light.png",
+      "scene": "scenes/datatable/empty.medium/normal/light.json",
+      "png_sha256": "6d07a9ac47d1365b99b5ce22c3fcf6a8b4abe32d7d76af79aca0f245b683ae20"
+    },
+    {
+      "id": "datatable/empty.xsmall/normal/dark",
+      "component": "datatable",
+      "group": "empty",
+      "params": {
+        "rows": 0,
+        "extra": 128,
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        156.0
+      ],
+      "png": "png/datatable/empty.xsmall/normal/dark.png",
+      "scene": "scenes/datatable/empty.xsmall/normal/dark.json",
+      "png_sha256": "e7f584ee126c11acbf3bc8081031062b5926cf8d1b8ef942deb3d52b9f977e5a"
+    },
+    {
+      "id": "datatable/empty.xsmall/normal/light",
+      "component": "datatable",
+      "group": "empty",
+      "params": {
+        "rows": 0,
+        "extra": 128,
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        288.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        156.0
+      ],
+      "png": "png/datatable/empty.xsmall/normal/light.png",
+      "scene": "scenes/datatable/empty.xsmall/normal/light.json",
+      "png_sha256": "49dc515a418a53570930b824473b36610c10f029153668cabe3c77c739a776e0"
     },
     {
       "id": "datatable/filled.base/click-at-80-193/dark",
@@ -112967,6 +113879,118 @@
       "png": "png/table/bordered.small/normal/light.png",
       "scene": "scenes/table/bordered.small/normal/light.json",
       "png_sha256": "a7dbeeb5c07fa75c680045972a8b6c9e0fdc70b264018864ec47ab8b21d39216"
+    },
+    {
+      "id": "table/empty.base/normal/dark",
+      "component": "table",
+      "group": "empty",
+      "params": {
+        "rows": 0,
+        "bordered": false
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        272.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        31.5
+      ],
+      "png": "png/table/empty.base/normal/dark.png",
+      "scene": "scenes/table/empty.base/normal/dark.json",
+      "png_sha256": "94909350318b70435c548bede57861fef6f69ea0fccd3c742434f084b53423a6"
+    },
+    {
+      "id": "table/empty.base/normal/light",
+      "component": "table",
+      "group": "empty",
+      "params": {
+        "rows": 0,
+        "bordered": false
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        272.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        31.5
+      ],
+      "png": "png/table/empty.base/normal/light.png",
+      "scene": "scenes/table/empty.base/normal/light.json",
+      "png_sha256": "4bee63f560b4e3f72378f8519fbe94dee17f89bd482f46ee7a0e16a6e731ebda"
+    },
+    {
+      "id": "table/empty.bordered/normal/dark",
+      "component": "table",
+      "group": "empty",
+      "params": {
+        "rows": 0,
+        "bordered": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        272.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        33.5
+      ],
+      "png": "png/table/empty.bordered/normal/dark.png",
+      "scene": "scenes/table/empty.bordered/normal/dark.json",
+      "png_sha256": "292e4fd971b185235fd94ec7ad1f8655f7f3c0790f048050f06126b17ae0a521"
+    },
+    {
+      "id": "table/empty.bordered/normal/light",
+      "component": "table",
+      "group": "empty",
+      "params": {
+        "rows": 0,
+        "bordered": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        272.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        33.5
+      ],
+      "png": "png/table/empty.bordered/normal/light.png",
+      "scene": "scenes/table/empty.bordered/normal/light.json",
+      "png_sha256": "5dc40ff87461c82e577ef19acd9c318bec2b76fa951347692ecbded17a43d028"
     },
     {
       "id": "table/fixed.base/normal/dark",

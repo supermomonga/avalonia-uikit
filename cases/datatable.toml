@@ -52,3 +52,14 @@ states = ["normal", "click-at-80-193"]
 [[group]]
 name = "stripe-filler"
 params = { stripe = true, extra = 74 }
+
+# No rows: the body's empty view, a 48px Inbox icon in muted_foreground at 60%
+# centered under the header (delegate.rs render_empty), without filler rows.
+[[group]]
+name = "empty"
+params = { rows = 0, extra = 128 }
+matrix = { size = ["xsmall", "medium", "large"] }
+
+[[group]]
+name = "empty-stripe"
+params = { rows = 0, extra = 128, stripe = true }

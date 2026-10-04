@@ -254,6 +254,12 @@
             <TableViewColumn Header="Amount" Binding="{Binding Amount}" Width="80" HorizontalContentAlignment="Right" />
           </TableView.Columns>
         </TableView>
+        <TableView Width="360" Height="124" HorizontalAlignment="Left">
+          <TableView.Columns>
+            <TableViewColumn Header="Invoice" Width="120" />
+            <TableViewColumn Header="Method" Width="140" />
+          </TableView.Columns>
+        </TableView>
 
         <TextBlock Text="Carousel" Foreground="{DynamicResource UIKit.MutedForeground}" />
         <StackPanel Spacing="16" Width="240" Margin="48,0" HorizontalAlignment="Left">

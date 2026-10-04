@@ -49,4 +49,74 @@ public class ThemeFixBehaviorTests
         host.Drive(golden, "click-at-160-24");
         await Assert.That(number.Value).IsEqualTo(43m);
     }
+
+    // delegate.rs render_empty: the empty view shows while the table has no rows.
+    [Test]
+    public async Task A_data_table_shows_its_empty_view_only_without_rows()
+    {
+        var golden = Case("datatable/empty.medium/normal/light");
+        using var host = CaseHost.Open(golden, Adapters.Create(golden));
+        var table = (TableView)host.Control;
+        var empty = Part<Panel>(table, "PART_Empty");
+        await Assert.That(empty.IsEffectivelyVisible).IsTrue();
+        var rows = new System.Collections.ObjectModel.ObservableCollection<Adapters.Person>();
+        table.ItemsSource = rows;
+        rows.Add(Adapters.People[0]);
+        host.Flush();
+        await Assert.That(empty.IsEffectivelyVisible).IsFalse();
+        rows.Clear();
+        host.Flush();
+        await Assert.That(empty.IsEffectivelyVisible).IsTrue();
+    }
+
+    [Test]
+    public async Task A_table_shows_no_empty_view()
+    {
+        var golden = Case("table/empty.bordered/normal/light");
+        using var host = CaseHost.Open(golden, Adapters.Create(golden));
+        await Assert.That(host.Control.GetVisualDescendants().OfType<Panel>().Any(p => p.Name == "PART_Empty")).IsFalse();
+    }
+
+    [Test]
+    public async Task A_data_grid_shows_its_empty_view_only_without_rows()
+    {
+        var golden = Case("datagrid/empty.medium/normal/light");
+        using var host = CaseHost.Open(golden, Adapters.Create(golden));
+        var grid = (DataGrid)host.Control;
+        var empty = Part<Panel>(grid, "PART_Empty");
+        await Assert.That(empty.IsEffectivelyVisible).IsTrue();
+        grid.ItemsSource = Adapters.People;
+        host.Flush();
+        await Assert.That(empty.IsEffectivelyVisible).IsFalse();
+    }
+
+    // state.rs TableSelection::Cell: the selected cell follows the keyboard in its
+    // row and column; the row itself does not show as selected.
+    [Test]
+    public async Task A_cell_selectable_data_grid_marks_the_current_cell_of_the_selected_row()
+    {
+        var golden = Case("datagrid/cell.base/click-at-200-97/light");
+        using var host = CaseHost.Open(golden, Adapters.Create(golden));
+        var grid = (DataGrid)host.Control;
+        DataGridCell[] Marked() => grid.GetVisualDescendants().OfType<DataGridCell>()
+            .Where(c => Part<Border>(c, "PART_SelectedCell").IsEffectivelyVisible).ToArray();
+        await Assert.That(Marked()).IsEmpty();
+        host.Drive(golden, "click-at-200-97+at-200-270");
+        var marked = Marked();
+        await Assert.That(marked.Length).IsEqualTo(1);
+        await Assert.That(((Adapters.Person)marked[0].DataContext!).Name).IsEqualTo("Grace");
+        await Assert.That(marked[0].Bounds.X).IsEqualTo(120);
+        var row = marked[0].FindAncestorOfType<DataGridRow>()!;
+        await Assert.That(Part<Border>(row, "BackgroundRectangle").Background).IsNull();
+        host.PressKey("right");
+        host.Flush();
+        marked = Marked();
+        await Assert.That(marked.Length).IsEqualTo(1);
+        await Assert.That(marked[0].Bounds.X).IsEqualTo(236);
+        host.PressKey("down");
+        host.Flush();
+        marked = Marked();
+        await Assert.That(marked.Length).IsEqualTo(1);
+        await Assert.That(((Adapters.Person)marked[0].DataContext!).Name).IsEqualTo("Linus");
+    }
 }

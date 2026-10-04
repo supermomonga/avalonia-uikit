@@ -28,3 +28,9 @@ params = { fixed_widths = true }
 [[group]]
 name = "pointer"
 states = ["at-80-94", "click-at-80-94"]
+
+# No rows: GPUI's Table has no empty view, only the header.
+[[group]]
+name = "empty"
+params = { rows = 0 }
+matrix = { bordered = [false, true] }

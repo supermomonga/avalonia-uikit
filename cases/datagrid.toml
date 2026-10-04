@@ -34,3 +34,31 @@ states = ["normal", "at-80-97", "click-at-80-97"]
 name = "borderless"
 params = { sort = "none", borderless = true, widths = [120, 116, 104] }
 states = ["normal", "focus+key-escape"]
+
+# No rows: the empty view under the header, as DataTable's.
+[[group]]
+name = "empty"
+params = { sort = "none", rows = 0, extra = 128, widths = [120, 116, 104] }
+matrix = { size = ["small", "medium"] }
+
+# The cell-selectable class (cell_selectable, no row header): a click selects
+# the cell, Down moves it within its column; the row keeps its hover.
+[[group]]
+name = "cell"
+params = { sort = "none", cell_selectable = true, widths = [120, 116, 104] }
+states = ["click-at-200-97", "click-at-200-97+at-80-161", "click-at-200-97+at-200-270+key-down", "click-at-300-65+at-200-270"]
+
+[[group]]
+name = "cell-stripe"
+params = { sort = "none", cell_selectable = true, stripe = true, widths = [120, 116, 104] }
+states = ["click-at-200-97+at-200-270", "click-at-200-129+at-200-270"]
+
+# row_header: the row header column (HeadersVisibility="All"), w_3 but 17px
+# wide when medium (its cell padding); Name narrower so the columns and GPUI's
+# 12px last empty column stay inside the body. Fixed columns: with row headers
+# DataGrid 12.1.2 leaves out its filler column, which hides the last column's
+# resize hairline.
+[[group]]
+name = "cell-header"
+params = { sort = "none", cell_selectable = true, row_header = true, fixed_columns = true, widths = [105, 116, 104] }
+states = ["normal", "click-at-200-97+at-200-270"]

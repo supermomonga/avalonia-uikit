@@ -38,6 +38,8 @@ pub fn builder(params: &Params) -> Result<Builder> {
     let stripe = param_bool(params, "stripe");
     let fixed = param_bool(params, "fixed_widths");
     let width = param_f32(params, "width", 360.);
+    // `rows = 0`: the header over an empty body (Table has no empty view of its own).
+    let count = (param_f32(params, "rows", ROWS.len() as f32) as usize).min(ROWS.len());
     Ok(Rc::new(move |_, _, cx| {
         let theme = cx.theme();
         let (border, radius, even) = (theme.border, theme.radius, theme.table_even);
@@ -54,7 +56,7 @@ pub fn builder(params: &Params) -> Result<Builder> {
                 .when(fixed, |c| c.w(px(WIDTHS[i])))
         };
         // The story's stripes: the app fills every other body row with `table_even`.
-        let body = TableBody::new().children(ROWS.iter().enumerate().map(|(r, row)| {
+        let body = TableBody::new().children(ROWS.iter().take(count).enumerate().map(|(r, row)| {
             TableRow::new()
                 .when(stripe && r % 2 == 1, |t| t.bg(even))
                 .children((0..3).map(|i| cell(i, row[i])))
@@ -88,8 +90,8 @@ pub struct CaseDelegate {
 
 impl CaseDelegate {
     /// `sort`: "none" (no sortable column), "idle" (all sortable), "ascending" or
-    /// "descending" (Amount sorted, the others sortable).
-    fn new(sort: &str, widths: Option<Vec<f32>>) -> Self {
+    /// "descending" (Amount sorted, the others sortable); the first `count` rows.
+    fn new(sort: &str, widths: Option<Vec<f32>>, count: usize) -> Self {
         let columns = COLUMNS
             .iter()
             .enumerate()
@@ -112,6 +114,7 @@ impl CaseDelegate {
             "descending" => rows.sort_by(|a, b| b[2].cmp(a[2])),
             _ => {}
         }
+        rows.truncate(count);
         Self { columns, rows }
     }
 
@@ -126,7 +129,7 @@ impl TableDelegate for CaseDelegate {
     }
 
     fn rows_count(&self, _: &App) -> usize {
-        DATA.len()
+        self.rows.len()
     }
 
     fn column(&self, col_ix: usize, _: &App) -> Column {
@@ -166,13 +169,20 @@ pub fn data_table(params: &Params) -> Result<Builder> {
         .map(|a| a.iter().filter_map(|w| w.as_f64()).map(|w| w as f32).collect());
     // Below the last row, so the rows do not fill the body (no filler rows, last rule kept).
     let extra = param_f32(params, "extra", 10.);
+    // `rows = 0` shows the empty view (delegate.rs render_empty).
+    let count = (param_f32(params, "rows", DATA.len() as f32) as usize).min(DATA.len());
+    // TableSelection::Cell: a click selects a cell; `row_header` adds the 12px row header column.
+    let cell_selectable = param_bool(params, "cell_selectable");
+    let row_header = param_bool(params, "row_header");
     Ok(Rc::new(move |view, window, cx| {
         if view.state.entity.is_none() {
             let state = cx.new(|cx| {
-                TableState::new(CaseDelegate::new(&sort, widths.clone()), window, cx)
+                TableState::new(CaseDelegate::new(&sort, widths.clone(), count), window, cx)
                     .col_selectable(false)
                     .col_movable(false)
                     .col_resizable(resizable)
+                    .cell_selectable(cell_selectable)
+                    .row_header(row_header)
             });
             view.state.entity = Some(state.into());
         }
@@ -183,7 +193,7 @@ pub fn data_table(params: &Params) -> Result<Builder> {
             .and_then(|e| e.downcast::<TableState<CaseDelegate>>().ok())
             .expect("table state");
         let chrome = if bordered { px(2.) } else { px(0.) };
-        let height = chrome + size.table_row_height() * (DATA.len() + 1) as f32 + px(extra);
+        let height = chrome + size.table_row_height() * (count + 1) as f32 + px(extra);
         div()
             .w(px(width))
             .h(height)
