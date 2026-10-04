@@ -258,5 +258,57 @@ public class ButtonsBehaviorTests
         group.Children.Add(toggle);
         await Assert.That(string.Join(" ", toggle.Classes.Where(c => !c.StartsWith(':')).Order())).IsEqualTo("large outline");
     }
+
+    // accordion.rs: without `multiple`, opening an item clears the open set;
+    // on_toggle_click reports the open items after the click.
+    [Test]
+    public async Task An_accordion_keeps_one_item_open_and_reports_the_open_items()
+    {
+        var golden = Case("uikit-accordion/single.medium/normal/light");
+        var accordion = (Accordion)Adapters.Create(golden);
+        using var host = CaseHost.Open(golden, accordion);
+        var items = accordion.Items.OfType<Expander>().ToArray();
+        var reports = new List<string>();
+        accordion.ToggleClick += (_, e) => reports.Add(string.Join(",", e.OpenIndices));
+        host.Drive(golden, "click-at-100-98+wait-600ms");
+        await Assert.That(items.Select(i => i.IsExpanded)).IsEquivalentTo(new[] { false, true, false });
+        // The third title, below the open second item.
+        ClickAt(host, items[2].GetVisualDescendants().OfType<Avalonia.Controls.Primitives.ToggleButton>().First());
+        await Assert.That(items.Select(i => i.IsExpanded)).IsEquivalentTo(new[] { false, false, true });
+        // A programmatic open closes the others too.
+        items[0].IsExpanded = true;
+        await Assert.That(items.Select(i => i.IsExpanded)).IsEquivalentTo(new[] { true, false, false });
+        await Assert.That(string.Join(" ", reports)).IsEqualTo("1 2");
+    }
+
+    [Test]
+    public async Task A_multiple_accordion_opens_items_independently()
+    {
+        var golden = Case("uikit-accordion/card.medium.open_first/normal/light");
+        var accordion = (Accordion)Adapters.Create(golden);
+        using var host = CaseHost.Open(golden, accordion);
+        await Assert.That(accordion.Multiple).IsTrue();
+        var reports = new List<string>();
+        accordion.ToggleClick += (_, e) => reports.Add(string.Join(",", e.OpenIndices));
+        host.Drive(golden, "click-at-100-98+wait-600ms");
+        await Assert.That(string.Join(",", accordion.OpenIndices)).IsEqualTo("0,1");
+        await Assert.That(string.Join(" ", reports)).IsEqualTo("0,1");
+    }
+
+    // accordion.rs: a disabled accordion installs no toggle; its size goes on every item.
+    [Test]
+    public async Task A_disabled_accordion_ignores_clicks_and_passes_its_size()
+    {
+        var golden = Case("uikit-accordion/disabled.all/normal/light");
+        var accordion = (Accordion)Adapters.Create(golden);
+        accordion.Classes.Add("small");
+        using var host = CaseHost.Open(golden, accordion);
+        var reports = 0;
+        accordion.ToggleClick += (_, _) => reports++;
+        host.Drive(golden, "click-at-100-98+wait-600ms");
+        await Assert.That(reports).IsEqualTo(0);
+        await Assert.That(string.Join(",", accordion.OpenIndices)).IsEqualTo("0");
+        await Assert.That(accordion.Items.OfType<Expander>().All(i => i.Classes.Contains("small"))).IsTrue();
+    }
 }
 

@@ -113,5 +113,54 @@ public static partial class Adapters
         }
         return group;
     }
+
+    /// <summary>
+    /// The accordion cases as a uikit:Accordion of Expanders: the accordion's size
+    /// and card on it, items as there. `single` is GPUI's default of one open item.
+    /// </summary>
+    private static Accordion AccordionCase(GoldenCase c)
+    {
+        var size = c.Str("size", "medium");
+        var scope = c.Str("scope");
+        var accordion = new Accordion
+        {
+            Width = c.Num("width", 280),
+            Multiple = !c.Bool("single"),
+            IsBordered = !c.Bool("borderless"),
+            IsEnabled = scope != "all",
+            HorizontalAlignment = HorizontalAlignment.Left,
+        };
+        ClassFrom(accordion, c, "size", "medium");
+        (string Title, string Body, string Icon)[] rows =
+        [
+            ("Is it accessible?", "Yes, it is.", "copy"),
+            ("Is it styled?", "Yes, by the theme.", "plus"),
+            ("Is it animated?", "Yes, with a spring.", "check"),
+        ];
+        for (var i = 0; i < rows.Length; i++)
+        {
+            object header = rows[i].Title;
+            if (c.Bool("icons"))
+            {
+                // AccordionItem::icon: the item's icon size, 4px (xsmall, small) or 8px before the title.
+                var icon = Icon(rows[i].Icon);
+                icon.Width = icon.Height = size switch { "xsmall" => 12, "small" => 14, "large" => 24, _ => 16 };
+                header = new StackPanel
+                {
+                    Orientation = Orientation.Horizontal,
+                    Spacing = size is "xsmall" or "small" ? 4 : 8,
+                    Children = { icon, new TextBlock { Text = rows[i].Title, VerticalAlignment = VerticalAlignment.Center } },
+                };
+            }
+            accordion.Items.Add(new Expander
+            {
+                Header = header,
+                Content = rows[i].Body,
+                IsExpanded = i == 0 && c.Bool("open_first"),
+                IsEnabled = !(scope == "item" && i == 1),
+            });
+        }
+        return accordion;
+    }
 }
 

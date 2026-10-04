@@ -66,6 +66,7 @@ public static partial class Adapters
         "toolbar" => Toolbar(c),
         "popover" => Popover(c),
         "accordion" => Accordion(c),
+        "uikit-accordion" => AccordionCase(c),
         "notification" => NotificationArea(c),
         "resizable" => Resizable(c),
         "image" => ImageCase(c),

@@ -124299,6 +124299,1565 @@
       "png_sha256": "b3dcb7ad595e5f72b409b0a85bbd1a8c8ea8e402cfc38b333ebcc4f4575e6597"
     },
     {
+      "id": "uikit-accordion/borderless.base/normal/dark",
+      "component": "uikit-accordion",
+      "group": "borderless",
+      "params": {
+        "borderless": true,
+        "open_first": false
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        117.5
+      ],
+      "png": "png/uikit-accordion/borderless.base/normal/dark.png",
+      "scene": "scenes/uikit-accordion/borderless.base/normal/dark.json",
+      "png_sha256": "74776290d2591a129bd1032b9ce72c355be85c1afcf9e4655def62b394cbbec9"
+    },
+    {
+      "id": "uikit-accordion/borderless.base/normal/light",
+      "component": "uikit-accordion",
+      "group": "borderless",
+      "params": {
+        "borderless": true,
+        "open_first": false
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        117.5
+      ],
+      "png": "png/uikit-accordion/borderless.base/normal/light.png",
+      "scene": "scenes/uikit-accordion/borderless.base/normal/light.json",
+      "png_sha256": "595350521855ce6d3483553c87c2eac00b35fa6222ec96e0c6bb33693536d183"
+    },
+    {
+      "id": "uikit-accordion/borderless.open_first/normal/dark",
+      "component": "uikit-accordion",
+      "group": "borderless",
+      "params": {
+        "borderless": true,
+        "open_first": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        148.0
+      ],
+      "png": "png/uikit-accordion/borderless.open_first/normal/dark.png",
+      "scene": "scenes/uikit-accordion/borderless.open_first/normal/dark.json",
+      "png_sha256": "97f4b7cbd6ec9f481b60f347f1fa76618802368eb7ffed1550fb0de3f37e4ac9"
+    },
+    {
+      "id": "uikit-accordion/borderless.open_first/normal/light",
+      "component": "uikit-accordion",
+      "group": "borderless",
+      "params": {
+        "borderless": true,
+        "open_first": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        148.0
+      ],
+      "png": "png/uikit-accordion/borderless.open_first/normal/light.png",
+      "scene": "scenes/uikit-accordion/borderless.open_first/normal/light.json",
+      "png_sha256": "9a3381062e13406da2e7deb616c8e7e9a5f2f52e9dc90e05308ec9ca721e602c"
+    },
+    {
+      "id": "uikit-accordion/card.large.open_first/normal/dark",
+      "component": "uikit-accordion",
+      "group": "card",
+      "params": {
+        "size": "large",
+        "open_first": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        192.0
+      ],
+      "png": "png/uikit-accordion/card.large.open_first/normal/dark.png",
+      "scene": "scenes/uikit-accordion/card.large.open_first/normal/dark.json",
+      "png_sha256": "643fa926e5dfc848cd45c237e1b8287aa4405ee0d4cc1daf6527ea567f748d8f"
+    },
+    {
+      "id": "uikit-accordion/card.large.open_first/normal/light",
+      "component": "uikit-accordion",
+      "group": "card",
+      "params": {
+        "size": "large",
+        "open_first": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        192.0
+      ],
+      "png": "png/uikit-accordion/card.large.open_first/normal/light.png",
+      "scene": "scenes/uikit-accordion/card.large.open_first/normal/light.json",
+      "png_sha256": "fe32dbb6f57ee7fd873b7242ef5dc8cc8aedb15c2387dc2a0b51aa3a33e11745"
+    },
+    {
+      "id": "uikit-accordion/card.large/normal/dark",
+      "component": "uikit-accordion",
+      "group": "card",
+      "params": {
+        "size": "large",
+        "open_first": false
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        154.0
+      ],
+      "png": "png/uikit-accordion/card.large/normal/dark.png",
+      "scene": "scenes/uikit-accordion/card.large/normal/dark.json",
+      "png_sha256": "aa9f1a6db19a27f84a2e329d08c9abfdb9d02377569c03afa21a16ea2f38a7d0"
+    },
+    {
+      "id": "uikit-accordion/card.large/normal/light",
+      "component": "uikit-accordion",
+      "group": "card",
+      "params": {
+        "size": "large",
+        "open_first": false
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        154.0
+      ],
+      "png": "png/uikit-accordion/card.large/normal/light.png",
+      "scene": "scenes/uikit-accordion/card.large/normal/light.json",
+      "png_sha256": "696927780eb5fcb6a09af29893dcc04495333fb221cd90729ec23eb0b254a045"
+    },
+    {
+      "id": "uikit-accordion/card.medium.open_first/normal/dark",
+      "component": "uikit-accordion",
+      "group": "card",
+      "params": {
+        "size": "medium",
+        "open_first": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        150.0
+      ],
+      "png": "png/uikit-accordion/card.medium.open_first/normal/dark.png",
+      "scene": "scenes/uikit-accordion/card.medium.open_first/normal/dark.json",
+      "png_sha256": "567b830038b4e06a736f66f56931434f67567aa6577d21c264332e1cc52f177f"
+    },
+    {
+      "id": "uikit-accordion/card.medium.open_first/normal/light",
+      "component": "uikit-accordion",
+      "group": "card",
+      "params": {
+        "size": "medium",
+        "open_first": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        150.0
+      ],
+      "png": "png/uikit-accordion/card.medium.open_first/normal/light.png",
+      "scene": "scenes/uikit-accordion/card.medium.open_first/normal/light.json",
+      "png_sha256": "5f3c9b611b45fbf21412ac56122244cc60b47fce1e7866e0e3705dfb85e449ef"
+    },
+    {
+      "id": "uikit-accordion/card.medium/normal/dark",
+      "component": "uikit-accordion",
+      "group": "card",
+      "params": {
+        "size": "medium",
+        "open_first": false
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        119.5
+      ],
+      "png": "png/uikit-accordion/card.medium/normal/dark.png",
+      "scene": "scenes/uikit-accordion/card.medium/normal/dark.json",
+      "png_sha256": "d0893181fa8dd1f025c0820e6b937ea7c2a9a96364fc32bd05c36f87028675dc"
+    },
+    {
+      "id": "uikit-accordion/card.medium/normal/light",
+      "component": "uikit-accordion",
+      "group": "card",
+      "params": {
+        "size": "medium",
+        "open_first": false
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        119.5
+      ],
+      "png": "png/uikit-accordion/card.medium/normal/light.png",
+      "scene": "scenes/uikit-accordion/card.medium/normal/light.json",
+      "png_sha256": "a960ec28a6df56cb790b2a460ad38ce82812e6ec886c4cfc49950df5df134a83"
+    },
+    {
+      "id": "uikit-accordion/card.small.open_first/normal/dark",
+      "component": "uikit-accordion",
+      "group": "card",
+      "params": {
+        "size": "small",
+        "open_first": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        136.0
+      ],
+      "png": "png/uikit-accordion/card.small.open_first/normal/dark.png",
+      "scene": "scenes/uikit-accordion/card.small.open_first/normal/dark.json",
+      "png_sha256": "01fd649c38c96b08d6f529ed382bd5b15ce049acff23040bf39f56c27557e38a"
+    },
+    {
+      "id": "uikit-accordion/card.small.open_first/normal/light",
+      "component": "uikit-accordion",
+      "group": "card",
+      "params": {
+        "size": "small",
+        "open_first": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        136.0
+      ],
+      "png": "png/uikit-accordion/card.small.open_first/normal/light.png",
+      "scene": "scenes/uikit-accordion/card.small.open_first/normal/light.json",
+      "png_sha256": "a88a001cad053a93d1038263799c2465b7c4a5fe197fd4bd91619f9702fec826"
+    },
+    {
+      "id": "uikit-accordion/card.small/normal/dark",
+      "component": "uikit-accordion",
+      "group": "card",
+      "params": {
+        "size": "small",
+        "open_first": false
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        107.5
+      ],
+      "png": "png/uikit-accordion/card.small/normal/dark.png",
+      "scene": "scenes/uikit-accordion/card.small/normal/dark.json",
+      "png_sha256": "d696a9af9bd17a8579cd06c1aaeac4d87d4538d6a82af04c528e0106429eab61"
+    },
+    {
+      "id": "uikit-accordion/card.small/normal/light",
+      "component": "uikit-accordion",
+      "group": "card",
+      "params": {
+        "size": "small",
+        "open_first": false
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        107.5
+      ],
+      "png": "png/uikit-accordion/card.small/normal/light.png",
+      "scene": "scenes/uikit-accordion/card.small/normal/light.json",
+      "png_sha256": "7d194080fddc493d7fbba7503584d9a53df189338d0973327781c07a4f628afb"
+    },
+    {
+      "id": "uikit-accordion/card.xsmall.open_first/normal/dark",
+      "component": "uikit-accordion",
+      "group": "card",
+      "params": {
+        "size": "xsmall",
+        "open_first": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        110.0
+      ],
+      "png": "png/uikit-accordion/card.xsmall.open_first/normal/dark.png",
+      "scene": "scenes/uikit-accordion/card.xsmall.open_first/normal/dark.json",
+      "png_sha256": "d5e87972de40e998a146d819520ae4ff3fb694543e5a8e626e521379c2b758b3"
+    },
+    {
+      "id": "uikit-accordion/card.xsmall.open_first/normal/light",
+      "component": "uikit-accordion",
+      "group": "card",
+      "params": {
+        "size": "xsmall",
+        "open_first": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        110.0
+      ],
+      "png": "png/uikit-accordion/card.xsmall.open_first/normal/light.png",
+      "scene": "scenes/uikit-accordion/card.xsmall.open_first/normal/light.json",
+      "png_sha256": "fad22ba4e92b5547fb65ae020593f1560027449314bd8a430c81e33fb20b3567"
+    },
+    {
+      "id": "uikit-accordion/card.xsmall/normal/dark",
+      "component": "uikit-accordion",
+      "group": "card",
+      "params": {
+        "size": "xsmall",
+        "open_first": false
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        86.5
+      ],
+      "png": "png/uikit-accordion/card.xsmall/normal/dark.png",
+      "scene": "scenes/uikit-accordion/card.xsmall/normal/dark.json",
+      "png_sha256": "3337455cc1be3156d165d1bde52843a1f0307a54f0b646c54177f063edd2a691"
+    },
+    {
+      "id": "uikit-accordion/card.xsmall/normal/light",
+      "component": "uikit-accordion",
+      "group": "card",
+      "params": {
+        "size": "xsmall",
+        "open_first": false
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        86.5
+      ],
+      "png": "png/uikit-accordion/card.xsmall/normal/light.png",
+      "scene": "scenes/uikit-accordion/card.xsmall/normal/light.json",
+      "png_sha256": "de84ceb6a7ba90eeb0d60dae3afc3956b59731dfdcd098cb9726c468dc6b1067"
+    },
+    {
+      "id": "uikit-accordion/disabled.all/normal/dark",
+      "component": "uikit-accordion",
+      "group": "disabled",
+      "params": {
+        "open_first": true,
+        "scope": "all"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        150.0
+      ],
+      "png": "png/uikit-accordion/disabled.all/normal/dark.png",
+      "scene": "scenes/uikit-accordion/disabled.all/normal/dark.json",
+      "png_sha256": "f9143627055420de56b0ad8291c17a5a64ad3ae35e869682dd9fe4044f857a1a"
+    },
+    {
+      "id": "uikit-accordion/disabled.all/normal/light",
+      "component": "uikit-accordion",
+      "group": "disabled",
+      "params": {
+        "open_first": true,
+        "scope": "all"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        150.0
+      ],
+      "png": "png/uikit-accordion/disabled.all/normal/light.png",
+      "scene": "scenes/uikit-accordion/disabled.all/normal/light.json",
+      "png_sha256": "053eda86531af58005eb3d78df058d195741ebaf54e16864d63c7b52ce38828e"
+    },
+    {
+      "id": "uikit-accordion/disabled.item/normal/dark",
+      "component": "uikit-accordion",
+      "group": "disabled",
+      "params": {
+        "open_first": true,
+        "scope": "item"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        150.0
+      ],
+      "png": "png/uikit-accordion/disabled.item/normal/dark.png",
+      "scene": "scenes/uikit-accordion/disabled.item/normal/dark.json",
+      "png_sha256": "b2bda100d77edcd24e5aee3ba1f09fecf130c898491a8cd5d11a97fe981a9ee4"
+    },
+    {
+      "id": "uikit-accordion/disabled.item/normal/light",
+      "component": "uikit-accordion",
+      "group": "disabled",
+      "params": {
+        "open_first": true,
+        "scope": "item"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        150.0
+      ],
+      "png": "png/uikit-accordion/disabled.item/normal/light.png",
+      "scene": "scenes/uikit-accordion/disabled.item/normal/light.json",
+      "png_sha256": "8dae7b1c165a43d83dbe6ffc127d4128a65cbf2662251510807773d3b57ee462"
+    },
+    {
+      "id": "uikit-accordion/icon.medium/normal/dark",
+      "component": "uikit-accordion",
+      "group": "icon",
+      "params": {
+        "icons": true,
+        "open_first": true,
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        150.0
+      ],
+      "png": "png/uikit-accordion/icon.medium/normal/dark.png",
+      "scene": "scenes/uikit-accordion/icon.medium/normal/dark.json",
+      "png_sha256": "9caeda38d34b7fc1ecdfd55226c998a283405fcaa06c0fd50044f1996a075f2c"
+    },
+    {
+      "id": "uikit-accordion/icon.medium/normal/light",
+      "component": "uikit-accordion",
+      "group": "icon",
+      "params": {
+        "icons": true,
+        "open_first": true,
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        150.0
+      ],
+      "png": "png/uikit-accordion/icon.medium/normal/light.png",
+      "scene": "scenes/uikit-accordion/icon.medium/normal/light.json",
+      "png_sha256": "64dcae0b12adbb7cebb574e7a9772bc90f69eeb5c48924797e14f51495a220c8"
+    },
+    {
+      "id": "uikit-accordion/icon.small/normal/dark",
+      "component": "uikit-accordion",
+      "group": "icon",
+      "params": {
+        "icons": true,
+        "open_first": true,
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        136.0
+      ],
+      "png": "png/uikit-accordion/icon.small/normal/dark.png",
+      "scene": "scenes/uikit-accordion/icon.small/normal/dark.json",
+      "png_sha256": "5d0b7e1d5678adc29e302e8149c7c6277bdc6d7f6f295c2ddeb1e69832eeef81"
+    },
+    {
+      "id": "uikit-accordion/icon.small/normal/light",
+      "component": "uikit-accordion",
+      "group": "icon",
+      "params": {
+        "icons": true,
+        "open_first": true,
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        136.0
+      ],
+      "png": "png/uikit-accordion/icon.small/normal/light.png",
+      "scene": "scenes/uikit-accordion/icon.small/normal/light.json",
+      "png_sha256": "cd664a809db4c29ecec3634e1a8ea5eec9f88db4459d2014b3de5d025797f323"
+    },
+    {
+      "id": "uikit-accordion/interaction.base/focus/dark",
+      "component": "uikit-accordion",
+      "group": "interaction",
+      "params": {},
+      "state": "focus",
+      "theme": "dark",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        119.5
+      ],
+      "png": "png/uikit-accordion/interaction.base/focus/dark.png",
+      "scene": "scenes/uikit-accordion/interaction.base/focus/dark.json",
+      "png_sha256": "d0893181fa8dd1f025c0820e6b937ea7c2a9a96364fc32bd05c36f87028675dc"
+    },
+    {
+      "id": "uikit-accordion/interaction.base/focus/light",
+      "component": "uikit-accordion",
+      "group": "interaction",
+      "params": {},
+      "state": "focus",
+      "theme": "light",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        119.5
+      ],
+      "png": "png/uikit-accordion/interaction.base/focus/light.png",
+      "scene": "scenes/uikit-accordion/interaction.base/focus/light.json",
+      "png_sha256": "a960ec28a6df56cb790b2a460ad38ce82812e6ec886c4cfc49950df5df134a83"
+    },
+    {
+      "id": "uikit-accordion/interaction.base/hover/dark",
+      "component": "uikit-accordion",
+      "group": "interaction",
+      "params": {},
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        119.5
+      ],
+      "png": "png/uikit-accordion/interaction.base/hover/dark.png",
+      "scene": "scenes/uikit-accordion/interaction.base/hover/dark.json",
+      "png_sha256": "d0893181fa8dd1f025c0820e6b937ea7c2a9a96364fc32bd05c36f87028675dc"
+    },
+    {
+      "id": "uikit-accordion/interaction.base/hover/light",
+      "component": "uikit-accordion",
+      "group": "interaction",
+      "params": {},
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        119.5
+      ],
+      "png": "png/uikit-accordion/interaction.base/hover/light.png",
+      "scene": "scenes/uikit-accordion/interaction.base/hover/light.json",
+      "png_sha256": "a960ec28a6df56cb790b2a460ad38ce82812e6ec886c4cfc49950df5df134a83"
+    },
+    {
+      "id": "uikit-accordion/motion.close/click-at-100-28/light",
+      "component": "uikit-accordion",
+      "group": "motion.close",
+      "params": {
+        "open_first": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        150.0
+      ],
+      "motion": {
+        "name": "close",
+        "trigger": "click-at-100-28",
+        "from": "normal",
+        "frames": [
+          {
+            "t_ms": 0,
+            "png": "png/uikit-accordion/motion.close/click-at-100-28/light/0000ms.png",
+            "scene": "scenes/uikit-accordion/motion.close/click-at-100-28/light/0000ms.json",
+            "png_sha256": "676c33a40c02153b23ff1d2574cf40d4a0a86f26a5de895f91f9188d2b089e08"
+          },
+          {
+            "t_ms": 16,
+            "png": "png/uikit-accordion/motion.close/click-at-100-28/light/0016ms.png",
+            "scene": "scenes/uikit-accordion/motion.close/click-at-100-28/light/0016ms.json",
+            "png_sha256": "dfc3fdce5873ce31933587d80f9df75eec1c043f1bebbadca5d7201232e577c4"
+          },
+          {
+            "t_ms": 33,
+            "png": "png/uikit-accordion/motion.close/click-at-100-28/light/0033ms.png",
+            "scene": "scenes/uikit-accordion/motion.close/click-at-100-28/light/0033ms.json",
+            "png_sha256": "839261297c96c422c7514a77e5f9df6e3a9ed085814904a43674cd5b7f19c244"
+          },
+          {
+            "t_ms": 50,
+            "png": "png/uikit-accordion/motion.close/click-at-100-28/light/0050ms.png",
+            "scene": "scenes/uikit-accordion/motion.close/click-at-100-28/light/0050ms.json",
+            "png_sha256": "45ea018fca0eb4650e26eb714cffbf0acb4c01279e0c19efd7670c633aee1865"
+          },
+          {
+            "t_ms": 66,
+            "png": "png/uikit-accordion/motion.close/click-at-100-28/light/0066ms.png",
+            "scene": "scenes/uikit-accordion/motion.close/click-at-100-28/light/0066ms.json",
+            "png_sha256": "b9608a9d9e95398b3e9a6a594b63e80d470804e631e36e9370cdddac5835b284"
+          },
+          {
+            "t_ms": 83,
+            "png": "png/uikit-accordion/motion.close/click-at-100-28/light/0083ms.png",
+            "scene": "scenes/uikit-accordion/motion.close/click-at-100-28/light/0083ms.json",
+            "png_sha256": "36e79a032f92c5420e624be1675fb943fced12599b92926657657305033a136c"
+          },
+          {
+            "t_ms": 100,
+            "png": "png/uikit-accordion/motion.close/click-at-100-28/light/0100ms.png",
+            "scene": "scenes/uikit-accordion/motion.close/click-at-100-28/light/0100ms.json",
+            "png_sha256": "b402634320de5456a6633848b6c44b6c9a16e69e7a183f1b2e1c0b33afa8698d"
+          },
+          {
+            "t_ms": 133,
+            "png": "png/uikit-accordion/motion.close/click-at-100-28/light/0133ms.png",
+            "scene": "scenes/uikit-accordion/motion.close/click-at-100-28/light/0133ms.json",
+            "png_sha256": "2b712bba01203b1855b2762ff0f5deb34f17900ac32e9f7ccee327c8489512fc"
+          },
+          {
+            "t_ms": 166,
+            "png": "png/uikit-accordion/motion.close/click-at-100-28/light/0166ms.png",
+            "scene": "scenes/uikit-accordion/motion.close/click-at-100-28/light/0166ms.json",
+            "png_sha256": "fdacdc0e4abbfd979b61bff54b2620f547561eb51df90ce955604e7536b6a71f"
+          },
+          {
+            "t_ms": 200,
+            "png": "png/uikit-accordion/motion.close/click-at-100-28/light/0200ms.png",
+            "scene": "scenes/uikit-accordion/motion.close/click-at-100-28/light/0200ms.json",
+            "png_sha256": "a960ec28a6df56cb790b2a460ad38ce82812e6ec886c4cfc49950df5df134a83"
+          },
+          {
+            "t_ms": 233,
+            "png": "png/uikit-accordion/motion.close/click-at-100-28/light/0233ms.png",
+            "scene": "scenes/uikit-accordion/motion.close/click-at-100-28/light/0233ms.json",
+            "png_sha256": "a960ec28a6df56cb790b2a460ad38ce82812e6ec886c4cfc49950df5df134a83"
+          },
+          {
+            "t_ms": 266,
+            "png": "png/uikit-accordion/motion.close/click-at-100-28/light/0266ms.png",
+            "scene": "scenes/uikit-accordion/motion.close/click-at-100-28/light/0266ms.json",
+            "png_sha256": "a960ec28a6df56cb790b2a460ad38ce82812e6ec886c4cfc49950df5df134a83"
+          },
+          {
+            "t_ms": 300,
+            "png": "png/uikit-accordion/motion.close/click-at-100-28/light/0300ms.png",
+            "scene": "scenes/uikit-accordion/motion.close/click-at-100-28/light/0300ms.json",
+            "png_sha256": "a960ec28a6df56cb790b2a460ad38ce82812e6ec886c4cfc49950df5df134a83"
+          }
+        ]
+      }
+    },
+    {
+      "id": "uikit-accordion/motion.exclusive/click-at-100-98/light",
+      "component": "uikit-accordion",
+      "group": "motion.exclusive",
+      "params": {
+        "open_first": true,
+        "single": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        150.0
+      ],
+      "motion": {
+        "name": "exclusive",
+        "trigger": "click-at-100-98",
+        "from": "normal",
+        "frames": [
+          {
+            "t_ms": 0,
+            "png": "png/uikit-accordion/motion.exclusive/click-at-100-98/light/0000ms.png",
+            "scene": "scenes/uikit-accordion/motion.exclusive/click-at-100-98/light/0000ms.json",
+            "png_sha256": "8a4d5bb5fc36d3a04ba070b57d4f705f3e5f3266439cfd3219415a8e205cb4c8"
+          },
+          {
+            "t_ms": 16,
+            "png": "png/uikit-accordion/motion.exclusive/click-at-100-98/light/0016ms.png",
+            "scene": "scenes/uikit-accordion/motion.exclusive/click-at-100-98/light/0016ms.json",
+            "png_sha256": "5eb31911b763599e654cb0a857f6fbf091df2c9a1723a0aa0e7428332fd49317"
+          },
+          {
+            "t_ms": 33,
+            "png": "png/uikit-accordion/motion.exclusive/click-at-100-98/light/0033ms.png",
+            "scene": "scenes/uikit-accordion/motion.exclusive/click-at-100-98/light/0033ms.json",
+            "png_sha256": "93591c730d67ab0a1151776f8a65e2836e335c21bc2fc8d82736cde2f5e39253"
+          },
+          {
+            "t_ms": 50,
+            "png": "png/uikit-accordion/motion.exclusive/click-at-100-98/light/0050ms.png",
+            "scene": "scenes/uikit-accordion/motion.exclusive/click-at-100-98/light/0050ms.json",
+            "png_sha256": "0ac64782f75a74a8e42fd246ff669e4939b8dab2ae80dc46efe537bd7cd8525c"
+          },
+          {
+            "t_ms": 66,
+            "png": "png/uikit-accordion/motion.exclusive/click-at-100-98/light/0066ms.png",
+            "scene": "scenes/uikit-accordion/motion.exclusive/click-at-100-98/light/0066ms.json",
+            "png_sha256": "37246fe526837476db8583e6e59cac1451076f05cffab7affd8aa51b26fa4b89"
+          },
+          {
+            "t_ms": 83,
+            "png": "png/uikit-accordion/motion.exclusive/click-at-100-98/light/0083ms.png",
+            "scene": "scenes/uikit-accordion/motion.exclusive/click-at-100-98/light/0083ms.json",
+            "png_sha256": "33519b542be8482149eb6598261a4253b97172779ecfe3c26dd80f8be7850386"
+          },
+          {
+            "t_ms": 100,
+            "png": "png/uikit-accordion/motion.exclusive/click-at-100-98/light/0100ms.png",
+            "scene": "scenes/uikit-accordion/motion.exclusive/click-at-100-98/light/0100ms.json",
+            "png_sha256": "4eef9fa1c40e1c319d7ca002a9c7a96b06e4d8b0e884b1eb898378a5072c6cdb"
+          },
+          {
+            "t_ms": 133,
+            "png": "png/uikit-accordion/motion.exclusive/click-at-100-98/light/0133ms.png",
+            "scene": "scenes/uikit-accordion/motion.exclusive/click-at-100-98/light/0133ms.json",
+            "png_sha256": "339a39c8be09aba92c6c564977a1a87594e0beea028880dd4ed682c5b289d227"
+          },
+          {
+            "t_ms": 166,
+            "png": "png/uikit-accordion/motion.exclusive/click-at-100-98/light/0166ms.png",
+            "scene": "scenes/uikit-accordion/motion.exclusive/click-at-100-98/light/0166ms.json",
+            "png_sha256": "1e6635bde2c86518ab9aea525cd8360debf3f60c8ff83c1e8f693a15aac1dbc3"
+          },
+          {
+            "t_ms": 200,
+            "png": "png/uikit-accordion/motion.exclusive/click-at-100-98/light/0200ms.png",
+            "scene": "scenes/uikit-accordion/motion.exclusive/click-at-100-98/light/0200ms.json",
+            "png_sha256": "7aa885711c5de55282c19ff6a6510ef0730dc896165c32e70e3c441f81ddbe73"
+          },
+          {
+            "t_ms": 233,
+            "png": "png/uikit-accordion/motion.exclusive/click-at-100-98/light/0233ms.png",
+            "scene": "scenes/uikit-accordion/motion.exclusive/click-at-100-98/light/0233ms.json",
+            "png_sha256": "7aa885711c5de55282c19ff6a6510ef0730dc896165c32e70e3c441f81ddbe73"
+          },
+          {
+            "t_ms": 266,
+            "png": "png/uikit-accordion/motion.exclusive/click-at-100-98/light/0266ms.png",
+            "scene": "scenes/uikit-accordion/motion.exclusive/click-at-100-98/light/0266ms.json",
+            "png_sha256": "7aa885711c5de55282c19ff6a6510ef0730dc896165c32e70e3c441f81ddbe73"
+          },
+          {
+            "t_ms": 300,
+            "png": "png/uikit-accordion/motion.exclusive/click-at-100-98/light/0300ms.png",
+            "scene": "scenes/uikit-accordion/motion.exclusive/click-at-100-98/light/0300ms.json",
+            "png_sha256": "7aa885711c5de55282c19ff6a6510ef0730dc896165c32e70e3c441f81ddbe73"
+          }
+        ]
+      }
+    },
+    {
+      "id": "uikit-accordion/motion.open/click-at-100-28/light",
+      "component": "uikit-accordion",
+      "group": "motion.open",
+      "params": {},
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        119.5
+      ],
+      "motion": {
+        "name": "open",
+        "trigger": "click-at-100-28",
+        "from": "normal",
+        "frames": [
+          {
+            "t_ms": 0,
+            "png": "png/uikit-accordion/motion.open/click-at-100-28/light/0000ms.png",
+            "scene": "scenes/uikit-accordion/motion.open/click-at-100-28/light/0000ms.json",
+            "png_sha256": "86b9b18178bc811544256e1776911682870df307817a53ff9d3542458bb17246"
+          },
+          {
+            "t_ms": 16,
+            "png": "png/uikit-accordion/motion.open/click-at-100-28/light/0016ms.png",
+            "scene": "scenes/uikit-accordion/motion.open/click-at-100-28/light/0016ms.json",
+            "png_sha256": "39d51186e707e1f0ac7c6b3e55139c7f4032311e4148219cb0fb9eeab316044f"
+          },
+          {
+            "t_ms": 33,
+            "png": "png/uikit-accordion/motion.open/click-at-100-28/light/0033ms.png",
+            "scene": "scenes/uikit-accordion/motion.open/click-at-100-28/light/0033ms.json",
+            "png_sha256": "3cc549ffc648983ac901cc6b02dcbff6bbe0c0eac43bd377ede130d6590ed436"
+          },
+          {
+            "t_ms": 50,
+            "png": "png/uikit-accordion/motion.open/click-at-100-28/light/0050ms.png",
+            "scene": "scenes/uikit-accordion/motion.open/click-at-100-28/light/0050ms.json",
+            "png_sha256": "2fa55833398ec3f2e15b559d28b5c0c13c97e1bae877777a2d0fa61a6cc494d3"
+          },
+          {
+            "t_ms": 66,
+            "png": "png/uikit-accordion/motion.open/click-at-100-28/light/0066ms.png",
+            "scene": "scenes/uikit-accordion/motion.open/click-at-100-28/light/0066ms.json",
+            "png_sha256": "d203f545acf9d8d5a1263fe21fdbd6f35c904a6ead8bda64da24b62466d5deaa"
+          },
+          {
+            "t_ms": 83,
+            "png": "png/uikit-accordion/motion.open/click-at-100-28/light/0083ms.png",
+            "scene": "scenes/uikit-accordion/motion.open/click-at-100-28/light/0083ms.json",
+            "png_sha256": "72263436e1ff2400fbffe7005779ceb350702aa38fed066b4f2806d3a6a41939"
+          },
+          {
+            "t_ms": 100,
+            "png": "png/uikit-accordion/motion.open/click-at-100-28/light/0100ms.png",
+            "scene": "scenes/uikit-accordion/motion.open/click-at-100-28/light/0100ms.json",
+            "png_sha256": "fa5bb88e29c22fcd71ba36e6843099c3f423d33db092fb3054713ab8fb76872f"
+          },
+          {
+            "t_ms": 133,
+            "png": "png/uikit-accordion/motion.open/click-at-100-28/light/0133ms.png",
+            "scene": "scenes/uikit-accordion/motion.open/click-at-100-28/light/0133ms.json",
+            "png_sha256": "2023486fae8b4dfea0f6db5429a93b421e0a1ad877003e9ec58256193a75620f"
+          },
+          {
+            "t_ms": 166,
+            "png": "png/uikit-accordion/motion.open/click-at-100-28/light/0166ms.png",
+            "scene": "scenes/uikit-accordion/motion.open/click-at-100-28/light/0166ms.json",
+            "png_sha256": "2c2bfb24ed354df4be2ba0383e64f6b514dbb6f01233d927e3e30e13a9a5bb20"
+          },
+          {
+            "t_ms": 200,
+            "png": "png/uikit-accordion/motion.open/click-at-100-28/light/0200ms.png",
+            "scene": "scenes/uikit-accordion/motion.open/click-at-100-28/light/0200ms.json",
+            "png_sha256": "5f3c9b611b45fbf21412ac56122244cc60b47fce1e7866e0e3705dfb85e449ef"
+          },
+          {
+            "t_ms": 233,
+            "png": "png/uikit-accordion/motion.open/click-at-100-28/light/0233ms.png",
+            "scene": "scenes/uikit-accordion/motion.open/click-at-100-28/light/0233ms.json",
+            "png_sha256": "5f3c9b611b45fbf21412ac56122244cc60b47fce1e7866e0e3705dfb85e449ef"
+          },
+          {
+            "t_ms": 266,
+            "png": "png/uikit-accordion/motion.open/click-at-100-28/light/0266ms.png",
+            "scene": "scenes/uikit-accordion/motion.open/click-at-100-28/light/0266ms.json",
+            "png_sha256": "5f3c9b611b45fbf21412ac56122244cc60b47fce1e7866e0e3705dfb85e449ef"
+          },
+          {
+            "t_ms": 300,
+            "png": "png/uikit-accordion/motion.open/click-at-100-28/light/0300ms.png",
+            "scene": "scenes/uikit-accordion/motion.open/click-at-100-28/light/0300ms.json",
+            "png_sha256": "5f3c9b611b45fbf21412ac56122244cc60b47fce1e7866e0e3705dfb85e449ef"
+          }
+        ]
+      }
+    },
+    {
+      "id": "uikit-accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light",
+      "component": "uikit-accordion",
+      "group": "motion.reverse",
+      "params": {},
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        119.5
+      ],
+      "motion": {
+        "name": "reverse",
+        "trigger": "click-at-100-28+wait-80ms+click-at-100-28",
+        "from": "normal",
+        "frames": [
+          {
+            "t_ms": 0,
+            "png": "png/uikit-accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light/0000ms.png",
+            "scene": "scenes/uikit-accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light/0000ms.json",
+            "png_sha256": "ca52525812e3b901f1b30e0c029c8f43e2ff920374c2459810001d24d8b057c3"
+          },
+          {
+            "t_ms": 16,
+            "png": "png/uikit-accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light/0016ms.png",
+            "scene": "scenes/uikit-accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light/0016ms.json",
+            "png_sha256": "c894fb6cbdadde982fcc57363da4618f889581a2cf80f2d09040e0578613e1f3"
+          },
+          {
+            "t_ms": 33,
+            "png": "png/uikit-accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light/0033ms.png",
+            "scene": "scenes/uikit-accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light/0033ms.json",
+            "png_sha256": "ef8d6108d49e531e9693be69fdb4986fe7c9216c5c1c13f11b391b0fc888948d"
+          },
+          {
+            "t_ms": 50,
+            "png": "png/uikit-accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light/0050ms.png",
+            "scene": "scenes/uikit-accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light/0050ms.json",
+            "png_sha256": "bbc10bb47ac766a0b059cbf8a48ecde2d92495ee99ca4005464643b861eaeff3"
+          },
+          {
+            "t_ms": 66,
+            "png": "png/uikit-accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light/0066ms.png",
+            "scene": "scenes/uikit-accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light/0066ms.json",
+            "png_sha256": "1eede48976b4282a72065f68b6700d2d3b3a3f2d84ac7ba96259e66eb16e9cb4"
+          },
+          {
+            "t_ms": 83,
+            "png": "png/uikit-accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light/0083ms.png",
+            "scene": "scenes/uikit-accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light/0083ms.json",
+            "png_sha256": "fafda0156ee0dce25f34d03f5c3e9f8ed12f8f53f7157170faf62c8b8105f0bb"
+          },
+          {
+            "t_ms": 100,
+            "png": "png/uikit-accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light/0100ms.png",
+            "scene": "scenes/uikit-accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light/0100ms.json",
+            "png_sha256": "b402634320de5456a6633848b6c44b6c9a16e69e7a183f1b2e1c0b33afa8698d"
+          },
+          {
+            "t_ms": 133,
+            "png": "png/uikit-accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light/0133ms.png",
+            "scene": "scenes/uikit-accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light/0133ms.json",
+            "png_sha256": "2b712bba01203b1855b2762ff0f5deb34f17900ac32e9f7ccee327c8489512fc"
+          },
+          {
+            "t_ms": 166,
+            "png": "png/uikit-accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light/0166ms.png",
+            "scene": "scenes/uikit-accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light/0166ms.json",
+            "png_sha256": "fdacdc0e4abbfd979b61bff54b2620f547561eb51df90ce955604e7536b6a71f"
+          },
+          {
+            "t_ms": 200,
+            "png": "png/uikit-accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light/0200ms.png",
+            "scene": "scenes/uikit-accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light/0200ms.json",
+            "png_sha256": "a960ec28a6df56cb790b2a460ad38ce82812e6ec886c4cfc49950df5df134a83"
+          },
+          {
+            "t_ms": 233,
+            "png": "png/uikit-accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light/0233ms.png",
+            "scene": "scenes/uikit-accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light/0233ms.json",
+            "png_sha256": "a960ec28a6df56cb790b2a460ad38ce82812e6ec886c4cfc49950df5df134a83"
+          },
+          {
+            "t_ms": 266,
+            "png": "png/uikit-accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light/0266ms.png",
+            "scene": "scenes/uikit-accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light/0266ms.json",
+            "png_sha256": "a960ec28a6df56cb790b2a460ad38ce82812e6ec886c4cfc49950df5df134a83"
+          },
+          {
+            "t_ms": 300,
+            "png": "png/uikit-accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light/0300ms.png",
+            "scene": "scenes/uikit-accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light/0300ms.json",
+            "png_sha256": "a960ec28a6df56cb790b2a460ad38ce82812e6ec886c4cfc49950df5df134a83"
+          },
+          {
+            "t_ms": 350,
+            "png": "png/uikit-accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light/0350ms.png",
+            "scene": "scenes/uikit-accordion/motion.reverse/click-at-100-28+wait-80ms+click-at-100-28/light/0350ms.json",
+            "png_sha256": "a960ec28a6df56cb790b2a460ad38ce82812e6ec886c4cfc49950df5df134a83"
+          }
+        ]
+      }
+    },
+    {
+      "id": "uikit-accordion/single.medium/click-at-100-98+wait-600ms/dark",
+      "component": "uikit-accordion",
+      "group": "single",
+      "params": {
+        "open_first": true,
+        "single": true,
+        "size": "medium"
+      },
+      "state": "click-at-100-98+wait-600ms",
+      "theme": "dark",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        150.0
+      ],
+      "png": "png/uikit-accordion/single.medium/click-at-100-98+wait-600ms/dark.png",
+      "scene": "scenes/uikit-accordion/single.medium/click-at-100-98+wait-600ms/dark.json",
+      "png_sha256": "ed3369fd3a15ccb58391e51eb6feb205d0064408d2848ffd105b4d9aa846dfe7"
+    },
+    {
+      "id": "uikit-accordion/single.medium/click-at-100-98+wait-600ms/light",
+      "component": "uikit-accordion",
+      "group": "single",
+      "params": {
+        "open_first": true,
+        "single": true,
+        "size": "medium"
+      },
+      "state": "click-at-100-98+wait-600ms",
+      "theme": "light",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        150.0
+      ],
+      "png": "png/uikit-accordion/single.medium/click-at-100-98+wait-600ms/light.png",
+      "scene": "scenes/uikit-accordion/single.medium/click-at-100-98+wait-600ms/light.json",
+      "png_sha256": "7aa885711c5de55282c19ff6a6510ef0730dc896165c32e70e3c441f81ddbe73"
+    },
+    {
+      "id": "uikit-accordion/single.medium/normal/dark",
+      "component": "uikit-accordion",
+      "group": "single",
+      "params": {
+        "open_first": true,
+        "single": true,
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        150.0
+      ],
+      "png": "png/uikit-accordion/single.medium/normal/dark.png",
+      "scene": "scenes/uikit-accordion/single.medium/normal/dark.json",
+      "png_sha256": "567b830038b4e06a736f66f56931434f67567aa6577d21c264332e1cc52f177f"
+    },
+    {
+      "id": "uikit-accordion/single.medium/normal/light",
+      "component": "uikit-accordion",
+      "group": "single",
+      "params": {
+        "open_first": true,
+        "single": true,
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        150.0
+      ],
+      "png": "png/uikit-accordion/single.medium/normal/light.png",
+      "scene": "scenes/uikit-accordion/single.medium/normal/light.json",
+      "png_sha256": "5f3c9b611b45fbf21412ac56122244cc60b47fce1e7866e0e3705dfb85e449ef"
+    },
+    {
+      "id": "uikit-accordion/single.small/click-at-100-98+wait-600ms/dark",
+      "component": "uikit-accordion",
+      "group": "single",
+      "params": {
+        "open_first": true,
+        "single": true,
+        "size": "small"
+      },
+      "state": "click-at-100-98+wait-600ms",
+      "theme": "dark",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        136.0
+      ],
+      "png": "png/uikit-accordion/single.small/click-at-100-98+wait-600ms/dark.png",
+      "scene": "scenes/uikit-accordion/single.small/click-at-100-98+wait-600ms/dark.json",
+      "png_sha256": "d9acb5bc90b821dac9525366f0bb479d42a175dba073dd3ba15608ff5d75f716"
+    },
+    {
+      "id": "uikit-accordion/single.small/click-at-100-98+wait-600ms/light",
+      "component": "uikit-accordion",
+      "group": "single",
+      "params": {
+        "open_first": true,
+        "single": true,
+        "size": "small"
+      },
+      "state": "click-at-100-98+wait-600ms",
+      "theme": "light",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        136.0
+      ],
+      "png": "png/uikit-accordion/single.small/click-at-100-98+wait-600ms/light.png",
+      "scene": "scenes/uikit-accordion/single.small/click-at-100-98+wait-600ms/light.json",
+      "png_sha256": "54f5ccf94f6c7d9683162691f1745156f976be72dfd9f66e45a13ef3bb3604ea"
+    },
+    {
+      "id": "uikit-accordion/single.small/normal/dark",
+      "component": "uikit-accordion",
+      "group": "single",
+      "params": {
+        "open_first": true,
+        "single": true,
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        136.0
+      ],
+      "png": "png/uikit-accordion/single.small/normal/dark.png",
+      "scene": "scenes/uikit-accordion/single.small/normal/dark.json",
+      "png_sha256": "01fd649c38c96b08d6f529ed382bd5b15ce049acff23040bf39f56c27557e38a"
+    },
+    {
+      "id": "uikit-accordion/single.small/normal/light",
+      "component": "uikit-accordion",
+      "group": "single",
+      "params": {
+        "open_first": true,
+        "single": true,
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        312.0,
+        220.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        280.0,
+        136.0
+      ],
+      "png": "png/uikit-accordion/single.small/normal/light.png",
+      "scene": "scenes/uikit-accordion/single.small/normal/light.json",
+      "png_sha256": "a88a001cad053a93d1038263799c2465b7c4a5fe197fd4bd91619f9702fec826"
+    },
+    {
       "id": "uikit-buttongroup/click.base/click+click/dark",
       "component": "uikit-buttongroup",
       "group": "click",

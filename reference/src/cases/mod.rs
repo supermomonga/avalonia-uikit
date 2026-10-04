@@ -120,6 +120,7 @@ pub fn builder(case: &Case) -> Result<Builder> {
         "toolbar" => toolbar::builder(&params),
         "popover" => popover::popover(&params),
         "accordion" => accordion::builder(&params),
+        "uikit-accordion" => accordion::builder(&params),
         "notification" => notification::notification(&params),
         "resizable" => resizable::builder(&params),
         "image" => image::builder(&params),

@@ -23,6 +23,8 @@ pub fn builder(params: &Params) -> Result<Builder> {
     let open_first = param_bool(params, "open_first");
     let icons = param_bool(params, "icons");
     let width = param_f32(params, "width", 280.);
+    // `single`: GPUI's default multiple(false), one open item at a time.
+    let single = param_bool(params, "single");
     Ok(Rc::new(move |view, _, cx| {
         let open = if view.state.toggled { view.state.value as u32 } else { open_first as u32 };
         let mut accordion = Accordion::new("case")
@@ -30,7 +32,7 @@ pub fn builder(params: &Params) -> Result<Builder> {
             .with_size(size)
             .bordered(bordered)
             .disabled(scope == "all")
-            .multiple(true)
+            .multiple(!single)
             .on_toggle_click(cx.listener(|view, open: &[usize], _, cx| {
                 view.state.toggled = true;
                 view.state.value = open.iter().fold(0u32, |m, ix| m | 1 << ix) as f32;
