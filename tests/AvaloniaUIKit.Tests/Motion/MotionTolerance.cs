@@ -18,7 +18,8 @@ public static class MotionTolerance
     // R5: GPUI fades each primitive, so the two shadow layers (10% black each)
     // show through a fading bubble by up to alpha * (1 - alpha) * 10% each:
     // at most 0.25 * 0.1 * 255 * 2 = 12.75 steps. Avalonia fades the composed group.
-    private static readonly PixelTolerance FadingGroup = PixelTolerance.Default with { FlatMax = 13, InkMean = 24 };
+    // A faded border is lighter than the shadows showing through, so its mass is not compared.
+    private static readonly PixelTolerance FadingGroup = PixelTolerance.Default with { FlatMax = 13, InkMean = 24, BandMassFloor = double.PositiveInfinity };
 
     // R19: a bar narrower than its corners are wide is a 2r-wide pill in GPUI
     // (radii clamp to half the width) and the meeting of two rounded ends here.

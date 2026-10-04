@@ -48,6 +48,9 @@ public enum Region : byte
 /// <see cref="PixelComparison.InkMass"/>), checked once GPUI paints at least
 /// InkMassFloor of it. Calibrated over every case: text and icons land within
 /// 0.65-1.10 (the low end in a fading tab pill frame), a missing line at 0.
+/// BandMass* bound each corner and side of a border the same way (see
+/// <see cref="PixelComparison.BandMasses"/>): 0.69-1.32 over every case, an
+/// accordion's corners under its items' fills at 0.41, a doubled line at 2.
 /// </summary>
 public sealed record PixelTolerance(
     double FlatMax = 2,
@@ -57,6 +60,9 @@ public sealed record PixelTolerance(
     double InkMassMin = 0.6,
     double InkMassMax = 1.6,
     double InkMassFloor = 200,
+    double BandMassMin = 0.6,
+    double BandMassMax = 1.6,
+    double BandMassFloor = 200,
     double ShadowMax = 12,
     double ImageMean = 3,
     double ImageEdgeMean = 12,
@@ -65,6 +71,9 @@ public sealed record PixelTolerance(
 {
     public static PixelTolerance Default { get; } = new();
 }
+
+/// <summary>The ink of one corner or side of a GPUI border, in GPUI's frame and Avalonia's.</summary>
+public sealed record BandMass(string Piece, double Expected, double Actual);
 
 public sealed class RegionStats
 {
@@ -288,6 +297,111 @@ public static class PixelComparison
         return (e, a);
     }
 
+    /// <summary>
+    /// How much ink each of GPUI's borders paints, corner by corner and side by
+    /// side: the sum, over the band and its antialiasing, of each pixel's largest
+    /// channel difference from the fills under it. The edge regions compare a
+    /// pixel with the closest of GPUI's, so a hairline painted over (a child's
+    /// fill on a rounded corner) or left out passes them; its mass drops.
+    /// </summary>
+    public static List<BandMass> BandMasses(RgbaImage expected, RgbaImage actual, Region[] regions, GoldenScene scene, double scale)
+    {
+        var edgeReach = 1.5 / scale;
+        var result = new List<BandMass>();
+        // GPUI paints a border cut by clips as one quad per clip.
+        foreach (var group in scene.Quads
+            .Where(q => q.BorderWidths != default && !q.BorderColor.IsTransparent)
+            .GroupBy(q => (q.Bounds, q.Radii, q.BorderWidths, q.BorderColor)))
+        {
+            var (b, radii, w, _) = group.Key;
+            // A popup or a moving element may land a device pixel off (R9): its
+            // edge must not leave the band where a clip cuts it.
+            var clips = group.Select(q => q.Clip.Inflate(edgeReach)).ToList();
+            var inner = b.Deflate(w);
+            var innerRadii = new CornerRadius(
+                Math.Max(0, radii.TopLeft - Math.Max(w.Left, w.Top)),
+                Math.Max(0, radii.TopRight - Math.Max(w.Right, w.Top)),
+                Math.Max(0, radii.BottomRight - Math.Max(w.Right, w.Bottom)),
+                Math.Max(0, radii.BottomLeft - Math.Max(w.Left, w.Bottom)));
+            var hollow = inner.Width > 0 && inner.Height > 0;
+            // Where a clip cuts a side, the cut lands a device pixel either way (R9):
+            // a hairline there may be painted twice as thick or not at all.
+            var shown = group.Select(q => q.Clip).Aggregate((a, c) => a.Union(c));
+            var cut = new[] { shown.Y > b.Y + 0.01, shown.Right < b.Right - 0.01, shown.Bottom < b.Bottom - 0.01, shown.X > b.X + 0.01 };
+            var pieces = new (double Expected, double Actual)[8];
+            var area = b.Inflate(edgeReach * 1.5);
+            var x0 = Math.Max(0, (int)Math.Floor(area.X * scale));
+            var y0 = Math.Max(0, (int)Math.Floor(area.Y * scale));
+            var x1 = Math.Min(expected.Width, (int)Math.Ceiling(area.Right * scale));
+            var y1 = Math.Min(expected.Height, (int)Math.Ceiling(area.Bottom * scale));
+            for (var y = y0; y < y1; y++)
+            {
+                for (var x = x0; x < x1; x++)
+                {
+                    var px = (x + 0.5) / scale;
+                    var py = (y + 0.5) / scale;
+                    if (regions[y * expected.Width + x] is Region.Ink or Region.Excluded ||
+                        !clips.Any(c => c.Contains(new Point(px, py))) ||
+                        RoundedRectDistance(b, radii, px, py) > edgeReach * 1.01 ||
+                        (hollow && RoundedRectDistance(inner, innerRadii, px, py) < -edgeReach * 1.01))
+                    {
+                        continue;
+                    }
+                    var bg = Beneath(scene, px, py);
+                    var ep = expected.Pixel(x, y);
+                    var ap = actual.Pixel(x, y);
+                    var piece = Piece(b, radii, w, px, py);
+                    pieces[piece].Expected += Math.Max(Math.Abs(ep[0] - bg.R), Math.Max(Math.Abs(ep[1] - bg.G), Math.Abs(ep[2] - bg.B)));
+                    pieces[piece].Actual += Math.Max(Math.Abs(ap[0] - bg.R), Math.Max(Math.Abs(ap[1] - bg.G), Math.Abs(ap[2] - bg.B)));
+                }
+            }
+            for (var i = 0; i < pieces.Length; i++)
+            {
+                // Corner i lies between sides i - 1 and i (top, right, bottom, left).
+                if (i < 4 ? cut[i] || cut[(i + 3) % 4] : cut[i - 4])
+                {
+                    continue;
+                }
+                result.Add(new BandMass($"{PieceNames[i]} of the border {VisualAssert.Fmt(b)}", pieces[i].Expected, pieces[i].Actual));
+            }
+        }
+        return result;
+    }
+
+    private static readonly string[] PieceNames =
+        ["top-left corner", "top-right corner", "bottom-right corner", "bottom-left corner", "top side", "right side", "bottom side", "left side"];
+
+    // A corner reaches as far as its radius or the border's widths; the rest of
+    // the band belongs to the nearest side that has a border.
+    private static int Piece(Rect b, CornerRadius r, Thickness w, double x, double y)
+    {
+        var left = x < b.X + b.Width / 2;
+        var top = y < b.Y + b.Height / 2;
+        var (radius, wx, wy) = (left, top) switch
+        {
+            (true, true) => (r.TopLeft, w.Left, w.Top),
+            (false, true) => (r.TopRight, w.Right, w.Top),
+            (false, false) => (r.BottomRight, w.Right, w.Bottom),
+            (true, false) => (r.BottomLeft, w.Left, w.Bottom),
+        };
+        var dx = left ? x - b.X : b.Right - x;
+        var dy = top ? y - b.Y : b.Bottom - y;
+        if (dx < Math.Max(radius, wx) && dy < Math.Max(radius, wy))
+        {
+            return (left, top) switch { (true, true) => 0, (false, true) => 1, (false, false) => 2, _ => 3 };
+        }
+        var side = -1;
+        var nearest = double.MaxValue;
+        foreach (var (index, width, distance) in new[] { (4, w.Top, y - b.Y), (5, w.Right, b.Right - x), (6, w.Bottom, b.Bottom - y), (7, w.Left, x - b.X) })
+        {
+            if (width > 0 && distance < nearest)
+            {
+                (side, nearest) = (index, distance);
+            }
+        }
+        return side;
+    }
+
     private static (double R, double G, double B) Beneath(GoldenScene scene, double x, double y)
     {
         double r = 0, g = 0, b = 0;
@@ -324,7 +438,7 @@ public static class PixelComparison
         }
     }
 
-    public static PixelReport Compare(RgbaImage expected, RgbaImage actual, Region[] regions, PixelTolerance tolerance, (double Expected, double Actual)? inkMass = null)
+    public static PixelReport Compare(RgbaImage expected, RgbaImage actual, Region[] regions, PixelTolerance tolerance, (double Expected, double Actual)? inkMass = null, IReadOnlyList<BandMass>? bandMasses = null)
     {
         var failures = new List<string>();
         var stats = Enum.GetValues<Region>().ToDictionary(r => r, _ => new RegionStats());
@@ -369,6 +483,15 @@ public static class PixelComparison
             var ratio = mass.Actual / mass.Expected;
             Check(ratio >= tolerance.InkMassMin && ratio <= tolerance.InkMassMax,
                 $"ink mass {ratio:0.##}x GPUI's (allowed {tolerance.InkMassMin}-{tolerance.InkMassMax}): text, icon or line missing or extra");
+        }
+        foreach (var band in bandMasses ?? [])
+        {
+            if (band.Expected >= tolerance.BandMassFloor)
+            {
+                var ratio = band.Actual / band.Expected;
+                Check(ratio >= tolerance.BandMassMin && ratio <= tolerance.BandMassMax,
+                    $"border mass {ratio:0.##}x GPUI's at the {band.Piece} (allowed {tolerance.BandMassMin}-{tolerance.BandMassMax}): border painted over, missing or extra");
+            }
         }
         Check(stats[Region.Image].Mean <= tolerance.ImageMean, $"image mean {stats[Region.Image].Mean:0.##} > {tolerance.ImageMean}");
         Check(stats[Region.ImageEdge].Mean <= tolerance.ImageEdgeMean, $"image edge mean {stats[Region.ImageEdge].Mean:0.##} > {tolerance.ImageEdgeMean}");

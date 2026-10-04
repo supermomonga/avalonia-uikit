@@ -3,6 +3,9 @@ number: 18
 title: Normalize what each renderer draws differently before comparing
 status: accepted
 date: 2026-10-04
+links:
+- target: 25
+  kind: amendedby
 ---
 
 # Normalize what each renderer draws differently before comparing

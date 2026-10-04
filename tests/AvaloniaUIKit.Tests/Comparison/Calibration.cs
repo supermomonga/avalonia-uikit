@@ -5,6 +5,7 @@ namespace AvaloniaUIKit.Tests.Comparison;
 
 /// <summary>
 /// Appends every comparison's region statistics to tests/artifacts/pixel-stats.csv
+/// (and its ink and border masses to ink-mass.csv and border-mass.csv)
 /// when AVALONIA_UIKIT_CALIBRATE is set, for calibrating the tolerances.
 /// </summary>
 public static class Calibration
@@ -23,6 +24,20 @@ public static class Calibration
             Directory.CreateDirectory(Repo.Artifacts);
             File.AppendAllText(Path.Combine(Repo.Artifacts, "ink-mass.csv"),
                 string.Create(CultureInfo.InvariantCulture, $"{id},{mass.Expected:0},{mass.Actual:0}") + Environment.NewLine);
+        }
+    }
+
+    public static void RecordBands(string id, IReadOnlyList<BandMass> bands)
+    {
+        if (!Enabled)
+        {
+            return;
+        }
+        var lines = bands.Select(b => string.Create(CultureInfo.InvariantCulture, $"{id},\"{b.Piece}\",{b.Expected:0},{b.Actual:0}") + Environment.NewLine);
+        lock (Gate)
+        {
+            Directory.CreateDirectory(Repo.Artifacts);
+            File.AppendAllText(Path.Combine(Repo.Artifacts, "border-mass.csv"), string.Concat(lines));
         }
     }
 

@@ -12,7 +12,7 @@ NovaTheme が GPUI Kit と同じ見た目・動きになっていることを、
 | --- | --- | --- |
 | 全テスト | `scripts/verify.sh` | `dotnet build tests/AvaloniaUIKit.Tests && dotnet run --no-build --project tests/AvaloniaUIKit.Tests` と同じ。macOS 以外でも動く。 |
 | 一部だけ | `scripts/verify.sh --treenode-filter "/*/*/ButtonTests/*"` | クラス名で絞る。 |
-| 許容値の校正 | `AVALONIA_UIKIT_CALIBRATE=1 scripts/verify.sh` | `tests/artifacts/pixel-stats.csv`（領域ごとの n / max / mean / bias）と `ink-mass.csv` を書き出す。 |
+| 許容値の校正 | `AVALONIA_UIKIT_CALIBRATE=1 scripts/verify.sh` | `tests/artifacts/pixel-stats.csv`（領域ごとの n / max / mean / bias）、`ink-mass.csv`、`border-mass.csv`（枠線の角と辺ごと）を書き出す。 |
 | 参照データの再生成 | `scripts/generate-goldens.sh [--only <id 接頭辞>]` | macOS（Metal）専用。`reference/vendor/` を作り直し、生成後に 2 回描画して一致を確かめる。`Colors.g.axaml` と `Lucide.g.axaml` も再生成する。全体の生成が途中で失敗すると `goldens/` の一部が消えるので、`git checkout goldens` で戻す。 |
 | NativeAOT | `scripts/aot-smoke.sh` | ギャラリーを NativeAOT で publish し（trim / AOT 警告はエラー）、`--smoke` で Light / Dark を描画して終了する。 |
 
@@ -168,6 +168,7 @@ GPUI の Scene と Avalonia の可視ツリーを、どちらも次の図形に�
 正規化の規則（ADR 18）:
 
 - 角丸のない四角の、片側だけの枠は、その辺の帯（Fill）として扱う（GPUI の行罫線は quad の下枠、DataGrid の罫線は 1px の Rectangle）。
+- GPUI の枠の太さは、各辺とも箱の幅・高さの半分までとして読む。GPUI のシェーダーは点のある象限の辺の太さを使うので、枠は箱の中心線までしか塗られない（メニューの区切り線は、2px の箱に 2px の下枠で、見えるのは 1px）。画素の領域と枠線の量にも同じ値を使う（ADR 25）。
 - 完全に切り取られた図形（閉じた reveal の中身など）は数えない。GPUI は描かない。
 - インクの色は、ウィンドウの外の要素を数えない。文字は行ごとのインクの帯（行の幅 × フォントの ascent + descent）で判定する。TextBlock の箱は文字より広く高いため。
 - Rectangle はインクではなく箱として比べる。
@@ -195,6 +196,7 @@ GPUI の Scene から各デバイス画素を領域に分類し、領域ごと�
 | Edge | 輪郭から 1.5 デバイス px 以内。クリップが図形を切る位置も含む | 最大 64、平均 3 | 61、1.22 | R2、R9 |
 | Ink | 文字・アイコン・下線・パス | 平均 18 | 15.4 | R1、R4、R18 |
 | Ink（量） | インクの総量の比 | 0.6〜1.6 倍 | 0.75〜1.10（動きのフレームでは 0.65 から） | R1、R4 |
+| 枠線（量） | 枠線ごと、4 つの角と 4 つの辺ごとのインク量の比 | 0.6〜1.6 倍 | 0.69〜1.32 | R2、R9 |
 | Shadow | 影の広がり | 最大 12 | 11 | R3 |
 | Image | 画像の内側 | 平均 3 | 0.19 | – |
 | ImageEdge | 画像の縁から 2.5 デバイス px | 平均 12 | 6.3 | R31 |
@@ -203,13 +205,17 @@ GPUI の Scene から各デバイス画素を領域に分類し、領域ごと�
 - Edge、Ink、Image、ImageEdge は、1 デバイス px ずれた位置との差のうち最小のものを使う（R9）。
 - テストは緩和を挙げて画素を比べない範囲（Excluded 領域）を指定できる。使っているのは R33 の AvatarGroup の省略記号だけ。構造はその範囲でも比べる。
 - インク量は、各インク画素がその下の塗りからどれだけ離れているかの総和。文字が少し太い・細いのは許し、文字・アイコン・線が欠けたり余計に描かれたりしたら検出する。GPUI 側の量が 200 未満のケースでは調べない。破線の Separator が描かれていなかった不具合は、この検査で見つかった（比 0）。
+- 枠線の量は、GPUI の枠付きの quad ごとに、帯（外形と内縁の間と、その 1.5 デバイス px の AA）の画素を 4 つの角と 4 つの辺に分けて、インク量と同じ方法で数える（ADR 25）。Edge 領域は近傍の画素と比べるので、細い枠が子の背景に塗りつぶされたり消えたりしても通ってしまう。この検査ではその欠けを検出する。GPUI 側の量が 200 未満の部分は調べない。Accordion のカードの四隅が項目の背景に塗りつぶされていた不具合（比 0.41〜0.45）と、メニューの区切り線が 2px だった差（比 2.0）は、この検査で見つかった。
+  - GPUI がクリップごとに分けて描いた同じ枠は 1 つにまとめる。位置が 1 デバイス px ずれても帯から外れないよう、クリップは 1.5 デバイス px 広げて数える（R9）。
+  - クリップが辺を切る位置は丸めが分かれ、細い線が 2 倍にも 0 にもなる。その辺と両端の角は数えない（R9）。
+  - Ink 領域と Excluded 領域の画素は数えない。
 
 ケース単位で許容値を変えているのは、動きの途中フレームだけ（`Motion/MotionTolerance.cs`）:
 
 | ケース | 変更 | 理由 |
 | --- | --- | --- |
 | 不定値 Progress の途中で、GPUI のバーが角丸より細いフレーム | Flat 64、Edge 128 / 平均 6 | R19 |
-| Tooltip、Select / Combobox / DatePicker のポップアップ、Notification のカードがフェード中のフレーム | Flat 13、Ink 平均 24 | R5 |
+| Tooltip、Select / Combobox / DatePicker のポップアップ、Notification のカードがフェード中のフレーム | Flat 13、Ink 平均 24、枠線の量は比べない（半透明の背景の下に透ける影のほうが、フェード中の枠より濃い） | R5 |
 
 ### 4. 動き
 
@@ -321,11 +327,11 @@ Avalonia には時刻を指定する公開 API がないので、テストに限
 | R2 | 図形の縁の AA が異なる（GPUI は SDF、Skia は解析的 AA）。 | Edge 領域を別の許容値で比べる。 |
 | R3 | 影のぼかしの近似が異なる。spread 付きの影の角丸は、GPUI では要素のまま、Skia では spread 分だけ大きくなる。 | σ を Blur に変換（σ = 0.288675 × Blur + 0.5）し、Shadow 領域の最大値と影の角丸を緩める。角丸を保ちたい影（Notification）は、角丸を広げた別の Border で落とす。 |
 | R4 | SVG アイコンのラスタライズが異なる（resvg と Skia の Path）。 | R1 と同じく Ink 領域で比べる。 |
-| R5 | 不透明度のかけ方が異なる。GPUI は図形ごと、Avalonia はグループ全体にかける。重なった図形がフェード中だけ違って見える。 | フェード中のフレームだけ Flat を 13 に緩める（理論上の最大 12.75）。 |
+| R5 | 不透明度のかけ方が異なる。GPUI は図形ごと、Avalonia はグループ全体にかける。重なった図形がフェード中だけ違って見える。 | フェード中のフレームだけ Flat を 13 に緩め（理論上の最大 12.75）、枠線の量を比べない。 |
 | R6 | spring の途中で目標が変わったときの速度の引き継ぎ。Avalonia の Transition は速度 0 から始まる。 | 解消済み。`Motion.Spring` が GPUI と同じ式で速度を引き継ぐ。途中で戻す動きも比べる。 |
 | R7 | Avalonia に時刻を指定する公開 API がない。 | テストに限り、内部の時計と Dispatcher の時刻を差し替える（[時刻](#時刻)）。Avalonia の内部に依存する。 |
 | R8 | spring は ε 以内で止まる。止まるかどうかを調べる時刻が、GPUI は描画のたび、`Motion.Spring` は 1ms ごとで異なる。 | 差は ε（つまみで 0.1px）以内。動きのフレームの位置の許容値 ±0.51px に含める。 |
-| R9 | レイアウトの丸めが異なる。GPUI は文字の幅と高さを論理 px に切り上げ、端を最近傍のデバイス px に丸める。Avalonia はデバイス px に丸める（大きさは切り上げ）。 | 文字の幅の切り上げは `TextLines.RoundsWidthUp` で再現し、幅は ±0.26px で一致する。位置 ±0.26px、中央に置いた箱の横位置（GPUI は文字を中央に置いてから幅を切り上げるので、半 px の丸めの向きが分かれる。Popover、Calendar の月、ColorPicker のツールチップ）、折り返した文字の高さ、Edge / Ink の近傍比較、クリップの切り口を Edge にする。 |
+| R9 | レイアウトの丸めが異なる。GPUI は文字の幅と高さを論理 px に切り上げ、端を最近傍のデバイス px に丸める。Avalonia はデバイス px に丸める（大きさは切り上げ）。 | 文字の幅の切り上げは `TextLines.RoundsWidthUp` で再現し、幅は ±0.26px で一致する。位置 ±0.26px、中央に置いた箱の横位置（GPUI は文字を中央に置いてから幅を切り上げるので、半 px の丸めの向きが分かれる。Popover、Calendar の月、ColorPicker のツールチップ）、折り返した文字の高さ、Edge / Ink の近傍比較、クリップの切り口を Edge にする。枠線の量は、クリップを 1.5 デバイス px 広げて数え、クリップが切る辺を数えない。 |
 | R10 | 行の高さがフォント本来の高さより小さいときの文字の寄せ方（GPUI は中央、Avalonia は上）。 | 解消済み。`TextLines.CentersTallGlyphs` が文字を中央に寄せる。 |
 | R11 | 色の量子化（GPUI は float の HSLA、Avalonia は 8bit）。 | 色と Flat 領域で ±1/255。 |
 | R12 | ポップアップを画面内に収める処理が異なる。 | 画面端にかからない位置のケースだけを比べる。 |
@@ -411,6 +417,6 @@ Tooltip の表示遅延（500ms）、間隔（300ms）、配置（上）は、�
 
 ## 許容値を変えるとき
 
-1. `AVALONIA_UIKIT_CALIBRATE=1` で全テストを流し、`tests/artifacts/pixel-stats.csv` と `ink-mass.csv` の分布を確認する。
+1. `AVALONIA_UIKIT_CALIBRATE=1` で全テストを流し、`tests/artifacts/pixel-stats.csv`、`ink-mass.csv`、`border-mass.csv` の分布を確認する。
 2. 実測の最大値に余裕を少し足した値にする。理由のない緩和はしない。
 3. 新しい緩和には ID を付け、この表とコードのコメントに書く。

@@ -176,12 +176,19 @@
     <Setter Property="Foreground" Value="{DynamicResource UIKit.Button.Text.Normal.Foreground}" />
   </Style>
 
-  <!-- PopupMenuItem::Separator (popup_menu.rs): 2px, my_0p5, mx_neg_1. -->
+  <!--
+    PopupMenuItem::Separator (popup_menu.rs): border_b(2px) on a 2px box, my_0p5,
+    mx_neg_1, radius 1. GPUI's shader paints a border no further than the middle
+    of its box, so the line is the bottom 1px. The radius sits on the middle of
+    the 1px border (ADR 8): 1 - 0.5 below, 1 above where no border is.
+  -->
   <Style Selector="ContextMenu Separator, MenuFlyoutPresenter Separator, MenuItem Separator">
     <Setter Property="Height" Value="2" />
-    <Setter Property="Background" Value="{DynamicResource UIKit.Border}" />
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Border}" />
+    <Setter Property="BorderThickness" Value="0,0,0,1" />
     <Setter Property="Margin" Value="-4,2" />
-    <Setter Property="CornerRadius" Value="1" />
+    <Setter Property="CornerRadius" Value="1,1,0.5,0.5" />
   </Style>
   <!-- render_icon: menu icons are Size::XSmall (12px). -->
   <Style Selector="MenuItem PathIcon">
