@@ -55,6 +55,8 @@ public static partial class Adapters
         "uikit-select" => SelectCase(c, combobox: false),
         "uikit-combobox" => SelectCase(c, combobox: true),
         "tree" => Tree(c),
+        "uikit-list" => ListViewCase(c),
+        "uikit-tree" => TreeCase(c),
         "pagination" => Pagination(c),
         "tabs" => TabStrip(c),
         "toolbar" => Toolbar(c),

@@ -1,0 +1,93 @@
+# GPUI Kit Tree -> uikit:Tree, with GPUI Kit's canonical row (a ListItem with
+# 16px text, 4px vertical padding, 12px + 16px per level, a 16px folder or
+# file icon and an 8px gap; rows 34px apart). First the Tree cases again (the
+# same rows as the TreeView theme), then the right-clicked row's frame, the
+# keys, a deeper tree and reveal_item on a big one. Row centers (anchor 8): src
+# 25, components 59, button.rs 93, tree.rs 127, lib.rs 161, assets (disabled)
+# 195, Cargo.toml 229. A tree scrolled from code shows its scrollbar always:
+# GPUI's fade after such a scroll differs between two harnesses.
+component = "uikit-tree"
+viewport = [272, 254]
+anchor = [16, 8]
+
+[[group]]
+name = "rows"
+params = { width = 240, height = 238 }
+states = ["normal", "at-120-25", "at-120-93", "at-120-195", "click-at-120-93", "click-at-120-93+at-120-229"]
+
+# The press focuses the tree in both; Down moves the selection.
+[[group]]
+name = "keys"
+params = { width = 240, height = 238 }
+states = ["click-at-120-93+at-260-250+key-down"]
+
+[[group]]
+name = "selected"
+params = { width = 240, height = 238, selected = 1 }
+states = ["normal", "at-120-59"]
+
+# The story's look: rounded rows in a padded, bordered frame.
+[[group]]
+name = "rounded"
+params = { width = 240, height = 248, rounded = true, selected = 2 }
+viewport = [272, 264]
+states = ["normal", "at-120-132"]
+
+# A right press marks the row with the selection-colored frame without
+# selecting it; the marked row shows no hover. Clicking a file keeps the mark
+# (toggle_expand returns before clearing it); clicking a folder clears it.
+[[group]]
+name = "right-click"
+params = { width = 240, height = 238 }
+states = [
+  "right-click-at-120-93",
+  "right-click-at-120-93+at-260-250",
+  "click-at-120-127+right-click-at-120-93",
+  "right-click-at-120-93+click-at-120-127+at-260-250",
+  "right-click-at-120-93+click-at-120-25+at-260-250",
+]
+
+# A click selects a row and toggles a folder; Right expands and Left
+# collapses the selected folder; Up and Down wrap at the ends.
+[[group]]
+name = "toggle"
+params = { width = 240, height = 238 }
+states = [
+  "click-at-120-59+at-260-250",
+  "click-at-120-59+at-260-250+key-right",
+  "click-at-120-59+at-260-250+key-right+key-left",
+  "click-at-120-229+at-260-250+key-down",
+  "click-at-120-25+at-260-250+key-up",
+]
+
+# Three levels below src: ui (center 93) opens on a click, Down selects
+# widgets and Right opens it, indenting its files 60px.
+[[group]]
+name = "deep"
+params = { width = 240, height = 238, items = "deep" }
+states = ["normal", "click-at-120-93+at-260-250+key-down+key-right"]
+
+# reveal_item expands select.rs's ancestors and centers it, 68px down
+# (select.rs at 110-144). widgets holds 40 more files: a tree scrolled from
+# code has enough rows for the scrollbar's minimum thumb.
+[[group]]
+name = "reveal"
+params = { width = 240, height = 238, items = "deep", extra = 40, reveal = "src/ui/widgets/select.rs", strategy = "center", scrollbar_mode = "always" }
+states = ["at-260-250"]
+
+# 202 rows: only the visible ones are drawn. file_120.rs (row 121) scrolled to
+# the center (110-144), the top (8-42) and the bottom (212-246).
+[[group]]
+name = "big-center"
+params = { width = 240, height = 238, items = "big", reveal = "src/file_120.rs", strategy = "center", scrollbar_mode = "always" }
+states = ["at-260-250"]
+
+[[group]]
+name = "big-top"
+params = { width = 240, height = 238, items = "big", reveal = "src/file_120.rs", strategy = "top", scrollbar_mode = "always" }
+states = ["at-260-250"]
+
+[[group]]
+name = "big-bottom"
+params = { width = 240, height = 238, items = "big", reveal = "src/file_120.rs", strategy = "bottom", scrollbar_mode = "always" }
+states = ["at-260-250"]

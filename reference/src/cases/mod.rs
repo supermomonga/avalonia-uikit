@@ -100,6 +100,8 @@ pub fn builder(case: &Case) -> Result<Builder> {
         "uikit-select" => select::uikit_select(&params),
         "uikit-combobox" => select::uikit_combobox(&params),
         "tree" => tree::builder(&params),
+        "uikit-list" => list::builder(&params),
+        "uikit-tree" => tree::builder(&params),
         "tabs" => tabs::builder(&params),
         "tabalonia" => tabs::builder(&params),
         "dock" => dock::builder(&params),

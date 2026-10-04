@@ -1,0 +1,134 @@
+# GPUI Kit List + ListItem -> uikit:ListView / uikit:ListItem. First the List
+# cases again (the same rows as the ListBox theme), then what the control adds:
+# the right-clicked row's frame, selectable(false), sections with headers and
+# footers, the loading skeleton, the search field, the check icon of a
+# confirmed row, and scroll_to_item.
+# Rows are 34px (py 4, 16px text on a 26px line), padded 12px, with no list
+# padding: at y 8/42/76/110/144 (centers 25/59/93/127/161). Row 1 is selected;
+# row 3 (Grape) is disabled. Pointers stay off the 16px scrollbar strip at the
+# right edge (R29). After a scroll by the keys, the cases wait for the
+# scrollbar to fade out; GPUI starts the fade at the first frame after its 2s
+# timer, so the wait is split. A list scrolled from code shows its scrollbar
+# always: GPUI's fade after such a scroll differs between two harnesses.
+component = "uikit-list"
+viewport = [300, 240]
+anchor = [16, 8]
+
+[[group]]
+name = "rows"
+params = { width = 240, height = 200, selected = 1, disabled_row = 3 }
+states = ["normal", "at-60-25", "at-60-60", "at-60-125", "focus"]
+
+# The pointer leaves before the keys: GPUI repaints a row's hover only on the
+# next pointer move, so a row left under a still pointer is ambiguous.
+[[group]]
+name = "click"
+params = { width = 240, height = 200, selected = 1, disabled_row = 3 }
+states = ["click-at-60-25", "click-at-60-25+at-280-230+key-down", "click-at-60-25+at-280-230+key-down+key-down"]
+
+[[group]]
+name = "unselected"
+params = { width = 240, height = 200 }
+states = ["normal", "at-60-95"]
+
+# The scrollbar fades in after a scroll.
+[[group]]
+name = "scroll"
+params = { width = 240, height = 120, count = 12 }
+states = ["wheel-at-60-60+wait-400ms"]
+
+[[group]]
+name = "empty"
+params = { width = 240, height = 120, empty = true }
+states = ["normal"]
+
+# A right press marks the row with a 1px frame in the selection color and does
+# not select it (set_right_clicked_index); the marked row shows no hover. A
+# click on a row or a press outside the list clears the mark.
+[[group]]
+name = "right-click"
+params = { width = 240, height = 200, selected = 1, disabled_row = 3 }
+states = [
+  "right-click-at-60-93",
+  "right-click-at-60-59",
+  "right-click-at-60-93+at-280-230",
+  "right-click-at-60-93+click-at-60-161+at-280-230",
+  "right-click-at-60-93+click-at-280-230",
+]
+
+# selectable(false): clicks, right presses and keys select nothing; rows still hover.
+[[group]]
+name = "unselectable"
+params = { width = 240, height = 200, selectable = false }
+states = ["click-at-60-59", "right-click-at-60-93", "click-at-60-59+at-280-230+key-down"]
+
+# Sections: the story's header (14px muted text on a 22.5px line, px 8, pb 4)
+# and footer (12px muted text on a 19.5px line, pt 4, pb 20); the empty middle
+# section is skipped. Header 8-34.5, Apple 34.5-68.5 (center 51.5), Banana
+# 68.5-102.5 (85.5), Cherry 102.5-136.5 (119.5), footer to 180, the next
+# header to 206.5, Lemon from there. Keys skip headers and footers, wrap at
+# the ends and scroll the row into view (Lime: 80.5px down).
+[[group]]
+name = "sections"
+params = { width = 240, height = 220, sections = true }
+viewport = [300, 244]
+states = [
+  "normal",
+  "at-60-85",
+  "click-at-60-119+at-280-236+key-down+wait-2100ms+wait-1000ms",
+  "click-at-60-51+at-280-236+key-up+wait-2100ms+wait-1000ms",
+]
+
+# scroll_to_item(Center) on the first row of the last section, which holds 30
+# more rows, with headers as tall as a row and no footers: Lemon at 101-135.
+# The cases scrolled from code have rows of one height (Avalonia's virtualizing
+# panel estimates the rows it has not laid out from the ones it has) and
+# enough of them for the scrollbar's minimum thumb.
+[[group]]
+name = "sections-scroll-to"
+params = { width = 240, height = 220, sections = true, row_headers = true, extra = 30, selected = [2, 0], scroll_to = [2, 0], strategy = "center", scrollbar_mode = "always" }
+viewport = [300, 244]
+states = ["at-280-236"]
+
+# loading: three skeleton rows (loading.rs) instead of the rows.
+[[group]]
+name = "loading"
+params = { width = 240, height = 200, loading = true }
+states = ["normal"]
+
+# searchable: a borderless 32px input with the 14px search icon and the
+# "Search..." placeholder, px 8 and a bottom border, above the rows. Tab
+# focuses the input, which shows no ring.
+[[group]]
+name = "search"
+params = { width = 240, height = 240, count = 12, searchable = true }
+viewport = [300, 264]
+states = ["normal", "focus"]
+
+# A query filters the rows (perform_search) and selects the first one; the
+# input shows its clear button. No match shows the empty view.
+[[group]]
+name = "query"
+params = { width = 240, height = 240, count = 12, searchable = true }
+viewport = [300, 264]
+matrix = { query = ["an", "xyz"] }
+states = ["wait-50ms+wait-200ms"]
+
+# check_icon + confirmed: a 20px column at the row's end, the 14px check in
+# muted on the confirmed row, which shows no hover.
+[[group]]
+name = "confirmed"
+params = { width = 240, height = 200, selected = 1, check_icon = true, confirmed = 2 }
+states = ["normal", "at-60-93"]
+
+# scroll_to_item: Center centers the row (Item 21 at 91-125); Top scrolls
+# only as far as the row needs (the virtual list's nearest rule: at 174-208).
+[[group]]
+name = "scroll-to-center"
+params = { width = 240, height = 200, count = 30, selected = 20, scroll_to = 20, strategy = "center", scrollbar_mode = "always" }
+states = ["at-280-230"]
+
+[[group]]
+name = "scroll-to-top"
+params = { width = 240, height = 200, count = 30, selected = 20, scroll_to = 20, strategy = "top", scrollbar_mode = "always" }
+states = ["at-280-230"]
