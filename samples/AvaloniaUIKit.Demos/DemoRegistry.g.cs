@@ -540,6 +540,21 @@ public sealed partial class ListEmpty : UserControl
     public ListEmpty() => AvaloniaXamlLoader.Load(this);
 }
 
+public sealed partial class ListLoading : UserControl
+{
+    public ListLoading() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class ListSearch : UserControl
+{
+    public ListSearch() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class ListSections : UserControl
+{
+    public ListSections() => AvaloniaXamlLoader.Load(this);
+}
+
 public sealed partial class MarkerAlignment : UserControl
 {
     public MarkerAlignment() => AvaloniaXamlLoader.Load(this);
@@ -1110,6 +1125,16 @@ public sealed partial class TreeRounded : UserControl
     public TreeRounded() => AvaloniaXamlLoader.Load(this);
 }
 
+public sealed partial class TreeTreeItems : UserControl
+{
+    public TreeTreeItems() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class TreeVirtualized : UserControl
+{
+    public TreeVirtualized() => AvaloniaXamlLoader.Load(this);
+}
+
 public sealed partial class VirtualListDemo : UserControl
 {
     public VirtualListDemo() => AvaloniaXamlLoader.Load(this);
@@ -1227,6 +1252,9 @@ public static partial class DemoRegistry
         ["link/inline"] = static () => new LinkInline(),
         ["list/demo"] = static () => new ListDemo(),
         ["list/empty"] = static () => new ListEmpty(),
+        ["list/loading"] = static () => new ListLoading(),
+        ["list/search"] = static () => new ListSearch(),
+        ["list/sections"] = static () => new ListSections(),
         ["marker/alignment"] = static () => new MarkerAlignment(),
         ["marker/demo"] = static () => new MarkerDemo(),
         ["marker/loading"] = static () => new MarkerLoading(),
@@ -1341,6 +1369,8 @@ public static partial class DemoRegistry
         ["tooltip/placements"] = static () => new TooltipPlacements(),
         ["tree/demo"] = static () => new TreeDemo(),
         ["tree/rounded"] = static () => new TreeRounded(),
+        ["tree/tree-items"] = static () => new TreeTreeItems(),
+        ["tree/virtualized"] = static () => new TreeVirtualized(),
         ["virtual-list/demo"] = static () => new VirtualListDemo(),
     };
 }

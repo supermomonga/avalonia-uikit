@@ -8,3 +8,5 @@ description: "A virtualized list with the List's rows, as ListBox over a Virtual
 ## Usage
 
 `ListBox` virtualizes with a `VirtualizingStackPanel` by default, and the theme keeps that panel, so the rows and the overlay scrollbar of the [List](/components/list) apply to long lists as they are. Bind `ItemsSource` and give the row a `DataTemplate` in `ItemTemplate`; the demo lists ten thousand records, and only the rows in view are realized. A virtual list looks the same as the List, so there is no class to add.
+
+To scroll to a row from code, or for sections, a search field or loading more at the end, use `uikit:ListView` (see [List](/components/list)); its rows share one height.

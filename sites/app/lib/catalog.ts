@@ -94,7 +94,7 @@ export const components: ComponentEntry[] = [
   entry("kbd", "Kbd", "Kbd", "uikit:Kbd", "new", "Data display"),
   entry("label", "Label", "Label", "TextBlock.label, Label", "partial", "Data display"),
   entry("link", "Link", "Link", "HyperlinkButton", "full", "Buttons"),
-  entry("list", "List", "List", "ListBox", "partial", "Data display", { scroll: true }),
+  entry("list", "List", "List", "ListBox, uikit:ListView", "partial", "Data display", { scroll: true }),
   entry("marker", "Marker", "Marker", "uikit:Marker", "new", "Feedback"),
   entry("menu", "Menu", "Menu, ContextMenu, DropdownMenu, AppMenuBar", "Menu, ContextMenu, MenuFlyout", "full", "Overlays"),
   entry("message", "Message", "Message", "uikit:Message", "new", "Data display"),
@@ -130,7 +130,7 @@ export const components: ComponentEntry[] = [
   entry("toggle-group", "Toggle Group", "ToggleGroup", "ListBox.toggle-group", "partial", "Buttons"),
   entry("toolbar", "Toolbar", "Toolbar", "CommandBar", "partial", "Navigation"),
   entry("tooltip", "Tooltip", "Tooltip", "ToolTip", "full", "Overlays"),
-  entry("tree", "Tree", "Tree", "TreeView", "partial", "Data display", { scroll: true }),
+  entry("tree", "Tree", "Tree", "TreeView, uikit:Tree", "partial", "Data display", { scroll: true }),
   entry("virtual-list", "Virtual List", "VirtualList", "ListBox, VirtualizingStackPanel", "partial", "Data display", { scroll: true }),
 ]
 

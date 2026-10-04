@@ -1,6 +1,6 @@
 ---
 title: "Tree"
-description: "Tree rows with folder and file icons, as TreeView."
+description: "Tree rows with folder and file icons, as TreeView, and the virtualized uikit:Tree."
 ---
 
 <Demo name="tree/demo" />
@@ -14,3 +14,17 @@ The theme covers `TreeView` and `TreeViewItem` with list-style rows: 16px text w
 For a framed tree, give the `TreeView` a border, `Padding` and `CornerRadius`, and round the rows with a `Style` that sets `CornerRadius` on `TreeViewItem`.
 
 <Demo name="tree/rounded" title="Rounded" />
+
+## Tree
+
+`uikit:Tree` lays the visible part of a tree out as one list of rows and virtualizes it, so a tree of any size stays fast. Its rows have the look above. Give it `uikit:TreeItem`s (`Label`, child items, `IsExpanded`, `IsDisabled`) as children or in `ItemsSource`. For your own objects, `ChildrenSelector` (or a `TreeDataTemplate` in `ItemTemplate`) gives an item's children, `DisabledSelector` disables items, and `Expand`, `Collapse` and `IsItemExpanded` set and read what is open. `ItemTemplate` draws the content after the icon.
+
+- A press selects a row and opens or closes a folder. Up and Down move the selection and wrap at the ends; Right opens and Left closes the selected folder, and Enter toggles it. `SelectionChanged`, `Expanded` and `Collapsed` report the changes.
+- A right press marks the row with a frame in the selection color without selecting it (`RightClickedItem`).
+- `RevealItem(item, strategy)` opens the item's folders and scrolls it into view; setting `SelectedItem` to a hidden item opens its folders too. `ScrollToItem(index, strategy)` scrolls to a row of `Entries`.
+
+<Demo name="tree/tree-items" title="Tree" />
+
+Fifty packages of two hundred files each: only the rows in view are realized.
+
+<Demo name="tree/virtualized" title="Virtualized" />

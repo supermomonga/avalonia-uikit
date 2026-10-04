@@ -1,0 +1,21 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:uikit="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.ListSections">
+  <uikit:ListView Width="280" Height="300" HorizontalAlignment="Left" SelectedItem="Banana">
+    <uikit:ListSection Header="Fruits" Footer="3 items">
+      <x:String>Apple</x:String>
+      <x:String>Banana</x:String>
+      <x:String>Cherry</x:String>
+    </uikit:ListSection>
+    <uikit:ListSection Header="Citrus" Footer="3 items">
+      <x:String>Lemon</x:String>
+      <x:String>Orange</x:String>
+      <x:String>Lime</x:String>
+    </uikit:ListSection>
+    <uikit:ListSection Header="Berries" Footer="2 items">
+      <x:String>Strawberry</x:String>
+      <x:String>Blueberry</x:String>
+    </uikit:ListSection>
+  </uikit:ListView>
+</UserControl>
