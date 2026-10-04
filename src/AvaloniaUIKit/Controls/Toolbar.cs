@@ -77,7 +77,7 @@ public class Toolbar : Panel
 
     /// <inheritdoc />
     protected override Size MeasureOverride(Size availableSize) =>
-        ToolbarLayout.Measure(this, availableSize, Spacing, Padding);
+        ToolbarLayout.Measure(this, Spacing, Padding);
 
     /// <inheritdoc />
     protected override Size ArrangeOverride(Size finalSize) =>
@@ -143,7 +143,7 @@ public class ToolbarGroup : Panel
 
     /// <inheritdoc />
     protected override Size MeasureOverride(Size availableSize) =>
-        ToolbarLayout.Measure(this, availableSize, Spacing, default);
+        ToolbarLayout.Measure(this, Spacing, default);
 
     /// <inheritdoc />
     protected override Size ArrangeOverride(Size finalSize) =>
@@ -161,10 +161,9 @@ public class ToolbarSpacer : Control
 /// <summary>The row layout and the size passing of <see cref="Toolbar"/> and <see cref="ToolbarGroup"/>.</summary>
 internal static class ToolbarLayout
 {
-    /// <summary>Measures the visible children in a row, spacers taking no width.</summary>
-    public static Size Measure(Panel panel, Size available, double spacing, Thickness padding)
+    /// <summary>Measures the visible children in a row, spacers taking no space.</summary>
+    public static Size Measure(Panel panel, double spacing, Thickness padding)
     {
-        var inner = available.Deflate(padding);
         double width = 0, height = 0;
         var count = 0;
         foreach (var child in panel.Children)
@@ -173,7 +172,8 @@ internal static class ToolbarLayout
             {
                 continue;
             }
-            child.Measure(child is ToolbarSpacer ? new Size(0, inner.Height) : new Size(double.PositiveInfinity, inner.Height));
+            // A flex row: an item keeps its own height, centered even when it is taller than the row.
+            child.Measure(child is ToolbarSpacer ? new Size(0, 0) : Size.Infinity);
             width += child.DesiredSize.Width;
             height = Math.Max(height, child.DesiredSize.Height);
             count++;
@@ -193,7 +193,7 @@ internal static class ToolbarLayout
         foreach (var child in visible)
         {
             var width = child is ToolbarSpacer ? share : child.DesiredSize.Width;
-            var height = Math.Min(child.DesiredSize.Height, inner.Height);
+            var height = child.DesiredSize.Height;
             child.Arrange(new Rect(x, inner.Y + (inner.Height - height) / 2, width, height));
             x += width + spacing;
         }

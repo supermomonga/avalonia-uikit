@@ -119,7 +119,7 @@
           <Separator Classes="vertical" Height="20" />
           <ToggleButton Content="B" IsChecked="True" />
           <uikit:ToolbarSpacer />
-          <Button Classes="primary" Content="Publish" uikit:Toolbar.TakesSize="False" />
+          <Button Classes="primary small" Content="Publish" uikit:Toolbar.TakesSize="False" />
         </uikit:Toolbar>
 
         <TextBlock Text="SplitButton" Foreground="{DynamicResource UIKit.MutedForeground}" />
