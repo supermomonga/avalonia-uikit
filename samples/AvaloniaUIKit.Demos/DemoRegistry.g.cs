@@ -325,6 +325,11 @@ public sealed partial class ComboboxTrigger : UserControl
     public ComboboxTrigger() => AvaloniaXamlLoader.Load(this);
 }
 
+public sealed partial class DataTableCellSelection : UserControl
+{
+    public DataTableCellSelection() => AvaloniaXamlLoader.Load(this);
+}
+
 public sealed partial class DataTableDataGrid : UserControl
 {
     public DataTableDataGrid() => AvaloniaXamlLoader.Load(this);
@@ -333,6 +338,11 @@ public sealed partial class DataTableDataGrid : UserControl
 public sealed partial class DataTableDemo : UserControl
 {
     public DataTableDemo() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class DataTableEmpty : UserControl
+{
+    public DataTableEmpty() => AvaloniaXamlLoader.Load(this);
 }
 
 public sealed partial class DataTableSizes : UserControl
@@ -413,6 +423,11 @@ public sealed partial class DockDocuments : UserControl
 public sealed partial class DockPinned : UserControl
 {
     public DockPinned() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class DropdownButtonCaret : UserControl
+{
+    public DropdownButtonCaret() => AvaloniaXamlLoader.Load(this);
 }
 
 public sealed partial class DropdownButtonDemo : UserControl
@@ -533,6 +548,11 @@ public sealed partial class InputGroupDemo : UserControl
 public sealed partial class InputGroupStates : UserControl
 {
     public InputGroupStates() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class InputClear : UserControl
+{
+    public InputClear() => AvaloniaXamlLoader.Load(this);
 }
 
 public sealed partial class InputDemo : UserControl
@@ -678,6 +698,11 @@ public sealed partial class NotificationDemo : UserControl
 public sealed partial class NotificationTypes : UserControl
 {
     public NotificationTypes() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class NumberInputAffixes : UserControl
+{
+    public NumberInputAffixes() => AvaloniaXamlLoader.Load(this);
 }
 
 public sealed partial class NumberInputDemo : UserControl
@@ -830,9 +855,19 @@ public sealed partial class SelectClear : UserControl
     public SelectClear() => AvaloniaXamlLoader.Load(this);
 }
 
+public sealed partial class SelectClearable : UserControl
+{
+    public SelectClearable() => AvaloniaXamlLoader.Load(this);
+}
+
 public sealed partial class SelectDemo : UserControl
 {
     public SelectDemo() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class SelectEditable : UserControl
+{
+    public SelectEditable() => AvaloniaXamlLoader.Load(this);
 }
 
 public sealed partial class SelectGroups : UserControl
@@ -1299,8 +1334,10 @@ public static partial class DemoRegistry
         ["combobox/multiple"] = static () => new ComboboxMultiple(),
         ["combobox/sizes"] = static () => new ComboboxSizes(),
         ["combobox/trigger"] = static () => new ComboboxTrigger(),
+        ["data-table/cell-selection"] = static () => new DataTableCellSelection(),
         ["data-table/data-grid"] = static () => new DataTableDataGrid(),
         ["data-table/demo"] = static () => new DataTableDemo(),
+        ["data-table/empty"] = static () => new DataTableEmpty(),
         ["data-table/sizes"] = static () => new DataTableSizes(),
         ["data-table/striped"] = static () => new DataTableStriped(),
         ["date-picker/date-field"] = static () => new DatePickerDateField(),
@@ -1317,6 +1354,7 @@ public static partial class DemoRegistry
         ["dock/demo"] = static () => new DockDemo(),
         ["dock/documents"] = static () => new DockDocuments(),
         ["dock/pinned"] = static () => new DockPinned(),
+        ["dropdown-button/caret"] = static () => new DropdownButtonCaret(),
         ["dropdown-button/demo"] = static () => new DropdownButtonDemo(),
         ["dropdown-button/loading"] = static () => new DropdownButtonLoading(),
         ["dropdown-button/sizes"] = static () => new DropdownButtonSizes(),
@@ -1341,6 +1379,7 @@ public static partial class DemoRegistry
         ["input-group/buttons"] = static () => new InputGroupButtons(),
         ["input-group/demo"] = static () => new InputGroupDemo(),
         ["input-group/states"] = static () => new InputGroupStates(),
+        ["input/clear"] = static () => new InputClear(),
         ["input/demo"] = static () => new InputDemo(),
         ["input/icons"] = static () => new InputIcons(),
         ["input/password"] = static () => new InputPassword(),
@@ -1370,6 +1409,7 @@ public static partial class DemoRegistry
         ["notification/card"] = static () => new NotificationCard(),
         ["notification/demo"] = static () => new NotificationDemo(),
         ["notification/types"] = static () => new NotificationTypes(),
+        ["number-input/affixes"] = static () => new NumberInputAffixes(),
         ["number-input/demo"] = static () => new NumberInputDemo(),
         ["number-input/range"] = static () => new NumberInputRange(),
         ["number-input/sizes"] = static () => new NumberInputSizes(),
@@ -1400,7 +1440,9 @@ public static partial class DemoRegistry
         ["scrollable/horizontal"] = static () => new ScrollableHorizontal(),
         ["scrollable/modes"] = static () => new ScrollableModes(),
         ["select/clear"] = static () => new SelectClear(),
+        ["select/clearable"] = static () => new SelectClearable(),
         ["select/demo"] = static () => new SelectDemo(),
+        ["select/editable"] = static () => new SelectEditable(),
         ["select/groups"] = static () => new SelectGroups(),
         ["select/search"] = static () => new SelectSearch(),
         ["select/sizes"] = static () => new SelectSizes(),

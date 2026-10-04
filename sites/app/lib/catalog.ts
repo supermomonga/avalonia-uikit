@@ -82,7 +82,7 @@ export const components: ComponentEntry[] = [
   entry("date-picker", "Date Picker", "DatePicker", "CalendarDatePicker, uikit:DateField", "partial", "Forms"),
   entry("dock", "Dock", "Dock, DockArea, Panel, TabPanel", "DockControl", "partial", "Layout", { package: "AvaloniaUIKit.Dock", library: "Dock.Avalonia" }),
   entry("description-list", "Description List", "DescriptionList", "uikit:DescriptionList", "new", "Data display"),
-  entry("dropdown-button", "Dropdown Button", "DropdownButton", "SplitButton, uikit:Buttons", "full", "Buttons"),
+  entry("dropdown-button", "Dropdown Button", "DropdownButton", "SplitButton, DropDownButton, uikit:Buttons", "full", "Buttons"),
   entry("empty", "Empty", "Empty", "uikit:EmptyState", "new", "Feedback"),
   entry("form", "Form", "Form, Field", "uikit:Form, uikit:FormField", "new", "Forms"),
   entry("group-box", "Group Box", "GroupBox", "GroupBox", "full", "Layout"),

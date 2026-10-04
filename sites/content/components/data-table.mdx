@@ -7,7 +7,7 @@ description: "A data table as Avalonia's TableView, or DataGrid with the Avaloni
 
 ## Usage
 
-`TableView` has the data table look by default: a bordered box with the theme radius, a header band with a rule under it, rows of a fixed height with a rule under each, the hover and selection fills, resize handles on the header edges and overlay scrollbars. Columns are `TableViewColumn`s with a `Header` and a `Binding`; give them pixel `Width`s, and `HorizontalContentAlignment="Right"` for numbers. The plain table is the same control with `Theme="{StaticResource UIKitTable}"`: see [Table](/components/table).
+`TableView` has the data table look by default: a bordered box with the theme radius, a header band with a rule under it, rows of a fixed height with a rule under each, the hover and selection fills, resize handles on the header edges and overlay scrollbars. Without rows, the body shows an empty-box icon. Columns are `TableViewColumn`s with a `Header` and a `Binding`; give them pixel `Width`s, and `HorizontalContentAlignment="Right"` for numbers. The plain table is the same control with `Theme="{StaticResource UIKitTable}"`: see [Table](/components/table).
 
 | Class | Effect |
 | --- | --- |
@@ -19,7 +19,7 @@ description: "A data table as Avalonia's TableView, or DataGrid with the Avaloni
 
 The default is 32px rows with 8×4 padding and 14px text.
 
-For `DataGrid` (the `Avalonia.Controls.DataGrid` package), add `UIKitDataGridTheme` from the `AvaloniaUIKit.DataGrid` package to the application's styles after `UIKitTheme`. The grid takes the same look, with what DataGrid has of its own: sort indicators in the headers, column resizing and reordering. Set `IsReadOnly="True"` for a table that only displays (a click edits a cell otherwise) and `CanUserResizeColumns="True"` (off by default); right-align a column with `CellStyleClasses="text-right"` and a right-aligned header. The `stripe`, `borderless` and size classes are the same.
+For `DataGrid` (the `Avalonia.Controls.DataGrid` package), add `UIKitDataGridTheme` from the `AvaloniaUIKit.DataGrid` package to the application's styles after `UIKitTheme`. The grid takes the same look, with what DataGrid has of its own: sort indicators in the headers, column resizing and reordering. Set `IsReadOnly="True"` for a table that only displays (a click edits a cell otherwise) and `CanUserResizeColumns="True"` (off by default); right-align a column with `CellStyleClasses="text-right"` and a right-aligned header. The `stripe`, `borderless` and size classes are the same. `Classes="cell-selectable"` selects cells instead of rows: the current cell of the selected row takes the selection color and moves with the arrow keys, and the row keeps its plain look. `HeadersVisibility="All"` adds a narrow row header column.
 
 ## Examples
 
@@ -34,3 +34,11 @@ For `DataGrid` (the `Avalonia.Controls.DataGrid` package), add `UIKitDataGridThe
 `DataGrid` with `UIKitDataGridTheme`: read-only, sortable from the headers, resizable columns, and an amount column right-aligned with `CellStyleClasses="text-right"`.
 
 <Demo name="data-table/data-grid" title="DataGrid" />
+
+A `DataGrid` with `Classes="cell-selectable"`: click a cell, then move with the arrow keys.
+
+<Demo name="data-table/cell-selection" title="Cell selection" />
+
+A table without rows.
+
+<Demo name="data-table/empty" title="Empty" />

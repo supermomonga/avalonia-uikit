@@ -1,0 +1,23 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:uikit="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.DropdownButtonCaret">
+  <Panel MinHeight="160">
+    <Panel.Resources>
+      <MenuFlyout x:Key="FileMenu" Placement="BottomEdgeAlignedLeft">
+        <MenuItem Header="New File" />
+        <MenuItem Header="Open..." />
+        <Separator />
+        <MenuItem Header="Close" />
+      </MenuFlyout>
+    </Panel.Resources>
+    <WrapPanel ItemSpacing="8" LineSpacing="8" VerticalAlignment="Top">
+      <DropDownButton Content="Default" Flyout="{StaticResource FileMenu}" />
+      <DropDownButton Classes="primary" Content="Primary" Flyout="{StaticResource FileMenu}" />
+      <DropDownButton Classes="outline" Content="Outline" Flyout="{StaticResource FileMenu}" />
+      <DropDownButton Classes="ghost" Content="Ghost" Flyout="{StaticResource FileMenu}" />
+      <DropDownButton Classes="small" Content="Small" Flyout="{StaticResource FileMenu}" />
+      <DropDownButton Content="Disabled" IsEnabled="False" Flyout="{StaticResource FileMenu}" />
+    </WrapPanel>
+  </Panel>
+</UserControl>

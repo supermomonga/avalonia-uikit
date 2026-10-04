@@ -7,7 +7,7 @@ description: "A plain table, as a TableView with a named theme."
 
 ## Usage
 
-`TableView Theme="{StaticResource UIKitTable}"` gives a plain table: a header band, rows sized by their content with a rule between them, 14px text at every size, cells centered in their rows, and no hover or selection colors. The default `TableView` theme is the [Data Table](/components/data-table); both share the cell and header themes. The table has no border of its own: `BorderThickness="1" CornerRadius="5.5"` makes a bordered one.
+`TableView Theme="{StaticResource UIKitTable}"` gives a plain table: a header band, rows sized by their content with a rule between them, 14px text at every size, cells centered in their rows, and no hover or selection colors. The default `TableView` theme is the [Data Table](/components/data-table); both share the cell and header themes. The table has no border of its own: `BorderThickness="1" CornerRadius="5.5"` makes a bordered one. Without rows it shows the header alone.
 
 Columns are `TableViewColumn`s with a `Header` and a `Binding`. `Width` fixes a column in pixels, and `HorizontalContentAlignment="Right"` right-aligns a column's cells.
 
