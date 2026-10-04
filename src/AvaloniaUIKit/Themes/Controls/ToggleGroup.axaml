@@ -9,9 +9,15 @@
   Selected items show the accent, as checked toggles do. The selection rule is
   the app's (SelectionMode); GPUI's group lets every toggle flip on its own,
   which Multiple,Toggle matches.
+
+  uikit:ToggleGroup is the group with GPUI's API and keyboard: ToggleButtons
+  (drawn by their own theme) that each flip on their own and are each a Tab
+  stop, the arrow keys doing nothing. The group's outline and size classes go
+  on its toggles; segmented joins them as above.
 -->
 <Styles xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:uikit="using:AvaloniaUIKit">
   <Styles.Resources>
     <ControlTheme x:Key="UIKitToggleGroupItem" TargetType="ListBoxItem">
       <Setter Property="Background" Value="Transparent" />
@@ -80,6 +86,14 @@
     </Setter>
   </Style>
 
+  <!-- uikit:ToggleGroup: its toggles 8px apart (h_flex gap_2), joined when segmented. -->
+  <Style Selector="uikit|ToggleGroup">
+    <Setter Property="Spacing" Value="8" />
+  </Style>
+  <Style Selector="uikit|ToggleGroup.segmented">
+    <Setter Property="Spacing" Value="0" />
+  </Style>
+
   <!-- Sizes (toggle.rs): xsmall 20, small 24, medium 32, large 36. -->
   <Style Selector="ListBox.toggle-group.xsmall > ListBoxItem">
     <Setter Property="Height" Value="20" />
@@ -126,22 +140,22 @@
   </Style>
 
   <!-- Segmented: the outer corners only, and one shared edge (the left item's right edge). -->
-  <Style Selector="ListBox.toggle-group.segmented > ListBoxItem:nth-child(1):not(:nth-last-child(1))">
+  <Style Selector="ListBox.toggle-group.segmented > ListBoxItem:nth-child(1):not(:nth-last-child(1)), uikit|ToggleGroup.segmented > ToggleButton:nth-child(1):not(:nth-last-child(1))">
     <Setter Property="CornerRadius" Value="6,0,0,6" />
   </Style>
-  <Style Selector="ListBox.toggle-group.segmented > ListBoxItem:nth-last-child(1):not(:nth-child(1))">
+  <Style Selector="ListBox.toggle-group.segmented > ListBoxItem:nth-last-child(1):not(:nth-child(1)), uikit|ToggleGroup.segmented > ToggleButton:nth-last-child(1):not(:nth-child(1))">
     <Setter Property="CornerRadius" Value="0,6,6,0" />
   </Style>
-  <Style Selector="ListBox.toggle-group.segmented.outline > ListBoxItem:nth-child(1):not(:nth-last-child(1))">
+  <Style Selector="ListBox.toggle-group.segmented.outline > ListBoxItem:nth-child(1):not(:nth-last-child(1)), uikit|ToggleGroup.segmented.outline > ToggleButton:nth-child(1):not(:nth-last-child(1))">
     <Setter Property="CornerRadius" Value="5.5,0,0,5.5" />
   </Style>
-  <Style Selector="ListBox.toggle-group.segmented.outline > ListBoxItem:nth-last-child(1):not(:nth-child(1))">
+  <Style Selector="ListBox.toggle-group.segmented.outline > ListBoxItem:nth-last-child(1):not(:nth-child(1)), uikit|ToggleGroup.segmented.outline > ToggleButton:nth-last-child(1):not(:nth-child(1))">
     <Setter Property="CornerRadius" Value="0,5.5,5.5,0" />
   </Style>
-  <Style Selector="ListBox.toggle-group.segmented > ListBoxItem:not(:nth-child(1)):not(:nth-last-child(1))">
+  <Style Selector="ListBox.toggle-group.segmented > ListBoxItem:not(:nth-child(1)):not(:nth-last-child(1)), uikit|ToggleGroup.segmented > ToggleButton:not(:nth-child(1)):not(:nth-last-child(1))">
     <Setter Property="CornerRadius" Value="0" />
   </Style>
-  <Style Selector="ListBox.toggle-group.segmented.outline > ListBoxItem:not(:nth-child(1))">
+  <Style Selector="ListBox.toggle-group.segmented.outline > ListBoxItem:not(:nth-child(1)), uikit|ToggleGroup.segmented.outline > ToggleButton:not(:nth-child(1))">
     <Setter Property="BorderThickness" Value="0,1,1,1" />
   </Style>
 

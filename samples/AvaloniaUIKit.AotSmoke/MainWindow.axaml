@@ -78,6 +78,26 @@
           </uikit:ButtonGroup>
         </WrapPanel>
 
+        <TextBlock Text="uikit:ToggleGroup" Foreground="{DynamicResource UIKit.MutedForeground}" />
+        <WrapPanel ItemSpacing="8" LineSpacing="8">
+          <uikit:ToggleGroup>
+            <ToggleButton Content="Bold" IsChecked="True" />
+            <ToggleButton Content="Italic" />
+            <ToggleButton Content="Underline" />
+          </uikit:ToggleGroup>
+          <uikit:ToggleGroup Classes="outline segmented small">
+            <ToggleButton IsChecked="True">
+              <PathIcon Data="{StaticResource UIKit.Icon.Bell}" />
+            </ToggleButton>
+            <ToggleButton>
+              <PathIcon Data="{StaticResource UIKit.Icon.Inbox}" />
+            </ToggleButton>
+            <ToggleButton>
+              <PathIcon Data="{StaticResource UIKit.Icon.Check}" />
+            </ToggleButton>
+          </uikit:ToggleGroup>
+        </WrapPanel>
+
         <TextBlock Text="SplitButton" Foreground="{DynamicResource UIKit.MutedForeground}" />
         <WrapPanel ItemSpacing="8" LineSpacing="8">
           <SplitButton Content="Save">
