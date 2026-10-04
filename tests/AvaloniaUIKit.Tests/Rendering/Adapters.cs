@@ -52,6 +52,8 @@ public static partial class Adapters
         "virtual" => VirtualList(c),
         "select" => Select(c),
         "combobox" => Select(c, "combobox"),
+        "uikit-select" => SelectCase(c, combobox: false),
+        "uikit-combobox" => SelectCase(c, combobox: true),
         "tree" => Tree(c),
         "pagination" => Pagination(c),
         "tabs" => TabStrip(c),

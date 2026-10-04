@@ -1,0 +1,77 @@
+# uikit:Select with the combobox class, GPUI Kit's Combobox (combobox.rs):
+# the trigger titled with the committed selection only. The groups of
+# combobox.toml first, on the same GPUI builder; then Combobox's own features:
+# multiple selection (the titles joined in the trigger, toggled rows keep the
+# popup open), a footer, a custom trigger, clear and on_will_change.
+component = "uikit-combobox"
+viewport = [320, 260]
+anchor = [16, 8]
+
+[[group]]
+name = "closed"
+params = { width = 200, selected = 1 }
+matrix = { size = ["small", "medium"] }
+states = ["normal", "focus", "disabled"]
+
+[[group]]
+name = "placeholder"
+params = { width = 200, placeholder = "Select a fruit" }
+states = ["normal"]
+
+[[group]]
+name = "open"
+params = { width = 200, selected = 1, disabled_row = 3 }
+states = ["click+wait-200ms", "click+wait-200ms+at-60-64", "click+wait-200ms+key-down"]
+
+[[group]]
+name = "close"
+params = { width = 200, selected = 1 }
+states = ["click+wait-200ms+click", "click+wait-200ms+click-at-60-65"]
+
+# multiple(true): a click toggles the row and the popup stays open.
+[[group]]
+name = "multiple"
+params = { width = 200, multiple = true, checked = "0110" }
+states = ["normal", "click+wait-200ms", "click+wait-200ms+click-at-60-64", "click+wait-200ms+click-at-60-92"]
+
+[[group]]
+name = "multisearch"
+viewport = [320, 340]
+params = { width = 200, count = 8, multiple = true, searchable = true, checked = "01" }
+states = ["click+wait-200ms+key-a+key-n+wait-200ms+key-down+key-enter"]
+
+# footer(...): below a separator, the Combobox story's ghost button.
+[[group]]
+name = "footer"
+params = { width = 200, selected = 0, searchable = true, footer = true }
+states = ["click+wait-200ms", "click+wait-200ms+at-60-220"]
+
+# render_trigger(...): a star, the title or the placeholder, and the caret.
+[[group]]
+name = "trigger"
+params = { width = 200, selected = 1, trigger = true }
+matrix = { size = ["small", "medium"] }
+states = ["normal", "focus"]
+
+[[group]]
+name = "triggerplaceholder"
+params = { width = 200, trigger = true }
+states = ["normal"]
+
+# on_will_change keeping at most two: a third click only moves the cursor.
+[[group]]
+name = "max"
+params = { width = 200, multiple = true, checked = "1100", max = 2 }
+states = ["click+wait-200ms+click-at-60-120"]
+
+[[group]]
+name = "clear"
+params = { width = 200, multiple = true, checked = "0110", cleanable = true }
+states = ["normal", "click-at-196-24"]
+
+[[motion]]
+name = "enter"
+params = { width = 200, selected = 1 }
+trigger = "click"
+samples_ms = [0, 16, 33, 50, 75, 100, 125, 150, 200]
+themes = ["light"]

@@ -112819,6 +112819,5214 @@
       "png_sha256": "b3dcb7ad595e5f72b409b0a85bbd1a8c8ea8e402cfc38b333ebcc4f4575e6597"
     },
     {
+      "id": "uikit-combobox/clear.base/click-at-196-24/dark",
+      "component": "uikit-combobox",
+      "group": "clear",
+      "params": {
+        "width": 200,
+        "multiple": true,
+        "checked": "0110",
+        "cleanable": true
+      },
+      "state": "click-at-196-24",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-combobox/clear.base/click-at-196-24/dark.png",
+      "scene": "scenes/uikit-combobox/clear.base/click-at-196-24/dark.json",
+      "png_sha256": "8fb27250a54f17bde443e24dba5ef932bbd27ec3effa1506ac8f112a475f0311"
+    },
+    {
+      "id": "uikit-combobox/clear.base/click-at-196-24/light",
+      "component": "uikit-combobox",
+      "group": "clear",
+      "params": {
+        "width": 200,
+        "multiple": true,
+        "checked": "0110",
+        "cleanable": true
+      },
+      "state": "click-at-196-24",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-combobox/clear.base/click-at-196-24/light.png",
+      "scene": "scenes/uikit-combobox/clear.base/click-at-196-24/light.json",
+      "png_sha256": "45a5d1aa7a389b69d71e8d1cc40a3071c9a617548884b7f8bd5d03a6d847eba3"
+    },
+    {
+      "id": "uikit-combobox/clear.base/normal/dark",
+      "component": "uikit-combobox",
+      "group": "clear",
+      "params": {
+        "width": 200,
+        "multiple": true,
+        "checked": "0110",
+        "cleanable": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-combobox/clear.base/normal/dark.png",
+      "scene": "scenes/uikit-combobox/clear.base/normal/dark.json",
+      "png_sha256": "63aef833876923dd51e843946940793a0c3a6de89c417a4f8f6db4aa5cba5d90"
+    },
+    {
+      "id": "uikit-combobox/clear.base/normal/light",
+      "component": "uikit-combobox",
+      "group": "clear",
+      "params": {
+        "width": 200,
+        "multiple": true,
+        "checked": "0110",
+        "cleanable": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-combobox/clear.base/normal/light.png",
+      "scene": "scenes/uikit-combobox/clear.base/normal/light.json",
+      "png_sha256": "d7bd86a09163a2f6832141151421fd260caae4028695c5fc70fa4a4211bdf4da"
+    },
+    {
+      "id": "uikit-combobox/close.base/click+wait-200ms+click-at-60-65/dark",
+      "component": "uikit-combobox",
+      "group": "close",
+      "params": {
+        "width": 200,
+        "selected": 1
+      },
+      "state": "click+wait-200ms+click-at-60-65",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-combobox/close.base/click+wait-200ms+click-at-60-65/dark.png",
+      "scene": "scenes/uikit-combobox/close.base/click+wait-200ms+click-at-60-65/dark.json",
+      "png_sha256": "2b46f13ce439cca9db7125c695157b5a189fe8032a3ec517a49713d9d92aee28"
+    },
+    {
+      "id": "uikit-combobox/close.base/click+wait-200ms+click-at-60-65/light",
+      "component": "uikit-combobox",
+      "group": "close",
+      "params": {
+        "width": 200,
+        "selected": 1
+      },
+      "state": "click+wait-200ms+click-at-60-65",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-combobox/close.base/click+wait-200ms+click-at-60-65/light.png",
+      "scene": "scenes/uikit-combobox/close.base/click+wait-200ms+click-at-60-65/light.json",
+      "png_sha256": "e10535e1fe13d4fbecf882d132b715218eb650b45e6cd56b7334f25e7e8a2e2b"
+    },
+    {
+      "id": "uikit-combobox/close.base/click+wait-200ms+click/dark",
+      "component": "uikit-combobox",
+      "group": "close",
+      "params": {
+        "width": 200,
+        "selected": 1
+      },
+      "state": "click+wait-200ms+click",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-combobox/close.base/click+wait-200ms+click/dark.png",
+      "scene": "scenes/uikit-combobox/close.base/click+wait-200ms+click/dark.json",
+      "png_sha256": "1994457766215ae8b4ba717af13dfeeca5e9cf960ea491b06f7c7a9116b9d9c0"
+    },
+    {
+      "id": "uikit-combobox/close.base/click+wait-200ms+click/light",
+      "component": "uikit-combobox",
+      "group": "close",
+      "params": {
+        "width": 200,
+        "selected": 1
+      },
+      "state": "click+wait-200ms+click",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-combobox/close.base/click+wait-200ms+click/light.png",
+      "scene": "scenes/uikit-combobox/close.base/click+wait-200ms+click/light.json",
+      "png_sha256": "94820a342e0e416abe614c66811a8870db1ba9fec26351149b44083303ae9dc4"
+    },
+    {
+      "id": "uikit-combobox/closed.medium/disabled/dark",
+      "component": "uikit-combobox",
+      "group": "closed",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "size": "medium",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-combobox/closed.medium/disabled/dark.png",
+      "scene": "scenes/uikit-combobox/closed.medium/disabled/dark.json",
+      "png_sha256": "8e87583985b1a19328195abeb75744e464051460a37e86f546f7c398e559d41e"
+    },
+    {
+      "id": "uikit-combobox/closed.medium/disabled/light",
+      "component": "uikit-combobox",
+      "group": "closed",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "size": "medium",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-combobox/closed.medium/disabled/light.png",
+      "scene": "scenes/uikit-combobox/closed.medium/disabled/light.json",
+      "png_sha256": "dad121271ec1e4777a76f2cee4c05d13ea812354c936fa6aede93e6fb91efd89"
+    },
+    {
+      "id": "uikit-combobox/closed.medium/focus/dark",
+      "component": "uikit-combobox",
+      "group": "closed",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "size": "medium"
+      },
+      "state": "focus",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-combobox/closed.medium/focus/dark.png",
+      "scene": "scenes/uikit-combobox/closed.medium/focus/dark.json",
+      "png_sha256": "1994457766215ae8b4ba717af13dfeeca5e9cf960ea491b06f7c7a9116b9d9c0"
+    },
+    {
+      "id": "uikit-combobox/closed.medium/focus/light",
+      "component": "uikit-combobox",
+      "group": "closed",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "size": "medium"
+      },
+      "state": "focus",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-combobox/closed.medium/focus/light.png",
+      "scene": "scenes/uikit-combobox/closed.medium/focus/light.json",
+      "png_sha256": "94820a342e0e416abe614c66811a8870db1ba9fec26351149b44083303ae9dc4"
+    },
+    {
+      "id": "uikit-combobox/closed.medium/normal/dark",
+      "component": "uikit-combobox",
+      "group": "closed",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-combobox/closed.medium/normal/dark.png",
+      "scene": "scenes/uikit-combobox/closed.medium/normal/dark.json",
+      "png_sha256": "0f0543dc794e180c94fa6763d452c682aac03a8eaa7befea2c0cd2ba4d21f6b9"
+    },
+    {
+      "id": "uikit-combobox/closed.medium/normal/light",
+      "component": "uikit-combobox",
+      "group": "closed",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-combobox/closed.medium/normal/light.png",
+      "scene": "scenes/uikit-combobox/closed.medium/normal/light.json",
+      "png_sha256": "5c49df4aea1e6f0a95d76b2575569c68971cd3893a7b5bcb0cb5933b566a69d4"
+    },
+    {
+      "id": "uikit-combobox/closed.small/disabled/dark",
+      "component": "uikit-combobox",
+      "group": "closed",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "size": "small",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/uikit-combobox/closed.small/disabled/dark.png",
+      "scene": "scenes/uikit-combobox/closed.small/disabled/dark.json",
+      "png_sha256": "290e63403d0b1bbc96341ed90f9ca5222116ae3db3572fcebe9a25abfad3f798"
+    },
+    {
+      "id": "uikit-combobox/closed.small/disabled/light",
+      "component": "uikit-combobox",
+      "group": "closed",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "size": "small",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/uikit-combobox/closed.small/disabled/light.png",
+      "scene": "scenes/uikit-combobox/closed.small/disabled/light.json",
+      "png_sha256": "d703df785f4f64bc6fb499e0b515be52978d2194b554e2b4c586ce89822e904f"
+    },
+    {
+      "id": "uikit-combobox/closed.small/focus/dark",
+      "component": "uikit-combobox",
+      "group": "closed",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "size": "small"
+      },
+      "state": "focus",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/uikit-combobox/closed.small/focus/dark.png",
+      "scene": "scenes/uikit-combobox/closed.small/focus/dark.json",
+      "png_sha256": "1fbfdadcda49404987e38fb0bceb668cc6011869bba31ce75149ae74dbe81d48"
+    },
+    {
+      "id": "uikit-combobox/closed.small/focus/light",
+      "component": "uikit-combobox",
+      "group": "closed",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "size": "small"
+      },
+      "state": "focus",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/uikit-combobox/closed.small/focus/light.png",
+      "scene": "scenes/uikit-combobox/closed.small/focus/light.json",
+      "png_sha256": "a42257c7ddbb375f78ea5d2de3e503e0507b67ceb090cc4c230e74517ce6df59"
+    },
+    {
+      "id": "uikit-combobox/closed.small/normal/dark",
+      "component": "uikit-combobox",
+      "group": "closed",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/uikit-combobox/closed.small/normal/dark.png",
+      "scene": "scenes/uikit-combobox/closed.small/normal/dark.json",
+      "png_sha256": "94763e3d30d4233fb6075f693d14746bf8d28689433753d6a187435ec7ffa2c0"
+    },
+    {
+      "id": "uikit-combobox/closed.small/normal/light",
+      "component": "uikit-combobox",
+      "group": "closed",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/uikit-combobox/closed.small/normal/light.png",
+      "scene": "scenes/uikit-combobox/closed.small/normal/light.json",
+      "png_sha256": "46e711c1acc979d5dc8988849eea55d657b9fc8afade7b3407c859e340122200"
+    },
+    {
+      "id": "uikit-combobox/footer.base/click+wait-200ms+at-60-220/dark",
+      "component": "uikit-combobox",
+      "group": "footer",
+      "params": {
+        "width": 200,
+        "selected": 0,
+        "searchable": true,
+        "footer": true
+      },
+      "state": "click+wait-200ms+at-60-220",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-combobox/footer.base/click+wait-200ms+at-60-220/dark.png",
+      "scene": "scenes/uikit-combobox/footer.base/click+wait-200ms+at-60-220/dark.json",
+      "png_sha256": "270a366d285f8005cc63aa53d8df96a07ff1dea1fbe97b439c81f3308ce5f2e0"
+    },
+    {
+      "id": "uikit-combobox/footer.base/click+wait-200ms+at-60-220/light",
+      "component": "uikit-combobox",
+      "group": "footer",
+      "params": {
+        "width": 200,
+        "selected": 0,
+        "searchable": true,
+        "footer": true
+      },
+      "state": "click+wait-200ms+at-60-220",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-combobox/footer.base/click+wait-200ms+at-60-220/light.png",
+      "scene": "scenes/uikit-combobox/footer.base/click+wait-200ms+at-60-220/light.json",
+      "png_sha256": "5eb7156bcd6c0234fd34814286e09f8720245dadf27822029d216ca635b6c895"
+    },
+    {
+      "id": "uikit-combobox/footer.base/click+wait-200ms/dark",
+      "component": "uikit-combobox",
+      "group": "footer",
+      "params": {
+        "width": 200,
+        "selected": 0,
+        "searchable": true,
+        "footer": true
+      },
+      "state": "click+wait-200ms",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-combobox/footer.base/click+wait-200ms/dark.png",
+      "scene": "scenes/uikit-combobox/footer.base/click+wait-200ms/dark.json",
+      "png_sha256": "61ddf5053384a9882e7a19543abe86dc602ddcd1f82b94107a45475e7fc24784"
+    },
+    {
+      "id": "uikit-combobox/footer.base/click+wait-200ms/light",
+      "component": "uikit-combobox",
+      "group": "footer",
+      "params": {
+        "width": 200,
+        "selected": 0,
+        "searchable": true,
+        "footer": true
+      },
+      "state": "click+wait-200ms",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-combobox/footer.base/click+wait-200ms/light.png",
+      "scene": "scenes/uikit-combobox/footer.base/click+wait-200ms/light.json",
+      "png_sha256": "15101b842e60fad025d265eb2d8d6616aa5a5553ee252017f77dbef996692278"
+    },
+    {
+      "id": "uikit-combobox/max.base/click+wait-200ms+click-at-60-120/dark",
+      "component": "uikit-combobox",
+      "group": "max",
+      "params": {
+        "width": 200,
+        "multiple": true,
+        "checked": "1100",
+        "max": 2
+      },
+      "state": "click+wait-200ms+click-at-60-120",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-combobox/max.base/click+wait-200ms+click-at-60-120/dark.png",
+      "scene": "scenes/uikit-combobox/max.base/click+wait-200ms+click-at-60-120/dark.json",
+      "png_sha256": "1a3ae7a67a6567fdd0be0f789380aee462e70044cf7b54747cade1859d95dc66"
+    },
+    {
+      "id": "uikit-combobox/max.base/click+wait-200ms+click-at-60-120/light",
+      "component": "uikit-combobox",
+      "group": "max",
+      "params": {
+        "width": 200,
+        "multiple": true,
+        "checked": "1100",
+        "max": 2
+      },
+      "state": "click+wait-200ms+click-at-60-120",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-combobox/max.base/click+wait-200ms+click-at-60-120/light.png",
+      "scene": "scenes/uikit-combobox/max.base/click+wait-200ms+click-at-60-120/light.json",
+      "png_sha256": "b08f17aa7d1f37b3c627f7dbc4eda72997ad4de3c39b65fc46a92aac7a19e2ee"
+    },
+    {
+      "id": "uikit-combobox/motion.enter/click/light",
+      "component": "uikit-combobox",
+      "group": "motion.enter",
+      "params": {
+        "width": 200,
+        "selected": 1
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "motion": {
+        "name": "enter",
+        "trigger": "click",
+        "from": "normal",
+        "frames": [
+          {
+            "t_ms": 0,
+            "png": "png/uikit-combobox/motion.enter/click/light/0000ms.png",
+            "scene": "scenes/uikit-combobox/motion.enter/click/light/0000ms.json",
+            "png_sha256": "94820a342e0e416abe614c66811a8870db1ba9fec26351149b44083303ae9dc4"
+          },
+          {
+            "t_ms": 16,
+            "png": "png/uikit-combobox/motion.enter/click/light/0016ms.png",
+            "scene": "scenes/uikit-combobox/motion.enter/click/light/0016ms.json",
+            "png_sha256": "96d81d35b2324643823efcb0fcfb197e07f401b865571f7687c486f880a7bbd9"
+          },
+          {
+            "t_ms": 33,
+            "png": "png/uikit-combobox/motion.enter/click/light/0033ms.png",
+            "scene": "scenes/uikit-combobox/motion.enter/click/light/0033ms.json",
+            "png_sha256": "5ae5f8536992743e88228120c65b553fccdf669028c0d1e636c9393513cdcf91"
+          },
+          {
+            "t_ms": 50,
+            "png": "png/uikit-combobox/motion.enter/click/light/0050ms.png",
+            "scene": "scenes/uikit-combobox/motion.enter/click/light/0050ms.json",
+            "png_sha256": "aa59b5cf38c6d56d4b98e425adc2e124bf130f17d460b94053fc001e904acca4"
+          },
+          {
+            "t_ms": 75,
+            "png": "png/uikit-combobox/motion.enter/click/light/0075ms.png",
+            "scene": "scenes/uikit-combobox/motion.enter/click/light/0075ms.json",
+            "png_sha256": "8b541c398956315ba6142b956bbbaa725211233416ac91f66345329de7904a45"
+          },
+          {
+            "t_ms": 100,
+            "png": "png/uikit-combobox/motion.enter/click/light/0100ms.png",
+            "scene": "scenes/uikit-combobox/motion.enter/click/light/0100ms.json",
+            "png_sha256": "13754b37e44f767b2a5e7cb7875d9205ded6d4d29c9cdf25951e90fde2cd0e0a"
+          },
+          {
+            "t_ms": 125,
+            "png": "png/uikit-combobox/motion.enter/click/light/0125ms.png",
+            "scene": "scenes/uikit-combobox/motion.enter/click/light/0125ms.json",
+            "png_sha256": "823807dc4eee185aa7cd51bd2fec4c4f006e43ed3e122b5e5835b64525a6c9e1"
+          },
+          {
+            "t_ms": 150,
+            "png": "png/uikit-combobox/motion.enter/click/light/0150ms.png",
+            "scene": "scenes/uikit-combobox/motion.enter/click/light/0150ms.json",
+            "png_sha256": "29ad1c68ae98dcf24a6fc2fd571652d3d26a1b87466f4a762ebab82656689f92"
+          },
+          {
+            "t_ms": 200,
+            "png": "png/uikit-combobox/motion.enter/click/light/0200ms.png",
+            "scene": "scenes/uikit-combobox/motion.enter/click/light/0200ms.json",
+            "png_sha256": "29ad1c68ae98dcf24a6fc2fd571652d3d26a1b87466f4a762ebab82656689f92"
+          }
+        ]
+      }
+    },
+    {
+      "id": "uikit-combobox/multiple.base/click+wait-200ms+click-at-60-64/dark",
+      "component": "uikit-combobox",
+      "group": "multiple",
+      "params": {
+        "width": 200,
+        "multiple": true,
+        "checked": "0110"
+      },
+      "state": "click+wait-200ms+click-at-60-64",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-combobox/multiple.base/click+wait-200ms+click-at-60-64/dark.png",
+      "scene": "scenes/uikit-combobox/multiple.base/click+wait-200ms+click-at-60-64/dark.json",
+      "png_sha256": "dfec1b7cb78d37e6f89686ebf6feb93326f4e8e99b025cb9c8c08bf5b74ecbdf"
+    },
+    {
+      "id": "uikit-combobox/multiple.base/click+wait-200ms+click-at-60-64/light",
+      "component": "uikit-combobox",
+      "group": "multiple",
+      "params": {
+        "width": 200,
+        "multiple": true,
+        "checked": "0110"
+      },
+      "state": "click+wait-200ms+click-at-60-64",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-combobox/multiple.base/click+wait-200ms+click-at-60-64/light.png",
+      "scene": "scenes/uikit-combobox/multiple.base/click+wait-200ms+click-at-60-64/light.json",
+      "png_sha256": "c141215e89a53050b11ee08059f3b95726a027085efdce203a69c87062bd4505"
+    },
+    {
+      "id": "uikit-combobox/multiple.base/click+wait-200ms+click-at-60-92/dark",
+      "component": "uikit-combobox",
+      "group": "multiple",
+      "params": {
+        "width": 200,
+        "multiple": true,
+        "checked": "0110"
+      },
+      "state": "click+wait-200ms+click-at-60-92",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-combobox/multiple.base/click+wait-200ms+click-at-60-92/dark.png",
+      "scene": "scenes/uikit-combobox/multiple.base/click+wait-200ms+click-at-60-92/dark.json",
+      "png_sha256": "7c742af4c7d5e02e86715a4ba160cbe8e8174d8f5aa73f8b25ad56cea5ecfbc5"
+    },
+    {
+      "id": "uikit-combobox/multiple.base/click+wait-200ms+click-at-60-92/light",
+      "component": "uikit-combobox",
+      "group": "multiple",
+      "params": {
+        "width": 200,
+        "multiple": true,
+        "checked": "0110"
+      },
+      "state": "click+wait-200ms+click-at-60-92",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-combobox/multiple.base/click+wait-200ms+click-at-60-92/light.png",
+      "scene": "scenes/uikit-combobox/multiple.base/click+wait-200ms+click-at-60-92/light.json",
+      "png_sha256": "d70e5f254920f273afaabf20f3fb0bf3ef8b25b67f7d7afb915c0502ef5124e6"
+    },
+    {
+      "id": "uikit-combobox/multiple.base/click+wait-200ms/dark",
+      "component": "uikit-combobox",
+      "group": "multiple",
+      "params": {
+        "width": 200,
+        "multiple": true,
+        "checked": "0110"
+      },
+      "state": "click+wait-200ms",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-combobox/multiple.base/click+wait-200ms/dark.png",
+      "scene": "scenes/uikit-combobox/multiple.base/click+wait-200ms/dark.json",
+      "png_sha256": "1e99d7a50f9c121052a3ab368cfc8dd7b72f78ee8be6cb14e13d7cdec3ff20ac"
+    },
+    {
+      "id": "uikit-combobox/multiple.base/click+wait-200ms/light",
+      "component": "uikit-combobox",
+      "group": "multiple",
+      "params": {
+        "width": 200,
+        "multiple": true,
+        "checked": "0110"
+      },
+      "state": "click+wait-200ms",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-combobox/multiple.base/click+wait-200ms/light.png",
+      "scene": "scenes/uikit-combobox/multiple.base/click+wait-200ms/light.json",
+      "png_sha256": "4e8f77ba10a0407220dea1ff7a55cb8d6c4fd9b6d9ff98e5adc34a7d08ef3648"
+    },
+    {
+      "id": "uikit-combobox/multiple.base/normal/dark",
+      "component": "uikit-combobox",
+      "group": "multiple",
+      "params": {
+        "width": 200,
+        "multiple": true,
+        "checked": "0110"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-combobox/multiple.base/normal/dark.png",
+      "scene": "scenes/uikit-combobox/multiple.base/normal/dark.json",
+      "png_sha256": "3060961f0acb3b6e514e9207e3491c491d32dc3ae121456e6b1bd0c821205a8c"
+    },
+    {
+      "id": "uikit-combobox/multiple.base/normal/light",
+      "component": "uikit-combobox",
+      "group": "multiple",
+      "params": {
+        "width": 200,
+        "multiple": true,
+        "checked": "0110"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-combobox/multiple.base/normal/light.png",
+      "scene": "scenes/uikit-combobox/multiple.base/normal/light.json",
+      "png_sha256": "bbf2845040ce8ca751c71590db7a2444b9e04555fca59988b8287e03d75e4c83"
+    },
+    {
+      "id": "uikit-combobox/multisearch.base/click+wait-200ms+key-a+key-n+wait-200ms+key-down+key-enter/dark",
+      "component": "uikit-combobox",
+      "group": "multisearch",
+      "params": {
+        "width": 200,
+        "count": 8,
+        "multiple": true,
+        "searchable": true,
+        "checked": "01"
+      },
+      "state": "click+wait-200ms+key-a+key-n+wait-200ms+key-down+key-enter",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        340.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-combobox/multisearch.base/click+wait-200ms+key-a+key-n+wait-200ms+key-down+key-enter/dark.png",
+      "scene": "scenes/uikit-combobox/multisearch.base/click+wait-200ms+key-a+key-n+wait-200ms+key-down+key-enter/dark.json",
+      "png_sha256": "cb25f0bf64a2a1f3d20f4d511ad3745a534caf201c0ddc015aff039f8cbf19e5"
+    },
+    {
+      "id": "uikit-combobox/multisearch.base/click+wait-200ms+key-a+key-n+wait-200ms+key-down+key-enter/light",
+      "component": "uikit-combobox",
+      "group": "multisearch",
+      "params": {
+        "width": 200,
+        "count": 8,
+        "multiple": true,
+        "searchable": true,
+        "checked": "01"
+      },
+      "state": "click+wait-200ms+key-a+key-n+wait-200ms+key-down+key-enter",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        340.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-combobox/multisearch.base/click+wait-200ms+key-a+key-n+wait-200ms+key-down+key-enter/light.png",
+      "scene": "scenes/uikit-combobox/multisearch.base/click+wait-200ms+key-a+key-n+wait-200ms+key-down+key-enter/light.json",
+      "png_sha256": "ac16b923d7b98b827180cb2a4f20be6b90d6b16defb5353c2bfddb9a2998ca14"
+    },
+    {
+      "id": "uikit-combobox/open.base/click+wait-200ms+at-60-64/dark",
+      "component": "uikit-combobox",
+      "group": "open",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "disabled_row": 3
+      },
+      "state": "click+wait-200ms+at-60-64",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-combobox/open.base/click+wait-200ms+at-60-64/dark.png",
+      "scene": "scenes/uikit-combobox/open.base/click+wait-200ms+at-60-64/dark.json",
+      "png_sha256": "1a151274a644f33ef8840117e2c8bc3ca2e0a681ddb6ea83e12ae8b96f5b4068"
+    },
+    {
+      "id": "uikit-combobox/open.base/click+wait-200ms+at-60-64/light",
+      "component": "uikit-combobox",
+      "group": "open",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "disabled_row": 3
+      },
+      "state": "click+wait-200ms+at-60-64",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-combobox/open.base/click+wait-200ms+at-60-64/light.png",
+      "scene": "scenes/uikit-combobox/open.base/click+wait-200ms+at-60-64/light.json",
+      "png_sha256": "16ae175ba693f82ab4a24d8210690cbfa949cc1ac87df1a91c8a3901b45808fb"
+    },
+    {
+      "id": "uikit-combobox/open.base/click+wait-200ms+key-down/dark",
+      "component": "uikit-combobox",
+      "group": "open",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "disabled_row": 3
+      },
+      "state": "click+wait-200ms+key-down",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-combobox/open.base/click+wait-200ms+key-down/dark.png",
+      "scene": "scenes/uikit-combobox/open.base/click+wait-200ms+key-down/dark.json",
+      "png_sha256": "d8ed13533cff1aa8e9a61b31dce212f15463221da7f655203ae3df360fa47158"
+    },
+    {
+      "id": "uikit-combobox/open.base/click+wait-200ms+key-down/light",
+      "component": "uikit-combobox",
+      "group": "open",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "disabled_row": 3
+      },
+      "state": "click+wait-200ms+key-down",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-combobox/open.base/click+wait-200ms+key-down/light.png",
+      "scene": "scenes/uikit-combobox/open.base/click+wait-200ms+key-down/light.json",
+      "png_sha256": "9b4f926b7a4880b5b9170e7842786c1dafbff1ef2eebddedd81b97bcbc5e8def"
+    },
+    {
+      "id": "uikit-combobox/open.base/click+wait-200ms/dark",
+      "component": "uikit-combobox",
+      "group": "open",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "disabled_row": 3
+      },
+      "state": "click+wait-200ms",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-combobox/open.base/click+wait-200ms/dark.png",
+      "scene": "scenes/uikit-combobox/open.base/click+wait-200ms/dark.json",
+      "png_sha256": "3b112e9902553e6e02c205a9a4e440c6c07904f3a58ccfa7edda8d5bc3552fc6"
+    },
+    {
+      "id": "uikit-combobox/open.base/click+wait-200ms/light",
+      "component": "uikit-combobox",
+      "group": "open",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "disabled_row": 3
+      },
+      "state": "click+wait-200ms",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-combobox/open.base/click+wait-200ms/light.png",
+      "scene": "scenes/uikit-combobox/open.base/click+wait-200ms/light.json",
+      "png_sha256": "35aa0925b0e2fed4b41ed722bf94613d4a50965dfa156f343b7f7ac16dc185a3"
+    },
+    {
+      "id": "uikit-combobox/placeholder.base/normal/dark",
+      "component": "uikit-combobox",
+      "group": "placeholder",
+      "params": {
+        "width": 200,
+        "placeholder": "Select a fruit"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-combobox/placeholder.base/normal/dark.png",
+      "scene": "scenes/uikit-combobox/placeholder.base/normal/dark.json",
+      "png_sha256": "8fb27250a54f17bde443e24dba5ef932bbd27ec3effa1506ac8f112a475f0311"
+    },
+    {
+      "id": "uikit-combobox/placeholder.base/normal/light",
+      "component": "uikit-combobox",
+      "group": "placeholder",
+      "params": {
+        "width": 200,
+        "placeholder": "Select a fruit"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-combobox/placeholder.base/normal/light.png",
+      "scene": "scenes/uikit-combobox/placeholder.base/normal/light.json",
+      "png_sha256": "45a5d1aa7a389b69d71e8d1cc40a3071c9a617548884b7f8bd5d03a6d847eba3"
+    },
+    {
+      "id": "uikit-combobox/trigger.medium/focus/dark",
+      "component": "uikit-combobox",
+      "group": "trigger",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "trigger": true,
+        "size": "medium"
+      },
+      "state": "focus",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-combobox/trigger.medium/focus/dark.png",
+      "scene": "scenes/uikit-combobox/trigger.medium/focus/dark.json",
+      "png_sha256": "d7735cbcb7d37d30d251bf4719b24b1669ea01a218ac5c05ca9ba8a7146a202b"
+    },
+    {
+      "id": "uikit-combobox/trigger.medium/focus/light",
+      "component": "uikit-combobox",
+      "group": "trigger",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "trigger": true,
+        "size": "medium"
+      },
+      "state": "focus",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-combobox/trigger.medium/focus/light.png",
+      "scene": "scenes/uikit-combobox/trigger.medium/focus/light.json",
+      "png_sha256": "ca0d5495197a2944fbc4c696061d3d72d1cf4af0ee1d6364bd1642f480841ff0"
+    },
+    {
+      "id": "uikit-combobox/trigger.medium/normal/dark",
+      "component": "uikit-combobox",
+      "group": "trigger",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "trigger": true,
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-combobox/trigger.medium/normal/dark.png",
+      "scene": "scenes/uikit-combobox/trigger.medium/normal/dark.json",
+      "png_sha256": "42742a37b33ce5447acf3f5279d5c27ede18d9fe63bbb549ad6e7a1d99a0d54f"
+    },
+    {
+      "id": "uikit-combobox/trigger.medium/normal/light",
+      "component": "uikit-combobox",
+      "group": "trigger",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "trigger": true,
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-combobox/trigger.medium/normal/light.png",
+      "scene": "scenes/uikit-combobox/trigger.medium/normal/light.json",
+      "png_sha256": "34297a3c0cfa9b0c41b325295ee00f5334d0681c07092472a7cf83c1a985a50c"
+    },
+    {
+      "id": "uikit-combobox/trigger.small/focus/dark",
+      "component": "uikit-combobox",
+      "group": "trigger",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "trigger": true,
+        "size": "small"
+      },
+      "state": "focus",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/uikit-combobox/trigger.small/focus/dark.png",
+      "scene": "scenes/uikit-combobox/trigger.small/focus/dark.json",
+      "png_sha256": "47cc589176f08d5849d6ebc4c96aed02fd844af61e8431e3c8e42b1eee643db6"
+    },
+    {
+      "id": "uikit-combobox/trigger.small/focus/light",
+      "component": "uikit-combobox",
+      "group": "trigger",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "trigger": true,
+        "size": "small"
+      },
+      "state": "focus",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/uikit-combobox/trigger.small/focus/light.png",
+      "scene": "scenes/uikit-combobox/trigger.small/focus/light.json",
+      "png_sha256": "1f51c4b584e807ba494ff7c56ac51f5da9b4be24053370fce8d17bedd71fa39a"
+    },
+    {
+      "id": "uikit-combobox/trigger.small/normal/dark",
+      "component": "uikit-combobox",
+      "group": "trigger",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "trigger": true,
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/uikit-combobox/trigger.small/normal/dark.png",
+      "scene": "scenes/uikit-combobox/trigger.small/normal/dark.json",
+      "png_sha256": "5da8e5c08c367a9b813cac5c9e5938cb5cf1f4b45cb8c3778e06291e3d1df30a"
+    },
+    {
+      "id": "uikit-combobox/trigger.small/normal/light",
+      "component": "uikit-combobox",
+      "group": "trigger",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "trigger": true,
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/uikit-combobox/trigger.small/normal/light.png",
+      "scene": "scenes/uikit-combobox/trigger.small/normal/light.json",
+      "png_sha256": "e3c4a5a971166c1ee9ff8d923cb55a3df3fc59eb3dbce7274d8773a98c3be94e"
+    },
+    {
+      "id": "uikit-combobox/triggerplaceholder.base/normal/dark",
+      "component": "uikit-combobox",
+      "group": "triggerplaceholder",
+      "params": {
+        "width": 200,
+        "trigger": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-combobox/triggerplaceholder.base/normal/dark.png",
+      "scene": "scenes/uikit-combobox/triggerplaceholder.base/normal/dark.json",
+      "png_sha256": "bef6c5c23188a1b476376c1ce2adaefb666db4debffb02bca533e5f7ab1b4f03"
+    },
+    {
+      "id": "uikit-combobox/triggerplaceholder.base/normal/light",
+      "component": "uikit-combobox",
+      "group": "triggerplaceholder",
+      "params": {
+        "width": 200,
+        "trigger": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-combobox/triggerplaceholder.base/normal/light.png",
+      "scene": "scenes/uikit-combobox/triggerplaceholder.base/normal/light.json",
+      "png_sha256": "3de941df2e3a472b90de4d96429abc52cdcb5b7949619a9091f778b83ebe0aaf"
+    },
+    {
+      "id": "uikit-select/clear.base/at-196-24/dark",
+      "component": "uikit-select",
+      "group": "clear",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "cleanable": true
+      },
+      "state": "at-196-24",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/clear.base/at-196-24/dark.png",
+      "scene": "scenes/uikit-select/clear.base/at-196-24/dark.json",
+      "png_sha256": "26da022d712478f9ded4bec53c0970a665bd78381dccfc20c172e78805400a5e"
+    },
+    {
+      "id": "uikit-select/clear.base/at-196-24/light",
+      "component": "uikit-select",
+      "group": "clear",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "cleanable": true
+      },
+      "state": "at-196-24",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/clear.base/at-196-24/light.png",
+      "scene": "scenes/uikit-select/clear.base/at-196-24/light.json",
+      "png_sha256": "e82e2dbb48a54675359546a93930131e6f17c28d71e612ae1b9fade3fda20d4f"
+    },
+    {
+      "id": "uikit-select/clear.base/click-at-196-24/dark",
+      "component": "uikit-select",
+      "group": "clear",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "cleanable": true
+      },
+      "state": "click-at-196-24",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/clear.base/click-at-196-24/dark.png",
+      "scene": "scenes/uikit-select/clear.base/click-at-196-24/dark.json",
+      "png_sha256": "8fb27250a54f17bde443e24dba5ef932bbd27ec3effa1506ac8f112a475f0311"
+    },
+    {
+      "id": "uikit-select/clear.base/click-at-196-24/light",
+      "component": "uikit-select",
+      "group": "clear",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "cleanable": true
+      },
+      "state": "click-at-196-24",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/clear.base/click-at-196-24/light.png",
+      "scene": "scenes/uikit-select/clear.base/click-at-196-24/light.json",
+      "png_sha256": "45a5d1aa7a389b69d71e8d1cc40a3071c9a617548884b7f8bd5d03a6d847eba3"
+    },
+    {
+      "id": "uikit-select/clear.base/hover/dark",
+      "component": "uikit-select",
+      "group": "clear",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "cleanable": true
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/clear.base/hover/dark.png",
+      "scene": "scenes/uikit-select/clear.base/hover/dark.json",
+      "png_sha256": "b67dc759ef2edb0e505f8029f3a9df5bf8e1762fc0ade7e99aa7fe68f85c70d2"
+    },
+    {
+      "id": "uikit-select/clear.base/hover/light",
+      "component": "uikit-select",
+      "group": "clear",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "cleanable": true
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/clear.base/hover/light.png",
+      "scene": "scenes/uikit-select/clear.base/hover/light.json",
+      "png_sha256": "c98fa3a14cb7616574333e23c5514772e0b1f1f8457778a368056ec97272d85b"
+    },
+    {
+      "id": "uikit-select/clear.base/normal/dark",
+      "component": "uikit-select",
+      "group": "clear",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "cleanable": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/clear.base/normal/dark.png",
+      "scene": "scenes/uikit-select/clear.base/normal/dark.json",
+      "png_sha256": "b67dc759ef2edb0e505f8029f3a9df5bf8e1762fc0ade7e99aa7fe68f85c70d2"
+    },
+    {
+      "id": "uikit-select/clear.base/normal/light",
+      "component": "uikit-select",
+      "group": "clear",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "cleanable": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/clear.base/normal/light.png",
+      "scene": "scenes/uikit-select/clear.base/normal/light.json",
+      "png_sha256": "c98fa3a14cb7616574333e23c5514772e0b1f1f8457778a368056ec97272d85b"
+    },
+    {
+      "id": "uikit-select/closed.large/disabled/dark",
+      "component": "uikit-select",
+      "group": "closed",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "size": "large",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        44.0
+      ],
+      "png": "png/uikit-select/closed.large/disabled/dark.png",
+      "scene": "scenes/uikit-select/closed.large/disabled/dark.json",
+      "png_sha256": "87b2d8474e27f8a6b69adcbf687a7eb10a421d7ea2d53a7274dfc1a11c2c6d1b"
+    },
+    {
+      "id": "uikit-select/closed.large/disabled/light",
+      "component": "uikit-select",
+      "group": "closed",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "size": "large",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        44.0
+      ],
+      "png": "png/uikit-select/closed.large/disabled/light.png",
+      "scene": "scenes/uikit-select/closed.large/disabled/light.json",
+      "png_sha256": "d0b57709da2457590786e010b907634ddadd8f3a92871daaf842a76f56996f99"
+    },
+    {
+      "id": "uikit-select/closed.large/focus/dark",
+      "component": "uikit-select",
+      "group": "closed",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "size": "large"
+      },
+      "state": "focus",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        44.0
+      ],
+      "png": "png/uikit-select/closed.large/focus/dark.png",
+      "scene": "scenes/uikit-select/closed.large/focus/dark.json",
+      "png_sha256": "8f9e1e53b9eed6bfe460dfe13b7f99bec170ae9c791893ca005308cedce5d2e2"
+    },
+    {
+      "id": "uikit-select/closed.large/focus/light",
+      "component": "uikit-select",
+      "group": "closed",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "size": "large"
+      },
+      "state": "focus",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        44.0
+      ],
+      "png": "png/uikit-select/closed.large/focus/light.png",
+      "scene": "scenes/uikit-select/closed.large/focus/light.json",
+      "png_sha256": "8a83ba92bf88556619980f7e69ee7cb93b70336e3cd85a5f5ae95d0de71c1cdd"
+    },
+    {
+      "id": "uikit-select/closed.large/normal/dark",
+      "component": "uikit-select",
+      "group": "closed",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        44.0
+      ],
+      "png": "png/uikit-select/closed.large/normal/dark.png",
+      "scene": "scenes/uikit-select/closed.large/normal/dark.json",
+      "png_sha256": "4819ec070d42a0c87be4b1f0d813a307f5e71c5df52ea5c07b110c97346f8240"
+    },
+    {
+      "id": "uikit-select/closed.large/normal/light",
+      "component": "uikit-select",
+      "group": "closed",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        44.0
+      ],
+      "png": "png/uikit-select/closed.large/normal/light.png",
+      "scene": "scenes/uikit-select/closed.large/normal/light.json",
+      "png_sha256": "fea725352b28e12de2c5eb9e9f3812e3b3e56b0c9f948f48877ea2866e78f4c7"
+    },
+    {
+      "id": "uikit-select/closed.medium/disabled/dark",
+      "component": "uikit-select",
+      "group": "closed",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "size": "medium",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/closed.medium/disabled/dark.png",
+      "scene": "scenes/uikit-select/closed.medium/disabled/dark.json",
+      "png_sha256": "8e87583985b1a19328195abeb75744e464051460a37e86f546f7c398e559d41e"
+    },
+    {
+      "id": "uikit-select/closed.medium/disabled/light",
+      "component": "uikit-select",
+      "group": "closed",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "size": "medium",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/closed.medium/disabled/light.png",
+      "scene": "scenes/uikit-select/closed.medium/disabled/light.json",
+      "png_sha256": "dad121271ec1e4777a76f2cee4c05d13ea812354c936fa6aede93e6fb91efd89"
+    },
+    {
+      "id": "uikit-select/closed.medium/focus/dark",
+      "component": "uikit-select",
+      "group": "closed",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "size": "medium"
+      },
+      "state": "focus",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/closed.medium/focus/dark.png",
+      "scene": "scenes/uikit-select/closed.medium/focus/dark.json",
+      "png_sha256": "1994457766215ae8b4ba717af13dfeeca5e9cf960ea491b06f7c7a9116b9d9c0"
+    },
+    {
+      "id": "uikit-select/closed.medium/focus/light",
+      "component": "uikit-select",
+      "group": "closed",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "size": "medium"
+      },
+      "state": "focus",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/closed.medium/focus/light.png",
+      "scene": "scenes/uikit-select/closed.medium/focus/light.json",
+      "png_sha256": "94820a342e0e416abe614c66811a8870db1ba9fec26351149b44083303ae9dc4"
+    },
+    {
+      "id": "uikit-select/closed.medium/normal/dark",
+      "component": "uikit-select",
+      "group": "closed",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/closed.medium/normal/dark.png",
+      "scene": "scenes/uikit-select/closed.medium/normal/dark.json",
+      "png_sha256": "0f0543dc794e180c94fa6763d452c682aac03a8eaa7befea2c0cd2ba4d21f6b9"
+    },
+    {
+      "id": "uikit-select/closed.medium/normal/light",
+      "component": "uikit-select",
+      "group": "closed",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/closed.medium/normal/light.png",
+      "scene": "scenes/uikit-select/closed.medium/normal/light.json",
+      "png_sha256": "5c49df4aea1e6f0a95d76b2575569c68971cd3893a7b5bcb0cb5933b566a69d4"
+    },
+    {
+      "id": "uikit-select/closed.small/disabled/dark",
+      "component": "uikit-select",
+      "group": "closed",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "size": "small",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/uikit-select/closed.small/disabled/dark.png",
+      "scene": "scenes/uikit-select/closed.small/disabled/dark.json",
+      "png_sha256": "290e63403d0b1bbc96341ed90f9ca5222116ae3db3572fcebe9a25abfad3f798"
+    },
+    {
+      "id": "uikit-select/closed.small/disabled/light",
+      "component": "uikit-select",
+      "group": "closed",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "size": "small",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/uikit-select/closed.small/disabled/light.png",
+      "scene": "scenes/uikit-select/closed.small/disabled/light.json",
+      "png_sha256": "d703df785f4f64bc6fb499e0b515be52978d2194b554e2b4c586ce89822e904f"
+    },
+    {
+      "id": "uikit-select/closed.small/focus/dark",
+      "component": "uikit-select",
+      "group": "closed",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "size": "small"
+      },
+      "state": "focus",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/uikit-select/closed.small/focus/dark.png",
+      "scene": "scenes/uikit-select/closed.small/focus/dark.json",
+      "png_sha256": "1fbfdadcda49404987e38fb0bceb668cc6011869bba31ce75149ae74dbe81d48"
+    },
+    {
+      "id": "uikit-select/closed.small/focus/light",
+      "component": "uikit-select",
+      "group": "closed",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "size": "small"
+      },
+      "state": "focus",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/uikit-select/closed.small/focus/light.png",
+      "scene": "scenes/uikit-select/closed.small/focus/light.json",
+      "png_sha256": "a42257c7ddbb375f78ea5d2de3e503e0507b67ceb090cc4c230e74517ce6df59"
+    },
+    {
+      "id": "uikit-select/closed.small/normal/dark",
+      "component": "uikit-select",
+      "group": "closed",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/uikit-select/closed.small/normal/dark.png",
+      "scene": "scenes/uikit-select/closed.small/normal/dark.json",
+      "png_sha256": "94763e3d30d4233fb6075f693d14746bf8d28689433753d6a187435ec7ffa2c0"
+    },
+    {
+      "id": "uikit-select/closed.small/normal/light",
+      "component": "uikit-select",
+      "group": "closed",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/uikit-select/closed.small/normal/light.png",
+      "scene": "scenes/uikit-select/closed.small/normal/light.json",
+      "png_sha256": "46e711c1acc979d5dc8988849eea55d657b9fc8afade7b3407c859e340122200"
+    },
+    {
+      "id": "uikit-select/closed.xsmall/disabled/dark",
+      "component": "uikit-select",
+      "group": "closed",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "size": "xsmall",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        20.0
+      ],
+      "png": "png/uikit-select/closed.xsmall/disabled/dark.png",
+      "scene": "scenes/uikit-select/closed.xsmall/disabled/dark.json",
+      "png_sha256": "a2d4f31f99621756196d3769aa79ddf034eeb46948f0299d142a186e93afe7b1"
+    },
+    {
+      "id": "uikit-select/closed.xsmall/disabled/light",
+      "component": "uikit-select",
+      "group": "closed",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "size": "xsmall",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        20.0
+      ],
+      "png": "png/uikit-select/closed.xsmall/disabled/light.png",
+      "scene": "scenes/uikit-select/closed.xsmall/disabled/light.json",
+      "png_sha256": "b7b54166edf1438b444d1a4dc61dd222073eb4a41475b9a7011a140b644837ae"
+    },
+    {
+      "id": "uikit-select/closed.xsmall/focus/dark",
+      "component": "uikit-select",
+      "group": "closed",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "size": "xsmall"
+      },
+      "state": "focus",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        20.0
+      ],
+      "png": "png/uikit-select/closed.xsmall/focus/dark.png",
+      "scene": "scenes/uikit-select/closed.xsmall/focus/dark.json",
+      "png_sha256": "de9a0a11af083683001ec8804cb77345cfb87a8402c3bf45c1c6e709a1568886"
+    },
+    {
+      "id": "uikit-select/closed.xsmall/focus/light",
+      "component": "uikit-select",
+      "group": "closed",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "size": "xsmall"
+      },
+      "state": "focus",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        20.0
+      ],
+      "png": "png/uikit-select/closed.xsmall/focus/light.png",
+      "scene": "scenes/uikit-select/closed.xsmall/focus/light.json",
+      "png_sha256": "0768bc518200627ddbb73d78a708e3922cddf694c16cbc3e484ad889eed68774"
+    },
+    {
+      "id": "uikit-select/closed.xsmall/normal/dark",
+      "component": "uikit-select",
+      "group": "closed",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        20.0
+      ],
+      "png": "png/uikit-select/closed.xsmall/normal/dark.png",
+      "scene": "scenes/uikit-select/closed.xsmall/normal/dark.json",
+      "png_sha256": "1c533bd2bb73a56f6651991c09dc4eb0e3faee530587a80ad09716a9fc6fbccf"
+    },
+    {
+      "id": "uikit-select/closed.xsmall/normal/light",
+      "component": "uikit-select",
+      "group": "closed",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        20.0
+      ],
+      "png": "png/uikit-select/closed.xsmall/normal/light.png",
+      "scene": "scenes/uikit-select/closed.xsmall/normal/light.json",
+      "png_sha256": "bb21c641d11d0fc822500b49a6b6e7fa62b871f2a3b2ac8a4e474193df3fc464"
+    },
+    {
+      "id": "uikit-select/closedafter.base/click+wait-200ms+click-at-60-65/dark",
+      "component": "uikit-select",
+      "group": "closedafter",
+      "params": {
+        "width": 200,
+        "selected": 1
+      },
+      "state": "click+wait-200ms+click-at-60-65",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/closedafter.base/click+wait-200ms+click-at-60-65/dark.png",
+      "scene": "scenes/uikit-select/closedafter.base/click+wait-200ms+click-at-60-65/dark.json",
+      "png_sha256": "2b46f13ce439cca9db7125c695157b5a189fe8032a3ec517a49713d9d92aee28"
+    },
+    {
+      "id": "uikit-select/closedafter.base/click+wait-200ms+click-at-60-65/light",
+      "component": "uikit-select",
+      "group": "closedafter",
+      "params": {
+        "width": 200,
+        "selected": 1
+      },
+      "state": "click+wait-200ms+click-at-60-65",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/closedafter.base/click+wait-200ms+click-at-60-65/light.png",
+      "scene": "scenes/uikit-select/closedafter.base/click+wait-200ms+click-at-60-65/light.json",
+      "png_sha256": "e10535e1fe13d4fbecf882d132b715218eb650b45e6cd56b7334f25e7e8a2e2b"
+    },
+    {
+      "id": "uikit-select/closedafter.base/click+wait-200ms+key-escape/dark",
+      "component": "uikit-select",
+      "group": "closedafter",
+      "params": {
+        "width": 200,
+        "selected": 1
+      },
+      "state": "click+wait-200ms+key-escape",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/closedafter.base/click+wait-200ms+key-escape/dark.png",
+      "scene": "scenes/uikit-select/closedafter.base/click+wait-200ms+key-escape/dark.json",
+      "png_sha256": "1994457766215ae8b4ba717af13dfeeca5e9cf960ea491b06f7c7a9116b9d9c0"
+    },
+    {
+      "id": "uikit-select/closedafter.base/click+wait-200ms+key-escape/light",
+      "component": "uikit-select",
+      "group": "closedafter",
+      "params": {
+        "width": 200,
+        "selected": 1
+      },
+      "state": "click+wait-200ms+key-escape",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/closedafter.base/click+wait-200ms+key-escape/light.png",
+      "scene": "scenes/uikit-select/closedafter.base/click+wait-200ms+key-escape/light.json",
+      "png_sha256": "94820a342e0e416abe614c66811a8870db1ba9fec26351149b44083303ae9dc4"
+    },
+    {
+      "id": "uikit-select/empty.base/click+wait-200ms/dark",
+      "component": "uikit-select",
+      "group": "empty",
+      "params": {
+        "width": 200,
+        "count": 0
+      },
+      "state": "click+wait-200ms",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/empty.base/click+wait-200ms/dark.png",
+      "scene": "scenes/uikit-select/empty.base/click+wait-200ms/dark.json",
+      "png_sha256": "482713a830e4394b0a0df8500d9e889dc614823ba039eb6007866bddcf42539c"
+    },
+    {
+      "id": "uikit-select/empty.base/click+wait-200ms/light",
+      "component": "uikit-select",
+      "group": "empty",
+      "params": {
+        "width": 200,
+        "count": 0
+      },
+      "state": "click+wait-200ms",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/empty.base/click+wait-200ms/light.png",
+      "scene": "scenes/uikit-select/empty.base/click+wait-200ms/light.json",
+      "png_sha256": "541adb7081e0cb84194a95bbe2acc7d23e4508d302c662910eaadf6d4df13f9a"
+    },
+    {
+      "id": "uikit-select/emptycustom.base/click+wait-200ms/dark",
+      "component": "uikit-select",
+      "group": "emptycustom",
+      "params": {
+        "width": 200,
+        "count": 0,
+        "empty": true
+      },
+      "state": "click+wait-200ms",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/emptycustom.base/click+wait-200ms/dark.png",
+      "scene": "scenes/uikit-select/emptycustom.base/click+wait-200ms/dark.json",
+      "png_sha256": "02c91ba549f25d0c6f695973075962d2906522fac6e44f2161e4500107bc4d72"
+    },
+    {
+      "id": "uikit-select/emptycustom.base/click+wait-200ms/light",
+      "component": "uikit-select",
+      "group": "emptycustom",
+      "params": {
+        "width": 200,
+        "count": 0,
+        "empty": true
+      },
+      "state": "click+wait-200ms",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/emptycustom.base/click+wait-200ms/light.png",
+      "scene": "scenes/uikit-select/emptycustom.base/click+wait-200ms/light.json",
+      "png_sha256": "121d2bead97e99d867470f6254be64aacecb5729aeb69de19325aa08384f8d8e"
+    },
+    {
+      "id": "uikit-select/groups.base/click+wait-200ms+at-60-236/dark",
+      "component": "uikit-select",
+      "group": "groups",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "groups": true
+      },
+      "state": "click+wait-200ms+at-60-236",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        340.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/groups.base/click+wait-200ms+at-60-236/dark.png",
+      "scene": "scenes/uikit-select/groups.base/click+wait-200ms+at-60-236/dark.json",
+      "png_sha256": "b033d5a6d1b98ad1d42a831daeaf98491b5f8a445326f1313e80adbef310a547"
+    },
+    {
+      "id": "uikit-select/groups.base/click+wait-200ms+at-60-236/light",
+      "component": "uikit-select",
+      "group": "groups",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "groups": true
+      },
+      "state": "click+wait-200ms+at-60-236",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        340.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/groups.base/click+wait-200ms+at-60-236/light.png",
+      "scene": "scenes/uikit-select/groups.base/click+wait-200ms+at-60-236/light.json",
+      "png_sha256": "5cb38581d22e39e1f16baa94a69050e405ae005812c7a1ce121e95815b91a097"
+    },
+    {
+      "id": "uikit-select/groups.base/click+wait-200ms+key-down+key-down/dark",
+      "component": "uikit-select",
+      "group": "groups",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "groups": true
+      },
+      "state": "click+wait-200ms+key-down+key-down",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        340.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/groups.base/click+wait-200ms+key-down+key-down/dark.png",
+      "scene": "scenes/uikit-select/groups.base/click+wait-200ms+key-down+key-down/dark.json",
+      "png_sha256": "faeb98aa3977a3f6e15083ddd219e13c8fb2602b8e7d860f83afd3ee7f208a70"
+    },
+    {
+      "id": "uikit-select/groups.base/click+wait-200ms+key-down+key-down/light",
+      "component": "uikit-select",
+      "group": "groups",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "groups": true
+      },
+      "state": "click+wait-200ms+key-down+key-down",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        340.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/groups.base/click+wait-200ms+key-down+key-down/light.png",
+      "scene": "scenes/uikit-select/groups.base/click+wait-200ms+key-down+key-down/light.json",
+      "png_sha256": "5aa9332e64f5cb8644ffed95ebaa1f5be6b6852cb534cb85db4b005fed572635"
+    },
+    {
+      "id": "uikit-select/groups.base/click+wait-200ms/dark",
+      "component": "uikit-select",
+      "group": "groups",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "groups": true
+      },
+      "state": "click+wait-200ms",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        340.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/groups.base/click+wait-200ms/dark.png",
+      "scene": "scenes/uikit-select/groups.base/click+wait-200ms/dark.json",
+      "png_sha256": "7fcfbcf5b0a70b91a311d915d5226f0560ed4759011c92d6f628a0a4d5060282"
+    },
+    {
+      "id": "uikit-select/groups.base/click+wait-200ms/light",
+      "component": "uikit-select",
+      "group": "groups",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "groups": true
+      },
+      "state": "click+wait-200ms",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        340.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/groups.base/click+wait-200ms/light.png",
+      "scene": "scenes/uikit-select/groups.base/click+wait-200ms/light.json",
+      "png_sha256": "af32a2f074a4437b7ca727833cff750b09a3f62a71dce5f74e0731a53b1d39e5"
+    },
+    {
+      "id": "uikit-select/groupsearch.base/click+wait-200ms+key-e+wait-200ms/dark",
+      "component": "uikit-select",
+      "group": "groupsearch",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "groups": true,
+        "searchable": true
+      },
+      "state": "click+wait-200ms+key-e+wait-200ms",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        340.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/groupsearch.base/click+wait-200ms+key-e+wait-200ms/dark.png",
+      "scene": "scenes/uikit-select/groupsearch.base/click+wait-200ms+key-e+wait-200ms/dark.json",
+      "png_sha256": "ebbdd2937c68fdeaa7ff23e00faf4bb6f315b070aee2df93dd26e49d17d1324e"
+    },
+    {
+      "id": "uikit-select/groupsearch.base/click+wait-200ms+key-e+wait-200ms/light",
+      "component": "uikit-select",
+      "group": "groupsearch",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "groups": true,
+        "searchable": true
+      },
+      "state": "click+wait-200ms+key-e+wait-200ms",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        340.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/groupsearch.base/click+wait-200ms+key-e+wait-200ms/light.png",
+      "scene": "scenes/uikit-select/groupsearch.base/click+wait-200ms+key-e+wait-200ms/light.json",
+      "png_sha256": "49ab9b3f0756c7a74194e76b4c2c996f249eb2bbb66f9a4a98b053ac1de7d449"
+    },
+    {
+      "id": "uikit-select/icon.base/normal/dark",
+      "component": "uikit-select",
+      "group": "icon",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "icon": "search"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/icon.base/normal/dark.png",
+      "scene": "scenes/uikit-select/icon.base/normal/dark.json",
+      "png_sha256": "4c1f12ccbf3a9ccc5969a2dde8cbbbcb7d1798e9917d090c61f8fdf45e01bd8e"
+    },
+    {
+      "id": "uikit-select/icon.base/normal/light",
+      "component": "uikit-select",
+      "group": "icon",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "icon": "search"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/icon.base/normal/light.png",
+      "scene": "scenes/uikit-select/icon.base/normal/light.json",
+      "png_sha256": "46a0afa76caebd29e7dd94cfcba660f159f5b7ac19c0866b8e7df8c780a8aa16"
+    },
+    {
+      "id": "uikit-select/keys.base/focus+key-down+wait-200ms/dark",
+      "component": "uikit-select",
+      "group": "keys",
+      "params": {
+        "width": 200,
+        "selected": 1
+      },
+      "state": "focus+key-down+wait-200ms",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/keys.base/focus+key-down+wait-200ms/dark.png",
+      "scene": "scenes/uikit-select/keys.base/focus+key-down+wait-200ms/dark.json",
+      "png_sha256": "372c216767f89f572ced2fd6e0a56a5a06c8a36ba323d2096628bcc373299348"
+    },
+    {
+      "id": "uikit-select/keys.base/focus+key-down+wait-200ms/light",
+      "component": "uikit-select",
+      "group": "keys",
+      "params": {
+        "width": 200,
+        "selected": 1
+      },
+      "state": "focus+key-down+wait-200ms",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/keys.base/focus+key-down+wait-200ms/light.png",
+      "scene": "scenes/uikit-select/keys.base/focus+key-down+wait-200ms/light.json",
+      "png_sha256": "29ad1c68ae98dcf24a6fc2fd571652d3d26a1b87466f4a762ebab82656689f92"
+    },
+    {
+      "id": "uikit-select/keys.base/focus+key-up+wait-200ms/dark",
+      "component": "uikit-select",
+      "group": "keys",
+      "params": {
+        "width": 200,
+        "selected": 1
+      },
+      "state": "focus+key-up+wait-200ms",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/keys.base/focus+key-up+wait-200ms/dark.png",
+      "scene": "scenes/uikit-select/keys.base/focus+key-up+wait-200ms/dark.json",
+      "png_sha256": "372c216767f89f572ced2fd6e0a56a5a06c8a36ba323d2096628bcc373299348"
+    },
+    {
+      "id": "uikit-select/keys.base/focus+key-up+wait-200ms/light",
+      "component": "uikit-select",
+      "group": "keys",
+      "params": {
+        "width": 200,
+        "selected": 1
+      },
+      "state": "focus+key-up+wait-200ms",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/keys.base/focus+key-up+wait-200ms/light.png",
+      "scene": "scenes/uikit-select/keys.base/focus+key-up+wait-200ms/light.json",
+      "png_sha256": "29ad1c68ae98dcf24a6fc2fd571652d3d26a1b87466f4a762ebab82656689f92"
+    },
+    {
+      "id": "uikit-select/menuwidth.base/click+wait-200ms/dark",
+      "component": "uikit-select",
+      "group": "menuwidth",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "menu_width": 280
+      },
+      "state": "click+wait-200ms",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/menuwidth.base/click+wait-200ms/dark.png",
+      "scene": "scenes/uikit-select/menuwidth.base/click+wait-200ms/dark.json",
+      "png_sha256": "1fdc9f958cc565cbcfa42aac82878dfa4576b00fabb74fc7ff920df4a37bcefc"
+    },
+    {
+      "id": "uikit-select/menuwidth.base/click+wait-200ms/light",
+      "component": "uikit-select",
+      "group": "menuwidth",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "menu_width": 280
+      },
+      "state": "click+wait-200ms",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/menuwidth.base/click+wait-200ms/light.png",
+      "scene": "scenes/uikit-select/menuwidth.base/click+wait-200ms/light.json",
+      "png_sha256": "d18badd8b1bcfd6d74195048e32f6495f5c274190faa30e5305f3db69754983d"
+    },
+    {
+      "id": "uikit-select/motion.enter/click/light",
+      "component": "uikit-select",
+      "group": "motion.enter",
+      "params": {
+        "width": 200,
+        "selected": 1
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "motion": {
+        "name": "enter",
+        "trigger": "click",
+        "from": "normal",
+        "frames": [
+          {
+            "t_ms": 0,
+            "png": "png/uikit-select/motion.enter/click/light/0000ms.png",
+            "scene": "scenes/uikit-select/motion.enter/click/light/0000ms.json",
+            "png_sha256": "94820a342e0e416abe614c66811a8870db1ba9fec26351149b44083303ae9dc4"
+          },
+          {
+            "t_ms": 16,
+            "png": "png/uikit-select/motion.enter/click/light/0016ms.png",
+            "scene": "scenes/uikit-select/motion.enter/click/light/0016ms.json",
+            "png_sha256": "96d81d35b2324643823efcb0fcfb197e07f401b865571f7687c486f880a7bbd9"
+          },
+          {
+            "t_ms": 33,
+            "png": "png/uikit-select/motion.enter/click/light/0033ms.png",
+            "scene": "scenes/uikit-select/motion.enter/click/light/0033ms.json",
+            "png_sha256": "5ae5f8536992743e88228120c65b553fccdf669028c0d1e636c9393513cdcf91"
+          },
+          {
+            "t_ms": 50,
+            "png": "png/uikit-select/motion.enter/click/light/0050ms.png",
+            "scene": "scenes/uikit-select/motion.enter/click/light/0050ms.json",
+            "png_sha256": "aa59b5cf38c6d56d4b98e425adc2e124bf130f17d460b94053fc001e904acca4"
+          },
+          {
+            "t_ms": 75,
+            "png": "png/uikit-select/motion.enter/click/light/0075ms.png",
+            "scene": "scenes/uikit-select/motion.enter/click/light/0075ms.json",
+            "png_sha256": "8b541c398956315ba6142b956bbbaa725211233416ac91f66345329de7904a45"
+          },
+          {
+            "t_ms": 100,
+            "png": "png/uikit-select/motion.enter/click/light/0100ms.png",
+            "scene": "scenes/uikit-select/motion.enter/click/light/0100ms.json",
+            "png_sha256": "13754b37e44f767b2a5e7cb7875d9205ded6d4d29c9cdf25951e90fde2cd0e0a"
+          },
+          {
+            "t_ms": 125,
+            "png": "png/uikit-select/motion.enter/click/light/0125ms.png",
+            "scene": "scenes/uikit-select/motion.enter/click/light/0125ms.json",
+            "png_sha256": "823807dc4eee185aa7cd51bd2fec4c4f006e43ed3e122b5e5835b64525a6c9e1"
+          },
+          {
+            "t_ms": 150,
+            "png": "png/uikit-select/motion.enter/click/light/0150ms.png",
+            "scene": "scenes/uikit-select/motion.enter/click/light/0150ms.json",
+            "png_sha256": "29ad1c68ae98dcf24a6fc2fd571652d3d26a1b87466f4a762ebab82656689f92"
+          },
+          {
+            "t_ms": 200,
+            "png": "png/uikit-select/motion.enter/click/light/0200ms.png",
+            "scene": "scenes/uikit-select/motion.enter/click/light/0200ms.json",
+            "png_sha256": "29ad1c68ae98dcf24a6fc2fd571652d3d26a1b87466f4a762ebab82656689f92"
+          }
+        ]
+      }
+    },
+    {
+      "id": "uikit-select/open.large/click+wait-200ms+at-60-64/dark",
+      "component": "uikit-select",
+      "group": "open",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "disabled_row": 3,
+        "size": "large"
+      },
+      "state": "click+wait-200ms+at-60-64",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        44.0
+      ],
+      "png": "png/uikit-select/open.large/click+wait-200ms+at-60-64/dark.png",
+      "scene": "scenes/uikit-select/open.large/click+wait-200ms+at-60-64/dark.json",
+      "png_sha256": "312d4bfb7757b4c99d4e51ff531e812d53e135e0d998b3bc0af4a3e571653a84"
+    },
+    {
+      "id": "uikit-select/open.large/click+wait-200ms+at-60-64/light",
+      "component": "uikit-select",
+      "group": "open",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "disabled_row": 3,
+        "size": "large"
+      },
+      "state": "click+wait-200ms+at-60-64",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        44.0
+      ],
+      "png": "png/uikit-select/open.large/click+wait-200ms+at-60-64/light.png",
+      "scene": "scenes/uikit-select/open.large/click+wait-200ms+at-60-64/light.json",
+      "png_sha256": "75953d5390bc47c57f676fe68e14f06a5b62701aebf4c63f3fcb1008378fde3f"
+    },
+    {
+      "id": "uikit-select/open.large/click+wait-200ms/dark",
+      "component": "uikit-select",
+      "group": "open",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "disabled_row": 3,
+        "size": "large"
+      },
+      "state": "click+wait-200ms",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        44.0
+      ],
+      "png": "png/uikit-select/open.large/click+wait-200ms/dark.png",
+      "scene": "scenes/uikit-select/open.large/click+wait-200ms/dark.json",
+      "png_sha256": "e199e35038a9c483f954ea7d0272d0057ee2a03b2d76b576f3abb7657289c4d6"
+    },
+    {
+      "id": "uikit-select/open.large/click+wait-200ms/light",
+      "component": "uikit-select",
+      "group": "open",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "disabled_row": 3,
+        "size": "large"
+      },
+      "state": "click+wait-200ms",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        44.0
+      ],
+      "png": "png/uikit-select/open.large/click+wait-200ms/light.png",
+      "scene": "scenes/uikit-select/open.large/click+wait-200ms/light.json",
+      "png_sha256": "c4eeba20d517f0d99c16fb27a18862ccab7e2d8f3460281501cc18c61a41f30d"
+    },
+    {
+      "id": "uikit-select/open.medium/click+wait-200ms+at-60-64/dark",
+      "component": "uikit-select",
+      "group": "open",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "disabled_row": 3,
+        "size": "medium"
+      },
+      "state": "click+wait-200ms+at-60-64",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/open.medium/click+wait-200ms+at-60-64/dark.png",
+      "scene": "scenes/uikit-select/open.medium/click+wait-200ms+at-60-64/dark.json",
+      "png_sha256": "1a151274a644f33ef8840117e2c8bc3ca2e0a681ddb6ea83e12ae8b96f5b4068"
+    },
+    {
+      "id": "uikit-select/open.medium/click+wait-200ms+at-60-64/light",
+      "component": "uikit-select",
+      "group": "open",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "disabled_row": 3,
+        "size": "medium"
+      },
+      "state": "click+wait-200ms+at-60-64",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/open.medium/click+wait-200ms+at-60-64/light.png",
+      "scene": "scenes/uikit-select/open.medium/click+wait-200ms+at-60-64/light.json",
+      "png_sha256": "16ae175ba693f82ab4a24d8210690cbfa949cc1ac87df1a91c8a3901b45808fb"
+    },
+    {
+      "id": "uikit-select/open.medium/click+wait-200ms/dark",
+      "component": "uikit-select",
+      "group": "open",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "disabled_row": 3,
+        "size": "medium"
+      },
+      "state": "click+wait-200ms",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/open.medium/click+wait-200ms/dark.png",
+      "scene": "scenes/uikit-select/open.medium/click+wait-200ms/dark.json",
+      "png_sha256": "3b112e9902553e6e02c205a9a4e440c6c07904f3a58ccfa7edda8d5bc3552fc6"
+    },
+    {
+      "id": "uikit-select/open.medium/click+wait-200ms/light",
+      "component": "uikit-select",
+      "group": "open",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "disabled_row": 3,
+        "size": "medium"
+      },
+      "state": "click+wait-200ms",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/open.medium/click+wait-200ms/light.png",
+      "scene": "scenes/uikit-select/open.medium/click+wait-200ms/light.json",
+      "png_sha256": "35aa0925b0e2fed4b41ed722bf94613d4a50965dfa156f343b7f7ac16dc185a3"
+    },
+    {
+      "id": "uikit-select/open.small/click+wait-200ms+at-60-64/dark",
+      "component": "uikit-select",
+      "group": "open",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "disabled_row": 3,
+        "size": "small"
+      },
+      "state": "click+wait-200ms+at-60-64",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/uikit-select/open.small/click+wait-200ms+at-60-64/dark.png",
+      "scene": "scenes/uikit-select/open.small/click+wait-200ms+at-60-64/dark.json",
+      "png_sha256": "8a062655751c91ac5097003830b1e86e6d5faac20960393ff0b3c821de271ebd"
+    },
+    {
+      "id": "uikit-select/open.small/click+wait-200ms+at-60-64/light",
+      "component": "uikit-select",
+      "group": "open",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "disabled_row": 3,
+        "size": "small"
+      },
+      "state": "click+wait-200ms+at-60-64",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/uikit-select/open.small/click+wait-200ms+at-60-64/light.png",
+      "scene": "scenes/uikit-select/open.small/click+wait-200ms+at-60-64/light.json",
+      "png_sha256": "11bf7725ac95748a48b49c6c5f351f5ec311fdc76dcbf641b3bbb74490acb4b7"
+    },
+    {
+      "id": "uikit-select/open.small/click+wait-200ms/dark",
+      "component": "uikit-select",
+      "group": "open",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "disabled_row": 3,
+        "size": "small"
+      },
+      "state": "click+wait-200ms",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/uikit-select/open.small/click+wait-200ms/dark.png",
+      "scene": "scenes/uikit-select/open.small/click+wait-200ms/dark.json",
+      "png_sha256": "3fc58e4683e8b05917349da04b38f38d9ace3a3efe63339ab86eef48fb7bd835"
+    },
+    {
+      "id": "uikit-select/open.small/click+wait-200ms/light",
+      "component": "uikit-select",
+      "group": "open",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "disabled_row": 3,
+        "size": "small"
+      },
+      "state": "click+wait-200ms",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/uikit-select/open.small/click+wait-200ms/light.png",
+      "scene": "scenes/uikit-select/open.small/click+wait-200ms/light.json",
+      "png_sha256": "0c566ce4228c73ba5e2a43c010f990a16a03d91d307372a38c6a8d86c63fab40"
+    },
+    {
+      "id": "uikit-select/open.xsmall/click+wait-200ms+at-60-64/dark",
+      "component": "uikit-select",
+      "group": "open",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "disabled_row": 3,
+        "size": "xsmall"
+      },
+      "state": "click+wait-200ms+at-60-64",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        20.0
+      ],
+      "png": "png/uikit-select/open.xsmall/click+wait-200ms+at-60-64/dark.png",
+      "scene": "scenes/uikit-select/open.xsmall/click+wait-200ms+at-60-64/dark.json",
+      "png_sha256": "7d07afaba82da7e06ed9c05e6db7bdf97021c62823d05ea4cb734577557bf059"
+    },
+    {
+      "id": "uikit-select/open.xsmall/click+wait-200ms+at-60-64/light",
+      "component": "uikit-select",
+      "group": "open",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "disabled_row": 3,
+        "size": "xsmall"
+      },
+      "state": "click+wait-200ms+at-60-64",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        20.0
+      ],
+      "png": "png/uikit-select/open.xsmall/click+wait-200ms+at-60-64/light.png",
+      "scene": "scenes/uikit-select/open.xsmall/click+wait-200ms+at-60-64/light.json",
+      "png_sha256": "7d617c0d7effe592cd6cefc5daea179a7cdd5442aef7347edd4863d3bf250b8f"
+    },
+    {
+      "id": "uikit-select/open.xsmall/click+wait-200ms/dark",
+      "component": "uikit-select",
+      "group": "open",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "disabled_row": 3,
+        "size": "xsmall"
+      },
+      "state": "click+wait-200ms",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        20.0
+      ],
+      "png": "png/uikit-select/open.xsmall/click+wait-200ms/dark.png",
+      "scene": "scenes/uikit-select/open.xsmall/click+wait-200ms/dark.json",
+      "png_sha256": "2089bdaafe117db3d9c1aba2e8f5660a71ee753dcf17629a0d6675a6419cfd8d"
+    },
+    {
+      "id": "uikit-select/open.xsmall/click+wait-200ms/light",
+      "component": "uikit-select",
+      "group": "open",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "disabled_row": 3,
+        "size": "xsmall"
+      },
+      "state": "click+wait-200ms",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        20.0
+      ],
+      "png": "png/uikit-select/open.xsmall/click+wait-200ms/light.png",
+      "scene": "scenes/uikit-select/open.xsmall/click+wait-200ms/light.json",
+      "png_sha256": "00081da166b1776c025cfc7d99d338ff253d311e48ce75fcdae8e8c1feabe707"
+    },
+    {
+      "id": "uikit-select/openplaceholder.base/click+wait-200ms/dark",
+      "component": "uikit-select",
+      "group": "openplaceholder",
+      "params": {
+        "width": 200
+      },
+      "state": "click+wait-200ms",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/openplaceholder.base/click+wait-200ms/dark.png",
+      "scene": "scenes/uikit-select/openplaceholder.base/click+wait-200ms/dark.json",
+      "png_sha256": "02031c7bff5c0592b392bb02dbe5168ea0aaa54d92b103a4fd11e887ec749974"
+    },
+    {
+      "id": "uikit-select/openplaceholder.base/click+wait-200ms/light",
+      "component": "uikit-select",
+      "group": "openplaceholder",
+      "params": {
+        "width": 200
+      },
+      "state": "click+wait-200ms",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/openplaceholder.base/click+wait-200ms/light.png",
+      "scene": "scenes/uikit-select/openplaceholder.base/click+wait-200ms/light.json",
+      "png_sha256": "d053b89458a01b37327a0c444c1d8fa39e637d9e458dcd59919f933f15e30eb7"
+    },
+    {
+      "id": "uikit-select/placeholder.large/disabled/dark",
+      "component": "uikit-select",
+      "group": "placeholder",
+      "params": {
+        "width": 200,
+        "placeholder": "Select a fruit",
+        "size": "large",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        44.0
+      ],
+      "png": "png/uikit-select/placeholder.large/disabled/dark.png",
+      "scene": "scenes/uikit-select/placeholder.large/disabled/dark.json",
+      "png_sha256": "3a99ef32d3775bc515ae00b08eb5c51bffc945a34687f150ed24dc5b99deb584"
+    },
+    {
+      "id": "uikit-select/placeholder.large/disabled/light",
+      "component": "uikit-select",
+      "group": "placeholder",
+      "params": {
+        "width": 200,
+        "placeholder": "Select a fruit",
+        "size": "large",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        44.0
+      ],
+      "png": "png/uikit-select/placeholder.large/disabled/light.png",
+      "scene": "scenes/uikit-select/placeholder.large/disabled/light.json",
+      "png_sha256": "ce654905b91469499e73af0118489a091c20122b4c8e3847f6d04c1c0451f002"
+    },
+    {
+      "id": "uikit-select/placeholder.large/normal/dark",
+      "component": "uikit-select",
+      "group": "placeholder",
+      "params": {
+        "width": 200,
+        "placeholder": "Select a fruit",
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        44.0
+      ],
+      "png": "png/uikit-select/placeholder.large/normal/dark.png",
+      "scene": "scenes/uikit-select/placeholder.large/normal/dark.json",
+      "png_sha256": "936005c9ef3c706bf31961b7024eb7d65a7da41133cf6437bb097e39f701c7bc"
+    },
+    {
+      "id": "uikit-select/placeholder.large/normal/light",
+      "component": "uikit-select",
+      "group": "placeholder",
+      "params": {
+        "width": 200,
+        "placeholder": "Select a fruit",
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        44.0
+      ],
+      "png": "png/uikit-select/placeholder.large/normal/light.png",
+      "scene": "scenes/uikit-select/placeholder.large/normal/light.json",
+      "png_sha256": "2ef0b01836fa9f870928f7394a1c429689ab39e3ee5beed0578d56d34b9bd542"
+    },
+    {
+      "id": "uikit-select/placeholder.xsmall/disabled/dark",
+      "component": "uikit-select",
+      "group": "placeholder",
+      "params": {
+        "width": 200,
+        "placeholder": "Select a fruit",
+        "size": "xsmall",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        20.0
+      ],
+      "png": "png/uikit-select/placeholder.xsmall/disabled/dark.png",
+      "scene": "scenes/uikit-select/placeholder.xsmall/disabled/dark.json",
+      "png_sha256": "172c1fc8f65d1e11ff76394f24d46cb87e5103f1eb33fc9f7d93c55705751f95"
+    },
+    {
+      "id": "uikit-select/placeholder.xsmall/disabled/light",
+      "component": "uikit-select",
+      "group": "placeholder",
+      "params": {
+        "width": 200,
+        "placeholder": "Select a fruit",
+        "size": "xsmall",
+        "disabled": true
+      },
+      "state": "disabled",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        20.0
+      ],
+      "png": "png/uikit-select/placeholder.xsmall/disabled/light.png",
+      "scene": "scenes/uikit-select/placeholder.xsmall/disabled/light.json",
+      "png_sha256": "ea6dc11ec48f7e45f0ec9700235b826570c802922e81aec302171aa694944447"
+    },
+    {
+      "id": "uikit-select/placeholder.xsmall/normal/dark",
+      "component": "uikit-select",
+      "group": "placeholder",
+      "params": {
+        "width": 200,
+        "placeholder": "Select a fruit",
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        20.0
+      ],
+      "png": "png/uikit-select/placeholder.xsmall/normal/dark.png",
+      "scene": "scenes/uikit-select/placeholder.xsmall/normal/dark.json",
+      "png_sha256": "525b7e4d5b31f07b8d52a5f776144d2970491a1fcc5fd9dd47a05864ff87c50e"
+    },
+    {
+      "id": "uikit-select/placeholder.xsmall/normal/light",
+      "component": "uikit-select",
+      "group": "placeholder",
+      "params": {
+        "width": 200,
+        "placeholder": "Select a fruit",
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        20.0
+      ],
+      "png": "png/uikit-select/placeholder.xsmall/normal/light.png",
+      "scene": "scenes/uikit-select/placeholder.xsmall/normal/light.json",
+      "png_sha256": "6ab44fdecf9861d4e60c20fe05cb6157466d0f130ed1929aef30e9aa207e172d"
+    },
+    {
+      "id": "uikit-select/plain.base/focus/dark",
+      "component": "uikit-select",
+      "group": "plain",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "plain": true
+      },
+      "state": "focus",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/plain.base/focus/dark.png",
+      "scene": "scenes/uikit-select/plain.base/focus/dark.json",
+      "png_sha256": "e80194bdfc2cc0c2a56326929054fc0c8371b5566286948a350cd0377cd67884"
+    },
+    {
+      "id": "uikit-select/plain.base/focus/light",
+      "component": "uikit-select",
+      "group": "plain",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "plain": true
+      },
+      "state": "focus",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/plain.base/focus/light.png",
+      "scene": "scenes/uikit-select/plain.base/focus/light.json",
+      "png_sha256": "aea715c79e8dfccb804d87614033de47840b99af793c4cdc2592cb4bfe70f1a8"
+    },
+    {
+      "id": "uikit-select/plain.base/normal/dark",
+      "component": "uikit-select",
+      "group": "plain",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "plain": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/plain.base/normal/dark.png",
+      "scene": "scenes/uikit-select/plain.base/normal/dark.json",
+      "png_sha256": "e80194bdfc2cc0c2a56326929054fc0c8371b5566286948a350cd0377cd67884"
+    },
+    {
+      "id": "uikit-select/plain.base/normal/light",
+      "component": "uikit-select",
+      "group": "plain",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "plain": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/plain.base/normal/light.png",
+      "scene": "scenes/uikit-select/plain.base/normal/light.json",
+      "png_sha256": "aea715c79e8dfccb804d87614033de47840b99af793c4cdc2592cb4bfe70f1a8"
+    },
+    {
+      "id": "uikit-select/pointer.base/hover/dark",
+      "component": "uikit-select",
+      "group": "pointer",
+      "params": {
+        "width": 200,
+        "selected": 1
+      },
+      "state": "hover",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/pointer.base/hover/dark.png",
+      "scene": "scenes/uikit-select/pointer.base/hover/dark.json",
+      "png_sha256": "0f0543dc794e180c94fa6763d452c682aac03a8eaa7befea2c0cd2ba4d21f6b9"
+    },
+    {
+      "id": "uikit-select/pointer.base/hover/light",
+      "component": "uikit-select",
+      "group": "pointer",
+      "params": {
+        "width": 200,
+        "selected": 1
+      },
+      "state": "hover",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/pointer.base/hover/light.png",
+      "scene": "scenes/uikit-select/pointer.base/hover/light.json",
+      "png_sha256": "5c49df4aea1e6f0a95d76b2575569c68971cd3893a7b5bcb0cb5933b566a69d4"
+    },
+    {
+      "id": "uikit-select/pointer.base/pressed/dark",
+      "component": "uikit-select",
+      "group": "pointer",
+      "params": {
+        "width": 200,
+        "selected": 1
+      },
+      "state": "pressed",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/pointer.base/pressed/dark.png",
+      "scene": "scenes/uikit-select/pointer.base/pressed/dark.json",
+      "png_sha256": "1994457766215ae8b4ba717af13dfeeca5e9cf960ea491b06f7c7a9116b9d9c0"
+    },
+    {
+      "id": "uikit-select/pointer.base/pressed/light",
+      "component": "uikit-select",
+      "group": "pointer",
+      "params": {
+        "width": 200,
+        "selected": 1
+      },
+      "state": "pressed",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/pointer.base/pressed/light.png",
+      "scene": "scenes/uikit-select/pointer.base/pressed/light.json",
+      "png_sha256": "94820a342e0e416abe614c66811a8870db1ba9fec26351149b44083303ae9dc4"
+    },
+    {
+      "id": "uikit-select/prefix.base/normal/dark",
+      "component": "uikit-select",
+      "group": "prefix",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "title_prefix": "Fruit: "
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/prefix.base/normal/dark.png",
+      "scene": "scenes/uikit-select/prefix.base/normal/dark.json",
+      "png_sha256": "e10702fdd122f326775fda516399f95b2c8385528a27d70db207a5debd40abd4"
+    },
+    {
+      "id": "uikit-select/prefix.base/normal/light",
+      "component": "uikit-select",
+      "group": "prefix",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "title_prefix": "Fruit: "
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/prefix.base/normal/light.png",
+      "scene": "scenes/uikit-select/prefix.base/normal/light.json",
+      "png_sha256": "20b78736b37cefbd795cf4c2419c69cabfb96206ad6bc7eecdab73b035155110"
+    },
+    {
+      "id": "uikit-select/query.base/click+wait-200ms+key-a+key-n+wait-200ms+key-down+key-enter/dark",
+      "component": "uikit-select",
+      "group": "query",
+      "params": {
+        "width": 200,
+        "count": 8,
+        "selected": 1,
+        "searchable": true
+      },
+      "state": "click+wait-200ms+key-a+key-n+wait-200ms+key-down+key-enter",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        340.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/query.base/click+wait-200ms+key-a+key-n+wait-200ms+key-down+key-enter/dark.png",
+      "scene": "scenes/uikit-select/query.base/click+wait-200ms+key-a+key-n+wait-200ms+key-down+key-enter/dark.json",
+      "png_sha256": "e06e55e40ca1b60ac976ef81d659e4dca71d38473abba422b93bfef56758c678"
+    },
+    {
+      "id": "uikit-select/query.base/click+wait-200ms+key-a+key-n+wait-200ms+key-down+key-enter/light",
+      "component": "uikit-select",
+      "group": "query",
+      "params": {
+        "width": 200,
+        "count": 8,
+        "selected": 1,
+        "searchable": true
+      },
+      "state": "click+wait-200ms+key-a+key-n+wait-200ms+key-down+key-enter",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        340.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/query.base/click+wait-200ms+key-a+key-n+wait-200ms+key-down+key-enter/light.png",
+      "scene": "scenes/uikit-select/query.base/click+wait-200ms+key-a+key-n+wait-200ms+key-down+key-enter/light.json",
+      "png_sha256": "6ab1fcb69478bde9c5e32bfcb9a387fba686d433d044a1f95e6c68504761ed9d"
+    },
+    {
+      "id": "uikit-select/query.base/click+wait-200ms+key-a+key-n+wait-200ms+key-down/dark",
+      "component": "uikit-select",
+      "group": "query",
+      "params": {
+        "width": 200,
+        "count": 8,
+        "selected": 1,
+        "searchable": true
+      },
+      "state": "click+wait-200ms+key-a+key-n+wait-200ms+key-down",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        340.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/query.base/click+wait-200ms+key-a+key-n+wait-200ms+key-down/dark.png",
+      "scene": "scenes/uikit-select/query.base/click+wait-200ms+key-a+key-n+wait-200ms+key-down/dark.json",
+      "png_sha256": "713fadf956f3690c6a1817c0f7708166e418b09471a9ca1ff297762a42146a81"
+    },
+    {
+      "id": "uikit-select/query.base/click+wait-200ms+key-a+key-n+wait-200ms+key-down/light",
+      "component": "uikit-select",
+      "group": "query",
+      "params": {
+        "width": 200,
+        "count": 8,
+        "selected": 1,
+        "searchable": true
+      },
+      "state": "click+wait-200ms+key-a+key-n+wait-200ms+key-down",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        340.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/query.base/click+wait-200ms+key-a+key-n+wait-200ms+key-down/light.png",
+      "scene": "scenes/uikit-select/query.base/click+wait-200ms+key-a+key-n+wait-200ms+key-down/light.json",
+      "png_sha256": "6888e8d6057a825d6334e3df1385eea932fc55487dca9e45cde812c4b46b9c40"
+    },
+    {
+      "id": "uikit-select/query.base/click+wait-200ms+key-a+key-n+wait-200ms+key-escape+click+wait-200ms/dark",
+      "component": "uikit-select",
+      "group": "query",
+      "params": {
+        "width": 200,
+        "count": 8,
+        "selected": 1,
+        "searchable": true
+      },
+      "state": "click+wait-200ms+key-a+key-n+wait-200ms+key-escape+click+wait-200ms",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        340.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/query.base/click+wait-200ms+key-a+key-n+wait-200ms+key-escape+click+wait-200ms/dark.png",
+      "scene": "scenes/uikit-select/query.base/click+wait-200ms+key-a+key-n+wait-200ms+key-escape+click+wait-200ms/dark.json",
+      "png_sha256": "0f7079196b8e66d1a8069acb9fe6844674853af41b8178026ac12d53450f3b31"
+    },
+    {
+      "id": "uikit-select/query.base/click+wait-200ms+key-a+key-n+wait-200ms+key-escape+click+wait-200ms/light",
+      "component": "uikit-select",
+      "group": "query",
+      "params": {
+        "width": 200,
+        "count": 8,
+        "selected": 1,
+        "searchable": true
+      },
+      "state": "click+wait-200ms+key-a+key-n+wait-200ms+key-escape+click+wait-200ms",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        340.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/query.base/click+wait-200ms+key-a+key-n+wait-200ms+key-escape+click+wait-200ms/light.png",
+      "scene": "scenes/uikit-select/query.base/click+wait-200ms+key-a+key-n+wait-200ms+key-escape+click+wait-200ms/light.json",
+      "png_sha256": "63bc0c277adcfc96c863e5af74296186c9707cdf8f80fba4c6538bb7f9813fa5"
+    },
+    {
+      "id": "uikit-select/query.base/click+wait-200ms+key-a+key-n+wait-200ms/dark",
+      "component": "uikit-select",
+      "group": "query",
+      "params": {
+        "width": 200,
+        "count": 8,
+        "selected": 1,
+        "searchable": true
+      },
+      "state": "click+wait-200ms+key-a+key-n+wait-200ms",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        340.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/query.base/click+wait-200ms+key-a+key-n+wait-200ms/dark.png",
+      "scene": "scenes/uikit-select/query.base/click+wait-200ms+key-a+key-n+wait-200ms/dark.json",
+      "png_sha256": "46e9b223a56ab1750678d95ca2a49f4135c0b53ba8bf415489e61c1f246b5f42"
+    },
+    {
+      "id": "uikit-select/query.base/click+wait-200ms+key-a+key-n+wait-200ms/light",
+      "component": "uikit-select",
+      "group": "query",
+      "params": {
+        "width": 200,
+        "count": 8,
+        "selected": 1,
+        "searchable": true
+      },
+      "state": "click+wait-200ms+key-a+key-n+wait-200ms",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        340.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/query.base/click+wait-200ms+key-a+key-n+wait-200ms/light.png",
+      "scene": "scenes/uikit-select/query.base/click+wait-200ms+key-a+key-n+wait-200ms/light.json",
+      "png_sha256": "79a541a0979e692d215a095894edfc8ed192fcbe9c01df07d5e2ecef8532315b"
+    },
+    {
+      "id": "uikit-select/query.base/click+wait-200ms+key-x+key-z+wait-200ms/dark",
+      "component": "uikit-select",
+      "group": "query",
+      "params": {
+        "width": 200,
+        "count": 8,
+        "selected": 1,
+        "searchable": true
+      },
+      "state": "click+wait-200ms+key-x+key-z+wait-200ms",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        340.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/query.base/click+wait-200ms+key-x+key-z+wait-200ms/dark.png",
+      "scene": "scenes/uikit-select/query.base/click+wait-200ms+key-x+key-z+wait-200ms/dark.json",
+      "png_sha256": "6720f3c02acebda6d16ae77be0e0b8c5c1f6972f5f2c2e00a2359b71e45c3927"
+    },
+    {
+      "id": "uikit-select/query.base/click+wait-200ms+key-x+key-z+wait-200ms/light",
+      "component": "uikit-select",
+      "group": "query",
+      "params": {
+        "width": 200,
+        "count": 8,
+        "selected": 1,
+        "searchable": true
+      },
+      "state": "click+wait-200ms+key-x+key-z+wait-200ms",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        340.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/query.base/click+wait-200ms+key-x+key-z+wait-200ms/light.png",
+      "scene": "scenes/uikit-select/query.base/click+wait-200ms+key-x+key-z+wait-200ms/light.json",
+      "png_sha256": "a5481ba281cb5aae87fee68bab2f9f9f4cf3dcedb0557ed4fed36f5f20d63779"
+    },
+    {
+      "id": "uikit-select/rows.base/click+wait-200ms+at-60-156/dark",
+      "component": "uikit-select",
+      "group": "rows",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "disabled_row": 3
+      },
+      "state": "click+wait-200ms+at-60-156",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/rows.base/click+wait-200ms+at-60-156/dark.png",
+      "scene": "scenes/uikit-select/rows.base/click+wait-200ms+at-60-156/dark.json",
+      "png_sha256": "3b112e9902553e6e02c205a9a4e440c6c07904f3a58ccfa7edda8d5bc3552fc6"
+    },
+    {
+      "id": "uikit-select/rows.base/click+wait-200ms+at-60-156/light",
+      "component": "uikit-select",
+      "group": "rows",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "disabled_row": 3
+      },
+      "state": "click+wait-200ms+at-60-156",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/rows.base/click+wait-200ms+at-60-156/light.png",
+      "scene": "scenes/uikit-select/rows.base/click+wait-200ms+at-60-156/light.json",
+      "png_sha256": "35aa0925b0e2fed4b41ed722bf94613d4a50965dfa156f343b7f7ac16dc185a3"
+    },
+    {
+      "id": "uikit-select/rows.base/click+wait-200ms+key-down/dark",
+      "component": "uikit-select",
+      "group": "rows",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "disabled_row": 3
+      },
+      "state": "click+wait-200ms+key-down",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/rows.base/click+wait-200ms+key-down/dark.png",
+      "scene": "scenes/uikit-select/rows.base/click+wait-200ms+key-down/dark.json",
+      "png_sha256": "edafb1a5083b8ff1dac9b3d2ffbf6b379f93434e45c87fb412a026b95ac02624"
+    },
+    {
+      "id": "uikit-select/rows.base/click+wait-200ms+key-down/light",
+      "component": "uikit-select",
+      "group": "rows",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "disabled_row": 3
+      },
+      "state": "click+wait-200ms+key-down",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/rows.base/click+wait-200ms+key-down/light.png",
+      "scene": "scenes/uikit-select/rows.base/click+wait-200ms+key-down/light.json",
+      "png_sha256": "fb9ab481b5c4b289c500856af53579f40cecedc80f18e5671098334fe6bcc1b5"
+    },
+    {
+      "id": "uikit-select/rows.base/focus+key-enter+wait-200ms/dark",
+      "component": "uikit-select",
+      "group": "rows",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "disabled_row": 3
+      },
+      "state": "focus+key-enter+wait-200ms",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/rows.base/focus+key-enter+wait-200ms/dark.png",
+      "scene": "scenes/uikit-select/rows.base/focus+key-enter+wait-200ms/dark.json",
+      "png_sha256": "3b112e9902553e6e02c205a9a4e440c6c07904f3a58ccfa7edda8d5bc3552fc6"
+    },
+    {
+      "id": "uikit-select/rows.base/focus+key-enter+wait-200ms/light",
+      "component": "uikit-select",
+      "group": "rows",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "disabled_row": 3
+      },
+      "state": "focus+key-enter+wait-200ms",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        260.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/rows.base/focus+key-enter+wait-200ms/light.png",
+      "scene": "scenes/uikit-select/rows.base/focus+key-enter+wait-200ms/light.json",
+      "png_sha256": "35aa0925b0e2fed4b41ed722bf94613d4a50965dfa156f343b7f7ac16dc185a3"
+    },
+    {
+      "id": "uikit-select/scroll.base/click+wait-200ms/dark",
+      "component": "uikit-select",
+      "group": "scroll",
+      "params": {
+        "width": 200,
+        "count": 12,
+        "selected": 2
+      },
+      "state": "click+wait-200ms",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        420.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/scroll.base/click+wait-200ms/dark.png",
+      "scene": "scenes/uikit-select/scroll.base/click+wait-200ms/dark.json",
+      "png_sha256": "4f015dcad25621e79159408e895cd7a9f723f868bad3341f1864389de46c780f"
+    },
+    {
+      "id": "uikit-select/scroll.base/click+wait-200ms/light",
+      "component": "uikit-select",
+      "group": "scroll",
+      "params": {
+        "width": 200,
+        "count": 12,
+        "selected": 2
+      },
+      "state": "click+wait-200ms",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        420.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/scroll.base/click+wait-200ms/light.png",
+      "scene": "scenes/uikit-select/scroll.base/click+wait-200ms/light.json",
+      "png_sha256": "74a46ba1ec6f31eedd54cc8a86987c42e9a59abff7af71a1c09ab181460f3978"
+    },
+    {
+      "id": "uikit-select/search.large/click+wait-200ms/dark",
+      "component": "uikit-select",
+      "group": "search",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "searchable": true,
+        "size": "large"
+      },
+      "state": "click+wait-200ms",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        300.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        44.0
+      ],
+      "png": "png/uikit-select/search.large/click+wait-200ms/dark.png",
+      "scene": "scenes/uikit-select/search.large/click+wait-200ms/dark.json",
+      "png_sha256": "cb8696c844113b1733cc972eaeab8cd81fe6634021ee6005960fb2e9220f34cd"
+    },
+    {
+      "id": "uikit-select/search.large/click+wait-200ms/light",
+      "component": "uikit-select",
+      "group": "search",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "searchable": true,
+        "size": "large"
+      },
+      "state": "click+wait-200ms",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        300.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        44.0
+      ],
+      "png": "png/uikit-select/search.large/click+wait-200ms/light.png",
+      "scene": "scenes/uikit-select/search.large/click+wait-200ms/light.json",
+      "png_sha256": "c018c7ec1edf141bcbfde89f87e3a4bf535616b53dcc3135922293ea5eb694e8"
+    },
+    {
+      "id": "uikit-select/search.medium/click+wait-200ms/dark",
+      "component": "uikit-select",
+      "group": "search",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "searchable": true,
+        "size": "medium"
+      },
+      "state": "click+wait-200ms",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        300.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/search.medium/click+wait-200ms/dark.png",
+      "scene": "scenes/uikit-select/search.medium/click+wait-200ms/dark.json",
+      "png_sha256": "95359a22c9dd4ace19b6760cadb8540bcdbca404f3fb80f89ca99911b5cbefcd"
+    },
+    {
+      "id": "uikit-select/search.medium/click+wait-200ms/light",
+      "component": "uikit-select",
+      "group": "search",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "searchable": true,
+        "size": "medium"
+      },
+      "state": "click+wait-200ms",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        300.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        32.0
+      ],
+      "png": "png/uikit-select/search.medium/click+wait-200ms/light.png",
+      "scene": "scenes/uikit-select/search.medium/click+wait-200ms/light.json",
+      "png_sha256": "cca17163d1003d49f7eb94f62d9699e71001de194b9c44f7ed62babe963d2998"
+    },
+    {
+      "id": "uikit-select/search.small/click+wait-200ms/dark",
+      "component": "uikit-select",
+      "group": "search",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "searchable": true,
+        "size": "small"
+      },
+      "state": "click+wait-200ms",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        300.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/uikit-select/search.small/click+wait-200ms/dark.png",
+      "scene": "scenes/uikit-select/search.small/click+wait-200ms/dark.json",
+      "png_sha256": "3cc117b0050e975d478caaa0cbc2b075c1458fd3fc449151527926d783c334d5"
+    },
+    {
+      "id": "uikit-select/search.small/click+wait-200ms/light",
+      "component": "uikit-select",
+      "group": "search",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "searchable": true,
+        "size": "small"
+      },
+      "state": "click+wait-200ms",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        300.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        24.0
+      ],
+      "png": "png/uikit-select/search.small/click+wait-200ms/light.png",
+      "scene": "scenes/uikit-select/search.small/click+wait-200ms/light.json",
+      "png_sha256": "5a8251ca9954979610150bdc0dbe5ba1456c980b9bc196969172810a996c0f3e"
+    },
+    {
+      "id": "uikit-select/search.xsmall/click+wait-200ms/dark",
+      "component": "uikit-select",
+      "group": "search",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "searchable": true,
+        "size": "xsmall"
+      },
+      "state": "click+wait-200ms",
+      "theme": "dark",
+      "viewport": [
+        320.0,
+        300.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        20.0
+      ],
+      "png": "png/uikit-select/search.xsmall/click+wait-200ms/dark.png",
+      "scene": "scenes/uikit-select/search.xsmall/click+wait-200ms/dark.json",
+      "png_sha256": "50a42eb58ee19c5b13a84c5aa0300c2489393abeb1e1a2d71b66b98bdf106fae"
+    },
+    {
+      "id": "uikit-select/search.xsmall/click+wait-200ms/light",
+      "component": "uikit-select",
+      "group": "search",
+      "params": {
+        "width": 200,
+        "selected": 1,
+        "searchable": true,
+        "size": "xsmall"
+      },
+      "state": "click+wait-200ms",
+      "theme": "light",
+      "viewport": [
+        320.0,
+        300.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        200.0,
+        20.0
+      ],
+      "png": "png/uikit-select/search.xsmall/click+wait-200ms/light.png",
+      "scene": "scenes/uikit-select/search.xsmall/click+wait-200ms/light.json",
+      "png_sha256": "908de823f35f6e7105c12a29bda6c4eaa3fa2dfa01396d091a631c02316b1980"
+    },
+    {
       "id": "virtual/deep.base/at-248-60+wait-400ms/dark",
       "component": "virtual",
       "group": "deep",

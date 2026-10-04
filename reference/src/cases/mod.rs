@@ -97,6 +97,8 @@ pub fn builder(case: &Case) -> Result<Builder> {
         "select" => select::builder(&params),
         "pagination" => pagination::builder(&params),
         "combobox" => select::combobox(&params),
+        "uikit-select" => select::uikit_select(&params),
+        "uikit-combobox" => select::uikit_combobox(&params),
         "tree" => tree::builder(&params),
         "tabs" => tabs::builder(&params),
         "tabalonia" => tabs::builder(&params),
