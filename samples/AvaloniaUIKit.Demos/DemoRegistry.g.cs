@@ -260,9 +260,24 @@ public sealed partial class ComboboxDemo : UserControl
     public ComboboxDemo() => AvaloniaXamlLoader.Load(this);
 }
 
+public sealed partial class ComboboxFooter : UserControl
+{
+    public ComboboxFooter() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class ComboboxMultiple : UserControl
+{
+    public ComboboxMultiple() => AvaloniaXamlLoader.Load(this);
+}
+
 public sealed partial class ComboboxSizes : UserControl
 {
     public ComboboxSizes() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class ComboboxTrigger : UserControl
+{
+    public ComboboxTrigger() => AvaloniaXamlLoader.Load(this);
 }
 
 public sealed partial class DataTableDataGrid : UserControl
@@ -725,9 +740,24 @@ public sealed partial class ScrollableModes : UserControl
     public ScrollableModes() => AvaloniaXamlLoader.Load(this);
 }
 
+public sealed partial class SelectClear : UserControl
+{
+    public SelectClear() => AvaloniaXamlLoader.Load(this);
+}
+
 public sealed partial class SelectDemo : UserControl
 {
     public SelectDemo() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class SelectGroups : UserControl
+{
+    public SelectGroups() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class SelectSearch : UserControl
+{
+    public SelectSearch() => AvaloniaXamlLoader.Load(this);
 }
 
 public sealed partial class SelectSizes : UserControl
@@ -1141,7 +1171,10 @@ public static partial class DemoRegistry
         ["color-picker/sizes"] = static () => new ColorPickerSizes(),
         ["combobox/auto-complete"] = static () => new ComboboxAutoComplete(),
         ["combobox/demo"] = static () => new ComboboxDemo(),
+        ["combobox/footer"] = static () => new ComboboxFooter(),
+        ["combobox/multiple"] = static () => new ComboboxMultiple(),
         ["combobox/sizes"] = static () => new ComboboxSizes(),
+        ["combobox/trigger"] = static () => new ComboboxTrigger(),
         ["data-table/data-grid"] = static () => new DataTableDataGrid(),
         ["data-table/demo"] = static () => new DataTableDemo(),
         ["data-table/sizes"] = static () => new DataTableSizes(),
@@ -1234,7 +1267,10 @@ public static partial class DemoRegistry
         ["scrollable/demo"] = static () => new ScrollableDemo(),
         ["scrollable/horizontal"] = static () => new ScrollableHorizontal(),
         ["scrollable/modes"] = static () => new ScrollableModes(),
+        ["select/clear"] = static () => new SelectClear(),
         ["select/demo"] = static () => new SelectDemo(),
+        ["select/groups"] = static () => new SelectGroups(),
+        ["select/search"] = static () => new SelectSearch(),
         ["select/sizes"] = static () => new SelectSizes(),
         ["select/states"] = static () => new SelectStates(),
         ["separator/demo"] = static () => new SeparatorDemo(),

@@ -11,6 +11,14 @@ The theme covers `ComboBox` and `ComboBoxItem`. The trigger is the input frame w
 
 The popup opens 6px below the trigger (above it when it flips), as wide as the trigger and at most 320px tall: the popover surface with 4px of padding around rounded rows. The row under the keyboard cursor shows the accent, a hovered row the accent at 70%, and the selected row has a check mark. On every open the popup slides 8px down and fades in over 150ms, and while it is open the trigger shows the item under the cursor. Sizes: `xsmall`, `small`, `large` (medium is the default).
 
+## uikit:Select
+
+`uikit:Select` keeps this look and adds what `ComboBox` does not have: a search field above the rows (`IsSearchable`), sections (`uikit:SelectGroup` with a `Title`), a clear button in place of the chevron while there is a value (`IsCleanable`), a prefix before the title (`TitlePrefix`), an icon in place of the chevron (`Icon`), a popup width of its own (`MenuWidth`), a footer (`Footer`) and an empty view (`EmptyContent`; an inbox icon by default). Items are data: strings, or objects whose text comes from `TextSelector`. `ItemTemplate` draws the rows, and `ItemEnabledSelector` disables items.
+
+A query keeps the items whose text contains it, ignoring case, and a section while one of its items or its title matches; `Filter` replaces the rule and `AsyncPopulator` fetches the items instead. The cursor moves to the first match, and while the popup is open the trigger shows the item under the cursor. ↑, ↓ and Enter open the closed select; then ↑ and ↓ move the cursor, Enter selects the item under it and Escape closes. Every close clears the query.
+
+The selection is `SelectedItem`, `SelectedIndex` (sections flattened) and `SelectedItems`. `SelectionChanging` is raised before a click or Enter changes it: a handler can edit `e.Selection` or set `e.Cancel`.
+
 ## Examples
 
 The four sizes.
@@ -20,3 +28,15 @@ The four sizes.
 A disabled item in the list, a disabled select with a value, and a disabled one showing its placeholder.
 
 <Demo name="select/states" title="States" />
+
+A `uikit:Select` with a search field. Type to filter the fruits.
+
+<Demo name="select/search" title="Search" />
+
+Sections, with the search field.
+
+<Demo name="select/groups" title="Groups" />
+
+A clear button while there is a value, and a title prefix with an icon in place of the chevron.
+
+<Demo name="select/clear" title="Clear" />

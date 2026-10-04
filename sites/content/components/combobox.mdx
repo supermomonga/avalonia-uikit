@@ -9,6 +9,8 @@ description: "A select that filters as you type, as ComboBox or AutoCompleteBox.
 
 Avalonia splits a combobox between two controls. To pick from a list, use `ComboBox Classes="combobox"`: the themed Select, except that the trigger is titled with the committed item only (a plain `ComboBox` shows the item under the cursor while open). To filter as you type, use `AutoCompleteBox`: its text field is the input frame and its suggestions open in the Select's dropdown popup, 6px below and as wide as the field, with the selected suggestion in the accent. `ItemsSource` and `FilterMode` are the control's own; `FilterMode="Contains"` matches anywhere in an item. Sizes on both: `xsmall`, `small`, `large` (medium is the default).
 
+For a search field in the popup, multiple selection, a footer or a trigger of your own, use `uikit:Select Classes="combobox"` (see Select). With `SelectionMode="Multiple"` a click or Enter toggles an item and the popup stays open; the trigger joins the selected items' text with commas. `Footer` sits below the rows under a separator. `TriggerTemplate` replaces the trigger's content with a template of a `uikit:SelectTriggerContext` (`SelectedItems`, `Title`, `PlaceholderText`, `HasSelection`, `IsOpen`).
+
 ## Examples
 
 An `AutoCompleteBox` filtering a list of fruit names. The demo takes its `ItemsSource` from a static helper that holds a list of strings; bind your own collection instead.
@@ -18,3 +20,15 @@ An `AutoCompleteBox` filtering a list of fruit names. The demo takes its `ItemsS
 A small and a medium combobox, and a disabled one.
 
 <Demo name="combobox/sizes" title="Sizes" />
+
+Multiple selection with a search field and a clear button.
+
+<Demo name="combobox/multiple" title="Multiple" />
+
+A footer button that adds what was typed in the search field.
+
+<Demo name="combobox/footer" title="Footer" />
+
+A trigger template: an icon, the title or the placeholder, and the chevron.
+
+<Demo name="combobox/trigger" title="Custom trigger" />
