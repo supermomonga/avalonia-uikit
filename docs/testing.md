@@ -4,7 +4,8 @@ UIKitTheme が GPUI Kit と同じ見た目・動きになっていることを�
 
 - 移植元: gpui-kit [`2c5162f8c5b0c7fcec066ed53125d304c632bfe2`](https://github.com/longbridge/gpui-kit/tree/2c5162f8c5b0c7fcec066ed53125d304c632bfe2)（gpui-pre 0.3.7）
 - 移植先: Avalonia 12.1.3（別パッケージは `Avalonia.Controls.ColorPicker` 12.1.3、`Avalonia.Controls.DataGrid` 12.1.2）、.NET 10、TUnit 1.72.16
-- 参照データ: `goldens/gpui-2c5162f/`（3508 ケース。うち動き 60、Aurora Light 106。PNG、Scene JSON、トークン）
+- サードパーティのライブラリ（ADR 28）: Tabalonia 12.0.0、Dock.Avalonia 12.1.0.6
+- 参照データ: `goldens/gpui-2c5162f/`（3709 ケース。うち動き 63、Aurora Light 116。PNG、Scene JSON、トークン）
 
 ## コマンド
 
@@ -53,14 +54,15 @@ UIKitTheme が GPUI Kit と同じ見た目・動きになっていることを�
 
 ## テストの構成
 
-3739 件。macOS arm64 での最新の実行結果は全件成功し、全体で約 5 分かかる。テストの時刻はすべて仮想時計で進める（[時刻](#時刻)）。
+3949 件。macOS arm64 での最新の実行結果は全件成功し、全体で約 5 分かかる。テストの時刻はすべて仮想時計で進める（[時刻](#時刻)）。
 
 | テスト | 件数 | 内容 |
 | --- | --- | --- |
-| `*_matches_gpui`（コンポーネント別 72 クラス） | 3558 | 静止状態の全ケース（TabControl は Tabs のケースをもう一度使う）。構造と画素を比較する。 |
-| `MotionTests`、`TabControl_moves_as_gpui` | 64 | 動きを GPUI が記録した時刻ごとに描画し、フレームを比較する。 |
+| `*_matches_gpui`（コンポーネント別 74 クラス） | 3756 | 静止状態の全ケース（TabControl は Tabs のケースをもう一度使う）。構造と画素を比較する。 |
+| `MotionTests`、`TabControl_moves_as_gpui` | 67 | 動きを GPUI が記録した時刻ごとに描画し、フレームを比較する。 |
 | `TokenTests` | 40 | トークンの完全一致と過不足。Default Light / Default Dark と同梱の 36 テーマのそれぞれ、テーマのバリアントの継承。 |
 | `BehaviorTests`、`ControlBehaviorTests` | 24、34 | 時間・入力・無効状態の挙動。後者は新しいコントロール（ADR 19）の操作と、GPUI の表記・色の計算。 |
+| `TabaloniaBehaviorTests`、`DockBehaviorTests` | 6、3 | サードパーティのライブラリ（ADR 28）の操作が、テーマの部品を通して効くこと。 |
 | `FluentLayeringTests` | 19 | FluentTheme の上に重ねても見た目が変わらないこと。 |
 
 コンポーネント別の静止ケース数（括弧内は動きのケース数）:
@@ -145,6 +147,13 @@ UIKitTheme が GPUI Kit と同じ見た目・動きになっていることを�
 | HoverCard → HoverCard | 8 | 500ms では閉じている、700ms で開く、左右の揃え |
 | ShimmerText → ShimmerText | 6（4） | 色、小さい文字、1 回のスイープ（逆向き） |
 
+サードパーティのライブラリ（ADR 28、別パッケージ）の静止ケース数:
+
+| コンポーネント（GPUI → Avalonia） | ケース | 組み合わせ |
+| --- | --- | --- |
+| Tabs / TabBar → Tabalonia の TabsControl | 172（3） | 5 種類 × 4 サイズ、hover、無効なタブ、アイコン、閉じるボタンとその hover、前後のボタン、メニューを開いた状態、インジケーターの移動、Aurora Light |
+| Dock → Dock.Avalonia の DockControl | 26 | 配置、閉じるボタンとその hover / 押下、タブの hover、分割の hover / 押下 / ドラッグ、タブのドラッグ中（グループの中央と左の 3 分の 1、タブ、タブバーの空き） |
+
 静止ケースは Light と Dark の両方を持つ（Tooltip のサイズ違いを除く）。動きは時間の比較が目的なので Light だけで行う。
 
 同梱のテーマで見た目が変わるのは色だけで、色はトークンの比較で全テーマを確かめる。それに加えて、Aurora Light が塗るグラデーション（ADR 26）を、グラデーションの塗りを持つ 11 コンポーネントで GPUI の描画と比べる。ケースのテーマはテーマの slug で書く（`themes = ["aurora-light"]`）。
@@ -212,12 +221,13 @@ GPUI の Scene から各デバイス画素を領域に分類し、領域ごと�
   - クリップが辺を切る位置は丸めが分かれ、細い線が 2 倍にも 0 にもなる。その辺と両端の角は数えない（R9）。
   - Ink 領域と Excluded 領域の画素は数えない。
 
-ケース単位で許容値を変えているのは、動きの途中フレームだけ（`Motion/MotionTolerance.cs`）:
+ケース単位で許容値を変えているのは、動きの途中フレーム（`Motion/MotionTolerance.cs`）と、半透明のカードを描く Dock のケースだけ:
 
 | ケース | 変更 | 理由 |
 | --- | --- | --- |
 | 不定値 Progress の途中で、GPUI のバーが角丸より細いフレーム | Flat 64、Edge 128 / 平均 6 | R19 |
 | Tooltip、Select / Combobox / DatePicker のポップアップ、Notification のカードがフェード中のフレーム | Flat 13、Ink 平均 24、枠線の量は比べない（半透明の背景の下に透ける影のほうが、フェード中の枠より濃い） | R5 |
+| Dock のタブのドラッグ中（不透明度 75% のプレビューのカード） | Flat 13、枠線の量は比べない | R5 |
 
 ### 4. 動き
 
@@ -239,7 +249,7 @@ GPUI 側は仮想時計で 1 フレームずつ記録する（R15）。Avalonia 
 | つまみの拡大 | 300ms、ease-out-cubic で 6→8px | Width の Transition |
 | Select / Combobox / DatePicker のポップアップ | 150ms で 8px 下へスライドしながらフェード、リングと影は 4 乗 | キーフレーム（DatePicker は Margin でレイアウトを動かす） |
 | InputGroup の色 | HSLA の補間 | `Motion.ColorTransition` |
-| Tabs のインジケーター、pill の文字色 | spring_move で位置と幅、色のフェード | `Tabs.Indicator`、`Tabs.SelectionFade` |
+| Tabs のインジケーター、pill の文字色（Tabalonia も） | spring_move で位置と幅、色のフェード | `Tabs.Indicator`、`Tabs.SelectionFade` |
 | Slider のつまみのリング | spring_control | `Motion.Spring` |
 | Accordion / Collapsible の開閉 | 自然な高さ × ばね（MotionReveal） | Canvas が内容を測り、`RevealConverters` で高さを掛ける |
 | Notification の入退場 | 96px のスライドと 400ms のフェード、退場 200ms | キーフレーム、`Notifications.FromBottom` で向きを選ぶ |
@@ -287,6 +297,8 @@ Avalonia には時刻を指定する公開 API がないので、テストに限
 | AvatarGroup | 上限までを表示し、超えたら省略記号を出す。 |
 | HoverCard | 599ms では開かず 600ms で開く。カードの上にポインターがある間は開いたまま、離れて 300ms で閉じる。 |
 | Stepper | 指標・ラベルのクリックで選択する。disabled は無視する。 |
+| Tabalonia | ドラッグしたタブにインジケーターが付いていく。閉じるボタンと追加ボタン、メニューでの選択が効く。溢れたタブはスクロールし、選択したタブが見える。キーボードのフォーカスでだけリングを出す。 |
+| Dock | ツールバーのメニューの Close がグループのパネルを閉じる。タブの閉じるボタンがドキュメントを閉じる。グループの左の 3 分の 1 へのドロップが左に分割する。 |
 | 計算 | Avatar の頭文字（GPUI の extract_text_initials）、Kbd の表記（GPUI の test_format、macOS と他の OS）、DescriptionList の行の分け方（GPUI の test_group_item_rows）。 |
 
 ## 見た目だけのコード
@@ -307,6 +319,10 @@ Avalonia には時刻を指定する公開 API がないので、テストに限
 | | `CalendarGrid.Columns` | 月のグリッドを 3 列に並べ替え、列の端をデバイス px に丸める |
 | | `TextLines.RoundsWidthUp` | 文字の幅を論理 px に切り上げる（GPUI と同じ） |
 | | `TextLines.CentersTallGlyphs` | 行より高い文字を行の中央に置く |
+| | `TextLines.StartsTrimmedText` | 省略記号で切った文字を左に寄せる（GPUI と同じ） |
+| | `DragTabs.FollowsDrag`（Tabalonia） | ドラッグ中のタブにインジケーターをばねなしで付ける |
+| | `DockSplitters.Straddles`（Dock） | 分割のハンドルを両側のグループの上に重ね、場所を取らない |
+| | `DockTargets.MarksTab`（Dock） | 挿入先のタブの区切り線を、レイアウトを変えずに消す |
 | | `uikit:SpringSlide` | Carousel のページ送り |
 | 値の受け渡し（ADR 17） | `Tables.CellPadding` / `CellVerticalAlignment` / `RowHeight` / `ShowsResizeHandles`、`Notifications.FromBottom` | コードで作られる子に、親の見た目を渡す |
 | Converter | `AffineConverter`、`ThicknessWhenConverter`、`ThicknessFilterConverter`、`AboveConverter`、`FirstNonNullConverter` | 数値・余白の変換 |
@@ -316,8 +332,11 @@ Avalonia には時刻を指定する公開 API がないので、テストに限
 | | `CalendarConverters`、`TimeConverters`、`TableConverters` | 月名・年・時刻の表示、縞の詰め物行 |
 | | `ColorPickerConverters`（ColorPicker） | GPUI の darken / lighten と 16 進 |
 | | `LinearThicknessConverter`、`AvatarConverters`、`StepperConverters`、`FormConverters` | Badge のずれ、円の角丸、Stepper の線、Form の間隔 |
+| | `DockConverters`（Dock） | タブバーとタイトルバーの切り替え、Dock が半透明にするドロップ先の塗りの表示 |
 
 新しいコントロール（ADR 19、`src/AvaloniaUIKit/Controls/`）は、プロパティ・疑似クラス・テンプレートの部品と、そのコンポーネント自身の操作だけを持つ: `Badge`、`TagLabel`、`Alert`、`Skeleton`、`StatusBar`、`Breadcrumb` / `BreadcrumbItem`、`Kbd`、`Clipboard`、`Rating` / `RatingStar`、`Avatar`、`AvatarGroup`、`EmptyState`、`DescriptionList` / `DescriptionItem` / `DescriptionSeparator`、`Stepper` / `StepperItem`、`Form` / `FormField`、`HoverCard`、`ShimmerText`、`Marker`、`Bubble`、`Message`。補助として、GPUI の色の選び方（`FxHash`: rustc-hash 2.1 の FxHasher、`OkLab`: mix_oklab）と、長さを分け合うパネル（`DescriptionRowPanel`、`StepperPanel`、`FormPanel`、`MarkerPanel`。辺をデバイス px に丸める `LayoutSnap`）を持つ。
+
+サードパーティのライブラリのパッケージ（ADR 28）は、ライブラリのテンプレートの約束が GPUI の部品を置けないところだけコントロールを足す（ADR 29）: `TabsMenuButton`（Tabalonia のタブを並べた一覧を開く、タブバーの末尾のボタン）。
 
 ## 緩和の一覧
 
@@ -329,7 +348,7 @@ Avalonia には時刻を指定する公開 API がないので、テストに限
 | R2 | 図形の縁の AA が異なる（GPUI は SDF、Skia は解析的 AA）。 | Edge 領域を別の許容値で比べる。 |
 | R3 | 影のぼかしの近似が異なる。spread 付きの影の角丸は、GPUI では要素のまま、Skia では spread 分だけ大きくなる。 | σ を Blur に変換（σ = 0.288675 × Blur + 0.5）し、Shadow 領域の最大値と影の角丸を緩める。角丸を保ちたい影（Notification）は、角丸を広げた別の Border で落とす。 |
 | R4 | SVG アイコンのラスタライズが異なる（resvg と Skia の Path）。 | R1 と同じく Ink 領域で比べる。 |
-| R5 | 不透明度のかけ方が異なる。GPUI は図形ごと、Avalonia はグループ全体にかける。重なった図形がフェード中だけ違って見える。 | フェード中のフレームだけ Flat を 13 に緩め（理論上の最大 12.75）、枠線の量を比べない。 |
+| R5 | 不透明度のかけ方が異なる。GPUI は図形ごと、Avalonia はグループ全体にかける。重なった図形がフェード中だけ違って見える。 | フェード中のフレームと、半透明のまま描くカード（Dock のドラッグのプレビュー）だけ Flat を 13 に緩め（理論上の最大 12.75）、枠線の量を比べない。 |
 | R6 | spring の途中で目標が変わったときの速度の引き継ぎ。Avalonia の Transition は速度 0 から始まる。 | 解消済み。`Motion.Spring` が GPUI と同じ式で速度を引き継ぐ。途中で戻す動きも比べる。 |
 | R7 | Avalonia に時刻を指定する公開 API がない。 | テストに限り、内部の時計と Dispatcher の時刻を差し替える（[時刻](#時刻)）。Avalonia の内部に依存する。 |
 | R8 | spring は ε 以内で止まる。止まるかどうかを調べる時刻が、GPUI は描画のたび、`Motion.Spring` は 1ms ごとで異なる。 | 差は ε（つまみで 0.1px）以内。動きのフレームの位置の許容値 ±0.51px に含める。 |
@@ -359,6 +378,8 @@ Avalonia には時刻を指定する公開 API がないので、テストに限
 | R32 | GPUI のシェーダーはグラデーションをディザする。Skia はしない。1 つの三角分布のノイズで各色を ±2/255、アルファを ±3/255 動かすので、不透明なグラデーションも最大 3/255 透けて下の色が混ざる。差は最大で 2 + 3 × 下との色の差（≦ 5）、平均で (4 + 3 × 下との色の差) / 6（≦ 1.17）になる。 | グラデーションの内側を Gradient 領域として最大 5、平均 1.25 まで認める。 |
 | R33 | 同梱の Inter にない文字（AvatarGroup の省略記号「⋯」、U+22EF）は、描画系がそれぞれのフォールバックのフォントで描く。 | その文字を含むアバターの輪の内側だけ画素を比べない（`VisualAssert.Matches` の `excluded`）。色と、塗り・輪の形は比べる。 |
 | R34 | GPUI は折り返した行の末尾の空白も含めて行を中央に寄せ、折り返す位置を決める。Avalonia は末尾の空白を数えない。 | 中央寄せの文字（EmptyState）は 1 行に収まるケースで比べる。折り返す位置が空白 1 つ分の差で変わる幅（Alert の small）はケースの幅を変えて避ける。 |
+| R35 | Dock のドラッグのプレビューの位置。Dock.Avalonia はデスクトップでは別のウィンドウに出し、ウィンドウのない描画（managed）ではレイヤーの原点に置いたままにする（Dock 12.1.0.6 が Avalonia 12 の可視ツリーの根を TopLevel と見なすため）。GPUI はタブの角をドラッグの始まりからポインターと一緒に動かし、ドロップ先の上に描く。 | テストがプレビューを OverlayLayer に移し、GPUI と同じ位置に置く（`Adapters.Dock.cs` の `PlaceDockDragPreview`）。位置は Dock のもの、カードの見た目はテーマのもの。 |
+| R36 | Dock.Avalonia はタブを押した時点で選択し、ドロップ先の操作を 2 回目の移動で決め、タブバーの中でのドラッグを並べ替えに使わない。GPUI は選択を変えずにドラッグし、最初の移動で決める。 | ドロップのケースは選択中のタブをドラッグし、タブバーの外へ一度出し、ドロップ先の上で 2 回動かす。 |
 
 ## 利用側の約束
 
@@ -396,6 +417,8 @@ GPUI と同じ見た目・挙動にするため、アプリ側で次の設定を
 | Sheet | `DrawerPage Classes="sheet" DrawerBehavior="Flyout"`、暗転なしは `BackdropBrush="{x:Null}"`、GPUI の 34px のタイトルバーの下に出すなら `UIKit.Sheet.Margin` | – |
 | TitleBar | `UIKit.TitleBar.Padding`（既定 12） | Avalonia が装飾を描く OS（Windows の拡張、X11、Wayland）でだけ使われる。 |
 | ColorPicker | `UIKitColorPickerTheme` を追加、ColorSelect は `Classes="field"` | パレットは標準の FluentColorPalette（`Palette` で変える）。 |
+| Tabalonia | `UIKitTabaloniaTheme` を追加（Tabalonia のテーマは入れない）、種類とサイズは Tabs と同じクラス、一覧は `menu`。`ItemsSource` は変更できるリスト | タブは `TabItemWidth` の 1 つの幅に並ぶ（GPUI は文字の幅）。ウィンドウのない環境では `EnableTabDetaching="False"`。 |
+| Dock | `UIKitDockTheme` を追加（Dock のテーマは入れない）。ウィンドウのない環境では `DockSettings.UseManagedWindows` か `FloatingWindowHostMode="Managed"` | Dock 12.1.0.6 は managed のドラッグのプレビューをレイヤーの原点に置く（R35）。trim するなら分割のモデルのプロパティを残す（`DynamicDependency`）。 |
 | Badge | `Count` / `Maximum` / `IsDot` / `Icon`、色は `BadgeBackground`、サイズは `small` `large` | 色を Background にすると中身の背景と区別できない。 |
 | TagLabel | 色はクラス（`primary` 既定、`secondary` `danger` `success` `warning` `info`、19 のパレット色）、`outline`、`xsmall` `small` `large`、`rounded-full` | GPUI の Tag。Avalonia の `Control.Tag` と同名になるため改名。 |
 | Alert | 種類は `info` `success` `warning` `error`、`banner`、サイズのクラス。`IsClosable` と `CloseRequested` で隠すのはアプリ | GPUI の on_close も隠さない。 |

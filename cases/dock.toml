@@ -38,7 +38,8 @@ states = ["at-256-120+wait-200ms", "pressed-at-256-120+wait-200ms", "pressed-at-
 # twice over the target (Dock.Avalonia picks the operation on the second move) over:
 # the Editor's centre (a merge), the Editor's left third (a split to the left),
 # the Terminal tab (an insert before it) and the bottom tab bar's empty space.
-# The placeholder springs from the preview into place (280ms).
+# The placeholder springs from the preview into place (280ms). The moves are
+# Dock.Avalonia's, not GPUI's (R36); the preview is placed by the tests (R35).
 [[group]]
 name = "drop"
 params = {}
