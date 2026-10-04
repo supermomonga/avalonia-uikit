@@ -52,12 +52,21 @@ pub fn group(params: &Params) -> Result<Builder> {
     let disabled = disabled(params);
     let rounded = rounded(params);
     let labels: Vec<String> = param_str(params, "labels", "One,Two,Three").split(',').map(str::to_string).collect();
-    let selected = param_str(params, "selected", "").to_string();
-    Ok(Rc::new(move |_, _, _| {
+    let initial: u32 = param_str(params, "selected", "")
+        .bytes()
+        .enumerate()
+        .fold(0, |bits, (i, c)| bits | (((c == b'1') as u32) << i));
+    // `selectable`: an app that applies the indices on_click reports;
+    // `multiple` toggles the clicked button instead of selecting it alone.
+    let selectable = param_bool(params, "selectable");
+    let multiple = param_bool(params, "multiple");
+    Ok(Rc::new(move |view, _, cx| {
+        let bits = if view.state.toggled { view.state.value as u32 } else { initial };
         // `disabled` before `child`: ButtonGroup::child copies it.
         let mut group = ButtonGroup::new("case")
             .with_size(size)
             .disabled(disabled)
+            .multiple(multiple)
             .layout(if vertical { gpui_kit::Axis::Vertical } else { gpui_kit::Axis::Horizontal });
         if let Some(variant) = variant {
             group = group.with_variant(variant);
@@ -73,8 +82,15 @@ pub fn group(params: &Params) -> Result<Builder> {
                 Button::new(ix)
                     .label(label.clone())
                     .rounded(rounded)
-                    .selected(selected.as_bytes().get(ix) == Some(&b'1')),
+                    .selected(bits & (1 << ix) != 0),
             );
+        }
+        if selectable {
+            group = group.on_click(cx.listener(|view, selected: &Vec<usize>, _, cx| {
+                view.state.toggled = true;
+                view.state.value = selected.iter().fold(0u32, |bits, ix| bits | 1 << ix) as f32;
+                cx.notify();
+            }));
         }
         group.into_any_element()
     }))

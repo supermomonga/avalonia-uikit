@@ -156,4 +156,58 @@ public class ButtonsBehaviorTests
         host.Drive(golden, "focus+click");
         await Assert.That(box.IsFocused).IsTrue();
     }
+
+    // button_group.rs on_click: single selection reports the clicked button
+    // alone; multiple toggles it in the selection, appending it.
+    [Test]
+    [Arguments(false, "0", "0")]
+    [Arguments(true, "1,0", "1")]
+    public async Task A_button_group_reports_the_selection_a_click_makes(bool multiple, string first, string second)
+    {
+        var golden = Case("uikit-buttongroup/click.base/click/light");
+        var group = (ButtonGroup)Adapters.Create(golden);
+        group.Multiple = multiple;
+        using var host = CaseHost.Open(golden, group);
+        var reports = new List<string>();
+        group.Click += (_, e) => reports.Add(string.Join(",", e.SelectedIndices));
+        host.Drive(golden, "click");
+        host.Drive(golden, "click");
+        await Assert.That(string.Join(" ", reports)).IsEqualTo($"{first} {second}");
+        await Assert.That(string.Join(",", group.SelectedIndices)).IsEqualTo(second);
+    }
+
+    // The buttons keep their own click; a disabled group reports nothing.
+    [Test]
+    public async Task A_disabled_button_group_reports_no_click()
+    {
+        var golden = Case("uikit-buttongroup/click.base/click/light");
+        var group = (ButtonGroup)Adapters.Create(golden);
+        using var host = CaseHost.Open(golden, group);
+        var reports = 0;
+        var buttonClicks = 0;
+        group.Click += (_, _) => reports++;
+        ((Button)group.Children[0]).Click += (_, _) => buttonClicks++;
+        host.Drive(golden, "click");
+        await Assert.That((reports, buttonClicks)).IsEqualTo((1, 1));
+        group.IsEnabled = false;
+        host.Drive(golden, "click");
+        await Assert.That((reports, buttonClicks)).IsEqualTo((1, 1));
+    }
+
+    // button_group.rs: the group's size, variant, compact and outline go on each
+    // button, and only those: a button's own classes stay.
+    [Test]
+    public async Task A_button_group_passes_its_classes_to_its_buttons()
+    {
+        var group = new ButtonGroup { Classes = { "outline", "small", "wide" } };
+        var own = new Button { Classes = { "rounded-large" } };
+        group.Children.Add(own);
+        await Assert.That(string.Join(" ", own.Classes.Where(c => !c.StartsWith(':')).Order())).IsEqualTo("outline rounded-large small");
+        group.Classes.Remove("small");
+        group.Classes.Add("primary");
+        await Assert.That(string.Join(" ", own.Classes.Where(c => !c.StartsWith(':')).Order())).IsEqualTo("outline primary rounded-large");
+        group.Children.Remove(own);
+        await Assert.That(string.Join(" ", own.Classes.Where(c => !c.StartsWith(':')).Order())).IsEqualTo("rounded-large");
+    }
 }
+

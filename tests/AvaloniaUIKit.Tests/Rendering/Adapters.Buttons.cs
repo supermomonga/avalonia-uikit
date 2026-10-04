@@ -48,4 +48,48 @@ public static partial class Adapters
         }
         return box;
     }
+
+    /// <summary>
+    /// The buttongroup cases as a uikit:ButtonGroup: the group's variant, outline,
+    /// compact and size as its classes; each button's rounding and selection as its
+    /// own. With `selectable` the case applies the indices Click reports, as an app
+    /// following on_click does.
+    /// </summary>
+    private static ButtonGroup ButtonGroupCase(GoldenCase c)
+    {
+        var group = new ButtonGroup
+        {
+            Orientation = c.Str("layout", "horizontal") == "vertical" ? Orientation.Vertical : Orientation.Horizontal,
+            Multiple = c.Bool("multiple"),
+            IsEnabled = !c.Bool("disabled"),
+        };
+        ClassFrom(group, c, "variant", "default");
+        ClassFrom(group, c, "size", "medium");
+        FlagClass(group, c, "outline");
+        FlagClass(group, c, "compact");
+        var selected = c.Str("selected", "");
+        var labels = c.Str("labels", "One,Two,Three").Split(',');
+        for (var i = 0; i < labels.Length; i++)
+        {
+            var button = new Button { Content = labels[i] };
+            var rounded = c.Str("rounded", "medium");
+            if (rounded != "medium")
+            {
+                button.Classes.Add("rounded-" + rounded);
+            }
+            button.Classes.Set("selected", i < selected.Length && selected[i] == '1');
+            group.Children.Add(button);
+        }
+        if (c.Bool("selectable"))
+        {
+            group.Click += (_, e) =>
+            {
+                for (var i = 0; i < group.Children.Count; i++)
+                {
+                    group.Children[i].Classes.Set("selected", e.SelectedIndices.Contains(i));
+                }
+            };
+        }
+        return group;
+    }
 }

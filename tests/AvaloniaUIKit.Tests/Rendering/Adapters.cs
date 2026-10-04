@@ -22,6 +22,7 @@ public static partial class Adapters
         "button" => Button(c),
         "button-loading" => LoadingButton(c),
         "buttongroup" => ButtonGroup(c),
+        "uikit-buttongroup" => ButtonGroupCase(c),
         "toggle" => Toggle(c),
         "togglegroup" => ToggleGroup(c),
         "checkbox" => Check(new CheckBox(), c),
