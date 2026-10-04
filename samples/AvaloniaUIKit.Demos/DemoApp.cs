@@ -28,6 +28,7 @@ public static class DemoApp
         app.Styles.Add(new UIKitColorPickerTheme());
         app.Styles.Add(new UIKitDataGridTheme());
         app.Styles.Add(new UIKitTabaloniaTheme());
+        app.Styles.Add(new UIKitDockTheme());
         app.Resources["UIKit.FontFamily"] = new FontFamily(FontFamilyName);
         // GPUI opens a submenu as soon as its item is hovered (usage contract, docs/testing.md).
         Avalonia.Controls.Platform.DefaultMenuInteractionHandler.MenuShowDelay = TimeSpan.Zero;
