@@ -193,6 +193,13 @@
     <Style Selector="^.plain /template/ Border#PART_FocusRing">
       <Setter Property="IsVisible" Value="False" />
     </Style>
+    <Style Selector="^.plain:disabled">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
+    </Style>
+    <Style Selector="^.plain:disabled /template/ Border#PART_Frame">
+      <Setter Property="Opacity" Value="1" />
+    </Style>
 
     <!--
       dropdown_popup: 8px down and a fade over 150ms; the ring and shadow inks

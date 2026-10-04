@@ -164,6 +164,7 @@ public class DateField : TemplatedControl
     private DateTime _today = DateTime.Today;
     private bool _syncing;
     private bool _pressed;
+    private bool _clearPressed;
     private string? _text;
 
     static DateField()
@@ -185,6 +186,8 @@ public class DateField : TemplatedControl
         Presets.CollectionChanged += (_, _) => UpdateState();
         Classes.CollectionChanged += (_, _) => SyncSizes();
         AddHandler(Button.ClickEvent, OnPresetClick);
+        AddHandler(PointerPressedEvent, OnClearPressed, RoutingStrategies.Tunnel);
+        AddHandler(PointerReleasedEvent, OnClearReleased, RoutingStrategies.Tunnel);
         UpdateState();
     }
 
@@ -458,6 +461,31 @@ public class DateField : TemplatedControl
     {
         e.Handled = true;
         Clean();
+    }
+
+    private bool InClearButton(object? source) =>
+        source is Visual visual && _clearButton is not null && (visual == _clearButton || _clearButton.IsVisualAncestorOf(visual));
+
+    // clear_button is not a tab stop and GPUI's button prevents the press from
+    // focusing anything: the press stops before Avalonia's focus manager and
+    // the button, and the click is the press and release on it.
+    private void OnClearPressed(object? sender, PointerPressedEventArgs e)
+    {
+        if (InClearButton(e.Source) && e.GetCurrentPoint(this).Properties.IsLeftButtonPressed)
+        {
+            _clearPressed = true;
+            e.Handled = true;
+        }
+    }
+
+    private void OnClearReleased(object? sender, PointerReleasedEventArgs e)
+    {
+        if (_clearPressed && InClearButton(e.Source))
+        {
+            e.Handled = true;
+            Clean();
+        }
+        _clearPressed = false;
     }
 
     private void OnPresetClick(object? sender, RoutedEventArgs e)
