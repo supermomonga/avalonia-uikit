@@ -210,7 +210,6 @@ public class Select : ItemsControl
         FocusableProperty.OverrideDefaultValue<Select>(true);
         Refreshes(SelectionModeProperty, TitlePrefixProperty, TextSelectorProperty, TracksCursorProperty,
             ItemEnabledSelectorProperty, IsCleanableProperty, IconProperty, TriggerTemplateProperty, PlaceholderTextProperty);
-        IsEnabledProperty.Changed.AddClassHandler<Select>((s, _) => s.UpdateState());
     }
 
     private static void Refreshes(params AvaloniaProperty[] properties)
@@ -600,9 +599,13 @@ public class Select : ItemsControl
         {
             SetSelection([_selection[0]]);
         }
-        else if (change.Property == IsEffectivelyEnabledProperty && !IsEffectivelyEnabled)
+        else if (change.Property == IsEffectivelyEnabledProperty)
         {
-            IsDropDownOpen = false;
+            if (!IsEffectivelyEnabled)
+            {
+                IsDropDownOpen = false;
+            }
+            UpdateState();
         }
     }
 
