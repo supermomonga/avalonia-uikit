@@ -8,7 +8,7 @@ use std::{fmt::Write as _, path::Path};
 use tiny_skia_path::PathSegment;
 
 /// The icons the themes draw, by GPUI IconName file name.
-pub const ICONS: [&str; 41] = [
+pub const ICONS: [&str; 50] = [
     "check",
     "minus",
     "plus",
@@ -50,6 +50,16 @@ pub const ICONS: [&str; 41] = [
     "star",
     "star-fill",
     "user",
+    // Dock (AvaloniaUIKit.Dock): the dock toggles, zoom and pinning.
+    "panel-left",
+    "panel-right",
+    "panel-top",
+    "panel-bottom",
+    "panel-bottom-open",
+    "maximize",
+    "minimize",
+    "pin",
+    "pin-off",
 ];
 
 /// The icon's opaque outline, and the outline of its translucent parts (a
