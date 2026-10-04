@@ -1,0 +1,50 @@
+# GPUI Kit DockArea (DockSkin) -> Dock.Avalonia's DockControl (AvaloniaUIKit.Dock).
+# The dock story's groups as splits of a 640x360 area: Explorer and Search
+# (240px wide), the Editor alone, and Terminal and Problems (160px high) below.
+component = "dock"
+viewport = [672, 392]
+anchor = [16, 16]
+
+[[group]]
+name = "layout"
+params = {}
+
+# The dock's tab close buttons (DockSkin::set_close_button_visible).
+[[group]]
+name = "close"
+params = { close_buttons = true }
+
+# The pointer on the Search tab.
+[[group]]
+name = "hover"
+params = {}
+states = ["at-131-32"]
+
+# The pointer on Explorer's close button, and pressing it.
+[[group]]
+name = "close-button"
+params = { close_buttons = true }
+states = ["at-101-32", "pressed-at-101-32"]
+
+# The handle between Explorer and the Editor (x = 16 + 240), and the one above Terminal (y = 16 + 219):
+# hovered, pressed, and dragged 20px, once the pill has grown (120ms).
+[[group]]
+name = "splitter"
+params = {}
+states = ["at-256-120+wait-200ms", "pressed-at-256-120+wait-200ms", "pressed-at-256-120+drag-at-266-120+drag-at-276-120+wait-200ms", "at-400-235+wait-200ms"]
+
+# Dragging the Explorer tab (the selected one: Dock selects a tab when it is pressed; pressed at its centre, moved once to start the drag, then
+# down out of the tab bar, as Dock.Avalonia leaves reordering for docking) and moved
+# twice over the target (Dock.Avalonia picks the operation on the second move) over:
+# the Editor's centre (a merge), the Editor's left third (a split to the left),
+# the Terminal tab (an insert before it) and the bottom tab bar's empty space.
+# The placeholder springs from the preview into place (280ms).
+[[group]]
+name = "drop"
+params = {}
+states = [
+  "pressed-at-56-32+drag-at-66-32+drag-at-66-90+drag-at-457-130+drag-at-456-130+wait-500ms",
+  "pressed-at-56-32+drag-at-66-32+drag-at-66-90+drag-at-281-130+drag-at-280-130+wait-500ms",
+  "pressed-at-56-32+drag-at-66-32+drag-at-66-90+drag-at-61-251+drag-at-60-251+wait-500ms",
+  "pressed-at-56-32+drag-at-66-32+drag-at-66-90+drag-at-401-251+drag-at-400-251+wait-500ms",
+]

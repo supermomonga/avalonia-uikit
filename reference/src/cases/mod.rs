@@ -36,6 +36,7 @@ mod carousel;
 mod color_picker;
 mod check;
 mod display;
+mod dock;
 pub mod menu;
 mod notification;
 mod number;
@@ -99,6 +100,7 @@ pub fn builder(case: &Case) -> Result<Builder> {
         "tree" => tree::builder(&params),
         "tabs" => tabs::builder(&params),
         "tabalonia" => tabs::builder(&params),
+        "dock" => dock::builder(&params),
         "table" => table::builder(&params),
         "carousel" => carousel::builder(&params),
         "sidebar" => sidebar::builder(&params),

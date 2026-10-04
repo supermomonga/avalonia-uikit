@@ -70,6 +70,7 @@ public static partial class Adapters
         "datatable" => DataTable(c),
         "datagrid" => DataGridCase(c),
         "tabalonia" => TabaloniaCase(c),
+        "dock" => DockCase(c),
         "carousel" => CarouselCase(c),
         "sidebar" => c.Str("host", "splitview") == "drawer" ? SidebarDrawer(c) : Sidebar(c),
         "sheet" => Sheet(c),
@@ -121,6 +122,10 @@ public static partial class Adapters
             {
                 grid.SelectedIndex = -1;
             }
+        }
+        if (c.Component == "dock")
+        {
+            PlaceDockDragPreview(c, host);
         }
         foreach (var box in host.Window.GetVisualDescendants().OfType<TextBox>())
         {

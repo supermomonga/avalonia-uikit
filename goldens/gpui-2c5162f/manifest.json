@@ -44508,6 +44508,668 @@
       "png_sha256": "05057bdc1110761e1570a2da8aca3990c6e93e569b59bc0f07a66a426e814662"
     },
     {
+      "id": "dock/close-button.base/at-101-32/dark",
+      "component": "dock",
+      "group": "close-button",
+      "params": {
+        "close_buttons": true
+      },
+      "state": "at-101-32",
+      "theme": "dark",
+      "viewport": [
+        672.0,
+        392.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        640.0,
+        360.0
+      ],
+      "png": "png/dock/close-button.base/at-101-32/dark.png",
+      "scene": "scenes/dock/close-button.base/at-101-32/dark.json",
+      "png_sha256": "40abacc896124b76ecb773f2ee546052517078d29887265c654cc0d671146f8d"
+    },
+    {
+      "id": "dock/close-button.base/at-101-32/light",
+      "component": "dock",
+      "group": "close-button",
+      "params": {
+        "close_buttons": true
+      },
+      "state": "at-101-32",
+      "theme": "light",
+      "viewport": [
+        672.0,
+        392.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        640.0,
+        360.0
+      ],
+      "png": "png/dock/close-button.base/at-101-32/light.png",
+      "scene": "scenes/dock/close-button.base/at-101-32/light.json",
+      "png_sha256": "5fe216a932980098788f540644f4548ea0e7cc72c40aabc4e630b9a189a88515"
+    },
+    {
+      "id": "dock/close-button.base/pressed-at-101-32/dark",
+      "component": "dock",
+      "group": "close-button",
+      "params": {
+        "close_buttons": true
+      },
+      "state": "pressed-at-101-32",
+      "theme": "dark",
+      "viewport": [
+        672.0,
+        392.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        640.0,
+        360.0
+      ],
+      "png": "png/dock/close-button.base/pressed-at-101-32/dark.png",
+      "scene": "scenes/dock/close-button.base/pressed-at-101-32/dark.json",
+      "png_sha256": "d31222b0d65f3b1a3390ed23c509ba0d65c2d11d498db6fc467181b8180c27e9"
+    },
+    {
+      "id": "dock/close-button.base/pressed-at-101-32/light",
+      "component": "dock",
+      "group": "close-button",
+      "params": {
+        "close_buttons": true
+      },
+      "state": "pressed-at-101-32",
+      "theme": "light",
+      "viewport": [
+        672.0,
+        392.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        640.0,
+        360.0
+      ],
+      "png": "png/dock/close-button.base/pressed-at-101-32/light.png",
+      "scene": "scenes/dock/close-button.base/pressed-at-101-32/light.json",
+      "png_sha256": "95d0ec72652f4f3c12f8f8124190abaac6e4af843041c2d3c66ce13d1ee29224"
+    },
+    {
+      "id": "dock/close.base/normal/dark",
+      "component": "dock",
+      "group": "close",
+      "params": {
+        "close_buttons": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        672.0,
+        392.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        640.0,
+        360.0
+      ],
+      "png": "png/dock/close.base/normal/dark.png",
+      "scene": "scenes/dock/close.base/normal/dark.json",
+      "png_sha256": "bc9cd3a24ec6a02f89dd5d0ef877b7bb434176e0476b5cdc90a835f0a907c108"
+    },
+    {
+      "id": "dock/close.base/normal/light",
+      "component": "dock",
+      "group": "close",
+      "params": {
+        "close_buttons": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        672.0,
+        392.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        640.0,
+        360.0
+      ],
+      "png": "png/dock/close.base/normal/light.png",
+      "scene": "scenes/dock/close.base/normal/light.json",
+      "png_sha256": "146bf2ac6995746725e956d46583eaeda198bcbb76f6916b624a00676e94614b"
+    },
+    {
+      "id": "dock/drop.base/pressed-at-56-32+drag-at-66-32+drag-at-66-90+drag-at-281-130+drag-at-280-130+wait-500ms/dark",
+      "component": "dock",
+      "group": "drop",
+      "params": {},
+      "state": "pressed-at-56-32+drag-at-66-32+drag-at-66-90+drag-at-281-130+drag-at-280-130+wait-500ms",
+      "theme": "dark",
+      "viewport": [
+        672.0,
+        392.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        640.0,
+        360.0
+      ],
+      "png": "png/dock/drop.base/pressed-at-56-32+drag-at-66-32+drag-at-66-90+drag-at-281-130+drag-at-280-130+wait-500ms/dark.png",
+      "scene": "scenes/dock/drop.base/pressed-at-56-32+drag-at-66-32+drag-at-66-90+drag-at-281-130+drag-at-280-130+wait-500ms/dark.json",
+      "png_sha256": "de94c116c24a51b9965dbf12e3d42856b94e7283f30a2a956a02e359684e829a"
+    },
+    {
+      "id": "dock/drop.base/pressed-at-56-32+drag-at-66-32+drag-at-66-90+drag-at-281-130+drag-at-280-130+wait-500ms/light",
+      "component": "dock",
+      "group": "drop",
+      "params": {},
+      "state": "pressed-at-56-32+drag-at-66-32+drag-at-66-90+drag-at-281-130+drag-at-280-130+wait-500ms",
+      "theme": "light",
+      "viewport": [
+        672.0,
+        392.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        640.0,
+        360.0
+      ],
+      "png": "png/dock/drop.base/pressed-at-56-32+drag-at-66-32+drag-at-66-90+drag-at-281-130+drag-at-280-130+wait-500ms/light.png",
+      "scene": "scenes/dock/drop.base/pressed-at-56-32+drag-at-66-32+drag-at-66-90+drag-at-281-130+drag-at-280-130+wait-500ms/light.json",
+      "png_sha256": "a7aa60571afc2aad16b9b190761f4af5b4ebd3bd4392dd2f6d1f684659e88ca3"
+    },
+    {
+      "id": "dock/drop.base/pressed-at-56-32+drag-at-66-32+drag-at-66-90+drag-at-401-251+drag-at-400-251+wait-500ms/dark",
+      "component": "dock",
+      "group": "drop",
+      "params": {},
+      "state": "pressed-at-56-32+drag-at-66-32+drag-at-66-90+drag-at-401-251+drag-at-400-251+wait-500ms",
+      "theme": "dark",
+      "viewport": [
+        672.0,
+        392.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        640.0,
+        360.0
+      ],
+      "png": "png/dock/drop.base/pressed-at-56-32+drag-at-66-32+drag-at-66-90+drag-at-401-251+drag-at-400-251+wait-500ms/dark.png",
+      "scene": "scenes/dock/drop.base/pressed-at-56-32+drag-at-66-32+drag-at-66-90+drag-at-401-251+drag-at-400-251+wait-500ms/dark.json",
+      "png_sha256": "90b87896ee9204e0abdc14523c789c4239281eb8cf8d138b566f1680af027255"
+    },
+    {
+      "id": "dock/drop.base/pressed-at-56-32+drag-at-66-32+drag-at-66-90+drag-at-401-251+drag-at-400-251+wait-500ms/light",
+      "component": "dock",
+      "group": "drop",
+      "params": {},
+      "state": "pressed-at-56-32+drag-at-66-32+drag-at-66-90+drag-at-401-251+drag-at-400-251+wait-500ms",
+      "theme": "light",
+      "viewport": [
+        672.0,
+        392.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        640.0,
+        360.0
+      ],
+      "png": "png/dock/drop.base/pressed-at-56-32+drag-at-66-32+drag-at-66-90+drag-at-401-251+drag-at-400-251+wait-500ms/light.png",
+      "scene": "scenes/dock/drop.base/pressed-at-56-32+drag-at-66-32+drag-at-66-90+drag-at-401-251+drag-at-400-251+wait-500ms/light.json",
+      "png_sha256": "f6e396bc378224487baf518b44b2c9a7f280c5227e58ca7c6270a285724c6866"
+    },
+    {
+      "id": "dock/drop.base/pressed-at-56-32+drag-at-66-32+drag-at-66-90+drag-at-457-130+drag-at-456-130+wait-500ms/dark",
+      "component": "dock",
+      "group": "drop",
+      "params": {},
+      "state": "pressed-at-56-32+drag-at-66-32+drag-at-66-90+drag-at-457-130+drag-at-456-130+wait-500ms",
+      "theme": "dark",
+      "viewport": [
+        672.0,
+        392.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        640.0,
+        360.0
+      ],
+      "png": "png/dock/drop.base/pressed-at-56-32+drag-at-66-32+drag-at-66-90+drag-at-457-130+drag-at-456-130+wait-500ms/dark.png",
+      "scene": "scenes/dock/drop.base/pressed-at-56-32+drag-at-66-32+drag-at-66-90+drag-at-457-130+drag-at-456-130+wait-500ms/dark.json",
+      "png_sha256": "e1336c4cca44759fd1fdb163a6c4c2765f67073262bcd1753a77c574bb02f4d2"
+    },
+    {
+      "id": "dock/drop.base/pressed-at-56-32+drag-at-66-32+drag-at-66-90+drag-at-457-130+drag-at-456-130+wait-500ms/light",
+      "component": "dock",
+      "group": "drop",
+      "params": {},
+      "state": "pressed-at-56-32+drag-at-66-32+drag-at-66-90+drag-at-457-130+drag-at-456-130+wait-500ms",
+      "theme": "light",
+      "viewport": [
+        672.0,
+        392.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        640.0,
+        360.0
+      ],
+      "png": "png/dock/drop.base/pressed-at-56-32+drag-at-66-32+drag-at-66-90+drag-at-457-130+drag-at-456-130+wait-500ms/light.png",
+      "scene": "scenes/dock/drop.base/pressed-at-56-32+drag-at-66-32+drag-at-66-90+drag-at-457-130+drag-at-456-130+wait-500ms/light.json",
+      "png_sha256": "d6c37599a8b4ed4e8303c9503f3a36ed7944879438b4c566e90f131e17975e03"
+    },
+    {
+      "id": "dock/drop.base/pressed-at-56-32+drag-at-66-32+drag-at-66-90+drag-at-61-251+drag-at-60-251+wait-500ms/dark",
+      "component": "dock",
+      "group": "drop",
+      "params": {},
+      "state": "pressed-at-56-32+drag-at-66-32+drag-at-66-90+drag-at-61-251+drag-at-60-251+wait-500ms",
+      "theme": "dark",
+      "viewport": [
+        672.0,
+        392.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        640.0,
+        360.0
+      ],
+      "png": "png/dock/drop.base/pressed-at-56-32+drag-at-66-32+drag-at-66-90+drag-at-61-251+drag-at-60-251+wait-500ms/dark.png",
+      "scene": "scenes/dock/drop.base/pressed-at-56-32+drag-at-66-32+drag-at-66-90+drag-at-61-251+drag-at-60-251+wait-500ms/dark.json",
+      "png_sha256": "2704cc8acfc3511a1811e62880fe8fabeb78bae604d0b262266c39ea90864e8c"
+    },
+    {
+      "id": "dock/drop.base/pressed-at-56-32+drag-at-66-32+drag-at-66-90+drag-at-61-251+drag-at-60-251+wait-500ms/light",
+      "component": "dock",
+      "group": "drop",
+      "params": {},
+      "state": "pressed-at-56-32+drag-at-66-32+drag-at-66-90+drag-at-61-251+drag-at-60-251+wait-500ms",
+      "theme": "light",
+      "viewport": [
+        672.0,
+        392.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        640.0,
+        360.0
+      ],
+      "png": "png/dock/drop.base/pressed-at-56-32+drag-at-66-32+drag-at-66-90+drag-at-61-251+drag-at-60-251+wait-500ms/light.png",
+      "scene": "scenes/dock/drop.base/pressed-at-56-32+drag-at-66-32+drag-at-66-90+drag-at-61-251+drag-at-60-251+wait-500ms/light.json",
+      "png_sha256": "8c51082cc78a29cc28369baf7aa71d32c5aee5d9c7c0094d98f0690819697a31"
+    },
+    {
+      "id": "dock/hover.base/at-131-32/dark",
+      "component": "dock",
+      "group": "hover",
+      "params": {},
+      "state": "at-131-32",
+      "theme": "dark",
+      "viewport": [
+        672.0,
+        392.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        640.0,
+        360.0
+      ],
+      "png": "png/dock/hover.base/at-131-32/dark.png",
+      "scene": "scenes/dock/hover.base/at-131-32/dark.json",
+      "png_sha256": "93d0a53eb3d9767d7df750d297b555a7169c0e90c0d4bc8543c65f1670638d41"
+    },
+    {
+      "id": "dock/hover.base/at-131-32/light",
+      "component": "dock",
+      "group": "hover",
+      "params": {},
+      "state": "at-131-32",
+      "theme": "light",
+      "viewport": [
+        672.0,
+        392.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        640.0,
+        360.0
+      ],
+      "png": "png/dock/hover.base/at-131-32/light.png",
+      "scene": "scenes/dock/hover.base/at-131-32/light.json",
+      "png_sha256": "bd91b66d2252a68c51a58a9d4469fabefd69d5f91bc9f241bba06dc70391bd4b"
+    },
+    {
+      "id": "dock/layout.base/normal/dark",
+      "component": "dock",
+      "group": "layout",
+      "params": {},
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        672.0,
+        392.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        640.0,
+        360.0
+      ],
+      "png": "png/dock/layout.base/normal/dark.png",
+      "scene": "scenes/dock/layout.base/normal/dark.json",
+      "png_sha256": "51d3d88594474f68b0929f1a48fbcaac19c5fa88c5bfe7a877b820020026d423"
+    },
+    {
+      "id": "dock/layout.base/normal/light",
+      "component": "dock",
+      "group": "layout",
+      "params": {},
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        672.0,
+        392.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        640.0,
+        360.0
+      ],
+      "png": "png/dock/layout.base/normal/light.png",
+      "scene": "scenes/dock/layout.base/normal/light.json",
+      "png_sha256": "d8731cdf7ff881380d2752fcbbff95d888bd93152723fdffd92bf9aeb0b9443f"
+    },
+    {
+      "id": "dock/splitter.base/at-256-120+wait-200ms/dark",
+      "component": "dock",
+      "group": "splitter",
+      "params": {},
+      "state": "at-256-120+wait-200ms",
+      "theme": "dark",
+      "viewport": [
+        672.0,
+        392.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        640.0,
+        360.0
+      ],
+      "png": "png/dock/splitter.base/at-256-120+wait-200ms/dark.png",
+      "scene": "scenes/dock/splitter.base/at-256-120+wait-200ms/dark.json",
+      "png_sha256": "3e7c8ffcebb5b3d85579d3a5de7dcf4b087da0613b2c9862b06a06aaad14858b"
+    },
+    {
+      "id": "dock/splitter.base/at-256-120+wait-200ms/light",
+      "component": "dock",
+      "group": "splitter",
+      "params": {},
+      "state": "at-256-120+wait-200ms",
+      "theme": "light",
+      "viewport": [
+        672.0,
+        392.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        640.0,
+        360.0
+      ],
+      "png": "png/dock/splitter.base/at-256-120+wait-200ms/light.png",
+      "scene": "scenes/dock/splitter.base/at-256-120+wait-200ms/light.json",
+      "png_sha256": "08983804fd5156cbbf52b0077d4b0c62371c3b93a7c77126415f52a87780082a"
+    },
+    {
+      "id": "dock/splitter.base/at-400-235+wait-200ms/dark",
+      "component": "dock",
+      "group": "splitter",
+      "params": {},
+      "state": "at-400-235+wait-200ms",
+      "theme": "dark",
+      "viewport": [
+        672.0,
+        392.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        640.0,
+        360.0
+      ],
+      "png": "png/dock/splitter.base/at-400-235+wait-200ms/dark.png",
+      "scene": "scenes/dock/splitter.base/at-400-235+wait-200ms/dark.json",
+      "png_sha256": "49d2a7d1c8cf00ff2d1ee44b4f949fc2a03f2e13c34f2f5a8430b2ac1bbf70f3"
+    },
+    {
+      "id": "dock/splitter.base/at-400-235+wait-200ms/light",
+      "component": "dock",
+      "group": "splitter",
+      "params": {},
+      "state": "at-400-235+wait-200ms",
+      "theme": "light",
+      "viewport": [
+        672.0,
+        392.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        640.0,
+        360.0
+      ],
+      "png": "png/dock/splitter.base/at-400-235+wait-200ms/light.png",
+      "scene": "scenes/dock/splitter.base/at-400-235+wait-200ms/light.json",
+      "png_sha256": "d0e481d16a4f82e3384a89ad985e9b021999677e2d5bab8c58fdff47477f222c"
+    },
+    {
+      "id": "dock/splitter.base/pressed-at-256-120+drag-at-266-120+drag-at-276-120+wait-200ms/dark",
+      "component": "dock",
+      "group": "splitter",
+      "params": {},
+      "state": "pressed-at-256-120+drag-at-266-120+drag-at-276-120+wait-200ms",
+      "theme": "dark",
+      "viewport": [
+        672.0,
+        392.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        640.0,
+        360.0
+      ],
+      "png": "png/dock/splitter.base/pressed-at-256-120+drag-at-266-120+drag-at-276-120+wait-200ms/dark.png",
+      "scene": "scenes/dock/splitter.base/pressed-at-256-120+drag-at-266-120+drag-at-276-120+wait-200ms/dark.json",
+      "png_sha256": "45566be7a0194dc975af79ed4f25f8e2c8652da0850b7f56a6f4a6fefa135cd2"
+    },
+    {
+      "id": "dock/splitter.base/pressed-at-256-120+drag-at-266-120+drag-at-276-120+wait-200ms/light",
+      "component": "dock",
+      "group": "splitter",
+      "params": {},
+      "state": "pressed-at-256-120+drag-at-266-120+drag-at-276-120+wait-200ms",
+      "theme": "light",
+      "viewport": [
+        672.0,
+        392.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        640.0,
+        360.0
+      ],
+      "png": "png/dock/splitter.base/pressed-at-256-120+drag-at-266-120+drag-at-276-120+wait-200ms/light.png",
+      "scene": "scenes/dock/splitter.base/pressed-at-256-120+drag-at-266-120+drag-at-276-120+wait-200ms/light.json",
+      "png_sha256": "fe6eaa60e155f6559d2acc6ee63b7dc1c74afc2a1567719b0857914a1e9d4392"
+    },
+    {
+      "id": "dock/splitter.base/pressed-at-256-120+wait-200ms/dark",
+      "component": "dock",
+      "group": "splitter",
+      "params": {},
+      "state": "pressed-at-256-120+wait-200ms",
+      "theme": "dark",
+      "viewport": [
+        672.0,
+        392.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        640.0,
+        360.0
+      ],
+      "png": "png/dock/splitter.base/pressed-at-256-120+wait-200ms/dark.png",
+      "scene": "scenes/dock/splitter.base/pressed-at-256-120+wait-200ms/dark.json",
+      "png_sha256": "4bef9e5c9378d5dbb9eda22b5aefe36bb08331cfb5df3ba83362d4c7e5389257"
+    },
+    {
+      "id": "dock/splitter.base/pressed-at-256-120+wait-200ms/light",
+      "component": "dock",
+      "group": "splitter",
+      "params": {},
+      "state": "pressed-at-256-120+wait-200ms",
+      "theme": "light",
+      "viewport": [
+        672.0,
+        392.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        640.0,
+        360.0
+      ],
+      "png": "png/dock/splitter.base/pressed-at-256-120+wait-200ms/light.png",
+      "scene": "scenes/dock/splitter.base/pressed-at-256-120+wait-200ms/light.json",
+      "png_sha256": "93791644cc469020309ea464639ac55fabf613774c2ceaf7db4720db4f650a3d"
+    },
+    {
       "id": "dropdown/menu.base/click+at-60-117/dark",
       "component": "dropdown",
       "group": "menu",

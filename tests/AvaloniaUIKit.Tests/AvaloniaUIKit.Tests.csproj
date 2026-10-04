@@ -9,10 +9,12 @@
     <PackageReference Include="Avalonia.Headless" />
     <PackageReference Include="Avalonia.Skia" />
     <PackageReference Include="Avalonia.Themes.Fluent" />
+    <PackageReference Include="Dock.Model.Avalonia" />
     <ProjectReference Include="../../src/AvaloniaUIKit/AvaloniaUIKit.csproj" />
     <ProjectReference Include="../../src/AvaloniaUIKit.ColorPicker/AvaloniaUIKit.ColorPicker.csproj" />
     <ProjectReference Include="../../src/AvaloniaUIKit.DataGrid/AvaloniaUIKit.DataGrid.csproj" />
     <ProjectReference Include="../../src/AvaloniaUIKit.Tabalonia/AvaloniaUIKit.Tabalonia.csproj" />
+    <ProjectReference Include="../../src/AvaloniaUIKit.Dock/AvaloniaUIKit.Dock.csproj" />
     <AvaloniaResource Include="../../assets/fonts/inter/*.ttf" Link="Assets/Fonts/%(Filename)%(Extension)" />
   </ItemGroup>
 </Project>
