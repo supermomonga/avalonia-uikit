@@ -1,3 +1,5 @@
 # The component pages moved from /docs/components to their own section.
 /docs/components /components 301
 /docs/components/* /components/:splat 301
+# The compatibility page was removed; the components index lists every component.
+/docs/compatibility /components 301

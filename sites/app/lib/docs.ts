@@ -64,7 +64,6 @@ export const docsSections: DocsSection[] = [
       page("/docs/installation"),
       page("/docs/theming"),
       page("/docs/icons"),
-      page("/docs/compatibility"),
     ],
   },
   {

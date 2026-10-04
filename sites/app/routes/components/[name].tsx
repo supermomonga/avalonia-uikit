@@ -1,6 +1,6 @@
 import { ssgParams } from "hono/ssg"
 import { createRoute } from "honox/factory"
-import { DocsPage, Label, StatusLabel } from "@/components/docs-layout"
+import { DocsPage, Label } from "@/components/docs-layout"
 import { mdxComponents } from "@/components/mdx-components"
 import { components, findComponent } from "@/lib/catalog"
 import { componentPages } from "@/lib/docs"
@@ -19,12 +19,7 @@ export default createRoute(
         title={title}
         description={description}
         toc={page.toc}
-        labels={
-          <>
-            <StatusLabel status={entry.status} />
-            {entry.package && <Label>{entry.package}</Label>}
-          </>
-        }
+        labels={entry.package && <Label>{entry.package}</Label>}
       >
         <Content components={mdxComponents} />
       </DocsPage>,

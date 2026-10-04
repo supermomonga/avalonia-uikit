@@ -22,7 +22,10 @@ for (const [index, id] of ids.entries()) {
   host.id = `host-${index}`;
   section.append(title, host);
   container.append(section);
-  if (!api.Mount(host.id, id)) title.textContent += " (failed)";
+  const mounted = api.Mount(host.id, id, (height) => {
+    host.style.height = `${height}px`;
+  });
+  if (!mounted) title.textContent += " (failed)";
 }
 
 document.getElementById("theme").addEventListener("click", () => {

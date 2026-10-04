@@ -2,7 +2,8 @@
  * The components: their names, the Avalonia control(s) the theme covers
  * (or the new `uikit:` control), and how far the theme goes. The sidebar, the
  * index, the search and the sitemap are built from this list
- * (docs/references/compatibility-list.md is the source).
+ * (docs/references/compatibility-list.md is the source). The site does not
+ * show how far the theme goes (docs/site.md); only `new` is counted.
  */
 export type Status = "full" | "partial" | "new"
 
@@ -36,12 +37,6 @@ export const groups = [
 ] as const
 
 export type Group = (typeof groups)[number]
-
-export const statusLabels: Record<Status, string> = {
-  full: "Full",
-  partial: "Partial",
-  new: "New control",
-}
 
 const entry = (
   slug: string,
@@ -129,23 +124,6 @@ export const components: ComponentEntry[] = [
   entry("tooltip", "Tooltip", "Tooltip", "ToolTip", "full", "Overlays"),
   entry("tree", "Tree", "Tree", "TreeView", "partial", "Data display", { scroll: true }),
   entry("virtual-list", "Virtual List", "VirtualList", "ListBox, VirtualizingStackPanel", "partial", "Data display", { scroll: true }),
-]
-
-/** Components the library does not cover (ADR 19). */
-export const uncovered = [
-  "Dialog / AlertDialog",
-  "OtpInput",
-  "Command",
-  "Dock",
-  "Settings",
-  "Questionnaire",
-  "Editor",
-  "TextView / Markdown",
-  "Chart",
-  "Plot",
-  "Speech",
-  "Attachment",
-  "MessageScroller",
 ]
 
 export function findComponent(slug: string): ComponentEntry | undefined {

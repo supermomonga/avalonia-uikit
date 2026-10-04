@@ -48,7 +48,6 @@ const pages = [
   "/docs/installation.html",
   "/docs/theming.html",
   "/docs/icons.html",
-  "/docs/compatibility.html",
   "/components.html",
   "/sitemap.xml",
   "/search.json",

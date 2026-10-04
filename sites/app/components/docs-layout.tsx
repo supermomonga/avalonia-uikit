@@ -1,6 +1,5 @@
 import type { Child } from "hono/jsx"
 import { ChevronDown } from "lucide"
-import { type Status, statusLabels } from "@/lib/catalog"
 import { type DocsSection, sectionOf } from "@/lib/docs"
 import type { TocItem } from "@/lib/mdx/remark-toc"
 import { Icon } from "./icon"
@@ -126,22 +125,6 @@ export function DocsPage({
       </main>
       <DocsToc toc={toc} />
     </div>
-  )
-}
-
-const statusDot: Record<Status, string> = {
-  full: "bg-success",
-  partial: "bg-warning",
-  new: "bg-data-2",
-}
-
-/** How far the port of a component goes (lib/catalog.ts), linking to the compatibility table. */
-export function StatusLabel({ status }: { status: Status }) {
-  return (
-    <a href="/docs/compatibility" class="doc-label" title="Coverage">
-      <span class={`size-1.5 rounded-full ${statusDot[status]}`} />
-      {statusLabels[status]}
-    </a>
   )
 }
 

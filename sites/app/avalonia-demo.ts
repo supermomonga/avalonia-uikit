@@ -8,13 +8,20 @@
  *   `navigator.connection.saveData`: a button loads it instead).
  * - `data-state`: idle | loading | live | error | static (no bundle).
  * - Without `scroll`, wheel and touch events stop here so the page scrolls.
+ * - Live, the element takes the height the demo needs at its width, so a
+ *   narrow page wraps the demo instead of cutting it off.
+ * - Avalonia focuses its elements itself; see `ownFocus`.
  */
 type State = "idle" | "loading" | "live" | "error" | "static"
 
 /** `[JSExport]` class AvaloniaUIKit.Browser.Demos. */
 interface DemosApi {
   List(): string[]
-  Mount(hostId: string, demoId: string): boolean | Promise<boolean>
+  Mount(
+    hostId: string,
+    demoId: string,
+    heightChanged: (height: number) => void
+  ): boolean | Promise<boolean>
   SetTheme(dark: boolean): void
 }
 
@@ -83,6 +90,26 @@ function markAllStatic() {
 
 const stopEvent = (event: Event) => event.stopPropagation()
 
+/** The host of the demo a pointer is being pressed in, until the press is handled. */
+let pressedHost: HTMLElement | undefined
+
+/**
+ * Avalonia focuses a view's host and its IME input itself (Avalonia.Browser),
+ * and its keyboard is shared by every view: a press that moves the focus into
+ * one demo also focuses the host of the demo focused before, which scrolled
+ * the page to that demo. While a press is handled, focus goes to the pressed
+ * demo only, and Avalonia's focus never scrolls the page.
+ */
+function ownFocus(element: HTMLElement, host: HTMLElement) {
+  element.focus = (options?: FocusOptions) => {
+    if (pressedHost && pressedHost !== host) return
+    HTMLElement.prototype.focus.call(element, {
+      ...options,
+      preventScroll: true,
+    })
+  }
+}
+
 class AvaloniaDemo extends HTMLElement {
   static observer = new IntersectionObserver(
     (entries) => {
@@ -112,6 +139,16 @@ class AvaloniaDemo extends HTMLElement {
     host.setAttribute("data-demo-host", "")
     this.append(host)
     this.host = host
+    this.addEventListener(
+      "pointerdown",
+      () => {
+        pressedHost = host
+        setTimeout(() => {
+          if (pressedHost === host) pressedHost = undefined
+        })
+      },
+      { capture: true }
+    )
     if (!this.hasAttribute("scroll")) {
       // Avalonia listens on the host; the page scrolls natively instead.
       this.addEventListener("wheel", stopEvent, { capture: true, passive: true })
@@ -176,7 +213,13 @@ class AvaloniaDemo extends HTMLElement {
         markAllStatic()
         return
       }
-      const mounted = await api.Mount(this.host.id, demo)
+      const host = this.host
+      const mounted = await api.Mount(host.id, demo, (height) => {
+        this.style.height = `${height}px`
+      })
+      for (const element of [host, ...host.querySelectorAll("input")]) {
+        ownFocus(element, host)
+      }
       this.setState(mounted ? "live" : "error")
     } catch (error) {
       console.error(`avalonia-demo ${demo}:`, error)

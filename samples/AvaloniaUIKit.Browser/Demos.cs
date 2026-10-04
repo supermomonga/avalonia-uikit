@@ -20,9 +20,15 @@ public static partial class Demos
     [JSExport]
     public static string[] List() => DemoRegistry.Ids.ToArray();
 
-    /// <summary>Creates a view in the element with <paramref name="hostId"/> and shows the demo <paramref name="demoId"/> in it.</summary>
+    /// <summary>
+    /// Creates a view in the element with <paramref name="hostId"/> and shows the demo <paramref name="demoId"/> in it,
+    /// calling <paramref name="heightChanged"/> with the height the demo takes at the element's width (<see cref="DemoRoot"/>).
+    /// </summary>
     [JSExport]
-    public static bool Mount(string hostId, string demoId)
+    public static bool Mount(
+        string hostId,
+        string demoId,
+        [JSMarshalAs<JSType.Function<JSType.Number>>] Action<double> heightChanged)
     {
         if (!DemoRegistry.Factories.TryGetValue(demoId, out var factory) || Views.ContainsKey(hostId))
         {
@@ -30,7 +36,7 @@ public static partial class Demos
         }
         try
         {
-            var view = new AvaloniaView(hostId) { Content = factory() };
+            var view = new AvaloniaView(hostId) { Content = new DemoRoot(factory(), heightChanged) };
             Views[hostId] = view;
             return true;
         }

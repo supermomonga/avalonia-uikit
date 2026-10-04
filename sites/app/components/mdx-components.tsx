@@ -2,7 +2,6 @@ import type { Child } from "hono/jsx"
 import { Kbd } from "@/components/ui/kbd"
 import { Callout } from "./callout"
 import { CodeBlock } from "./code-block"
-import { CompatibilityTable, UncoveredList } from "./compatibility-table"
 import { Demo } from "./demo"
 
 type HeadingProps = { id?: string; children?: Child }
@@ -37,8 +36,6 @@ export const mdxComponents = {
   table: Table,
   Callout,
   CodeBlock,
-  CompatibilityTable,
   Demo,
   Kbd,
-  UncoveredList,
 }
