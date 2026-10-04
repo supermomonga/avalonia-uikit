@@ -79,6 +79,7 @@
   <StyleInclude Source="avares://AvaloniaUIKit/Themes/Controls/Select.axaml" />
   <StyleInclude Source="avares://AvaloniaUIKit/Themes/Controls/Buttons.axaml" />
   <StyleInclude Source="avares://AvaloniaUIKit/Themes/Controls/Accordion.axaml" />
+  <StyleInclude Source="avares://AvaloniaUIKit/Themes/Controls/Toolbar.axaml" />
 
   <!-- GPUI sizes a text to whole pixels, rounding its width up (text.rs). -->
   <Style Selector=":is(TopLevel)">

@@ -105,6 +105,23 @@
           <Expander Header="Is it animated?" Content="Yes, with a spring." />
         </uikit:Accordion>
 
+        <TextBlock Text="uikit:Toolbar" Foreground="{DynamicResource UIKit.MutedForeground}" />
+        <uikit:Toolbar Width="480" HorizontalAlignment="Left">
+          <TextBlock Text="Files" />
+          <uikit:ToolbarGroup Spacing="4" AutomationProperties.Name="History">
+            <Button Classes="icon-only">
+              <PathIcon Data="{StaticResource UIKit.Icon.Undo2}" />
+            </Button>
+            <Button Classes="icon-only">
+              <PathIcon Data="{StaticResource UIKit.Icon.Redo2}" />
+            </Button>
+          </uikit:ToolbarGroup>
+          <Separator Classes="vertical" Height="20" />
+          <ToggleButton Content="B" IsChecked="True" />
+          <uikit:ToolbarSpacer />
+          <Button Classes="primary" Content="Publish" uikit:Toolbar.TakesSize="False" />
+        </uikit:Toolbar>
+
         <TextBlock Text="SplitButton" Foreground="{DynamicResource UIKit.MutedForeground}" />
         <WrapPanel ItemSpacing="8" LineSpacing="8">
           <SplitButton Content="Save">
