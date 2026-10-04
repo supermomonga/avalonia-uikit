@@ -1,10 +1,10 @@
 # テストと一致検証
 
-NovaTheme が GPUI Kit と同じ見た目・動きになっていることを、GPUI Kit 自身が描いた参照データとの比較で検証する。この文書は、検証の仕組み、許容値、許容値を緩めた理由（緩和 ID）、テーマの利用側に求める約束をまとめる。
+UIKitTheme が GPUI Kit と同じ見た目・動きになっていることを、GPUI Kit 自身が描いた参照データとの比較で検証する。この文書は、検証の仕組み、許容値、許容値を緩めた理由（緩和 ID）、テーマの利用側に求める約束をまとめる。
 
 - 移植元: gpui-kit [`2c5162f8c5b0c7fcec066ed53125d304c632bfe2`](https://github.com/longbridge/gpui-kit/tree/2c5162f8c5b0c7fcec066ed53125d304c632bfe2)（gpui-pre 0.3.7）
 - 移植先: Avalonia 12.1.3（別パッケージは `Avalonia.Controls.ColorPicker` 12.1.3、`Avalonia.Controls.DataGrid` 12.1.2）、.NET 10、TUnit 1.72.16
-- 参照データ: `goldens/gpui-2c5162f/`（3402 ケース。うち動き 60。PNG、Scene JSON、トークン）
+- 参照データ: `goldens/gpui-2c5162f/`（3508 ケース。うち動き 60、Aurora Light 106。PNG、Scene JSON、トークン）
 
 ## コマンド
 
@@ -13,7 +13,7 @@ NovaTheme が GPUI Kit と同じ見た目・動きになっていることを、
 | 全テスト | `scripts/verify.sh` | `dotnet build tests/AvaloniaUIKit.Tests && dotnet run --no-build --project tests/AvaloniaUIKit.Tests` と同じ。macOS 以外でも動く。 |
 | 一部だけ | `scripts/verify.sh --treenode-filter "/*/*/ButtonTests/*"` | クラス名で絞る。 |
 | 許容値の校正 | `AVALONIA_UIKIT_CALIBRATE=1 scripts/verify.sh` | `tests/artifacts/pixel-stats.csv`（領域ごとの n / max / mean / bias）、`ink-mass.csv`、`border-mass.csv`（枠線の角と辺ごと）を書き出す。 |
-| 参照データの再生成 | `scripts/generate-goldens.sh [--only <id 接頭辞>]` | macOS（Metal）専用。`reference/vendor/` を作り直し、生成後に 2 回描画して一致を確かめる。`Colors.g.axaml` と `Lucide.g.axaml` も再生成する。全体の生成が途中で失敗すると `goldens/` の一部が消えるので、`git checkout goldens` で戻す。 |
+| 参照データの再生成 | `scripts/generate-goldens.sh [--only <id 接頭辞>]` | macOS（Metal）専用。`reference/vendor/` を作り直し、生成後に 2 回描画して一致を確かめる。`Palettes.g.cs`、`Lucide.g.axaml`、サイトのテーマ（`sites/app/lib/themes.g.json`、`sites/app/styles/themes.g.css`）も再生成する。色だけなら `reference tokens` で足りる。全体の生成が途中で失敗すると `goldens/` の一部が消えるので、`git checkout goldens` で戻す。 |
 | NativeAOT | `scripts/aot-smoke.sh` | ギャラリーを NativeAOT で publish し（trim / AOT 警告はエラー）、`--smoke` で Light / Dark を描画して終了する。 |
 
 失敗したケースは `tests/artifacts/<ケース ID>/` に `gpui.png`、`avalonia.png`、`diff.png`、`mask.png`（領域の分類）、`report.txt` を出力する。
@@ -28,7 +28,7 @@ NovaTheme が GPUI Kit と同じ見た目・動きになっていることを、
    - Calendar の「今日」（`Local::now()`）を `test_clock::today()` に置き換え、ケースが日付を固定する。
    - 置き換え漏れがあれば止まる。描画結果は変わらない。
 3. `HeadlessAppContext` と Metal の headless レンダラで、`cases/*.toml` に定義した組み合わせを描く。フォントは同梱の Inter（`assets/fonts/inter/`）、スケールは 2。状態は GPUI の入力（hover、マウス押下、Tab、クリック、右クリック、ドラッグ、ホイール、キー）と `advance_clock` で作る。ケースの終わりにドラッグを止め、次のケースに持ち越さない。
-4. 各ケースについて、PNG と Scene（quad、影、下線、スプライト、パス、画像）の JSON、要素の bounds を書き出す。quad の塗りは単色と 2 色の線形グラデーションを書き出す。トークン（解決済みの色と、コンポーネントが描画時に作る派生色）は `tokens/gpui-theme.json` と `Colors.g.axaml` になる。
+4. 各ケースについて、PNG と Scene（quad、影、下線、スプライト、パス、画像）の JSON、要素の bounds を書き出す。quad の塗りは単色と 2 色の線形グラデーションを書き出す。トークン（解決済みの色、コンポーネントが描画時に作る派生色、トークンの背景）は、Default Light / Default Dark が `tokens/gpui-theme.json`、同梱のテーマが `tokens/gpui-themes.json` になり、どちらも `Palettes.g.cs` になる（ADR 26）。
 5. アイコンは GPUI Kit の Lucide SVG を線から塗りの輪郭に変換して `Lucide.g.axaml` に書き出す。不透明度の付いた部分（二色アイコンの薄い半分）は `<名前>.Faint` の別のジオメトリにする。
 
 ケース ID は `<コンポーネント>/<グループ>.<組み合わせ>/<状態>/<テーマ>` の形（例: `button/outline.primary.small/hover/dark`）。動きのケースは `<ID>/<経過 ms>` のフレーム列を持つ。
@@ -53,13 +53,13 @@ NovaTheme が GPUI Kit と同じ見た目・動きになっていることを、
 
 ## テストの構成
 
-3586 件。macOS arm64 での最新の実行結果は全件成功し、全体で約 4 分半かかる。テストの時刻はすべて仮想時計で進める（[時刻](#時刻)）。
+3739 件。macOS arm64 での最新の実行結果は全件成功し、全体で約 5 分かかる。テストの時刻はすべて仮想時計で進める（[時刻](#時刻)）。
 
 | テスト | 件数 | 内容 |
 | --- | --- | --- |
-| `*_matches_gpui`（コンポーネント別 72 クラス） | 3442 | 静止状態の全ケース（TabControl は Tabs のケースをもう一度使う）。構造と画素を比較する。 |
+| `*_matches_gpui`（コンポーネント別 72 クラス） | 3558 | 静止状態の全ケース（TabControl は Tabs のケースをもう一度使う）。構造と画素を比較する。 |
 | `MotionTests`、`TabControl_moves_as_gpui` | 64 | 動きを GPUI が記録した時刻ごとに描画し、フレームを比較する。 |
-| `TokenTests` | 3 | トークンの完全一致と過不足。 |
+| `TokenTests` | 40 | トークンの完全一致と過不足。Default Light / Default Dark と同梱の 36 テーマのそれぞれ、テーマのバリアントの継承。 |
 | `BehaviorTests`、`ControlBehaviorTests` | 24、34 | 時間・入力・無効状態の挙動。後者は新しいコントロール（ADR 19）の操作と、GPUI の表記・色の計算。 |
 | `FluentLayeringTests` | 19 | FluentTheme の上に重ねても見た目が変わらないこと。 |
 
@@ -67,22 +67,22 @@ NovaTheme が GPUI Kit と同じ見た目・動きになっていることを、
 
 | コンポーネント（GPUI → Avalonia） | ケース | 組み合わせ |
 | --- | --- | --- |
-| Button → Button | 720 | 10 色 × 4 サイズ × 5 状態、outline、selected、compact、rounded、アイコンのみ |
+| Button → Button | 784 | 10 色 × 4 サイズ × 5 状態、outline、selected、compact、rounded、アイコンのみ、Aurora Light の 8 色 × outline × 4 状態 |
 | Toggle → ToggleButton | 160 | ghost / outline × 4 サイズ × checked、ラベル / アイコン |
 | Icon → PathIcon | 154 | 37 個のアイコン、サイズ、色の継承、回転 |
 | DropdownButton → SplitButton | 150 | 色 × サイズ、outline、各部の hover / 押下 / フォーカス、selected、メニューを開いた状態 |
-| Tabs / TabBar → TabStrip、TabControl | 100（4） | 4 種類 × サイズ、hover、無効なタブ、アイコン、インジケーターの移動 |
-| Switch → ToggleSwitch | 88（2） | 4 サイズ × checked × hover / focus / disabled、ラベルなし |
+| Tabs / TabBar → TabStrip、TabControl | 110（4） | 4 種類 × サイズ、hover、無効なタブ、アイコン、インジケーターの移動、Aurora Light |
+| Switch → ToggleSwitch | 94（2） | 4 サイズ × checked × hover / focus / disabled、ラベルなし、Aurora Light |
 | ButtonGroup → StackPanel.button-group の Button | 86 | 横 / 縦、サイズ、outline、先頭・中間・末尾の hover / 押下 |
-| Checkbox → CheckBox | 80（2） | 4 サイズ × checked × hover / focus / disabled、ラベルなし |
-| Radio → RadioButton | 80（1） | 同上 |
+| Checkbox → CheckBox | 86（2） | 4 サイズ × checked × hover / focus / disabled、ラベルなし、Aurora Light |
+| Radio → RadioButton | 86（1） | 同上 |
 | Input → TextBox | 80 | 4 サイズ、値 / placeholder / 読み取り専用 × focus / disabled、前後のアイコン、マスク、選択範囲 |
 | ToggleGroup → ListBox.toggle-group | 76 | ラベル / アイコン、segmented、checked と unchecked の hover / クリック、disabled |
 | Select → ComboBox | 68（1） | 閉じた欄の状態、placeholder、開いた一覧の hover / 無効な行、開く動き |
 | DatePicker → CalendarDatePicker | 60（1） | 欄の状態、開いたカレンダーと hover、開く動き |
 | InputGroup → TextBox.group | 54（1） | アイコン、前後の文字、ボタン、invalid、フォーカスの色の動き |
-| Calendar → Calendar | 52 | 選択日、今日、日の hover / 押下 / クリック、選択できない日、未選択、月曜始まり、月の一覧 × サイズ |
-| Slider → Slider | 52（3） | 値 0 / 40 / 100 × hover / 押下 / focus、トラックの押下、ドラッグ、逆向き、縦、disabled、リングの動き |
+| Calendar → Calendar | 55 | 選択日、今日、日の hover / 押下 / クリック、選択できない日、未選択、月曜始まり、月の一覧 × サイズ、Aurora Light |
+| Slider → Slider | 55（3） | 値 0 / 40 / 100 × hover / 押下 / focus、トラックの押下、ドラッグ、逆向き、縦、disabled、リングの動き、Aurora Light |
 | Toolbar → CommandBar | 50 | 4 サイズ、項目の hover / 押下 / focus、矢印キー、disabled、内容 |
 | TimeField → TimePicker | 46 | サイズ、書式（12 / 24 時間、秒）、focus、invalid、hover |
 | DataTable → TableView | 44 | 4 サイズ、行の hover / 選択、stripe、borderless、固定列、行が埋まる / 埋まらない |
@@ -100,14 +100,14 @@ NovaTheme が GPUI Kit と同じ見た目・動きになっていることを、
 | Sheet → DrawerPage.sheet | 28（4） | 4 方向、大きさ、タイトルなし、フッター、閉じる操作、滑り込み |
 | Combobox → ComboBox.combobox、AutoCompleteBox | 24（1） | 閉じた欄、placeholder、開いた一覧の hover / キー、閉じる操作 |
 | List → ListBox | 24 | 行の hover / 選択 / キー操作、未選択、スクロール、空 |
-| Progress → ProgressBar | 24（2） | 4 サイズ × 値 0 / 40 / 100 |
+| Progress → ProgressBar | 27（2） | 4 サイズ × 値 0 / 40 / 100、Aurora Light |
 | Carousel → Carousel、PipsPager.carousel | 22（2） | ナビゲーションの hover / 押下、サイズ、focus、ページ送り |
 | Sidebar → SplitView、DrawerPage | 22（5） | icon / offcanvas / none、左右、既定の幅、DrawerPage、開閉 |
 | Table → TableView（UIKitTable） | 22 | サイズ、枠付き、stripe、固定幅、行の hover / クリック |
 | Tree → TreeView | 22 | 行の hover / クリック / キー、選択、角丸 |
 | img() → Image | 20 | ObjectFit 5 種、小さい画像、角丸、元の大きさ |
 | Collapsible → Expander（UIKitCollapsible） | 16（4） | 開閉、内容が上、hover / focus、開閉と途中の反転 |
-| Scrollbar → ScrollViewer | 16（7） | Always / Hover / Scrolling モード、つまみの hover |
+| Scrollbar → ScrollViewer | 18（7） | Always / Hover / Scrolling モード、つまみの hover、Aurora Light |
 | VirtualList → ListBox | 12 | 可変・均一の行の高さ、スクロール、深い位置 |
 | DropdownMenu → MenuFlyout | 10 | 開いた状態、各項目の hover、サブメニュー |
 | GroupBox | 10 | normal / fill / outline、タイトルの有無 |
@@ -130,7 +130,7 @@ NovaTheme が GPUI Kit と同じ見た目・動きになっていることを、
 | Badge → Badge | 32 | 数 / 点 / アイコン × 3 サイズ、2 桁、上限、色 |
 | Rating → Rating | 28 | 値、サイズ、上限 10、色、hover の予告とクリック、disabled |
 | Bubble → Bubble | 28 | 7 種類、start / end、折り返し、リアクションの上下・左右 |
-| Stepper → Stepper | 24 | 選択、4 サイズ、アイコン、中央寄せ、縦、hover / 押下 / disabled |
+| Stepper → Stepper | 26 | 選択、4 サイズ、アイコン、中央寄せ、縦、hover / 押下 / disabled、Aurora Light |
 | Clipboard → Clipboard | 18 | 4 サイズ、hover / 押下、コピー後と 2 秒後 |
 | Marker → Marker | 18 | plain + アイコン、separator × 3 揃え、border、揃え、spinner、shimmer |
 | DescriptionList → DescriptionList | 16 | 横 × 3 サイズ、縦、枠なし、2 列とラベル幅、区切り |
@@ -139,7 +139,7 @@ NovaTheme が GPUI Kit と同じ見た目・動きになっていることを、
 | AvatarGroup → AvatarGroup | 10 | 2 サイズ、上限、省略記号 |
 | Message → Message | 10 | アバター・ヘッダー・フッター × start / end、複数の吹き出し、文字だけ、filled |
 | Skeleton → Skeleton | 8（1） | 帯、secondary、円、角丸、明滅 |
-| StatusBar → StatusBar | 8 | 3 領域、左だけ、右だけ、中央だけ |
+| StatusBar → StatusBar | 9 | 3 領域、左だけ、右だけ、中央だけ、Aurora Light |
 | Breadcrumb → Breadcrumb | 8 | 項目、1 つ、無効、長い列 |
 | Empty → EmptyState | 8 | 全部、ヘッダーだけ、枠なしの画像、タイトルだけ |
 | HoverCard → HoverCard | 8 | 500ms では閉じている、700ms で開く、左右の揃え |
@@ -147,11 +147,13 @@ NovaTheme が GPUI Kit と同じ見た目・動きになっていることを、
 
 静止ケースは Light と Dark の両方を持つ（Tooltip のサイズ違いを除く）。動きは時間の比較が目的なので Light だけで行う。
 
+同梱のテーマで見た目が変わるのは色だけで、色はトークンの比較で全テーマを確かめる。それに加えて、Aurora Light が塗るグラデーション（ADR 26）を、グラデーションの塗りを持つ 11 コンポーネントで GPUI の描画と比べる。ケースのテーマはテーマの slug で書く（`themes = ["aurora-light"]`）。
+
 ## 比較の 4 層
 
 ### 1. トークン
 
-`UIKit.*` の色リソースが、GPUI Kit の Default Light / Default Dark で解決した値と 8bit で完全一致すること。GPUI にない色がテーマに定義されていないこと。
+`UIKit.*` の色リソースが、GPUI Kit が Default Light / Default Dark と同梱の 36 テーマのそれぞれで解決した値と 8bit で完全一致すること。グラデーションは角度と 2 つの停止点（色と位置）まで一致すること。GPUI にない色がテーマに定義されていないこと。
 
 ### 2. 構造
 
@@ -200,7 +202,7 @@ GPUI の Scene から各デバイス画素を領域に分類し、領域ごと�
 | Shadow | 影の広がり | 最大 12 | 11 | R3 |
 | Image | 画像の内側 | 平均 3 | 0.19 | – |
 | ImageEdge | 画像の縁から 2.5 デバイス px | 平均 12 | 6.3 | R31 |
-| Gradient | グラデーションの内側 | 最大 3、平均 1 | 3、0.69 | R32 |
+| Gradient | グラデーションの内側 | 最大 5、平均 1.25 | 5、1.15 | R32 |
 
 - Edge、Ink、Image、ImageEdge は、1 デバイス px ずれた位置との差のうち最小のものを使う（R9）。
 - テストは緩和を挙げて画素を比べない範囲（Excluded 領域）を指定できる。使っているのは R33 の AvatarGroup の省略記号だけ。構造はその範囲でも比べる。
@@ -354,7 +356,7 @@ Avalonia には時刻を指定する公開 API がないので、テストに限
 | R29 | スクロールバーの帯の上のポインター。GPUI は帯の下の行に hover を付けるが、Avalonia では帯の ScrollBar がポインターを受ける。 | 一覧のケースはポインターを帯にかけない。 |
 | R30 | GPUI は 0 でない線を少なくとも 1 デバイス px に広げる（snap_stroke）。Avalonia のレイアウトの丸めは半デバイス px 未満の線を消す。消えかけの線とインクは描くかどうかが分かれる。 | 不透明度 5% 未満の線とインクは構造では比べず、画素だけで比べる。 |
 | R31 | GPUI はアトラスの透明な隣接画素と補間して拡大した画像の縁を半ソース画素ぶん薄める。Avalonia は端を伸ばす。 | 画像の縁 2.5 デバイス px を ImageEdge 領域として平均 12 まで認める。 |
-| R32 | GPUI のシェーダーはグラデーションを ±2/255 でディザする。Skia はしない。 | グラデーションの内側を Gradient 領域として最大 3、平均 1 まで認める。 |
+| R32 | GPUI のシェーダーはグラデーションをディザする。Skia はしない。1 つの三角分布のノイズで各色を ±2/255、アルファを ±3/255 動かすので、不透明なグラデーションも最大 3/255 透けて下の色が混ざる。差は最大で 2 + 3 × 下との色の差（≦ 5）、平均で (4 + 3 × 下との色の差) / 6（≦ 1.17）になる。 | グラデーションの内側を Gradient 領域として最大 5、平均 1.25 まで認める。 |
 | R33 | 同梱の Inter にない文字（AvatarGroup の省略記号「⋯」、U+22EF）は、描画系がそれぞれのフォールバックのフォントで描く。 | その文字を含むアバターの輪の内側だけ画素を比べない（`VisualAssert.Matches` の `excluded`）。色と、塗り・輪の形は比べる。 |
 | R34 | GPUI は折り返した行の末尾の空白も含めて行を中央に寄せ、折り返す位置を決める。Avalonia は末尾の空白を数えない。 | 中央寄せの文字（EmptyState）は 1 行に収まるケースで比べる。折り返す位置が空白 1 つ分の差で変わる幅（Alert の small）はケースの幅を変えて避ける。 |
 
@@ -388,12 +390,12 @@ GPUI と同じ見た目・挙動にするため、アプリ側で次の設定を
 | TimeField | `TimePicker` の `ClockIdentifier`、`UseSeconds` | 閉じた欄が GPUI の TimeField。開いたピッカーは Avalonia のもの。 |
 | Table | `TableView Theme="{StaticResource UIKitTable}"`、枠付きは `BorderThickness="1" CornerRadius="5.5"`、右寄せは列の `HorizontalContentAlignment` | 既定のテーマは DataTable。 |
 | DataTable（TableView） | サイズ `xsmall` `small` `large`、`stripe`、`borderless`。列幅はピクセルで | GPUI の列はピクセル幅。 |
-| DataTable（DataGrid） | `NovaDataGridTheme` を追加、`CanUserResizeColumns="True"`、表示だけなら `IsReadOnly="True"`、右寄せの列は `CellStyleClasses="text-right"` と右寄せの見出し | DataGrid の既定はリサイズ不可、クリックで編集に入る。 |
+| DataTable（DataGrid） | `UIKitDataGridTheme` を追加、`CanUserResizeColumns="True"`、表示だけなら `IsReadOnly="True"`、右寄せの列は `CellStyleClasses="text-right"` と右寄せの見出し | DataGrid の既定はリサイズ不可、クリックで編集に入る。 |
 | Carousel | `Focusable="True"`（GPUI はタブ停止）。前後のボタンは `Button Classes="outline icon-only rounded-full"` を 16px 外側、ページ番号は `PipsPager Classes="carousel"` を 16px 下に置き、`SelectedPageIndex` と `SelectedIndex` を双方向に | テーマはフォーカス可能性を変えない。 |
 | Sidebar | Icon = `SplitView` の `CompactInline`、Offcanvas = `Inline`、折り畳めない = `Inline` + `IsPaneOpen="True"`。`DrawerPage` なら `Locked` / `CompactInline` / `Split` | 幅は OpenPaneLength（既定 255）。 |
 | Sheet | `DrawerPage Classes="sheet" DrawerBehavior="Flyout"`、暗転なしは `BackdropBrush="{x:Null}"`、GPUI の 34px のタイトルバーの下に出すなら `UIKit.Sheet.Margin` | – |
 | TitleBar | `UIKit.TitleBar.Padding`（既定 12） | Avalonia が装飾を描く OS（Windows の拡張、X11、Wayland）でだけ使われる。 |
-| ColorPicker | `NovaColorPickerTheme` を追加、ColorSelect は `Classes="field"` | パレットは標準の FluentColorPalette（`Palette` で変える）。 |
+| ColorPicker | `UIKitColorPickerTheme` を追加、ColorSelect は `Classes="field"` | パレットは標準の FluentColorPalette（`Palette` で変える）。 |
 | Badge | `Count` / `Maximum` / `IsDot` / `Icon`、色は `BadgeBackground`、サイズは `small` `large` | 色を Background にすると中身の背景と区別できない。 |
 | TagLabel | 色はクラス（`primary` 既定、`secondary` `danger` `success` `warning` `info`、19 のパレット色）、`outline`、`xsmall` `small` `large`、`rounded-full` | GPUI の Tag。Avalonia の `Control.Tag` と同名になるため改名。 |
 | Alert | 種類は `info` `success` `warning` `error`、`banner`、サイズのクラス。`IsClosable` と `CloseRequested` で隠すのはアプリ | GPUI の on_close も隠さない。 |

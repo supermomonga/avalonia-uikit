@@ -28,6 +28,7 @@ import { Button } from "@/components/ui/button"
 import { components } from "@/lib/catalog"
 import { highlight } from "@/lib/highlight"
 import { siteConfig } from "@/lib/site"
+import { bundledThemes } from "@/lib/themes"
 
 const newControls = components.filter((entry) => entry.status === "new").length
 const ownControls = components.length - newControls
@@ -52,7 +53,7 @@ const heroCode = `<Window xmlns="https://github.com/avaloniaui"
   </uikit:Form>
 </Window>`
 
-const installLine = "<uikit:NovaTheme />"
+const installLine = "<uikit:UIKitTheme />"
 
 function Hero({ code }: { code: string }) {
   return (
@@ -68,8 +69,9 @@ function Hero({ code }: { code: string }) {
           <p class="hero__lead mt-6">
             A theme for Avalonia's own controls in the Nova style of shadcn/ui,
             plus the small controls Avalonia lacks: {components.length}{" "}
-            components in light and dark, with every variant, size and state
-            checked pixel by pixel and the motion frame by frame.
+            components in light, dark and GPUI Kit's {bundledThemes.length}{" "}
+            color themes, with every variant, size and state checked pixel by
+            pixel and the motion frame by frame.
           </p>
           <div class="mt-8 flex flex-wrap gap-3">
             <Button
@@ -98,7 +100,7 @@ function Hero({ code }: { code: string }) {
               </span>
               <span class="flex items-center gap-1.5">
                 <Icon icon={SunMoon} class="size-3.5" />
-                Light and dark
+                {bundledThemes.length + 2} color themes
               </span>
               <span class="flex items-center gap-1.5">
                 <Icon icon={Zap} class="size-3.5" />
@@ -113,7 +115,7 @@ function Hero({ code }: { code: string }) {
           <div class="install mt-7">
             <span class="install__label">App.axaml</span>
             <code class="install__code">
-              <span class="c-kw">&lt;uikit:NovaTheme</span> <span class="c-kw">/&gt;</span>
+              <span class="c-kw">&lt;uikit:UIKitTheme</span> <span class="c-kw">/&gt;</span>
             </code>
             <Button
               variant="ghost"
@@ -367,7 +369,7 @@ const capabilities: {
   {
     icon: Blocks,
     title: "Avalonia's own controls",
-    text: `For ${ownControls} of the components, NovaTheme replaces the Avalonia control's ControlTheme: colors, padding, outlines, inner layout, states and animations.`,
+    text: `For ${ownControls} of the components, UIKitTheme replaces the Avalonia control's ControlTheme: colors, padding, outlines, inner layout, states and animations.`,
     chips: ["Button", "TextBox", "ComboBox", "TabControl"],
     diagram: ControlsDiagram,
   },
@@ -387,9 +389,9 @@ const capabilities: {
   },
   {
     icon: SunMoon,
-    title: "Light and dark",
-    text: "Every color token has a light and a dark value. Switch with RequestedThemeVariant, for the app or any part of it.",
-    chips: ["ThemeVariant", "UIKit.Primary"],
+    title: "Color themes",
+    text: `Default Light, Default Dark and the ${bundledThemes.length} themes GPUI Kit bundles, Aurora's gradients included. Switch with RequestedThemeVariant, for the app or any part of it.`,
+    chips: ["UIKitThemeVariants", "UIKit.Primary"],
     diagram: SwatchDiagram,
   },
   {
@@ -461,9 +463,9 @@ const packages: {
     icon: Blocks,
     name: "AvaloniaUIKit",
     title: "The theme and the new controls",
-    text: "NovaTheme for Avalonia's own controls, the uikit: controls, the color tokens and the icons.",
+    text: "UIKitTheme for Avalonia's own controls, the uikit: controls, the color tokens and the icons.",
     code: `<Application.Styles>
-  <uikit:NovaTheme />
+  <uikit:UIKitTheme />
 </Application.Styles>`,
     points: [
       `${ownControls} components on Avalonia's own controls`,
@@ -476,10 +478,10 @@ const packages: {
     icon: Palette,
     name: "AvaloniaUIKit.ColorPicker",
     title: "Avalonia's ColorPicker",
-    text: "NovaColorPickerTheme gives the ColorPicker package a swatch or a field with a palette popover.",
+    text: "UIKitColorPickerTheme gives the ColorPicker package a swatch or a field with a palette popover.",
     code: `<Application.Styles>
-  <uikit:NovaTheme />
-  <uikitcolor:NovaColorPickerTheme />
+  <uikit:UIKitTheme />
+  <uikitcolor:UIKitColorPickerTheme />
 </Application.Styles>`,
     points: [
       "Swatch and input field looks",
@@ -492,10 +494,10 @@ const packages: {
     icon: Table2,
     name: "AvaloniaUIKit.DataGrid",
     title: "Avalonia's DataGrid",
-    text: "NovaDataGridTheme gives DataGrid the data table look of TableView, with the grid's own features.",
+    text: "UIKitDataGridTheme gives DataGrid the data table look of TableView, with the grid's own features.",
     code: `<Application.Styles>
-  <uikit:NovaTheme />
-  <uikitgrid:NovaDataGridTheme />
+  <uikit:UIKitTheme />
+  <uikitgrid:UIKitDataGridTheme />
 </Application.Styles>`,
     points: [
       "Sort indicators, column resizing and reordering",
@@ -514,7 +516,7 @@ function Packages({ codes }: { codes: string[] }) {
           kicker="Three packages. One theme."
           title="Take only the themes your app uses."
         >
-          NovaTheme covers Avalonia's built-in controls and the new ones.
+          UIKitTheme covers Avalonia's built-in controls and the new ones.
           Avalonia ships ColorPicker and DataGrid as packages of their own, and
           so does this library, so an app takes no dependency it does not use.
         </SectionHead>
@@ -563,7 +565,7 @@ function Principle() {
         </div>
         <div class="flex flex-col items-start gap-6">
           <p class="text-[1.03rem] leading-[1.7] text-muted-foreground">
-            NovaTheme replaces each control's ControlTheme and leaves the
+            UIKitTheme replaces each control's ControlTheme and leaves the
             control itself alone: its behavior, input handling, accessibility
             and API stay exactly as Avalonia ships them.
           </p>

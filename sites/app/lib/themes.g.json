@@ -1,0 +1,365 @@
+{
+  "gpui_kit": "2c5162f8c5b0c7fcec066ed53125d304c632bfe2",
+  "themes": [
+    {
+      "id": "adventure",
+      "name": "Adventure",
+      "family": "Adventure",
+      "mode": "dark",
+      "swatch": [
+        "#040404",
+        "#4384ad"
+      ]
+    },
+    {
+      "id": "adventure-time",
+      "name": "Adventure Time",
+      "family": "Adventure",
+      "mode": "dark",
+      "swatch": [
+        "#1f1d45",
+        "#5f72c6"
+      ]
+    },
+    {
+      "id": "alduin",
+      "name": "Alduin",
+      "family": "Alduin",
+      "mode": "dark",
+      "swatch": [
+        "#1c1c1c",
+        "#458588"
+      ]
+    },
+    {
+      "id": "asciinema",
+      "name": "Asciinema",
+      "family": "Asciinema",
+      "mode": "dark",
+      "swatch": [
+        "#121314",
+        "#26b0d7"
+      ]
+    },
+    {
+      "id": "aurora-light",
+      "name": "Aurora Light",
+      "family": "Aurora",
+      "mode": "light",
+      "swatch": [
+        "#ffffff",
+        "#1e293b"
+      ]
+    },
+    {
+      "id": "ayu-dark",
+      "name": "Ayu Dark",
+      "family": "Ayu",
+      "mode": "dark",
+      "swatch": [
+        "#0d1016",
+        "#5ac1fe"
+      ]
+    },
+    {
+      "id": "ayu-light",
+      "name": "Ayu Light",
+      "family": "Ayu",
+      "mode": "light",
+      "swatch": [
+        "#fcfcfc",
+        "#55b4d3"
+      ]
+    },
+    {
+      "id": "catppuccin-frappe",
+      "name": "Catppuccin Frappe",
+      "family": "Catppuccin",
+      "mode": "dark",
+      "swatch": [
+        "#232634",
+        "#8caaee"
+      ]
+    },
+    {
+      "id": "catppuccin-latte",
+      "name": "Catppuccin Latte",
+      "family": "Catppuccin",
+      "mode": "light",
+      "swatch": [
+        "#e5e9ef",
+        "#7287fd"
+      ]
+    },
+    {
+      "id": "catppuccin-macchiato",
+      "name": "Catppuccin Macchiato",
+      "family": "Catppuccin",
+      "mode": "dark",
+      "swatch": [
+        "#1e2030",
+        "#8aadf4"
+      ]
+    },
+    {
+      "id": "catppuccin-mocha",
+      "name": "Catppuccin Mocha",
+      "family": "Catppuccin",
+      "mode": "dark",
+      "swatch": [
+        "#181825",
+        "#89b4fa"
+      ]
+    },
+    {
+      "id": "everforest-dark",
+      "name": "Everforest Dark",
+      "family": "Everforest",
+      "mode": "dark",
+      "swatch": [
+        "#262e34",
+        "#e69875"
+      ]
+    },
+    {
+      "id": "everforest-light",
+      "name": "Everforest Light",
+      "family": "Everforest",
+      "mode": "light",
+      "swatch": [
+        "#fefcee",
+        "#e69875"
+      ]
+    },
+    {
+      "id": "fahrenheit",
+      "name": "Fahrenheit",
+      "family": "Fahrenheit",
+      "mode": "dark",
+      "swatch": [
+        "#000000",
+        "#720202"
+      ]
+    },
+    {
+      "id": "flexoki-dark",
+      "name": "Flexoki Dark",
+      "family": "Flexoki",
+      "mode": "dark",
+      "swatch": [
+        "#100f0f",
+        "#24837b"
+      ]
+    },
+    {
+      "id": "flexoki-light",
+      "name": "Flexoki Light",
+      "family": "Flexoki",
+      "mode": "light",
+      "swatch": [
+        "#fffcf0",
+        "#3aa99f"
+      ]
+    },
+    {
+      "id": "gruvbox-dark",
+      "name": "Gruvbox Dark",
+      "family": "Gruvbox",
+      "mode": "dark",
+      "swatch": [
+        "#1d2021",
+        "#d79921"
+      ]
+    },
+    {
+      "id": "gruvbox-light",
+      "name": "Gruvbox Light",
+      "family": "Gruvbox",
+      "mode": "light",
+      "swatch": [
+        "#fbf1c7",
+        "#d79921"
+      ]
+    },
+    {
+      "id": "harper",
+      "name": "Harper",
+      "family": "Harper",
+      "mode": "dark",
+      "swatch": [
+        "#010101",
+        "#b196c6"
+      ]
+    },
+    {
+      "id": "hybrid-dark",
+      "name": "Hybrid Dark",
+      "family": "Hybrid",
+      "mode": "dark",
+      "swatch": [
+        "#1d1f21",
+        "#15678a"
+      ]
+    },
+    {
+      "id": "hybrid-light",
+      "name": "Hybrid Light",
+      "family": "Hybrid",
+      "mode": "light",
+      "swatch": [
+        "#e4e4e4",
+        "#005f87"
+      ]
+    },
+    {
+      "id": "jellybeans",
+      "name": "Jellybeans",
+      "family": "Jellybeans",
+      "mode": "dark",
+      "swatch": [
+        "#151515",
+        "#97bedc"
+      ]
+    },
+    {
+      "id": "kibble",
+      "name": "Kibble",
+      "family": "Kibble",
+      "mode": "dark",
+      "swatch": [
+        "#0e100a",
+        "#6ce05c"
+      ]
+    },
+    {
+      "id": "macos-classic-dark",
+      "name": "macOS Classic Dark",
+      "family": "macOS Classic",
+      "mode": "dark",
+      "swatch": [
+        "#131313",
+        "#077cfd"
+      ]
+    },
+    {
+      "id": "macos-classic-light",
+      "name": "macOS Classic Light",
+      "family": "macOS Classic",
+      "mode": "light",
+      "swatch": [
+        "#f9f9f9",
+        "#0060de"
+      ]
+    },
+    {
+      "id": "mellifluous-dark",
+      "name": "Mellifluous Dark",
+      "family": "Mellifluous",
+      "mode": "dark",
+      "swatch": [
+        "#1a1a1a",
+        "#5a6599"
+      ]
+    },
+    {
+      "id": "mellifluous-light",
+      "name": "Mellifluous Light",
+      "family": "Mellifluous",
+      "mode": "light",
+      "swatch": [
+        "#e7e7e7",
+        "#5a6599"
+      ]
+    },
+    {
+      "id": "molokai-dark",
+      "name": "Molokai Dark",
+      "family": "Molokai",
+      "mode": "dark",
+      "swatch": [
+        "#1b1d1e",
+        "#dc1860"
+      ]
+    },
+    {
+      "id": "molokai-light",
+      "name": "Molokai Light",
+      "family": "Molokai",
+      "mode": "light",
+      "swatch": [
+        "#fefaf9",
+        "#e14774"
+      ]
+    },
+    {
+      "id": "solarized-dark",
+      "name": "Solarized Dark",
+      "family": "Solarized",
+      "mode": "dark",
+      "swatch": [
+        "#002b36",
+        "#0d667d"
+      ]
+    },
+    {
+      "id": "solarized-light",
+      "name": "Solarized Light",
+      "family": "Solarized",
+      "mode": "light",
+      "swatch": [
+        "#fdf6e3",
+        "#586e75"
+      ]
+    },
+    {
+      "id": "spaceduck",
+      "name": "Spaceduck",
+      "family": "Spaceduck",
+      "mode": "dark",
+      "swatch": [
+        "#0f111b",
+        "#089cc5"
+      ]
+    },
+    {
+      "id": "tokyo-moon",
+      "name": "Tokyo Moon",
+      "family": "Tokyo",
+      "mode": "dark",
+      "swatch": [
+        "#222436",
+        "#82aaff"
+      ]
+    },
+    {
+      "id": "tokyo-night",
+      "name": "Tokyo Night",
+      "family": "Tokyo",
+      "mode": "dark",
+      "swatch": [
+        "#1a1b26",
+        "#7aa2f7"
+      ]
+    },
+    {
+      "id": "tokyo-storm",
+      "name": "Tokyo Storm",
+      "family": "Tokyo",
+      "mode": "dark",
+      "swatch": [
+        "#24283b",
+        "#7aa2f7"
+      ]
+    },
+    {
+      "id": "twilight",
+      "name": "Twilight",
+      "family": "Twilight",
+      "mode": "dark",
+      "swatch": [
+        "#141414",
+        "#cda869"
+      ]
+    }
+  ]
+}

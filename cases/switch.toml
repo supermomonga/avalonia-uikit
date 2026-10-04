@@ -14,6 +14,14 @@ name = "bare"
 matrix = { size = ["small", "medium", "large"], checked = [false, true] }
 states = ["normal", "disabled"]
 
+# Aurora Light: the track and the thumb are gradients (ADR 26).
+[[group]]
+name = "aurora"
+params = { label = "Wi-Fi" }
+matrix = { checked = [false, true] }
+states = ["normal", "hover", "disabled"]
+themes = ["aurora-light"]
+
 [[motion]]
 name = "toggle"
 params = { size = "medium" }

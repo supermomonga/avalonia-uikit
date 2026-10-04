@@ -211,8 +211,7 @@ public static class Motion
                 _ => BrushProperties.None,
             };
             if (spec is null || flag == BrushProperties.None || !spec.Properties.HasFlag(flag) || !_laidOut ||
-                AvaloniaPropertyRegistry.Instance.FindRegistered(_element, name) is not { } target ||
-                e.NewValue is not ISolidColorBrush to)
+                AvaloniaPropertyRegistry.Instance.FindRegistered(_element, name) is not { } target)
             {
                 return;
             }
@@ -221,7 +220,8 @@ public static class Motion
             var running = _running.Remove(name, out var previous);
             var shown = running ? _element.GetValue(target) : e.OldValue;
             previous?.Cancel();
-            if (shown is not ISolidColorBrush from || from.Color == to.Color)
+            // A gradient (a theme's token background, ADR 26) shows at once: only colors transition.
+            if (e.NewValue is not ISolidColorBrush to || shown is not ISolidColorBrush from || from.Color == to.Color)
             {
                 return;
             }

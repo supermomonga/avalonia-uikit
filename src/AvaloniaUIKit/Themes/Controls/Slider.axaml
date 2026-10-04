@@ -61,7 +61,7 @@
                     CornerRadius="{Binding $self.(uikit:Motion.SpringValue), Converter={StaticResource UIKit.Slider.RingRadius}}"
                     BorderBrush="{DynamicResource UIKit.Slider.Ring}"
                     IsHitTestVisible="False" />
-            <Border Name="PART_Face" Margin="1" CornerRadius="7" Background="{DynamicResource UIKit.SliderThumb}" />
+            <Border Name="PART_Face" Margin="1" CornerRadius="7" Background="{DynamicResource UIKit.SliderThumb.Fill}" />
           </Panel>
         </ControlTemplate>
       </Setter>
@@ -111,12 +111,12 @@
                    IsDirectionReversed="{TemplateBinding IsDirectionReversed}">
               <Track.DecreaseButton>
                 <RepeatButton Name="PART_DecreaseButton" Theme="{StaticResource UIKitSliderTrackButton}">
-                  <Border Name="PART_DecreaseFill" CornerRadius="3" Background="{DynamicResource UIKit.SliderBar}" />
+                  <Border Name="PART_DecreaseFill" CornerRadius="3" Background="{DynamicResource UIKit.SliderBar.Fill}" />
                 </RepeatButton>
               </Track.DecreaseButton>
               <Track.IncreaseButton>
                 <RepeatButton Name="PART_IncreaseButton" Theme="{StaticResource UIKitSliderTrackButton}">
-                  <Border Name="PART_IncreaseFill" CornerRadius="3" Background="{DynamicResource UIKit.SliderBar}" IsVisible="False" />
+                  <Border Name="PART_IncreaseFill" CornerRadius="3" Background="{DynamicResource UIKit.SliderBar.Fill}" IsVisible="False" />
                 </RepeatButton>
               </Track.IncreaseButton>
               <Thumb Name="PART_Thumb" Theme="{StaticResource UIKitSliderThumb}" />

@@ -8,7 +8,7 @@ use gpui_kit::{
     PlatformHeadlessRenderer, Pixels, Point, Render, Scene, Size, Styled as _, Window, div,
     point, px, size,
     assets::Assets,
-    component::{ActiveTheme as _, Theme, ThemeMode, scroll::ScrollbarMode},
+    component::{ActiveTheme as _, Theme, ThemeMode, ThemeRegistry, scroll::ScrollbarMode},
     test::TestWindowExt as _,
 };
 use image::RgbaImage;
@@ -92,6 +92,8 @@ impl Render for CaseView {
 pub struct Harness {
     pub cx: HeadlessAppContext,
     sink: Rc<RefCell<Option<Value>>>,
+    /// The themes GPUI Kit bundles, for cases and tokens in a named theme.
+    pub themes: Vec<crate::themes::Bundled>,
 }
 
 pub struct CaseWindow {
@@ -125,13 +127,45 @@ impl Harness {
         cx.update(crate::cases::menu::init);
         let fonts = crate::fonts::load(root)?;
         cx.update(|cx| cx.text_system().add_fonts(fonts))?;
-        Ok(Self { cx, sink })
+        let themes = crate::themes::load(root)?;
+        Ok(Self { cx, sink, themes })
     }
 
-    /// Applies the theme mode and the harness-wide theme settings.
-    pub fn set_theme(&mut self, mode: ThemeMode, scrollbar: ScrollbarMode) {
+    /// Applies a case's theme (`light`, `dark` or a bundled theme's slug,
+    /// see `themes.rs`) and the harness-wide theme settings.
+    pub fn set_theme(&mut self, theme: &str, scrollbar: ScrollbarMode) -> Result<()> {
+        let bundled = match theme {
+            "light" | "dark" => None,
+            slug => Some(
+                self.themes
+                    .iter()
+                    .find(|t| t.slug() == slug)
+                    .with_context(|| format!("no bundled theme {slug}"))?
+                    .config
+                    .clone(),
+            ),
+        };
+        let mode = match &bundled {
+            Some(config) => config.mode,
+            None if theme == "dark" => ThemeMode::Dark,
+            None => ThemeMode::Light,
+        };
         self.cx.update(|cx| {
             cx.set_reduce_motion(false);
+            // As the registry does: the mode's theme is set, then loaded by `change`.
+            let registry = ThemeRegistry::global(cx);
+            let (light, dark) = (registry.default_light_theme().clone(), registry.default_dark_theme().clone());
+            Theme::update(cx, |theme| {
+                theme.light_theme = light;
+                theme.dark_theme = dark;
+                if let Some(config) = bundled {
+                    if config.mode.is_dark() {
+                        theme.dark_theme = config;
+                    } else {
+                        theme.light_theme = config;
+                    }
+                }
+            });
             Theme::change(mode, None, cx);
             Theme::update(cx, |theme| {
                 theme.font_family = crate::fonts::FAMILY.into();
@@ -139,6 +173,7 @@ impl Harness {
                 theme.scrollbar_mode = scrollbar;
             });
         });
+        Ok(())
     }
 
     pub fn open(&mut self, viewport: (f32, f32), anchor: (f32, f32), build: Builder) -> Result<CaseWindow> {

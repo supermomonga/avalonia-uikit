@@ -49,13 +49,16 @@ public static partial class Demos
         }
     }
 
-    /// <summary>Switches every view between the light and dark theme.</summary>
+    /// <summary>
+    /// Shows every view in the theme GPUI Kit calls <paramref name="name"/>: Default Light, Default Dark
+    /// or a bundled theme (<see cref="UIKitThemeVariants"/>); an unknown name shows Default Light.
+    /// </summary>
     [JSExport]
-    public static void SetTheme(bool dark)
+    public static void SetTheme(string name)
     {
         if (Application.Current is { } app)
         {
-            app.RequestedThemeVariant = dark ? ThemeVariant.Dark : ThemeVariant.Light;
+            app.RequestedThemeVariant = UIKitThemeVariants.Find(name) ?? ThemeVariant.Light;
         }
     }
 }

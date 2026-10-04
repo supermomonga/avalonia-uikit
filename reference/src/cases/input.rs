@@ -173,16 +173,16 @@ pub fn input_group(params: &Params) -> Result<Builder> {
     }))
 }
 
-pub fn derived_colors(theme: &Theme, out: &mut Vec<(String, gpui_kit::Hsla)>) {
+pub fn derived_colors(theme: &Theme, out: &mut Vec<(String, super::Paint)>) {
     // input.rs: a disabled frame fills with `input` mixed 80% toward transparent,
     // then at half strength; its text and placeholder are at half strength.
-    out.push(("input.disabled.background".into(), theme.input.mix_oklab(theme.transparent, 0.8).opacity(0.5)));
-    out.push(("input.disabled.text".into(), theme.foreground.opacity(0.5)));
-    out.push(("input.disabled.placeholder".into(), theme.muted_foreground.opacity(0.5)));
+    out.push(("input.disabled.background".into(), theme.input.mix_oklab(theme.transparent, 0.8).opacity(0.5).into()));
+    out.push(("input.disabled.text".into(), theme.foreground.opacity(0.5).into()));
+    out.push(("input.disabled.placeholder".into(), theme.muted_foreground.opacity(0.5).into()));
     // group.rs GroupAppearance: the frame and its invalid ring differ by mode; group buttons tint with `muted`.
     let dark = theme.is_dark();
-    out.push(("input-group.background".into(), if dark { theme.input.opacity(0.3) } else { theme.transparent }));
-    out.push(("input-group.disabled.background".into(), theme.input.opacity(if dark { 0.8 } else { 0.5 })));
-    out.push(("input-group.invalid.ring".into(), theme.danger.opacity(if dark { 0.4 } else { 0.2 })));
-    out.push(("input-group.button.hover".into(), theme.muted.opacity(if dark { 0.5 } else { 1.0 })));
+    out.push(("input-group.background".into(), (if dark { theme.input.opacity(0.3) } else { theme.transparent }).into()));
+    out.push(("input-group.disabled.background".into(), theme.input.opacity(if dark { 0.8 } else { 0.5 }).into()));
+    out.push(("input-group.invalid.ring".into(), theme.danger.opacity(if dark { 0.4 } else { 0.2 }).into()));
+    out.push(("input-group.button.hover".into(), theme.muted.opacity(if dark { 0.5 } else { 1.0 }).into()));
 }

@@ -23,3 +23,4 @@
 * [23. Fit live demos to their content height and keep Avalonia's focus in the pressed demo](0023-fit-live-demos-to-their-content-height-and-keep-avalonia-s-focus-in-the-pressed-demo.md)
 * [24. Show a skeleton until a live demo mounts and give the view room outside the demo](0024-show-a-skeleton-until-a-live-demo-mounts-and-give-the-view-room-outside-the-demo.md)
 * [25. Keep children inside rounded borders and check each border's ink](0025-keep-children-inside-rounded-borders-and-check-each-border-s-ink.md)
+* [26. Ship GPUI Kit's color themes as theme variants of UIKitTheme](0026-ship-gpui-kit-s-color-themes-as-theme-variants-of-uikittheme.md)

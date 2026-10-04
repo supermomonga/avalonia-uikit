@@ -6,7 +6,7 @@
   Classes: vertical, dashed (a [4, 2] dash).
   Inside a menu a separator is PopupMenuItem::Separator instead: a 1px line
   at the bottom of a 2px box that runs to the surface edge, with 2px above
-  and below (see NovaTheme.axaml).
+  and below (see UIKitTheme.axaml).
 -->
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">

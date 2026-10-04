@@ -1,5 +1,5 @@
 //! `Button` (crates/component/src/button/button.rs).
-use super::{disabled, icon, size};
+use super::{Paint, disabled, icon, size};
 use crate::{
     harness::Builder,
     manifest::{Params, param_bool, param_str},
@@ -125,55 +125,52 @@ enum State {
     Disabled,
 }
 
-fn solid(background: gpui_kit::Background) -> gpui_kit::Hsla {
-    background.as_solid().expect("button colors are solid")
-}
-
 /// Mirrors `ButtonVariant::{normal, hovered, active, selected, disabled}`.
-/// Returns (background, foreground, border).
-fn style(theme: &Theme, variant: ButtonVariant, outline: bool, state: State) -> (Hsla, Hsla, Hsla) {
+/// Returns (background, foreground, border). The background is the theme
+/// token's own, a gradient where the theme gives one (Aurora).
+fn style(theme: &Theme, variant: ButtonVariant, outline: bool, state: State) -> (Paint, Hsla, Hsla) {
     use ButtonVariant as V;
     let t = &theme.tokens;
-    let outline_bg = |state: State| -> Hsla {
+    let outline_bg = |state: State| -> Paint {
         match (variant, state) {
-            (V::Default, State::Normal) => theme.input_background(),
-            (V::Default, State::Hover) => theme.input.mix_oklab(theme.transparent, 0.5),
-            (V::Default, _) => theme.input.mix_oklab(theme.transparent, 0.7),
-            (V::Primary, State::Normal) => solid(t.primary.background.opacity(0.1)),
-            (V::Primary, State::Hover) => solid(t.primary_hover.background.opacity(0.2)),
-            (V::Primary, _) => solid(t.primary_active.background.opacity(0.4)),
-            (V::Secondary, State::Normal) => solid(t.secondary.background.opacity(0.1)),
-            (V::Secondary, State::Hover) => solid(t.secondary_hover.background.opacity(0.2)),
-            (V::Secondary, _) => solid(t.secondary_active.background.opacity(0.4)),
-            (V::Danger, State::Normal) => solid(t.danger.background.opacity(0.1)),
-            (V::Danger, State::Hover) => solid(t.danger_hover.background.opacity(0.2)),
-            (V::Danger, _) => solid(t.danger_active.background.opacity(0.4)),
-            (V::Warning, State::Normal) => solid(t.warning.background.opacity(0.1)),
-            (V::Warning, State::Hover) => solid(t.warning_hover.background.opacity(0.2)),
-            (V::Warning, _) => solid(t.warning_active.background.opacity(0.4)),
-            (V::Success, State::Normal) => solid(t.success.background.opacity(0.1)),
-            (V::Success, State::Hover) => solid(t.success_hover.background.opacity(0.2)),
-            (V::Success, _) => solid(t.success_active.background.opacity(0.4)),
-            (V::Info, State::Normal) => solid(t.info.background.opacity(0.1)),
-            (V::Info, State::Hover) => solid(t.info_hover.background.opacity(0.2)),
-            (V::Info, _) => solid(t.info_active.background.opacity(0.4)),
-            (V::Ghost | V::Link | V::Text, _) => theme.transparent,
+            (V::Default, State::Normal) => theme.input_background().into(),
+            (V::Default, State::Hover) => theme.input.mix_oklab(theme.transparent, 0.5).into(),
+            (V::Default, _) => theme.input.mix_oklab(theme.transparent, 0.7).into(),
+            (V::Primary, State::Normal) => t.primary.background.opacity(0.1),
+            (V::Primary, State::Hover) => t.primary_hover.background.opacity(0.2),
+            (V::Primary, _) => t.primary_active.background.opacity(0.4),
+            (V::Secondary, State::Normal) => t.secondary.background.opacity(0.1),
+            (V::Secondary, State::Hover) => t.secondary_hover.background.opacity(0.2),
+            (V::Secondary, _) => t.secondary_active.background.opacity(0.4),
+            (V::Danger, State::Normal) => t.danger.background.opacity(0.1),
+            (V::Danger, State::Hover) => t.danger_hover.background.opacity(0.2),
+            (V::Danger, _) => t.danger_active.background.opacity(0.4),
+            (V::Warning, State::Normal) => t.warning.background.opacity(0.1),
+            (V::Warning, State::Hover) => t.warning_hover.background.opacity(0.2),
+            (V::Warning, _) => t.warning_active.background.opacity(0.4),
+            (V::Success, State::Normal) => t.success.background.opacity(0.1),
+            (V::Success, State::Hover) => t.success_hover.background.opacity(0.2),
+            (V::Success, _) => t.success_active.background.opacity(0.4),
+            (V::Info, State::Normal) => t.info.background.opacity(0.1),
+            (V::Info, State::Hover) => t.info_hover.background.opacity(0.2),
+            (V::Info, _) => t.info_active.background.opacity(0.4),
+            (V::Ghost | V::Link | V::Text, _) => theme.transparent.into(),
             (V::Custom(_), _) => unreachable!(),
         }
     };
-    let bg_color = || -> Hsla {
+    let bg_color = || -> Paint {
         if outline {
             return outline_bg(State::Normal);
         }
         match variant {
-            V::Default => solid(t.button.into()),
-            V::Primary => solid(t.button_primary.into()),
-            V::Secondary => solid(t.button_secondary.into()),
-            V::Danger => solid(t.button_danger.into()),
-            V::Warning => solid(t.button_warning.into()),
-            V::Success => solid(t.button_success.into()),
-            V::Info => solid(t.button_info.into()),
-            V::Ghost | V::Link | V::Text => theme.transparent,
+            V::Default => t.button.into(),
+            V::Primary => t.button_primary.into(),
+            V::Secondary => t.button_secondary.into(),
+            V::Danger => t.button_danger.into(),
+            V::Warning => t.button_warning.into(),
+            V::Success => t.button_success.into(),
+            V::Info => t.button_info.into(),
+            V::Ghost | V::Link | V::Text => theme.transparent.into(),
             V::Custom(_) => unreachable!(),
         }
     };
@@ -205,21 +202,21 @@ fn style(theme: &Theme, variant: ButtonVariant, outline: bool, state: State) -> 
             V::Custom(_) => unreachable!(),
         }
     };
-    let hovered = || -> (Hsla, Hsla, Hsla) {
+    let hovered = || -> (Paint, Hsla, Hsla) {
         let bg = match variant {
-            V::Default if !outline => solid(t.button_hover.into()),
-            V::Primary if !outline => solid(t.button_primary_hover.into()),
-            V::Secondary if !outline => solid(t.button_secondary_hover.into()),
-            V::Danger if !outline => solid(t.button_danger_hover.into()),
-            V::Warning if !outline => solid(t.button_warning_hover.into()),
-            V::Success if !outline => solid(t.button_success_hover.into()),
-            V::Info if !outline => solid(t.button_info_hover.into()),
+            V::Default if !outline => t.button_hover.into(),
+            V::Primary if !outline => t.button_primary_hover.into(),
+            V::Secondary if !outline => t.button_secondary_hover.into(),
+            V::Danger if !outline => t.button_danger_hover.into(),
+            V::Warning if !outline => t.button_warning_hover.into(),
+            V::Success if !outline => t.button_success_hover.into(),
+            V::Info if !outline => t.button_info_hover.into(),
             V::Default | V::Primary | V::Secondary | V::Danger | V::Warning | V::Success | V::Info => outline_bg(State::Hover),
             V::Ghost => {
-                let accent: gpui_kit::Background = t.accent.into();
-                solid(if theme.mode.is_dark() { accent.opacity(0.5) } else { accent })
+                let accent: Paint = t.accent.into();
+                if theme.mode.is_dark() { accent.opacity(0.5) } else { accent }
             }
-            V::Link | V::Text => theme.transparent,
+            V::Link | V::Text => theme.transparent.into(),
             V::Custom(_) => unreachable!(),
         };
         let fg = match variant {
@@ -230,18 +227,18 @@ fn style(theme: &Theme, variant: ButtonVariant, outline: bool, state: State) -> 
         };
         (bg, fg, border_color(outline))
     };
-    let active = || -> (Hsla, Hsla, Hsla) {
+    let active = || -> (Paint, Hsla, Hsla) {
         let bg = match variant {
-            V::Default if !outline => solid(t.button_active.into()),
-            V::Primary if !outline => solid(t.button_primary_active.into()),
-            V::Secondary if !outline => solid(t.button_secondary_active.into()),
-            V::Ghost => solid(t.button_active.into()),
-            V::Danger if !outline => solid(t.button_danger_active.into()),
-            V::Warning if !outline => solid(t.button_warning_active.into()),
-            V::Success if !outline => solid(t.button_success_active.into()),
-            V::Info if !outline => solid(t.button_info_active.into()),
+            V::Default if !outline => t.button_active.into(),
+            V::Primary if !outline => t.button_primary_active.into(),
+            V::Secondary if !outline => t.button_secondary_active.into(),
+            V::Ghost => t.button_active.into(),
+            V::Danger if !outline => t.button_danger_active.into(),
+            V::Warning if !outline => t.button_warning_active.into(),
+            V::Success if !outline => t.button_success_active.into(),
+            V::Info if !outline => t.button_info_active.into(),
             V::Default | V::Primary | V::Secondary | V::Danger | V::Warning | V::Success | V::Info => outline_bg(State::Active),
-            V::Link | V::Text => theme.transparent,
+            V::Link | V::Text => theme.transparent.into(),
             V::Custom(_) => unreachable!(),
         };
         let fg = match variant {
@@ -261,15 +258,15 @@ fn style(theme: &Theme, variant: ButtonVariant, outline: bool, state: State) -> 
                 return (bg, text_color(outline), border);
             }
             let bg = match variant {
-                V::Default => solid(t.button_active.into()),
-                V::Primary => solid(t.button_primary_active.into()),
-                V::Secondary => solid(t.button_secondary_active.into()),
-                V::Ghost => solid(t.secondary_active.into()),
-                V::Danger => solid(t.button_danger_active.into()),
-                V::Warning => solid(t.button_warning_active.into()),
-                V::Success => solid(t.button_success_active.into()),
-                V::Info => solid(t.button_info_active.into()),
-                V::Link | V::Text => theme.transparent,
+                V::Default => t.button_active.into(),
+                V::Primary => t.button_primary_active.into(),
+                V::Secondary => t.button_secondary_active.into(),
+                V::Ghost => t.secondary_active.into(),
+                V::Danger => t.button_danger_active.into(),
+                V::Warning => t.button_warning_active.into(),
+                V::Success => t.button_success_active.into(),
+                V::Info => t.button_info_active.into(),
+                V::Link | V::Text => theme.transparent.into(),
                 V::Custom(_) => unreachable!(),
             };
             let fg = match variant {
@@ -281,20 +278,20 @@ fn style(theme: &Theme, variant: ButtonVariant, outline: bool, state: State) -> 
         }
         State::Disabled => {
             let bg = match variant {
-                V::Default | V::Link | V::Ghost | V::Text => theme.transparent,
-                V::Primary => solid(t.button_primary.background.opacity(0.15)),
-                V::Danger => solid(t.button_danger.background.opacity(0.15)),
-                V::Warning => solid(t.button_warning.background.opacity(0.15)),
-                V::Success => solid(t.button_success.background.opacity(0.15)),
-                V::Info => solid(t.button_info.background.opacity(0.15)),
-                V::Secondary => solid(t.button_secondary.background.opacity(1.5)),
+                V::Default | V::Link | V::Ghost | V::Text => theme.transparent.into(),
+                V::Primary => t.button_primary.background.opacity(0.15),
+                V::Danger => t.button_danger.background.opacity(0.15),
+                V::Warning => t.button_warning.background.opacity(0.15),
+                V::Success => t.button_success.background.opacity(0.15),
+                V::Info => t.button_info.background.opacity(0.15),
+                V::Secondary => t.button_secondary.background.opacity(1.5),
                 V::Custom(_) => unreachable!(),
             };
             let fg = theme.muted_foreground.opacity(0.5);
             let (bg, border) = if outline {
                 (outline_bg(State::Normal).opacity(0.5), border_color(true).opacity(0.5))
             } else if let V::Default = variant {
-                (theme.input_background().opacity(0.5), theme.input.opacity(0.5))
+                (theme.input_background().opacity(0.5).into(), theme.input.opacity(0.5))
             } else {
                 let border = match variant {
                     V::Primary => theme.button_primary.opacity(0.15),
@@ -322,7 +319,7 @@ pub const VARIANTS: [&str; 10] = [
     "default", "primary", "secondary", "danger", "warning", "success", "info", "ghost", "link", "text",
 ];
 
-pub fn derived_colors(theme: &Theme, out: &mut Vec<(String, Hsla)>) {
+pub fn derived_colors(theme: &Theme, out: &mut Vec<(String, Paint)>) {
     for name in VARIANTS {
         let v = variant(name).expect("known variant");
         for outline in [false, true] {
@@ -336,8 +333,8 @@ pub fn derived_colors(theme: &Theme, out: &mut Vec<(String, Hsla)>) {
                 let (bg, fg, border) = style(theme, v, outline, state);
                 let prefix = format!("button.{name}{}.{state_name}", if outline { ".outline" } else { "" });
                 out.push((format!("{prefix}.background"), bg));
-                out.push((format!("{prefix}.foreground"), fg));
-                out.push((format!("{prefix}.border"), border));
+                out.push((format!("{prefix}.foreground"), fg.into()));
+                out.push((format!("{prefix}.border"), border.into()));
             }
         }
     }
@@ -350,7 +347,7 @@ pub fn derived_colors(theme: &Theme, out: &mut Vec<(String, Hsla)>) {
         }
     }
     // The focus ring band and the dropdown caret.
-    out.push(("focus-ring".into(), theme.ring.alpha(0.5)));
+    out.push(("focus-ring".into(), theme.ring.alpha(0.5).into()));
 }
 
 /// A button with a tooltip (tooltip.rs), placed so the tooltip fits above it.

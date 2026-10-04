@@ -27,6 +27,14 @@ name = "icon"
 params = { selected = 0, icons = true }
 matrix = { variant = ["tab", "outline", "pill", "segmented", "underline"], size = ["small", "medium"] }
 
+# Aurora Light: the pill and the underline are the primary gradient (ADR 26).
+[[group]]
+name = "aurora"
+params = { selected = 1, pointer_x = 0.04 }
+matrix = { variant = ["tab", "outline", "pill", "segmented", "underline"] }
+states = ["normal", "hover"]
+themes = ["aurora-light"]
+
 # Tabs 72/96/120 wide: the indicator moves and resizes. Pill: tab 2 centre x=16+236, y=8+16.
 [[motion]]
 name = "pill"

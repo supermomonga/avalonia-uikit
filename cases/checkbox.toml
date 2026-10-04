@@ -14,6 +14,14 @@ name = "bare"
 matrix = { size = ["small", "medium"], checked = [false, true] }
 states = ["normal", "disabled"]
 
+# Aurora Light: the checked fill is the primary gradient (ADR 26).
+[[group]]
+name = "aurora"
+params = { label = "Accept" }
+matrix = { checked = [false, true] }
+states = ["normal", "hover", "disabled"]
+themes = ["aurora-light"]
+
 [[motion]]
 name = "check"
 params = { label = "Accept" }

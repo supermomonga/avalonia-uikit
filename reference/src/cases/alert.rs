@@ -47,19 +47,19 @@ pub fn builder(params: &Params) -> Result<Builder> {
     }))
 }
 
-pub fn derived_colors(theme: &gpui_kit::component::Theme, out: &mut Vec<(String, gpui_kit::Hsla)>) {
+pub fn derived_colors(theme: &gpui_kit::component::Theme, out: &mut Vec<(String, super::Paint)>) {
     use gpui_kit::{component::Colorize as _, transparent_white};
     // alert.rs AlertVariant::bg / border_color: the variant color mixed into
     // transparent white at 4% and 30%; the close button's hover and press take
     // the fill at 80% and 90%.
     let default_bg = theme.background;
-    out.push(("alert.close.hover".into(), default_bg.opacity(0.8)));
-    out.push(("alert.close.pressed".into(), default_bg.opacity(0.9)));
+    out.push(("alert.close.hover".into(), default_bg.opacity(0.8).into()));
+    out.push(("alert.close.pressed".into(), default_bg.opacity(0.9).into()));
     for (name, color) in [("info", theme.info), ("success", theme.success), ("warning", theme.warning), ("error", theme.danger)] {
         let bg = color.mix_oklab(transparent_white(), 0.04);
-        out.push((format!("alert.{name}.background"), bg));
-        out.push((format!("alert.{name}.border"), color.mix_oklab(transparent_white(), 0.3)));
-        out.push((format!("alert.{name}.close.hover"), bg.opacity(0.8)));
-        out.push((format!("alert.{name}.close.pressed"), bg.opacity(0.9)));
+        out.push((format!("alert.{name}.background"), bg.into()));
+        out.push((format!("alert.{name}.border"), color.mix_oklab(transparent_white(), 0.3).into()));
+        out.push((format!("alert.{name}.close.hover"), bg.opacity(0.8).into()));
+        out.push((format!("alert.{name}.close.pressed"), bg.opacity(0.9).into()));
     }
 }

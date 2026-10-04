@@ -289,7 +289,11 @@ pub fn icon(name: &str) -> Option<IconName> {
     })
 }
 
-pub fn derived_colors(theme: &gpui_kit::component::Theme, out: &mut Vec<(String, gpui_kit::Hsla)>) {
+/// What a component paints with a derived color: a solid color, or a theme
+/// token's background, which a theme may give as a gradient (Aurora).
+pub type Paint = gpui_kit::Background;
+
+pub fn derived_colors(theme: &gpui_kit::component::Theme, out: &mut Vec<(String, Paint)>) {
     button::derived_colors(theme, out);
     check::derived_colors(theme, out);
     menu::derived_colors(theme, out);

@@ -126,8 +126,8 @@ pub fn time_field(params: &Params) -> Result<Builder> {
     }))
 }
 
-pub fn derived_colors(theme: &gpui_kit::component::Theme, out: &mut Vec<(String, gpui_kit::Hsla)>) {
+pub fn derived_colors(theme: &gpui_kit::component::Theme, out: &mut Vec<(String, super::Paint)>) {
     // calendar.rs: weekday titles and disabled days are muted at half opacity.
-    out.push(("calendar.weekday".into(), theme.muted_foreground.opacity(0.5)));
-    out.push(("calendar.disabled".into(), theme.muted_foreground.opacity(0.5)));
+    out.push(("calendar.weekday".into(), theme.muted_foreground.opacity(0.5).into()));
+    out.push(("calendar.disabled".into(), theme.muted_foreground.opacity(0.5).into()));
 }

@@ -7,15 +7,15 @@ description: "Avalonia's ColorPicker as a swatch or an input field with a popove
 
 ## Usage
 
-Avalonia's `ColorPicker` is a separate package, so its theme is too: add `AvaloniaUIKit.ColorPicker` and put `NovaColorPickerTheme` after `NovaTheme` in the application's styles.
+Avalonia's `ColorPicker` is a separate package, so its theme is too: add `AvaloniaUIKit.ColorPicker` and put `UIKitColorPickerTheme` after `UIKitTheme` in the application's styles.
 
 ```xml title="App.axaml"
 <Application xmlns="https://github.com/avaloniaui"
              xmlns:uikit="clr-namespace:AvaloniaUIKit;assembly=AvaloniaUIKit"
              xmlns:uikitcolor="clr-namespace:AvaloniaUIKit;assembly=AvaloniaUIKit.ColorPicker">
   <Application.Styles>
-    <uikit:NovaTheme />
-    <uikitcolor:NovaColorPickerTheme />
+    <uikit:UIKitTheme />
+    <uikitcolor:UIKitColorPickerTheme />
   </Application.Styles>
 </Application>
 ```

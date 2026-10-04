@@ -24,6 +24,13 @@ name = "scrolling"
 params = { scrollbar_mode = "scrolling" }
 states = ["normal", "at-164-90+wait-400ms"]
 
+# Aurora Light: the thumb is a gradient across it (ADR 26).
+[[group]]
+name = "aurora"
+params = { scrollbar_mode = "always" }
+states = ["normal", "at-164-20+wait-400ms"]
+themes = ["aurora-light"]
+
 [[motion]]
 name = "show"
 params = { scrollbar_mode = "hover" }

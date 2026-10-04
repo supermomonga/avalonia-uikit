@@ -17,9 +17,9 @@ public sealed class TestApp : Application
 
     public override void Initialize()
     {
-        Styles.Add(new NovaTheme());
-        Styles.Add(new NovaColorPickerTheme());
-        Styles.Add(new NovaDataGridTheme());
+        Styles.Add(new UIKitTheme());
+        Styles.Add(new UIKitColorPickerTheme());
+        Styles.Add(new UIKitDataGridTheme());
         Resources["UIKit.FontFamily"] = new FontFamily(FontFamilyName);
         // GPUI opens a submenu as soon as its item is hovered (usage contract, docs/testing.md).
         Avalonia.Controls.Platform.DefaultMenuInteractionHandler.MenuShowDelay = TimeSpan.Zero;

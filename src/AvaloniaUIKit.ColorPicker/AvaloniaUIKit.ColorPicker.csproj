@@ -2,7 +2,7 @@
   <PropertyGroup>
     <RootNamespace>AvaloniaUIKit</RootNamespace>
     <PackageId>AvaloniaUIKit.ColorPicker</PackageId>
-    <Description>GPUI Kit's ColorPicker and ColorSelect looks for Avalonia.Controls.ColorPicker, on top of AvaloniaUIKit's NovaTheme.</Description>
+    <Description>GPUI Kit's ColorPicker and ColorSelect looks for Avalonia.Controls.ColorPicker, on top of AvaloniaUIKit's UIKitTheme.</Description>
     <IsAotCompatible>true</IsAotCompatible>
     <IsTrimmable>true</IsTrimmable>
     <EnableTrimAnalyzer>true</EnableTrimAnalyzer>

@@ -13,6 +13,7 @@
  *   past the element by `--demo-inset` (app/style.css), where focus rings
  *   and shadows outside the demo still show.
  * - Avalonia focuses its elements itself; see `ownFocus`.
+ * - The demos follow the page's theme (`themeName`).
  */
 type State = "idle" | "loading" | "live" | "error" | "static"
 
@@ -25,7 +26,7 @@ interface DemosApi {
     inset: number,
     heightChanged: (height: number) => void
   ): boolean | Promise<boolean>
-  SetTheme(dark: boolean): void
+  SetTheme(name: string): void
 }
 
 interface DotnetRuntime {
@@ -50,7 +51,20 @@ const BADGE_TEXT: Record<State, string> = {
   static: "Unavailable",
 }
 
-const isDark = () => document.documentElement.classList.contains("dark")
+/**
+ * The page's theme by GPUI Kit's name, which the demos take
+ * (UIKitThemeVariants.Find): a bundled theme's (`<html data-theme>`, named by
+ * its palette option), or Default Light / Default Dark.
+ */
+function themeName(): string {
+  const root = document.documentElement
+  const id = root.dataset.theme
+  const option = id
+    ? document.querySelector<HTMLElement>(`[data-theme-option="${CSS.escape(id)}"]`)
+    : null
+  if (option?.dataset.themeName) return option.dataset.themeName
+  return root.classList.contains("dark") ? "Default Dark" : "Default Light"
+}
 
 let runtime: Promise<DemosApi | null> | undefined
 let hosts = 0
@@ -75,10 +89,10 @@ async function startRuntime(base: string): Promise<DemosApi | null> {
   const api = (
     exports as { AvaloniaUIKit: { Browser: { Demos: DemosApi } } }
   ).AvaloniaUIKit.Browser.Demos
-  api.SetTheme(isDark())
-  new MutationObserver(() => api.SetTheme(isDark())).observe(
+  api.SetTheme(themeName())
+  new MutationObserver(() => api.SetTheme(themeName())).observe(
     document.documentElement,
-    { attributes: true, attributeFilter: ["class"] }
+    { attributes: true, attributeFilter: ["class", "data-theme"] }
   )
   return api
 }

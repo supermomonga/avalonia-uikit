@@ -92,7 +92,7 @@
       <Setter Property="Background" Value="{DynamicResource UIKit.Secondary}" />
     </Style>
     <Style Selector="^:checked /template/ Border#PART_Indicator">
-      <Setter Property="Background" Value="{DynamicResource UIKit.Primary}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Primary.Fill}" />
     </Style>
     <Style Selector="^:checked /template/ TextBlock#PART_Number">
       <Setter Property="Foreground" Value="{DynamicResource UIKit.PrimaryForeground}" />
@@ -101,7 +101,7 @@
       <Setter Property="Foreground" Value="{DynamicResource UIKit.PrimaryForeground}" />
     </Style>
     <Style Selector="^:passed /template/ Border#PART_Line">
-      <Setter Property="Background" Value="{DynamicResource UIKit.Primary}" />
+      <Setter Property="Background" Value="{DynamicResource UIKit.Primary.Fill}" />
     </Style>
     <Style Selector="^:last /template/ Border#PART_Line">
       <Setter Property="IsVisible" Value="False" />

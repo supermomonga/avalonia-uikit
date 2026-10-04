@@ -3,6 +3,7 @@ import { Kbd } from "@/components/ui/kbd"
 import { Callout } from "./callout"
 import { CodeBlock } from "./code-block"
 import { Demo } from "./demo"
+import { ThemeList } from "./theme-list"
 
 type HeadingProps = { id?: string; children?: Child }
 
@@ -38,4 +39,5 @@ export const mdxComponents = {
   CodeBlock,
   Demo,
   Kbd,
+  ThemeList,
 }

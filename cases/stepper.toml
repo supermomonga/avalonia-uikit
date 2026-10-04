@@ -32,3 +32,9 @@ states = ["at-246-28", "pressed-at-246-28", "disabled+at-246-28"]
 name = "vertical"
 params = { selected = 1, layout = "vertical", width = 240, height = 200 }
 viewport = [272, 232]
+
+# Aurora Light: checked indicators and passed lines are the primary gradient (ADR 26).
+[[group]]
+name = "aurora"
+matrix = { selected = [0, 2] }
+themes = ["aurora-light"]

@@ -10,6 +10,7 @@ https://avalonia-uikit.omofla.sh の構成と約束事。サイト本体は `sit
 | `sites/content/docs/*.mdx` | `/docs` 以下のガイド（Introduction、Installation など）。 |
 | `sites/content/components/<slug>.mdx` | `/components/<slug>` のコンポーネントのページ。 |
 | `sites/app/lib/catalog.ts` | コンポーネントの一覧（slug、名前、別名、Avalonia のコントロール、対応状況）。サイドバー、索引、検索、サイトマップの元。 |
+| `sites/app/lib/themes.g.json`、`sites/app/styles/themes.g.css` | GPUI Kit が同梱するテーマの一覧と、各テーマでのサイトの色（CSS 変数）。`reference tokens`（`reference/src/tokens.rs` の `write_site`）が書き出し、コミットする。 |
 | `samples/AvaloniaUIKit.Demos/` | デモの XAML。サイトのコード例とライブデモ、プレビュー画像の共通の元。 |
 | `samples/AvaloniaUIKit.Previews/` | ヘッドレスで各デモを描き、`sites/public/previews/` に PNG と `manifest.json` を書く。 |
 | `sites/scripts/images.ts` | OG 画像（`sites/public/og.png`）とアイコンを描く。生成物はコミットする。 |
@@ -26,7 +27,7 @@ https://avalonia-uikit.omofla.sh の構成と約束事。サイト本体は `sit
 - **トップ:** blueprint グリッドの上のヒーロー（見出し、2 つのボタン、事実の行、`App.axaml` の 1 行、コードのウィンドウ）、CAPABILITIES の 3×3 グリッド、3 パッケージのカード、PRINCIPLE の帯、フッター。数は `catalog.ts` から数え、文言はドキュメントに書かれた事実だけで組む。
 - **ドキュメント:** 1280px の中に 220px のサイドバー、本文（最大 860px）、200px の目次。見出しは等幅の大文字、本文の型は `sites/app/styles/docs.css`。ページの最初のデモ（`title` なし）は macOS 風のウィンドウに入れたライブの例、`title` 付きのデモは見出し付きの枠になる。
 - **GPUI Kit との対応状況は出さない:** 利用者に GPUI Kit との互換性を意識させる必要はないので、Full / Partial の別や、GPUI Kit の機能のうち扱わないもの（Not covered）はサイトに書かない。これらは開発者向けの `docs/references/compatibility-list.md` にだけ書く。カタログの `status` は、新しいコントロール（`new`）かどうかを分けるためだけに使う（トップの数え上げとサイドバーのグループ）。
-- **テーマ:** ライト、ダーク、システムに従う、の 3 つ。パレット（T キー）で選び、`localStorage.theme` に `light` / `dark` を保存する（システムに従うときは消す）。
+- **テーマ:** gpui-kit.com と同じく、システムに従う、Default Light、Default Dark と、GPUI Kit が同梱する 36 のテーマ（Light と Dark に分けて名前順）。パレット（T キー）で選ぶ。入力で絞り込み、↑↓ でプレビュー、Enter で決定、Esc で元に戻す。`localStorage.theme` に `light` / `dark` / 同梱テーマの slug を保存する（システムに従うときは消す）。同梱テーマは `<html data-theme="<slug>">` で `themes.g.css` の色に切り替え、モードで `dark` クラスを付ける。描画前に `THEME_SCRIPT`（`components/theme-palette.tsx`）が同じことをする。サイトの色への対応は gpui-kit.com（`website/src/lib/theme-catalog.ts`）にそろえ、値は GPUI Kit が解決した色を使う（`tokens.rs` の `SITE_VARS`）。コードの色はテーマのファイルの `highlight` から取る。ライブデモも同じテーマで描く（下の「ライブデモ」）。
 - **フォント:** サイトはシステムフォント、デモは同梱の Inter。
 - **メタタグ:** `sites/app/routes/_renderer.tsx` が canonical、theme-color、Open Graph、X のカード、アイコン、manifest、JSON-LD（トップは `WebSite`、ほかは `WebPage` と `BreadcrumbList`）を出す。`<title>` は「Button — Components · Avalonia UIKit」の形。
 
@@ -63,7 +64,7 @@ https://avalonia-uikit.omofla.sh の構成と約束事。サイト本体は `sit
 1. 初期表示は、プレビューの大きさ（`manifest.json`）のスケルトン（shadcnui-hono-jsx の `Skeleton`）。
 2. 最初の `<avalonia-demo>` が画面に入ったら、`<data-wasm-base>/_framework/dotnet.js` を 1 回だけ読み込んで .NET ランタイムを起動する（`navigator.connection.saveData` のときは読み込まず、ボタンで明示的に読み込む）。
 3. 起動後、画面に入ったデモから順に `Demos.Mount(hostId, demoId, inset, heightChanged)` を呼び、スケルトンを `AvaloniaView` に差し替える。
-4. `<html class="dark">` の変化を監視して `Demos.SetTheme(dark)` を呼ぶ。
+4. `<html>` の `class`（`dark`）と `data-theme` の変化を監視して、`Demos.SetTheme(name)` に GPUI Kit のテーマ名（`Default Light`、`Default Dark`、同梱テーマの名前。パレットの項目の `data-theme-name`）を渡す。
 
 ライブのデモは、要素の幅（プレビューの幅が上限）で高さを制限せずにレイアウトし、中央に置く。必要な高さは `heightChanged` で要素に返す（`samples/AvaloniaUIKit.Browser/DemoRoot.cs`）。プレビュー画像の縦横比で高さを決めると、狭い画面では折り返したデモの下が切れるため。
 
@@ -77,7 +78,7 @@ Browser 側の JS から呼べる関数（`[JSExport]`、クラス `AvaloniaUIKi
 | --- | --- |
 | `string[] List()` | 登録済みのデモ ID |
 | `bool Mount(string hostId, string demoId, double inset, Action<double> heightChanged)` | `id="hostId"` の要素に `AvaloniaView` を作り、デモを `inset` だけ内側に載せる。デモがその幅で必要とする高さ（`inset` を含まない）が変わるたびに `heightChanged` を呼ぶ。未知の ID や失敗は false |
-| `void SetTheme(bool dark)` | `RequestedThemeVariant` を切り替える |
+| `void SetTheme(string name)` | `RequestedThemeVariant` を `UIKitThemeVariants.Find(name)` に切り替える（知らない名前は Light） |
 
 ## 配信
 
@@ -93,7 +94,8 @@ Browser 側の JS から呼べる関数（`[JSExport]`、クラス `AvaloniaUIKi
 | プレビュー | `dotnet run --project samples/AvaloniaUIKit.Previews -- --out sites/public/previews` |
 | OG 画像とアイコン | `cd sites && bun run images`（プレビューを描いてから。Playwright の Chromium が要る） |
 | WASM の publish | `sites/scripts/publish-wasm.sh`（`dotnet publish samples/AvaloniaUIKit.Browser -c Release` して `sites/public/wasm/<hash>/` に置き、`index.json` を書く。`wasm-tools` ワークロードが要る。別の SDK を使うなら `DOTNET=/path/to/dotnet`） |
-| サイトの開発 | `cd sites && bun run dev` |
+| サイトのテーマ | `reference tokens`（`reference/` を vendor してビルドした生成器。`scripts/generate-goldens.sh` も書き出す。macOS 専用） |
+| サイトの開発 | `cd sites && bun run dev`（ライブデモは動かない。Vite の開発サーバーは `public/` の `dotnet.js` を動的 import できないため。確かめるときはビルドして `bunx wrangler dev`） |
 | サイトのビルド | `cd sites && bun run build`（`vite build --mode client && vite build`） |
 | 公開 | `cd sites && bunx wrangler deploy`（`CLOUDFLARE_API_TOKEN` と `CLOUDFLARE_ACCOUNT_ID` は `mise.local.toml` にある） |
 

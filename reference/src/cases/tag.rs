@@ -44,7 +44,7 @@ pub fn builder(params: &Params) -> Result<Builder> {
     }))
 }
 
-pub fn derived_colors(theme: &gpui_kit::component::Theme, out: &mut Vec<(String, gpui_kit::Hsla)>) {
+pub fn derived_colors(theme: &gpui_kit::component::Theme, out: &mut Vec<(String, super::Paint)>) {
     // tag.rs TagVariant::Color: the palette color's 50 / 200 / 600 scales, and
     // 950 at half / 800 at half / 300 on a dark theme.
     for color in ColorName::all() {
@@ -54,8 +54,8 @@ pub fn derived_colors(theme: &gpui_kit::component::Theme, out: &mut Vec<(String,
         } else {
             (color.scale(50), color.scale(200), color.scale(600))
         };
-        out.push((format!("tag.{name}.background"), bg));
-        out.push((format!("tag.{name}.border"), border));
-        out.push((format!("tag.{name}.foreground"), fg));
+        out.push((format!("tag.{name}.background"), bg.into()));
+        out.push((format!("tag.{name}.border"), border.into()));
+        out.push((format!("tag.{name}.foreground"), fg.into()));
     }
 }

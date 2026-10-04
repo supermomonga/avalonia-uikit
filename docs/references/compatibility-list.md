@@ -12,7 +12,7 @@ GPUI Kit の見た目を、Avalonia の既存コントロールに適用する�
 
 ## 実装状況
 
-2026-10-04 時点。「対応」と「部分対応」の全 50 行と「新規実装」の 19 行を実装し、GPUI Kit `2c5162f` が描いた参照データと比べて、Light / Dark、各 Variant・サイズ・状態、動きが一致することを自動テストで確かめた。本体のコントロールは `NovaTheme`（`src/AvaloniaUIKit`）、公式の別パッケージのコントロールは別のアセンブリ（`src/AvaloniaUIKit.ColorPicker`、`src/AvaloniaUIKit.DataGrid`。ADR 16）にある。全 3586 件のテストが成功している。検証の方法、許容値、緩和 ID の意味、利用側の約束は [テストと一致検証](../testing.md) にまとめた。
+2026-10-04 時点。「対応」と「部分対応」の全 50 行と「新規実装」の 19 行を実装し、GPUI Kit `2c5162f` が描いた参照データと比べて、Light / Dark、各 Variant・サイズ・状態、動きが一致することを自動テストで確かめた。本体のコントロールは `UIKitTheme`（`src/AvaloniaUIKit`）、公式の別パッケージのコントロールは別のアセンブリ（`src/AvaloniaUIKit.ColorPicker`、`src/AvaloniaUIKit.DataGrid`。ADR 16）にある。全 3586 件のテストが成功している。検証の方法、許容値、緩和 ID の意味、利用側の約束は [テストと一致検証](../testing.md) にまとめた。
 
 ### 対応
 
@@ -73,12 +73,12 @@ GPUI Kit の見た目を、Avalonia の既存コントロールに適用する�
 | Popover | `Flyout`、`FlyoutPresenter` | 38 | 開くとき | R12 | 閉じるアニメーション |
 | Notification | `WindowNotificationManager`、`NotificationCard` | 34 | 入場・退場 | R3、R5、R30 | 通知ごとの配置、重複排除、重なりの展開と並べ直し |
 | TitleBar / WindowBorder | `WindowDrawnDecorations` | 6 | – | R7、R14、R32 | 任意のコンテンツ、OS が描く装飾 |
-| ColorPicker | `ColorPicker`（`NovaColorPickerTheme`） | 42 | – | – | GPUI 独自のパレット・featured 行・HSL スライダー（標準の `FluentColorPalette` と RGB / HSV の成分）。ポップオーバーは挙動テストで確かめる |
-| DataTable | `DataGrid`（`NovaDataGridTheme`） | 36 | – | R28 | セル範囲選択、無限取得。DataGrid 本体がトリム非対応なので NativeAOT は保証しない |
+| ColorPicker | `ColorPicker`（`UIKitColorPickerTheme`） | 42 | – | – | GPUI 独自のパレット・featured 行・HSL スライダー（標準の `FluentColorPalette` と RGB / HSV の成分）。ポップオーバーは挙動テストで確かめる |
+| DataTable | `DataGrid`（`UIKitDataGridTheme`） | 36 | – | R28 | セル範囲選択、無限取得。DataGrid 本体がトリム非対応なので NativeAOT は保証しない |
 
 ### 新規実装
 
-Avalonia に対応するコントロールがないため、新しいコントロールとして作った（ADR 19）。どれも `NovaTheme` に含まれ、NativeAOT のギャラリーにも入っている。
+Avalonia に対応するコントロールがないため、新しいコントロールとして作った（ADR 19）。どれも `UIKitTheme` に含まれ、NativeAOT のギャラリーにも入っている。
 
 | GPUI Kit | Avalonia | 静止ケース | 動き（フレームごとの比較） | 固有の緩和 | 対象外とした機能 |
 | --- | --- | --- | --- | --- | --- |
@@ -225,7 +225,7 @@ Avalonia に対応するコントロールがないため、新しいコント�
 
 ## 新しいコントロールとして実装するもの
 
-Avalonia に対応するコントロールがないコンポーネントのうち、見た目が中心で小さく作れるものは、新しいコントロールとして `NovaTheme` に含める（2026-10-04 に決定。ADR 19）。判定は **新規実装**。コントロールはプロパティ・疑似クラス・テンプレートの部品だけを持ち、処理はそのコンポーネント自身の操作に限る。名前は GPUI に合わせ、Avalonia のメンバーとぶつかるものや意味が広すぎるものだけ変える。
+Avalonia に対応するコントロールがないコンポーネントのうち、見た目が中心で小さく作れるものは、新しいコントロールとして `UIKitTheme` に含める（2026-10-04 に決定。ADR 19）。判定は **新規実装**。コントロールはプロパティ・疑似クラス・テンプレートの部品だけを持ち、処理はそのコンポーネント自身の操作に限る。名前は GPUI に合わせ、Avalonia のメンバーとぶつかるものや意味が広すぎるものだけ変える。
 
 | GPUI Kit | 判定 | Avalonia の新しいコントロール | 移植する範囲／対象外 |
 | --- | --- | --- | --- |

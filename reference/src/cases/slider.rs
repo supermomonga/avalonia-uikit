@@ -39,12 +39,12 @@ pub fn builder(params: &Params) -> Result<Builder> {
     }))
 }
 
-pub fn derived_colors(theme: &gpui_kit::component::Theme, out: &mut Vec<(String, gpui_kit::Hsla)>) {
+pub fn derived_colors(theme: &gpui_kit::component::Theme, out: &mut Vec<(String, super::Paint)>) {
     // slider.rs: the track at 20% of the bar (40% while pressed), the thumb's edge at 50%.
     let bar: gpui_kit::Background = theme.tokens.slider_bar.into();
-    out.push(("slider.track".into(), bar.opacity(0.2).as_solid().unwrap()));
-    out.push(("slider.track.active".into(), bar.opacity(0.4).as_solid().unwrap()));
-    out.push(("slider.thumb.edge".into(), bar.opacity(0.5).as_solid().unwrap()));
+    out.push(("slider.track".into(), bar.opacity(0.2)));
+    out.push(("slider.track.active".into(), bar.opacity(0.4)));
+    out.push(("slider.thumb.edge".into(), bar.opacity(0.5)));
     // The ring is ring.alpha(0.5 * s); its element opacity carries s.
-    out.push(("slider.ring".into(), theme.ring.alpha(0.5)));
+    out.push(("slider.ring".into(), theme.ring.alpha(0.5).into()));
 }

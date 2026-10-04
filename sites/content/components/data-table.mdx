@@ -19,7 +19,7 @@ description: "A data table as Avalonia's TableView, or DataGrid with the Avaloni
 
 The default is 32px rows with 8×4 padding and 14px text.
 
-For `DataGrid` (the `Avalonia.Controls.DataGrid` package), add `NovaDataGridTheme` from the `AvaloniaUIKit.DataGrid` package to the application's styles after `NovaTheme`. The grid takes the same look, with what DataGrid has of its own: sort indicators in the headers, column resizing and reordering. Set `IsReadOnly="True"` for a table that only displays (a click edits a cell otherwise) and `CanUserResizeColumns="True"` (off by default); right-align a column with `CellStyleClasses="text-right"` and a right-aligned header. The `stripe`, `borderless` and size classes are the same.
+For `DataGrid` (the `Avalonia.Controls.DataGrid` package), add `UIKitDataGridTheme` from the `AvaloniaUIKit.DataGrid` package to the application's styles after `UIKitTheme`. The grid takes the same look, with what DataGrid has of its own: sort indicators in the headers, column resizing and reordering. Set `IsReadOnly="True"` for a table that only displays (a click edits a cell otherwise) and `CanUserResizeColumns="True"` (off by default); right-align a column with `CellStyleClasses="text-right"` and a right-aligned header. The `stripe`, `borderless` and size classes are the same.
 
 ## Examples
 
@@ -31,6 +31,6 @@ For `DataGrid` (the `Avalonia.Controls.DataGrid` package), add `NovaDataGridThem
 
 <Demo name="data-table/sizes" title="Sizes" />
 
-`DataGrid` with `NovaDataGridTheme`: read-only, sortable from the headers, resizable columns, and an amount column right-aligned with `CellStyleClasses="text-right"`.
+`DataGrid` with `UIKitDataGridTheme`: read-only, sortable from the headers, resizable columns, and an amount column right-aligned with `CellStyleClasses="text-right"`.
 
 <Demo name="data-table/data-grid" title="DataGrid" />

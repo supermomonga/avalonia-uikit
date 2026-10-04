@@ -1,6 +1,6 @@
 ---
 title: "Installation"
-description: "Add the AvaloniaUIKit package and the NovaTheme to your App.axaml."
+description: "Add the AvaloniaUIKit package and UIKitTheme to your App.axaml."
 ---
 
 ## Package
@@ -24,7 +24,7 @@ The library targets the current Avalonia 12 release and the latest .NET SDK.
 
 ## Theme
 
-Add `NovaTheme` to the application's styles. It is a `Styles` theme, like `FluentTheme`, and works on its own: it also themes the window, popups, the adorner layer and the focus ring.
+Add `UIKitTheme` to the application's styles. It is a `Styles` theme, like `FluentTheme`, and works on its own: it also themes the window, popups, the adorner layer and the focus ring. It follows the application's theme variant: Default Light and Default Dark, or one of the bundled color themes (see [Theming](/docs/theming)).
 
 ```xml title="App.axaml"
 <Application xmlns="https://github.com/avaloniaui"
@@ -32,12 +32,12 @@ Add `NovaTheme` to the application's styles. It is a `Styles` theme, like `Fluen
              xmlns:uikit="clr-namespace:AvaloniaUIKit;assembly=AvaloniaUIKit"
              x:Class="MyApp.App">
   <Application.Styles>
-    <uikit:NovaTheme />
+    <uikit:UIKitTheme />
   </Application.Styles>
 </Application>
 ```
 
-The optional packages add a theme each, after `NovaTheme`:
+The optional packages add a theme each, after `UIKitTheme`:
 
 ```xml title="App.axaml"
 <Application xmlns="https://github.com/avaloniaui"
@@ -47,9 +47,9 @@ The optional packages add a theme each, after `NovaTheme`:
              xmlns:uikitgrid="clr-namespace:AvaloniaUIKit;assembly=AvaloniaUIKit.DataGrid"
              x:Class="MyApp.App">
   <Application.Styles>
-    <uikit:NovaTheme />
-    <uikitcolor:NovaColorPickerTheme />
-    <uikitgrid:NovaDataGridTheme />
+    <uikit:UIKitTheme />
+    <uikitcolor:UIKitColorPickerTheme />
+    <uikitgrid:UIKitDataGridTheme />
   </Application.Styles>
 </Application>
 ```
@@ -62,12 +62,12 @@ xmlns:uikit="using:AvaloniaUIKit"
 
 ### On top of FluentTheme
 
-`NovaTheme` only themes the controls listed under [Components](/components). To keep a look for the others, add `FluentTheme` first; the later theme wins, and the themed controls look the same with or without Fluent underneath.
+`UIKitTheme` only themes the controls listed under [Components](/components). To keep a look for the others, add `FluentTheme` first; the later theme wins, and the themed controls look the same with or without Fluent underneath.
 
 ```xml title="App.axaml"
 <Application.Styles>
   <FluentTheme />
-  <uikit:NovaTheme />
+  <uikit:UIKitTheme />
 </Application.Styles>
 ```
 

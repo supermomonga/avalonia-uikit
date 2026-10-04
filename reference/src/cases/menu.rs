@@ -134,9 +134,9 @@ pub fn menubar(_params: &Params) -> Result<Builder> {
 }
 
 
-pub fn derived_colors(theme: &gpui_kit::component::Theme, out: &mut Vec<(String, gpui_kit::Hsla)>) {
+pub fn derived_colors(theme: &gpui_kit::component::Theme, out: &mut Vec<(String, super::Paint)>) {
     // styled.rs popover_ring: the hairline ring standing in for a popover's border.
-    out.push(("popover-ring".into(), theme.foreground.alpha(0.1)));
+    out.push(("popover-ring".into(), theme.foreground.alpha(0.1).into()));
     // button.rs: the dropdown caret is the normal foreground at 75%.
     for name in super::button::VARIANTS {
         for outline in [false, true] {
@@ -144,7 +144,7 @@ pub fn derived_colors(theme: &gpui_kit::component::Theme, out: &mut Vec<(String,
             let fg = super::button::normal_foreground(theme, variant, outline);
             out.push((
                 format!("button.{name}{}.caret", if outline { ".outline" } else { "" }),
-                fg.opacity(0.75),
+                fg.opacity(0.75).into(),
             ));
         }
     }
