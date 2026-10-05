@@ -36,6 +36,15 @@ public static class ColorConverters
     /// </summary>
     public static readonly IValueConverter Hex = new FuncValueConverter<Color?, string?>(color => color is { } c ? GpuiColor.Hex(c) : null);
 
+    /// <summary>
+    /// The color with its HSL lightness scaled by 1 + <paramref name="factor"/>
+    /// (darken is a negative factor), in GPUI's single precision.
+    /// </summary>
+    public static Color Shade(Color color, double factor) => GpuiColor.Shade(color, (float)factor);
+
+    /// <summary><see cref="Hex"/> for a color.</summary>
+    public static string ToHex(Color color) => GpuiColor.Hex(color);
+
     private sealed class ShadeConverter(float factor) : IValueConverter
     {
         public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture) =>
