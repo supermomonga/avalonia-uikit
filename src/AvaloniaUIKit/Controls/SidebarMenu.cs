@@ -163,7 +163,10 @@ public class SidebarMenuItem : ItemsControl
     public static readonly StyledProperty<object?> CommandParameterProperty =
         Button.CommandParameterProperty.AddOwner<SidebarMenuItem>();
 
-    /// <summary>Raised when the row is clicked (GPUI's <c>on_click</c>).</summary>
+    /// <summary>
+    /// Raised when the row is clicked (GPUI's <c>on_click</c>). It bubbles, as
+    /// MenuItem.Click does: the source is the clicked item.
+    /// </summary>
     public static readonly RoutedEvent<RoutedEventArgs> ClickEvent =
         RoutedEvent.Register<SidebarMenuItem, RoutedEventArgs>(nameof(Click), RoutingStrategies.Bubble);
 

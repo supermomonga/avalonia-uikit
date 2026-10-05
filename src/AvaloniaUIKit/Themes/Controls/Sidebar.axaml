@@ -20,8 +20,9 @@
   surface is 48px, the paddings 8px (the footer keeps 12 below, the items 20
   above and below) and the three rows 8px apart. The clip around the surface
   moves its width over 200ms (ease-in-out-cubic) while the surface snaps to
-  its own: on the window's side, against the content when off-canvas. As a
-  SplitView's pane the SplitView draws the surface and moves the width.
+  its own: on the window's side, against the content when off-canvas (and
+  hidden once the width has gone). As a SplitView's pane the SplitView draws
+  the surface and moves the width.
 
   SidebarHeader / SidebarFooter (header.rs, footer.rs): 8px in, the theme
   radius, the sidebar accent when hovered or selected.
@@ -32,11 +33,10 @@
   the icon (14px, the text's size), label, suffix and the xsmall ghost caret
   (its icon 12px, the button's) 8px apart. Hovered: the sidebar accent at 80%
   (not when active or disabled); active: the sidebar accent and medium text;
-  disabled: muted text. The caret turns 90 degrees
-  when the submenu is open; the submenu sits under a 1px line 14px in, 10px
-  after it, 2px above and below, its items 4px apart. Collapsed to icons the
-  row is the icon alone, 8px in all round (30px tall), and the label shows as
-  a tooltip on its right.
+  disabled: muted text. The caret turns 90 degrees when the submenu is open;
+  the submenu sits under a 1px line 14px in, 10px after it, 2px above and
+  below, its items 4px apart. Collapsed to icons the row is the icon alone,
+  8px in all round (30px tall), and the label shows as a tooltip on its right.
 -->
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
