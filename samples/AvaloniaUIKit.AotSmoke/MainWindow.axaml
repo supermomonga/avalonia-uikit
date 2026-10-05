@@ -6,6 +6,10 @@
         x:Class="AvaloniaUIKit.AotSmoke.MainWindow"
         Title="AvaloniaUIKit gallery" Width="760" Height="860">
   <DockPanel>
+    <uikit:TitleBar DockPanel.Dock="Top" ShowsCaptionButtons="True">
+      <TextBlock Text="AvaloniaUIKit gallery" FontSize="14" FontWeight="Medium" />
+      <Button Classes="ghost small icon-only"><PathIcon Data="{StaticResource UIKit.Icon.Bell}" /></Button>
+    </uikit:TitleBar>
     <Menu DockPanel.Dock="Top" Margin="8">
       <MenuItem Header="File">
         <MenuItem Header="New File" />
