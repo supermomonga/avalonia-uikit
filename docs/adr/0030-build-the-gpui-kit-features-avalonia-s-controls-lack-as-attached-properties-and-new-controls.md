@@ -1,8 +1,15 @@
 ---
 number: 30
 title: Build the GPUI Kit features Avalonia's controls lack as attached properties and new controls
-status: proposed
+status: accepted
 date: 2026-10-04
+links:
+- target: 15
+  kind: amends
+- target: 19
+  kind: amends
+- target: 29
+  kind: amends
 ---
 
 # Build the GPUI Kit features Avalonia's controls lack as attached properties and new controls
