@@ -11,7 +11,8 @@
   compact (the chevrons only, as squares). Set them before the template
   applies: PipsPager sizes its page list from the first realized page.
   GPUI's ellipsis menu has no counterpart: past MaxVisiblePips, PipsPager
-  scrolls its pages instead.
+  scrolls its pages instead. uikit:Pagination (Pagination.axaml) has the
+  same look with GPUI's ellipses and their menus.
 
   The class carousel is GPUI Kit's CarouselPagination instead: the pages
   alone as default compact xsmall buttons, the current one selected.
