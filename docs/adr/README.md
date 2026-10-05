@@ -28,3 +28,4 @@
 * [28. Ship themes for third-party libraries as separate packages pinned to one release](0028-ship-themes-for-third-party-libraries-as-separate-packages-pinned-to-one-release.md)
 * [29. Add controls to a third-party theme package where the library's template cannot hold GPUI Kit's parts](0029-add-controls-to-a-third-party-theme-package-where-the-library-s-template-cannot-hold-gpui-kit-s-parts.md)
 * [30. Build the GPUI Kit features Avalonia's controls lack as attached properties and new controls](0030-build-the-gpui-kit-features-avalonia-s-controls-lack-as-attached-properties-and-new-controls.md)
+* [31. Run the tests in Release and split them between processes run side by side](0031-run-the-tests-in-release-and-split-them-between-processes-run-side-by-side.md)

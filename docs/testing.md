@@ -11,9 +11,9 @@ UIKitTheme が GPUI Kit と同じ見た目・動きになっていることを�
 
 | 目的 | コマンド | 備考 |
 | --- | --- | --- |
-| 全テスト | `scripts/verify.sh` | `dotnet build tests/AvaloniaUIKit.Tests && dotnet run --no-build --project tests/AvaloniaUIKit.Tests` と同じ。macOS 以外でも動く。 |
-| 一部だけ | `scripts/verify.sh --treenode-filter "/*/*/ButtonTests/*"` | クラス名で絞る。 |
-| 許容値の校正 | `AVALONIA_UIKIT_CALIBRATE=1 scripts/verify.sh` | `tests/artifacts/pixel-stats.csv`（領域ごとの n / max / mean / bias）、`ink-mass.csv`、`border-mass.csv`（枠線の角と辺ごと）を書き出す。 |
+| 全テスト | `scripts/verify.sh` | Release でビルドし、テストを複数のプロセスに分けて同時に実行する（ADR 31）。プロセスの数は macOS では P コアの数、ほかでは論理コアの数で、`AVALONIA_UIKIT_SHARDS=N` で変えられる（1 なら 1 プロセス）。macOS 以外でも動く。 |
+| 一部だけ | `scripts/verify.sh --treenode-filter "/*/*/ButtonTests/*"` | クラス名で絞る。引数を渡すと 1 プロセスで実行する。 |
+| 許容値の校正 | `AVALONIA_UIKIT_CALIBRATE=1 scripts/verify.sh` | `tests/artifacts/pixel-stats.csv`（領域ごとの n / max / mean / bias）、`ink-mass.csv`、`border-mass.csv`（枠線の角と辺ごと）を書き出す。CSV に追記するので 1 プロセスで実行する。 |
 | 参照データの再生成 | `scripts/generate-goldens.sh [--only <id 接頭辞>]` | macOS（Metal）専用。`reference/vendor/` を作り直し、生成後に 2 回描画して一致を確かめる。`Palettes.g.cs`、`Lucide.g.axaml`、`IconName.g.cs`、サイトのテーマ（`sites/app/lib/themes.g.json`、`sites/app/styles/themes.g.css`）も再生成する。色だけなら `reference tokens` で足りる。全体の生成が途中で失敗すると `goldens/` の一部が消えるので、`git checkout goldens` で戻す。 |
 | NativeAOT | `scripts/aot-smoke.sh` | ギャラリーを NativeAOT で publish し（trim / AOT 警告はエラー）、`--smoke` で Light / Dark を描画して終了する。 |
 
@@ -55,7 +55,7 @@ UIKitTheme が GPUI Kit と同じ見た目・動きになっていることを�
 
 ## テストの構成
 
-6985 件。macOS arm64 での最新の実行結果は全件成功し、全体で約 13 分かかる。テストの時刻はすべて仮想時計で進める（[時刻](#時刻)）。
+6985 件。macOS arm64（P コア 4 つ）での最新の実行結果は全件成功し、`scripts/verify.sh`（4 プロセス）で約 50〜70 秒、1 プロセスでは約 1 分 45 秒かかる。テストの時刻はすべて仮想時計で進める（[時刻](#時刻)）。
 
 | テスト | 件数 | 内容 |
 | --- | --- | --- |
