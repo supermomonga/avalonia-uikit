@@ -4,6 +4,7 @@ using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using Avalonia.Input;
 using Avalonia.Interactivity;
+using Avalonia.Media;
 using Avalonia.Styling;
 using Avalonia.Threading;
 using Avalonia.VisualTree;
@@ -83,6 +84,12 @@ public class CarouselTrack : Panel, ILogicalScrollable
     private int _settleEpoch;
     private bool _wheelBurstActive;
     private int _wheelBurstEpoch;
+
+    static CarouselTrack()
+    {
+        // scroll_mask.rs: the whole viewport takes the pointer, the gaps between pages too.
+        BackgroundProperty.OverrideDefaultValue<CarouselTrack>(Brushes.Transparent);
+    }
 
     /// <summary>Creates the track; it handles the pointer before the pages do, as GPUI's mask captures it.</summary>
     public CarouselTrack()
@@ -738,7 +745,8 @@ public class CarouselTrack : Panel, ILogicalScrollable
         remove => _scrollInvalidated -= value;
     }
 
-    bool ILogicalScrollable.BringIntoView(Control target, Rect targetRect) => false;
+    // A page is brought into view by selecting it: the track moves, not the carousel's ancestors.
+    bool ILogicalScrollable.BringIntoView(Control target, Rect targetRect) => Children.Contains(target);
 
     Control? ILogicalScrollable.GetControlInDirection(NavigationDirection direction, Control? from) => null;
 
