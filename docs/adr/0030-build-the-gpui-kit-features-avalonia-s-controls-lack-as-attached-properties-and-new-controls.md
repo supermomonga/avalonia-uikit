@@ -41,13 +41,22 @@ Chosen option: "既存のコントロールに足せる機能は添付プロパ�
   * **構成や操作が既存のコントロールと違うもの**は、新しいコントロールにする。
 * **新しいコントロール（この ADR で作るもの）:** ButtonGroup、ToggleGroup、Accordion、Toolbar、InputGroup、RangeSlider、Pagination、Carousel の前後のボタン、TextLabel、AsyncImage、Icon、Select、ListView、Tree、Table、CalendarView、DateField、TimeField、ColorSelect、Sidebar、Sheet、ResizablePanelGroup、NotificationList、TitleBar と、その子の部品。
 * **名前:** GPUI Kit に合わせる。Avalonia の型と同じ名前、または大文字小文字だけが違う名前になるものは変える（ADR 19 と同じ）。
-  * Calendar → `CalendarView`、DatePicker → `DateField`、Label → `TextLabel`、`img()` → `AsyncImage`、List → `ListView`、Slider の範囲 → `RangeSlider`。
-  * Combobox は `ComboBox` と大文字小文字しか違わないので、別の型にしない。検索欄・複数選択・footer などを `Select` のプロパティにする。
-  * ColorPicker（スウォッチ）と ColorSelect（欄）は 1 つの `ColorSelect` にし、欄の見た目は `field` クラスにする（今の ColorPicker のテーマと同じ分け方）。
-  * 通知の型は Avalonia の `Notification` と同じ名前にしない。
+  * Calendar → `CalendarView`、DatePicker → `DateField`、Label → `TextLabel`、`img()` → `AsyncImage`、List → `ListView`、Slider の範囲 → `RangeSlider`、Resizable → `ResizablePanelGroup` / `ResizablePanel`。
+  * Combobox は `ComboBox` と大文字小文字しか違わないので、別の型にしない。`Select` の `combobox` クラス（トリガーは確定した選択だけを表示する）にし、検索欄・複数選択・footer・トリガーのテンプレートを `Select` のプロパティにする。
+  * ColorPicker（スウォッチ）と ColorSelect（欄）は 1 つの `ColorSelect` にし、欄の見た目は `field` クラスにする（今の ColorPicker のテーマと同じ分け方）。`ColorSelect` は本体に置き、`Avalonia.Controls.ColorPicker` に依存しない。
+  * 通知は Avalonia の `Notification` と同じ名前にせず `NotificationItem`（`NotificationCard` の派生）、GPUI の Anchor は意味が広すぎるので `NotificationPlacement` にする。
+  * Icon は `Kind` で形を選ぶ `Icon`（PathIcon の派生）と、生成する列挙 `IconName`（GPUI Kit の IconName の 106 個）にする。
+  * 単一値の対数スライダーも `RangeSlider`（`IsRange="False"`）にする。Avalonia の `Slider` は値と位置の対応が線形で、添付プロパティで対数にすると `Value` の意味が変わるため。
+  * Sheet は XAML に置かず、`Show(visual)` でウィンドウの OverlayLayer に開く（GPUI の `open_sheet_at`）。
+  * Carousel のトラックは、添付プロパティ `Carousels.TracksPointer` がテーマの ItemsPanel を `CarouselTrack` にする形にし、前後のボタンは `CarouselPrevious` / `CarouselNext` にする。
+  * 差し込み口は `GroupBoxes.Footer`、`Separators.Label`、`Spinners.Icon`、`ProgressCircles.Content`、`Tabs.Prefix` / `Suffix`。
 * **データの受け取り方:** リフレクションを使えないので、項目の文字列・キー・子の一覧は、関数（`Func<object?, string>` など）か、コンパイル済みのバインディングとテンプレート（`ITreeDataTemplate.ItemsSelector` など）で受け取る。名前でプロパティを探すことはしない。
 * **既存のテーマとの関係:** 標準のコントロールのテーマはそのまま残し、新しいコントロールは追加にする。新しいコントロールの中の Button、TextBox、ListBox、Popup などは、テーマ済みの標準のコントロールを使う。
-* **置き場所:** コントロールと、挙動を変える添付プロパティは `src/AvaloniaUIKit/Controls/` に置く。`src/AvaloniaUIKit/Behaviors/` は見た目だけを変えるコード（ADR 15）のまま。
+* **置き場所:** コントロールと、挙動を変える添付プロパティは `src/AvaloniaUIKit/Controls/` に置く。`src/AvaloniaUIKit/Behaviors/` は見た目だけを変えるコード（ADR 15）のままで、値を置くだけの差し込み口の添付プロパティもここに置く。
+  * ADR 29 で Tabalonia のパッケージに足した `TabsMenuButton` は、本体の TabStrip / TabControl の `menu` クラスも使うので、本体（`src/AvaloniaUIKit/Controls/`、名前空間は同じ `AvaloniaUIKit`）に移す。ADR 29 の置き場所のこの例を改める。
+* **既定の挙動:** 挙動を変える添付プロパティは、アプリが設定したときだけ効く。GPUI と違う Avalonia の既定（ボタンの押下でフォーカスを移すなど）は変えず、GPUI の動作は `Buttons.TakesFocusOnPointer="False"` のようにアプリが選ぶ。新しいコントロールが Avalonia の約束と GPUI で迷うところは Avalonia に合わせる（無効な行はクリックでも選べない、`SelectionChanged` はコードからの変更でも出す）。差は対応表の各行に書く。
+* **共有する処理:** 項目を指定の位置までスクロールする `ItemsScrolling.ScrollToItem`（`ScrollStrategy`）は、ListView、Tree と任意の `ItemsControl`（VirtualList の ListBox）で共有する。GPUI の単精度の HSL の計算（`ColorConverters`）は ColorSelect と ColorPicker のパッケージで共有する。
+* **テーマの修正との関係:** Context の 1 つ目の種類は同じ時期にテーマで直した。GPUI の cleanable は Fluent と同じクラス名 `clearButton`（TextBox、ComboBox）、右クリックメニューは TextBox の既定の `ContextFlyout`、`dropdown_caret` は Button のテーマを継ぐ `DropDownButton` のテーマにした。
 * **範囲外のまま:**
   * テキスト編集エンジンが要るもの: TextBox の中のインライントークン、複数カーソルと矩形選択、TextBox の中の検索一致の強調と置換、折り返した行の字下げ。
   * OS の機能が要るもの: 自動入力のヒント（`content_type`）、OS の通知への配信。
