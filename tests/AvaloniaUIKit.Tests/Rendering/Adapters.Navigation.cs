@@ -40,7 +40,7 @@ public static partial class Adapters
     /// uikit:Pagination for the uikit-pagination cases (reference/src/cases/pagination.rs):
     /// `total` pages, `current`, `visible` pages before ellipses, the size and compact classes.
     /// </summary>
-    private static global::AvaloniaUIKit.Pagination PaginationCase(GoldenCase c)
+    public static global::AvaloniaUIKit.Pagination PaginationCase(GoldenCase c)
     {
         var pagination = new global::AvaloniaUIKit.Pagination
         {
