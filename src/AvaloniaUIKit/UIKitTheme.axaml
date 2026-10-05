@@ -91,6 +91,7 @@
   <StyleInclude Source="avares://AvaloniaUIKit/Themes/Controls/TextLabel.axaml" />
   <StyleInclude Source="avares://AvaloniaUIKit/Themes/Controls/Table.axaml" />
   <StyleInclude Source="avares://AvaloniaUIKit/Themes/Controls/ColorSelect.axaml" />
+  <StyleInclude Source="avares://AvaloniaUIKit/Themes/Controls/NotificationList.axaml" />
 
   <!-- GPUI sizes a text to whole pixels, rounding its width up (text.rs). -->
   <Style Selector=":is(TopLevel)">

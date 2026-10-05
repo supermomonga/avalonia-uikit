@@ -171,7 +171,7 @@
     </Style>
 
     <!-- Enter: 96px down from above (up from below) and in, over 400ms. -->
-    <Style Selector="^ /template/ Panel#PART_Motion[(uikit|Notifications.FromBottom)=False]">
+    <Style Selector="^:not(:fades) /template/ Panel#PART_Motion[(uikit|Notifications.FromBottom)=False]">
       <Style.Animations>
         <Animation Duration="0:0:0.4" Easing="0.25,0.1,0.25,1" FillMode="Forward">
           <KeyFrame Cue="0%">
@@ -185,7 +185,7 @@
         </Animation>
       </Style.Animations>
     </Style>
-    <Style Selector="^ /template/ Panel#PART_Motion[(uikit|Notifications.FromBottom)=True]">
+    <Style Selector="^:not(:fades) /template/ Panel#PART_Motion[(uikit|Notifications.FromBottom)=True]">
       <Style.Animations>
         <Animation Duration="0:0:0.4" Easing="0.25,0.1,0.25,1" FillMode="Forward">
           <KeyFrame Cue="0%">
@@ -200,8 +200,22 @@
       </Style.Animations>
     </Style>
 
+    <!-- uikit:NotificationItem's cards at the middle of the left and right edges fade in and out without a slide (:fades). -->
+    <Style Selector="^:fades /template/ Panel#PART_Motion">
+      <Style.Animations>
+        <Animation Duration="0:0:0.4" Easing="0.25,0.1,0.25,1" FillMode="Forward">
+          <KeyFrame Cue="0%">
+            <Setter Property="Opacity" Value="0" />
+          </KeyFrame>
+          <KeyFrame Cue="100%">
+            <Setter Property="Opacity" Value="1" />
+          </KeyFrame>
+        </Animation>
+      </Style.Animations>
+    </Style>
+
     <!-- Exit: 96px back toward the edge and out over 200ms, then closed (removed). -->
-    <Style Selector="^[IsClosing=True] /template/ Panel#PART_Exit[(uikit|Notifications.FromBottom)=False]">
+    <Style Selector="^[IsClosing=True]:not(:fades) /template/ Panel#PART_Exit[(uikit|Notifications.FromBottom)=False]">
       <Style.Animations>
         <Animation Duration="0:0:0.2" Easing="0.25,0.1,0.25,1" FillMode="Forward">
           <KeyFrame Cue="0%">
@@ -215,7 +229,7 @@
         </Animation>
       </Style.Animations>
     </Style>
-    <Style Selector="^[IsClosing=True] /template/ Panel#PART_Exit[(uikit|Notifications.FromBottom)=True]">
+    <Style Selector="^[IsClosing=True]:not(:fades) /template/ Panel#PART_Exit[(uikit|Notifications.FromBottom)=True]">
       <Style.Animations>
         <Animation Duration="0:0:0.2" Easing="0.25,0.1,0.25,1" FillMode="Forward">
           <KeyFrame Cue="0%">
@@ -225,6 +239,18 @@
           <KeyFrame Cue="100%">
             <Setter Property="Opacity" Value="0" />
             <Setter Property="TranslateTransform.Y" Value="96" />
+          </KeyFrame>
+        </Animation>
+      </Style.Animations>
+    </Style>
+    <Style Selector="^[IsClosing=True]:fades /template/ Panel#PART_Exit">
+      <Style.Animations>
+        <Animation Duration="0:0:0.2" Easing="0.25,0.1,0.25,1" FillMode="Forward">
+          <KeyFrame Cue="0%">
+            <Setter Property="Opacity" Value="1" />
+          </KeyFrame>
+          <KeyFrame Cue="100%">
+            <Setter Property="Opacity" Value="0" />
           </KeyFrame>
         </Animation>
       </Style.Animations>
