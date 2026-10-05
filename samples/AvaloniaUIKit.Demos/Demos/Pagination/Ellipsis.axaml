@@ -1,9 +1,0 @@
-<UserControl xmlns="https://github.com/avaloniaui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:uikit="using:AvaloniaUIKit"
-             x:Class="AvaloniaUIKit.Demos.PaginationEllipsis" MinHeight="200">
-  <StackPanel Spacing="8">
-    <uikit:Pagination TotalPages="10" CurrentPage="5" />
-    <uikit:Pagination TotalPages="50" CurrentPage="25" VisiblePages="7" Classes="small" />
-  </StackPanel>
-</UserControl>

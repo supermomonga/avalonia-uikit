@@ -1,0 +1,34 @@
+---
+title: "CalendarView"
+description: "A calendar with several months, ranges, disabled days and a years grid, as uikit:CalendarView."
+---
+
+<Demo name="uikit-calendar-view/demo" />
+
+## Usage
+
+`uikit:CalendarView` draws the card of the [Calendar](/components/calendar) with its own month grid, and adds what `Calendar` cannot do: several months side by side, a range with its days between the ends, disabled weekdays, and a years grid. Each month shows only the four to six weeks it needs. `Date` is the selected date, or the first day of a range, and `EndDate` the range's last day; both bind two-way, and `DisplayDate` is a day of the first month shown. A click on a day of another month turns to that month.
+
+The month and the year in the header are toggles: the month opens the twelve months in three columns, the year a page of twenty years in five columns with the arrows moving between pages, and a pick returns to the days (`DisplayMode` is `Day`, `Month` or `Year`). `FirstDayOfWeek` starts the week on another day, and `small` and `large` are the Calendar's sizes.
+
+With `IsRange="True"`, the first click starts a range and the second ends it; a day before the start, or a click on a complete range, starts a new one. The ends are primary and the days between are accent. The `Selected` event fires when a click completes the value: a day, or a range's second day.
+
+`NumberOfMonths` shows months side by side, each centered in its share of the width; the header then names each month over its year instead of the toggles. The card is 248px per month (220 small, 304 large).
+
+Disabled days are muted at half strength and ignore the pointer. `DisabledDaysOfWeek` takes weekdays (`"Sunday, Saturday"`), `DisabledDates` takes `uikit:DateRange` items whose `Start` or `End` may be left open, and `DisabledMatcher` takes a `Func<DateTime, bool>` from code. `IsDateDisabled` tells whether a date is disabled.
+
+The cells are `uikit:CalendarViewItem` buttons. Their kind is a class (`previous`, `month-toggle`, `year-toggle`, `next`, `weekday`, `day`, `month`, `year`), and their state is the `:active`, `:in-range`, `:muted`, `:today` and `:disabled` pseudo-classes.
+
+## Examples
+
+A range.
+
+<Demo name="uikit-calendar-view/range" title="Range" />
+
+Two months side by side, selecting a range.
+
+<Demo name="uikit-calendar-view/months" title="Several months" />
+
+Disabled weekends and a disabled range of dates.
+
+<Demo name="uikit-calendar-view/disabled-days" title="Disabled days" />

@@ -7,13 +7,9 @@ description: "A numeric field with minus and plus buttons, as NumericUpDown."
 
 ## Usage
 
-The theme covers `NumericUpDown` (and `ButtonSpinner`): the input frame with the decrease button before the value, the text centred between the buttons, and the increase button after it. The buttons stay at the sides by contract: `ButtonSpinnerLocation` has no effect. `Value`, `Minimum`, `Maximum`, `Increment` and `FormatString` are Avalonia's own. `InnerLeftContent` and `InnerRightContent` are a prefix and a suffix, right beside the value. The frame shows the ring while anything in it has focus; a disabled field fades as a whole to 50%. Sizes: `xsmall` (20px), `small` (24px), medium (32px, the default) and `large` (44px).
+The theme covers `NumericUpDown` (and `ButtonSpinner`): the input frame with the decrease button before the value, the text centred between the buttons, and the increase button after it. The buttons stay at the sides by contract: `ButtonSpinnerLocation` has no effect. `Value`, `Minimum`, `Maximum`, `Increment` and `FormatString` are Avalonia's own. `InnerLeftContent` and `InnerRightContent` are a prefix and a suffix, right beside the value. A right click on the value opens the [Input](/components/input)'s menu (Cut, Copy, Paste, Select All). The frame shows the ring while anything in it has focus; a disabled field fades as a whole to 50%. Sizes: `xsmall` (20px), `small` (24px), medium (32px, the default) and `large` (44px).
 
-## uikit:NumberInput
-
-`uikit:NumberInput` is a `NumericUpDown` with the same look that keeps its text a number while it is typed: an optional sign, digits and one point, with full-width digits and signs typed as ASCII. `uikit:Inputs.MaskPattern`, `Pattern` and `Validate` set on it replace the rule; a `uikit:NumberMask` with a `Separator` groups the digits.
-
-A step (the buttons, ↑ and ↓, the mouse wheel) moves the typed value by `Increment`, keeps the decimals of the value and the step (0.1 + 0.2 gives 0.3), clamps to `Minimum` and `Maximum`, and does nothing when it cannot move the value that way. `StepBy` is a `Func<decimal, StepAction, decimal>` that gives the step for the value and the direction. With `StepsValue="False"`, a step only raises `Step` with its `Action` (`Increment` or `Decrement`), and the app sets the value; `Step` is also raised for a step whose value the input's rules reject.
+[`uikit:NumberInput`](/components/uikit-number-input) keeps the text a number while it is typed, and adds its own stepping rules.
 
 ## Examples
 
@@ -28,7 +24,3 @@ A range of 0 to 100 in steps of 10, a decimal field with `Increment="0.5"` and `
 A currency sign as `InnerLeftContent`, a unit as `InnerRightContent`, and an icon.
 
 <Demo name="number-input/affixes" title="Prefix and suffix" />
-
-`uikit:NumberInput`: steps of 0.2 that keep one decimal, an amount grouped by thousands stepped by 100, and a `StepBy` that steps by 0.1 below 1 and by 0.5 above it.
-
-<Demo name="number-input/steps" title="uikit:NumberInput" />

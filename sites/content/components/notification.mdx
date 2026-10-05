@@ -17,6 +17,8 @@ _manager.Show(new Notification("Saved", "Your changes have been saved.", Notific
 
 A card is 382px wide on the popover background with a 1px border and a shadow: the type's icon at the top left, the title in semibold and the message on 22.5px lines, and a ghost close button that shows while the card is hovered. The manager's `Position` places the pile: 50px from the top (under a 34px title bar) or 16px from the bottom, 16px from the side, the newest nearest the edge, 14px apart. A card slides 96px in from its edge and fades in over 400ms, and fades out over 200ms when it closes. The recommended limits are `MaxItems = 10` and an `expiration` of 5.4 seconds. An untyped notification, without an icon, is the class `plain`: `Show(..., classes: ["plain"])`.
 
+For stacks of cards per placement, with ids and actions, use [`uikit:NotificationList`](/components/uikit-notification-list).
+
 ## Examples
 
 The four types and the plain card; each button's `Click` handler creates the manager for the top level once and calls `Show` with the type from its `Tag`.
@@ -26,24 +28,3 @@ The four types and the plain card; each button's `Click` handler creates the man
 A mock of the card's look, drawn with the theme's tokens so that it can sit on the page; real cards come from `WindowNotificationManager` and slide in.
 
 <Demo name="notification/card" title="Card" />
-
-## NotificationList
-
-`uikit:NotificationList` shows notifications in a stack per placement. Create one for the top level, which puts it over the window's content, or place it over the content in XAML; only the cards take input. `Show` adds a `uikit:NotificationItem` as the newest of its stack.
-
-```csharp
-_notifications ??= new NotificationList(TopLevel.GetTopLevel(this)!);
-_notifications.Show(new NotificationItem(NotificationType.Success, "Your changes have been saved.") { Title = "Saved" });
-```
-
-A stack shows its three newest cards on top of each other, the newest in front and each older one 14px further out and 5% narrower; while the pointer is over the stack or the focus is in it, the cards spread 14px apart. Cards move to their places on springs. A card closes itself 5 seconds after it came in, a countdown that stops while a stack is spread; `AutoHide` changes that, and a card with an `Action` stays unless `AutoHide` is true. `MaxItems` (10) limits the open cards shown; older ones wait for a place. The list's `Placement` is the default for its cards and a card's `Placement` overrides it: the four corners, the middles of the top and bottom edges, and the middles of the left and right edges, where the stack is centered and the cards fade in without sliding. `Padding` is the space to the edges (50px at the top, 16px elsewhere) and `ItemWidth` the cards' width (382px).
-
-A `NotificationItem` has a `Type` (its icon in the type's color) or, without one, an `Icon` of its own (an `IconName`, a geometry or a control), a `Title`, a `Message`, any content below them, and an `Action`, typically a button, which takes the small size. A click on the card raises `Click` and closes it when `Click` is handled; a middle click and the close button close it too. `NotificationClosed` is raised once the card is gone. A card with the same `Id` and `Key` as one shown replaces it at once; `Remove(id)` closes the cards with that id, `Remove(id, key)` the one with that key too, and `Clear()` all of them.
-
-Hover the stack to spread it; each button adds a card, Unique replaces its own, and Dismiss all closes them.
-
-<Demo name="notification/stacked" title="Stacked" />
-
-A card at each placement.
-
-<Demo name="notification/placements" title="Placements" />

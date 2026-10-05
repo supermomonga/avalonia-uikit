@@ -20,16 +20,6 @@ public sealed partial class AccordionIcons : UserControl
     public AccordionIcons() => AvaloniaXamlLoader.Load(this);
 }
 
-public sealed partial class AccordionMultiple : UserControl
-{
-    public AccordionMultiple() => AvaloniaXamlLoader.Load(this);
-}
-
-public sealed partial class AccordionSingle : UserControl
-{
-    public AccordionSingle() => AvaloniaXamlLoader.Load(this);
-}
-
 public sealed partial class AccordionSizes : UserControl
 {
     public AccordionSizes() => AvaloniaXamlLoader.Load(this);
@@ -120,11 +110,6 @@ public sealed partial class ButtonGroupDemo : UserControl
     public ButtonGroupDemo() => AvaloniaXamlLoader.Load(this);
 }
 
-public sealed partial class ButtonGroupSelection : UserControl
-{
-    public ButtonGroupSelection() => AvaloniaXamlLoader.Load(this);
-}
-
 public sealed partial class ButtonGroupSizes : UserControl
 {
     public ButtonGroupSizes() => AvaloniaXamlLoader.Load(this);
@@ -190,34 +175,14 @@ public sealed partial class ButtonVariants : UserControl
     public ButtonVariants() => AvaloniaXamlLoader.Load(this);
 }
 
-public sealed partial class CalendarCalendarView : UserControl
-{
-    public CalendarCalendarView() => AvaloniaXamlLoader.Load(this);
-}
-
 public sealed partial class CalendarDemo : UserControl
 {
     public CalendarDemo() => AvaloniaXamlLoader.Load(this);
 }
 
-public sealed partial class CalendarDisabledDays : UserControl
-{
-    public CalendarDisabledDays() => AvaloniaXamlLoader.Load(this);
-}
-
 public sealed partial class CalendarFirstDay : UserControl
 {
     public CalendarFirstDay() => AvaloniaXamlLoader.Load(this);
-}
-
-public sealed partial class CalendarMonths : UserControl
-{
-    public CalendarMonths() => AvaloniaXamlLoader.Load(this);
-}
-
-public sealed partial class CalendarRange : UserControl
-{
-    public CalendarRange() => AvaloniaXamlLoader.Load(this);
 }
 
 public sealed partial class CalendarSizes : UserControl
@@ -295,16 +260,6 @@ public sealed partial class CollapsibleUp : UserControl
     public CollapsibleUp() => AvaloniaXamlLoader.Load(this);
 }
 
-public sealed partial class ColorPickerColorSelect : UserControl
-{
-    public ColorPickerColorSelect() => AvaloniaXamlLoader.Load(this);
-}
-
-public sealed partial class ColorPickerColorSelectField : UserControl
-{
-    public ColorPickerColorSelectField() => AvaloniaXamlLoader.Load(this);
-}
-
 public sealed partial class ColorPickerDemo : UserControl
 {
     public ColorPickerDemo() => AvaloniaXamlLoader.Load(this);
@@ -330,24 +285,9 @@ public sealed partial class ComboboxDemo : UserControl
     public ComboboxDemo() => AvaloniaXamlLoader.Load(this);
 }
 
-public sealed partial class ComboboxFooter : UserControl
-{
-    public ComboboxFooter() => AvaloniaXamlLoader.Load(this);
-}
-
-public sealed partial class ComboboxMultiple : UserControl
-{
-    public ComboboxMultiple() => AvaloniaXamlLoader.Load(this);
-}
-
 public sealed partial class ComboboxSizes : UserControl
 {
     public ComboboxSizes() => AvaloniaXamlLoader.Load(this);
-}
-
-public sealed partial class ComboboxTrigger : UserControl
-{
-    public ComboboxTrigger() => AvaloniaXamlLoader.Load(this);
 }
 
 public sealed partial class DataTableCellSelection : UserControl
@@ -380,24 +320,9 @@ public sealed partial class DataTableStriped : UserControl
     public DataTableStriped() => AvaloniaXamlLoader.Load(this);
 }
 
-public sealed partial class DatePickerDateField : UserControl
-{
-    public DatePickerDateField() => AvaloniaXamlLoader.Load(this);
-}
-
 public sealed partial class DatePickerDemo : UserControl
 {
     public DatePickerDemo() => AvaloniaXamlLoader.Load(this);
-}
-
-public sealed partial class DatePickerPresets : UserControl
-{
-    public DatePickerPresets() => AvaloniaXamlLoader.Load(this);
-}
-
-public sealed partial class DatePickerRange : UserControl
-{
-    public DatePickerRange() => AvaloniaXamlLoader.Load(this);
 }
 
 public sealed partial class DatePickerSizes : UserControl
@@ -408,11 +333,6 @@ public sealed partial class DatePickerSizes : UserControl
 public sealed partial class DatePickerStates : UserControl
 {
     public DatePickerStates() => AvaloniaXamlLoader.Load(this);
-}
-
-public sealed partial class DatePickerTime : UserControl
-{
-    public DatePickerTime() => AvaloniaXamlLoader.Load(this);
 }
 
 public sealed partial class DescriptionListBorderless : UserControl
@@ -540,24 +460,9 @@ public sealed partial class IconDemo : UserControl
     public IconDemo() => AvaloniaXamlLoader.Load(this);
 }
 
-public sealed partial class IconGallery : UserControl
-{
-    public IconGallery() => AvaloniaXamlLoader.Load(this);
-}
-
-public sealed partial class IconIconName : UserControl
-{
-    public IconIconName() => AvaloniaXamlLoader.Load(this);
-}
-
 public sealed partial class IconSizes : UserControl
 {
     public IconSizes() => AvaloniaXamlLoader.Load(this);
-}
-
-public sealed partial class ImageAsyncImage : UserControl
-{
-    public ImageAsyncImage() => AvaloniaXamlLoader.Load(this);
 }
 
 public sealed partial class ImageDemo : UserControl
@@ -585,19 +490,9 @@ public sealed partial class InputGroupButtons : UserControl
     public InputGroupButtons() => AvaloniaXamlLoader.Load(this);
 }
 
-public sealed partial class InputGroupControl : UserControl
-{
-    public InputGroupControl() => AvaloniaXamlLoader.Load(this);
-}
-
 public sealed partial class InputGroupDemo : UserControl
 {
     public InputGroupDemo() => AvaloniaXamlLoader.Load(this);
-}
-
-public sealed partial class InputGroupRows : UserControl
-{
-    public InputGroupRows() => AvaloniaXamlLoader.Load(this);
 }
 
 public sealed partial class InputGroupStates : UserControl
@@ -660,11 +555,6 @@ public sealed partial class LabelDemo : UserControl
     public LabelDemo() => AvaloniaXamlLoader.Load(this);
 }
 
-public sealed partial class LabelHighlights : UserControl
-{
-    public LabelHighlights() => AvaloniaXamlLoader.Load(this);
-}
-
 public sealed partial class LabelSizes : UserControl
 {
     public LabelSizes() => AvaloniaXamlLoader.Load(this);
@@ -673,11 +563,6 @@ public sealed partial class LabelSizes : UserControl
 public sealed partial class LabelStyles : UserControl
 {
     public LabelStyles() => AvaloniaXamlLoader.Load(this);
-}
-
-public sealed partial class LabelTextLabel : UserControl
-{
-    public LabelTextLabel() => AvaloniaXamlLoader.Load(this);
 }
 
 public sealed partial class LabelWrap : UserControl
@@ -703,21 +588,6 @@ public sealed partial class ListDemo : UserControl
 public sealed partial class ListEmpty : UserControl
 {
     public ListEmpty() => AvaloniaXamlLoader.Load(this);
-}
-
-public sealed partial class ListLoading : UserControl
-{
-    public ListLoading() => AvaloniaXamlLoader.Load(this);
-}
-
-public sealed partial class ListSearch : UserControl
-{
-    public ListSearch() => AvaloniaXamlLoader.Load(this);
-}
-
-public sealed partial class ListSections : UserControl
-{
-    public ListSections() => AvaloniaXamlLoader.Load(this);
 }
 
 public sealed partial class MarkerAlignment : UserControl
@@ -770,16 +640,6 @@ public sealed partial class NotificationDemo : UserControl
     public NotificationDemo() => AvaloniaXamlLoader.Load(this);
 }
 
-public sealed partial class NotificationPlacements : UserControl
-{
-    public NotificationPlacements() => AvaloniaXamlLoader.Load(this);
-}
-
-public sealed partial class NotificationStacked : UserControl
-{
-    public NotificationStacked() => AvaloniaXamlLoader.Load(this);
-}
-
 public sealed partial class NotificationTypes : UserControl
 {
     public NotificationTypes() => AvaloniaXamlLoader.Load(this);
@@ -805,11 +665,6 @@ public sealed partial class NumberInputSizes : UserControl
     public NumberInputSizes() => AvaloniaXamlLoader.Load(this);
 }
 
-public sealed partial class NumberInputSteps : UserControl
-{
-    public NumberInputSteps() => AvaloniaXamlLoader.Load(this);
-}
-
 public sealed partial class PaginationCompact : UserControl
 {
     public PaginationCompact() => AvaloniaXamlLoader.Load(this);
@@ -820,19 +675,9 @@ public sealed partial class PaginationDemo : UserControl
     public PaginationDemo() => AvaloniaXamlLoader.Load(this);
 }
 
-public sealed partial class PaginationEllipsis : UserControl
-{
-    public PaginationEllipsis() => AvaloniaXamlLoader.Load(this);
-}
-
 public sealed partial class PaginationSizes : UserControl
 {
     public PaginationSizes() => AvaloniaXamlLoader.Load(this);
-}
-
-public sealed partial class PaginationUikitCompact : UserControl
-{
-    public PaginationUikitCompact() => AvaloniaXamlLoader.Load(this);
 }
 
 public sealed partial class PopoverDemo : UserControl
@@ -935,16 +780,6 @@ public sealed partial class ResizableNested : UserControl
     public ResizableNested() => AvaloniaXamlLoader.Load(this);
 }
 
-public sealed partial class ResizablePanels : UserControl
-{
-    public ResizablePanels() => AvaloniaXamlLoader.Load(this);
-}
-
-public sealed partial class ResizableProgrammatic : UserControl
-{
-    public ResizableProgrammatic() => AvaloniaXamlLoader.Load(this);
-}
-
 public sealed partial class ResizableVertical : UserControl
 {
     public ResizableVertical() => AvaloniaXamlLoader.Load(this);
@@ -965,11 +800,6 @@ public sealed partial class ScrollableModes : UserControl
     public ScrollableModes() => AvaloniaXamlLoader.Load(this);
 }
 
-public sealed partial class SelectClear : UserControl
-{
-    public SelectClear() => AvaloniaXamlLoader.Load(this);
-}
-
 public sealed partial class SelectClearable : UserControl
 {
     public SelectClearable() => AvaloniaXamlLoader.Load(this);
@@ -983,16 +813,6 @@ public sealed partial class SelectDemo : UserControl
 public sealed partial class SelectEditable : UserControl
 {
     public SelectEditable() => AvaloniaXamlLoader.Load(this);
-}
-
-public sealed partial class SelectGroups : UserControl
-{
-    public SelectGroups() => AvaloniaXamlLoader.Load(this);
-}
-
-public sealed partial class SelectSearch : UserControl
-{
-    public SelectSearch() => AvaloniaXamlLoader.Load(this);
 }
 
 public sealed partial class SelectSizes : UserControl
@@ -1030,11 +850,6 @@ public sealed partial class SheetPlacements : UserControl
     public SheetPlacements() => AvaloniaXamlLoader.Load(this);
 }
 
-public sealed partial class SheetShow : UserControl
-{
-    public SheetShow() => AvaloniaXamlLoader.Load(this);
-}
-
 public sealed partial class ShimmerDemo : UserControl
 {
     public ShimmerDemo() => AvaloniaXamlLoader.Load(this);
@@ -1053,16 +868,6 @@ public sealed partial class SidebarDemo : UserControl
 public sealed partial class SidebarDrawer : UserControl
 {
     public SidebarDrawer() => AvaloniaXamlLoader.Load(this);
-}
-
-public sealed partial class SidebarNavigation : UserControl
-{
-    public SidebarNavigation() => AvaloniaXamlLoader.Load(this);
-}
-
-public sealed partial class SidebarPane : UserControl
-{
-    public SidebarPane() => AvaloniaXamlLoader.Load(this);
 }
 
 public sealed partial class SidebarRight : UserControl
@@ -1088,16 +893,6 @@ public sealed partial class SliderDemo : UserControl
 public sealed partial class SliderDisabled : UserControl
 {
     public SliderDisabled() => AvaloniaXamlLoader.Load(this);
-}
-
-public sealed partial class SliderLogarithmic : UserControl
-{
-    public SliderLogarithmic() => AvaloniaXamlLoader.Load(this);
-}
-
-public sealed partial class SliderRange : UserControl
-{
-    public SliderRange() => AvaloniaXamlLoader.Load(this);
 }
 
 public sealed partial class SliderReverse : UserControl
@@ -1215,16 +1010,6 @@ public sealed partial class TableSizes : UserControl
     public TableSizes() => AvaloniaXamlLoader.Load(this);
 }
 
-public sealed partial class TableSpans : UserControl
-{
-    public TableSpans() => AvaloniaXamlLoader.Load(this);
-}
-
-public sealed partial class TableStriped : UserControl
-{
-    public TableStriped() => AvaloniaXamlLoader.Load(this);
-}
-
 public sealed partial class TabsDemo : UserControl
 {
     public TabsDemo() => AvaloniaXamlLoader.Load(this);
@@ -1305,16 +1090,6 @@ public sealed partial class TimeFieldFormats : UserControl
     public TimeFieldFormats() => AvaloniaXamlLoader.Load(this);
 }
 
-public sealed partial class TimeFieldSegmented : UserControl
-{
-    public TimeFieldSegmented() => AvaloniaXamlLoader.Load(this);
-}
-
-public sealed partial class TimeFieldSegmentedStates : UserControl
-{
-    public TimeFieldSegmentedStates() => AvaloniaXamlLoader.Load(this);
-}
-
 public sealed partial class TimeFieldSizes : UserControl
 {
     public TimeFieldSizes() => AvaloniaXamlLoader.Load(this);
@@ -1330,11 +1105,6 @@ public sealed partial class TitleBarDemo : UserControl
     public TitleBarDemo() => AvaloniaXamlLoader.Load(this);
 }
 
-public sealed partial class TitleBarTitleBar : UserControl
-{
-    public TitleBarTitleBar() => AvaloniaXamlLoader.Load(this);
-}
-
 public sealed partial class ToggleGroupDemo : UserControl
 {
     public ToggleGroupDemo() => AvaloniaXamlLoader.Load(this);
@@ -1348,11 +1118,6 @@ public sealed partial class ToggleGroupIcons : UserControl
 public sealed partial class ToggleGroupSizes : UserControl
 {
     public ToggleGroupSizes() => AvaloniaXamlLoader.Load(this);
-}
-
-public sealed partial class ToggleGroupToggleButtons : UserControl
-{
-    public ToggleGroupToggleButtons() => AvaloniaXamlLoader.Load(this);
 }
 
 public sealed partial class ToggleGroupVariants : UserControl
@@ -1378,11 +1143,6 @@ public sealed partial class ToggleOutline : UserControl
 public sealed partial class ToggleSizes : UserControl
 {
     public ToggleSizes() => AvaloniaXamlLoader.Load(this);
-}
-
-public sealed partial class ToolbarControls : UserControl
-{
-    public ToolbarControls() => AvaloniaXamlLoader.Load(this);
 }
 
 public sealed partial class ToolbarDemo : UserControl
@@ -1425,14 +1185,254 @@ public sealed partial class TreeRounded : UserControl
     public TreeRounded() => AvaloniaXamlLoader.Load(this);
 }
 
-public sealed partial class TreeTreeItems : UserControl
+public sealed partial class UikitAccordionDemo : UserControl
 {
-    public TreeTreeItems() => AvaloniaXamlLoader.Load(this);
+    public UikitAccordionDemo() => AvaloniaXamlLoader.Load(this);
 }
 
-public sealed partial class TreeVirtualized : UserControl
+public sealed partial class UikitAccordionMultiple : UserControl
 {
-    public TreeVirtualized() => AvaloniaXamlLoader.Load(this);
+    public UikitAccordionMultiple() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class UikitAsyncImageDemo : UserControl
+{
+    public UikitAsyncImageDemo() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class UikitButtonGroupDemo : UserControl
+{
+    public UikitButtonGroupDemo() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class UikitCalendarViewDemo : UserControl
+{
+    public UikitCalendarViewDemo() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class UikitCalendarViewDisabledDays : UserControl
+{
+    public UikitCalendarViewDisabledDays() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class UikitCalendarViewMonths : UserControl
+{
+    public UikitCalendarViewMonths() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class UikitCalendarViewRange : UserControl
+{
+    public UikitCalendarViewRange() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class UikitColorSelectDemo : UserControl
+{
+    public UikitColorSelectDemo() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class UikitColorSelectField : UserControl
+{
+    public UikitColorSelectField() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class UikitDateFieldDemo : UserControl
+{
+    public UikitDateFieldDemo() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class UikitDateFieldPresets : UserControl
+{
+    public UikitDateFieldPresets() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class UikitDateFieldRange : UserControl
+{
+    public UikitDateFieldRange() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class UikitDateFieldTime : UserControl
+{
+    public UikitDateFieldTime() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class UikitIconDemo : UserControl
+{
+    public UikitIconDemo() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class UikitIconGallery : UserControl
+{
+    public UikitIconGallery() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class UikitInputGroupDemo : UserControl
+{
+    public UikitInputGroupDemo() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class UikitInputGroupRows : UserControl
+{
+    public UikitInputGroupRows() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class UikitListViewDemo : UserControl
+{
+    public UikitListViewDemo() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class UikitListViewLoading : UserControl
+{
+    public UikitListViewLoading() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class UikitListViewSearch : UserControl
+{
+    public UikitListViewSearch() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class UikitNotificationListDemo : UserControl
+{
+    public UikitNotificationListDemo() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class UikitNotificationListPlacements : UserControl
+{
+    public UikitNotificationListPlacements() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class UikitNumberInputDemo : UserControl
+{
+    public UikitNumberInputDemo() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class UikitPaginationCompact : UserControl
+{
+    public UikitPaginationCompact() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class UikitPaginationDemo : UserControl
+{
+    public UikitPaginationDemo() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class UikitRangeSliderDemo : UserControl
+{
+    public UikitRangeSliderDemo() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class UikitRangeSliderLogarithmic : UserControl
+{
+    public UikitRangeSliderLogarithmic() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class UikitResizablePanelGroupDemo : UserControl
+{
+    public UikitResizablePanelGroupDemo() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class UikitResizablePanelGroupProgrammatic : UserControl
+{
+    public UikitResizablePanelGroupProgrammatic() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class UikitSelectClear : UserControl
+{
+    public UikitSelectClear() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class UikitSelectDemo : UserControl
+{
+    public UikitSelectDemo() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class UikitSelectFooter : UserControl
+{
+    public UikitSelectFooter() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class UikitSelectGroups : UserControl
+{
+    public UikitSelectGroups() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class UikitSelectMultiple : UserControl
+{
+    public UikitSelectMultiple() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class UikitSelectTrigger : UserControl
+{
+    public UikitSelectTrigger() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class UikitSheetDemo : UserControl
+{
+    public UikitSheetDemo() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class UikitSidebarDemo : UserControl
+{
+    public UikitSidebarDemo() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class UikitSidebarPane : UserControl
+{
+    public UikitSidebarPane() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class UikitTableDemo : UserControl
+{
+    public UikitTableDemo() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class UikitTableStriped : UserControl
+{
+    public UikitTableStriped() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class UikitTextLabelDemo : UserControl
+{
+    public UikitTextLabelDemo() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class UikitTextLabelHighlights : UserControl
+{
+    public UikitTextLabelHighlights() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class UikitTimeFieldDemo : UserControl
+{
+    public UikitTimeFieldDemo() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class UikitTimeFieldStates : UserControl
+{
+    public UikitTimeFieldStates() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class UikitTitleBarDemo : UserControl
+{
+    public UikitTitleBarDemo() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class UikitToggleGroupDemo : UserControl
+{
+    public UikitToggleGroupDemo() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class UikitToolbarDemo : UserControl
+{
+    public UikitToolbarDemo() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class UikitTreeDemo : UserControl
+{
+    public UikitTreeDemo() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class UikitTreeVirtualized : UserControl
+{
+    public UikitTreeVirtualized() => AvaloniaXamlLoader.Load(this);
 }
 
 public sealed partial class VirtualListDemo : UserControl
@@ -1453,8 +1453,6 @@ public static partial class DemoRegistry
         ["accordion/borderless"] = static () => new AccordionBorderless(),
         ["accordion/demo"] = static () => new AccordionDemo(),
         ["accordion/icons"] = static () => new AccordionIcons(),
-        ["accordion/multiple"] = static () => new AccordionMultiple(),
-        ["accordion/single"] = static () => new AccordionSingle(),
         ["accordion/sizes"] = static () => new AccordionSizes(),
         ["alert/banner"] = static () => new AlertBanner(),
         ["alert/demo"] = static () => new AlertDemo(),
@@ -1473,7 +1471,6 @@ public static partial class DemoRegistry
         ["bubble/reaction"] = static () => new BubbleReaction(),
         ["bubble/variants"] = static () => new BubbleVariants(),
         ["button-group/demo"] = static () => new ButtonGroupDemo(),
-        ["button-group/selection"] = static () => new ButtonGroupSelection(),
         ["button-group/sizes"] = static () => new ButtonGroupSizes(),
         ["button-group/variants"] = static () => new ButtonGroupVariants(),
         ["button-group/vertical"] = static () => new ButtonGroupVertical(),
@@ -1487,12 +1484,8 @@ public static partial class DemoRegistry
         ["button/rounded"] = static () => new ButtonRounded(),
         ["button/sizes"] = static () => new ButtonSizes(),
         ["button/variants"] = static () => new ButtonVariants(),
-        ["calendar/calendar-view"] = static () => new CalendarCalendarView(),
         ["calendar/demo"] = static () => new CalendarDemo(),
-        ["calendar/disabled-days"] = static () => new CalendarDisabledDays(),
         ["calendar/first-day"] = static () => new CalendarFirstDay(),
-        ["calendar/months"] = static () => new CalendarMonths(),
-        ["calendar/range"] = static () => new CalendarRange(),
         ["calendar/sizes"] = static () => new CalendarSizes(),
         ["calendar/year"] = static () => new CalendarYear(),
         ["carousel/demo"] = static () => new CarouselDemo(),
@@ -1508,30 +1501,21 @@ public static partial class DemoRegistry
         ["clipboard/sizes"] = static () => new ClipboardSizes(),
         ["collapsible/demo"] = static () => new CollapsibleDemo(),
         ["collapsible/up"] = static () => new CollapsibleUp(),
-        ["color-picker/color-select"] = static () => new ColorPickerColorSelect(),
-        ["color-picker/color-select-field"] = static () => new ColorPickerColorSelectField(),
         ["color-picker/demo"] = static () => new ColorPickerDemo(),
         ["color-picker/field"] = static () => new ColorPickerField(),
         ["color-picker/sizes"] = static () => new ColorPickerSizes(),
         ["combobox/auto-complete"] = static () => new ComboboxAutoComplete(),
         ["combobox/demo"] = static () => new ComboboxDemo(),
-        ["combobox/footer"] = static () => new ComboboxFooter(),
-        ["combobox/multiple"] = static () => new ComboboxMultiple(),
         ["combobox/sizes"] = static () => new ComboboxSizes(),
-        ["combobox/trigger"] = static () => new ComboboxTrigger(),
         ["data-table/cell-selection"] = static () => new DataTableCellSelection(),
         ["data-table/data-grid"] = static () => new DataTableDataGrid(),
         ["data-table/demo"] = static () => new DataTableDemo(),
         ["data-table/empty"] = static () => new DataTableEmpty(),
         ["data-table/sizes"] = static () => new DataTableSizes(),
         ["data-table/striped"] = static () => new DataTableStriped(),
-        ["date-picker/date-field"] = static () => new DatePickerDateField(),
         ["date-picker/demo"] = static () => new DatePickerDemo(),
-        ["date-picker/presets"] = static () => new DatePickerPresets(),
-        ["date-picker/range"] = static () => new DatePickerRange(),
         ["date-picker/sizes"] = static () => new DatePickerSizes(),
         ["date-picker/states"] = static () => new DatePickerStates(),
-        ["date-picker/time"] = static () => new DatePickerTime(),
         ["description-list/borderless"] = static () => new DescriptionListBorderless(),
         ["description-list/demo"] = static () => new DescriptionListDemo(),
         ["description-list/sizes"] = static () => new DescriptionListSizes(),
@@ -1557,18 +1541,13 @@ public static partial class DemoRegistry
         ["hover-card/placements"] = static () => new HoverCardPlacements(),
         ["icon/colors"] = static () => new IconColors(),
         ["icon/demo"] = static () => new IconDemo(),
-        ["icon/gallery"] = static () => new IconGallery(),
-        ["icon/icon-name"] = static () => new IconIconName(),
         ["icon/sizes"] = static () => new IconSizes(),
-        ["image/async-image"] = static () => new ImageAsyncImage(),
         ["image/demo"] = static () => new ImageDemo(),
         ["image/fit"] = static () => new ImageFit(),
         ["image/rounded"] = static () => new ImageRounded(),
         ["input-group/addons"] = static () => new InputGroupAddons(),
         ["input-group/buttons"] = static () => new InputGroupButtons(),
-        ["input-group/control"] = static () => new InputGroupControl(),
         ["input-group/demo"] = static () => new InputGroupDemo(),
-        ["input-group/rows"] = static () => new InputGroupRows(),
         ["input-group/states"] = static () => new InputGroupStates(),
         ["input/clear"] = static () => new InputClear(),
         ["input/demo"] = static () => new InputDemo(),
@@ -1581,18 +1560,13 @@ public static partial class DemoRegistry
         ["kbd/demo"] = static () => new KbdDemo(),
         ["kbd/outline"] = static () => new KbdOutline(),
         ["label/demo"] = static () => new LabelDemo(),
-        ["label/highlights"] = static () => new LabelHighlights(),
         ["label/sizes"] = static () => new LabelSizes(),
         ["label/styles"] = static () => new LabelStyles(),
-        ["label/text-label"] = static () => new LabelTextLabel(),
         ["label/wrap"] = static () => new LabelWrap(),
         ["link/demo"] = static () => new LinkDemo(),
         ["link/inline"] = static () => new LinkInline(),
         ["list/demo"] = static () => new ListDemo(),
         ["list/empty"] = static () => new ListEmpty(),
-        ["list/loading"] = static () => new ListLoading(),
-        ["list/search"] = static () => new ListSearch(),
-        ["list/sections"] = static () => new ListSections(),
         ["marker/alignment"] = static () => new MarkerAlignment(),
         ["marker/demo"] = static () => new MarkerDemo(),
         ["marker/loading"] = static () => new MarkerLoading(),
@@ -1603,19 +1577,14 @@ public static partial class DemoRegistry
         ["message/plain"] = static () => new MessagePlain(),
         ["notification/card"] = static () => new NotificationCard(),
         ["notification/demo"] = static () => new NotificationDemo(),
-        ["notification/placements"] = static () => new NotificationPlacements(),
-        ["notification/stacked"] = static () => new NotificationStacked(),
         ["notification/types"] = static () => new NotificationTypes(),
         ["number-input/affixes"] = static () => new NumberInputAffixes(),
         ["number-input/demo"] = static () => new NumberInputDemo(),
         ["number-input/range"] = static () => new NumberInputRange(),
         ["number-input/sizes"] = static () => new NumberInputSizes(),
-        ["number-input/steps"] = static () => new NumberInputSteps(),
         ["pagination/compact"] = static () => new PaginationCompact(),
         ["pagination/demo"] = static () => new PaginationDemo(),
-        ["pagination/ellipsis"] = static () => new PaginationEllipsis(),
         ["pagination/sizes"] = static () => new PaginationSizes(),
-        ["pagination/uikit-compact"] = static () => new PaginationUikitCompact(),
         ["popover/demo"] = static () => new PopoverDemo(),
         ["popover/placements"] = static () => new PopoverPlacements(),
         ["popover/plain"] = static () => new PopoverPlain(),
@@ -1636,18 +1605,13 @@ public static partial class DemoRegistry
         ["rating/sizes"] = static () => new RatingSizes(),
         ["resizable/demo"] = static () => new ResizableDemo(),
         ["resizable/nested"] = static () => new ResizableNested(),
-        ["resizable/panels"] = static () => new ResizablePanels(),
-        ["resizable/programmatic"] = static () => new ResizableProgrammatic(),
         ["resizable/vertical"] = static () => new ResizableVertical(),
         ["scrollable/demo"] = static () => new ScrollableDemo(),
         ["scrollable/horizontal"] = static () => new ScrollableHorizontal(),
         ["scrollable/modes"] = static () => new ScrollableModes(),
-        ["select/clear"] = static () => new SelectClear(),
         ["select/clearable"] = static () => new SelectClearable(),
         ["select/demo"] = static () => new SelectDemo(),
         ["select/editable"] = static () => new SelectEditable(),
-        ["select/groups"] = static () => new SelectGroups(),
-        ["select/search"] = static () => new SelectSearch(),
         ["select/sizes"] = static () => new SelectSizes(),
         ["select/states"] = static () => new SelectStates(),
         ["separator/demo"] = static () => new SeparatorDemo(),
@@ -1655,20 +1619,15 @@ public static partial class DemoRegistry
         ["separator/variants"] = static () => new SeparatorVariants(),
         ["sheet/demo"] = static () => new SheetDemo(),
         ["sheet/placements"] = static () => new SheetPlacements(),
-        ["sheet/show"] = static () => new SheetShow(),
         ["shimmer/demo"] = static () => new ShimmerDemo(),
         ["shimmer/variants"] = static () => new ShimmerVariants(),
         ["sidebar/demo"] = static () => new SidebarDemo(),
         ["sidebar/drawer"] = static () => new SidebarDrawer(),
-        ["sidebar/navigation"] = static () => new SidebarNavigation(),
-        ["sidebar/pane"] = static () => new SidebarPane(),
         ["sidebar/right"] = static () => new SidebarRight(),
         ["skeleton/demo"] = static () => new SkeletonDemo(),
         ["skeleton/shapes"] = static () => new SkeletonShapes(),
         ["slider/demo"] = static () => new SliderDemo(),
         ["slider/disabled"] = static () => new SliderDisabled(),
-        ["slider/logarithmic"] = static () => new SliderLogarithmic(),
-        ["slider/range"] = static () => new SliderRange(),
         ["slider/reverse"] = static () => new SliderReverse(),
         ["slider/vertical"] = static () => new SliderVertical(),
         ["spinner/demo"] = static () => new SpinnerDemo(),
@@ -1692,8 +1651,6 @@ public static partial class DemoRegistry
         ["table/demo"] = static () => new TableDemo(),
         ["table/plain"] = static () => new TablePlain(),
         ["table/sizes"] = static () => new TableSizes(),
-        ["table/spans"] = static () => new TableSpans(),
-        ["table/striped"] = static () => new TableStriped(),
         ["tabs/demo"] = static () => new TabsDemo(),
         ["tabs/icons"] = static () => new TabsIcons(),
         ["tabs/menu"] = static () => new TabsMenu(),
@@ -1710,22 +1667,17 @@ public static partial class DemoRegistry
         ["textarea/states"] = static () => new TextareaStates(),
         ["time-field/demo"] = static () => new TimeFieldDemo(),
         ["time-field/formats"] = static () => new TimeFieldFormats(),
-        ["time-field/segmented"] = static () => new TimeFieldSegmented(),
-        ["time-field/segmented-states"] = static () => new TimeFieldSegmentedStates(),
         ["time-field/sizes"] = static () => new TimeFieldSizes(),
         ["time-field/states"] = static () => new TimeFieldStates(),
         ["title-bar/demo"] = static () => new TitleBarDemo(),
-        ["title-bar/title-bar"] = static () => new TitleBarTitleBar(),
         ["toggle-group/demo"] = static () => new ToggleGroupDemo(),
         ["toggle-group/icons"] = static () => new ToggleGroupIcons(),
         ["toggle-group/sizes"] = static () => new ToggleGroupSizes(),
-        ["toggle-group/toggle-buttons"] = static () => new ToggleGroupToggleButtons(),
         ["toggle-group/variants"] = static () => new ToggleGroupVariants(),
         ["toggle/demo"] = static () => new ToggleDemo(),
         ["toggle/icons"] = static () => new ToggleIcons(),
         ["toggle/outline"] = static () => new ToggleOutline(),
         ["toggle/sizes"] = static () => new ToggleSizes(),
-        ["toolbar/controls"] = static () => new ToolbarControls(),
         ["toolbar/demo"] = static () => new ToolbarDemo(),
         ["toolbar/disabled"] = static () => new ToolbarDisabled(),
         ["toolbar/sizes"] = static () => new ToolbarSizes(),
@@ -1734,8 +1686,56 @@ public static partial class DemoRegistry
         ["tooltip/placements"] = static () => new TooltipPlacements(),
         ["tree/demo"] = static () => new TreeDemo(),
         ["tree/rounded"] = static () => new TreeRounded(),
-        ["tree/tree-items"] = static () => new TreeTreeItems(),
-        ["tree/virtualized"] = static () => new TreeVirtualized(),
+        ["uikit-accordion/demo"] = static () => new UikitAccordionDemo(),
+        ["uikit-accordion/multiple"] = static () => new UikitAccordionMultiple(),
+        ["uikit-async-image/demo"] = static () => new UikitAsyncImageDemo(),
+        ["uikit-button-group/demo"] = static () => new UikitButtonGroupDemo(),
+        ["uikit-calendar-view/demo"] = static () => new UikitCalendarViewDemo(),
+        ["uikit-calendar-view/disabled-days"] = static () => new UikitCalendarViewDisabledDays(),
+        ["uikit-calendar-view/months"] = static () => new UikitCalendarViewMonths(),
+        ["uikit-calendar-view/range"] = static () => new UikitCalendarViewRange(),
+        ["uikit-color-select/demo"] = static () => new UikitColorSelectDemo(),
+        ["uikit-color-select/field"] = static () => new UikitColorSelectField(),
+        ["uikit-date-field/demo"] = static () => new UikitDateFieldDemo(),
+        ["uikit-date-field/presets"] = static () => new UikitDateFieldPresets(),
+        ["uikit-date-field/range"] = static () => new UikitDateFieldRange(),
+        ["uikit-date-field/time"] = static () => new UikitDateFieldTime(),
+        ["uikit-icon/demo"] = static () => new UikitIconDemo(),
+        ["uikit-icon/gallery"] = static () => new UikitIconGallery(),
+        ["uikit-input-group/demo"] = static () => new UikitInputGroupDemo(),
+        ["uikit-input-group/rows"] = static () => new UikitInputGroupRows(),
+        ["uikit-list-view/demo"] = static () => new UikitListViewDemo(),
+        ["uikit-list-view/loading"] = static () => new UikitListViewLoading(),
+        ["uikit-list-view/search"] = static () => new UikitListViewSearch(),
+        ["uikit-notification-list/demo"] = static () => new UikitNotificationListDemo(),
+        ["uikit-notification-list/placements"] = static () => new UikitNotificationListPlacements(),
+        ["uikit-number-input/demo"] = static () => new UikitNumberInputDemo(),
+        ["uikit-pagination/compact"] = static () => new UikitPaginationCompact(),
+        ["uikit-pagination/demo"] = static () => new UikitPaginationDemo(),
+        ["uikit-range-slider/demo"] = static () => new UikitRangeSliderDemo(),
+        ["uikit-range-slider/logarithmic"] = static () => new UikitRangeSliderLogarithmic(),
+        ["uikit-resizable-panel-group/demo"] = static () => new UikitResizablePanelGroupDemo(),
+        ["uikit-resizable-panel-group/programmatic"] = static () => new UikitResizablePanelGroupProgrammatic(),
+        ["uikit-select/clear"] = static () => new UikitSelectClear(),
+        ["uikit-select/demo"] = static () => new UikitSelectDemo(),
+        ["uikit-select/footer"] = static () => new UikitSelectFooter(),
+        ["uikit-select/groups"] = static () => new UikitSelectGroups(),
+        ["uikit-select/multiple"] = static () => new UikitSelectMultiple(),
+        ["uikit-select/trigger"] = static () => new UikitSelectTrigger(),
+        ["uikit-sheet/demo"] = static () => new UikitSheetDemo(),
+        ["uikit-sidebar/demo"] = static () => new UikitSidebarDemo(),
+        ["uikit-sidebar/pane"] = static () => new UikitSidebarPane(),
+        ["uikit-table/demo"] = static () => new UikitTableDemo(),
+        ["uikit-table/striped"] = static () => new UikitTableStriped(),
+        ["uikit-text-label/demo"] = static () => new UikitTextLabelDemo(),
+        ["uikit-text-label/highlights"] = static () => new UikitTextLabelHighlights(),
+        ["uikit-time-field/demo"] = static () => new UikitTimeFieldDemo(),
+        ["uikit-time-field/states"] = static () => new UikitTimeFieldStates(),
+        ["uikit-title-bar/demo"] = static () => new UikitTitleBarDemo(),
+        ["uikit-toggle-group/demo"] = static () => new UikitToggleGroupDemo(),
+        ["uikit-toolbar/demo"] = static () => new UikitToolbarDemo(),
+        ["uikit-tree/demo"] = static () => new UikitTreeDemo(),
+        ["uikit-tree/virtualized"] = static () => new UikitTreeVirtualized(),
         ["virtual-list/demo"] = static () => new VirtualListDemo(),
         ["virtual-list/scroll-to"] = static () => new VirtualListScrollTo(),
     };

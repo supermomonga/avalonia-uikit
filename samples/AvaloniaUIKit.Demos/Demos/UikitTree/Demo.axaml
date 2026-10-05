@@ -1,0 +1,18 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:uikit="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.UikitTreeDemo">
+  <uikit:Tree Width="240" Height="240" HorizontalAlignment="Left">
+    <uikit:TreeItem Label="src" IsExpanded="True">
+      <uikit:TreeItem Label="components" IsExpanded="True">
+        <uikit:TreeItem Label="button.rs" />
+        <uikit:TreeItem Label="tree.rs" />
+      </uikit:TreeItem>
+      <uikit:TreeItem Label="lib.rs" />
+    </uikit:TreeItem>
+    <uikit:TreeItem Label="assets" IsDisabled="True">
+      <uikit:TreeItem Label="logo.svg" />
+    </uikit:TreeItem>
+    <uikit:TreeItem Label="Cargo.toml" />
+  </uikit:Tree>
+</UserControl>

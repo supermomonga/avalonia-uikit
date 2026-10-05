@@ -1,0 +1,23 @@
+---
+title: "TitleBar"
+description: "A title bar with content of your own at the top of the window, as uikit:TitleBar."
+---
+
+<Demo name="uikit-title-bar/demo" />
+
+## Usage
+
+`uikit:TitleBar` is the bar of the [Title Bar](/components/title-bar) as a control the app puts at the top of its window's content, with any content: a title, menus, buttons. Its children are spread along it, the first at the start and the last at the end, centered vertically, 12px in (`UIKit.TitleBar.Padding`).
+
+```xml
+<Window ExtendClientAreaToDecorationsHint="True" WindowDecorations="{OnPlatform BorderOnly, macOS=Full}">
+  <DockPanel>
+    <uikit:TitleBar DockPanel.Dock="Top">
+      <TextBlock Text="My Application" FontSize="14" FontWeight="Medium" />
+      <Button Classes="ghost small icon-only"><PathIcon Data="{StaticResource UIKit.Icon.Bell}" /></Button>
+    </uikit:TitleBar>
+  </DockPanel>
+</Window>
+```
+
+The window extends its client area into the decorations. On Windows and Linux, `WindowDecorations="BorderOnly"` leaves out the title bar Avalonia draws and keeps the frame; on Linux the frame and its shadow are drawn around the content, which the app keeps inside the window's `WindowDecorationMargin`. On macOS the window keeps its traffic lights and the bar leaves 80px for them. Dragging the bar's empty areas or its text moves the window, and a double click maximizes or restores it; focusable controls in the bar keep their own input. On Windows and Linux the bar ends with the minimize, maximize (restore while maximized) and close buttons, those the window allows; `ShowsCaptionButtons` shows or hides them, by default shown while the window extends into its decorations.

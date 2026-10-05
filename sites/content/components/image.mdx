@@ -17,6 +17,8 @@ description: "Avalonia's Image with rounded corners and five fits."
 | `Stretch="Uniform" StretchDirection="DownOnly"` | As `Uniform`, but a smaller image keeps its own size |
 | `Stretch="None"` with `HorizontalAlignment="Left" VerticalAlignment="Top"` | The image at its own size, at the top left |
 
+To load an image from a URI off the UI thread, with loading and fallback content, use [`uikit:AsyncImage`](/components/uikit-async-image).
+
 ## Examples
 
 The five fits in a 96px frame: a wide image for the first three, a small one for `DownOnly` and `None`.
@@ -26,13 +28,3 @@ The five fits in a 96px frame: a wide image for the first three, a small one for
 `rounded`, `rounded-lg` and `rounded-full` on a square image, and `rounded-full` on a wide one.
 
 <Demo name="image/rounded" title="Rounded" />
-
-## AsyncImage
-
-`uikit:AsyncImage` loads its `Source`, an `http`, `https`, `file` or `avares` URI, off the UI thread and draws the image as `Image` does: `Stretch`, `StretchDirection` and the `rounded`, `rounded-lg` and `rounded-full` classes work the same. While the image loads, the control keeps its own size and draws nothing; if the load is still running after 200ms, it shows its `Loading` content, so a fast load never flashes it. If the load fails, it shows its `Fallback` content. The pseudo-classes `:loading`, `:loaded` and `:failed` follow the load.
-
-The default loader (`ImageLoader.Default`) keeps each source's image for every `AsyncImage` that shows it; `Remove` and `Clear` forget images, and a failed load is tried again by the next image of that source. Set `Loader` to your own `IImageLoader` to load images another way. SVG and animated images are not decoded.
-
-The first two images load from the app's assets; the third one's source is missing, so it shows its fallback.
-
-<Demo name="image/async-image" title="AsyncImage" />

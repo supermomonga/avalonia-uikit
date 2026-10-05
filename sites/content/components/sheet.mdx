@@ -1,6 +1,6 @@
 ---
 title: "Sheet"
-description: "A panel sliding in from a side over the dimmed window, as uikit:Sheet or DrawerPage in its overlay mode."
+description: "A panel sliding in from a side over the dimmed content, as DrawerPage in its overlay mode."
 ---
 
 <Demo name="sheet/demo" />
@@ -19,22 +19,10 @@ description: "A panel sliding in from a side over the dimmed window, as uikit:Sh
 
 To open the sheet under the 34px [Title Bar](/components/title-bar), set the `UIKit.Sheet.Margin` resource.
 
-`uikit:Sheet` is the same sheet opened from code, over the whole window: `new Sheet { Title = "Settings", Content = ... }.Show(this)`. It sits on the window's overlay layer, so popups opened from it stay above it, and one sheet is open per window: showing another closes the open one. Opening it moves the focus into it and keeps Tab inside; Escape, the close button and a press on the overlay close it, and the focus goes back to where it was. `Closed` is raised however it closes, and `Sheet.GetActive(visual)` returns the open one.
-
-| Property | Meaning |
-| --- | --- |
-| `Placement` | The side it slides in from: `Left`, `Right` (the default), `Top` or `Bottom`. |
-| `Size` | Its width, or height from the top or bottom: pixels (350 by default) or a part of the window, such as `50%`. |
-| `Title`, `Content`, `Footer` | The title row, the body (it scrolls) and the footer. |
-| `HasOverlay` | Whether the window is dimmed; without it the overlay is clear but still takes the presses. |
-| `IsOverlayClosable` | Whether a press on the overlay closes the sheet. |
+To open a sheet from code over the whole window, use [`uikit:Sheet`](/components/uikit-sheet).
 
 ## Examples
 
 The four sides at 240px; each button's `Click` handler sets `DrawerPlacement` from its `Tag` and opens the sheet.
 
 <Demo name="sheet/placements" title="Placements" />
-
-`uikit:Sheet` from each side, and at half the window's width; the footer's buttons call `Close`.
-
-<Demo name="sheet/show" title="uikit:Sheet" />

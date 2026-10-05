@@ -1,0 +1,17 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:uikit="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.UikitDateFieldPresets">
+  <Panel MinHeight="360">
+    <WrapPanel ItemSpacing="12" LineSpacing="12" VerticalAlignment="Top">
+      <uikit:DateField Width="220" Date="2025-03-14" IsCleanable="True" DisabledDaysOfWeek="Sunday, Saturday">
+        <uikit:DateField.Presets>
+          <uikit:DateRangePreset Label="Yesterday" Date="2025-03-13" />
+          <uikit:DateRangePreset Label="Last Week" Date="2025-03-07" />
+          <uikit:DateRangePreset Label="Last Month" Date="2025-02-12" />
+        </uikit:DateField.Presets>
+      </uikit:DateField>
+      <uikit:DateField Width="220" Classes="plain" Date="2025-03-14" />
+    </WrapPanel>
+  </Panel>
+</UserControl>

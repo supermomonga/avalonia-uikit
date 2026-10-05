@@ -66,12 +66,12 @@ function Hero({ code }: { code: string }) {
         <div class="rise flex flex-col items-start">
           <span class="eyebrow">
             <span class="eyebrow__dot" />
-            Verified against 3,500+ reference renders
+            Verified against 6,300+ reference renders
           </span>
           <h1 class="hero__title mt-6">{siteConfig.tagline}</h1>
           <p class="hero__lead mt-6">
             A theme for Avalonia's own controls in the Nova style of shadcn/ui,
-            plus the small controls Avalonia lacks: {components.length}{" "}
+            plus the controls and features Avalonia lacks: {components.length}{" "}
             components in light, dark and GPUI Kit's {bundledThemes.length}{" "}
             color themes, with every variant, size and state checked pixel by
             pixel and the motion frame by frame.
@@ -358,7 +358,7 @@ const capabilities: {
   {
     icon: ScanEye,
     title: "Verified pixel by pixel",
-    text: "Each variant, size and state is compared with reference renders in light and dark, over 3,500 cases on every change.",
+    text: "Each variant, size and state is compared with reference renders in light and dark, over 6,300 cases on every change.",
     chips: ["Light", "Dark", "Headless"],
     diagram: PixelDiagram,
   },
@@ -378,9 +378,9 @@ const capabilities: {
   },
   {
     icon: PackagePlus,
-    title: "The controls Avalonia lacks",
-    text: `${newControls} small new controls in the uikit: namespace, such as Badge, Alert, Avatar, Stepper and Form.`,
-    chips: ["uikit:Badge", "uikit:Stepper", "uikit:Form"],
+    title: "What Avalonia lacks",
+    text: `${newControls} new controls in the uikit: namespace, from Badge and Stepper to a Select with search and a virtualized Tree, plus attached properties that add what Avalonia's controls lack, such as a loading Button.`,
+    chips: ["uikit:Badge", "uikit:Select", "uikit:Buttons"],
     diagram: NewControlsDiagram,
   },
   {
@@ -466,7 +466,7 @@ const packages: {
     icon: Blocks,
     name: "AvaloniaUIKit",
     title: "The theme and the new controls",
-    text: "UIKitTheme for Avalonia's own controls, the uikit: controls, the color tokens and the icons.",
+    text: "UIKitTheme for Avalonia's own controls, the uikit: controls and attached properties, the color tokens and the icons.",
     code: `<Application.Styles>
   <uikit:UIKitTheme />
 </Application.Styles>`,
@@ -481,7 +481,7 @@ const packages: {
     icon: Palette,
     name: "AvaloniaUIKit.ColorPicker",
     title: "Avalonia's ColorPicker",
-    text: "UIKitColorPickerTheme gives the ColorPicker package a swatch or a field with a palette popover.",
+    text: "UIKitColorPickerTheme gives the ColorPicker package a swatch or a field with a palette popover. The main package's uikit:ColorSelect needs neither.",
     code: `<Application.Styles>
   <uikit:UIKitTheme />
   <uikitcolor:UIKitColorPickerTheme />
@@ -603,7 +603,9 @@ function Principle() {
           <p class="text-[1.03rem] leading-[1.7] text-muted-foreground">
             UIKitTheme replaces each control's ControlTheme and leaves the
             control itself alone: its behavior, input handling, accessibility
-            and API stay exactly as Avalonia ships them.
+            and API stay exactly as Avalonia ships them. What the controls
+            lack is added only where the app asks for it: an attached
+            property it sets, or a uikit: control it places.
           </p>
           <Button
             class="h-[2.6rem] gap-2 rounded-[var(--radius-control)] px-[1.05rem] text-[0.875rem] font-semibold shadow-raise"

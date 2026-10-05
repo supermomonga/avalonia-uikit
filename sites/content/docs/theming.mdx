@@ -75,7 +75,7 @@ The components come in four sizes. Pick one with a style class; the default is m
 <Button Classes="large" Content="Large" />
 ```
 
-`Button`, `SplitButton`, `ToggleButton`, `CheckBox`, `RadioButton`, `ToggleSwitch`, `TextBox`, `NumericUpDown`, `ComboBox`, `AutoCompleteBox`, `ProgressBar`, `PathIcon`, `TabStrip` and the new controls take `xsmall`, `small` and `large`.
+`Button`, `SplitButton`, `DropDownButton`, `ToggleButton`, `CheckBox`, `RadioButton`, `ToggleSwitch`, `TextBox`, `NumericUpDown`, `ComboBox`, `AutoCompleteBox`, `ProgressBar`, `PathIcon`, `TabStrip` and the new controls take `xsmall`, `small` and `large`.
 
 ## Variants
 
@@ -93,14 +93,21 @@ Variants are style classes as well, and the classes combine freely:
 | --- | --- |
 | `Button` | Colors: `primary`, `secondary`, `danger`, `warning`, `success`, `info`, `ghost`, `link`, `text` (none is Default). Modifiers: `outline`, `compact`, `selected`, `icon-only`. Radius: `rounded-none`, `rounded-small`, `rounded-large`, `rounded-full`. |
 | `SplitButton` | The Button's colors, `outline`, `selected` and sizes. |
+| `DropDownButton` | The Button's classes. |
 | `ToggleButton`, `ListBox.toggle-group` | `outline` (ghost is the default); the toggle group also `segmented`. |
 | `ToggleSwitch` | `label-left`. |
 | `GroupBox` | `fill`, `outline` (normal is the default). |
 | `Separator` | `vertical`, `dashed`. |
-| `TabStrip`, `TabControl` | `pill`, `segmented`, `underline`. |
-| `TextBox` | `revealPasswordButton`; `group` for an input group. |
-| `ComboBox` | `combobox` for the Combobox look. |
+| `TabStrip`, `TabControl` | `pill`, `segmented`, `underline`; `menu` for a button that lists the tabs. |
+| `TextBox` | `revealPasswordButton`, `clearButton`; `group` for an input group. |
+| `ComboBox` | `combobox` for the Combobox look; `clearButton`. |
 | `Image` | `rounded`, `rounded-lg`, `rounded-full`. |
+| `uikit:ButtonGroup` | The Button's colors, `outline` and `compact`, passed to every button. |
+| `uikit:ToggleGroup` | `outline`, `segmented`. |
+| `uikit:Select` | `combobox` for the Combobox look. |
+| `uikit:ColorSelect` | `field` for an input field instead of the swatch. |
+| `uikit:DateField` | `plain` drops the field's frame and focus ring. |
+| `uikit:Pagination` | `compact`. |
 | `uikit:Alert` | `info`, `success`, `warning`, `error`. |
 | `uikit:TagLabel` | `primary`, `secondary`, `danger`, `success`, `warning`, `info` or a palette color (`red`, `blue`, `emerald`…); `outline`, `transparent`, `fill`. |
 | `uikit:Kbd` | `outline`. |

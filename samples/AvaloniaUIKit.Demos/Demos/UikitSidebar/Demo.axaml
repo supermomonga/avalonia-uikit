@@ -1,0 +1,104 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:uikit="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.UikitSidebarDemo">
+  <Border BorderBrush="{DynamicResource UIKit.Border}" BorderThickness="1" CornerRadius="6" ClipToBounds="True"
+          Width="560" Height="480" HorizontalAlignment="Left">
+    <DockPanel>
+      <DockPanel.Styles>
+        <!-- Collapsed to icons, the header and footer keep their icons only. -->
+        <Style Selector="uikit|SidebarHeader:collapsed StackPanel.text, uikit|SidebarHeader:collapsed PathIcon.end, uikit|SidebarFooter:collapsed TextBlock, uikit|SidebarFooter:collapsed PathIcon.end">
+          <Setter Property="IsVisible" Value="False" />
+        </Style>
+        <Style Selector="uikit|SidebarHeader:collapsed Border.logo">
+          <Setter Property="Width" Value="16" />
+          <Setter Property="Height" Value="16" />
+          <Setter Property="Background" Value="Transparent" />
+        </Style>
+        <Style Selector="uikit|SidebarHeader:collapsed Border.logo PathIcon">
+          <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
+        </Style>
+      </DockPanel.Styles>
+      <uikit:Sidebar Name="Sidebar" DockPanel.Dock="Left" ExpandedWidth="220" uikit:SidebarMenuItem.Click="OnItemClick">
+        <uikit:Sidebar.Header>
+          <uikit:SidebarHeader>
+            <uikit:SidebarHeader.Flyout>
+              <MenuFlyout Placement="BottomEdgeAlignedLeft">
+                <MenuItem Header="Twitter Inc." />
+                <MenuItem Header="Meta Platforms" />
+                <MenuItem Header="Google Inc." />
+              </MenuFlyout>
+            </uikit:SidebarHeader.Flyout>
+            <DockPanel>
+              <Border Classes="logo" DockPanel.Dock="Left" Width="32" Height="32" CornerRadius="6"
+                      Background="{DynamicResource UIKit.Success}">
+                <PathIcon Data="{StaticResource UIKit.Icon.GalleryVerticalEnd}"
+                          Foreground="{DynamicResource UIKit.SuccessForeground}" />
+              </Border>
+              <PathIcon Classes="end" DockPanel.Dock="Right" Data="{StaticResource UIKit.Icon.ChevronsUpDown}" />
+              <StackPanel Classes="text" Margin="8,0" VerticalAlignment="Center">
+                <TextBlock Text="Company Name" FontSize="14" />
+                <TextBlock Text="Enterprise" FontSize="12" />
+              </StackPanel>
+            </DockPanel>
+          </uikit:SidebarHeader>
+        </uikit:Sidebar.Header>
+        <uikit:SidebarGroup Label="Platform">
+          <uikit:SidebarMenu>
+            <uikit:SidebarMenuItem Label="Playground" Icon="{StaticResource UIKit.Icon.SquareTerminal}" IsActive="True" IsOpen="True">
+              <uikit:SidebarMenuItem Label="History">
+                <uikit:SidebarMenuItem.Suffix>
+                  <ToggleSwitch Classes="xsmall" />
+                </uikit:SidebarMenuItem.Suffix>
+              </uikit:SidebarMenuItem>
+              <uikit:SidebarMenuItem Label="Starred" />
+            </uikit:SidebarMenuItem>
+            <uikit:SidebarMenuItem Label="Models" Icon="{StaticResource UIKit.Icon.Bot}">
+              <uikit:SidebarMenuItem Label="Genesis" />
+              <uikit:SidebarMenuItem Label="Explorer" />
+            </uikit:SidebarMenuItem>
+            <uikit:SidebarMenuItem Label="Documentation" Icon="{StaticResource UIKit.Icon.BookOpen}">
+              <uikit:SidebarMenuItem.ContextMenu>
+                <ContextMenu>
+                  <MenuItem Header="Open in new tab" />
+                </ContextMenu>
+              </uikit:SidebarMenuItem.ContextMenu>
+            </uikit:SidebarMenuItem>
+          </uikit:SidebarMenu>
+        </uikit:SidebarGroup>
+        <uikit:SidebarGroup Label="Projects">
+          <uikit:SidebarMenu>
+            <uikit:SidebarMenuItem Label="Design Engineering" Icon="{StaticResource UIKit.Icon.Frame}">
+              <uikit:SidebarMenuItem.Suffix>
+                <uikit:Badge IsDot="True">
+                  <PathIcon Data="{StaticResource UIKit.Icon.Bell}" Width="14" Height="14" Margin="2" />
+                </uikit:Badge>
+              </uikit:SidebarMenuItem.Suffix>
+            </uikit:SidebarMenuItem>
+            <uikit:SidebarMenuItem Label="Sales and Marketing" Icon="{StaticResource UIKit.Icon.ChartPie}" />
+            <uikit:SidebarMenuItem Label="Travel" Icon="{StaticResource UIKit.Icon.Map}" IsEnabled="False" />
+          </uikit:SidebarMenu>
+        </uikit:SidebarGroup>
+        <uikit:Sidebar.Footer>
+          <uikit:SidebarFooter>
+            <DockPanel>
+              <PathIcon Classes="end" DockPanel.Dock="Right" Data="{StaticResource UIKit.Icon.ChevronsUpDown}" />
+              <StackPanel Orientation="Horizontal" Spacing="8">
+                <PathIcon Data="{StaticResource UIKit.Icon.CircleUser}" />
+                <TextBlock Text="Jason Lee" VerticalAlignment="Center" />
+              </StackPanel>
+            </DockPanel>
+          </uikit:SidebarFooter>
+        </uikit:Sidebar.Footer>
+      </uikit:Sidebar>
+      <StackPanel Margin="16" Spacing="12">
+        <StackPanel Orientation="Horizontal" Spacing="12">
+          <uikit:SidebarToggleButton IsCollapsed="{Binding #Sidebar.IsCollapsed}" />
+          <TextBlock Name="Current" Text="Playground" FontWeight="SemiBold" VerticalAlignment="Center" />
+        </StackPanel>
+        <TextBlock Text="A quick view of your workspace activity." TextWrapping="Wrap"
+                   Foreground="{DynamicResource UIKit.MutedForeground}" />
+      </StackPanel>
+    </DockPanel>
+  </Border>
+</UserControl>

@@ -9,7 +9,9 @@ description: "An input frame that opens a calendar."
 
 The theme covers `CalendarDatePicker`: an input-styled field with the date or the muted `PlaceholderText` and a muted calendar icon at its end; the border turns to the ring, with the focus band, while the field has focus or its calendar is open. The calendar opens 6px below on the popover surface (the Calendar theme without its card), sliding 8px down and fading in over 150ms. Today is always marked.
 
-The text format and the placeholder are the app's to set, and the format also governs parsing. The demos set `SelectedDateFormat="Custom"`, `CustomDateFormatString="yyyy/MM/dd"` and `PlaceholderText="Select date"`. Sizes: `xsmall`, `small`, `large` (medium is the default); the size class also sizes the popup calendar (`small` opens the small calendar, `large` the large one). Disabled, the field fades to half and drops the icon.
+The text format and the placeholder are the app's to set, and the format also governs parsing. The demos set `SelectedDateFormat="Custom"`, `CustomDateFormatString="yyyy/MM/dd"` and `PlaceholderText="Select date"`. Sizes: `xsmall`, `small`, `large` (medium is the default); the size class also sizes the popup calendar (`small` opens the small calendar, `large` the large one). Disabled, the field fades to half and drops the icon. A right click on the text opens the [Input](/components/input)'s menu (Cut, Copy, Paste, Select All).
+
+For ranges, presets, a clear button or the time of day, use [`uikit:DateField`](/components/uikit-date-field).
 
 ## Examples
 
@@ -20,21 +22,3 @@ The four sizes.
 An empty field with its placeholder, a disabled field with a date, and a disabled empty one.
 
 <Demo name="date-picker/states" title="States" />
-
-## DateField
-
-`uikit:DateField` is the same field and popup with a `uikit:CalendarView` inside, plus ranges, presets, a clear button and the time of day. It shows the value as `yyyy/MM/dd` (and the time, when it is edited) unless `DateFormat` sets a .NET format, and `PlaceholderText` ("Select date" by default) without a value. A click on the field opens the popup; Enter opens and closes it, and Escape closes it. Picking a day sets `Date`, closes the popup and raises `Changed`.
-
-<Demo name="date-picker/date-field" title="DateField" />
-
-With `IsRange="True"` the popup selects a range, and the field takes `Date` and `EndDate` once the second day is picked. `NumberOfMonths` shows several months in the popup. `Presets` are buttons beside the calendar: each `uikit:DateRangePreset` has a `Label` and a `Date`, with an `EndDate` for a range. `IsCleanable="True"` replaces the icon with a clear button while there is a value; Delete and Backspace also clear a focused field.
-
-<Demo name="date-picker/range" title="Range and presets" />
-
-`TimePrecision` (`Minute` or `Second`) adds a `uikit:TimeField` below the calendar, on the clock `HourCycle` picks (`H23` or `H12`). Picking a day then keeps the popup open and every change applies at once; picking the selected day again closes it. `DefaultTime` is the time a picked day starts with. A range edits dates only.
-
-<Demo name="date-picker/time" title="Date and time" />
-
-The disabled days (`DisabledDaysOfWeek`, `DisabledDates`, `DisabledMatcher`) and `FirstDayOfWeek` pass to the calendar. The `plain` class drops the field's frame and focus ring, for a field inside another surface.
-
-<Demo name="date-picker/presets" title="Presets, disabled weekends and plain" />

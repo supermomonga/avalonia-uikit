@@ -1,0 +1,27 @@
+---
+title: "NotificationList"
+description: "Notifications stacked per placement, with ids and actions, as uikit:NotificationList."
+---
+
+<Demo name="uikit-notification-list/demo" />
+
+## Usage
+
+`uikit:NotificationList` shows notifications in a stack per placement, as cards in the look of the [Notification](/components/notification). Create one for the top level, which puts it over the window's content, or place it over the content in XAML; only the cards take input. `Show` adds a `uikit:NotificationItem` as the newest of its stack.
+
+```csharp
+_notifications ??= new NotificationList(TopLevel.GetTopLevel(this)!);
+_notifications.Show(new NotificationItem(NotificationType.Success, "Your changes have been saved.") { Title = "Saved" });
+```
+
+A stack shows its three newest cards on top of each other, the newest in front and each older one 14px further out and 5% narrower; while the pointer is over the stack or the focus is in it, the cards spread 14px apart. Cards move to their places on springs. A card closes itself 5 seconds after it came in, a countdown that stops while a stack is spread; `AutoHide` changes that, and a card with an `Action` stays unless `AutoHide` is true. `MaxItems` (10) limits the open cards shown; older ones wait for a place. The list's `Placement` is the default for its cards and a card's `Placement` overrides it: the four corners, the middles of the top and bottom edges, and the middles of the left and right edges, where the stack is centered and the cards fade in without sliding. `Padding` is the space to the edges (50px at the top, 16px elsewhere) and `ItemWidth` the cards' width (382px).
+
+A `NotificationItem` has a `Type` (its icon in the type's color) or, without one, an `Icon` of its own (an `IconName`, a geometry or a control), a `Title`, a `Message`, any content below them, and an `Action`, typically a button, which takes the small size. A click on the card raises `Click` and closes it when `Click` is handled; a middle click and the close button close it too. `NotificationClosed` is raised once the card is gone. A card with the same `Id` and `Key` as one shown replaces it at once; `Remove(id)` closes the cards with that id, `Remove(id, key)` the one with that key too, and `Clear()` all of them.
+
+In the demo, hover the stack to spread it; each button adds a card, Unique replaces its own, and Dismiss all closes them.
+
+## Examples
+
+A card at each placement.
+
+<Demo name="uikit-notification-list/placements" title="Placements" />

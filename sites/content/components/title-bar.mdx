@@ -11,21 +11,4 @@ The demo is a mock: `WindowDrawnDecorations` only renders inside a real window, 
 
 Set `ExtendClientAreaToDecorationsHint="True"` on the `Window`. The theme covers `WindowDrawnDecorations`, the decorations Avalonia draws itself: a 34px title bar with a 1px rule at its bottom, filled with a gradient from the title bar color mixed with 45% of the background down to the title bar color; the window's `Title` at 14px medium, inset by the `UIKit.TitleBar.Padding` resource (12px by default); and the caption buttons, 34 by 33 with 14px icons, secondary on hover and press, danger for close, the maximize button showing restore while maximized. The frame is 1px of the `UIKit.WindowFrame` gray inside a 20px shadow area with two shadows. Avalonia draws these on Windows (with the extended client area), X11 and Wayland with client-side decorations, never on macOS.
 
-## TitleBar
-
-`uikit:TitleBar` is the same bar as a control the app puts at the top of its window's content, with any content: a title, menus, buttons. Its children are spread along it, the first at the start and the last at the end, centered vertically, 12px in (`UIKit.TitleBar.Padding`).
-
-```xml
-<Window ExtendClientAreaToDecorationsHint="True" WindowDecorations="{OnPlatform BorderOnly, macOS=Full}">
-  <DockPanel>
-    <uikit:TitleBar DockPanel.Dock="Top">
-      <TextBlock Text="My Application" FontSize="14" FontWeight="Medium" />
-      <Button Classes="ghost small icon-only"><PathIcon Data="{StaticResource UIKit.Icon.Bell}" /></Button>
-    </uikit:TitleBar>
-  </DockPanel>
-</Window>
-```
-
-The window extends its client area into the decorations. On Windows and Linux, `WindowDecorations="BorderOnly"` leaves out the title bar Avalonia draws and keeps the frame; on Linux the frame and its shadow are drawn around the content, which the app keeps inside the window's `WindowDecorationMargin`. On macOS the window keeps its traffic lights and the bar leaves 80px for them. Dragging the bar's empty areas or its text moves the window, and a double click maximizes or restores it; focusable controls in the bar keep their own input. On Windows and Linux the bar ends with the minimize, maximize (restore while maximized) and close buttons, those the window allows; `ShowsCaptionButtons` shows or hides them, by default shown while the window extends into its decorations.
-
-<Demo name="title-bar/title-bar" title="TitleBar" />
+To put a title bar with content of your own at the top of the window, use [`uikit:TitleBar`](/components/uikit-title-bar).

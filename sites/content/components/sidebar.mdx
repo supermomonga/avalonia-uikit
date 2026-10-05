@@ -1,6 +1,6 @@
 ---
 title: "Sidebar"
-description: "A sidebar with menus collapsing to icons or off canvas, as uikit:Sidebar, SplitView and DrawerPage."
+description: "A sidebar collapsing to icons or off canvas, as SplitView and DrawerPage."
 ---
 
 <Demo name="sidebar/demo" />
@@ -9,19 +9,7 @@ description: "A sidebar with menus collapsing to icons or off canvas, as uikit:S
 
 `SplitView` carries the sidebar surface: the pane background with a 1px border on the content side, opening to `OpenPaneLength` (255 by default) and moving over 200ms. `DisplayMode` picks the collapse mode: `CompactInline` collapses to icons (the closed pane keeps `CompactPaneLength`, 48px), `Inline` collapses off canvas (closed to nothing), and `Inline` with `IsPaneOpen="True"` is a sidebar that does not collapse. Bind `IsPaneOpen` to a toggle; `PanePlacement="Right"` puts the pane on the right. The overlay modes are the [Sheet](/components/sheet).
 
-`uikit:Sidebar` is the same surface with its own content: a `Header`, items that scroll, and a `Footer`, `ExpandedWidth` wide (255 by default) on its `Side`. `IsCollapsed` collapses it as `Collapsible` says: `Icon` to 48px, showing only icons; `Offcanvas` out of the layout, sliding away from the content; `None` never. The width moves over 200ms while the content snaps to its new layout. Its items are usually `uikit:SidebarGroup`s (a muted label over the items) holding `uikit:SidebarMenu`s of `uikit:SidebarMenuItem`s:
-
-| Item property | Meaning |
-| --- | --- |
-| `Label`, `Icon` | The row's text and its 14px icon. Collapsed to icons, the row is the icon alone and the label shows as a tooltip on its right. |
-| `Suffix` | Content at the end of the row: a `uikit:Badge`, a `ToggleSwitch`, an icon. |
-| `IsActive` | The current item, in the sidebar accent with medium text. |
-| Nested items, `IsOpen` | A submenu under a line, opened and closed by the caret at the row's end; set `IsOpen` to start open. |
-| `ClickToOpen`, `ClickToToggle` | A click on the row also opens, or opens and closes, the submenu. |
-| `Click`, `Command` | Raised and run when the row is clicked; a disabled item (`IsEnabled="False"`) is muted and takes no click. |
-| `ContextMenu` | Opens on a right click. |
-
-`uikit:SidebarHeader` and `uikit:SidebarFooter` are rows that take the sidebar accent when hovered or `IsSelected`; they are buttons, so a `Flyout` is their menu. `uikit:SidebarToggleButton` flips the `IsCollapsed` it is bound to and shows the matching panel icon. Inside a collapsed sidebar the header, footer, groups and items have the `:collapsed` pseudo-class, which styles can use for content of their own. Set as a `SplitView`'s `Pane`, `uikit:Sidebar` follows the pane instead: the `SplitView` draws the surface, and the sidebar is collapsed while the pane is closed, to icons in the compact display modes.
+For menus with sub-items, groups, a header and a footer, use [`uikit:Sidebar`](/components/uikit-sidebar), alone or as a `SplitView`'s pane.
 
 `DrawerPage` adds a header, body and footer with their paddings: `DrawerHeader`, `Drawer` and `DrawerFooter`, 12px inside (8px when collapsed to icons). `DrawerBehavior="Locked"` is the sidebar that does not collapse, `DrawerLayoutBehavior="CompactInline"` the icon mode, with the toggle button in the header, and `"Split"` the off-canvas mode; `IsOpen` opens and closes the drawer.
 
@@ -34,11 +22,3 @@ description: "A sidebar with menus collapsing to icons or off canvas, as uikit:S
 `DrawerPage` in `CompactInline`: the header holds the title and the toggle, the footer an avatar.
 
 <Demo name="sidebar/drawer" title="DrawerPage" />
-
-`uikit:Sidebar` with a header and its company menu, two groups, a submenu with a switch, a badge, a disabled item, a footer and a toggle button; a click makes an item the active one.
-
-<Demo name="sidebar/navigation" title="Menus" />
-
-`uikit:Sidebar` as a `SplitView`'s pane in `CompactInline`: closing the pane collapses the menu to its icons.
-
-<Demo name="sidebar/pane" title="In a SplitView" />

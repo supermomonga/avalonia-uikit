@@ -1,0 +1,8 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:uikit="using:AvaloniaUIKit"
+             xmlns:local="using:AvaloniaUIKit.Demos"
+             x:Class="AvaloniaUIKit.Demos.UikitTreeVirtualized">
+  <uikit:Tree Width="280" Height="300" HorizontalAlignment="Left"
+              ItemsSource="{x:Static local:TreeSamples.Workspace}" />
+</UserControl>

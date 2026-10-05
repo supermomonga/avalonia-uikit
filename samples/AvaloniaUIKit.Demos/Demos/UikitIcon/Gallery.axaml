@@ -1,0 +1,20 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:uikit="using:AvaloniaUIKit"
+             xmlns:local="using:AvaloniaUIKit.Demos"
+             x:Class="AvaloniaUIKit.Demos.UikitIconGallery">
+  <ItemsControl Width="560" HorizontalAlignment="Left" ItemsSource="{x:Static local:IconSamples.All}">
+    <ItemsControl.ItemsPanel>
+      <ItemsPanelTemplate>
+        <WrapPanel ItemSpacing="4" LineSpacing="4" />
+      </ItemsPanelTemplate>
+    </ItemsControl.ItemsPanel>
+    <ItemsControl.ItemTemplate>
+      <DataTemplate x:DataType="uikit:IconName">
+        <Border Width="36" Height="36" CornerRadius="6" Background="Transparent" ToolTip.Tip="{Binding}">
+          <uikit:Icon Kind="{Binding}" />
+        </Border>
+      </DataTemplate>
+    </ItemsControl.ItemTemplate>
+  </ItemsControl>
+</UserControl>

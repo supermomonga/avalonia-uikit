@@ -11,6 +11,8 @@ The theme covers the closed `TimePicker` as a time field: an input-styled frame 
 
 Focused, the border turns to the ring with the focus band and the hour segment shows the selection; this is a look only, as `TimePicker` has no segments to edit. An invalid field (`:error` through `DataValidationErrors`) turns the border to the danger color; a disabled one fills with the disabled background, mutes its text and fades to half. A click opens Avalonia's `TimePickerPresenter` on the popover surface, where the value is picked.
 
+To edit the time segment by segment, use [`uikit:TimeField`](/components/uikit-time-field).
+
 ## Examples
 
 The four sizes.
@@ -24,13 +26,3 @@ The four sizes.
 A disabled field and an invalid one. The demo sets `DataValidationErrors.Errors` from a static helper that holds one validation message; an app gets its errors from its bindings' validation instead.
 
 <Demo name="time-field/states" title="States" />
-
-## TimeField
-
-`uikit:TimeField` is the same field, edited segment by segment. It is one Tab stop; one segment is selected at a time and shows the selection while the field has the focus. Up and Down step the selected segment and wrap within it, Left and Right move between segments, and Tab moves to the next segment before it leaves the field. Digits fill the segment and move on once no further digit could fit (typing 7 sets 07; 1 waits for a second digit). A and P set the period, and Backspace or Delete resets the segment. A click selects the segment under the pointer.
-
-<Demo name="time-field/segmented" title="Segments" />
-
-`Time` is a `TimeSpan?` that binds two-way; without one the segments show dashes, and typing starts from 00:00. `Precision` is `Minute` or `Second`, and `HourCycle` is `H23` or `H12` (with the period segment). The `Changed` event reports the user's edits, not values the app sets, and `SelectedSegment` is the selected segment. Sizes, the invalid border (`DataValidationErrors`) and the disabled look are the same as above.
-
-<Demo name="time-field/segmented-states" title="Sizes and states" />

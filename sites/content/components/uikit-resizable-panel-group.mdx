@@ -1,0 +1,18 @@
+---
+title: "ResizablePanelGroup"
+description: "Panels side by side with resize handles between them, as uikit:ResizablePanelGroup."
+---
+
+<Demo name="uikit-resizable-panel-group/demo" />
+
+## Usage
+
+`uikit:ResizablePanelGroup` lays its panels side by side (`Orientation="Vertical"` stacks them) with the handle of the [Resizable](/components/resizable) between each two visible panels, and does the resizing itself. A `uikit:ResizablePanel` starts at its `Size` (panels without one share what is left) and stays between `MinSize` (100 by default) and `MaxSize`. Dragging a handle resizes the panel before it to the pointer: growing it takes room from the panels after it in turn, each down to its minimum, and shrinking it below its minimum shrinks the panels before it. A new group length scales the panels in proportion; a hidden panel (`IsVisible="False"`) gives its room to the others and gets it back when shown; adding or removing a panel redistributes in proportion. `ResizePanel(index, size)` resizes by the same rules, and `Resized` reports the lengths (`Sizes`) after a drag or a `ResizePanel`. Groups nest: put a group in a panel.
+
+The demo has a left panel limited to 120..240, a vertical group in the middle and a right panel.
+
+## Examples
+
+Hiding the left panel, `ResizePanel`, and the sizes `Resized` reports.
+
+<Demo name="uikit-resizable-panel-group/programmatic" title="Programmatic" />

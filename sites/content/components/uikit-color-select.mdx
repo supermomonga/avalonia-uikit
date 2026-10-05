@@ -1,0 +1,25 @@
+---
+title: "ColorSelect"
+description: "A color swatch or input field with a palette and HSLA popover, as uikit:ColorSelect."
+---
+
+<Demo name="uikit-color-select/demo" />
+
+## Usage
+
+`uikit:ColorSelect` is part of `UIKitTheme` and needs no extra package. It has the swatch and `field` looks of the [Color Picker](/components/color-picker), with `Label` after the swatch and `Icon` in its place. Its `Color` may be null for no color: the swatch is empty and the field shows `PlaceholderText` ("Please select").
+
+| Class | Effect |
+| --- | --- |
+| `xsmall`, `small`, `large` | A swatch of 16, 20 and 44px; medium, the default, is 32px |
+| `field` | An input field instead of the swatch |
+
+The popover has two segmented tabs (`ActiveTab`): the palette, a row of featured colors (the theme's red, blue, green, yellow, cyan and magenta with their light shades, or `FeaturedColors`) over 99 colors from stone to pink, and the Hue, Saturation, Lightness and Alpha sliders. Below them are the previewed color and its hex. Pointing at a palette color previews it; a click on it, or Enter in the hex field, sets `Color` and closes the popover, and a slider sets `Color` as it moves. The hex field takes `#` and up to eight hex digits. Enter on the focused control opens and closes the popover and Escape closes it. `Placement` moves the popover from below the control.
+
+The demo shows swatches: a color, a color with a label, and an icon.
+
+## Examples
+
+Fields: a color, no color with a placeholder, and one that opens on the HSLA tab.
+
+<Demo name="uikit-color-select/field" title="Field" />
