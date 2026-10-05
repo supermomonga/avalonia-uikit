@@ -477,6 +477,8 @@
           </tab:TabsControl>
           <PipsPager NumberOfPages="5" SelectedPageIndex="2" />
           <PipsPager Classes="compact small" NumberOfPages="5" SelectedPageIndex="0" />
+          <uikit:Pagination TotalPages="20" CurrentPage="10" />
+          <uikit:Pagination Classes="compact small" TotalPages="10" CurrentPage="1" />
         </StackPanel>
 
         <TextBlock Text="Badge, Tag, Alert, Skeleton, Kbd, Clipboard, Rating" Foreground="{DynamicResource UIKit.MutedForeground}" />
