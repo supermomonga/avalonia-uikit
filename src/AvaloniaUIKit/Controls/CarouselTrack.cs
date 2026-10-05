@@ -561,7 +561,7 @@ public class CarouselTrack : Panel, ILogicalScrollable
         {
             return;
         }
-        // R-navigation-2: Avalonia's wheel event does not say whether its delta is
+        // R38: Avalonia's wheel event does not say whether its delta is
         // a wheel's lines or a trackpad's pixels; whole lines are taken as notches.
         var consumed = IsNotch(primary) ? WheelStep(primary) : ScrollBy(primary * LineHeight);
         // A horizontal track keeps every gesture along its axis, even at an end.

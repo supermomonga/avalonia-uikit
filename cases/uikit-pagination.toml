@@ -79,7 +79,7 @@ states = ["at-320-32", "click-at-320-32", "click-at-320-32+at-330-97",
 # Long page numbers around a long run of hidden pages. Its menu (the 100 pages
 # nearest the current one, in 240px that scroll) is checked by
 # NavigationBehaviorTests: GPUI lets a menu's items shrink to their text once
-# they overflow it (R-navigation-1).
+# they overflow it (R37).
 [[group]]
 name = "long"
 params = { total = 1000, current = 500 }
