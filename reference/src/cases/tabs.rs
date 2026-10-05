@@ -1,7 +1,7 @@
 //! `TabBar` / `Tab` (crates/component/src/tab): three tabs in a bar. A click
-//! selects the tab, so the indicator's slide can be recorded. The Tabalonia
-//! cases add what its TabsControl draws: a close button on each tab (the tabs
-//! story's closable tab), the bar's prefix and suffix, and the menu.
+//! selects the tab, so the indicator's slide can be recorded. Parameters add
+//! a close button on each tab (the tabs story's closable tab), the bar's
+//! prefix and suffix, and the menu.
 use super::{icon, size};
 use crate::{
     harness::Builder,

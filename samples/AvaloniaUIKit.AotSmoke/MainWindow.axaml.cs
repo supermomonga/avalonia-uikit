@@ -24,6 +24,11 @@ public sealed partial class MainWindow : Window
                 Action = new Button { Content = "Close", Classes = { "primary" }, [NotificationCard.CloseOnClickProperty] = true },
             });
         };
+        // New tabs, and the windows tabs dragged off the bar move to.
+        var documents = this.FindControl<TabControl>("Documents")!;
+        var added = 0;
+        Tabs.SetNewTabFactory(documents, () => NewDocument($"Document {++added}"));
+        Tabs.SetDetachedWindowFactory(documents, _ => NewDocumentWindow());
         // GPUI's scroll_to_item on a ListBox, waiting for the first layout.
         this.FindControl<ListBox>("Fruits")!.ScrollToItem(2, ScrollStrategy.Center);
         // A sheet shown and closed again, so its template runs too.
@@ -35,7 +40,20 @@ public sealed partial class MainWindow : Window
         };
     }
 
-    private void OnOpenSheet(object? sender, RoutedEventArgs e) => NewSheet().Show(this);
+    private static TabItem NewDocument(string name) =>
+        new() { Header = name, Content = new TextBlock { Text = name, Margin = new Avalonia.Thickness(0, 8) } };
+
+    private static Window NewDocumentWindow()
+    {
+        var tabs = new TabControl { Classes = { "segmented" }, Margin = new Avalonia.Thickness(16) };
+        Tabs.SetClosable(tabs, true);
+        Tabs.SetReorderable(tabs, true);
+        Tabs.SetDragGroup(tabs, "documents");
+        Tabs.SetDetachedWindowFactory(tabs, _ => NewDocumentWindow());
+        return new Window { Title = "Documents", Width = 480, Height = 240, Content = tabs };
+    }
+
+        private void OnOpenSheet(object? sender, RoutedEventArgs e) => NewSheet().Show(this);
 
     private static Sheet NewSheet() => new()
     {

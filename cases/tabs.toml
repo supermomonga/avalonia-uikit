@@ -27,6 +27,22 @@ name = "icon"
 params = { selected = 0, icons = true }
 matrix = { variant = ["tab", "outline", "pill", "segmented", "underline"], size = ["small", "medium"] }
 
+# uikit:Tabs.Closable: the tabs story's closable tab, px_2 with a ghost xsmall
+# Close button as the suffix, in a bar wide enough for the three.
+[[group]]
+name = "closable"
+viewport = [472, 60]
+params = { selected = 0, width = 440, closable = true }
+matrix = { variant = ["tab", "outline", "pill", "segmented", "underline"], size = ["xsmall", "small", "medium", "large"] }
+
+# The pointer on tab 0's close button (its 12px icon at x = 113), and pressing it.
+[[group]]
+name = "close"
+viewport = [472, 60]
+params = { selected = 1, width = 440, closable = true }
+matrix = { variant = ["tab"] }
+states = ["at-119-24", "pressed-at-119-24"]
+
 # Aurora Light: the pill and the underline are the primary gradient (ADR 26).
 [[group]]
 name = "aurora"

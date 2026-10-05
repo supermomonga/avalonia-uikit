@@ -1,0 +1,18 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:uikit="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.TabsClosable">
+  <TabControl Name="Tabs" Width="480" HorizontalAlignment="Left"
+              uikit:Tabs.Closable="True" uikit:Tabs.Reorderable="True"
+              Loaded="OnLoaded">
+    <TabItem Header="Account">
+      <TextBlock Text="Make changes to your account here." Margin="0,12" />
+    </TabItem>
+    <TabItem Header="Profile">
+      <TextBlock Text="Edit your public profile." Margin="0,12" />
+    </TabItem>
+    <TabItem Header="Settings">
+      <TextBlock Text="Change your preferences." Margin="0,12" />
+    </TabItem>
+  </TabControl>
+</UserControl>

@@ -1,0 +1,18 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:uikit="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.TabsDragGroup">
+  <StackPanel Spacing="16" HorizontalAlignment="Left">
+    <TabStrip Width="360" SelectedIndex="0"
+              uikit:Tabs.Reorderable="True" uikit:Tabs.DragGroup="files">
+      <TabStripItem Content="index.html" />
+      <TabStripItem Content="style.css" />
+      <TabStripItem Content="app.js" />
+    </TabStrip>
+    <TabStrip Width="360" SelectedIndex="0"
+              uikit:Tabs.Reorderable="True" uikit:Tabs.DragGroup="files">
+      <TabStripItem Content="README.md" />
+      <TabStripItem Content="LICENSE" />
+    </TabStrip>
+  </StackPanel>
+</UserControl>

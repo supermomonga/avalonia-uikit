@@ -17,9 +17,12 @@
   Tabs that overflow the bar scroll sideways, and the selected tab scrolls
   into view (AutoScrollToSelectedItem). The class menu adds GPUI's menu(true),
   a caret button listing the tabs (TabsMenuButton); uikit:Tabs.Prefix and
-  uikit:Tabs.Suffix are the bar's prefix and suffix. Closing and reordering
-  are not part of the controls. Tabs show an Avalonia-only ring on keyboard
-  focus, which the bar's scroll clip spares where no tab is scrolled away.
+  uikit:Tabs.Suffix are the bar's prefix and suffix. uikit:Tabs.Closable
+  gives the tabs the close button the tabs story puts in a tab's suffix, and
+  uikit:Tabs.NewTabFactory an Avalonia-only add button after the last tab
+  (dragging tabs, uikit:Tabs.Reorderable and DragGroup, draws no parts of its
+  own). Tabs show an Avalonia-only ring on keyboard focus, which the bar's
+  scroll clip spares where no tab is scrolled away.
 -->
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -76,17 +79,27 @@
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
                     CornerRadius="{TemplateBinding CornerRadius}"
+                    Padding="{TemplateBinding Padding}"
                     ClipToBounds="True">
-              <Border Name="PART_Inner" VerticalAlignment="Center">
-                <ContentPresenter Name="PART_ContentPresenter"
-                                  Content="{TemplateBinding Content}"
-                                  ContentTemplate="{TemplateBinding ContentTemplate}"
-                                  Foreground="{TemplateBinding Foreground}"
-                                  HorizontalContentAlignment="Center"
-                                  VerticalContentAlignment="Center"
-                                  TextWrapping="NoWrap"
-                                  TextTrimming="CharacterEllipsis" />
-              </Border>
+              <!-- tab.rs: the label, then gap_1 and the suffix. -->
+              <Grid ColumnDefinitions="*,Auto">
+                <Border Name="PART_Inner" VerticalAlignment="Center">
+                  <ContentPresenter Name="PART_ContentPresenter"
+                                    Content="{TemplateBinding Content}"
+                                    ContentTemplate="{TemplateBinding ContentTemplate}"
+                                    Foreground="{TemplateBinding Foreground}"
+                                    HorizontalContentAlignment="Center"
+                                    VerticalContentAlignment="Center"
+                                    TextWrapping="NoWrap"
+                                    TextTrimming="CharacterEllipsis" />
+                </Border>
+                <!-- uikit:Tabs.Closable: the tabs story's close suffix, a ghost xsmall button with the 12px Close icon. -->
+                <Button Name="PART_CloseButton" Grid.Column="1" Classes="ghost xsmall icon-only"
+                        Margin="4,0,0,0" VerticalAlignment="Center"
+                        IsVisible="{TemplateBinding (uikit:Tabs.Closable)}">
+                  <PathIcon Classes="uikit-tab-button" Data="{DynamicResource UIKit.Icon.Close}" />
+                </Button>
+              </Grid>
             </Border>
             <!-- Avalonia-only keyboard focus (GPUI tabs take no focus): the 3px ring band. -->
             <Border Name="PART_FocusRing" Margin="-3" BorderThickness="3"
@@ -120,17 +133,27 @@
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
                     CornerRadius="{TemplateBinding CornerRadius}"
+                    Padding="{TemplateBinding Padding}"
                     ClipToBounds="True">
-              <Border Name="PART_Inner" VerticalAlignment="Center">
-                <ContentPresenter Name="PART_ContentPresenter"
-                                  Content="{TemplateBinding Header}"
-                                  ContentTemplate="{TemplateBinding HeaderTemplate}"
-                                  Foreground="{TemplateBinding Foreground}"
-                                  HorizontalContentAlignment="Center"
-                                  VerticalContentAlignment="Center"
-                                  TextWrapping="NoWrap"
-                                  TextTrimming="CharacterEllipsis" />
-              </Border>
+              <!-- tab.rs: the label, then gap_1 and the suffix. -->
+              <Grid ColumnDefinitions="*,Auto">
+                <Border Name="PART_Inner" VerticalAlignment="Center">
+                  <ContentPresenter Name="PART_ContentPresenter"
+                                    Content="{TemplateBinding Header}"
+                                    ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                    Foreground="{TemplateBinding Foreground}"
+                                    HorizontalContentAlignment="Center"
+                                    VerticalContentAlignment="Center"
+                                    TextWrapping="NoWrap"
+                                    TextTrimming="CharacterEllipsis" />
+                </Border>
+                <!-- uikit:Tabs.Closable: the tabs story's close suffix, a ghost xsmall button with the 12px Close icon. -->
+                <Button Name="PART_CloseButton" Grid.Column="1" Classes="ghost xsmall icon-only"
+                        Margin="4,0,0,0" VerticalAlignment="Center"
+                        IsVisible="{TemplateBinding (uikit:Tabs.Closable)}">
+                  <PathIcon Classes="uikit-tab-button" Data="{DynamicResource UIKit.Icon.Close}" />
+                </Button>
+              </Grid>
             </Border>
             <!-- Avalonia-only keyboard focus (GPUI tabs take no focus): the 3px ring band. -->
             <Border Name="PART_FocusRing" Margin="-3" BorderThickness="3"
@@ -181,11 +204,22 @@
                                 Width="{Binding $self.(uikit:Motion.SpringValue)}" />
                       </Panel>
                     </Canvas>
-                    <!-- The tabs fill a row wider than them (a TabBar's flex_1 tabs), as outside a ScrollViewer. -->
-                    <Grid ColumnDefinitions="*,Auto">
-                      <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
+                    <!--
+                      The tabs fill a row wider than them (a TabBar's flex_1 tabs), as outside a
+                      ScrollViewer, unless the add button follows the last tab.
+                    -->
+                    <Grid Name="PART_TabsRow" ColumnDefinitions="Auto,*,Auto" RowDefinitions="Auto,Auto">
+                      <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}"
+                                      Grid.ColumnSpan="{TemplateBinding (uikit:Tabs.NewTabFactory), Converter={x:Static conv:TabsConverters.ItemsSpan}}" />
+                      <!-- Avalonia-only: uikit:Tabs.NewTabFactory's add button, a ghost xsmall button with the Plus icon. -->
+                      <Button Name="PART_AddButton" Grid.Column="1" Classes="ghost xsmall icon-only"
+                              Margin="4,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"
+                              IsVisible="{TemplateBinding (uikit:Tabs.NewTabFactory), Converter={x:Static ObjectConverters.IsNotNull}}">
+                        <PathIcon Width="12" Height="12" Data="{DynamicResource UIKit.Icon.Plus}"
+                                  uikit:IconStrokes.SnapsToPixels="True" />
+                      </Button>
                       <!-- tab_bar.rs last_empty_space: 12px after the tabs with a menu or a suffix. -->
-                      <Panel Name="PART_EndSpace" Grid.Column="1" Width="12"
+                      <Panel Name="PART_EndSpace" Grid.Column="2" Width="12"
                              IsVisible="{TemplateBinding (uikit:Tabs.Suffix), Converter={x:Static ObjectConverters.IsNotNull}}" />
                     </Grid>
                   </Panel>
@@ -404,11 +438,22 @@
                                     Width="{Binding $self.(uikit:Motion.SpringValue)}" />
                           </Panel>
                         </Canvas>
-                        <!-- The tabs fill a row wider than them (a TabBar's flex_1 tabs), as outside a ScrollViewer. -->
-                        <Grid ColumnDefinitions="*,Auto">
-                          <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
+                        <!--
+                          The tabs fill a row wider than them (a TabBar's flex_1 tabs), as outside a
+                          ScrollViewer, unless the add button follows the last tab.
+                        -->
+                        <Grid Name="PART_TabsRow" ColumnDefinitions="Auto,*,Auto" RowDefinitions="Auto,Auto">
+                          <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}"
+                                          Grid.ColumnSpan="{TemplateBinding (uikit:Tabs.NewTabFactory), Converter={x:Static conv:TabsConverters.ItemsSpan}}" />
+                          <!-- Avalonia-only: uikit:Tabs.NewTabFactory's add button, a ghost xsmall button with the Plus icon. -->
+                          <Button Name="PART_AddButton" Grid.Column="1" Classes="ghost xsmall icon-only"
+                                  Margin="4,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"
+                                  IsVisible="{TemplateBinding (uikit:Tabs.NewTabFactory), Converter={x:Static ObjectConverters.IsNotNull}}">
+                            <PathIcon Width="12" Height="12" Data="{DynamicResource UIKit.Icon.Plus}"
+                                      uikit:IconStrokes.SnapsToPixels="True" />
+                          </Button>
                           <!-- tab_bar.rs last_empty_space: 12px after the tabs with a menu or a suffix. -->
-                          <Panel Name="PART_EndSpace" Grid.Column="1" Width="12"
+                          <Panel Name="PART_EndSpace" Grid.Column="2" Width="12"
                                  IsVisible="{TemplateBinding (uikit:Tabs.Suffix), Converter={x:Static ObjectConverters.IsNotNull}}" />
                         </Grid>
                       </Panel>
@@ -600,6 +645,12 @@
       <Style Selector="^[TabStripPlacement=Left] /template/ StackPanel#PART_TabsPanel, ^[TabStripPlacement=Right] /template/ StackPanel#PART_TabsPanel">
         <Setter Property="Orientation" Value="Vertical" />
       </Style>
+      <!-- Stacked tabs: the add button below the last tab. -->
+      <Style Selector="^[TabStripPlacement=Left] /template/ Button#PART_AddButton, ^[TabStripPlacement=Right] /template/ Button#PART_AddButton">
+        <Setter Property="Grid.Row" Value="1" />
+        <Setter Property="Grid.Column" Value="0" />
+        <Setter Property="Margin" Value="0,4,0,0" />
+      </Style>
       <Style Selector="^[TabStripPlacement=Left] /template/ ScrollViewer#PART_Scroller, ^[TabStripPlacement=Right] /template/ ScrollViewer#PART_Scroller">
         <Setter Property="HorizontalScrollBarVisibility" Value="Disabled" />
         <Setter Property="VerticalScrollBarVisibility" Value="Hidden" />
@@ -610,6 +661,10 @@
     </ControlTheme>
   </Styles.Resources>
 
+  <!-- A closable tab is padded as the tabs story's (px_2). -->
+  <Style Selector="TabStrip > TabStripItem[(uikit|Tabs.Closable)=True], TabControl > TabItem[(uikit|Tabs.Closable)=True]">
+    <Setter Property="Padding" Value="8,0" />
+  </Style>
   <!-- tab -->
   <Style Selector="TabStrip:not(.outline):not(.pill):not(.segmented):not(.underline) > TabStripItem, TabControl:not(.outline):not(.pill):not(.segmented):not(.underline) > TabItem">
     <Setter Property="BorderThickness" Value="1,0,1,0" />
@@ -1214,5 +1269,10 @@
   <Style Selector="TabStrip.large > TabStripItem PathIcon, TabControl.large > TabItem PathIcon">
     <Setter Property="Width" Value="16" />
     <Setter Property="Height" Value="16" />
+  </Style>
+  <!-- The close button's icon is an xsmall button's (12px), whatever the tab's icon size. -->
+  <Style Selector="TabStripItem PathIcon.uikit-tab-button, TabItem PathIcon.uikit-tab-button">
+    <Setter Property="Width" Value="12" />
+    <Setter Property="Height" Value="12" />
   </Style>
 </Styles>

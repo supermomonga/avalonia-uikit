@@ -1,4 +1,6 @@
+using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Layout;
 using Avalonia.Media;
 using AvaloniaUIKit.Tests.Golden;
 
@@ -71,6 +73,20 @@ public static partial class Adapters
             Tabs.SetSuffix(tabs, BarButtons("inbox", "ellipsis"));
         }
         return tabs;
+    }
+
+    /// <summary>The tabs story's prefix and suffix: two ghost xsmall icon buttons in an mx_1 row.</summary>
+    private static StackPanel BarButtons(string first, string second)
+    {
+        var row = new StackPanel { Orientation = Orientation.Horizontal, Margin = new Thickness(4, 0) };
+        foreach (var name in new[] { first, second })
+        {
+            var button = new Button { Content = Icon(name) };
+            button.Classes.AddRange(["ghost", "xsmall", "icon-only"]);
+            ((PathIcon)button.Content).Classes.Add("xsmall");
+            row.Children.Add(button);
+        }
+        return row;
     }
 
     /// <summary>
