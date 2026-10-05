@@ -187,6 +187,8 @@
             <ListBoxItem Content="Italic" />
           </ListBox>
           <PathIcon Classes="large" Data="{StaticResource UIKit.Icon.Folder}" />
+          <uikit:Icon Classes="large" Kind="SortAscending" />
+          <uikit:Icon Kind="Github" Foreground="{DynamicResource UIKit.Primary}" />
           <TextBlock Classes="label">Company address<Run Classes="secondary"> (optional)</Run></TextBlock>
         </WrapPanel>
 
