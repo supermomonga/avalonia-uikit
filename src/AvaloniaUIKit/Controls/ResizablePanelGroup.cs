@@ -189,16 +189,28 @@ public class ResizablePanelGroup : Panel
         }
         _length = length;
         var lengths = Resolve(length);
+        // update_panel_size: a panel's first layout gives it its length. With every
+        // length known the panels may flex differently (sized panels stop being
+        // flex_none), as GPUI's next frame does: lay out the settled lengths.
+        var first = false;
+        for (var i = 0; i < Children.Count; i++)
+        {
+            if (Children[i].IsVisible && double.IsNaN(_sizes[i]))
+            {
+                _sizes[i] = lengths[i];
+                first = true;
+            }
+        }
+        if (first && Resolve(length) is var settled && !settled.SequenceEqual(lengths))
+        {
+            lengths = settled;
+            InvalidateMeasure();
+        }
         _laidOut = lengths;
         _starts = new double[lengths.Length];
         double offset = 0;
         for (var i = 0; i < Children.Count; i++)
         {
-            // update_panel_size: a panel's first layout gives it its length.
-            if (Children[i].IsVisible && double.IsNaN(_sizes[i]))
-            {
-                _sizes[i] = lengths[i];
-            }
             _starts[i] = offset;
             Children[i].Arrange(horizontal ? new Rect(offset, 0, lengths[i], cross) : new Rect(0, offset, cross, lengths[i]));
             offset += lengths[i];
