@@ -925,6 +925,16 @@ public sealed partial class ResizableNested : UserControl
     public ResizableNested() => AvaloniaXamlLoader.Load(this);
 }
 
+public sealed partial class ResizablePanels : UserControl
+{
+    public ResizablePanels() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class ResizableProgrammatic : UserControl
+{
+    public ResizableProgrammatic() => AvaloniaXamlLoader.Load(this);
+}
+
 public sealed partial class ResizableVertical : UserControl
 {
     public ResizableVertical() => AvaloniaXamlLoader.Load(this);
@@ -1010,6 +1020,11 @@ public sealed partial class SheetPlacements : UserControl
     public SheetPlacements() => AvaloniaXamlLoader.Load(this);
 }
 
+public sealed partial class SheetShow : UserControl
+{
+    public SheetShow() => AvaloniaXamlLoader.Load(this);
+}
+
 public sealed partial class ShimmerDemo : UserControl
 {
     public ShimmerDemo() => AvaloniaXamlLoader.Load(this);
@@ -1028,6 +1043,16 @@ public sealed partial class SidebarDemo : UserControl
 public sealed partial class SidebarDrawer : UserControl
 {
     public SidebarDrawer() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class SidebarNavigation : UserControl
+{
+    public SidebarNavigation() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class SidebarPane : UserControl
+{
+    public SidebarPane() => AvaloniaXamlLoader.Load(this);
 }
 
 public sealed partial class SidebarRight : UserControl
@@ -1594,6 +1619,8 @@ public static partial class DemoRegistry
         ["rating/sizes"] = static () => new RatingSizes(),
         ["resizable/demo"] = static () => new ResizableDemo(),
         ["resizable/nested"] = static () => new ResizableNested(),
+        ["resizable/panels"] = static () => new ResizablePanels(),
+        ["resizable/programmatic"] = static () => new ResizableProgrammatic(),
         ["resizable/vertical"] = static () => new ResizableVertical(),
         ["scrollable/demo"] = static () => new ScrollableDemo(),
         ["scrollable/horizontal"] = static () => new ScrollableHorizontal(),
@@ -1611,10 +1638,13 @@ public static partial class DemoRegistry
         ["separator/variants"] = static () => new SeparatorVariants(),
         ["sheet/demo"] = static () => new SheetDemo(),
         ["sheet/placements"] = static () => new SheetPlacements(),
+        ["sheet/show"] = static () => new SheetShow(),
         ["shimmer/demo"] = static () => new ShimmerDemo(),
         ["shimmer/variants"] = static () => new ShimmerVariants(),
         ["sidebar/demo"] = static () => new SidebarDemo(),
         ["sidebar/drawer"] = static () => new SidebarDrawer(),
+        ["sidebar/navigation"] = static () => new SidebarNavigation(),
+        ["sidebar/pane"] = static () => new SidebarPane(),
         ["sidebar/right"] = static () => new SidebarRight(),
         ["skeleton/demo"] = static () => new SkeletonDemo(),
         ["skeleton/shapes"] = static () => new SkeletonShapes(),
