@@ -1,0 +1,30 @@
+<!--
+  GPUI Kit Label (crates/component/src/label.rs) -> uikit:TextLabel, the look
+  of TextBlock.label (Label.axaml): the foreground color on a fixed 20px line
+  (rems(1.25)) whatever the font size, wrapping when the width is
+  constrained. The control builds its text as runs: the secondary text
+  (muted_foreground) and the highlighted matches (blue, which wins over the
+  secondary color as GPUI combines the highlights). The runs are the
+  TextLabel's logical children, so their styles are global styles here.
+-->
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:uikit="using:AvaloniaUIKit">
+  <Styles.Resources>
+    <ControlTheme x:Key="{x:Type uikit:TextLabel}" TargetType="uikit:TextLabel">
+      <!-- Text taller than its 20px line (xl and up) overflows centered, unclipped, as in GPUI. -->
+      <Setter Property="ClipToBounds" Value="False" />
+      <Setter Property="uikit:TextLines.CentersTallGlyphs" Value="True" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
+      <Setter Property="LineHeight" Value="20" />
+      <Setter Property="TextWrapping" Value="Wrap" />
+    </ControlTheme>
+  </Styles.Resources>
+
+  <Style Selector="uikit|TextLabel Run.secondary">
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.MutedForeground}" />
+  </Style>
+  <Style Selector="uikit|TextLabel Run.highlight">
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.Blue}" />
+  </Style>
+</Styles>
