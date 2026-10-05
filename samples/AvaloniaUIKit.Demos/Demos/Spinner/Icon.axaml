@@ -1,0 +1,10 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:uikit="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.SpinnerIcon">
+  <StackPanel Orientation="Horizontal" Spacing="8">
+    <ProgressBar Theme="{StaticResource UIKitSpinner}" uikit:Spinners.Icon="{StaticResource UIKit.Icon.LoaderCircle}" />
+    <ProgressBar Theme="{StaticResource UIKitSpinner}" uikit:Spinners.Icon="{StaticResource UIKit.Icon.LoaderCircle}"
+                 Foreground="{DynamicResource UIKit.Cyan}" />
+  </StackPanel>
+</UserControl>

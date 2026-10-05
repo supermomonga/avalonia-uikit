@@ -1,0 +1,12 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:uikit="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.GroupBoxFooter">
+  <GroupBox Classes="fill" Header="Contributions &amp; activity" Width="400"
+            uikit:GroupBoxes.Footer="Private contributions never reveal repository names.">
+    <DockPanel>
+      <ToggleSwitch DockPanel.Dock="Right" OnContent="{x:Null}" OffContent="{x:Null}" />
+      <TextBlock Text="Make profile private" VerticalAlignment="Center" />
+    </DockPanel>
+  </GroupBox>
+</UserControl>

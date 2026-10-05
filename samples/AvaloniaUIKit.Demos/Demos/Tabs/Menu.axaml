@@ -1,0 +1,25 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:uikit="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.TabsMenu" MinHeight="260">
+  <TabStrip Classes="menu" Width="400" VerticalAlignment="Top" SelectedIndex="0">
+    <uikit:Tabs.Prefix>
+      <StackPanel Orientation="Horizontal" Margin="4,0">
+        <Button Classes="ghost xsmall icon-only"><PathIcon Data="{StaticResource UIKit.Icon.ChevronLeft}" /></Button>
+        <Button Classes="ghost xsmall icon-only"><PathIcon Data="{StaticResource UIKit.Icon.ChevronRight}" /></Button>
+      </StackPanel>
+    </uikit:Tabs.Prefix>
+    <uikit:Tabs.Suffix>
+      <StackPanel Orientation="Horizontal" Margin="4,0">
+        <Button Classes="ghost xsmall icon-only"><PathIcon Data="{StaticResource UIKit.Icon.Inbox}" /></Button>
+        <Button Classes="ghost xsmall icon-only"><PathIcon Data="{StaticResource UIKit.Icon.Ellipsis}" /></Button>
+      </StackPanel>
+    </uikit:Tabs.Suffix>
+    <TabStripItem Content="Account" />
+    <TabStripItem Content="Profile" />
+    <TabStripItem Content="Settings" />
+    <TabStripItem Content="Billing" />
+    <TabStripItem Content="Notifications" IsEnabled="False" />
+    <TabStripItem Content="Integrations" />
+  </TabStrip>
+</UserControl>

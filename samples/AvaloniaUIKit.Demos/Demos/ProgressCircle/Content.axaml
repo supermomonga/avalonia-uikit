@@ -1,0 +1,16 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:uikit="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.ProgressCircleContent">
+  <StackPanel Orientation="Horizontal" Spacing="20">
+    <ProgressBar Theme="{StaticResource UIKitProgressCircle}" Value="60" Width="80" Height="80">
+      <uikit:ProgressCircles.Content>
+        <TextBlock Text="60%" FontWeight="SemiBold" />
+      </uikit:ProgressCircles.Content>
+    </ProgressBar>
+    <StackPanel Spacing="4" VerticalAlignment="Center">
+      <TextBlock Text="Analyzing project" FontWeight="Medium" />
+      <TextBlock Text="Scanning components and dependencies." FontSize="14" Foreground="{DynamicResource UIKit.MutedForeground}" />
+    </StackPanel>
+  </StackPanel>
+</UserControl>

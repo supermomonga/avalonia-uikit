@@ -235,9 +235,24 @@ public sealed partial class CarouselDemo : UserControl
     public CarouselDemo() => AvaloniaXamlLoader.Load(this);
 }
 
+public sealed partial class CarouselDrag : UserControl
+{
+    public CarouselDrag() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class CarouselLoop : UserControl
+{
+    public CarouselLoop() => AvaloniaXamlLoader.Load(this);
+}
+
 public sealed partial class CarouselSmall : UserControl
 {
     public CarouselSmall() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class CarouselVertical : UserControl
+{
+    public CarouselVertical() => AvaloniaXamlLoader.Load(this);
 }
 
 public sealed partial class CheckboxBare : UserControl
@@ -483,6 +498,11 @@ public sealed partial class FormSizes : UserControl
 public sealed partial class GroupBoxDemo : UserControl
 {
     public GroupBoxDemo() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class GroupBoxFooter : UserControl
+{
+    public GroupBoxFooter() => AvaloniaXamlLoader.Load(this);
 }
 
 public sealed partial class GroupBoxVariants : UserControl
@@ -780,9 +800,19 @@ public sealed partial class PaginationDemo : UserControl
     public PaginationDemo() => AvaloniaXamlLoader.Load(this);
 }
 
+public sealed partial class PaginationEllipsis : UserControl
+{
+    public PaginationEllipsis() => AvaloniaXamlLoader.Load(this);
+}
+
 public sealed partial class PaginationSizes : UserControl
 {
     public PaginationSizes() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class PaginationUikitCompact : UserControl
+{
+    public PaginationUikitCompact() => AvaloniaXamlLoader.Load(this);
 }
 
 public sealed partial class PopoverDemo : UserControl
@@ -798,6 +828,11 @@ public sealed partial class PopoverPlacements : UserControl
 public sealed partial class PopoverPlain : UserControl
 {
     public PopoverPlain() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class ProgressCircleContent : UserControl
+{
+    public ProgressCircleContent() => AvaloniaXamlLoader.Load(this);
 }
 
 public sealed partial class ProgressCircleDemo : UserControl
@@ -945,6 +980,11 @@ public sealed partial class SeparatorDemo : UserControl
     public SeparatorDemo() => AvaloniaXamlLoader.Load(this);
 }
 
+public sealed partial class SeparatorLabel : UserControl
+{
+    public SeparatorLabel() => AvaloniaXamlLoader.Load(this);
+}
+
 public sealed partial class SeparatorVariants : UserControl
 {
     public SeparatorVariants() => AvaloniaXamlLoader.Load(this);
@@ -1028,6 +1068,11 @@ public sealed partial class SliderVertical : UserControl
 public sealed partial class SpinnerDemo : UserControl
 {
     public SpinnerDemo() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class SpinnerIcon : UserControl
+{
+    public SpinnerIcon() => AvaloniaXamlLoader.Load(this);
 }
 
 public sealed partial class SpinnerInline : UserControl
@@ -1133,6 +1178,11 @@ public sealed partial class TabsDemo : UserControl
 public sealed partial class TabsIcons : UserControl
 {
     public TabsIcons() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class TabsMenu : UserControl
+{
+    public TabsMenu() => AvaloniaXamlLoader.Load(this);
 }
 
 public sealed partial class TabsSizes : UserControl
@@ -1386,7 +1436,10 @@ public static partial class DemoRegistry
         ["calendar/sizes"] = static () => new CalendarSizes(),
         ["calendar/year"] = static () => new CalendarYear(),
         ["carousel/demo"] = static () => new CarouselDemo(),
+        ["carousel/drag"] = static () => new CarouselDrag(),
+        ["carousel/loop"] = static () => new CarouselLoop(),
         ["carousel/small"] = static () => new CarouselSmall(),
+        ["carousel/vertical"] = static () => new CarouselVertical(),
         ["checkbox/bare"] = static () => new CheckboxBare(),
         ["checkbox/demo"] = static () => new CheckboxDemo(),
         ["checkbox/indeterminate"] = static () => new CheckboxIndeterminate(),
@@ -1436,6 +1489,7 @@ public static partial class DemoRegistry
         ["form/horizontal"] = static () => new FormHorizontal(),
         ["form/sizes"] = static () => new FormSizes(),
         ["group-box/demo"] = static () => new GroupBoxDemo(),
+        ["group-box/footer"] = static () => new GroupBoxFooter(),
         ["group-box/variants"] = static () => new GroupBoxVariants(),
         ["hover-card/demo"] = static () => new HoverCardDemo(),
         ["hover-card/placements"] = static () => new HoverCardPlacements(),
@@ -1495,10 +1549,13 @@ public static partial class DemoRegistry
         ["number-input/steps"] = static () => new NumberInputSteps(),
         ["pagination/compact"] = static () => new PaginationCompact(),
         ["pagination/demo"] = static () => new PaginationDemo(),
+        ["pagination/ellipsis"] = static () => new PaginationEllipsis(),
         ["pagination/sizes"] = static () => new PaginationSizes(),
+        ["pagination/uikit-compact"] = static () => new PaginationUikitCompact(),
         ["popover/demo"] = static () => new PopoverDemo(),
         ["popover/placements"] = static () => new PopoverPlacements(),
         ["popover/plain"] = static () => new PopoverPlain(),
+        ["progress-circle/content"] = static () => new ProgressCircleContent(),
         ["progress-circle/demo"] = static () => new ProgressCircleDemo(),
         ["progress-circle/indeterminate"] = static () => new ProgressCircleIndeterminate(),
         ["progress-circle/sizes"] = static () => new ProgressCircleSizes(),
@@ -1528,6 +1585,7 @@ public static partial class DemoRegistry
         ["select/sizes"] = static () => new SelectSizes(),
         ["select/states"] = static () => new SelectStates(),
         ["separator/demo"] = static () => new SeparatorDemo(),
+        ["separator/label"] = static () => new SeparatorLabel(),
         ["separator/variants"] = static () => new SeparatorVariants(),
         ["sheet/demo"] = static () => new SheetDemo(),
         ["sheet/placements"] = static () => new SheetPlacements(),
@@ -1545,6 +1603,7 @@ public static partial class DemoRegistry
         ["slider/reverse"] = static () => new SliderReverse(),
         ["slider/vertical"] = static () => new SliderVertical(),
         ["spinner/demo"] = static () => new SpinnerDemo(),
+        ["spinner/icon"] = static () => new SpinnerIcon(),
         ["spinner/inline"] = static () => new SpinnerInline(),
         ["spinner/sizes"] = static () => new SpinnerSizes(),
         ["status-bar/demo"] = static () => new StatusBarDemo(),
@@ -1566,6 +1625,7 @@ public static partial class DemoRegistry
         ["table/sizes"] = static () => new TableSizes(),
         ["tabs/demo"] = static () => new TabsDemo(),
         ["tabs/icons"] = static () => new TabsIcons(),
+        ["tabs/menu"] = static () => new TabsMenu(),
         ["tabs/sizes"] = static () => new TabsSizes(),
         ["tabs/variants"] = static () => new TabsVariants(),
         ["tag/colors"] = static () => new TagColors(),

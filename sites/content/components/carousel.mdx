@@ -16,3 +16,23 @@ The app adds the controls around the pages: Previous and Next are `Button Classe
 A smaller carousel with `small` buttons and two pages.
 
 <Demo name="carousel/small" title="Small" />
+
+## Previous and Next
+
+`uikit:CarouselPrevious` and `uikit:CarouselNext` are the buttons above, bound to a carousel with `Carousel="{Binding #Slides}"`. Put them in the same `Panel` as the carousel: they sit 16px outside the pages, centered on them, or above and below a vertical carousel, with a chevron along its axis. They are disabled at the first and the last page unless the carousel has `WrapSelection="True"`, and after a click the carousel takes the focus without a ring, so the arrow keys go on paging. Sizes: `xsmall`, `small`, `large`. Content set on a button replaces its chevron.
+
+## Pointer input
+
+With `uikit:Carousels.TracksPointer="True"` the pages lie side by side, 16px apart, on a track that moves on the same spring. A drag along the axis moves the pages with the pointer and lets go on the nearest page; a drag across the axis is left to the page around the carousel, and a drag never clicks a control on a page. A wheel notch along the axis steps one page; a trackpad scroll moves the pages and settles on the nearest one when it stops. A vertical carousel passes a scroll that starts at its first or last page on to the page that contains it. Going to a page several pages away slides past the pages between, and with `WrapSelection="True"` the track goes on from the last page to the first without sliding back. Leave the carousel's `ItemsPanel` to the theme.
+
+Drag the pages, or use the buttons, the dots or the arrow keys.
+
+<Demo name="carousel/drag" title="Drag" />
+
+`WrapSelection="True"` with four pages and `small` buttons.
+
+<Demo name="carousel/loop" title="Loop" />
+
+A vertical carousel: its `PageTransition` is a vertical `uikit:SpringSlide`.
+
+<Demo name="carousel/vertical" title="Vertical" />
