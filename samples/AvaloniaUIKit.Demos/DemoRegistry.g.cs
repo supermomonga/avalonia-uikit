@@ -770,6 +770,16 @@ public sealed partial class NotificationDemo : UserControl
     public NotificationDemo() => AvaloniaXamlLoader.Load(this);
 }
 
+public sealed partial class NotificationPlacements : UserControl
+{
+    public NotificationPlacements() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class NotificationStacked : UserControl
+{
+    public NotificationStacked() => AvaloniaXamlLoader.Load(this);
+}
+
 public sealed partial class NotificationTypes : UserControl
 {
     public NotificationTypes() => AvaloniaXamlLoader.Load(this);
@@ -1320,6 +1330,11 @@ public sealed partial class TitleBarDemo : UserControl
     public TitleBarDemo() => AvaloniaXamlLoader.Load(this);
 }
 
+public sealed partial class TitleBarTitleBar : UserControl
+{
+    public TitleBarTitleBar() => AvaloniaXamlLoader.Load(this);
+}
+
 public sealed partial class ToggleGroupDemo : UserControl
 {
     public ToggleGroupDemo() => AvaloniaXamlLoader.Load(this);
@@ -1588,6 +1603,8 @@ public static partial class DemoRegistry
         ["message/plain"] = static () => new MessagePlain(),
         ["notification/card"] = static () => new NotificationCard(),
         ["notification/demo"] = static () => new NotificationDemo(),
+        ["notification/placements"] = static () => new NotificationPlacements(),
+        ["notification/stacked"] = static () => new NotificationStacked(),
         ["notification/types"] = static () => new NotificationTypes(),
         ["number-input/affixes"] = static () => new NumberInputAffixes(),
         ["number-input/demo"] = static () => new NumberInputDemo(),
@@ -1698,6 +1715,7 @@ public static partial class DemoRegistry
         ["time-field/sizes"] = static () => new TimeFieldSizes(),
         ["time-field/states"] = static () => new TimeFieldStates(),
         ["title-bar/demo"] = static () => new TitleBarDemo(),
+        ["title-bar/title-bar"] = static () => new TitleBarTitleBar(),
         ["toggle-group/demo"] = static () => new ToggleGroupDemo(),
         ["toggle-group/icons"] = static () => new ToggleGroupIcons(),
         ["toggle-group/sizes"] = static () => new ToggleGroupSizes(),

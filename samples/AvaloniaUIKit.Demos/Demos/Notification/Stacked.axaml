@@ -1,0 +1,18 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:uikit="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.NotificationStacked">
+  <Panel MinWidth="560" MinHeight="300">
+    <WrapPanel ItemSpacing="8" LineSpacing="8" VerticalAlignment="Top" MaxWidth="160" HorizontalAlignment="Left">
+      <Button Classes="info" Content="Info" Tag="Information" Click="OnShowType" />
+      <Button Classes="success" Content="Success" Tag="Success" Click="OnShowType" />
+      <Button Classes="warning" Content="Warning" Tag="Warning" Click="OnShowType" />
+      <Button Classes="danger" Content="Error" Tag="Error" Click="OnShowType" />
+      <Button Classes="outline" Content="With action" Click="OnShowAction" />
+      <Button Classes="outline" Content="Unique" Click="OnShowUnique" />
+      <Button Classes="outline" Content="Dismiss all" Click="OnClear" />
+    </WrapPanel>
+    <!-- Over the content: only the cards take input. -->
+    <uikit:NotificationList Name="Notifications" Padding="16" />
+  </Panel>
+</UserControl>
