@@ -86,6 +86,7 @@
   <StyleInclude Source="avares://AvaloniaUIKit/Themes/Controls/InputGroup.axaml" />
   <StyleInclude Source="avares://AvaloniaUIKit/Themes/Controls/RangeSlider.axaml" />
   <StyleInclude Source="avares://AvaloniaUIKit/Themes/Controls/TextLabel.axaml" />
+  <StyleInclude Source="avares://AvaloniaUIKit/Themes/Controls/Table.axaml" />
 
   <!-- GPUI sizes a text to whole pixels, rounding its width up (text.rs). -->
   <Style Selector=":is(TopLevel)">

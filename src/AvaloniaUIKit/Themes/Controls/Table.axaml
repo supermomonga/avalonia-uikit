@@ -1,0 +1,195 @@
+<!--
+  GPUI Kit Table (crates/component/src/table/table.rs) -> uikit:Table and its
+  parts. The same look as TableView with Theme="{StaticResource UIKitTable}"
+  (TableView.axaml):
+
+    <uikit:Table Classes="small">
+      <uikit:TableHeader>
+        <uikit:TableRow>
+          <uikit:TableHead ColSpan="2">Status</uikit:TableHead>
+          <uikit:TableHead HorizontalContentAlignment="Right">Amount</uikit:TableHead>
+        </uikit:TableRow>
+      </uikit:TableHeader>
+      <uikit:TableBody>…</uikit:TableBody>
+      <uikit:TableFooter>…</uikit:TableFooter>
+      <uikit:TableCaption>A list of your recent invoices.</uikit:TableCaption>
+    </uikit:Table>
+
+  The table: the table fill under its parts, no border by default
+  (BorderThickness 1 with CornerRadius 5.5 is the story's bordered table, the
+  border over the parts as GPUI paints it), 14px text at every size. The
+  header: table_head with table_head_foreground text and a table_row_border
+  rule below; the footer: table_foot with table_foot_foreground text and a rule
+  above; rows: a rule above each but the first of its part. Cells: the size's
+  padding (table_cell_padding, handed down through uikit:Tables.CellPadding),
+  content centered vertically, text on one line overflowing the cell. The
+  caption: muted, centered, in the same padding. Classes: xsmall small large,
+  stripe (table_even on every other body row).
+-->
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:uikit="using:AvaloniaUIKit">
+  <Styles.Resources>
+    <ResourceDictionary>
+      <ControlTheme x:Key="{x:Type uikit:Table}" TargetType="uikit:Table">
+        <Setter Property="Background" Value="{DynamicResource UIKit.Table.Fill}" />
+        <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Border}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="TextBlock.LineHeight" Value="22.5" />
+        <Setter Property="uikit:Tables.CellPadding" Value="8,4" />
+        <Setter Property="Template">
+          <ControlTemplate>
+            <Panel>
+              <!-- The border's outer edge: its width in a transparent border under the fill. -->
+              <Border Name="PART_Fill"
+                      Background="{TemplateBinding Background}"
+                      BackgroundSizing="OuterBorderEdge"
+                      BorderThickness="{TemplateBinding BorderThickness}"
+                      CornerRadius="{TemplateBinding CornerRadius}" />
+              <!-- overflow_hidden: the parts stop inside the border. -->
+              <Border Name="PART_Content" Margin="{TemplateBinding BorderThickness}" ClipToBounds="True">
+                <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
+              </Border>
+              <Border Name="PART_Border"
+                      BorderBrush="{TemplateBinding BorderBrush}"
+                      BorderThickness="{TemplateBinding BorderThickness}"
+                      CornerRadius="{TemplateBinding CornerRadius}"
+                      IsHitTestVisible="False" />
+            </Panel>
+          </ControlTemplate>
+        </Setter>
+        <!-- sizing.rs table_cell_padding. -->
+        <Style Selector="^.xsmall">
+          <Setter Property="uikit:Tables.CellPadding" Value="4,2" />
+        </Style>
+        <Style Selector="^.small">
+          <Setter Property="uikit:Tables.CellPadding" Value="6,3" />
+        </Style>
+        <Style Selector="^.large">
+          <Setter Property="uikit:Tables.CellPadding" Value="12,8" />
+        </Style>
+      </ControlTheme>
+
+      <ControlTheme x:Key="{x:Type uikit:TableHeader}" TargetType="uikit:TableHeader">
+        <Setter Property="Background" Value="{DynamicResource UIKit.TableHead.Fill}" />
+        <Setter Property="Foreground" Value="{DynamicResource UIKit.TableHeadForeground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource UIKit.TableRowBorder}" />
+        <Setter Property="BorderThickness" Value="0,0,0,1" />
+        <Setter Property="Template">
+          <ControlTemplate>
+            <Border Background="{TemplateBinding Background}"
+                    BackgroundSizing="OuterBorderEdge"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}">
+              <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
+            </Border>
+          </ControlTemplate>
+        </Setter>
+      </ControlTheme>
+
+      <ControlTheme x:Key="{x:Type uikit:TableBody}" TargetType="uikit:TableBody">
+        <Setter Property="Template">
+          <ControlTemplate>
+            <Border Background="{TemplateBinding Background}">
+              <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
+            </Border>
+          </ControlTemplate>
+        </Setter>
+      </ControlTheme>
+
+      <ControlTheme x:Key="{x:Type uikit:TableFooter}" TargetType="uikit:TableFooter">
+        <Setter Property="Background" Value="{DynamicResource UIKit.TableFoot.Fill}" />
+        <Setter Property="Foreground" Value="{DynamicResource UIKit.TableFootForeground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource UIKit.TableRowBorder}" />
+        <Setter Property="BorderThickness" Value="0,1,0,0" />
+        <Setter Property="Template">
+          <ControlTemplate>
+            <Border Background="{TemplateBinding Background}"
+                    BackgroundSizing="OuterBorderEdge"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}">
+              <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
+            </Border>
+          </ControlTemplate>
+        </Setter>
+      </ControlTheme>
+
+      <ControlTheme x:Key="{x:Type uikit:TableRow}" TargetType="uikit:TableRow">
+        <Setter Property="BorderBrush" Value="{DynamicResource UIKit.TableRowBorder}" />
+        <Setter Property="Template">
+          <ControlTemplate>
+            <Border Name="PART_Border"
+                    Background="{TemplateBinding Background}"
+                    BackgroundSizing="OuterBorderEdge"
+                    BorderBrush="{TemplateBinding BorderBrush}">
+              <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
+            </Border>
+          </ControlTemplate>
+        </Setter>
+        <!-- table.rs: every row after the first of its part has the rule above it. -->
+        <Style Selector="^:not(:nth-child(1)) /template/ Border#PART_Border">
+          <Setter Property="BorderThickness" Value="0,1,0,0" />
+        </Style>
+      </ControlTheme>
+
+      <ControlTheme x:Key="{x:Type uikit:TableCell}" TargetType="uikit:TableCell">
+        <Setter Property="Padding" Value="{Binding $self.(uikit:Tables.CellPadding)}" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Template">
+          <ControlTemplate>
+            <ContentPresenter Name="PART_ContentPresenter"
+                              Background="{TemplateBinding Background}"
+                              Padding="{TemplateBinding Padding}"
+                              Content="{TemplateBinding Content}"
+                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+          </ControlTemplate>
+        </Setter>
+      </ControlTheme>
+
+      <ControlTheme x:Key="{x:Type uikit:TableCaption}" TargetType="uikit:TableCaption">
+        <Setter Property="Padding" Value="{Binding $self.(uikit:Tables.CellPadding)}" />
+        <Setter Property="Foreground" Value="{DynamicResource UIKit.MutedForeground}" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="Template">
+          <ControlTemplate>
+            <ContentPresenter Name="PART_ContentPresenter"
+                              Background="{TemplateBinding Background}"
+                              Padding="{TemplateBinding Padding}"
+                              Content="{TemplateBinding Content}"
+                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                              TextAlignment="Center"
+                              TextWrapping="Wrap" />
+          </ControlTemplate>
+        </Setter>
+      </ControlTheme>
+    </ResourceDictionary>
+  </Styles.Resources>
+
+  <!--
+    A cell's text stays on one line and overflows the cell from the side it is
+    aligned to, unclipped, as GPUI's justified text does (Avalonia 12 clips a
+    TextBlock to itself).
+  -->
+  <Style Selector="uikit|TableCell TextBlock">
+    <Setter Property="ClipToBounds" Value="False" />
+    <Setter Property="HorizontalAlignment" Value="Left" />
+  </Style>
+  <Style Selector="uikit|TableCell[HorizontalContentAlignment=Right] TextBlock">
+    <Setter Property="HorizontalAlignment" Value="Right" />
+  </Style>
+  <Style Selector="uikit|TableCell[HorizontalContentAlignment=Center] TextBlock">
+    <Setter Property="HorizontalAlignment" Value="Center" />
+  </Style>
+
+  <!-- The story's stripes: every other body row, starting with the second, fills with table_even. -->
+  <Style Selector="uikit|Table.stripe uikit|TableBody > uikit|TableRow:nth-child(2n)">
+    <Setter Property="Background" Value="{DynamicResource UIKit.TableEven}" />
+  </Style>
+</Styles>
