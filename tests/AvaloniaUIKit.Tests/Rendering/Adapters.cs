@@ -102,6 +102,7 @@ public static partial class Adapters
         "sidebar" => c.Str("host", "splitview") == "drawer" ? SidebarDrawer(c) : Sidebar(c),
         "sheet" => Sheet(c),
         "color_picker" => ColorPickerCase(c),
+        "uikit-colorselect" => ColorSelectCase(c),
         "titlebar" => new DecorationsHost(c.Params.ContainsKey("title") ? c.Str("title", "") : null)
         {
             Width = c.Num("width", 480),

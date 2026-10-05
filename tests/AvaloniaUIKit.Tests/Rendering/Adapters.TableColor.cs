@@ -116,4 +116,30 @@ public static partial class Adapters
         table.Items.Add(Rows(new TableFooter(), [Row(Cell("Total", span: 3), Cell("$2,250.00", right: true, span: 2))]));
         table.Items.Add(new TableCaption { Content = "A list of your recent invoices." });
     }
+
+    /// <summary>
+    /// reference/src/cases/color_picker.rs on uikit:ColorSelect: the swatch (with
+    /// a label or an icon) or the field class 200px wide; "none" is no color.
+    /// </summary>
+    private static ColorSelect ColorSelectCase(GoldenCase c)
+    {
+        var value = c.Str("value", "2563EB");
+        var select = new ColorSelect
+        {
+            Color = value == "none" ? null : Avalonia.Media.Color.Parse("#" + value),
+            Label = c.Has("label") ? c.Str("label") : null,
+            Icon = c.Has("icon") ? Icon(c.Str("icon")).Data : null,
+        };
+        if (c.Has("placeholder"))
+        {
+            select.PlaceholderText = c.Str("placeholder");
+        }
+        ClassFrom(select, c, "size", "medium");
+        if (c.Bool("field"))
+        {
+            select.Classes.Add("field");
+            select.Width = c.Num("width", 200);
+        }
+        return select;
+    }
 }

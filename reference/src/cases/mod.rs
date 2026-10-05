@@ -128,6 +128,7 @@ pub fn builder(case: &Case) -> Result<Builder> {
         "sheet" => sheet::builder(&params),
         "titlebar" => title_bar::builder(&params),
         "color_picker" => color_picker::builder(&params),
+        "uikit-colorselect" => color_picker::builder(&params),
         "datatable" => table::data_table(&params),
         "datagrid" => table::data_table(&params),
         "toolbar" => toolbar::builder(&params),
@@ -316,6 +317,7 @@ pub fn icon(name: &str) -> Option<IconName> {
         "circle-check" => IconName::CircleCheck,
         "triangle-alert" => IconName::TriangleAlert,
         "circle-x" => IconName::CircleX,
+        "palette" => IconName::Palette,
         _ => return None,
     })
 }
