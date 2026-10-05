@@ -1,6 +1,6 @@
 # GPUI Kit TabBar's parts -> TabStrip (and the strip of TabControl) with the
-# menu class and uikit:Tabs.Prefix / Suffix. The tabalonia bar and menu groups
-# on the tabs case's three tabs (Account, Profile, Settings) at their own widths.
+# menu class and uikit:Tabs.Prefix / Suffix, on the tabs case's three tabs
+# (Account, Profile, Settings) at their own widths.
 component = "tabs-bar"
 viewport = [352, 60]
 anchor = [16, 8]

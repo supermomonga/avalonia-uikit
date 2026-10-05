@@ -8,6 +8,8 @@ links:
   kind: amends
 - target: 19
   kind: amends
+- target: 33
+  kind: amendedby
 ---
 
 # Ship themes for third-party libraries as separate packages pinned to one release

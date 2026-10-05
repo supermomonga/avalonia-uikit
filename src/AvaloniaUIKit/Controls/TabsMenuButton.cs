@@ -4,10 +4,10 @@ using Avalonia.Controls.Primitives;
 namespace AvaloniaUIKit;
 
 /// <summary>
-/// GPUI Kit's TabBar menu (tab_bar.rs menu(true)): a button in a TabStrip,
-/// TabControl or Tabalonia TabsControl template that opens a menu of the
-/// tabs, checks the selected one, disables the disabled ones and selects the
-/// one that is clicked. It is a Button and takes the Button theme.
+/// GPUI Kit's TabBar menu (tab_bar.rs menu(true)): a button in a TabStrip or
+/// TabControl template that opens a menu of the tabs, checks the selected
+/// one, disables the disabled ones and selects the one that is clicked. It is
+/// a Button and takes the Button theme.
 /// </summary>
 public class TabsMenuButton : Button
 {

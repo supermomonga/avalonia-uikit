@@ -8,6 +8,8 @@ links:
   kind: amends
 - target: 30
   kind: amendedby
+- target: 33
+  kind: amendedby
 ---
 
 # Add controls to a third-party theme package where the library's template cannot hold GPUI Kit's parts

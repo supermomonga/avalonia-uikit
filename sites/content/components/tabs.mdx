@@ -7,7 +7,7 @@ description: "A tab bar in its default, outline, pill, segmented and underline l
 
 ## Usage
 
-The theme covers `TabStrip` and `TabStripItem` (a bar on its own) and the strip of `TabControl` and `TabItem` (tabs with their content). The look is a class on the strip or control: the default look without one, or `outline`, `pill`, `segmented` or `underline`. Pill, segmented and underline show the selection with an indicator that springs to the selected tab on the `UIKit.Spring.Move` spring and reverses midway when the selection changes again; a pill's label fades in as the indicator slides. Sizes: `xsmall`, `small`, `large` (medium without one). Put `icon-only` on an item whose content is an icon. A tab shows a ring on keyboard focus only. For tabs that are reordered by dragging, closed and added, see [Tabalonia](/components/tabalonia).
+The theme covers `TabStrip` and `TabStripItem` (a bar on its own) and the strip of `TabControl` and `TabItem` (tabs with their content). The look is a class on the strip or control: the default look without one, or `outline`, `pill`, `segmented` or `underline`. Pill, segmented and underline show the selection with an indicator that springs to the selected tab on the `UIKit.Spring.Move` spring and reverses midway when the selection changes again; a pill's label fades in as the indicator slides. Sizes: `xsmall`, `small`, `large` (medium without one). Put `icon-only` on an item whose content is an icon. A tab shows a ring on keyboard focus only. Tabs can be closed, added and dragged with the `uikit:Tabs` attached properties (see [Closing, adding and dragging](#closing-adding-and-dragging)).
 
 ## Examples
 
@@ -30,3 +30,54 @@ Tabs that do not fit the bar scroll sideways, and the selected tab scrolls into 
 Six tabs in a 400px bar with a menu, a prefix and a suffix.
 
 <Demo name="tabs/menu" title="Menu" />
+
+## Closing, adding and dragging
+
+These attached properties go on a `TabStrip` or a `TabControl`. They change the list the tabs come from: its `ItemsSource`, which must be a list that can change (such as an `ObservableCollection`), or its `Items`. Tabs whose list cannot change are not closed or moved.
+
+| Attached property | Effect |
+| --- | --- |
+| `uikit:Tabs.Closable` | A close button in each tab, as GPUI Kit's closable tab: the tab is padded `px_2` and ends with a ghost `xsmall` Close button. On the strip it applies to every tab; on a tab, to that tab. |
+| `uikit:Tabs.NewTabFactory` | An add button after the last tab. It adds the item the function returns at the end and selects it. |
+| `uikit:Tabs.Reorderable` | Tabs are dragged along the bar to reorder them: the dragged tab follows the pointer, the others make room, and the drop moves its item. The indicator moves with the tab, and a bar whose tabs overflow scrolls while the tab is held at its end. |
+| `uikit:Tabs.DragGroup` | With `Reorderable`, a tab dragged onto another bar of the same group moves to it. Bars in different windows exchange tabs; in a browser, only bars in the same view do. |
+| `uikit:Tabs.DetachedWindowFactory` | With a `DragGroup`, a tab dragged off every bar of its group moves into the window the function returns, which follows the pointer until the drop. In a window only. |
+
+The close button raises `uikit:Tabs.TabClosing` on the strip before it removes the tab; set `Cancel` to keep it. Closing the selected tab selects the next one.
+
+A closable tab bar whose add button opens new tabs, and whose tabs can be reordered. The last tab cannot be closed.
+
+<Demo name="tabs/closable" title="Closable" />
+
+```csharp title="Closable.axaml.cs"
+Tabs.SetNewTabFactory(tabs, () => new TabItem { Header = $"Tab {++added}", Content = new TextBlock { Text = "A new tab." } });
+Tabs.AddTabClosingHandler(tabs, (_, args) => args.Cancel = tabs.ItemCount == 1);
+```
+
+Tabs reordered by dragging.
+
+<Demo name="tabs/reorder" title="Reorder" />
+
+Two bars of one group: drag a tab from one to the other.
+
+<Demo name="tabs/drag-group" title="Drag group" />
+
+### Dragging tabs out into windows
+
+`uikit:Tabs.DetachedWindowFactory` gets the item of the tab being dragged off and returns the window it moves to. The window must hold a `TabStrip` or `TabControl` of the same group, empty and reorderable; the tab is put in it, and the window is shown under the pointer and follows it. Dragged over a bar of the group, the tab moves back and the window is hidden. A window made this way closes when its last tab is dragged out or closed, and dragging its only tab moves the window itself. Windows the app opens itself stay open when their bars empty.
+
+```csharp title="MainWindow.axaml.cs"
+Tabs.SetDetachedWindowFactory(documents, _ => NewDocumentWindow());
+
+static Window NewDocumentWindow()
+{
+    var tabs = new TabControl();
+    Tabs.SetClosable(tabs, true);
+    Tabs.SetReorderable(tabs, true);
+    Tabs.SetDragGroup(tabs, "documents");
+    Tabs.SetDetachedWindowFactory(tabs, _ => NewDocumentWindow());
+    return new Window { Title = "Documents", Width = 640, Height = 400, Content = tabs };
+}
+```
+
+A page has no windows, so this does not run in the live demos.

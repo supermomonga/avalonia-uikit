@@ -970,31 +970,6 @@ public sealed partial class SwitchSizes : UserControl
     public SwitchSizes() => AvaloniaXamlLoader.Load(this);
 }
 
-public sealed partial class TabaloniaDemo : UserControl
-{
-    public TabaloniaDemo() => AvaloniaXamlLoader.Load(this);
-}
-
-public sealed partial class TabaloniaPrefixSuffix : UserControl
-{
-    public TabaloniaPrefixSuffix() => AvaloniaXamlLoader.Load(this);
-}
-
-public sealed partial class TabaloniaScrolling : UserControl
-{
-    public TabaloniaScrolling() => AvaloniaXamlLoader.Load(this);
-}
-
-public sealed partial class TabaloniaSizes : UserControl
-{
-    public TabaloniaSizes() => AvaloniaXamlLoader.Load(this);
-}
-
-public sealed partial class TabaloniaVariants : UserControl
-{
-    public TabaloniaVariants() => AvaloniaXamlLoader.Load(this);
-}
-
 public sealed partial class TableDemo : UserControl
 {
     public TableDemo() => AvaloniaXamlLoader.Load(this);
@@ -1010,9 +985,19 @@ public sealed partial class TableSizes : UserControl
     public TableSizes() => AvaloniaXamlLoader.Load(this);
 }
 
+public sealed partial class TabsClosable : UserControl
+{
+    public TabsClosable() => AvaloniaXamlLoader.Load(this);
+}
+
 public sealed partial class TabsDemo : UserControl
 {
     public TabsDemo() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class TabsDragGroup : UserControl
+{
+    public TabsDragGroup() => AvaloniaXamlLoader.Load(this);
 }
 
 public sealed partial class TabsIcons : UserControl
@@ -1023,6 +1008,11 @@ public sealed partial class TabsIcons : UserControl
 public sealed partial class TabsMenu : UserControl
 {
     public TabsMenu() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class TabsReorder : UserControl
+{
+    public TabsReorder() => AvaloniaXamlLoader.Load(this);
 }
 
 public sealed partial class TabsSizes : UserControl
@@ -1643,17 +1633,15 @@ public static partial class DemoRegistry
         ["switch/demo"] = static () => new SwitchDemo(),
         ["switch/label-left"] = static () => new SwitchLabelLeft(),
         ["switch/sizes"] = static () => new SwitchSizes(),
-        ["tabalonia/demo"] = static () => new TabaloniaDemo(),
-        ["tabalonia/prefix-suffix"] = static () => new TabaloniaPrefixSuffix(),
-        ["tabalonia/scrolling"] = static () => new TabaloniaScrolling(),
-        ["tabalonia/sizes"] = static () => new TabaloniaSizes(),
-        ["tabalonia/variants"] = static () => new TabaloniaVariants(),
         ["table/demo"] = static () => new TableDemo(),
         ["table/plain"] = static () => new TablePlain(),
         ["table/sizes"] = static () => new TableSizes(),
+        ["tabs/closable"] = static () => new TabsClosable(),
         ["tabs/demo"] = static () => new TabsDemo(),
+        ["tabs/drag-group"] = static () => new TabsDragGroup(),
         ["tabs/icons"] = static () => new TabsIcons(),
         ["tabs/menu"] = static () => new TabsMenu(),
+        ["tabs/reorder"] = static () => new TabsReorder(),
         ["tabs/sizes"] = static () => new TabsSizes(),
         ["tabs/variants"] = static () => new TabsVariants(),
         ["tag/colors"] = static () => new TagColors(),

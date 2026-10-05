@@ -3,7 +3,6 @@
     <Project Path="src/AvaloniaUIKit/AvaloniaUIKit.csproj" />
     <Project Path="src/AvaloniaUIKit.ColorPicker/AvaloniaUIKit.ColorPicker.csproj" />
     <Project Path="src/AvaloniaUIKit.DataGrid/AvaloniaUIKit.DataGrid.csproj" />
-    <Project Path="src/AvaloniaUIKit.Tabalonia/AvaloniaUIKit.Tabalonia.csproj" />
     <Project Path="src/AvaloniaUIKit.Dock/AvaloniaUIKit.Dock.csproj" />
   </Folder>
   <Folder Name="/samples/">

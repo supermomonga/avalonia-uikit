@@ -12,10 +12,10 @@ Avalonia themes and controls based on the Nova style of
   Tag, Alert, Avatar, Stepper, Form and others), controls such as Select with
   search and multiple selection, ListView, Tree, CalendarView, DateField,
   Sidebar, Sheet and NotificationList, and attached properties such as a
-  loading Button and input masks. Optional packages cover `ColorPicker` and
-  `DataGrid`, and the third-party libraries
-  [Tabalonia](https://github.com/egorozh/Tabalonia) (draggable tabs) and
-  [Dock.Avalonia](https://github.com/wieslawsoltes/Dock) (docking layouts).
+  loading Button, input masks and tabs that close, reorder and drag out into
+  windows. Optional packages cover `ColorPicker` and `DataGrid`, and the
+  third-party library [Dock.Avalonia](https://github.com/wieslawsoltes/Dock)
+  (docking layouts).
 - Colors come in GPUI Kit's Default Light and Default Dark and in the 36 color
   themes GPUI Kit bundles (Aurora, Ayu, Catppuccin, Tokyo Night and others),
   chosen as theme variants (`UIKitThemeVariants`).
@@ -28,7 +28,7 @@ Avalonia themes and controls based on the Nova style of
 
 | Path | Contents |
 | --- | --- |
-| `src/` | The theme and controls (`AvaloniaUIKit`), `AvaloniaUIKit.ColorPicker`, `AvaloniaUIKit.DataGrid`, `AvaloniaUIKit.Tabalonia`, `AvaloniaUIKit.Dock` |
+| `src/` | The theme and controls (`AvaloniaUIKit`), `AvaloniaUIKit.ColorPicker`, `AvaloniaUIKit.DataGrid`, `AvaloniaUIKit.Dock` |
 | `samples/` | A NativeAOT gallery, the site's demos, the preview renderer and the browser (WebAssembly) app |
 | `sites/` | The documentation site (HonoX, Cloudflare Workers) — see `docs/site.md` |
 | `tests/` | The comparison tests against GPUI Kit's reference renders |

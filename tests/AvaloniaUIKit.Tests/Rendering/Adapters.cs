@@ -97,7 +97,6 @@ public static partial class Adapters
         "uikit-table" => UikitTableCase(c),
         "datatable" => TableRows(DataTable(c), c),
         "datagrid" => DataGridCells(DataGridCase(c), c),
-        "tabalonia" => TabaloniaCase(c),
         "dock" => DockCase(c),
         "carousel" => CarouselCase(c),
         "uikit-carousel" => UikitCarouselCase(c),
@@ -1450,6 +1449,8 @@ public static partial class Adapters
     {
         ClassFrom(control, c, "variant", "tab");
         ClassFrom(control, c, "size", "medium");
+        // The tabs story's closable tab: uikit:Tabs.Closable on the bar.
+        Tabs.SetClosable(control, c.Bool("closable"));
     }
 
     private static void TabItemLook(Control item, GoldenCase c, int index)

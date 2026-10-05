@@ -3,6 +3,7 @@ using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using Avalonia.Layout;
 using Avalonia.Media;
+using Avalonia.Threading;
 using Avalonia.VisualTree;
 
 namespace AvaloniaUIKit;
@@ -10,8 +11,9 @@ namespace AvaloniaUIKit;
 /// <summary>
 /// The sliding indicator of GPUI Kit's TabBar (tab_bar.rs render_indicator),
 /// for the TabStrip and TabControl templates, and the bar's prefix and suffix.
+/// Closing, adding and dragging tabs are in Controls/Tabs.Editing.cs.
 /// </summary>
-public static class Tabs
+public static partial class Tabs
 {
     /// <summary>
     /// Content at the start of a TabStrip's or TabControl's bar, before the
@@ -61,7 +63,14 @@ public static class Tabs
                 element.SetValue(TrackerProperty, new IndicatorTracker(element));
             }
         });
+        RegisterEditing();
     }
+
+    /// <summary>
+    /// Raised by a tab drag on the bar whose tab it moves: with true after each
+    /// move of the dragged tab, with false just before the drop changes the items.
+    /// </summary>
+    private static event Action<SelectingItemsControl, bool>? Dragged;
 
     /// <summary>Gets the bar's prefix.</summary>
     public static object? GetPrefix(SelectingItemsControl element) => element.GetValue(PrefixProperty);
@@ -102,6 +111,7 @@ public static class Tabs
         private readonly Control _indicator;
         private SelectingItemsControl? _owner;
         private bool _placed;
+        private bool _dropping;
         private CancellationTokenSource? _fade;
 
         public IndicatorTracker(Control indicator)
@@ -125,6 +135,7 @@ public static class Tabs
             }
             _owner.SelectionChanged += OnSelectionChanged;
             _owner.LayoutUpdated += OnLayoutUpdated;
+            Dragged += OnDragged;
             Place();
         }
 
@@ -136,10 +147,42 @@ public static class Tabs
             }
             _owner.SelectionChanged -= OnSelectionChanged;
             _owner.LayoutUpdated -= OnLayoutUpdated;
+            Dragged -= OnDragged;
             _owner = null;
         }
 
         private void OnLayoutUpdated(object? sender, EventArgs e) => Place();
+
+        // A dragged tab moves by its render transform, which lays nothing out: follow it
+        // at once. The drop reselects the tab, which is no switch to fade or spring to;
+        // the springs travel again once the dropped tabs are laid out.
+        private void OnDragged(SelectingItemsControl owner, bool moving)
+        {
+            if (owner != _owner)
+            {
+                return;
+            }
+            Travel(false);
+            if (moving)
+            {
+                Place();
+                return;
+            }
+            _dropping = true;
+            Dispatcher.UIThread.Post(() =>
+            {
+                _dropping = false;
+                Travel(true);
+            }, DispatcherPriority.Background);
+        }
+
+        private void Travel(bool travel)
+        {
+            foreach (var element in _indicator.GetSelfAndVisualDescendants().OfType<Layoutable>())
+            {
+                Motion.SetSpringTravel(element, travel);
+            }
+        }
 
         private void OnSelectionChanged(object? sender, SelectionChangedEventArgs e)
         {
@@ -149,7 +192,7 @@ public static class Tabs
             }
             _fade?.Cancel();
             _fade = null;
-            if (_placed && _owner!.ContainerFromIndex(_owner.SelectedIndex) is { IsEffectivelyEnabled: true } tab &&
+            if (_placed && !_dropping && _owner!.ContainerFromIndex(_owner.SelectedIndex) is { IsEffectivelyEnabled: true } tab &&
                 GetSelectionFade(tab) is { } fade &&
                 GetSelectionFadeFrom(tab) is ISolidColorBrush from && tab.GetValue(TemplatedControl.ForegroundProperty) is ISolidColorBrush to)
             {

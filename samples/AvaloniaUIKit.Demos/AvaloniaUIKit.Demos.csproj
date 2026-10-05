@@ -13,7 +13,6 @@
     <ProjectReference Include="../../src/AvaloniaUIKit/AvaloniaUIKit.csproj" />
     <ProjectReference Include="../../src/AvaloniaUIKit.ColorPicker/AvaloniaUIKit.ColorPicker.csproj" />
     <ProjectReference Include="../../src/AvaloniaUIKit.DataGrid/AvaloniaUIKit.DataGrid.csproj" />
-    <ProjectReference Include="../../src/AvaloniaUIKit.Tabalonia/AvaloniaUIKit.Tabalonia.csproj" />
     <ProjectReference Include="../../src/AvaloniaUIKit.Dock/AvaloniaUIKit.Dock.csproj" />
     <!-- The site's demos render with the bundled Inter, as the tests do (ADR 5): browsers have no system fonts. -->
     <AvaloniaResource Include="../../assets/fonts/inter/*.ttf" Link="Assets/Fonts/%(Filename)%(Extension)" />

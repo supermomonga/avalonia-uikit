@@ -14,4 +14,3 @@ If you wish to examine the implementation of related libraries or frameworks, pl
 - pgui-kit ... `~/ghq/github.com/longbridge/gpui-kit`
 - Avalonia ... `~/ghq/github.com/AvaloniaUI/Avalonia`
 - Dock.Avalonia ... `~/ghq/github.com/wieslawsoltes/Dock` (v12.1.0.6)
-- Tabalonia ... `~/ghq/github.com/egorozh/Tabalonia` (v12.0.0)

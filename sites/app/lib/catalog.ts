@@ -10,7 +10,6 @@ export type Status = "full" | "partial" | "new"
 export type Package =
   | "AvaloniaUIKit.ColorPicker"
   | "AvaloniaUIKit.DataGrid"
-  | "AvaloniaUIKit.Tabalonia"
   | "AvaloniaUIKit.Dock"
 
 export interface ComponentEntry {
@@ -119,9 +118,8 @@ export const components: ComponentEntry[] = [
   entry("status-bar", "Status Bar", "StatusBar", "uikit:StatusBar", "new", "Data display"),
   entry("stepper", "Stepper", "Stepper", "uikit:Stepper", "new", "Navigation"),
   entry("switch", "Switch", "Switch", "ToggleSwitch", "full", "Forms"),
-  entry("tabalonia", "Tabalonia", "Tabs, TabBar, draggable tabs", "tab:TabsControl", "partial", "Navigation", { package: "AvaloniaUIKit.Tabalonia", library: "Tabalonia" }),
   entry("table", "Table", "Table", "TableView (UIKitTable)", "partial", "Data display", { scroll: true }),
-  entry("tabs", "Tabs", "Tabs, TabBar", "TabStrip, TabControl", "partial", "Navigation"),
+  entry("tabs", "Tabs", "Tabs, TabBar, closable tabs, draggable tabs", "TabStrip, TabControl, uikit:Tabs", "partial", "Navigation"),
   entry("tag", "Tag", "Tag", "uikit:TagLabel", "new", "Data display"),
   entry("textarea", "Textarea", "Textarea", "TextBox (AcceptsReturn), uikit:Inputs", "partial", "Forms", { scroll: true }),
   entry("time-field", "Time Field", "TimeField", "TimePicker", "partial", "Forms"),

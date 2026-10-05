@@ -4,7 +4,7 @@ UIKitTheme が GPUI Kit と同じ見た目・動きになっていることを�
 
 - 移植元: gpui-kit [`2c5162f8c5b0c7fcec066ed53125d304c632bfe2`](https://github.com/longbridge/gpui-kit/tree/2c5162f8c5b0c7fcec066ed53125d304c632bfe2)（gpui-pre 0.3.7）
 - 移植先: Avalonia 12.1.3（別パッケージは `Avalonia.Controls.ColorPicker` 12.1.3、`Avalonia.Controls.DataGrid` 12.1.2）、.NET 10、TUnit 1.72.16
-- サードパーティのライブラリ（ADR 28）: Tabalonia 12.0.0、Dock.Avalonia 12.1.0.6
+- サードパーティのライブラリ（ADR 28）: Dock.Avalonia 12.1.0.6
 - 参照データ: `goldens/gpui-2c5162f/`（6396 ケース。うち動き 98、Aurora Light 124。PNG、Scene JSON、トークン）
 
 ## コマンド
@@ -55,17 +55,18 @@ UIKitTheme が GPUI Kit と同じ見た目・動きになっていることを�
 
 ## テストの構成
 
-6985 件。macOS arm64（P コア 4 つ）での最新の実行結果は全件成功し、`scripts/verify.sh`（4 プロセス）で約 50〜70 秒、1 プロセスでは約 1 分 45 秒かかる。テストの時刻はすべて仮想時計で進める（[時刻](#時刻)）。
+6914 件。macOS arm64（P コア 4 つ）での最新の実行結果は全件成功し、`scripts/verify.sh`（4 プロセス）で約 50〜70 秒、1 プロセスでは約 1 分 45 秒かかる。テストの時刻はすべて仮想時計で進める（[時刻](#時刻)）。
 
 | テスト | 件数 | 内容 |
 | --- | --- | --- |
-| `*_matches_gpui`（コンポーネント別 105 クラス） | 6478 | 静止状態の全ケース（TabControl は Tabs のケースをもう一度使い、TabBar のケースは TabStrip と TabControl の両方で、Select の閉じた欄のケースは編集可能な ComboBox でも使う）。構造と画素を比較する。 |
-| `MotionTests`、`TabControl_moves_as_gpui` | 98、4 | 動きを GPUI が記録した時刻ごとに描画し、フレームを比較する。 |
+| `*_matches_gpui`（コンポーネント別 104 クラス） | 6394 | 静止状態の全ケース（TabControl は Tabs のケースをもう一度使い、TabBar のケースは TabStrip と TabControl の両方で、Select の閉じた欄のケースは編集可能な ComboBox でも使う）。構造と画素を比較する。 |
+| `MotionTests`、`TabControl_moves_as_gpui` | 95、4 | 動きを GPUI が記録した時刻ごとに描画し、フレームを比較する。 |
 | `TokenTests` | 40 | トークンの完全一致と過不足。Default Light / Default Dark と同梱の 36 テーマのそれぞれ、テーマのバリアントの継承。 |
 | `BehaviorTests`、`ControlBehaviorTests` | 24、34 | 時間・入力・無効状態の挙動。後者は新しいコントロール（ADR 19）の操作と、GPUI の表記・色の計算。 |
 | `ThemeFixBehaviorTests` | 16 | テーマで描くようにした Avalonia の機能（クリアボタン、右クリックメニュー、編集可能な ComboBox など）。 |
 | `ButtonsBehaviorTests`、`InputsBehaviorTests`、`SelectBehaviorTests`、`ListsBehaviorTests`、`DatesBehaviorTests`、`DisplayBehaviorTests`、`NavigationBehaviorTests`、`TableColorBehaviorTests`、`LayoutBehaviorTests`、`ShellBehaviorTests` | 19、50、27、17、50、16、21、24、19、20 | ADR 30 のコントロールと添付プロパティの操作と、GPUI のテストと同じ例の計算。 |
-| `TabaloniaBehaviorTests`、`DockBehaviorTests` | 6、3 | サードパーティのライブラリ（ADR 28）の操作が、テーマの部品を通して効くこと。 |
+| `TabsEditingBehaviorTests` | 22 | タブを閉じる・追加する・ドラッグする操作（ADR 33）。GPUI Kit に参照がないので、項目と選択の変化、ウィンドウの開閉で確かめる。 |
+| `DockBehaviorTests` | 3 | サードパーティのライブラリ（ADR 28）の操作が、テーマの部品を通して効くこと。 |
 | `FluentLayeringTests` | 19 | FluentTheme の上に重ねても見た目が変わらないこと。 |
 
 コンポーネント別の静止ケース数（括弧内は動きのケース数）:
@@ -78,7 +79,7 @@ UIKitTheme が GPUI Kit と同じ見た目・動きになっていることを�
 | DropdownButton → SplitButton | 150 | 色 × サイズ、outline、各部の hover / 押下 / フォーカス、selected、メニューを開いた状態 |
 | Button::dropdown_caret → DropDownButton | 128 | 5 色 × 4 サイズ × normal / disabled、3 色 × outline × hover / 押下 / focus、selected、幅指定、開いたメニュー |
 | Input → TextBox | 116 | 4 サイズ、値 / placeholder / 読み取り専用 × focus / disabled、前後のアイコン、マスク、選択範囲、`clearButton`（4 サイズ × normal / focus / disabled、ボタンの hover とクリック、空・読み取り専用、mask toggle と suffix との並び） |
-| Tabs / TabBar → TabStrip、TabControl | 110（4） | 4 種類 × サイズ、hover、無効なタブ、アイコン、インジケーターの移動、Aurora Light |
+| Tabs / TabBar → TabStrip、TabControl | 154（4） | 4 種類 × サイズ、hover、無効なタブ、アイコン、閉じるボタン（`uikit:Tabs.Closable`。5 種類 × 4 サイズ、hover と押下）、インジケーターの移動、Aurora Light |
 | Switch → ToggleSwitch | 94（2） | 4 サイズ × checked × hover / focus / disabled、ラベルなし、Aurora Light |
 | Select → ComboBox | 90（1） | 閉じた欄の状態、placeholder、開いた一覧の hover / 無効な行、開く動き、`clearButton`（4 サイズ × normal / disabled、ボタンの hover、focus、値なし） |
 | ButtonGroup → StackPanel.button-group の Button | 86 | 横 / 縦、サイズ、outline、先頭・中間・末尾の hover / 押下 |
@@ -194,7 +195,6 @@ GroupBox の footer、Separator の label、Spinner のアイコン、ProgressCi
 
 | コンポーネント（GPUI → Avalonia） | ケース | 組み合わせ |
 | --- | --- | --- |
-| Tabs / TabBar → Tabalonia の TabsControl | 172（3） | 5 種類 × 4 サイズ、hover、無効なタブ、アイコン、閉じるボタンとその hover、前後のボタン、メニューを開いた状態、インジケーターの移動、Aurora Light |
 | Dock → Dock.Avalonia の DockControl | 26 | 配置、閉じるボタンとその hover / 押下、タブの hover、分割の hover / 押下 / ドラッグ、タブのドラッグ中（グループの中央と左の 3 分の 1、タブ、タブバーの空き） |
 
 静止ケースは Light と Dark の両方を持つ（Tooltip のサイズ違いを除く）。動きは時間の比較が目的なので Light だけで行う。
@@ -293,7 +293,7 @@ GPUI 側は仮想時計で 1 フレームずつ記録する（R15）。Avalonia 
 | つまみの拡大 | 300ms、ease-out-cubic で 6→8px | Width の Transition |
 | Select / Combobox / DatePicker のポップアップ（`uikit:Select`、`uikit:DateField` も） | 150ms で 8px 下へスライドしながらフェード、リングと影は 4 乗 | キーフレーム（DatePicker と DateField は Margin でレイアウトを動かす） |
 | InputGroup の色（`uikit:InputGroup` も） | HSLA の補間 | `Motion.ColorTransition` |
-| Tabs のインジケーター、pill の文字色（Tabalonia も） | spring_move で位置と幅、色のフェード | `Tabs.Indicator`、`Tabs.SelectionFade` |
+| Tabs のインジケーター、pill の文字色 | spring_move で位置と幅、色のフェード | `Tabs.Indicator`、`Tabs.SelectionFade` |
 | Slider のつまみのリング（`uikit:RangeSlider` はつまみごと） | spring_control | `Motion.Spring` |
 | loading のスピナー（Button、SplitButton、InputGroup のボタン） | Spinner と同じ 0.8 秒で 1 回転、ease_in_out | ボタンのアイコンの RotateTransform のキーフレーム（QuadraticEaseInOut）。静止ケースの `wait-300ms` で比べる |
 | Accordion / Collapsible の開閉 | 自然な高さ × ばね（MotionReveal） | Canvas が内容を測り、`RevealConverters` で高さを掛ける |
@@ -347,7 +347,6 @@ Avalonia には時刻を指定する公開 API がないので、テストに限
 | AvatarGroup | 上限までを表示し、超えたら省略記号を出す。 |
 | HoverCard | 599ms では開かず 600ms で開く。カードの上にポインターがある間は開いたまま、離れて 300ms で閉じる。 |
 | Stepper | 指標・ラベルのクリックで選択する。disabled は無視する。 |
-| Tabalonia | ドラッグしたタブにインジケーターが付いていく。閉じるボタンと追加ボタン、メニューでの選択が効く。溢れたタブはスクロールし、選択したタブが見える。キーボードのフォーカスでだけリングを出す。 |
 | Dock | ツールバーのメニューの Close がグループのパネルを閉じる。タブの閉じるボタンがドキュメントを閉じる。グループの左の 3 分の 1 へのドロップが左に分割する。 |
 | DropDownButton | キャレットがあり、クリックでフライアウトを開き、開いている間は selected の見た目（`:flyout-open`）。 |
 | クリアボタン | TextBox の `clearButton` はクリックで文字を消してフォーカスし、空・読み取り専用・無効・複数行では出ない。並びは mask toggle、クリアボタン、`InnerRightContent` の順。ComboBox の `clearButton` は選択を外し、リストは開かない。 |
@@ -378,6 +377,7 @@ Avalonia には時刻を指定する公開 API がないので、テストに限
 | uikit:Pagination | 番号と省略記号の並び（GPUI の calculate_items と ellipsis_menu_pages の例）、`request_page` の条件と `PageChanged`、ページ・前・次のクリック、100 ページの長いメニュー（240px でスクロール。R37）、compact。 |
 | Carousel のトラックとボタン | 前後のボタンは端で無効（`WrapSelection` なら有効）で、クリック後にリングなしで carousel にフォーカスする。ドラッグは 2px でロックして付いていき、離すと最も近いページを選び、ページ内のボタンをクリックしない。ホイールのノッチとバースト、トラックパッドのスクロールとスナップ（R38）。縦の carousel は端のノッチを親へ渡す。ループは最後から最初へ進んで周回に戻る。 |
 | Tabs の menu と溢れたタブ | 一覧のメニューは選択中のタブにチェックを付け、無効なタブを無効にし、選んだタブを選択する（TabStrip、TabControl）。アイコンのタブはアイコンで一覧する。溢れたタブはスクロールして選択したタブを見せ（prefix は動かない）、行のクリップがフォーカスリングを残す。 |
+| Tabs の操作（ADR 33） | 閉じるボタンは `TabClosing` を出してタブを除き、次のタブを選ぶ（最後なら前）。`Cancel` で残る。`Closable` はバーなら全タブ、タブならそのタブ。追加ボタンは最後のタブの 4px 後ろにあり、ファクトリーの項目を足して選ぶ。その Plus は 100% でも 200% でも線がピクセルの列に乗る。ドラッグ中のタブはポインターに付き、ほかのタブは場所を空け、インジケーターがばねなしで付いていき、離すと項目が動く（`ItemsSource` と TabControl の `Items`）。4px 未満の動きは選択だけ。変更できない一覧は動かない。溢れたバーは端で保持するとスクロールする。同じグループのバーへだけ移り（同じウィンドウ、別のウィンドウ）、離す前なら戻せる。どのバーからも離れたタブはファクトリーのウィンドウへ移り、ウィンドウはポインターに付いていく。そのウィンドウのタブが 1 つならウィンドウごと動き、バーへ戻すと隠れて、離すと閉じる。最後のタブを閉じても閉じる（アプリのウィンドウは残る）。 |
 | uikit:Table | 行の幅を `ColSpan` で分け、パディングを引いた basis の比で縮める（2 列の見出し 223.5 と下の 115 + 115）。1 列 100px より細くしない。`Width` の列は縮まず、収まる幅は伸ばさない。 |
 | uikit:ColorSelect | ポップオーバーが 288px でトリガーの 4px 下に開き、featured の 12 色が 18px に縮み、パレットが 99 色。色を指すとプレビューし（値は変えない）、クリックで確定して閉じる。16 進の欄は HEX_PATTERN だけを受け付け、Enter で確定して閉じ、トリガーにフォーカスを戻す。スライダーは確定して開いたまま。disabled は開かず、開いている間に disabled になると閉じる。 |
 | ResizablePanelGroup | サイズのないパネルが残りを等分する。ドラッグの連鎖と解放時の 1 回の報告、2px のしきい値、`ResizePanel`、隠したパネル（戻すと元の長さ）、グループの長さの変化での比の伸縮、パネルの追加と削除、ハンドルの矢印キー。 |
@@ -406,7 +406,7 @@ Avalonia には時刻を指定する公開 API がないので、テストに限
 | | `TextLines.RoundsWidthUp` | 文字の幅を論理 px に切り上げる（GPUI と同じ。ちょうど整数の幅も 1px 大きくする） |
 | | `TextLines.CentersTallGlyphs` | 行より高い文字を行の中央に置く |
 | | `TextLines.StartsTrimmedText` | 省略記号で切った文字を左に寄せる（GPUI と同じ） |
-| | `DragTabs.FollowsDrag`（Tabalonia） | ドラッグ中のタブにインジケーターをばねなしで付ける |
+| | `IconStrokes.SnapsToPixels` | 奇数倍率（100%）で 12px のアイコンを半デバイスピクセルずらし、中心線の 1px の線をピクセルの列に合わせる（タブの追加ボタンの Plus） |
 | | `DockSplitters.Straddles`（Dock） | 分割のハンドルを両側のグループの上に重ね、場所を取らない |
 | | `DockTargets.MarksTab`（Dock） | 挿入先のタブの区切り線を、レイアウトを変えずに消す |
 | | `uikit:SpringSlide` | Carousel のページ送り |
@@ -425,16 +425,16 @@ Avalonia には時刻を指定する公開 API がないので、テストに限
 
 新しいコントロール（ADR 19、`src/AvaloniaUIKit/Controls/`）は、プロパティ・疑似クラス・テンプレートの部品と、そのコンポーネント自身の操作だけを持つ: `Badge`、`TagLabel`、`Alert`、`Skeleton`、`StatusBar`、`Breadcrumb` / `BreadcrumbItem`、`Kbd`、`Clipboard`、`Rating` / `RatingStar`、`Avatar`、`AvatarGroup`、`EmptyState`、`DescriptionList` / `DescriptionItem` / `DescriptionSeparator`、`Stepper` / `StepperItem`、`Form` / `FormField`、`HoverCard`、`ShimmerText`、`Marker`、`Bubble`、`Message`。補助として、GPUI の色の選び方（`FxHash`: rustc-hash 2.1 の FxHasher、`OkLab`: mix_oklab）と、長さを分け合うパネル（`DescriptionRowPanel`、`StepperPanel`、`FormPanel`、`MarkerPanel`。辺をデバイス px に丸める `LayoutSnap`）を持つ。
 
-サードパーティのライブラリのパッケージ（ADR 28）は、ライブラリのテンプレートの約束が GPUI の部品を置けないところだけコントロールを足す（ADR 29）。最初に Tabalonia のパッケージに足した `TabsMenuButton`（タブを並べた一覧を開く、タブバーの末尾のボタン）は、本体の TabStrip / TabControl の `menu` クラスも使うので、本体（`src/AvaloniaUIKit/Controls/`、名前空間は同じ `AvaloniaUIKit`）に移した。
+サードパーティのライブラリのパッケージ（ADR 28）は、ライブラリのテンプレートの約束が GPUI の部品を置けないところだけコントロールを足す（ADR 29）。`TabsMenuButton`（タブを並べた一覧を開く、タブバーの末尾のボタン）は、最初に Tabalonia のパッケージに足し、本体の TabStrip / TabControl の `menu` クラスも使うので本体（`src/AvaloniaUIKit/Controls/`、名前空間は同じ `AvaloniaUIKit`）に移した。Tabalonia のパッケージは、タブの操作を本体の添付プロパティにしたときに廃止した（ADR 33）。
 
 ## 機能を足したコントロールと添付プロパティ
 
 既存のコントロールにない機能は、アプリが設定したときだけ挙動を変える添付プロパティと、新しいコントロールで足す（ADR 30、`src/AvaloniaUIKit/Controls/`）。テーマから自動で当たるコードは、上の見た目だけのコードのまま。新しいコントロールの中の Button、TextBox、ListBox、Popup などはテーマ済みの標準のコントロールを使い、項目の文字や子は関数（`Func<object?, string>` など）か、コンパイル済みのバインディングとテンプレートで受け取る。リフレクションは使わない。
 
-- 挙動を変える添付プロパティ: `Buttons.IsLoading` / `LoadingIcon` / `TakesFocusOnPointer`、`Inputs.Pattern` / `Validate` / `MaskPattern` / `CleanOnEscape` / `TabSize` / `HardTabs`（マスクの型 `MaskPattern` / `PatternMask` / `NumberMask`、`Inputs.UnmaskValue`）、`Toolbar.TakesSize`、`Carousels.TracksPointer`。拡張メソッド `ItemsScrolling.ScrollToItem`（`ScrollStrategy`。ListView と Tree も使う）。
+- 挙動を変える添付プロパティ: `Tabs.Closable` / `NewTabFactory` / `Reorderable` / `DragGroup` / `DetachedWindowFactory`（`Tabs.TabClosing`、`TabClosingEventArgs`。ADR 33）、`Buttons.IsLoading` / `LoadingIcon` / `TakesFocusOnPointer`、`Inputs.Pattern` / `Validate` / `MaskPattern` / `CleanOnEscape` / `TabSize` / `HardTabs`（マスクの型 `MaskPattern` / `PatternMask` / `NumberMask`、`Inputs.UnmaskValue`）、`Toolbar.TakesSize`、`Carousels.TracksPointer`。拡張メソッド `ItemsScrolling.ScrollToItem`（`ScrollStrategy`。ListView と Tree も使う）。
 - 新しいコントロール: `ButtonGroup`、`ToggleGroup`、`Accordion`、`Toolbar` / `ToolbarGroup` / `ToolbarSpacer`、`InputGroup` / `InputGroupAddon`、`NumberInput`（`NumericUpDown` の派生）、`RangeSlider`、`Select` / `SelectGroup`（`SelectTriggerContext`、`SelectionChangingEventArgs`）、`ListView` / `ListItem` / `ListSection`（`IndexPath`）、`Tree` / `TreeItem`、`CalendarView`、`DateField`、`TimeField`、`Table` と部品（`TableHeader`、`TableBody`、`TableFooter`、`TableRow`、`TableHead`、`TableCell`、`TableCaption`）、`ColorSelect` / `ColorSwatch`、`Pagination`、`CarouselPrevious` / `CarouselNext`、`CarouselTrack`（Carousel の ItemsPanel）、`TabsMenuButton`、`TextLabel`、`AsyncImage`（`IImageLoader`、`ImageLoader`）、`Icon`（生成した `IconName`）、`ResizablePanelGroup` / `ResizablePanel`、`Sheet`、`Sidebar` と部品（`SidebarHeader`、`SidebarFooter`、`SidebarGroup`、`SidebarMenu`、`SidebarMenuItem`、`SidebarToggleButton`。折り畳みは継承される `Sidebar.IsIconCollapsed` で部品に渡す）、`NotificationList` / `NotificationItem`（`NotificationCard` の派生、`NotificationPlacement`）、`TitleBar`。
 - テンプレートの部品: `SelectList` / `SelectListItem` / `SelectGroupHeader`、`TreeEntry`、`CalendarViewItem`、`RangeSliderTrack`、`InputGroupPanel` / `InputGroupAddonPanel`、`TableRowPanel`。
-- 内部の補助: `GroupClasses`（グループのクラスを子に渡し、渡したものを外す）、`ToolbarLayout`、`ListRows`（ListView と Tree の行の仮想化）、`CalendarRow` / `CalendarPickerGrid`、`GpuiHsla` / `GpuiColor`（GPUI の単精度の HSL と 16 進、パレット）、`SwatchRowPanel` / `StripPanel`（ColorSelect の行と色帯）、`ResizablePanelHandle`（GridSplitter の派生）、`NotificationStack`（配置ごとの通知の重なり）、`TitleBarPanel`（両端に分ける行）。辺をデバイス px に丸める `LayoutSnap` に、gpui-pre と同じく中点を 0 の側へ丸める `GpuiEdge` / `GpuiRuns` を足した（`uikit:Table`、`uikit:ColorSelect`）。
+- 内部の補助: `TabDragSession`（ドラッグ中のタブ。押したバーがポインターをキャプチャしたまま、ほかのバーやウィンドウへ移す）、`GroupClasses`（グループのクラスを子に渡し、渡したものを外す）、`ToolbarLayout`、`ListRows`（ListView と Tree の行の仮想化）、`CalendarRow` / `CalendarPickerGrid`、`GpuiHsla` / `GpuiColor`（GPUI の単精度の HSL と 16 進、パレット）、`SwatchRowPanel` / `StripPanel`（ColorSelect の行と色帯）、`ResizablePanelHandle`（GridSplitter の派生）、`NotificationStack`（配置ごとの通知の重なり）、`TitleBarPanel`（両端に分ける行）。辺をデバイス px に丸める `LayoutSnap` に、gpui-pre と同じく中点を 0 の側へ丸める `GpuiEdge` / `GpuiRuns` を足した（`uikit:Table`、`uikit:ColorSelect`）。
 
 ## 緩和の一覧
 
@@ -512,7 +512,7 @@ GPUI と同じ見た目・挙動にするため、アプリ側で次の設定を
 | List | 行の内容は `ItemTemplate`。キー操作の後はポインターを動かすまで hover を描き直さない（GPUI） | ケースは先にポインターを外す。 |
 | Combobox | 入力で絞り込むなら `AutoCompleteBox` か `ComboBox IsEditable="True"`、選ぶだけなら `ComboBox Classes="combobox"`。検索欄・複数選択・footer は `uikit:Select Classes="combobox"` | – |
 | Popover | GPUI のアンカーと Placement の対応（TopLeft = BottomEdgeAlignedLeft、TopCenter = Bottom、TopRight = BottomEdgeAlignedRight、BottomLeft = TopEdgeAlignedLeft、BottomCenter = Top、BottomRight = TopEdgeAlignedRight、LeftCenter = Right、RightCenter = Left）、`PlacementConstraintAdjustment="SlideX, SlideY"`、offset は `HorizontalOffset` / `VerticalOffset` に n − 4 | テーマが 4px の間隔を付ける。GPUI は反転しない。`FlyoutPresenterClasses` に `arrow` / `plain`。 |
-| Tabs | `TabStrip` / `TabControl` に `outline` `pill` `segmented` `underline`、アイコンだけのタブに `icon-only`。タブの一覧のメニューは `menu`、バーの前後の内容は `uikit:Tabs.Prefix` / `uikit:Tabs.Suffix` | GPUI の menu(true)、prefix、suffix。 |
+| Tabs | `TabStrip` / `TabControl` に `outline` `pill` `segmented` `underline`、アイコンだけのタブに `icon-only`。タブの一覧のメニューは `menu`、バーの前後の内容は `uikit:Tabs.Prefix` / `uikit:Tabs.Suffix`。閉じる・追加・並べ替え・バーの間の移動・ウィンドウへの切り離しは `uikit:Tabs.Closable` / `NewTabFactory` / `Reorderable` / `DragGroup` / `DetachedWindowFactory` で、`ItemsSource` は変更できるリスト（または `Items`） | GPUI の menu(true)、prefix、suffix、tabs story の closable。切り離しはウィンドウのある環境だけ。ファクトリーのウィンドウは、同じグループの空の TabStrip か TabControl を持つ。 |
 | Toolbar | `CommandBar` の `DefaultLabelPosition` は Right のまま、サイズは `xsmall`（既定 small）`medium` | GPUI の toolbar は small。 |
 | Accordion | `StackPanel Classes="accordion"` に Expander を並べ、枠は `Border Classes="accordion"` | 項目の区切りと外枠。 |
 | Collapsible | `Theme="{StaticResource UIKitCollapsible}"`、動きは `reveal` クラス | GPUI の motion_id。 |
@@ -530,7 +530,6 @@ GPUI と同じ見た目・挙動にするため、アプリ側で次の設定を
 | Sheet | `DrawerPage Classes="sheet" DrawerBehavior="Flyout"`、暗転なしは `BackdropBrush="{x:Null}"`、GPUI の 34px のタイトルバーの下に出すなら `UIKit.Sheet.Margin` | – |
 | TitleBar | `UIKit.TitleBar.Padding`（既定 12。`uikit:TitleBar` も使う） | WindowDrawnDecorations では、Avalonia が装飾を描く OS（Windows の拡張、X11、Wayland）でだけ使われる。 |
 | ColorPicker | `UIKitColorPickerTheme` を追加、ColorSelect は `Classes="field"` | パレットは標準の FluentColorPalette（`Palette` で変える）。GPUI のパレットと HSLA にするなら、追加のパッケージの要らない `uikit:ColorSelect`。 |
-| Tabalonia | `UIKitTabaloniaTheme` を追加（Tabalonia のテーマは入れない）、種類とサイズは Tabs と同じクラス、一覧は `menu`。`ItemsSource` は変更できるリスト | タブは `TabItemWidth` の 1 つの幅に並ぶ（GPUI は文字の幅）。ウィンドウのない環境では `EnableTabDetaching="False"`。 |
 | Dock | `UIKitDockTheme` を追加（Dock のテーマは入れない）。ウィンドウのない環境では `DockSettings.UseManagedWindows` か `FloatingWindowHostMode="Managed"` | Dock 12.1.0.6 は managed のドラッグのプレビューをレイヤーの原点に置く（R35）。trim するなら分割のモデルのプロパティを残す（`DynamicDependency`）。 |
 | Badge | `Count` / `Maximum` / `IsDot` / `Icon`、色は `BadgeBackground`、サイズは `small` `large` | 色を Background にすると中身の背景と区別できない。 |
 | TagLabel | 色はクラス（`primary` 既定、`secondary` `danger` `success` `warning` `info`、19 のパレット色）、`outline`、`xsmall` `small` `large`、`rounded-full` | GPUI の Tag。Avalonia の `Control.Tag` と同名になるため改名。 |

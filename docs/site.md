@@ -46,7 +46,8 @@ https://avalonia-uikit.omofla.sh の構成と約束事。サイト本体は `sit
 - 登録は `samples/AvaloniaUIKit.Demos/DemoRegistry.g.cs` に生成する（`bun sites/scripts/demo-registry.ts`）。XAML を増やしたら再生成してコミットする。CI は生成結果が一致することを確かめる。
 - フォントは同梱の Inter（`assets/fonts/inter/`）。ブラウザーにはシステムフォントがないので、Browser と Previews の両方で `UIKit.FontFamily` を Inter にする。
 - DataGrid はトリミング非対応なので、WASM では動かないことがある。その場合は「Live demo unavailable」と出す（下の「ライブデモ」）。
-- 第三者のライブラリのデモ（ADR 28）は、ページにウィンドウがないことに合わせる。Tabalonia は `EnableTabDetaching="False"`、Dock は Browser のアプリが `DockSettings.UseManagedWindows` で浮動ウィンドウを DockControl の中に描く。Dock 12.1.0.6 の管理モードのドラッグのプレビューは Avalonia 12 では左上に残る（`docs/testing.md` の R35）ので、Browser のアプリはそれを隠す。Tabalonia の `ItemsSource` は変更できるリストでなければならないので、デモは `TabList`（`ObservableCollection`）に `DragTabItem` を並べる。
+- 第三者のライブラリのデモ（ADR 28）は、ページにウィンドウがないことに合わせる。Dock は Browser のアプリが `DockSettings.UseManagedWindows` で浮動ウィンドウを DockControl の中に描く。Dock 12.1.0.6 の管理モードのドラッグのプレビューは Avalonia 12 では左上に残る（`docs/testing.md` の R35）ので、Browser のアプリはそれを隠す。
+- タブのドラッグ（`uikit:Tabs.Reorderable` / `DragGroup`。ADR 33）は、別のビューのタブバーへは移らない（ビューごとに座標の原点が違うので、スクリーン座標を比べるのはウィンドウ同士だけ）。ウィンドウへの切り離し（`DetachedWindowFactory`）はページでは動かないので、Tabs のページにコード例だけを載せる。
 
 ## プレビュー画像
 
