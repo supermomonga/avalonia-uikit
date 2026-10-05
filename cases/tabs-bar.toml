@@ -1,0 +1,45 @@
+# GPUI Kit TabBar's parts -> TabStrip (and the strip of TabControl) with the
+# menu class and uikit:Tabs.Prefix / Suffix. The tabalonia bar and menu groups
+# on the tabs case's three tabs (Account, Profile, Settings) at their own widths.
+component = "tabs-bar"
+viewport = [352, 60]
+anchor = [16, 8]
+
+# The bar's prefix and suffix: ghost xsmall buttons in an mx_1 row (the tabs
+# story's). The tabs end with 12px of space before a suffix.
+[[group]]
+name = "bar"
+viewport = [472, 60]
+params = { selected = 0, width = 440, bar_prefix = true, bar_suffix = true }
+matrix = { variant = ["tab", "outline", "pill", "segmented", "underline"] }
+
+# menu(true): the caret button at the bar's end (x = 16 + 320 - 10), closed and
+# open. The open menu checks the selected tab.
+[[group]]
+name = "menu"
+viewport = [352, 220]
+params = { selected = 1, menu = true }
+matrix = { variant = ["tab", "underline"] }
+states = ["normal", "click-at-326-24"]
+
+# A disabled tab is disabled in the menu too.
+[[group]]
+name = "menu-disabled"
+viewport = [352, 220]
+params = { selected = 1, menu = true, disabled_index = 2 }
+states = ["click-at-326-24"]
+
+# Prefix, menu and suffix together: the menu button comes before the suffix.
+[[group]]
+name = "all"
+viewport = [472, 220]
+params = { selected = 0, width = 440, bar_prefix = true, bar_suffix = true, menu = true }
+matrix = { variant = ["tab", "pill"] }
+states = ["normal", "click-at-398-24"]
+
+# Tabs wider than the bar: the row is cut at the edge of the bar's content
+# (inside a segmented bar's padding, where GPUI's scrolling row is).
+[[group]]
+name = "overflow"
+params = { selected = 0, width = 180 }
+matrix = { variant = ["tab", "outline", "pill", "segmented", "underline"] }

@@ -53,4 +53,24 @@ public static partial class Adapters
         FlagClass(pagination, c, "compact");
         return pagination;
     }
+
+    /// <summary>
+    /// The tabs-bar cases (reference/src/cases/tabs.rs): a tabs case's TabStrip
+    /// or TabControl with the menu class and the tabs story's prefix and suffix
+    /// as uikit:Tabs.Prefix and Suffix.
+    /// </summary>
+    public static T TabBarParts<T>(T tabs, GoldenCase c) where T : Avalonia.Controls.Primitives.SelectingItemsControl
+    {
+        FlagClass(tabs, c, "menu");
+        if (c.Bool("bar_prefix"))
+        {
+            Tabs.SetPrefix(tabs, BarButtons("chevron-left", "chevron-right"));
+        }
+        if (c.Bool("bar_suffix"))
+        {
+            Tabs.SetSuffix(tabs, BarButtons("inbox", "ellipsis"));
+        }
+        return tabs;
+    }
 }
+
