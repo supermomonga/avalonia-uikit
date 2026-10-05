@@ -156008,6 +156008,1606 @@
       "png_sha256": "bf8e84078dc4a5594912debe17d1da8390763cd64ee03424a2c2ab0c95005e81"
     },
     {
+      "id": "uikit-label/align.center/normal/dark",
+      "component": "uikit-label",
+      "group": "align",
+      "params": {
+        "text": "Text align",
+        "width": 240,
+        "align": "center"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        280.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        240.0,
+        20.0
+      ],
+      "png": "png/uikit-label/align.center/normal/dark.png",
+      "scene": "scenes/uikit-label/align.center/normal/dark.json",
+      "png_sha256": "3bb4825ae5f3f5b08ea81e3051426782784abd627b4e99379734db91629b0fd6"
+    },
+    {
+      "id": "uikit-label/align.center/normal/light",
+      "component": "uikit-label",
+      "group": "align",
+      "params": {
+        "text": "Text align",
+        "width": 240,
+        "align": "center"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        280.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        240.0,
+        20.0
+      ],
+      "png": "png/uikit-label/align.center/normal/light.png",
+      "scene": "scenes/uikit-label/align.center/normal/light.json",
+      "png_sha256": "f15471c0e988eda7544fe6c723088f179d98a8d87b57fb98bd6071a3db277e71"
+    },
+    {
+      "id": "uikit-label/align.left/normal/dark",
+      "component": "uikit-label",
+      "group": "align",
+      "params": {
+        "text": "Text align",
+        "width": 240,
+        "align": "left"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        280.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        240.0,
+        20.0
+      ],
+      "png": "png/uikit-label/align.left/normal/dark.png",
+      "scene": "scenes/uikit-label/align.left/normal/dark.json",
+      "png_sha256": "a519dcf363776f2ee09cce4fce02bf21f8ce54629d14b445089bc993933df863"
+    },
+    {
+      "id": "uikit-label/align.left/normal/light",
+      "component": "uikit-label",
+      "group": "align",
+      "params": {
+        "text": "Text align",
+        "width": 240,
+        "align": "left"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        280.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        240.0,
+        20.0
+      ],
+      "png": "png/uikit-label/align.left/normal/light.png",
+      "scene": "scenes/uikit-label/align.left/normal/light.json",
+      "png_sha256": "6c5c9d255cd6ff8f3bc6dae27d6723506cf4f22d758c86bbccba9d42a8ad5ba6"
+    },
+    {
+      "id": "uikit-label/align.right/normal/dark",
+      "component": "uikit-label",
+      "group": "align",
+      "params": {
+        "text": "Text align",
+        "width": 240,
+        "align": "right"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        280.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        240.0,
+        20.0
+      ],
+      "png": "png/uikit-label/align.right/normal/dark.png",
+      "scene": "scenes/uikit-label/align.right/normal/dark.json",
+      "png_sha256": "695c3fbe82b1ba6d7fb6fcf11e7e5dc31e40542cdbbed41ad7c906c9021f9304"
+    },
+    {
+      "id": "uikit-label/align.right/normal/light",
+      "component": "uikit-label",
+      "group": "align",
+      "params": {
+        "text": "Text align",
+        "width": 240,
+        "align": "right"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        280.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        240.0,
+        20.0
+      ],
+      "png": "png/uikit-label/align.right/normal/light.png",
+      "scene": "scenes/uikit-label/align.right/normal/light.json",
+      "png_sha256": "d5e11b50769ffa7e0cc2ec476b4006fdbc99f1387a777de4faf922cb56c369ce"
+    },
+    {
+      "id": "uikit-label/color.danger/normal/dark",
+      "component": "uikit-label",
+      "group": "color",
+      "params": {
+        "text": "Verified",
+        "color": "danger"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        280.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        59.0,
+        20.0
+      ],
+      "png": "png/uikit-label/color.danger/normal/dark.png",
+      "scene": "scenes/uikit-label/color.danger/normal/dark.json",
+      "png_sha256": "8976c2cca9d41ef44fc544c39feda434a39b3e6f7966554cccc4401a4f926000"
+    },
+    {
+      "id": "uikit-label/color.danger/normal/light",
+      "component": "uikit-label",
+      "group": "color",
+      "params": {
+        "text": "Verified",
+        "color": "danger"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        280.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        59.0,
+        20.0
+      ],
+      "png": "png/uikit-label/color.danger/normal/light.png",
+      "scene": "scenes/uikit-label/color.danger/normal/light.json",
+      "png_sha256": "2b4c8045e06ecb0dd6f46db4246788fb89a5985df40d58a23ba8ed7cafd56ab9"
+    },
+    {
+      "id": "uikit-label/color.muted/normal/dark",
+      "component": "uikit-label",
+      "group": "color",
+      "params": {
+        "text": "Verified",
+        "color": "muted"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        280.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        59.0,
+        20.0
+      ],
+      "png": "png/uikit-label/color.muted/normal/dark.png",
+      "scene": "scenes/uikit-label/color.muted/normal/dark.json",
+      "png_sha256": "aa6e5c6afba86678a2a58221da76f133fb61445bbb4c2374f2c681a626c2b87e"
+    },
+    {
+      "id": "uikit-label/color.muted/normal/light",
+      "component": "uikit-label",
+      "group": "color",
+      "params": {
+        "text": "Verified",
+        "color": "muted"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        280.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        59.0,
+        20.0
+      ],
+      "png": "png/uikit-label/color.muted/normal/light.png",
+      "scene": "scenes/uikit-label/color.muted/normal/light.json",
+      "png_sha256": "34c1e75c9de3022b147355f5ff9d536ad1f99c14c64ac930efd6da5bc97b3066"
+    },
+    {
+      "id": "uikit-label/highlight.S/normal/dark",
+      "component": "uikit-label",
+      "group": "highlight",
+      "params": {
+        "text": "Design system documentation",
+        "highlights": "S"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        280.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        230.0,
+        20.0
+      ],
+      "png": "png/uikit-label/highlight.S/normal/dark.png",
+      "scene": "scenes/uikit-label/highlight.S/normal/dark.json",
+      "png_sha256": "1612bc87fc7a331405334971b04860258da2b9e49649f3f33e2059324a99b870"
+    },
+    {
+      "id": "uikit-label/highlight.S/normal/light",
+      "component": "uikit-label",
+      "group": "highlight",
+      "params": {
+        "text": "Design system documentation",
+        "highlights": "S"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        280.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        230.0,
+        20.0
+      ],
+      "png": "png/uikit-label/highlight.S/normal/light.png",
+      "scene": "scenes/uikit-label/highlight.S/normal/light.json",
+      "png_sha256": "1ae99ecbdc461b07d01d71074097e2b0086e6a806d961d1407fc2acbfd37784f"
+    },
+    {
+      "id": "uikit-label/highlight.sign/normal/dark",
+      "component": "uikit-label",
+      "group": "highlight",
+      "params": {
+        "text": "Design system documentation",
+        "highlights": "sign"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        280.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        230.0,
+        20.0
+      ],
+      "png": "png/uikit-label/highlight.sign/normal/dark.png",
+      "scene": "scenes/uikit-label/highlight.sign/normal/dark.json",
+      "png_sha256": "19d1342afc7429240638cdd6f29c9186db27326f1576d3d7bf43ed58ddf8413e"
+    },
+    {
+      "id": "uikit-label/highlight.sign/normal/light",
+      "component": "uikit-label",
+      "group": "highlight",
+      "params": {
+        "text": "Design system documentation",
+        "highlights": "sign"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        280.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        230.0,
+        20.0
+      ],
+      "png": "png/uikit-label/highlight.sign/normal/light.png",
+      "scene": "scenes/uikit-label/highlight.sign/normal/light.json",
+      "png_sha256": "00df1b1d6d3a6781153c7d8e2cc95d85bc5e4166685b125d79be21ac8a486176"
+    },
+    {
+      "id": "uikit-label/highlight.xyz/normal/dark",
+      "component": "uikit-label",
+      "group": "highlight",
+      "params": {
+        "text": "Design system documentation",
+        "highlights": "xyz"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        280.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        230.0,
+        20.0
+      ],
+      "png": "png/uikit-label/highlight.xyz/normal/dark.png",
+      "scene": "scenes/uikit-label/highlight.xyz/normal/dark.json",
+      "png_sha256": "41e5fe555d7ef18733f93087e1056bd814ddfce13e7ac7764186049a427de2c3"
+    },
+    {
+      "id": "uikit-label/highlight.xyz/normal/light",
+      "component": "uikit-label",
+      "group": "highlight",
+      "params": {
+        "text": "Design system documentation",
+        "highlights": "xyz"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        280.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        230.0,
+        20.0
+      ],
+      "png": "png/uikit-label/highlight.xyz/normal/light.png",
+      "scene": "scenes/uikit-label/highlight.xyz/normal/light.json",
+      "png_sha256": "41f139a921c4031d821c2d446bc2002d16316b57c209acb640b006a124ed0205"
+    },
+    {
+      "id": "uikit-label/masked-secondary.base/normal/dark",
+      "component": "uikit-label",
+      "group": "masked-secondary",
+      "params": {
+        "text": "Company address",
+        "secondary": "(optional)",
+        "highlights": "add",
+        "masked": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        280.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        235.0,
+        20.0
+      ],
+      "png": "png/uikit-label/masked-secondary.base/normal/dark.png",
+      "scene": "scenes/uikit-label/masked-secondary.base/normal/dark.json",
+      "png_sha256": "84b8c9080e2be16811a9cbf417ca436df5ab97c12b18519659ee12dd721f66c0"
+    },
+    {
+      "id": "uikit-label/masked-secondary.base/normal/light",
+      "component": "uikit-label",
+      "group": "masked-secondary",
+      "params": {
+        "text": "Company address",
+        "secondary": "(optional)",
+        "highlights": "add",
+        "masked": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        280.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        235.0,
+        20.0
+      ],
+      "png": "png/uikit-label/masked-secondary.base/normal/light.png",
+      "scene": "scenes/uikit-label/masked-secondary.base/normal/light.json",
+      "png_sha256": "1abf3514be03c64eb0f321f9380e90e2db9bd2a22adc38340a296efbb179b3e1"
+    },
+    {
+      "id": "uikit-label/masked.base/normal/dark",
+      "component": "uikit-label",
+      "group": "masked",
+      "params": {
+        "text": "Hello",
+        "masked": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        280.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        46.0,
+        20.0
+      ],
+      "png": "png/uikit-label/masked.base/normal/dark.png",
+      "scene": "scenes/uikit-label/masked.base/normal/dark.json",
+      "png_sha256": "2b63997edaf8adaa0c684b6b5f32c50650539df744eb673d466e26807145a05d"
+    },
+    {
+      "id": "uikit-label/masked.base/normal/light",
+      "component": "uikit-label",
+      "group": "masked",
+      "params": {
+        "text": "Hello",
+        "masked": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        280.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        46.0,
+        20.0
+      ],
+      "png": "png/uikit-label/masked.base/normal/light.png",
+      "scene": "scenes/uikit-label/masked.base/normal/light.json",
+      "png_sha256": "6b26e188f5f2e3b5ffc06f96a50a1245dde7c134c7c4f7a7c45951f6c8340e05"
+    },
+    {
+      "id": "uikit-label/overlap.base/normal/dark",
+      "component": "uikit-label",
+      "group": "overlap",
+      "params": {
+        "text": "aaaa bbb",
+        "highlights": "aa"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        280.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        70.0,
+        20.0
+      ],
+      "png": "png/uikit-label/overlap.base/normal/dark.png",
+      "scene": "scenes/uikit-label/overlap.base/normal/dark.json",
+      "png_sha256": "8c3409e5c6dc1449df9b44bde686de5fa406b867297012367716eb759247e03e"
+    },
+    {
+      "id": "uikit-label/overlap.base/normal/light",
+      "component": "uikit-label",
+      "group": "overlap",
+      "params": {
+        "text": "aaaa bbb",
+        "highlights": "aa"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        280.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        70.0,
+        20.0
+      ],
+      "png": "png/uikit-label/overlap.base/normal/light.png",
+      "scene": "scenes/uikit-label/overlap.base/normal/light.json",
+      "png_sha256": "614ceda35f226c574e8f73abf20825a70b9948e2886860d7f6c679968741f11d"
+    },
+    {
+      "id": "uikit-label/prefix.design/normal/dark",
+      "component": "uikit-label",
+      "group": "prefix",
+      "params": {
+        "text": "Design system documentation",
+        "prefix": true,
+        "highlights": "design"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        280.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        230.0,
+        20.0
+      ],
+      "png": "png/uikit-label/prefix.design/normal/dark.png",
+      "scene": "scenes/uikit-label/prefix.design/normal/dark.json",
+      "png_sha256": "f9de2c9481e6e78c5490b13cc802c59e3542e2fd0a9274ff63fc57dd151f7aa0"
+    },
+    {
+      "id": "uikit-label/prefix.design/normal/light",
+      "component": "uikit-label",
+      "group": "prefix",
+      "params": {
+        "text": "Design system documentation",
+        "prefix": true,
+        "highlights": "design"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        280.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        230.0,
+        20.0
+      ],
+      "png": "png/uikit-label/prefix.design/normal/light.png",
+      "scene": "scenes/uikit-label/prefix.design/normal/light.json",
+      "png_sha256": "268da2b8323da5f8228e0ce6dddba3ad5a903430ad76160227a1bdb250699205"
+    },
+    {
+      "id": "uikit-label/prefix.system/normal/dark",
+      "component": "uikit-label",
+      "group": "prefix",
+      "params": {
+        "text": "Design system documentation",
+        "prefix": true,
+        "highlights": "system"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        280.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        230.0,
+        20.0
+      ],
+      "png": "png/uikit-label/prefix.system/normal/dark.png",
+      "scene": "scenes/uikit-label/prefix.system/normal/dark.json",
+      "png_sha256": "41e5fe555d7ef18733f93087e1056bd814ddfce13e7ac7764186049a427de2c3"
+    },
+    {
+      "id": "uikit-label/prefix.system/normal/light",
+      "component": "uikit-label",
+      "group": "prefix",
+      "params": {
+        "text": "Design system documentation",
+        "prefix": true,
+        "highlights": "system"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        280.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        230.0,
+        20.0
+      ],
+      "png": "png/uikit-label/prefix.system/normal/light.png",
+      "scene": "scenes/uikit-label/prefix.system/normal/light.json",
+      "png_sha256": "41f139a921c4031d821c2d446bc2002d16316b57c209acb640b006a124ed0205"
+    },
+    {
+      "id": "uikit-label/secondary-highlight.address/normal/dark",
+      "component": "uikit-label",
+      "group": "secondary-highlight",
+      "params": {
+        "text": "Company address",
+        "secondary": "(optional)",
+        "highlights": "address"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        280.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        214.0,
+        20.0
+      ],
+      "png": "png/uikit-label/secondary-highlight.address/normal/dark.png",
+      "scene": "scenes/uikit-label/secondary-highlight.address/normal/dark.json",
+      "png_sha256": "7b03298c971e81100610cd938502e9751ce23e9e153d17fb445f395543d9685a"
+    },
+    {
+      "id": "uikit-label/secondary-highlight.address/normal/light",
+      "component": "uikit-label",
+      "group": "secondary-highlight",
+      "params": {
+        "text": "Company address",
+        "secondary": "(optional)",
+        "highlights": "address"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        280.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        214.0,
+        20.0
+      ],
+      "png": "png/uikit-label/secondary-highlight.address/normal/light.png",
+      "scene": "scenes/uikit-label/secondary-highlight.address/normal/light.json",
+      "png_sha256": "0396de3dc362723fbb919d5e3e1fdc4c5fc311cf76bde09eaf56fc9105f98946"
+    },
+    {
+      "id": "uikit-label/secondary-highlight.company/normal/dark",
+      "component": "uikit-label",
+      "group": "secondary-highlight",
+      "params": {
+        "text": "Company address",
+        "secondary": "(optional)",
+        "highlights": "company"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        280.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        214.0,
+        20.0
+      ],
+      "png": "png/uikit-label/secondary-highlight.company/normal/dark.png",
+      "scene": "scenes/uikit-label/secondary-highlight.company/normal/dark.json",
+      "png_sha256": "9efb70849d140139b3e9c1f6548ba2d00258768fa95a0fa311530d15f0754052"
+    },
+    {
+      "id": "uikit-label/secondary-highlight.company/normal/light",
+      "component": "uikit-label",
+      "group": "secondary-highlight",
+      "params": {
+        "text": "Company address",
+        "secondary": "(optional)",
+        "highlights": "company"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        280.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        214.0,
+        20.0
+      ],
+      "png": "png/uikit-label/secondary-highlight.company/normal/light.png",
+      "scene": "scenes/uikit-label/secondary-highlight.company/normal/light.json",
+      "png_sha256": "9125f10518a4f6ca5caa6820e0b3b3bd762a6453e00f455b86519a905da109b6"
+    },
+    {
+      "id": "uikit-label/secondary.base/normal/dark",
+      "component": "uikit-label",
+      "group": "secondary",
+      "params": {
+        "text": "Company address",
+        "secondary": "(optional)",
+        "text_size": "base"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        280.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        214.0,
+        20.0
+      ],
+      "png": "png/uikit-label/secondary.base/normal/dark.png",
+      "scene": "scenes/uikit-label/secondary.base/normal/dark.json",
+      "png_sha256": "d96d2376e6b52c287f72202c0be59acbb5e6a07d769030c7928e3e37d32c6f17"
+    },
+    {
+      "id": "uikit-label/secondary.base/normal/light",
+      "component": "uikit-label",
+      "group": "secondary",
+      "params": {
+        "text": "Company address",
+        "secondary": "(optional)",
+        "text_size": "base"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        280.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        214.0,
+        20.0
+      ],
+      "png": "png/uikit-label/secondary.base/normal/light.png",
+      "scene": "scenes/uikit-label/secondary.base/normal/light.json",
+      "png_sha256": "be605ef39e9e1e15fd360e9206c01f45156f6923f2025c9332070f534d6ae6f0"
+    },
+    {
+      "id": "uikit-label/secondary.sm/normal/dark",
+      "component": "uikit-label",
+      "group": "secondary",
+      "params": {
+        "text": "Company address",
+        "secondary": "(optional)",
+        "text_size": "sm"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        280.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        188.0,
+        20.0
+      ],
+      "png": "png/uikit-label/secondary.sm/normal/dark.png",
+      "scene": "scenes/uikit-label/secondary.sm/normal/dark.json",
+      "png_sha256": "5dff8937654b5b82f989f68e1c913bec3c37207556e8df4208f9bc02dfc7027b"
+    },
+    {
+      "id": "uikit-label/secondary.sm/normal/light",
+      "component": "uikit-label",
+      "group": "secondary",
+      "params": {
+        "text": "Company address",
+        "secondary": "(optional)",
+        "text_size": "sm"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        280.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        188.0,
+        20.0
+      ],
+      "png": "png/uikit-label/secondary.sm/normal/light.png",
+      "scene": "scenes/uikit-label/secondary.sm/normal/light.json",
+      "png_sha256": "b86eb5d35264512ad8e728176cd3c9a3c4e0b607524f99b48b005c9e6c34eba9"
+    },
+    {
+      "id": "uikit-label/size.2xl/normal/dark",
+      "component": "uikit-label",
+      "group": "size",
+      "params": {
+        "text": "Account details",
+        "text_size": "2xl"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        280.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        176.0,
+        20.0
+      ],
+      "png": "png/uikit-label/size.2xl/normal/dark.png",
+      "scene": "scenes/uikit-label/size.2xl/normal/dark.json",
+      "png_sha256": "931ee345e862ace441572471c35099c8087298a1345d0ae54a08faff6746dd90"
+    },
+    {
+      "id": "uikit-label/size.2xl/normal/light",
+      "component": "uikit-label",
+      "group": "size",
+      "params": {
+        "text": "Account details",
+        "text_size": "2xl"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        280.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        176.0,
+        20.0
+      ],
+      "png": "png/uikit-label/size.2xl/normal/light.png",
+      "scene": "scenes/uikit-label/size.2xl/normal/light.json",
+      "png_sha256": "bda0a09e2c640d5e043d40624e7837a809d8f0caf170031cd9b7779b1500875c"
+    },
+    {
+      "id": "uikit-label/size.base/normal/dark",
+      "component": "uikit-label",
+      "group": "size",
+      "params": {
+        "text": "Account details",
+        "text_size": "base"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        280.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        118.0,
+        20.0
+      ],
+      "png": "png/uikit-label/size.base/normal/dark.png",
+      "scene": "scenes/uikit-label/size.base/normal/dark.json",
+      "png_sha256": "3fb404807e50d3c1e543b1f44371a6263c323c630ddb4f72a2dbea1418b49a16"
+    },
+    {
+      "id": "uikit-label/size.base/normal/light",
+      "component": "uikit-label",
+      "group": "size",
+      "params": {
+        "text": "Account details",
+        "text_size": "base"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        280.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        118.0,
+        20.0
+      ],
+      "png": "png/uikit-label/size.base/normal/light.png",
+      "scene": "scenes/uikit-label/size.base/normal/light.json",
+      "png_sha256": "24704d5d68536b96786b31a885724bf97765e783b164545cee617b8dcfcf8fb9"
+    },
+    {
+      "id": "uikit-label/size.lg/normal/dark",
+      "component": "uikit-label",
+      "group": "size",
+      "params": {
+        "text": "Account details",
+        "text_size": "lg"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        280.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        132.0,
+        20.0
+      ],
+      "png": "png/uikit-label/size.lg/normal/dark.png",
+      "scene": "scenes/uikit-label/size.lg/normal/dark.json",
+      "png_sha256": "e6bba27380a09ac6877275484f22f1fb0687d46d0612143bf7236da49081942f"
+    },
+    {
+      "id": "uikit-label/size.lg/normal/light",
+      "component": "uikit-label",
+      "group": "size",
+      "params": {
+        "text": "Account details",
+        "text_size": "lg"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        280.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        132.0,
+        20.0
+      ],
+      "png": "png/uikit-label/size.lg/normal/light.png",
+      "scene": "scenes/uikit-label/size.lg/normal/light.json",
+      "png_sha256": "03796cd54e507b6c29854d2fc49aa1f4fc29c542eabb749482ded1a60b020051"
+    },
+    {
+      "id": "uikit-label/size.sm/normal/dark",
+      "component": "uikit-label",
+      "group": "size",
+      "params": {
+        "text": "Account details",
+        "text_size": "sm"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        280.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        103.0,
+        20.0
+      ],
+      "png": "png/uikit-label/size.sm/normal/dark.png",
+      "scene": "scenes/uikit-label/size.sm/normal/dark.json",
+      "png_sha256": "91a6ecadb10a9bfccce62dae2a43eaefdb722e9e8827f77415a5988e2fe3dbf7"
+    },
+    {
+      "id": "uikit-label/size.sm/normal/light",
+      "component": "uikit-label",
+      "group": "size",
+      "params": {
+        "text": "Account details",
+        "text_size": "sm"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        280.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        103.0,
+        20.0
+      ],
+      "png": "png/uikit-label/size.sm/normal/light.png",
+      "scene": "scenes/uikit-label/size.sm/normal/light.json",
+      "png_sha256": "914a2b896f8f614cc45edbaff7ac407bf8d2d09a2331dbefc1fab3737a23c88e"
+    },
+    {
+      "id": "uikit-label/size.xl/normal/dark",
+      "component": "uikit-label",
+      "group": "size",
+      "params": {
+        "text": "Account details",
+        "text_size": "xl"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        280.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        147.0,
+        20.0
+      ],
+      "png": "png/uikit-label/size.xl/normal/dark.png",
+      "scene": "scenes/uikit-label/size.xl/normal/dark.json",
+      "png_sha256": "917e403b571184904063e4299052ff6a2bfc70bf0e2106051b6cd2c52cbfcc71"
+    },
+    {
+      "id": "uikit-label/size.xl/normal/light",
+      "component": "uikit-label",
+      "group": "size",
+      "params": {
+        "text": "Account details",
+        "text_size": "xl"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        280.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        147.0,
+        20.0
+      ],
+      "png": "png/uikit-label/size.xl/normal/light.png",
+      "scene": "scenes/uikit-label/size.xl/normal/light.json",
+      "png_sha256": "2fdc1c6536d2763c3a5b6df7d556eeab2392213d8a28227143a7851d2a340dab"
+    },
+    {
+      "id": "uikit-label/size.xs/normal/dark",
+      "component": "uikit-label",
+      "group": "size",
+      "params": {
+        "text": "Account details",
+        "text_size": "xs"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        280.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        88.0,
+        20.0
+      ],
+      "png": "png/uikit-label/size.xs/normal/dark.png",
+      "scene": "scenes/uikit-label/size.xs/normal/dark.json",
+      "png_sha256": "0205fc5158450bf13725a13328385ede9c138b8085f4245d0c71ae76d793c71c"
+    },
+    {
+      "id": "uikit-label/size.xs/normal/light",
+      "component": "uikit-label",
+      "group": "size",
+      "params": {
+        "text": "Account details",
+        "text_size": "xs"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        280.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        88.0,
+        20.0
+      ],
+      "png": "png/uikit-label/size.xs/normal/light.png",
+      "scene": "scenes/uikit-label/size.xs/normal/light.json",
+      "png_sha256": "18c7249d5a617a3ecb0f06b5a097900bd6d8107bf605c48c9d9a3a47cf33789f"
+    },
+    {
+      "id": "uikit-label/weight.bold/normal/dark",
+      "component": "uikit-label",
+      "group": "weight",
+      "params": {
+        "text": "Workspace owner",
+        "secondary": "Administrator",
+        "weight": "bold"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        280.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        254.0,
+        20.0
+      ],
+      "png": "png/uikit-label/weight.bold/normal/dark.png",
+      "scene": "scenes/uikit-label/weight.bold/normal/dark.json",
+      "png_sha256": "93f90af8876166d8a552d1221cca88981ce20343c51955684dd085d92449637d"
+    },
+    {
+      "id": "uikit-label/weight.bold/normal/light",
+      "component": "uikit-label",
+      "group": "weight",
+      "params": {
+        "text": "Workspace owner",
+        "secondary": "Administrator",
+        "weight": "bold"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        280.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        254.0,
+        20.0
+      ],
+      "png": "png/uikit-label/weight.bold/normal/light.png",
+      "scene": "scenes/uikit-label/weight.bold/normal/light.json",
+      "png_sha256": "19e7b8bb3ad2a55f29f26aeade089a796a248db3ad1c9fb0067e0c18d54ef05a"
+    },
+    {
+      "id": "uikit-label/weight.medium/normal/dark",
+      "component": "uikit-label",
+      "group": "weight",
+      "params": {
+        "text": "Workspace owner",
+        "secondary": "Administrator",
+        "weight": "medium"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        280.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        247.0,
+        20.0
+      ],
+      "png": "png/uikit-label/weight.medium/normal/dark.png",
+      "scene": "scenes/uikit-label/weight.medium/normal/dark.json",
+      "png_sha256": "f7d0423dc9bd858955921f4a80294f4e0e6f5a8e8da47b349c1aee33a6f2c7e9"
+    },
+    {
+      "id": "uikit-label/weight.medium/normal/light",
+      "component": "uikit-label",
+      "group": "weight",
+      "params": {
+        "text": "Workspace owner",
+        "secondary": "Administrator",
+        "weight": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        280.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        247.0,
+        20.0
+      ],
+      "png": "png/uikit-label/weight.medium/normal/light.png",
+      "scene": "scenes/uikit-label/weight.medium/normal/light.json",
+      "png_sha256": "5a0aec25b5f8a07fac0e97137e318c7fdc39cb86cd5ae81f4789f72b281b6b64"
+    },
+    {
+      "id": "uikit-label/weight.semibold/normal/dark",
+      "component": "uikit-label",
+      "group": "weight",
+      "params": {
+        "text": "Workspace owner",
+        "secondary": "Administrator",
+        "weight": "semibold"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        280.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        250.0,
+        20.0
+      ],
+      "png": "png/uikit-label/weight.semibold/normal/dark.png",
+      "scene": "scenes/uikit-label/weight.semibold/normal/dark.json",
+      "png_sha256": "7e7b48ad142834ac5bed5a0848ce044ee5282b6a1f2b32b240f3e102c90c050c"
+    },
+    {
+      "id": "uikit-label/weight.semibold/normal/light",
+      "component": "uikit-label",
+      "group": "weight",
+      "params": {
+        "text": "Workspace owner",
+        "secondary": "Administrator",
+        "weight": "semibold"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        280.0,
+        52.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        250.0,
+        20.0
+      ],
+      "png": "png/uikit-label/weight.semibold/normal/light.png",
+      "scene": "scenes/uikit-label/weight.semibold/normal/light.json",
+      "png_sha256": "fad18a29bbafe0b4a8631f7921ee4af48cf5b67bc8b063c1cf45211d45a191c6"
+    },
+    {
+      "id": "uikit-label/wrap.default/normal/dark",
+      "component": "uikit-label",
+      "group": "wrap",
+      "params": {
+        "text": "Label should support text wrap in default, if the text is too long, it should wrap to the next line.",
+        "width": 200,
+        "leading": "default"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        140.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        200.0,
+        80.0
+      ],
+      "png": "png/uikit-label/wrap.default/normal/dark.png",
+      "scene": "scenes/uikit-label/wrap.default/normal/dark.json",
+      "png_sha256": "b68945ad19906294d310e7a11eaaf1ab5325bb4119cab3092c9cd5f14d3216de"
+    },
+    {
+      "id": "uikit-label/wrap.default/normal/light",
+      "component": "uikit-label",
+      "group": "wrap",
+      "params": {
+        "text": "Label should support text wrap in default, if the text is too long, it should wrap to the next line.",
+        "width": 200,
+        "leading": "default"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        140.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        200.0,
+        80.0
+      ],
+      "png": "png/uikit-label/wrap.default/normal/light.png",
+      "scene": "scenes/uikit-label/wrap.default/normal/light.json",
+      "png_sha256": "7394c9a3d4f48c4f54fce42e93ebf9572cd9b243d5e906debf2e3c224eab9675"
+    },
+    {
+      "id": "uikit-label/wrap.relaxed/normal/dark",
+      "component": "uikit-label",
+      "group": "wrap",
+      "params": {
+        "text": "Label should support text wrap in default, if the text is too long, it should wrap to the next line.",
+        "width": 200,
+        "leading": "relaxed"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        240.0,
+        140.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        200.0,
+        116.0
+      ],
+      "png": "png/uikit-label/wrap.relaxed/normal/dark.png",
+      "scene": "scenes/uikit-label/wrap.relaxed/normal/dark.json",
+      "png_sha256": "edc5aa2ed451468f73812cf3a55d026d91705c173b877337521bef3f48e1a843"
+    },
+    {
+      "id": "uikit-label/wrap.relaxed/normal/light",
+      "component": "uikit-label",
+      "group": "wrap",
+      "params": {
+        "text": "Label should support text wrap in default, if the text is too long, it should wrap to the next line.",
+        "width": 200,
+        "leading": "relaxed"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        240.0,
+        140.0
+      ],
+      "anchor": [
+        16.0,
+        12.0
+      ],
+      "component_bounds": [
+        16.0,
+        12.0,
+        200.0,
+        116.0
+      ],
+      "png": "png/uikit-label/wrap.relaxed/normal/light.png",
+      "scene": "scenes/uikit-label/wrap.relaxed/normal/light.json",
+      "png_sha256": "bd250a28fd6b1a0e0e6c5dbcf77e5d7eecbc7e55f637b4ad5d7ad4cfbd19285d"
+    },
+    {
       "id": "uikit-list/click.base/click-at-60-25+at-280-230+key-down+key-down/dark",
       "component": "uikit-list",
       "group": "click",

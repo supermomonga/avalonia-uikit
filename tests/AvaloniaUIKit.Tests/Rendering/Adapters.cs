@@ -53,6 +53,7 @@ public static partial class Adapters
         "label" => LabelCase(c),
         "input" => InputFeatures(Input(c), c),
         "input-menu" => InputFeatures(Input(c), c),
+        "uikit-label" => TextLabelCase(c),
         "textarea" => Textarea(c),
         "input-group" => InputGroup(c),
         "input-group-loading" => LoadingInputGroup(c),
