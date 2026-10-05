@@ -144846,6 +144846,1664 @@
       "png_sha256": "13ac0d1c184ed71d944fd0f12215d817fbe5c49308fb3999b6a8194452975a8b"
     },
     {
+      "id": "uikit-carousel/drag.base/pressed-at-200-76+drag-at-196-76+drag-at-120-76/dark",
+      "component": "uikit-carousel",
+      "group": "drag",
+      "params": {
+        "selected": 0
+      },
+      "state": "pressed-at-200-76+drag-at-196-76+drag-at-120-76",
+      "theme": "dark",
+      "viewport": [
+        368.0,
+        188.0
+      ],
+      "anchor": [
+        64.0,
+        16.0
+      ],
+      "component_bounds": [
+        64.0,
+        16.0,
+        240.0,
+        156.0
+      ],
+      "png": "png/uikit-carousel/drag.base/pressed-at-200-76+drag-at-196-76+drag-at-120-76/dark.png",
+      "scene": "scenes/uikit-carousel/drag.base/pressed-at-200-76+drag-at-196-76+drag-at-120-76/dark.json",
+      "png_sha256": "0b92207c482dccfe51e29f69c83fef76a0ccb88d2a4e9e954a0c3fa28540a283"
+    },
+    {
+      "id": "uikit-carousel/drag.base/pressed-at-200-76+drag-at-196-76+drag-at-120-76/light",
+      "component": "uikit-carousel",
+      "group": "drag",
+      "params": {
+        "selected": 0
+      },
+      "state": "pressed-at-200-76+drag-at-196-76+drag-at-120-76",
+      "theme": "light",
+      "viewport": [
+        368.0,
+        188.0
+      ],
+      "anchor": [
+        64.0,
+        16.0
+      ],
+      "component_bounds": [
+        64.0,
+        16.0,
+        240.0,
+        156.0
+      ],
+      "png": "png/uikit-carousel/drag.base/pressed-at-200-76+drag-at-196-76+drag-at-120-76/light.png",
+      "scene": "scenes/uikit-carousel/drag.base/pressed-at-200-76+drag-at-196-76+drag-at-120-76/light.json",
+      "png_sha256": "b160aa4019fdf045568cb32a333386cbd698c525832cea175c58b5c8b148d212"
+    },
+    {
+      "id": "uikit-carousel/drag.base/pressed-at-200-76+drag-at-196-76+drag-at-60-76+release+wait-1000ms/dark",
+      "component": "uikit-carousel",
+      "group": "drag",
+      "params": {
+        "selected": 0
+      },
+      "state": "pressed-at-200-76+drag-at-196-76+drag-at-60-76+release+wait-1000ms",
+      "theme": "dark",
+      "viewport": [
+        368.0,
+        188.0
+      ],
+      "anchor": [
+        64.0,
+        16.0
+      ],
+      "component_bounds": [
+        64.0,
+        16.0,
+        240.0,
+        156.0
+      ],
+      "png": "png/uikit-carousel/drag.base/pressed-at-200-76+drag-at-196-76+drag-at-60-76+release+wait-1000ms/dark.png",
+      "scene": "scenes/uikit-carousel/drag.base/pressed-at-200-76+drag-at-196-76+drag-at-60-76+release+wait-1000ms/dark.json",
+      "png_sha256": "68d248263c1aae784aa6ecf20f58ef1e609b165137d66314a93a88ab62118343"
+    },
+    {
+      "id": "uikit-carousel/drag.base/pressed-at-200-76+drag-at-196-76+drag-at-60-76+release+wait-1000ms/light",
+      "component": "uikit-carousel",
+      "group": "drag",
+      "params": {
+        "selected": 0
+      },
+      "state": "pressed-at-200-76+drag-at-196-76+drag-at-60-76+release+wait-1000ms",
+      "theme": "light",
+      "viewport": [
+        368.0,
+        188.0
+      ],
+      "anchor": [
+        64.0,
+        16.0
+      ],
+      "component_bounds": [
+        64.0,
+        16.0,
+        240.0,
+        156.0
+      ],
+      "png": "png/uikit-carousel/drag.base/pressed-at-200-76+drag-at-196-76+drag-at-60-76+release+wait-1000ms/light.png",
+      "scene": "scenes/uikit-carousel/drag.base/pressed-at-200-76+drag-at-196-76+drag-at-60-76+release+wait-1000ms/light.json",
+      "png_sha256": "10b99bfa881294fbb8b18b35618636fd6af897064a05c5bb1a65f87385dc9d0f"
+    },
+    {
+      "id": "uikit-carousel/focus.base/focus/dark",
+      "component": "uikit-carousel",
+      "group": "focus",
+      "params": {
+        "selected": 1
+      },
+      "state": "focus",
+      "theme": "dark",
+      "viewport": [
+        368.0,
+        188.0
+      ],
+      "anchor": [
+        64.0,
+        16.0
+      ],
+      "component_bounds": [
+        64.0,
+        16.0,
+        240.0,
+        156.0
+      ],
+      "png": "png/uikit-carousel/focus.base/focus/dark.png",
+      "scene": "scenes/uikit-carousel/focus.base/focus/dark.json",
+      "png_sha256": "2a4376ba48745bdb5e3346b773c438d5e42a6f08d75ac01d76a0f4f2aea15477"
+    },
+    {
+      "id": "uikit-carousel/focus.base/focus/light",
+      "component": "uikit-carousel",
+      "group": "focus",
+      "params": {
+        "selected": 1
+      },
+      "state": "focus",
+      "theme": "light",
+      "viewport": [
+        368.0,
+        188.0
+      ],
+      "anchor": [
+        64.0,
+        16.0
+      ],
+      "component_bounds": [
+        64.0,
+        16.0,
+        240.0,
+        156.0
+      ],
+      "png": "png/uikit-carousel/focus.base/focus/light.png",
+      "scene": "scenes/uikit-carousel/focus.base/focus/light.json",
+      "png_sha256": "7433568cd041a7e91084821f0c8722ae574faa4eb7a0dc20f62525d1fe68eb37"
+    },
+    {
+      "id": "uikit-carousel/hover.base/at-212-162/dark",
+      "component": "uikit-carousel",
+      "group": "hover",
+      "params": {
+        "selected": 1
+      },
+      "state": "at-212-162",
+      "theme": "dark",
+      "viewport": [
+        368.0,
+        188.0
+      ],
+      "anchor": [
+        64.0,
+        16.0
+      ],
+      "component_bounds": [
+        64.0,
+        16.0,
+        240.0,
+        156.0
+      ],
+      "png": "png/uikit-carousel/hover.base/at-212-162/dark.png",
+      "scene": "scenes/uikit-carousel/hover.base/at-212-162/dark.json",
+      "png_sha256": "608cb15bd9e2d021001b31d944c325811f8916d13c3eae81113a44f79b7df0e2"
+    },
+    {
+      "id": "uikit-carousel/hover.base/at-212-162/light",
+      "component": "uikit-carousel",
+      "group": "hover",
+      "params": {
+        "selected": 1
+      },
+      "state": "at-212-162",
+      "theme": "light",
+      "viewport": [
+        368.0,
+        188.0
+      ],
+      "anchor": [
+        64.0,
+        16.0
+      ],
+      "component_bounds": [
+        64.0,
+        16.0,
+        240.0,
+        156.0
+      ],
+      "png": "png/uikit-carousel/hover.base/at-212-162/light.png",
+      "scene": "scenes/uikit-carousel/hover.base/at-212-162/light.json",
+      "png_sha256": "99df5e92e24d28a90b28bf166309d277d70312c1e5d54b6094b3e799c1b3ff67"
+    },
+    {
+      "id": "uikit-carousel/hover.base/at-32-76/dark",
+      "component": "uikit-carousel",
+      "group": "hover",
+      "params": {
+        "selected": 1
+      },
+      "state": "at-32-76",
+      "theme": "dark",
+      "viewport": [
+        368.0,
+        188.0
+      ],
+      "anchor": [
+        64.0,
+        16.0
+      ],
+      "component_bounds": [
+        64.0,
+        16.0,
+        240.0,
+        156.0
+      ],
+      "png": "png/uikit-carousel/hover.base/at-32-76/dark.png",
+      "scene": "scenes/uikit-carousel/hover.base/at-32-76/dark.json",
+      "png_sha256": "e2bc3478680802147e28ed89061999363df682afe07e3ed4c4dffd1aaa772679"
+    },
+    {
+      "id": "uikit-carousel/hover.base/at-32-76/light",
+      "component": "uikit-carousel",
+      "group": "hover",
+      "params": {
+        "selected": 1
+      },
+      "state": "at-32-76",
+      "theme": "light",
+      "viewport": [
+        368.0,
+        188.0
+      ],
+      "anchor": [
+        64.0,
+        16.0
+      ],
+      "component_bounds": [
+        64.0,
+        16.0,
+        240.0,
+        156.0
+      ],
+      "png": "png/uikit-carousel/hover.base/at-32-76/light.png",
+      "scene": "scenes/uikit-carousel/hover.base/at-32-76/light.json",
+      "png_sha256": "1eee991f379aea85128319a6a3cc46811021d4853203a3baa09e008d3abe88b3"
+    },
+    {
+      "id": "uikit-carousel/hover.base/at-336-76/dark",
+      "component": "uikit-carousel",
+      "group": "hover",
+      "params": {
+        "selected": 1
+      },
+      "state": "at-336-76",
+      "theme": "dark",
+      "viewport": [
+        368.0,
+        188.0
+      ],
+      "anchor": [
+        64.0,
+        16.0
+      ],
+      "component_bounds": [
+        64.0,
+        16.0,
+        240.0,
+        156.0
+      ],
+      "png": "png/uikit-carousel/hover.base/at-336-76/dark.png",
+      "scene": "scenes/uikit-carousel/hover.base/at-336-76/dark.json",
+      "png_sha256": "c2824755fb801b4fa2db3d5b9fbfdba75f07b8e4b1da5a431952355291c61fe8"
+    },
+    {
+      "id": "uikit-carousel/hover.base/at-336-76/light",
+      "component": "uikit-carousel",
+      "group": "hover",
+      "params": {
+        "selected": 1
+      },
+      "state": "at-336-76",
+      "theme": "light",
+      "viewport": [
+        368.0,
+        188.0
+      ],
+      "anchor": [
+        64.0,
+        16.0
+      ],
+      "component_bounds": [
+        64.0,
+        16.0,
+        240.0,
+        156.0
+      ],
+      "png": "png/uikit-carousel/hover.base/at-336-76/light.png",
+      "scene": "scenes/uikit-carousel/hover.base/at-336-76/light.json",
+      "png_sha256": "438674a85329bb8f6319a6a90aad0cc92b9f6ecbd31e96e8cb8d2b25304e4d05"
+    },
+    {
+      "id": "uikit-carousel/hover.base/pressed-at-336-76/dark",
+      "component": "uikit-carousel",
+      "group": "hover",
+      "params": {
+        "selected": 1
+      },
+      "state": "pressed-at-336-76",
+      "theme": "dark",
+      "viewport": [
+        368.0,
+        188.0
+      ],
+      "anchor": [
+        64.0,
+        16.0
+      ],
+      "component_bounds": [
+        64.0,
+        16.0,
+        240.0,
+        156.0
+      ],
+      "png": "png/uikit-carousel/hover.base/pressed-at-336-76/dark.png",
+      "scene": "scenes/uikit-carousel/hover.base/pressed-at-336-76/dark.json",
+      "png_sha256": "cea4ef74d12f98f2efa435e41978956fb7e9c74e53cce1e0424067df36b4dcef"
+    },
+    {
+      "id": "uikit-carousel/hover.base/pressed-at-336-76/light",
+      "component": "uikit-carousel",
+      "group": "hover",
+      "params": {
+        "selected": 1
+      },
+      "state": "pressed-at-336-76",
+      "theme": "light",
+      "viewport": [
+        368.0,
+        188.0
+      ],
+      "anchor": [
+        64.0,
+        16.0
+      ],
+      "component_bounds": [
+        64.0,
+        16.0,
+        240.0,
+        156.0
+      ],
+      "png": "png/uikit-carousel/hover.base/pressed-at-336-76/light.png",
+      "scene": "scenes/uikit-carousel/hover.base/pressed-at-336-76/light.json",
+      "png_sha256": "d02a984033ae7fb8dd764a7eff0ac0034c7cccd921de3d29ad818dbd5d31b78a"
+    },
+    {
+      "id": "uikit-carousel/loop.selected-0/normal/dark",
+      "component": "uikit-carousel",
+      "group": "loop",
+      "params": {
+        "looping": true,
+        "selected": 0
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        368.0,
+        188.0
+      ],
+      "anchor": [
+        64.0,
+        16.0
+      ],
+      "component_bounds": [
+        64.0,
+        16.0,
+        240.0,
+        156.0
+      ],
+      "png": "png/uikit-carousel/loop.selected-0/normal/dark.png",
+      "scene": "scenes/uikit-carousel/loop.selected-0/normal/dark.json",
+      "png_sha256": "3b6b791cd83b7862506ecdbeec302836507947822068f596d36691b7778806f5"
+    },
+    {
+      "id": "uikit-carousel/loop.selected-0/normal/light",
+      "component": "uikit-carousel",
+      "group": "loop",
+      "params": {
+        "looping": true,
+        "selected": 0
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        368.0,
+        188.0
+      ],
+      "anchor": [
+        64.0,
+        16.0
+      ],
+      "component_bounds": [
+        64.0,
+        16.0,
+        240.0,
+        156.0
+      ],
+      "png": "png/uikit-carousel/loop.selected-0/normal/light.png",
+      "scene": "scenes/uikit-carousel/loop.selected-0/normal/light.json",
+      "png_sha256": "7f789f8a4cc782aeac9162e65bfe6a188e6f225f54ee9c626dd7e43824182296"
+    },
+    {
+      "id": "uikit-carousel/loop.selected-2/normal/dark",
+      "component": "uikit-carousel",
+      "group": "loop",
+      "params": {
+        "looping": true,
+        "selected": 2
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        368.0,
+        188.0
+      ],
+      "anchor": [
+        64.0,
+        16.0
+      ],
+      "component_bounds": [
+        64.0,
+        16.0,
+        240.0,
+        156.0
+      ],
+      "png": "png/uikit-carousel/loop.selected-2/normal/dark.png",
+      "scene": "scenes/uikit-carousel/loop.selected-2/normal/dark.json",
+      "png_sha256": "17189432b4146044cb385c90291a7ac6f6c877b05ec82aa168917c01470b7e53"
+    },
+    {
+      "id": "uikit-carousel/loop.selected-2/normal/light",
+      "component": "uikit-carousel",
+      "group": "loop",
+      "params": {
+        "looping": true,
+        "selected": 2
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        368.0,
+        188.0
+      ],
+      "anchor": [
+        64.0,
+        16.0
+      ],
+      "component_bounds": [
+        64.0,
+        16.0,
+        240.0,
+        156.0
+      ],
+      "png": "png/uikit-carousel/loop.selected-2/normal/light.png",
+      "scene": "scenes/uikit-carousel/loop.selected-2/normal/light.json",
+      "png_sha256": "9c7e91a7655b1ea8af4b074b918d72057a9728933a344d665e1ec5516c540624"
+    },
+    {
+      "id": "uikit-carousel/motion.jump/click-at-212-162/light",
+      "component": "uikit-carousel",
+      "group": "motion.jump",
+      "params": {
+        "selected": 0
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        368.0,
+        188.0
+      ],
+      "anchor": [
+        64.0,
+        16.0
+      ],
+      "component_bounds": [
+        64.0,
+        16.0,
+        240.0,
+        156.0
+      ],
+      "motion": {
+        "name": "jump",
+        "trigger": "click-at-212-162",
+        "from": "normal",
+        "frames": [
+          {
+            "t_ms": 0,
+            "png": "png/uikit-carousel/motion.jump/click-at-212-162/light/0000ms.png",
+            "scene": "scenes/uikit-carousel/motion.jump/click-at-212-162/light/0000ms.json",
+            "png_sha256": "cdbfd56b572c57237d2123086a16af08fd5d556a9f261061931c11b4f34b4645"
+          },
+          {
+            "t_ms": 16,
+            "png": "png/uikit-carousel/motion.jump/click-at-212-162/light/0016ms.png",
+            "scene": "scenes/uikit-carousel/motion.jump/click-at-212-162/light/0016ms.json",
+            "png_sha256": "fde8bd81163c40c96847b5e25ff3184dd13ba64f249cb56a7e0bec9eebfb80cd"
+          },
+          {
+            "t_ms": 33,
+            "png": "png/uikit-carousel/motion.jump/click-at-212-162/light/0033ms.png",
+            "scene": "scenes/uikit-carousel/motion.jump/click-at-212-162/light/0033ms.json",
+            "png_sha256": "af29a43b1bb2e182d660a3619d86f5f009c47e8fbe656e14ea90000ebcb33cb9"
+          },
+          {
+            "t_ms": 50,
+            "png": "png/uikit-carousel/motion.jump/click-at-212-162/light/0050ms.png",
+            "scene": "scenes/uikit-carousel/motion.jump/click-at-212-162/light/0050ms.json",
+            "png_sha256": "ef7bca7d8c068ed16e74b4bee6159d7821892dcf516dff41bfa3d71d30e10584"
+          },
+          {
+            "t_ms": 66,
+            "png": "png/uikit-carousel/motion.jump/click-at-212-162/light/0066ms.png",
+            "scene": "scenes/uikit-carousel/motion.jump/click-at-212-162/light/0066ms.json",
+            "png_sha256": "a90a7697811b0682f1b1c7c065618b8380e51a77585e68320008bd028d905bf0"
+          },
+          {
+            "t_ms": 83,
+            "png": "png/uikit-carousel/motion.jump/click-at-212-162/light/0083ms.png",
+            "scene": "scenes/uikit-carousel/motion.jump/click-at-212-162/light/0083ms.json",
+            "png_sha256": "2c7659f0803d587711ed92fce20650a9411ceaa92b1324f8b062a1507fdaf8b1"
+          },
+          {
+            "t_ms": 100,
+            "png": "png/uikit-carousel/motion.jump/click-at-212-162/light/0100ms.png",
+            "scene": "scenes/uikit-carousel/motion.jump/click-at-212-162/light/0100ms.json",
+            "png_sha256": "b24b7fecd1eaf3f24023159bf69edb02322c6b6ba3bfb46a6e8d4a5f91a3b910"
+          },
+          {
+            "t_ms": 133,
+            "png": "png/uikit-carousel/motion.jump/click-at-212-162/light/0133ms.png",
+            "scene": "scenes/uikit-carousel/motion.jump/click-at-212-162/light/0133ms.json",
+            "png_sha256": "ed1763065cdb45d0fc3c274ff592abb7d49edc9c354042924522a386f2de7a65"
+          },
+          {
+            "t_ms": 166,
+            "png": "png/uikit-carousel/motion.jump/click-at-212-162/light/0166ms.png",
+            "scene": "scenes/uikit-carousel/motion.jump/click-at-212-162/light/0166ms.json",
+            "png_sha256": "17121bee4dea86ca85c7781a01bd6caf3833a06c90fb0574ad40f08337c1d07f"
+          },
+          {
+            "t_ms": 200,
+            "png": "png/uikit-carousel/motion.jump/click-at-212-162/light/0200ms.png",
+            "scene": "scenes/uikit-carousel/motion.jump/click-at-212-162/light/0200ms.json",
+            "png_sha256": "d29191812687b1f8c83c2acdfa42bf7c188370610189a05b27329fcb83ba7c5f"
+          },
+          {
+            "t_ms": 250,
+            "png": "png/uikit-carousel/motion.jump/click-at-212-162/light/0250ms.png",
+            "scene": "scenes/uikit-carousel/motion.jump/click-at-212-162/light/0250ms.json",
+            "png_sha256": "549aecfc83fca7deb0aa795ccca4c95b7886254103034851b90f758f1fccdb48"
+          },
+          {
+            "t_ms": 300,
+            "png": "png/uikit-carousel/motion.jump/click-at-212-162/light/0300ms.png",
+            "scene": "scenes/uikit-carousel/motion.jump/click-at-212-162/light/0300ms.json",
+            "png_sha256": "549aecfc83fca7deb0aa795ccca4c95b7886254103034851b90f758f1fccdb48"
+          },
+          {
+            "t_ms": 350,
+            "png": "png/uikit-carousel/motion.jump/click-at-212-162/light/0350ms.png",
+            "scene": "scenes/uikit-carousel/motion.jump/click-at-212-162/light/0350ms.json",
+            "png_sha256": "549aecfc83fca7deb0aa795ccca4c95b7886254103034851b90f758f1fccdb48"
+          },
+          {
+            "t_ms": 400,
+            "png": "png/uikit-carousel/motion.jump/click-at-212-162/light/0400ms.png",
+            "scene": "scenes/uikit-carousel/motion.jump/click-at-212-162/light/0400ms.json",
+            "png_sha256": "549aecfc83fca7deb0aa795ccca4c95b7886254103034851b90f758f1fccdb48"
+          },
+          {
+            "t_ms": 450,
+            "png": "png/uikit-carousel/motion.jump/click-at-212-162/light/0450ms.png",
+            "scene": "scenes/uikit-carousel/motion.jump/click-at-212-162/light/0450ms.json",
+            "png_sha256": "549aecfc83fca7deb0aa795ccca4c95b7886254103034851b90f758f1fccdb48"
+          }
+        ]
+      }
+    },
+    {
+      "id": "uikit-carousel/motion.next/click-at-336-76/light",
+      "component": "uikit-carousel",
+      "group": "motion.next",
+      "params": {
+        "selected": 0
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        368.0,
+        188.0
+      ],
+      "anchor": [
+        64.0,
+        16.0
+      ],
+      "component_bounds": [
+        64.0,
+        16.0,
+        240.0,
+        156.0
+      ],
+      "motion": {
+        "name": "next",
+        "trigger": "click-at-336-76",
+        "from": "normal",
+        "frames": [
+          {
+            "t_ms": 0,
+            "png": "png/uikit-carousel/motion.next/click-at-336-76/light/0000ms.png",
+            "scene": "scenes/uikit-carousel/motion.next/click-at-336-76/light/0000ms.json",
+            "png_sha256": "65a0d93fc64717a83ed53707a580960595845104e519c910aefc20e8d11eda92"
+          },
+          {
+            "t_ms": 16,
+            "png": "png/uikit-carousel/motion.next/click-at-336-76/light/0016ms.png",
+            "scene": "scenes/uikit-carousel/motion.next/click-at-336-76/light/0016ms.json",
+            "png_sha256": "0d8a140b864750b3fb8e34922c0a86ebab2a4946fad90ad0aae6fabdc6e290f3"
+          },
+          {
+            "t_ms": 33,
+            "png": "png/uikit-carousel/motion.next/click-at-336-76/light/0033ms.png",
+            "scene": "scenes/uikit-carousel/motion.next/click-at-336-76/light/0033ms.json",
+            "png_sha256": "3055ad92dcffcd0273e27986183637deed08008755fab7623a6f393246065e74"
+          },
+          {
+            "t_ms": 50,
+            "png": "png/uikit-carousel/motion.next/click-at-336-76/light/0050ms.png",
+            "scene": "scenes/uikit-carousel/motion.next/click-at-336-76/light/0050ms.json",
+            "png_sha256": "3977eb2207c89e1f249073a9fd280ae92d7fec3ed7f31ef8352545b36c90c88a"
+          },
+          {
+            "t_ms": 66,
+            "png": "png/uikit-carousel/motion.next/click-at-336-76/light/0066ms.png",
+            "scene": "scenes/uikit-carousel/motion.next/click-at-336-76/light/0066ms.json",
+            "png_sha256": "8da822fd947573de6256218073f70d0aee526161a275964cf001387da4df60d1"
+          },
+          {
+            "t_ms": 83,
+            "png": "png/uikit-carousel/motion.next/click-at-336-76/light/0083ms.png",
+            "scene": "scenes/uikit-carousel/motion.next/click-at-336-76/light/0083ms.json",
+            "png_sha256": "97778a858a43b98e1dfc1a23b6e73099949c637e0859b89a04e4c94fc6df5d68"
+          },
+          {
+            "t_ms": 100,
+            "png": "png/uikit-carousel/motion.next/click-at-336-76/light/0100ms.png",
+            "scene": "scenes/uikit-carousel/motion.next/click-at-336-76/light/0100ms.json",
+            "png_sha256": "1f232e827fe98dfa28f124518f32176c410e6f29039173e475850afabfeeb38e"
+          },
+          {
+            "t_ms": 133,
+            "png": "png/uikit-carousel/motion.next/click-at-336-76/light/0133ms.png",
+            "scene": "scenes/uikit-carousel/motion.next/click-at-336-76/light/0133ms.json",
+            "png_sha256": "1ad98a7e6d305410b38479c92dcf2b9bfa611ff4d47043ce90fa82c56f2ba44f"
+          },
+          {
+            "t_ms": 166,
+            "png": "png/uikit-carousel/motion.next/click-at-336-76/light/0166ms.png",
+            "scene": "scenes/uikit-carousel/motion.next/click-at-336-76/light/0166ms.json",
+            "png_sha256": "73c634ec93f804f4c0282b37e6b4ceda79e591500208cbb3088edd6e505d5b19"
+          },
+          {
+            "t_ms": 200,
+            "png": "png/uikit-carousel/motion.next/click-at-336-76/light/0200ms.png",
+            "scene": "scenes/uikit-carousel/motion.next/click-at-336-76/light/0200ms.json",
+            "png_sha256": "8d9398008918022a611058202463137df9f08e81998e3ee85fcc03df6886adf6"
+          },
+          {
+            "t_ms": 250,
+            "png": "png/uikit-carousel/motion.next/click-at-336-76/light/0250ms.png",
+            "scene": "scenes/uikit-carousel/motion.next/click-at-336-76/light/0250ms.json",
+            "png_sha256": "3f8c00794e39829797fbe3ae6c1e8ced0991dd5c6a1b9aa08f81be0a57b960be"
+          },
+          {
+            "t_ms": 300,
+            "png": "png/uikit-carousel/motion.next/click-at-336-76/light/0300ms.png",
+            "scene": "scenes/uikit-carousel/motion.next/click-at-336-76/light/0300ms.json",
+            "png_sha256": "3f8c00794e39829797fbe3ae6c1e8ced0991dd5c6a1b9aa08f81be0a57b960be"
+          },
+          {
+            "t_ms": 350,
+            "png": "png/uikit-carousel/motion.next/click-at-336-76/light/0350ms.png",
+            "scene": "scenes/uikit-carousel/motion.next/click-at-336-76/light/0350ms.json",
+            "png_sha256": "66566ccc96e5c7698841d59c3e95174d61bb27500daad6201e324d56fdd7d8c8"
+          },
+          {
+            "t_ms": 400,
+            "png": "png/uikit-carousel/motion.next/click-at-336-76/light/0400ms.png",
+            "scene": "scenes/uikit-carousel/motion.next/click-at-336-76/light/0400ms.json",
+            "png_sha256": "438674a85329bb8f6319a6a90aad0cc92b9f6ecbd31e96e8cb8d2b25304e4d05"
+          },
+          {
+            "t_ms": 450,
+            "png": "png/uikit-carousel/motion.next/click-at-336-76/light/0450ms.png",
+            "scene": "scenes/uikit-carousel/motion.next/click-at-336-76/light/0450ms.json",
+            "png_sha256": "438674a85329bb8f6319a6a90aad0cc92b9f6ecbd31e96e8cb8d2b25304e4d05"
+          }
+        ]
+      }
+    },
+    {
+      "id": "uikit-carousel/motion.previous/click-at-32-76/light",
+      "component": "uikit-carousel",
+      "group": "motion.previous",
+      "params": {
+        "selected": 2
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        368.0,
+        188.0
+      ],
+      "anchor": [
+        64.0,
+        16.0
+      ],
+      "component_bounds": [
+        64.0,
+        16.0,
+        240.0,
+        156.0
+      ],
+      "motion": {
+        "name": "previous",
+        "trigger": "click-at-32-76",
+        "from": "normal",
+        "frames": [
+          {
+            "t_ms": 0,
+            "png": "png/uikit-carousel/motion.previous/click-at-32-76/light/0000ms.png",
+            "scene": "scenes/uikit-carousel/motion.previous/click-at-32-76/light/0000ms.json",
+            "png_sha256": "a4d75276181026abc0165c0f301a8c4dc38aa437cc11dcbaee2a0830db8c345f"
+          },
+          {
+            "t_ms": 16,
+            "png": "png/uikit-carousel/motion.previous/click-at-32-76/light/0016ms.png",
+            "scene": "scenes/uikit-carousel/motion.previous/click-at-32-76/light/0016ms.json",
+            "png_sha256": "7dfdd892b32ab3c662016a930ac730ff802dcaf2fdc0aff9e8e87e254b83eca5"
+          },
+          {
+            "t_ms": 33,
+            "png": "png/uikit-carousel/motion.previous/click-at-32-76/light/0033ms.png",
+            "scene": "scenes/uikit-carousel/motion.previous/click-at-32-76/light/0033ms.json",
+            "png_sha256": "c6414115b4984dedf072e75a60e7763307c94d017b85e46b125d19f2e0018baf"
+          },
+          {
+            "t_ms": 50,
+            "png": "png/uikit-carousel/motion.previous/click-at-32-76/light/0050ms.png",
+            "scene": "scenes/uikit-carousel/motion.previous/click-at-32-76/light/0050ms.json",
+            "png_sha256": "eed4a44bcc7a802c9b992e41c55a85c781eea419497c4d45f37bcb8f436421f1"
+          },
+          {
+            "t_ms": 66,
+            "png": "png/uikit-carousel/motion.previous/click-at-32-76/light/0066ms.png",
+            "scene": "scenes/uikit-carousel/motion.previous/click-at-32-76/light/0066ms.json",
+            "png_sha256": "3f005b3f27f9fec7533cf71694243c2b6307f6fbcf4df6374ae26b4178ee1320"
+          },
+          {
+            "t_ms": 83,
+            "png": "png/uikit-carousel/motion.previous/click-at-32-76/light/0083ms.png",
+            "scene": "scenes/uikit-carousel/motion.previous/click-at-32-76/light/0083ms.json",
+            "png_sha256": "25cec0ad3b6ddd782be0991753bbcd9eba5d97bf523c7ff96eeed5312b720f2b"
+          },
+          {
+            "t_ms": 100,
+            "png": "png/uikit-carousel/motion.previous/click-at-32-76/light/0100ms.png",
+            "scene": "scenes/uikit-carousel/motion.previous/click-at-32-76/light/0100ms.json",
+            "png_sha256": "6ced2b392f21e44aa86174cdcd1c1a183ff0c47ddbd6c4cfceefe6a6c1681c7c"
+          },
+          {
+            "t_ms": 133,
+            "png": "png/uikit-carousel/motion.previous/click-at-32-76/light/0133ms.png",
+            "scene": "scenes/uikit-carousel/motion.previous/click-at-32-76/light/0133ms.json",
+            "png_sha256": "ce82c24cdb483ad514a51707fb543eb6edc5b8ec1b9a581c7ea6cf9dbd781bfd"
+          },
+          {
+            "t_ms": 166,
+            "png": "png/uikit-carousel/motion.previous/click-at-32-76/light/0166ms.png",
+            "scene": "scenes/uikit-carousel/motion.previous/click-at-32-76/light/0166ms.json",
+            "png_sha256": "352450a8716c4cf01c1df09d701397f3d22faac9614996afcc0a9a4145794c35"
+          },
+          {
+            "t_ms": 200,
+            "png": "png/uikit-carousel/motion.previous/click-at-32-76/light/0200ms.png",
+            "scene": "scenes/uikit-carousel/motion.previous/click-at-32-76/light/0200ms.json",
+            "png_sha256": "00986eced58f11dada737417b1070e7d35229a9f78f7a092ed97b58aa5ca782b"
+          },
+          {
+            "t_ms": 250,
+            "png": "png/uikit-carousel/motion.previous/click-at-32-76/light/0250ms.png",
+            "scene": "scenes/uikit-carousel/motion.previous/click-at-32-76/light/0250ms.json",
+            "png_sha256": "49340241ae83e0430bb09791625e3e86ca12d015abbd6c4c08e41c6509bfb28d"
+          },
+          {
+            "t_ms": 300,
+            "png": "png/uikit-carousel/motion.previous/click-at-32-76/light/0300ms.png",
+            "scene": "scenes/uikit-carousel/motion.previous/click-at-32-76/light/0300ms.json",
+            "png_sha256": "49340241ae83e0430bb09791625e3e86ca12d015abbd6c4c08e41c6509bfb28d"
+          },
+          {
+            "t_ms": 350,
+            "png": "png/uikit-carousel/motion.previous/click-at-32-76/light/0350ms.png",
+            "scene": "scenes/uikit-carousel/motion.previous/click-at-32-76/light/0350ms.json",
+            "png_sha256": "211c5332207beb132d932169fdd4b1a16541fdfc4b30ab9cdbb0ad06b4e9550b"
+          },
+          {
+            "t_ms": 400,
+            "png": "png/uikit-carousel/motion.previous/click-at-32-76/light/0400ms.png",
+            "scene": "scenes/uikit-carousel/motion.previous/click-at-32-76/light/0400ms.json",
+            "png_sha256": "1eee991f379aea85128319a6a3cc46811021d4853203a3baa09e008d3abe88b3"
+          },
+          {
+            "t_ms": 450,
+            "png": "png/uikit-carousel/motion.previous/click-at-32-76/light/0450ms.png",
+            "scene": "scenes/uikit-carousel/motion.previous/click-at-32-76/light/0450ms.json",
+            "png_sha256": "1eee991f379aea85128319a6a3cc46811021d4853203a3baa09e008d3abe88b3"
+          }
+        ]
+      }
+    },
+    {
+      "id": "uikit-carousel/motion.release/pressed-at-200-76+drag-at-196-76+drag-at-60-76+release/light",
+      "component": "uikit-carousel",
+      "group": "motion.release",
+      "params": {
+        "selected": 0
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        368.0,
+        188.0
+      ],
+      "anchor": [
+        64.0,
+        16.0
+      ],
+      "component_bounds": [
+        64.0,
+        16.0,
+        240.0,
+        156.0
+      ],
+      "motion": {
+        "name": "release",
+        "trigger": "pressed-at-200-76+drag-at-196-76+drag-at-60-76+release",
+        "from": "normal",
+        "frames": [
+          {
+            "t_ms": 0,
+            "png": "png/uikit-carousel/motion.release/pressed-at-200-76+drag-at-196-76+drag-at-60-76+release/light/0000ms.png",
+            "scene": "scenes/uikit-carousel/motion.release/pressed-at-200-76+drag-at-196-76+drag-at-60-76+release/light/0000ms.json",
+            "png_sha256": "43a5357f9d2a723fb09e3e5eb7650c9be6fab1ed4e1487d4447248859f12dd08"
+          },
+          {
+            "t_ms": 16,
+            "png": "png/uikit-carousel/motion.release/pressed-at-200-76+drag-at-196-76+drag-at-60-76+release/light/0016ms.png",
+            "scene": "scenes/uikit-carousel/motion.release/pressed-at-200-76+drag-at-196-76+drag-at-60-76+release/light/0016ms.json",
+            "png_sha256": "9417eda30847fdf114a143277754e8f3fa37d1ae759b94b61b9b8c2e0be44a63"
+          },
+          {
+            "t_ms": 33,
+            "png": "png/uikit-carousel/motion.release/pressed-at-200-76+drag-at-196-76+drag-at-60-76+release/light/0033ms.png",
+            "scene": "scenes/uikit-carousel/motion.release/pressed-at-200-76+drag-at-196-76+drag-at-60-76+release/light/0033ms.json",
+            "png_sha256": "15dbfcf9dfd08894b15121d9172931371cd6a80b2a5df24accd3a982a747fefc"
+          },
+          {
+            "t_ms": 50,
+            "png": "png/uikit-carousel/motion.release/pressed-at-200-76+drag-at-196-76+drag-at-60-76+release/light/0050ms.png",
+            "scene": "scenes/uikit-carousel/motion.release/pressed-at-200-76+drag-at-196-76+drag-at-60-76+release/light/0050ms.json",
+            "png_sha256": "e9f3f3d99e6c1f18533785bb2c82858c1bb29a9a55faea34e370cf0023e7f5c0"
+          },
+          {
+            "t_ms": 66,
+            "png": "png/uikit-carousel/motion.release/pressed-at-200-76+drag-at-196-76+drag-at-60-76+release/light/0066ms.png",
+            "scene": "scenes/uikit-carousel/motion.release/pressed-at-200-76+drag-at-196-76+drag-at-60-76+release/light/0066ms.json",
+            "png_sha256": "92b61c1b0bc4d8a4aab74242f9a16b767d7db53a091a0dc8e7a8cdc6ecba7fdf"
+          },
+          {
+            "t_ms": 83,
+            "png": "png/uikit-carousel/motion.release/pressed-at-200-76+drag-at-196-76+drag-at-60-76+release/light/0083ms.png",
+            "scene": "scenes/uikit-carousel/motion.release/pressed-at-200-76+drag-at-196-76+drag-at-60-76+release/light/0083ms.json",
+            "png_sha256": "f87e11285fa98a3c683de49bd36b14382482220e545a22174670d924c0b8e896"
+          },
+          {
+            "t_ms": 100,
+            "png": "png/uikit-carousel/motion.release/pressed-at-200-76+drag-at-196-76+drag-at-60-76+release/light/0100ms.png",
+            "scene": "scenes/uikit-carousel/motion.release/pressed-at-200-76+drag-at-196-76+drag-at-60-76+release/light/0100ms.json",
+            "png_sha256": "5b281686b2b6fd7655cb412faf9d8ff65eb83d9df0dda0542fbff9b4e755a9cb"
+          },
+          {
+            "t_ms": 133,
+            "png": "png/uikit-carousel/motion.release/pressed-at-200-76+drag-at-196-76+drag-at-60-76+release/light/0133ms.png",
+            "scene": "scenes/uikit-carousel/motion.release/pressed-at-200-76+drag-at-196-76+drag-at-60-76+release/light/0133ms.json",
+            "png_sha256": "0e8ff4b74e5f89748c8a9ae6d2cad83e5e90ab9e11f148e2c43e40bc098a7ae4"
+          },
+          {
+            "t_ms": 166,
+            "png": "png/uikit-carousel/motion.release/pressed-at-200-76+drag-at-196-76+drag-at-60-76+release/light/0166ms.png",
+            "scene": "scenes/uikit-carousel/motion.release/pressed-at-200-76+drag-at-196-76+drag-at-60-76+release/light/0166ms.json",
+            "png_sha256": "1aae43f9983800326c90dd23dd91c6ceeb25dee058754d04678197aebb5d7884"
+          },
+          {
+            "t_ms": 200,
+            "png": "png/uikit-carousel/motion.release/pressed-at-200-76+drag-at-196-76+drag-at-60-76+release/light/0200ms.png",
+            "scene": "scenes/uikit-carousel/motion.release/pressed-at-200-76+drag-at-196-76+drag-at-60-76+release/light/0200ms.json",
+            "png_sha256": "5ee2470f41e88a15ea2173423b7711078279602a47ae6c00795f30038446f574"
+          },
+          {
+            "t_ms": 250,
+            "png": "png/uikit-carousel/motion.release/pressed-at-200-76+drag-at-196-76+drag-at-60-76+release/light/0250ms.png",
+            "scene": "scenes/uikit-carousel/motion.release/pressed-at-200-76+drag-at-196-76+drag-at-60-76+release/light/0250ms.json",
+            "png_sha256": "c88e95295a7cdb6c1cf37a50b5133f413a79116641355bdb6df2df08f5677f33"
+          },
+          {
+            "t_ms": 300,
+            "png": "png/uikit-carousel/motion.release/pressed-at-200-76+drag-at-196-76+drag-at-60-76+release/light/0300ms.png",
+            "scene": "scenes/uikit-carousel/motion.release/pressed-at-200-76+drag-at-196-76+drag-at-60-76+release/light/0300ms.json",
+            "png_sha256": "c88e95295a7cdb6c1cf37a50b5133f413a79116641355bdb6df2df08f5677f33"
+          },
+          {
+            "t_ms": 350,
+            "png": "png/uikit-carousel/motion.release/pressed-at-200-76+drag-at-196-76+drag-at-60-76+release/light/0350ms.png",
+            "scene": "scenes/uikit-carousel/motion.release/pressed-at-200-76+drag-at-196-76+drag-at-60-76+release/light/0350ms.json",
+            "png_sha256": "10b99bfa881294fbb8b18b35618636fd6af897064a05c5bb1a65f87385dc9d0f"
+          },
+          {
+            "t_ms": 400,
+            "png": "png/uikit-carousel/motion.release/pressed-at-200-76+drag-at-196-76+drag-at-60-76+release/light/0400ms.png",
+            "scene": "scenes/uikit-carousel/motion.release/pressed-at-200-76+drag-at-196-76+drag-at-60-76+release/light/0400ms.json",
+            "png_sha256": "10b99bfa881294fbb8b18b35618636fd6af897064a05c5bb1a65f87385dc9d0f"
+          },
+          {
+            "t_ms": 450,
+            "png": "png/uikit-carousel/motion.release/pressed-at-200-76+drag-at-196-76+drag-at-60-76+release/light/0450ms.png",
+            "scene": "scenes/uikit-carousel/motion.release/pressed-at-200-76+drag-at-196-76+drag-at-60-76+release/light/0450ms.json",
+            "png_sha256": "10b99bfa881294fbb8b18b35618636fd6af897064a05c5bb1a65f87385dc9d0f"
+          }
+        ]
+      }
+    },
+    {
+      "id": "uikit-carousel/motion.wrap/click-at-336-76/light",
+      "component": "uikit-carousel",
+      "group": "motion.wrap",
+      "params": {
+        "selected": 2,
+        "looping": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        368.0,
+        188.0
+      ],
+      "anchor": [
+        64.0,
+        16.0
+      ],
+      "component_bounds": [
+        64.0,
+        16.0,
+        240.0,
+        156.0
+      ],
+      "motion": {
+        "name": "wrap",
+        "trigger": "click-at-336-76",
+        "from": "normal",
+        "frames": [
+          {
+            "t_ms": 0,
+            "png": "png/uikit-carousel/motion.wrap/click-at-336-76/light/0000ms.png",
+            "scene": "scenes/uikit-carousel/motion.wrap/click-at-336-76/light/0000ms.json",
+            "png_sha256": "70cfc8ecb13505ec67c51e207b060dfeab1ee36aa6e05b61c9949a9bcdabffcb"
+          },
+          {
+            "t_ms": 16,
+            "png": "png/uikit-carousel/motion.wrap/click-at-336-76/light/0016ms.png",
+            "scene": "scenes/uikit-carousel/motion.wrap/click-at-336-76/light/0016ms.json",
+            "png_sha256": "25a297fbd15a1697a0eaa1fc6f4c769d3c4ffe7d1d36c2ca4f8c496ef11e0a2e"
+          },
+          {
+            "t_ms": 33,
+            "png": "png/uikit-carousel/motion.wrap/click-at-336-76/light/0033ms.png",
+            "scene": "scenes/uikit-carousel/motion.wrap/click-at-336-76/light/0033ms.json",
+            "png_sha256": "d5f6c43b836bd266a6ab1aa41c0760ce4f2dff49a2698697542902d9e65547a6"
+          },
+          {
+            "t_ms": 50,
+            "png": "png/uikit-carousel/motion.wrap/click-at-336-76/light/0050ms.png",
+            "scene": "scenes/uikit-carousel/motion.wrap/click-at-336-76/light/0050ms.json",
+            "png_sha256": "2d19b0f6d96db43b10592a9e82b8287f00600502c91ee6ea3f6506541e07daf5"
+          },
+          {
+            "t_ms": 66,
+            "png": "png/uikit-carousel/motion.wrap/click-at-336-76/light/0066ms.png",
+            "scene": "scenes/uikit-carousel/motion.wrap/click-at-336-76/light/0066ms.json",
+            "png_sha256": "23a06bcb50e1b78c2c11f30d58886b82c9fe420e3d3bc77dcd45565b1ea2e48d"
+          },
+          {
+            "t_ms": 83,
+            "png": "png/uikit-carousel/motion.wrap/click-at-336-76/light/0083ms.png",
+            "scene": "scenes/uikit-carousel/motion.wrap/click-at-336-76/light/0083ms.json",
+            "png_sha256": "2d188478b144351a78ab57638bbd33e7daed4ee0a588a047a9deb53bf856bd31"
+          },
+          {
+            "t_ms": 100,
+            "png": "png/uikit-carousel/motion.wrap/click-at-336-76/light/0100ms.png",
+            "scene": "scenes/uikit-carousel/motion.wrap/click-at-336-76/light/0100ms.json",
+            "png_sha256": "43f1306b4a036f059099d5e7424600617e04cf7216c2a1ae706b9ef3bab4b72c"
+          },
+          {
+            "t_ms": 133,
+            "png": "png/uikit-carousel/motion.wrap/click-at-336-76/light/0133ms.png",
+            "scene": "scenes/uikit-carousel/motion.wrap/click-at-336-76/light/0133ms.json",
+            "png_sha256": "e326cff775472176255e86d98659bdf558db5cf0f9d2912b4be9fec05a62e208"
+          },
+          {
+            "t_ms": 166,
+            "png": "png/uikit-carousel/motion.wrap/click-at-336-76/light/0166ms.png",
+            "scene": "scenes/uikit-carousel/motion.wrap/click-at-336-76/light/0166ms.json",
+            "png_sha256": "94eebe0aa353685ecee66fd5b2628e97b5e9c84a1164f41df431359603be7323"
+          },
+          {
+            "t_ms": 200,
+            "png": "png/uikit-carousel/motion.wrap/click-at-336-76/light/0200ms.png",
+            "scene": "scenes/uikit-carousel/motion.wrap/click-at-336-76/light/0200ms.json",
+            "png_sha256": "c3ec1955a63bee8f8f4807a6c35a6781bf225f7496e8e29324910de190133852"
+          },
+          {
+            "t_ms": 250,
+            "png": "png/uikit-carousel/motion.wrap/click-at-336-76/light/0250ms.png",
+            "scene": "scenes/uikit-carousel/motion.wrap/click-at-336-76/light/0250ms.json",
+            "png_sha256": "e90b60a54c480f7d683d515f78b35224bdb013482ba6de2774508ae65ee2b5b4"
+          },
+          {
+            "t_ms": 300,
+            "png": "png/uikit-carousel/motion.wrap/click-at-336-76/light/0300ms.png",
+            "scene": "scenes/uikit-carousel/motion.wrap/click-at-336-76/light/0300ms.json",
+            "png_sha256": "e90b60a54c480f7d683d515f78b35224bdb013482ba6de2774508ae65ee2b5b4"
+          },
+          {
+            "t_ms": 350,
+            "png": "png/uikit-carousel/motion.wrap/click-at-336-76/light/0350ms.png",
+            "scene": "scenes/uikit-carousel/motion.wrap/click-at-336-76/light/0350ms.json",
+            "png_sha256": "aa0004a9dfa1ba150c37b55cdd8eb88e422510702c0a7fcf2983d8aa58b337d7"
+          },
+          {
+            "t_ms": 400,
+            "png": "png/uikit-carousel/motion.wrap/click-at-336-76/light/0400ms.png",
+            "scene": "scenes/uikit-carousel/motion.wrap/click-at-336-76/light/0400ms.json",
+            "png_sha256": "a8a7524daffbd318af7914389047970e8ed17a70d9f6880296a6e471e6c7c8b3"
+          },
+          {
+            "t_ms": 450,
+            "png": "png/uikit-carousel/motion.wrap/click-at-336-76/light/0450ms.png",
+            "scene": "scenes/uikit-carousel/motion.wrap/click-at-336-76/light/0450ms.json",
+            "png_sha256": "a8a7524daffbd318af7914389047970e8ed17a70d9f6880296a6e471e6c7c8b3"
+          }
+        ]
+      }
+    },
+    {
+      "id": "uikit-carousel/nav.selected-0/normal/dark",
+      "component": "uikit-carousel",
+      "group": "nav",
+      "params": {
+        "selected": 0
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        368.0,
+        188.0
+      ],
+      "anchor": [
+        64.0,
+        16.0
+      ],
+      "component_bounds": [
+        64.0,
+        16.0,
+        240.0,
+        156.0
+      ],
+      "png": "png/uikit-carousel/nav.selected-0/normal/dark.png",
+      "scene": "scenes/uikit-carousel/nav.selected-0/normal/dark.json",
+      "png_sha256": "d0f93791eb17da0acd169f552caea82a8aca8f8c878ebbc370273deaf95fe1d4"
+    },
+    {
+      "id": "uikit-carousel/nav.selected-0/normal/light",
+      "component": "uikit-carousel",
+      "group": "nav",
+      "params": {
+        "selected": 0
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        368.0,
+        188.0
+      ],
+      "anchor": [
+        64.0,
+        16.0
+      ],
+      "component_bounds": [
+        64.0,
+        16.0,
+        240.0,
+        156.0
+      ],
+      "png": "png/uikit-carousel/nav.selected-0/normal/light.png",
+      "scene": "scenes/uikit-carousel/nav.selected-0/normal/light.json",
+      "png_sha256": "e40ee8ff194ef2743009c70dfb8fcc7cc03a39cc30c61ecd302f7ac552603d3c"
+    },
+    {
+      "id": "uikit-carousel/nav.selected-1/normal/dark",
+      "component": "uikit-carousel",
+      "group": "nav",
+      "params": {
+        "selected": 1
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        368.0,
+        188.0
+      ],
+      "anchor": [
+        64.0,
+        16.0
+      ],
+      "component_bounds": [
+        64.0,
+        16.0,
+        240.0,
+        156.0
+      ],
+      "png": "png/uikit-carousel/nav.selected-1/normal/dark.png",
+      "scene": "scenes/uikit-carousel/nav.selected-1/normal/dark.json",
+      "png_sha256": "68d248263c1aae784aa6ecf20f58ef1e609b165137d66314a93a88ab62118343"
+    },
+    {
+      "id": "uikit-carousel/nav.selected-1/normal/light",
+      "component": "uikit-carousel",
+      "group": "nav",
+      "params": {
+        "selected": 1
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        368.0,
+        188.0
+      ],
+      "anchor": [
+        64.0,
+        16.0
+      ],
+      "component_bounds": [
+        64.0,
+        16.0,
+        240.0,
+        156.0
+      ],
+      "png": "png/uikit-carousel/nav.selected-1/normal/light.png",
+      "scene": "scenes/uikit-carousel/nav.selected-1/normal/light.json",
+      "png_sha256": "10b99bfa881294fbb8b18b35618636fd6af897064a05c5bb1a65f87385dc9d0f"
+    },
+    {
+      "id": "uikit-carousel/nav.selected-2/normal/dark",
+      "component": "uikit-carousel",
+      "group": "nav",
+      "params": {
+        "selected": 2
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        368.0,
+        188.0
+      ],
+      "anchor": [
+        64.0,
+        16.0
+      ],
+      "component_bounds": [
+        64.0,
+        16.0,
+        240.0,
+        156.0
+      ],
+      "png": "png/uikit-carousel/nav.selected-2/normal/dark.png",
+      "scene": "scenes/uikit-carousel/nav.selected-2/normal/dark.json",
+      "png_sha256": "094a2f990636155f9f4d6a1260614a2df777cbe5792317588f63e9054e9b3bea"
+    },
+    {
+      "id": "uikit-carousel/nav.selected-2/normal/light",
+      "component": "uikit-carousel",
+      "group": "nav",
+      "params": {
+        "selected": 2
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        368.0,
+        188.0
+      ],
+      "anchor": [
+        64.0,
+        16.0
+      ],
+      "component_bounds": [
+        64.0,
+        16.0,
+        240.0,
+        156.0
+      ],
+      "png": "png/uikit-carousel/nav.selected-2/normal/light.png",
+      "scene": "scenes/uikit-carousel/nav.selected-2/normal/light.json",
+      "png_sha256": "549aecfc83fca7deb0aa795ccca4c95b7886254103034851b90f758f1fccdb48"
+    },
+    {
+      "id": "uikit-carousel/scroll.base/wheel-at-184-124+wheel-at-184-124+wheel-at-184-124+wait-1000ms/dark",
+      "component": "uikit-carousel",
+      "group": "scroll",
+      "params": {
+        "vertical": true,
+        "no_pagination": true,
+        "selected": 0
+      },
+      "state": "wheel-at-184-124+wheel-at-184-124+wheel-at-184-124+wait-1000ms",
+      "theme": "dark",
+      "viewport": [
+        368.0,
+        264.0
+      ],
+      "anchor": [
+        64.0,
+        64.0
+      ],
+      "component_bounds": [
+        64.0,
+        64.0,
+        240.0,
+        120.0
+      ],
+      "png": "png/uikit-carousel/scroll.base/wheel-at-184-124+wheel-at-184-124+wheel-at-184-124+wait-1000ms/dark.png",
+      "scene": "scenes/uikit-carousel/scroll.base/wheel-at-184-124+wheel-at-184-124+wheel-at-184-124+wait-1000ms/dark.json",
+      "png_sha256": "a2cc49301c76f027f9ea7a09e601be87d019ddfbb711bee7205b877aa96acebb"
+    },
+    {
+      "id": "uikit-carousel/scroll.base/wheel-at-184-124+wheel-at-184-124+wheel-at-184-124+wait-1000ms/light",
+      "component": "uikit-carousel",
+      "group": "scroll",
+      "params": {
+        "vertical": true,
+        "no_pagination": true,
+        "selected": 0
+      },
+      "state": "wheel-at-184-124+wheel-at-184-124+wheel-at-184-124+wait-1000ms",
+      "theme": "light",
+      "viewport": [
+        368.0,
+        264.0
+      ],
+      "anchor": [
+        64.0,
+        64.0
+      ],
+      "component_bounds": [
+        64.0,
+        64.0,
+        240.0,
+        120.0
+      ],
+      "png": "png/uikit-carousel/scroll.base/wheel-at-184-124+wheel-at-184-124+wheel-at-184-124+wait-1000ms/light.png",
+      "scene": "scenes/uikit-carousel/scroll.base/wheel-at-184-124+wheel-at-184-124+wheel-at-184-124+wait-1000ms/light.json",
+      "png_sha256": "1cf4ca765a074029b9b988cc23d961dd40889125fe6597299d0b65e505064511"
+    },
+    {
+      "id": "uikit-carousel/scroll.base/wheel-at-184-124/dark",
+      "component": "uikit-carousel",
+      "group": "scroll",
+      "params": {
+        "vertical": true,
+        "no_pagination": true,
+        "selected": 0
+      },
+      "state": "wheel-at-184-124",
+      "theme": "dark",
+      "viewport": [
+        368.0,
+        264.0
+      ],
+      "anchor": [
+        64.0,
+        64.0
+      ],
+      "component_bounds": [
+        64.0,
+        64.0,
+        240.0,
+        120.0
+      ],
+      "png": "png/uikit-carousel/scroll.base/wheel-at-184-124/dark.png",
+      "scene": "scenes/uikit-carousel/scroll.base/wheel-at-184-124/dark.json",
+      "png_sha256": "fe63a332f84a359b57ded6adf1ea13914adc46b75ee88168767c7b51d2da86a2"
+    },
+    {
+      "id": "uikit-carousel/scroll.base/wheel-at-184-124/light",
+      "component": "uikit-carousel",
+      "group": "scroll",
+      "params": {
+        "vertical": true,
+        "no_pagination": true,
+        "selected": 0
+      },
+      "state": "wheel-at-184-124",
+      "theme": "light",
+      "viewport": [
+        368.0,
+        264.0
+      ],
+      "anchor": [
+        64.0,
+        64.0
+      ],
+      "component_bounds": [
+        64.0,
+        64.0,
+        240.0,
+        120.0
+      ],
+      "png": "png/uikit-carousel/scroll.base/wheel-at-184-124/light.png",
+      "scene": "scenes/uikit-carousel/scroll.base/wheel-at-184-124/light.json",
+      "png_sha256": "8f470db80af88346537a42b38e7604638ae571fa44cc0a598f9d79ed2c4114a0"
+    },
+    {
+      "id": "uikit-carousel/size.large/normal/dark",
+      "component": "uikit-carousel",
+      "group": "size",
+      "params": {
+        "selected": 1,
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        368.0,
+        188.0
+      ],
+      "anchor": [
+        64.0,
+        16.0
+      ],
+      "component_bounds": [
+        64.0,
+        16.0,
+        240.0,
+        156.0
+      ],
+      "png": "png/uikit-carousel/size.large/normal/dark.png",
+      "scene": "scenes/uikit-carousel/size.large/normal/dark.json",
+      "png_sha256": "71539302ee600da39db5a61563cbcde6eb8e297b1f60ae47701049088b3d901d"
+    },
+    {
+      "id": "uikit-carousel/size.large/normal/light",
+      "component": "uikit-carousel",
+      "group": "size",
+      "params": {
+        "selected": 1,
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        368.0,
+        188.0
+      ],
+      "anchor": [
+        64.0,
+        16.0
+      ],
+      "component_bounds": [
+        64.0,
+        16.0,
+        240.0,
+        156.0
+      ],
+      "png": "png/uikit-carousel/size.large/normal/light.png",
+      "scene": "scenes/uikit-carousel/size.large/normal/light.json",
+      "png_sha256": "437d72e2bcef15e39b0dfca6bbe5358923255e2db7acabbaa3ed07986efbb6c4"
+    },
+    {
+      "id": "uikit-carousel/size.small/normal/dark",
+      "component": "uikit-carousel",
+      "group": "size",
+      "params": {
+        "selected": 1,
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        368.0,
+        188.0
+      ],
+      "anchor": [
+        64.0,
+        16.0
+      ],
+      "component_bounds": [
+        64.0,
+        16.0,
+        240.0,
+        156.0
+      ],
+      "png": "png/uikit-carousel/size.small/normal/dark.png",
+      "scene": "scenes/uikit-carousel/size.small/normal/dark.json",
+      "png_sha256": "875b5dd31acc25f935ac30871da7afc859edf06e61d8dd0b2c0bdc046a0144c5"
+    },
+    {
+      "id": "uikit-carousel/size.small/normal/light",
+      "component": "uikit-carousel",
+      "group": "size",
+      "params": {
+        "selected": 1,
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        368.0,
+        188.0
+      ],
+      "anchor": [
+        64.0,
+        16.0
+      ],
+      "component_bounds": [
+        64.0,
+        16.0,
+        240.0,
+        156.0
+      ],
+      "png": "png/uikit-carousel/size.small/normal/light.png",
+      "scene": "scenes/uikit-carousel/size.small/normal/light.json",
+      "png_sha256": "bd4b00857e1d19bd0e8e42ddb0cd815a5bd9129543b13eee249c9fcbfdf63af7"
+    },
+    {
+      "id": "uikit-carousel/size.xsmall/normal/dark",
+      "component": "uikit-carousel",
+      "group": "size",
+      "params": {
+        "selected": 1,
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        368.0,
+        188.0
+      ],
+      "anchor": [
+        64.0,
+        16.0
+      ],
+      "component_bounds": [
+        64.0,
+        16.0,
+        240.0,
+        156.0
+      ],
+      "png": "png/uikit-carousel/size.xsmall/normal/dark.png",
+      "scene": "scenes/uikit-carousel/size.xsmall/normal/dark.json",
+      "png_sha256": "6ea1edaf6187da0943b302ee873dcde213683b3785b1c97d8c69dde775275d88"
+    },
+    {
+      "id": "uikit-carousel/size.xsmall/normal/light",
+      "component": "uikit-carousel",
+      "group": "size",
+      "params": {
+        "selected": 1,
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        368.0,
+        188.0
+      ],
+      "anchor": [
+        64.0,
+        16.0
+      ],
+      "component_bounds": [
+        64.0,
+        16.0,
+        240.0,
+        156.0
+      ],
+      "png": "png/uikit-carousel/size.xsmall/normal/light.png",
+      "scene": "scenes/uikit-carousel/size.xsmall/normal/light.json",
+      "png_sha256": "4aee1c07e112d757265bbfb21d2c8bd613ee1c11c5759aed7a41f49c59fe6a1b"
+    },
+    {
+      "id": "uikit-carousel/vertical.selected-0/normal/dark",
+      "component": "uikit-carousel",
+      "group": "vertical",
+      "params": {
+        "vertical": true,
+        "no_pagination": true,
+        "selected": 0
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        368.0,
+        264.0
+      ],
+      "anchor": [
+        64.0,
+        64.0
+      ],
+      "component_bounds": [
+        64.0,
+        64.0,
+        240.0,
+        120.0
+      ],
+      "png": "png/uikit-carousel/vertical.selected-0/normal/dark.png",
+      "scene": "scenes/uikit-carousel/vertical.selected-0/normal/dark.json",
+      "png_sha256": "9a8130d0e28718001da9a54151372616b6ac545d816d5728c902491a7a6ec5cc"
+    },
+    {
+      "id": "uikit-carousel/vertical.selected-0/normal/light",
+      "component": "uikit-carousel",
+      "group": "vertical",
+      "params": {
+        "vertical": true,
+        "no_pagination": true,
+        "selected": 0
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        368.0,
+        264.0
+      ],
+      "anchor": [
+        64.0,
+        64.0
+      ],
+      "component_bounds": [
+        64.0,
+        64.0,
+        240.0,
+        120.0
+      ],
+      "png": "png/uikit-carousel/vertical.selected-0/normal/light.png",
+      "scene": "scenes/uikit-carousel/vertical.selected-0/normal/light.json",
+      "png_sha256": "41276ff2f4d33140e2c655517255a60d042fb1c7ababde419753269700729089"
+    },
+    {
+      "id": "uikit-carousel/vertical.selected-1/normal/dark",
+      "component": "uikit-carousel",
+      "group": "vertical",
+      "params": {
+        "vertical": true,
+        "no_pagination": true,
+        "selected": 1
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        368.0,
+        264.0
+      ],
+      "anchor": [
+        64.0,
+        64.0
+      ],
+      "component_bounds": [
+        64.0,
+        64.0,
+        240.0,
+        120.0
+      ],
+      "png": "png/uikit-carousel/vertical.selected-1/normal/dark.png",
+      "scene": "scenes/uikit-carousel/vertical.selected-1/normal/dark.json",
+      "png_sha256": "a2cc49301c76f027f9ea7a09e601be87d019ddfbb711bee7205b877aa96acebb"
+    },
+    {
+      "id": "uikit-carousel/vertical.selected-1/normal/light",
+      "component": "uikit-carousel",
+      "group": "vertical",
+      "params": {
+        "vertical": true,
+        "no_pagination": true,
+        "selected": 1
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        368.0,
+        264.0
+      ],
+      "anchor": [
+        64.0,
+        64.0
+      ],
+      "component_bounds": [
+        64.0,
+        64.0,
+        240.0,
+        120.0
+      ],
+      "png": "png/uikit-carousel/vertical.selected-1/normal/light.png",
+      "scene": "scenes/uikit-carousel/vertical.selected-1/normal/light.json",
+      "png_sha256": "1cf4ca765a074029b9b988cc23d961dd40889125fe6597299d0b65e505064511"
+    },
+    {
       "id": "uikit-combobox/clear.base/click-at-196-24/dark",
       "component": "uikit-combobox",
       "group": "clear",

@@ -97,6 +97,7 @@ public static partial class Adapters
         "tabalonia" => TabaloniaCase(c),
         "dock" => DockCase(c),
         "carousel" => CarouselCase(c),
+        "uikit-carousel" => UikitCarouselCase(c),
         "sidebar" => c.Str("host", "splitview") == "drawer" ? SidebarDrawer(c) : Sidebar(c),
         "sheet" => Sheet(c),
         "color_picker" => ColorPickerCase(c),

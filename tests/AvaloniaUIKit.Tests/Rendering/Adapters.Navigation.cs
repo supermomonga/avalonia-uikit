@@ -72,5 +72,65 @@ public static partial class Adapters
         }
         return tabs;
     }
+
+    /// <summary>
+    /// reference/src/cases/carousel.rs as a Carousel on the track
+    /// (uikit:Carousels.TracksPointer) with uikit:CarouselPrevious and
+    /// uikit:CarouselNext beside it and the pages 16px below: the usage the
+    /// theme documents. `looping` is WrapSelection, `vertical` a vertical
+    /// PageSlide (the carousel then takes the slides' height).
+    /// </summary>
+    public static StackPanel UikitCarouselCase(GoldenCase c)
+    {
+        var count = (int)c.Num("count", 3);
+        var height = c.Num("height", 120);
+        var vertical = c.Bool("vertical");
+        var carousel = new Carousel
+        {
+            Width = c.Num("width", 240),
+            Focusable = true,
+            WrapSelection = c.Bool("looping"),
+            ItemsSource = Enumerable.Range(1, count).Select(i => Slide(i, height)).ToList(),
+            SelectedIndex = (int)c.Num("selected", 0),
+        };
+        Carousels.SetTracksPointer(carousel, true);
+        if (vertical)
+        {
+            carousel.Height = height;
+            carousel.PageTransition = new SpringSlide { Orientation = Avalonia.Animation.PageSlide.SlideAxis.Vertical, Gap = 16 };
+        }
+        CarouselButton Nav(CarouselButton button)
+        {
+            button.Carousel = carousel;
+            ClassFrom(button, c, "size", "medium");
+            return button;
+        }
+        var panel = new StackPanel
+        {
+            Spacing = 16,
+            Width = carousel.Width,
+            Children = { new Panel { Children = { carousel, Nav(new CarouselPrevious()), Nav(new CarouselNext()) } } },
+        };
+        if (!c.Bool("no_pagination"))
+        {
+            var pager = new PipsPager
+            {
+                Classes = { "carousel" },
+                NumberOfPages = count,
+                SelectedPageIndex = carousel.SelectedIndex,
+                HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Center,
+            };
+            carousel.SelectionChanged += (_, _) => pager.SelectedPageIndex = carousel.SelectedIndex;
+            pager.PropertyChanged += (_, e) =>
+            {
+                if (e.Property == PipsPager.SelectedPageIndexProperty)
+                {
+                    carousel.SelectedIndex = pager.SelectedPageIndex;
+                }
+            };
+            panel.Children.Add(pager);
+        }
+        return panel;
+    }
 }
 
