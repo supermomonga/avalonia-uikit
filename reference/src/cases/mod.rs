@@ -109,6 +109,7 @@ pub fn builder(case: &Case) -> Result<Builder> {
         "virtual" => list::virtual_list(&params),
         "select" => select::builder(&params),
         "pagination" => pagination::builder(&params),
+        "uikit-pagination" => pagination::builder(&params),
         "combobox" => select::combobox(&params),
         "uikit-select" => select::uikit_select(&params),
         "uikit-combobox" => select::uikit_combobox(&params),

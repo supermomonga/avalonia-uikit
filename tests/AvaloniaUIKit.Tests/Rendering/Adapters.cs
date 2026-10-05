@@ -71,6 +71,7 @@ public static partial class Adapters
         "uikit-list" => ListViewCase(c),
         "uikit-tree" => TreeCase(c),
         "pagination" => Pagination(c),
+        "uikit-pagination" => PaginationCase(c),
         "tabs" => TabStrip(c),
         "toolbar" => Toolbar(c),
         "uikit-toolbar" => ToolbarCase(c),
