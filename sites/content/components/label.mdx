@@ -22,3 +22,13 @@ Weights with a secondary run, colors with `Foreground`, and `TextAlignment` in a
 A label wraps when its width is constrained; `LineHeight` replaces the 20px line.
 
 <Demo name="label/wrap" title="Wrap" />
+
+## TextLabel
+
+`uikit:TextLabel` is a `TextBlock` with the label's look built in and the label's features as properties: `Secondary` adds muted text after a space, `Highlights` colors the case-insensitive matches of a query blue (every match, or with `HighlightsMatch="Prefix"` only one at the start of the text), and `IsMasked` shows a • for each character. Sizes, weights, colors and alignment are the `TextBlock`'s `FontSize`, `FontWeight`, `Foreground` and `TextAlignment`.
+
+<Demo name="label/text-label" title="TextLabel" />
+
+Type in the field to highlight the matches in both labels; Mask hides their text.
+
+<Demo name="label/highlights" title="Highlights" />

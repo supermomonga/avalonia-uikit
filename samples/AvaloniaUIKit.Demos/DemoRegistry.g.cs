@@ -510,9 +510,24 @@ public sealed partial class IconDemo : UserControl
     public IconDemo() => AvaloniaXamlLoader.Load(this);
 }
 
+public sealed partial class IconGallery : UserControl
+{
+    public IconGallery() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class IconIconName : UserControl
+{
+    public IconIconName() => AvaloniaXamlLoader.Load(this);
+}
+
 public sealed partial class IconSizes : UserControl
 {
     public IconSizes() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class ImageAsyncImage : UserControl
+{
+    public ImageAsyncImage() => AvaloniaXamlLoader.Load(this);
 }
 
 public sealed partial class ImageDemo : UserControl
@@ -615,6 +630,11 @@ public sealed partial class LabelDemo : UserControl
     public LabelDemo() => AvaloniaXamlLoader.Load(this);
 }
 
+public sealed partial class LabelHighlights : UserControl
+{
+    public LabelHighlights() => AvaloniaXamlLoader.Load(this);
+}
+
 public sealed partial class LabelSizes : UserControl
 {
     public LabelSizes() => AvaloniaXamlLoader.Load(this);
@@ -623,6 +643,11 @@ public sealed partial class LabelSizes : UserControl
 public sealed partial class LabelStyles : UserControl
 {
     public LabelStyles() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class LabelTextLabel : UserControl
+{
+    public LabelTextLabel() => AvaloniaXamlLoader.Load(this);
 }
 
 public sealed partial class LabelWrap : UserControl
@@ -1305,6 +1330,11 @@ public sealed partial class VirtualListDemo : UserControl
     public VirtualListDemo() => AvaloniaXamlLoader.Load(this);
 }
 
+public sealed partial class VirtualListScrollTo : UserControl
+{
+    public VirtualListScrollTo() => AvaloniaXamlLoader.Load(this);
+}
+
 public static partial class DemoRegistry
 {
     /// <summary>Every demo by id (`&lt;component&gt;/&lt;name&gt;`), in id order.</summary>
@@ -1411,7 +1441,10 @@ public static partial class DemoRegistry
         ["hover-card/placements"] = static () => new HoverCardPlacements(),
         ["icon/colors"] = static () => new IconColors(),
         ["icon/demo"] = static () => new IconDemo(),
+        ["icon/gallery"] = static () => new IconGallery(),
+        ["icon/icon-name"] = static () => new IconIconName(),
         ["icon/sizes"] = static () => new IconSizes(),
+        ["image/async-image"] = static () => new ImageAsyncImage(),
         ["image/demo"] = static () => new ImageDemo(),
         ["image/fit"] = static () => new ImageFit(),
         ["image/rounded"] = static () => new ImageRounded(),
@@ -1432,8 +1465,10 @@ public static partial class DemoRegistry
         ["kbd/demo"] = static () => new KbdDemo(),
         ["kbd/outline"] = static () => new KbdOutline(),
         ["label/demo"] = static () => new LabelDemo(),
+        ["label/highlights"] = static () => new LabelHighlights(),
         ["label/sizes"] = static () => new LabelSizes(),
         ["label/styles"] = static () => new LabelStyles(),
+        ["label/text-label"] = static () => new LabelTextLabel(),
         ["label/wrap"] = static () => new LabelWrap(),
         ["link/demo"] = static () => new LinkDemo(),
         ["link/inline"] = static () => new LinkInline(),
@@ -1570,5 +1605,6 @@ public static partial class DemoRegistry
         ["tree/tree-items"] = static () => new TreeTreeItems(),
         ["tree/virtualized"] = static () => new TreeVirtualized(),
         ["virtual-list/demo"] = static () => new VirtualListDemo(),
+        ["virtual-list/scroll-to"] = static () => new VirtualListScrollTo(),
     };
 }

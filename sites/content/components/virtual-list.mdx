@@ -9,4 +9,10 @@ description: "A virtualized list with the List's rows, as ListBox over a Virtual
 
 `ListBox` virtualizes with a `VirtualizingStackPanel` by default, and the theme keeps that panel, so the rows and the overlay scrollbar of the [List](/components/list) apply to long lists as they are. Bind `ItemsSource` and give the row a `DataTemplate` in `ItemTemplate`; the demo lists ten thousand records, and only the rows in view are realized. A virtual list looks the same as the List, so there is no class to add.
 
-To scroll to a row from code, or for sections, a search field or loading more at the end, use `uikit:ListView` (see [List](/components/list)); its rows share one height.
+For sections, a search field or loading more at the end, use `uikit:ListView` (see [List](/components/list)); its rows share one height.
+
+## Scroll to an item
+
+`ScrollToItem`, an extension method for `ListBox` and any other `ItemsControl` (namespace `AvaloniaUIKit`), scrolls to an item by its index, also one the panel has not realized yet. `ScrollStrategy.Center` puts the item in the middle of the list, as far as the list allows; the other strategies bring an item out of view to the nearer edge and leave an item in view where it is. A call made before the list is laid out waits for the layout.
+
+<Demo name="virtual-list/scroll-to" title="Scroll to an item" />
