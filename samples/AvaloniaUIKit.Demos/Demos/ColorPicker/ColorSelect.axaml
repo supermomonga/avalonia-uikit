@@ -1,0 +1,12 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:uikit="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.ColorPickerColorSelect">
+  <Panel MinHeight="440" MinWidth="480">
+    <StackPanel Orientation="Horizontal" Spacing="16" HorizontalAlignment="Left" VerticalAlignment="Top">
+      <uikit:ColorSelect Color="#2563EB" />
+      <uikit:ColorSelect Color="#F59E0B" Label="Accent" />
+      <uikit:ColorSelect Icon="{StaticResource UIKit.Icon.Palette}" VerticalAlignment="Center" />
+    </StackPanel>
+  </Panel>
+</UserControl>

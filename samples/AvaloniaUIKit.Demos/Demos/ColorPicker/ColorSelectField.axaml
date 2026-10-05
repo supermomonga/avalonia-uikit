@@ -1,0 +1,12 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:uikit="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.ColorPickerColorSelectField">
+  <Panel MinHeight="480" MinWidth="320">
+    <StackPanel Spacing="12" Width="200" HorizontalAlignment="Left" VerticalAlignment="Top">
+      <uikit:ColorSelect Classes="field" Color="#2563EB" />
+      <uikit:ColorSelect Classes="field" PlaceholderText="Pick a color" />
+      <uikit:ColorSelect Classes="field" Color="#16A34A" ActiveTab="1" />
+    </StackPanel>
+  </Panel>
+</UserControl>

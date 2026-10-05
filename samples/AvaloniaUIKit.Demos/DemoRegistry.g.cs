@@ -295,6 +295,16 @@ public sealed partial class CollapsibleUp : UserControl
     public CollapsibleUp() => AvaloniaXamlLoader.Load(this);
 }
 
+public sealed partial class ColorPickerColorSelect : UserControl
+{
+    public ColorPickerColorSelect() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class ColorPickerColorSelectField : UserControl
+{
+    public ColorPickerColorSelectField() => AvaloniaXamlLoader.Load(this);
+}
+
 public sealed partial class ColorPickerDemo : UserControl
 {
     public ColorPickerDemo() => AvaloniaXamlLoader.Load(this);
@@ -1170,6 +1180,16 @@ public sealed partial class TableSizes : UserControl
     public TableSizes() => AvaloniaXamlLoader.Load(this);
 }
 
+public sealed partial class TableSpans : UserControl
+{
+    public TableSpans() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class TableStriped : UserControl
+{
+    public TableStriped() => AvaloniaXamlLoader.Load(this);
+}
+
 public sealed partial class TabsDemo : UserControl
 {
     public TabsDemo() => AvaloniaXamlLoader.Load(this);
@@ -1448,6 +1468,8 @@ public static partial class DemoRegistry
         ["clipboard/sizes"] = static () => new ClipboardSizes(),
         ["collapsible/demo"] = static () => new CollapsibleDemo(),
         ["collapsible/up"] = static () => new CollapsibleUp(),
+        ["color-picker/color-select"] = static () => new ColorPickerColorSelect(),
+        ["color-picker/color-select-field"] = static () => new ColorPickerColorSelectField(),
         ["color-picker/demo"] = static () => new ColorPickerDemo(),
         ["color-picker/field"] = static () => new ColorPickerField(),
         ["color-picker/sizes"] = static () => new ColorPickerSizes(),
@@ -1623,6 +1645,8 @@ public static partial class DemoRegistry
         ["table/demo"] = static () => new TableDemo(),
         ["table/plain"] = static () => new TablePlain(),
         ["table/sizes"] = static () => new TableSizes(),
+        ["table/spans"] = static () => new TableSpans(),
+        ["table/striped"] = static () => new TableStriped(),
         ["tabs/demo"] = static () => new TabsDemo(),
         ["tabs/icons"] = static () => new TabsIcons(),
         ["tabs/menu"] = static () => new TabsMenu(),

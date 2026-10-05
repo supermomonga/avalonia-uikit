@@ -1,0 +1,41 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:uikit="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.TableStriped">
+  <uikit:Table Classes="small stripe" BorderThickness="1" CornerRadius="5.5" Width="440" HorizontalAlignment="Left">
+    <uikit:TableHeader>
+      <uikit:TableRow>
+        <uikit:TableHead>Invoice</uikit:TableHead>
+        <uikit:TableHead>Method</uikit:TableHead>
+        <uikit:TableHead HorizontalContentAlignment="Right">Amount</uikit:TableHead>
+        <uikit:TableHead HorizontalContentAlignment="Right">Date</uikit:TableHead>
+      </uikit:TableRow>
+    </uikit:TableHeader>
+    <uikit:TableBody>
+      <uikit:TableRow>
+        <uikit:TableCell>INV001</uikit:TableCell>
+        <uikit:TableCell>Credit Card</uikit:TableCell>
+        <uikit:TableCell HorizontalContentAlignment="Right">$250.00</uikit:TableCell>
+        <uikit:TableCell HorizontalContentAlignment="Right">2024-01-15</uikit:TableCell>
+      </uikit:TableRow>
+      <uikit:TableRow>
+        <uikit:TableCell>INV002</uikit:TableCell>
+        <uikit:TableCell>PayPal</uikit:TableCell>
+        <uikit:TableCell HorizontalContentAlignment="Right">$150.00</uikit:TableCell>
+        <uikit:TableCell HorizontalContentAlignment="Right">2024-02-01</uikit:TableCell>
+      </uikit:TableRow>
+      <uikit:TableRow>
+        <uikit:TableCell>INV003</uikit:TableCell>
+        <uikit:TableCell>Bank Transfer</uikit:TableCell>
+        <uikit:TableCell HorizontalContentAlignment="Right">$350.00</uikit:TableCell>
+        <uikit:TableCell HorizontalContentAlignment="Right">2024-02-15</uikit:TableCell>
+      </uikit:TableRow>
+      <uikit:TableRow>
+        <uikit:TableCell>INV004</uikit:TableCell>
+        <uikit:TableCell>Credit Card</uikit:TableCell>
+        <uikit:TableCell HorizontalContentAlignment="Right">$450.00</uikit:TableCell>
+        <uikit:TableCell HorizontalContentAlignment="Right">2024-03-01</uikit:TableCell>
+      </uikit:TableRow>
+    </uikit:TableBody>
+  </uikit:Table>
+</UserControl>
