@@ -1,0 +1,27 @@
+# GPUI Kit TitleBar -> uikit:TitleBar.
+# The titlebar cases for the control the app puts in its window, and its
+# children spread along it. Rendered on macOS by the reference: a 34px bar
+# (33 + the 1px border), an 80px left inset for the traffic lights and no
+# window controls (R14). The Avalonia test gives the bar the macOS padding and
+# no caption buttons; the buttons are checked by Avalonia-side assertions.
+component = "uikit-titlebar"
+viewport = [480, 34]
+anchor = [0, 0]
+
+# The empty bar: a gradient from 55% title_bar + 45% background to title_bar.
+[[group]]
+name = "bar"
+params = { width = 480 }
+
+# With the story's title (text_sm, medium). Hovering the bar changes nothing.
+[[group]]
+name = "title"
+params = { width = 480, title = "My Application" }
+states = ["normal", "at-240-17"]
+
+# The story's children: the title at the start and small ghost icon buttons at
+# the end; hovering a button tints it.
+[[group]]
+name = "content"
+params = { width = 480, title = "My Application", content = true }
+states = ["normal", "at-460-17"]

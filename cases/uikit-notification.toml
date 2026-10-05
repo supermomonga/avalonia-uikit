@@ -1,0 +1,116 @@
+# GPUI Kit Notification / NotificationList -> uikit:NotificationList and
+# uikit:NotificationItem. The notification cases (types, the title and the
+# close button, wrapping, placements, enter and exit) for the new controls,
+# and what only the list does: the stack, collapsed and spread on hover (top
+# and bottom), the two placements at the middle of the sides, an action, and
+# an icon without a type. The list fills the case area: 50px from the top and
+# 16px from the other edges, notifications 382px wide.
+component = "uikit-notification"
+viewport = [430, 170]
+anchor = [0, 0]
+
+# The four type icons, and an untyped notification without one.
+[[group]]
+name = "type"
+params = { message = "Your changes have been saved." }
+matrix = { type = ["info", "success", "warning", "error", "none"] }
+states = ["wait-1000ms"]
+
+# Title and message; hovering the card reveals the close button, hovering the
+# button tints it.
+[[group]]
+name = "title"
+params = { title = "Update available", message = "A new version is ready to install." }
+matrix = { type = ["info", "error"] }
+states = ["wait-1000ms", "wait-1000ms+at-200-90", "wait-1000ms+at-399-65"]
+
+# A message that wraps to two lines (324px text column).
+[[group]]
+name = "wrap"
+params = { type = "warning", message = "Network connection is unstable. Changes will sync when it recovers." }
+states = ["wait-1000ms"]
+
+# The other placements (TopRight is above). Bottom stacks settle their height
+# spring after ~0.6s, so they wait longer.
+[[group]]
+name = "placement"
+params = { type = "info", message = "Download complete.", height = 200 }
+matrix = { placement = ["top-left", "top-center", "bottom-left", "bottom-center", "bottom-right"] }
+states = ["wait-1500ms"]
+viewport = [430, 200]
+
+# At the middle of the left and right edges the stack is centered vertically
+# (a 75px card, so its top is on a whole device pixel) and the card only fades.
+[[group]]
+name = "side"
+params = { type = "info", title = "Download complete", message = "Your file is ready.", height = 200 }
+matrix = { placement = ["left-center", "right-center"] }
+states = ["wait-1500ms"]
+viewport = [430, 200]
+
+# Two to four notifications in one stack (the oldest has a title): the newest
+# in front, each older one 14px lower and 5% narrower; the fourth is hidden.
+[[group]]
+name = "stack"
+matrix = { stack = [2, 3, 4] }
+states = ["wait-1500ms"]
+
+# The pointer over the stack spreads it: 14px apart at full width, newest on top.
+[[group]]
+name = "expanded"
+params = { height = 360 }
+matrix = { stack = [3, 4] }
+states = ["wait-1500ms+at-240-70+wait-1500ms"]
+viewport = [430, 360]
+
+# A stack at the bottom grows upward, collapsed and spread.
+[[group]]
+name = "bottom"
+params = { stack = 3, placement = "bottom-right", height = 300 }
+states = ["wait-1500ms", "wait-1500ms+at-240-260+wait-1500ms"]
+viewport = [430, 300]
+
+# The story's action: a small primary button after the text, 14px before the
+# card's end and centered; the notification has no type.
+[[group]]
+name = "action"
+params = { type = "none", title = "Uh oh! Something went wrong.", message = "The request did not go through.", action = "Retry" }
+states = ["wait-1000ms", "wait-1000ms+at-355-87"]
+
+# An icon without a type, in the foreground color, indenting the text.
+[[group]]
+name = "icon"
+params = { type = "none", icon = "bell", message = "You have a new message." }
+states = ["wait-1000ms"]
+
+[[group]]
+name = "icon-title"
+params = { type = "none", icon = "bell", title = "Inbox", message = "You have a new message." }
+states = ["wait-1000ms"]
+
+# Enter: fade in and slide down 96px over 400ms; the shadow ramps by opacity^3.
+[[motion]]
+name = "enter"
+params = { type = "info", message = "Your changes have been saved." }
+trigger = "wait-0ms"
+samples_ms = [0, 16, 33, 50, 100, 150, 200, 300, 400, 450]
+themes = ["light"]
+
+# Exit: the close button starts a 200ms fade and 96px slide up, then the card is removed.
+[[motion]]
+name = "exit"
+params = { type = "info", title = "Update available", message = "A new version is ready to install." }
+from = "wait-1000ms+at-200-90"
+trigger = "click-at-399-65"
+samples_ms = [0, 16, 33, 50, 100, 150, 200, 250]
+themes = ["light"]
+
+# Enter at the middle of a side: a fade only, while the stack's height springs
+# from the first frame's 0 to the card's and keeps it centered.
+[[motion]]
+name = "enter-side"
+params = { type = "info", title = "Download complete", message = "Your file is ready.", placement = "right-center", height = 200 }
+viewport = [430, 200]
+trigger = "wait-0ms"
+samples_ms = [0, 16, 33, 50, 100, 200, 300, 400, 600]
+themes = ["light"]

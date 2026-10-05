@@ -10,7 +10,7 @@ public static class MotionTolerance
     {
         "tooltip" when Fading(golden, scene) => FadingGroup,
         "select" or "combobox" or "datepicker" or "uikit-select" or "uikit-combobox" or "uikit-datepicker" when FadingBelow(golden, scene) => FadingGroup,
-        "notification" when FadingCard(scene) => FadingGroup,
+        "notification" or "uikit-notification" when FadingCard(scene) => FadingGroup,
         "progress" when golden.Motion!.Name == "loading" && NarrowBar(golden, scene) => NarrowPill,
         _ => null,
     };

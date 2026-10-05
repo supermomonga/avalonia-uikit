@@ -80,6 +80,7 @@ public static partial class Adapters
         "accordion" => Accordion(c),
         "uikit-accordion" => AccordionCase(c),
         "notification" => NotificationArea(c),
+        "uikit-notification" => NotificationListCase(c),
         "resizable" => Resizable(c),
         "uikit-resizable" => ResizableCase(c),
         "image" => ImageCase(c),
@@ -106,6 +107,7 @@ public static partial class Adapters
         "uikit-sheet" => SheetCase(c),
         "color_picker" => ColorPickerCase(c),
         "uikit-colorselect" => ColorSelectCase(c),
+        "uikit-titlebar" => TitleBarCase(c),
         "titlebar" => new DecorationsHost(c.Params.ContainsKey("title") ? c.Str("title", "") : null)
         {
             Width = c.Num("width", 480),
