@@ -1,0 +1,126 @@
+# GPUI Kit Sidebar -> uikit:Sidebar beside a muted content area: the sidebar
+# cases (the look of the SplitView theme's pane), then the sidebar story's
+# layout. A 400x160 row at (16, 8): the sidebar and the content. Clicking the
+# content toggles collapsed (GPUI) / IsCollapsed (Avalonia).
+component = "uikit-sidebar"
+viewport = [432, 176]
+anchor = [16, 8]
+
+[[group]]
+name = "icon"
+params = { width = 400, height = 160, sidebar_width = 200, collapsible = "icon", side = "left" }
+matrix = { collapsed = [false, true] }
+
+[[group]]
+name = "icon-right"
+params = { width = 400, height = 160, sidebar_width = 200, collapsible = "icon", side = "right" }
+matrix = { collapsed = [false, true] }
+
+# No width: GPUI's DEFAULT_WIDTH 255, the default ExpandedWidth.
+[[group]]
+name = "default-width"
+params = { width = 400, height = 160, collapsible = "icon" }
+
+[[group]]
+name = "offcanvas"
+params = { width = 400, height = 160, sidebar_width = 200, collapsible = "offcanvas", side = "left" }
+matrix = { collapsed = [false, true] }
+
+# collapsible none: collapsed is ignored.
+[[group]]
+name = "none"
+params = { width = 400, height = 160, sidebar_width = 200, collapsible = "none", collapsed = true }
+
+# The header and footer paddings (24px blocks), not collapsible.
+[[group]]
+name = "blocks"
+params = { width = 400, height = 160, collapsible = "none", blocks = true }
+
+# A SidebarToggleButton in the header.
+[[group]]
+name = "toggle"
+params = { width = 400, height = 160, collapsible = "icon", toggle = true }
+matrix = { collapsed = [false, true] }
+
+# The sidebar story (sidebar_story.rs): a 220px sidebar in a 400x560 row, tall
+# enough for a second open submenu (the comparison counts text a scroll area
+# clips as painted). Rows:
+# header y=20..68; Platform label 80..112, Playground 112..140 (caret x=196..216),
+# History 142..170, Starred 174..202, Models 212..240, Documentation 248..276;
+# Projects label 276..308, Design Engineering 308..336, Sales and Marketing
+# 344..372, Travel (disabled) 380..408; footer 514..556.
+[[group]]
+name = "menu"
+viewport = [432, 576]
+params = { width = 400, height = 560, menu = true }
+states = [
+  "normal",
+  "at-100-226",
+  "at-100-394",
+  "at-150-156",
+  "at-100-44",
+  "at-100-535",
+  "click-at-206-126",
+  "click-at-206-226",
+]
+
+# Nothing active, Playground closed; a click on a row opens (click_to_open) or
+# toggles (click_to_toggle) its submenu.
+[[group]]
+name = "menu-click"
+viewport = [432, 576]
+params = { width = 400, height = 560, menu = true, active = "", closed = true }
+matrix = { click = ["open", "toggle"] }
+states = ["click-at-100-126", "click-at-100-126+click-at-100-126"]
+
+# Collapsed to icons: 32px rows from y=76, 8px apart (Playground 76..108, Models
+# 116..148); the label shows as a tooltip on the right.
+[[group]]
+name = "menu-collapsed"
+viewport = [432, 576]
+params = { width = 400, height = 560, menu = true, collapsed = true }
+states = ["normal", "at-40-132", "at-40-92+wait-800ms"]
+
+[[motion]]
+name = "collapse"
+params = { width = 400, height = 160, sidebar_width = 200, collapsible = "icon", side = "left", pointer_x = 0.9 }
+trigger = "click"
+samples_ms = [0, 25, 50, 75, 100, 125, 150, 175, 200, 225]
+themes = ["light"]
+
+[[motion]]
+name = "expand"
+params = { width = 400, height = 160, sidebar_width = 200, collapsible = "icon", side = "left", collapsed = true, pointer_x = 0.9 }
+trigger = "click"
+samples_ms = [0, 25, 50, 75, 100, 125, 150, 175, 200, 225]
+themes = ["light"]
+
+[[motion]]
+name = "collapse-right"
+params = { width = 400, height = 160, sidebar_width = 200, collapsible = "icon", side = "right", pointer_x = 0.1 }
+trigger = "click"
+samples_ms = [0, 25, 50, 75, 100, 125, 150, 175, 200, 225]
+themes = ["light"]
+
+[[motion]]
+name = "offcanvas-collapse"
+params = { width = 400, height = 160, sidebar_width = 200, collapsible = "offcanvas", side = "left", pointer_x = 0.9 }
+trigger = "click"
+samples_ms = [0, 25, 50, 75, 100, 125, 150, 175, 200, 225]
+themes = ["light"]
+
+[[motion]]
+name = "offcanvas-expand"
+params = { width = 400, height = 160, sidebar_width = 200, collapsible = "offcanvas", side = "left", collapsed = true, pointer_x = 0.9 }
+trigger = "click"
+samples_ms = [0, 25, 50, 75, 100, 125, 150, 175, 200, 225]
+themes = ["light"]
+
+# The story's sidebar collapsing to icons: the clip moves, the content snaps.
+[[motion]]
+name = "menu-collapse"
+viewport = [432, 576]
+params = { width = 400, height = 560, menu = true, pointer_x = 0.9 }
+trigger = "click"
+samples_ms = [0, 50, 100, 150, 200, 225]
+themes = ["light"]
