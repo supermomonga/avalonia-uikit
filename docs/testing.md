@@ -55,11 +55,11 @@ UIKitTheme が GPUI Kit と同じ見た目・動きになっていることを�
 
 ## テストの構成
 
-<TOTAL_TESTS> 件。macOS arm64 での最新の実行結果は全件成功し、全体で約 <DURATION> かかる。テストの時刻はすべて仮想時計で進める（[時刻](#時刻)）。
+6985 件。macOS arm64 での最新の実行結果は全件成功し、全体で約 13 分かかる。テストの時刻はすべて仮想時計で進める（[時刻](#時刻)）。
 
 | テスト | 件数 | 内容 |
 | --- | --- | --- |
-| `*_matches_gpui`（コンポーネント別 <COMPONENT_CLASSES> クラス） | <STATIC_TESTS> | 静止状態の全ケース（TabControl は Tabs のケースをもう一度使い、TabBar のケースは TabStrip と TabControl の両方で、Select の閉じた欄のケースは編集可能な ComboBox でも使う）。構造と画素を比較する。 |
+| `*_matches_gpui`（コンポーネント別 105 クラス） | 6478 | 静止状態の全ケース（TabControl は Tabs のケースをもう一度使い、TabBar のケースは TabStrip と TabControl の両方で、Select の閉じた欄のケースは編集可能な ComboBox でも使う）。構造と画素を比較する。 |
 | `MotionTests`、`TabControl_moves_as_gpui` | 98、4 | 動きを GPUI が記録した時刻ごとに描画し、フレームを比較する。 |
 | `TokenTests` | 40 | トークンの完全一致と過不足。Default Light / Default Dark と同梱の 36 テーマのそれぞれ、テーマのバリアントの継承。 |
 | `BehaviorTests`、`ControlBehaviorTests` | 24、34 | 時間・入力・無効状態の挙動。後者は新しいコントロール（ADR 19）の操作と、GPUI の表記・色の計算。 |

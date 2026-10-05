@@ -12,7 +12,7 @@ GPUI Kit の見た目を、Avalonia の既存コントロールに適用する�
 
 ## 実装状況
 
-2026-10-05 時点。「対応」と「部分対応」の全 50 行、「新規実装」の 19 行、サードパーティのライブラリの 2 行を実装し、ADR 30 で 36 のコンポーネントに機能を足した。GPUI Kit `2c5162f` が描いた参照データと比べて、Light / Dark、各 Variant・サイズ・状態、動きが一致することを自動テストで確かめた。本体のコントロールと ADR 30 の添付プロパティは `UIKitTheme`（`src/AvaloniaUIKit`）、公式の別パッケージのコントロールは別のアセンブリ（`src/AvaloniaUIKit.ColorPicker`、`src/AvaloniaUIKit.DataGrid`。ADR 16）、サードパーティのライブラリのテーマはそのライブラリごとのアセンブリ（`src/AvaloniaUIKit.Tabalonia`、`src/AvaloniaUIKit.Dock`。ADR 28）にある。全 <TOTAL_TESTS> 件のテストが成功している。検証の方法、許容値、緩和 ID の意味、利用側の約束は [テストと一致検証](../testing.md) にまとめた。
+2026-10-05 時点。「対応」と「部分対応」の全 50 行、「新規実装」の 19 行、サードパーティのライブラリの 2 行を実装し、ADR 30 で 36 のコンポーネントに機能を足した。GPUI Kit `2c5162f` が描いた参照データと比べて、Light / Dark、各 Variant・サイズ・状態、動きが一致することを自動テストで確かめた。本体のコントロールと ADR 30 の添付プロパティは `UIKitTheme`（`src/AvaloniaUIKit`）、公式の別パッケージのコントロールは別のアセンブリ（`src/AvaloniaUIKit.ColorPicker`、`src/AvaloniaUIKit.DataGrid`。ADR 16）、サードパーティのライブラリのテーマはそのライブラリごとのアセンブリ（`src/AvaloniaUIKit.Tabalonia`、`src/AvaloniaUIKit.Dock`。ADR 28）にある。全 6985 件のテストが成功している。検証の方法、許容値、緩和 ID の意味、利用側の約束は [テストと一致検証](../testing.md) にまとめた。
 
 「静止ケース」は参照データの静止状態のケース数（Light / Dark と Aurora Light の合計）。「対象外とした機能」には、ADR 30 の後も扱わない機能を書く。ADR 30 で足した機能は、それを持つ添付プロパティと新しいコントロールの名前を添える（[ADR 30 で機能を足したもの](#adr-30-で機能を足したもの)）。GPUI と動きだけが違うもの（閉じるときのアニメーションなど）は「動きの差」と書く。
 
