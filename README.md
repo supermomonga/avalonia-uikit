@@ -7,17 +7,20 @@ Avalonia themes and controls based on the Nova style of
 **Documentation and live demos: [avalonia-uikit.omofla.sh](https://avalonia-uikit.omofla.sh)**
 
 - `UIKitTheme` restyles Avalonia's own controls (Button, TextBox, ComboBox,
-  Calendar, Tabs, Menus, ScrollViewer and 40 more) and adds the small
-  components Avalonia lacks (Badge, Tag, Alert, Avatar, Stepper, Form and
-  others). Optional packages cover `ColorPicker` and `DataGrid`, and the
-  third-party libraries [Tabalonia](https://github.com/egorozh/Tabalonia)
-  (draggable tabs) and [Dock.Avalonia](https://github.com/wieslawsoltes/Dock)
-  (docking layouts).
+  Calendar, Tabs, Menus, ScrollViewer and 40 more) and adds controls for the
+  GPUI Kit components and features Avalonia lacks: small components (Badge,
+  Tag, Alert, Avatar, Stepper, Form and others), controls such as Select with
+  search and multiple selection, ListView, Tree, CalendarView, DateField,
+  Sidebar, Sheet and NotificationList, and attached properties such as a
+  loading Button and input masks. Optional packages cover `ColorPicker` and
+  `DataGrid`, and the third-party libraries
+  [Tabalonia](https://github.com/egorozh/Tabalonia) (draggable tabs) and
+  [Dock.Avalonia](https://github.com/wieslawsoltes/Dock) (docking layouts).
 - Colors come in GPUI Kit's Default Light and Default Dark and in the 36 color
   themes GPUI Kit bundles (Aurora, Ayu, Catppuccin, Tokyo Night and others),
   chosen as theme variants (`UIKitThemeVariants`).
-- Every theme is verified pixel by pixel, frame by frame, against renders of
-  GPUI Kit itself (3,700+ automated cases, `docs/testing.md`).
+- Every theme and control is verified pixel by pixel, frame by frame, against
+  renders of GPUI Kit itself (6,300+ automated cases, `docs/testing.md`).
 - No reflection; NativeAOT and trimming are supported (except where a
   dependency is not trimmable: DataGrid, Dock.Avalonia).
 
