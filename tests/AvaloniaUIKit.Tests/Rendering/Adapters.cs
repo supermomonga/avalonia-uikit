@@ -49,6 +49,7 @@ public static partial class Adapters
         "tooltip" => Tooltip(c),
         "scroll" => Scroll(c),
         "icon" => IconCase(c),
+        "uikit-icon" => IconKindCase(c),
         "label" => LabelCase(c),
         "input" => InputFeatures(Input(c), c),
         "input-menu" => InputFeatures(Input(c), c),

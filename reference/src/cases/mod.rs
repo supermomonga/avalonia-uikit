@@ -93,6 +93,7 @@ pub fn builder(case: &Case) -> Result<Builder> {
         "tooltip" => button::tooltip(&params),
         "scroll" => scroll::builder(&params),
         "icon" => icon::builder(&params),
+        "uikit-icon" => icon::builder(&params),
         "label" => label::builder(&params),
         "input" => input::builder(&params),
         "input-menu" => input::builder(&params),
