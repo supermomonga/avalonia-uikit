@@ -29,3 +29,4 @@
 * [29. Add controls to a third-party theme package where the library's template cannot hold GPUI Kit's parts](0029-add-controls-to-a-third-party-theme-package-where-the-library-s-template-cannot-hold-gpui-kit-s-parts.md)
 * [30. Build the GPUI Kit features Avalonia's controls lack as attached properties and new controls](0030-build-the-gpui-kit-features-avalonia-s-controls-lack-as-attached-properties-and-new-controls.md)
 * [31. Run the tests in Release and split them between processes run side by side](0031-run-the-tests-in-release-and-split-them-between-processes-run-side-by-side.md)
+* [32. Render the previews in batches and build the site's .NET outputs in cached jobs side by side](0032-render-the-previews-in-batches-and-build-the-site-s-net-outputs-in-cached-jobs-side-by-side.md)

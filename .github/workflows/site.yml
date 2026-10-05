@@ -35,13 +35,16 @@ concurrency:
   group: site-${{ github.ref }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
+# The .NET side's outputs, the previews' manifest and the browser app, build
+# in their own jobs side by side and reach the site job through the cache,
+# keyed on the SDK and a hash of what they are built from: a change to the
+# site alone builds no .NET (docs/site.md).
 jobs:
-  build:
+  previews:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
-    environment:
-      name: ${{ github.event_name == 'pull_request' && 'preview' || 'production' }}
-      url: ${{ github.event_name != 'pull_request' && 'https://avalonia-uikit.omofla.sh' || '' }}
+    timeout-minutes: 20
+    outputs:
+      key: ${{ steps.key.outputs.key }}
     steps:
       - uses: actions/checkout@v5
 
@@ -49,19 +52,102 @@ jobs:
         with:
           global-json-file: global.json
 
-      - uses: oven-sh/setup-bun@v2
+      - name: Cache key
+        id: key
+        run: echo "key=previews-$RUNNER_OS-$(dotnet --version)-$HASH" >> "$GITHUB_OUTPUT"
+        env:
+          HASH: ${{ hashFiles('src/**', 'samples/AvaloniaUIKit.Demos/**', 'samples/AvaloniaUIKit.Previews/**', 'assets/**', 'Directory.Build.props', 'Directory.Packages.props', 'global.json', '.github/workflows/site.yml') }}
+
+      - name: Look up the previews
+        id: cache
+        uses: actions/cache/restore@v4
         with:
-          bun-version-file: sites/package.json
+          path: sites/public/previews
+          key: ${{ steps.key.outputs.key }}
+          lookup-only: true
 
       - name: Cache NuGet packages
+        if: steps.cache.outputs.cache-hit != 'true'
         uses: actions/cache@v4
         with:
           path: ~/.nuget/packages
-          key: nuget-${{ runner.os }}-${{ hashFiles('Directory.Packages.props', '**/*.csproj') }}
-          restore-keys: nuget-${{ runner.os }}-
+          key: nuget-previews-${{ runner.os }}-${{ hashFiles('Directory.Packages.props', '**/*.csproj') }}
+          restore-keys: nuget-previews-${{ runner.os }}-
+
+      # The site needs the demos' sizes only: the PNGs are for the social image (docs/site.md).
+      - name: Measure the demos
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: dotnet run --project samples/AvaloniaUIKit.Previews -c Release -- --out sites/public/previews --manifest-only
+
+      - name: Save the previews
+        if: steps.cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: sites/public/previews
+          key: ${{ steps.key.outputs.key }}
+
+  wasm:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    outputs:
+      key: ${{ steps.key.outputs.key }}
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-dotnet@v5
+        with:
+          global-json-file: global.json
+
+      - name: Cache key
+        id: key
+        run: echo "key=wasm-$RUNNER_OS-$(dotnet --version)-$HASH" >> "$GITHUB_OUTPUT"
+        env:
+          HASH: ${{ hashFiles('src/**', 'samples/AvaloniaUIKit.Demos/**', 'samples/AvaloniaUIKit.Browser/**', 'assets/**', 'Directory.Build.props', 'Directory.Packages.props', 'global.json', 'sites/scripts/publish-wasm.sh', '.github/workflows/site.yml') }}
+
+      - name: Look up the browser app
+        id: cache
+        uses: actions/cache/restore@v4
+        with:
+          path: sites/public/wasm
+          key: ${{ steps.key.outputs.key }}
+          lookup-only: true
+
+      - name: Cache NuGet packages
+        if: steps.cache.outputs.cache-hit != 'true'
+        uses: actions/cache@v4
+        with:
+          path: ~/.nuget/packages
+          key: nuget-wasm-${{ runner.os }}-${{ hashFiles('Directory.Packages.props', '**/*.csproj') }}
+          restore-keys: nuget-wasm-${{ runner.os }}-
 
       - name: Install the WebAssembly workload
+        if: steps.cache.outputs.cache-hit != 'true'
         run: dotnet workload install wasm-tools
+
+      - name: Publish the browser app
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: sites/scripts/publish-wasm.sh
+
+      - name: Save the browser app
+        if: steps.cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: sites/public/wasm
+          key: ${{ steps.key.outputs.key }}
+
+  site:
+    needs: [previews, wasm]
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment:
+      name: ${{ github.event_name == 'pull_request' && 'preview' || 'production' }}
+      url: ${{ github.event_name != 'pull_request' && 'https://avalonia-uikit.omofla.sh' || '' }}
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version-file: sites/package.json
 
       - name: Install the site's dependencies
         run: bun install --frozen-lockfile
@@ -70,12 +156,19 @@ jobs:
       - name: The demo registry is up to date
         run: bun sites/scripts/demo-registry.ts --check
 
-      # The social image and the icons are committed (sites/scripts/images.ts).
-      - name: Render the previews
-        run: dotnet run --project samples/AvaloniaUIKit.Previews -c Release -- --out sites/public/previews
+      - name: Restore the previews
+        uses: actions/cache/restore@v4
+        with:
+          path: sites/public/previews
+          key: ${{ needs.previews.outputs.key }}
+          fail-on-cache-miss: true
 
-      - name: Publish the browser app
-        run: sites/scripts/publish-wasm.sh
+      - name: Restore the browser app
+        uses: actions/cache/restore@v4
+        with:
+          path: sites/public/wasm
+          key: ${{ needs.wasm.outputs.key }}
+          fail-on-cache-miss: true
 
       - name: Typecheck
         run: bun run typecheck
