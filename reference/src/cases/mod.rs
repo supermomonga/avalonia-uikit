@@ -138,6 +138,7 @@ pub fn builder(case: &Case) -> Result<Builder> {
         "uikit-accordion" => accordion::builder(&params),
         "notification" => notification::notification(&params),
         "resizable" => resizable::builder(&params),
+        "uikit-resizable" => resizable::builder(&params),
         "image" => image::builder(&params),
         "uikit-image" => image::builder(&params),
         "calendar" => time::calendar(&params),

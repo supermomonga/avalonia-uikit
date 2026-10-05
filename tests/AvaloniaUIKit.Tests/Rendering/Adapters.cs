@@ -81,6 +81,7 @@ public static partial class Adapters
         "uikit-accordion" => AccordionCase(c),
         "notification" => NotificationArea(c),
         "resizable" => Resizable(c),
+        "uikit-resizable" => ResizableCase(c),
         "image" => ImageCase(c),
         "uikit-image" => AsyncImageCase(c),
         "calendar" => CalendarCase(c),

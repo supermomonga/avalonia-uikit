@@ -1,0 +1,129 @@
+# GPUI Kit Resizable (h_resizable / v_resizable) -> uikit:ResizablePanelGroup.
+# The resizable cases first (two empty panels, the first 120px), then three
+# panels resized in a chain, size ranges, a hidden panel and nested groups.
+# A drag is two moves with the button held: GPUI starts dragging on the first
+# (past its 2px threshold) and resizes on the second; so does the group.
+component = "uikit-resizable"
+viewport = [352, 136]
+anchor = [16, 8]
+
+# Columns: a 320x120 group; hairline x=136..137, band x=132..141.
+[[group]]
+name = "columns"
+params = { width = 320, height = 120, first = 120 }
+states = [
+  "normal",
+  "at-136-68+wait-200ms",
+  "at-139-68+wait-200ms",
+  "at-143-68+wait-200ms",
+  "pressed-at-136-68+wait-200ms",
+  "pressed-at-136-68+drag-at-136-68+wait-200ms",
+  "pressed-at-136-68+drag-at-146-68+drag-at-176-68+wait-200ms",
+  "pressed-at-136-68+drag-at-146-68+drag-at-176-68+release+wait-200ms",
+]
+
+# Rows: a 320x240 group; first panel 110px, hairline y=118..119, band y=114..123.
+[[group]]
+name = "rows"
+viewport = [352, 256]
+params = { vertical = true, width = 320, height = 240, first = 110 }
+states = [
+  "normal",
+  "at-176-118+wait-200ms",
+  "at-176-125+wait-200ms",
+  "pressed-at-176-118+wait-200ms",
+  "pressed-at-176-118+drag-at-176-118+wait-200ms",
+  "pressed-at-176-118+drag-at-176-128+drag-at-176-138+wait-200ms",
+  "pressed-at-176-118+drag-at-176-128+drag-at-176-138+release+wait-200ms",
+]
+
+# Three panels in a 400x120 group: 120, 140 and the rest (140), each at least
+# 100. Hairlines x=136 and x=276. Growing the first to 200 takes 40 from each
+# of the others (down to their minimum); dragging further leaves it at 200.
+# Shrinking the second below its minimum shrinks the first (to its minimum),
+# and the third takes the room: 100, 100, 200.
+[[group]]
+name = "chain"
+viewport = [432, 136]
+params = { width = 400, height = 120, sizes = [120, 140, 0] }
+states = [
+  "normal",
+  "pressed-at-136-68+drag-at-146-68+drag-at-216-68+wait-200ms",
+  "pressed-at-136-68+drag-at-146-68+drag-at-256-68+wait-200ms",
+  "pressed-at-136-68+drag-at-146-68+drag-at-256-68+release+wait-200ms",
+  "pressed-at-276-68+drag-at-266-68+drag-at-196-68+wait-200ms",
+  "pressed-at-276-68+drag-at-266-68+drag-at-196-68+release+wait-200ms",
+]
+
+# size_range: the first panel 100..180 in a 320x120 group, dragged past both ends.
+[[group]]
+name = "range"
+params = { width = 320, height = 120, sizes = [120, 0], maxs = [180, 0] }
+states = [
+  "normal",
+  "pressed-at-136-68+drag-at-146-68+drag-at-256-68+release+wait-200ms",
+  "pressed-at-136-68+drag-at-130-68+drag-at-60-68+release+wait-200ms",
+]
+
+# The middle of three panels hidden: the first keeps 120, the last takes the rest,
+# and one handle sits between them.
+[[group]]
+name = "hidden"
+viewport = [432, 136]
+params = { width = 400, height = 120, sizes = [120, 100, 0], hidden = 1 }
+states = ["normal", "at-136-68+wait-200ms"]
+
+# A 320x240 vertical group whose first panel (120px) holds a horizontal group
+# (120px and the rest). Inner hairline x=136 (y 8..128), outer y=128. The drag
+# stops at 140, where the second panel reaches its minimum.
+[[group]]
+name = "nested"
+viewport = [352, 256]
+params = { width = 320, height = 240, first = 120, nested = true }
+states = [
+  "normal",
+  "at-136-60+wait-200ms",
+  "at-176-128+wait-200ms",
+  "pressed-at-176-128+drag-at-176-138+drag-at-176-158+release+wait-200ms",
+]
+
+# The pill grows and fades in over 120ms (easing_move), and back out.
+[[motion]]
+name = "hover"
+params = { width = 320, height = 120, first = 120 }
+from = "at-60-68"
+trigger = "at-136-68"
+samples_ms = [0, 16, 33, 50, 66, 83, 100, 120, 140]
+themes = ["light"]
+
+[[motion]]
+name = "leave"
+params = { width = 320, height = 120, first = 120 }
+from = "at-136-68+wait-200ms"
+trigger = "at-60-68"
+samples_ms = [0, 16, 33, 50, 66, 83, 100, 120, 140]
+themes = ["light"]
+
+[[motion]]
+name = "press"
+params = { width = 320, height = 120, first = 120 }
+from = "at-136-68+wait-200ms"
+trigger = "pressed-at-136-68"
+samples_ms = [0, 16, 33, 50, 66, 83, 100, 120, 140]
+themes = ["light"]
+
+[[motion]]
+name = "drag"
+params = { width = 320, height = 120, first = 120 }
+from = "pressed-at-136-68+wait-200ms"
+trigger = "drag-at-136-68"
+samples_ms = [0, 16, 33, 50, 66, 83, 100, 120, 140]
+themes = ["light"]
+
+[[motion]]
+name = "release"
+params = { width = 320, height = 120, first = 120 }
+from = "pressed-at-136-68+drag-at-146-68+drag-at-176-68+wait-200ms"
+trigger = "release"
+samples_ms = [0, 16, 33, 50, 66, 83, 100, 120, 140]
+themes = ["light"]
