@@ -324,6 +324,10 @@ public class ColorSelect : TemplatedControl
         {
             PseudoClasses.Set(":hsla", ActiveTab == 1);
         }
+        else if (change.Property == IsEffectivelyEnabledProperty && !IsEffectivelyEnabled)
+        {
+            IsDropDownOpen = false;
+        }
     }
 
     /// <inheritdoc />

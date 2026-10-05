@@ -285,13 +285,19 @@ public class TableColorBehaviorTests
         await Assert.That(select.DisplayText).IsEqualTo("#0000FF");
     }
 
-    // A disabled color select does not open.
+    // A disabled color select does not open, and closes when it is disabled while open.
     [Test]
     public async Task A_disabled_color_select_does_not_open()
     {
         var select = new ColorSelect { Color = Color.Parse("#2563EB"), IsEnabled = false };
         using var host = Open(select);
         ClickAt(host, select);
+        await Assert.That(select.IsDropDownOpen).IsFalse();
+        select.IsEnabled = true;
+        ClickAt(host, select);
+        await Assert.That(select.IsDropDownOpen).IsTrue();
+        select.IsEnabled = false;
+        host.Flush();
         await Assert.That(select.IsDropDownOpen).IsFalse();
     }
 
