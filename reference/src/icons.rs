@@ -12,7 +12,7 @@ use tiny_skia_path::PathSegment;
 const DEFAULT_ICONS: &str = include_str!("../vendor/gpui-kit/crates/assets/default-icons.txt");
 
 /// The icons the themes draw, by GPUI IconName file name.
-pub const ICONS: [&str; 51] = [
+pub const ICONS: [&str; 52] = [
     "check",
     "minus",
     "plus",
@@ -55,6 +55,8 @@ pub const ICONS: [&str; 51] = [
     "star",
     "star-fill",
     "user",
+    // ColorSelect: an icon in place of the swatch.
+    "palette",
     // Dock (AvaloniaUIKit.Dock): the dock toggles, zoom and pinning.
     "panel-left",
     "panel-right",

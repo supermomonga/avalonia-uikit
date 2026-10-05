@@ -388,6 +388,13 @@
           <ColorPicker Color="#F59E0B" Classes="field" Width="200" />
         </StackPanel>
 
+        <TextBlock Text="uikit:ColorSelect" Foreground="{DynamicResource UIKit.MutedForeground}" />
+        <StackPanel Orientation="Horizontal" Spacing="16">
+          <uikit:ColorSelect Color="#2563EB" Label="Accent" />
+          <uikit:ColorSelect Icon="{StaticResource UIKit.Icon.Palette}" ActiveTab="1" />
+          <uikit:ColorSelect Classes="field small" Width="200" PlaceholderText="Pick a color" />
+        </StackPanel>
+
         <TextBlock Text="Popover" Foreground="{DynamicResource UIKit.MutedForeground}" />
         <Button Classes="outline" Content="Open" HorizontalAlignment="Left">
           <Button.Flyout>
