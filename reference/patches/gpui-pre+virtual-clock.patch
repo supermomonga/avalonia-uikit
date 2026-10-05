@@ -36,3 +36,23 @@
                              state.animation_ix += 1;
                          }
                          delta = 1.0;
+--- a/src/elements/img.rs
++++ b/src/elements/img.rs
+@@ -400,7 +400,7 @@
+                         None => {
+                             if let Some(state) = &mut state {
+                                 if let Some((started_loading, _)) = state.started_loading {
+-                                    if started_loading.elapsed() > LOADING_DELAY
++                                    if cx.background_executor().now().duration_since(started_loading) > LOADING_DELAY
+                                         && let Some(loading) = self.style.loading.as_ref()
+                                     {
+                                         let mut element = loading();
+@@ -416,7 +416,7 @@
+                                         })
+                                         .ok();
+                                     });
+-                                    state.started_loading = Some((Instant::now(), task));
++                                    state.started_loading = Some((cx.background_executor().now(), task));
+                                 }
+                             }
+                         }

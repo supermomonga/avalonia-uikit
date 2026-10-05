@@ -47,6 +47,12 @@ if [ "$remaining" != "0" ]; then
   echo "gpui-pre animation.rs still reads the wall clock ($remaining sites)" >&2
   exit 1
 fi
+# img(): the 200ms before the loading content (the GIF frame clock stays).
+remaining="$(grep -c -e 'started_loading.elapsed()' -e 'started_loading = Some((Instant::now()' "$VENDOR/gpui-pre/src/elements/img.rs" || true)"
+if [ "$remaining" != "0" ]; then
+  echo "gpui-pre img.rs still reads the wall clock for loading ($remaining sites)" >&2
+  exit 1
+fi
 remaining="$(grep -c 'Instant::now()' "$VENDOR/gpui-kit/crates/base/src/scrollbar.rs" || true)"
 if [ "$remaining" != "0" ]; then
   echo "gpui-base scrollbar.rs still reads the wall clock ($remaining sites)" >&2

@@ -134,6 +134,7 @@ pub fn builder(case: &Case) -> Result<Builder> {
         "notification" => notification::notification(&params),
         "resizable" => resizable::builder(&params),
         "image" => image::builder(&params),
+        "uikit-image" => image::builder(&params),
         "calendar" => time::calendar(&params),
         "datepicker" => time::date_picker(&params),
         "timefield" => time::time_field(&params),

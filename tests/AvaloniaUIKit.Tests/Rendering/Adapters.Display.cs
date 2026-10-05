@@ -1,10 +1,13 @@
+using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Layout;
 using Avalonia.Media;
+using Avalonia.Media.Imaging;
 using AvaloniaUIKit.Tests.Golden;
 
 namespace AvaloniaUIKit.Tests.Rendering;
 
-/// <summary>Adapters for uikit:TextLabel and uikit:Icon (reference/src/cases/label.rs, icon.rs).</summary>
+/// <summary>Adapters for uikit:TextLabel, uikit:Icon and uikit:AsyncImage (reference/src/cases/label.rs, icon.rs, image.rs).</summary>
 public static partial class Adapters
 {
     /// <summary>The uikit-label cases: the label cases' sizes, weights, colors and widths, highlights and the mask.</summary>
@@ -83,5 +86,78 @@ public static partial class Adapters
             icon.RenderTransform = new RotateTransform(c.Num("rotate", 0));
         }
         return icon;
+    }
+
+    /// <summary>
+    /// The uikit-image cases: an AsyncImage whose loader hands over the case's
+    /// test image at once, never finishes, or fails, with the image cases' box,
+    /// fit and radius, and the app's loading and fallback content.
+    /// </summary>
+    public static AsyncImage AsyncImageCase(GoldenCase c)
+    {
+        var file = c.Str("image", "wide") switch
+        {
+            "wide" => "wide-192x96.png",
+            "tall" => "tall-96x192.png",
+            _ => "small-48x48.png",
+        };
+        var image = new AsyncImage
+        {
+            Loader = new CaseImageLoader(c.Str("source", "loaded")),
+            Loading = PendingContent(c, "loader"),
+            Fallback = PendingContent(c, "circle-x"),
+        };
+        if (c.Num("width", 96) is > 0 and var width && c.Num("height", 96) is > 0 and var height)
+        {
+            image.Width = width;
+            image.Height = height;
+        }
+        // GPUI's ObjectFit as Stretch (AsyncImage.axaml).
+        switch (c.Str("fit", "contain"))
+        {
+            case "fill":
+                image.Stretch = Stretch.Fill;
+                break;
+            case "cover":
+                image.Stretch = Stretch.UniformToFill;
+                break;
+            case "scale-down":
+                image.StretchDirection = StretchDirection.DownOnly;
+                break;
+            case "none":
+                image.Stretch = Stretch.None;
+                break;
+        }
+        if (c.Num("radius", 0) == 8)
+        {
+            image.Classes.Add("rounded-lg");
+        }
+        image.Source = new Uri(Path.Combine(AvaloniaUIKit.Tests.Infrastructure.Repo.Root, "assets", "images", file));
+        return image;
+    }
+
+    /// <summary>The cases' loading and fallback content: a muted box with a muted 16px icon in the middle.</summary>
+    private static Border PendingContent(GoldenCase c, string icon)
+    {
+        var mark = Icon(icon);
+        mark.Foreground = ThemeBrush(c, "UIKit.MutedForeground");
+        mark.HorizontalAlignment = HorizontalAlignment.Center;
+        mark.VerticalAlignment = VerticalAlignment.Center;
+        return new Border { Background = ThemeBrush(c, "UIKit.Muted"), Child = mark };
+    }
+
+    /// <summary>
+    /// GPUI's case loaders: the decoded test image at once ("loaded", as GPUI's
+    /// case hands img() a decoded image), a load that never ends ("loading"),
+    /// or a failure ("failed").
+    /// </summary>
+    private sealed class CaseImageLoader(string source) : IImageLoader
+    {
+        public Task<IImage> LoadAsync(Uri uri, CancellationToken cancellationToken) => source switch
+        {
+            "loading" => new TaskCompletionSource<IImage>().Task,
+            "failed" => Task.FromException<IImage>(new IOException("missing")),
+            _ => Task.FromResult<IImage>(new Bitmap(uri.LocalPath)),
+        };
     }
 }

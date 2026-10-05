@@ -80,6 +80,7 @@ public static partial class Adapters
         "notification" => NotificationArea(c),
         "resizable" => Resizable(c),
         "image" => ImageCase(c),
+        "uikit-image" => AsyncImageCase(c),
         "calendar" => CalendarCase(c),
         "datepicker" => DatePicker(c),
         "timefield" => TimeField(c),
