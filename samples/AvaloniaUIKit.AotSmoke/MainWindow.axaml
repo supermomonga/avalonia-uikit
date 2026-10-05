@@ -169,9 +169,15 @@
           <ProgressBar Value="40" Width="240" />
           <ProgressBar IsIndeterminate="True" Width="240" />
           <ProgressBar Theme="{StaticResource UIKitSpinner}" Classes="large" />
+          <ProgressBar Theme="{StaticResource UIKitSpinner}" uikit:Spinners.Icon="{StaticResource UIKit.Icon.LoaderCircle}" />
           <StackPanel Orientation="Horizontal" Spacing="12">
             <ProgressBar Theme="{StaticResource UIKitProgressCircle}" Value="60" />
             <ProgressBar Theme="{StaticResource UIKitProgressCircle}" Classes="large" IsIndeterminate="True" />
+            <ProgressBar Theme="{StaticResource UIKitProgressCircle}" Value="60" Width="80" Height="80">
+              <uikit:ProgressCircles.Content>
+                <TextBlock Text="60%" FontWeight="SemiBold" />
+              </uikit:ProgressCircles.Content>
+            </ProgressBar>
           </StackPanel>
         </StackPanel>
 
@@ -564,8 +570,11 @@
         </uikit:Message>
         <TextBlock Text="GroupBox, Separator, Link" Foreground="{DynamicResource UIKit.MutedForeground}" />
         <GroupBox Classes="outline" Header="Account" Content="Content" Width="320" HorizontalAlignment="Left" />
+        <GroupBox Classes="fill" Header="Activity" Content="Content" Width="320" HorizontalAlignment="Left"
+                  uikit:GroupBoxes.Footer="Private contributions never reveal repository names." />
         <Separator Width="320" HorizontalAlignment="Left" />
         <Separator Classes="dashed" Width="320" HorizontalAlignment="Left" />
+        <Separator Width="320" HorizontalAlignment="Left" uikit:Separators.Label="Or continue with" />
         <HyperlinkButton Content="Documentation" />
 
         <Border Width="200" Height="64" BorderThickness="1" Background="Transparent"

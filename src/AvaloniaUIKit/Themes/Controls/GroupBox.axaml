@@ -6,10 +6,12 @@
   for fill and outline). Fill paints the group_box token and outline a 1px
   border; both pad the content by 16px. GPUI text without a line height of
   its own uses phi (1.618) of its size, which the content keeps here.
-  The footer is out of scope (GroupBox has no slot for it).
+  uikit:GroupBoxes.Footer is GPUI's footer: 14px muted text 8px under the
+  surface, from the title's leading edge.
 -->
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:uikit="using:AvaloniaUIKit">
   <ControlTheme x:Key="{x:Type GroupBox}" TargetType="GroupBox">
     <Setter Property="Foreground" Value="{DynamicResource UIKit.GroupBoxForeground}" />
     <Setter Property="FontSize" Value="16" />
@@ -24,6 +26,14 @@
                             ContentTemplate="{TemplateBinding HeaderTemplate}"
                             Foreground="{DynamicResource UIKit.MutedForeground}"
                             LineHeight="20" />
+          <!-- group_box.rs footer: text_sm, muted, 8px (gap_2) under the surface. -->
+          <ContentPresenter Name="PART_FooterPresenter" DockPanel.Dock="Bottom"
+                            Margin="0,8,0,0"
+                            IsVisible="{TemplateBinding (uikit:GroupBoxes.Footer), Converter={x:Static ObjectConverters.IsNotNull}}"
+                            Content="{TemplateBinding (uikit:GroupBoxes.Footer)}"
+                            Foreground="{DynamicResource UIKit.MutedForeground}"
+                            FontSize="14"
+                            LineHeight="22.5" />
           <ContentPresenter Name="PART_ContentPresenter"
                             BackgroundSizing="OuterBorderEdge"
                             Background="{TemplateBinding Background}"

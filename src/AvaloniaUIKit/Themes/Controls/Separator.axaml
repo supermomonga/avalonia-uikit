@@ -7,9 +7,15 @@
   Inside a menu a separator is PopupMenuItem::Separator instead: a 1px line
   at the bottom of a 2px box that runs to the surface edge, with 2px above
   and below (see UIKitTheme.axaml).
+  uikit:Separators.Label is GPUI's label: 12px muted text padded 8px by 4px
+  over the background, on the line where GPUI's flex layout puts it: at the
+  end of a horizontal line, in the middle of a vertical one. The separator
+  then takes the label's height (or width, vertical) instead of straddling
+  its neighbors.
 -->
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:uikit="using:AvaloniaUIKit">
   <ControlTheme x:Key="{x:Type Separator}" TargetType="Separator">
     <Setter Property="Background" Value="{DynamicResource UIKit.Border}" />
     <Setter Property="Height" Value="1" />
@@ -17,10 +23,20 @@
     <Setter Property="Focusable" Value="False" />
     <Setter Property="Template">
       <ControlTemplate>
-        <Border Background="{TemplateBinding Background}"
-                BorderBrush="{TemplateBinding BorderBrush}"
-                BorderThickness="{TemplateBinding BorderThickness}"
-                CornerRadius="{TemplateBinding CornerRadius}" />
+        <Panel>
+          <Border Name="PART_Line"
+                  Background="{TemplateBinding Background}"
+                  BorderBrush="{TemplateBinding BorderBrush}"
+                  BorderThickness="{TemplateBinding BorderThickness}"
+                  CornerRadius="{TemplateBinding CornerRadius}" />
+          <!-- separator.rs label: px_2 py_1 mx_auto text_xs, the background over the line. -->
+          <Border Name="PART_Label" Background="{DynamicResource UIKit.Background}" Padding="8,4"
+                  HorizontalAlignment="Center" VerticalAlignment="Center"
+                  IsVisible="{TemplateBinding (uikit:Separators.Label), Converter={x:Static ObjectConverters.IsNotNull}}">
+            <TextBlock Text="{TemplateBinding (uikit:Separators.Label)}" FontSize="12" LineHeight="19.416"
+                       Foreground="{DynamicResource UIKit.MutedForeground}" />
+          </Border>
+        </Panel>
       </ControlTemplate>
     </Setter>
     <Style Selector="^.vertical">
@@ -35,18 +51,61 @@
     <Style Selector="^.dashed">
       <Setter Property="Template">
         <ControlTemplate>
-          <Path Data="M0,0 H1" Stretch="Fill" Height="0" VerticalAlignment="Center"
-                Stroke="{TemplateBinding Background}" StrokeThickness="1" StrokeDashArray="4,2" />
+          <Panel>
+            <Path Data="M0,0 H1" Stretch="Fill" Height="0" VerticalAlignment="Center"
+                  Stroke="{TemplateBinding Background}" StrokeThickness="1" StrokeDashArray="4,2" />
+            <!-- separator.rs label: px_2 py_1 mx_auto text_xs, the background over the line. -->
+            <Border Name="PART_Label" Background="{DynamicResource UIKit.Background}" Padding="8,4"
+                    HorizontalAlignment="Center" VerticalAlignment="Center"
+                    IsVisible="{TemplateBinding (uikit:Separators.Label), Converter={x:Static ObjectConverters.IsNotNull}}">
+              <TextBlock Text="{TemplateBinding (uikit:Separators.Label)}" FontSize="12" LineHeight="19.416"
+                         Foreground="{DynamicResource UIKit.MutedForeground}" />
+            </Border>
+          </Panel>
         </ControlTemplate>
       </Setter>
     </Style>
     <Style Selector="^.vertical.dashed">
       <Setter Property="Template">
         <ControlTemplate>
-          <Path Data="M0,0 V1" Stretch="Fill" Width="0" HorizontalAlignment="Center"
-                Stroke="{TemplateBinding Background}" StrokeThickness="1" StrokeDashArray="4,2" />
+          <Panel>
+            <Path Data="M0,0 V1" Stretch="Fill" Width="0" HorizontalAlignment="Center"
+                  Stroke="{TemplateBinding Background}" StrokeThickness="1" StrokeDashArray="4,2" />
+            <!-- separator.rs label: px_2 py_1 mx_auto text_xs, the background over the line. -->
+            <Border Name="PART_Label" Background="{DynamicResource UIKit.Background}" Padding="8,4"
+                    HorizontalAlignment="Center" VerticalAlignment="Center"
+                    IsVisible="{TemplateBinding (uikit:Separators.Label), Converter={x:Static ObjectConverters.IsNotNull}}">
+              <TextBlock Text="{TemplateBinding (uikit:Separators.Label)}" FontSize="12" LineHeight="19.416"
+                         Foreground="{DynamicResource UIKit.MutedForeground}" />
+            </Border>
+          </Panel>
         </ControlTemplate>
       </Setter>
+    </Style>
+    <!-- Labeled: the label's box, with the 1px line through its middle. -->
+    <Style Selector="^:labeled">
+      <Setter Property="Height" Value="NaN" />
+      <Setter Property="Margin" Value="0" />
+    </Style>
+    <Style Selector="^:labeled /template/ Border#PART_Line">
+      <Setter Property="Height" Value="1" />
+      <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+    <!-- separator.rs: Taffy lays the mx_auto label out at the row's end. -->
+    <Style Selector="^:labeled /template/ Border#PART_Label">
+      <Setter Property="HorizontalAlignment" Value="Right" />
+    </Style>
+    <Style Selector="^.vertical:labeled">
+      <Setter Property="Width" Value="NaN" />
+    </Style>
+    <Style Selector="^.vertical:labeled /template/ Border#PART_Label">
+      <Setter Property="HorizontalAlignment" Value="Center" />
+    </Style>
+    <Style Selector="^.vertical:labeled /template/ Border#PART_Line">
+      <Setter Property="Width" Value="1" />
+      <Setter Property="Height" Value="NaN" />
+      <Setter Property="HorizontalAlignment" Value="Center" />
+      <Setter Property="VerticalAlignment" Value="Stretch" />
     </Style>
   </ControlTheme>
 </ResourceDictionary>
