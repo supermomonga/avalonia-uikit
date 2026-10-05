@@ -12,8 +12,7 @@ GPUI Kit の見た目を、Avalonia の既存コントロールに適用する�
 
 ## 実装状況
 
-2026-10-05 時点。「対応」と「部分対応」の全 50 行、「新規実装」の 19 行、サードパーティのライブラリの 2 行を実装し、ADR 30 で 34 のコンポーネントに機能を足した。GPUI Kit `2c5162f` が描いた参照データと比べて、Light / Dark、各 Variant・サイズ・状態、動きが一致することを自動テストで確かめた。本体のコントロールと ADR 30 の添付プロパティは `UIKitTheme`（`src/AvaloniaUIKit`）、公式の別パッケージのコントロールは別のアセンブリ（`src/AvaloniaUIKit.ColorPicker`、`src/AvaloniaUIKit.DataGrid`。ADR 16）、サードパーティのライブラリのテーマはそのライブラリごとのアセンブリ（`src/AvaloniaUIKit.Tabalonia`、`src/AvaloniaUIKit.Dock`。ADR 28）にある。全 <TOTAL_TESTS> 件のテストが成功している。検証の方法、許容値、緩和 ID の意味、利用側の約束は [テストと一致検証](../testing.md) にまとめた。
-<!-- TODO(shell): Notification と TitleBar の行を足したら「34 のコンポーネント」を 36 にする。 -->
+2026-10-05 時点。「対応」と「部分対応」の全 50 行、「新規実装」の 19 行、サードパーティのライブラリの 2 行を実装し、ADR 30 で 36 のコンポーネントに機能を足した。GPUI Kit `2c5162f` が描いた参照データと比べて、Light / Dark、各 Variant・サイズ・状態、動きが一致することを自動テストで確かめた。本体のコントロールと ADR 30 の添付プロパティは `UIKitTheme`（`src/AvaloniaUIKit`）、公式の別パッケージのコントロールは別のアセンブリ（`src/AvaloniaUIKit.ColorPicker`、`src/AvaloniaUIKit.DataGrid`。ADR 16）、サードパーティのライブラリのテーマはそのライブラリごとのアセンブリ（`src/AvaloniaUIKit.Tabalonia`、`src/AvaloniaUIKit.Dock`。ADR 28）にある。全 <TOTAL_TESTS> 件のテストが成功している。検証の方法、許容値、緩和 ID の意味、利用側の約束は [テストと一致検証](../testing.md) にまとめた。
 
 「静止ケース」は参照データの静止状態のケース数（Light / Dark と Aurora Light の合計）。「対象外とした機能」には、ADR 30 の後も扱わない機能を書く。ADR 30 で足した機能は、それを持つ添付プロパティと新しいコントロールの名前を添える（[ADR 30 で機能を足したもの](#adr-30-で機能を足したもの)）。GPUI と動きだけが違うもの（閉じるときのアニメーションなど）は「動きの差」と書く。
 
@@ -74,11 +73,10 @@ GPUI Kit の見た目を、Avalonia の既存コントロールに適用する�
 | Image | `Image` | 20 | – | R31 | SVG とアニメーション画像（ADR 30 でも範囲外）、`grayscale`、枠より縦長の画像（GPUI が枠に収めない）。URL の取得、読み込み中と失敗時の内容は `uikit:AsyncImage` |
 | ProgressCircle | `ProgressBar`（`Theme="{StaticResource UIKitProgressCircle}"`） | 44 | 値の変化、不定値 | – | –（中央の内容は `uikit:ProgressCircles.Content`） |
 | Popover | `Flyout`、`FlyoutPresenter` | 38 | 開くとき | R12 | –（閉じるアニメーションは動きの差） |
-| Notification | `WindowNotificationManager`、`NotificationCard` | 34 | 入場・退場 | R3、R5、R30 | 通知ごとの配置、重複排除、重なりの展開と並べ直し |
-| TitleBar / WindowBorder | `WindowDrawnDecorations` | 6 | – | R7、R14、R32 | 任意のコンテンツ、OS が描く装飾 |
+| Notification | `WindowNotificationManager`、`NotificationCard` | 34 | 入場・退場 | R3、R5、R30 | OS の通知への配信（ADR 30 でも範囲外）。通知ごとの配置、重複排除、重なりの展開と並べ直しは `uikit:NotificationList` |
+| TitleBar / WindowBorder | `WindowDrawnDecorations` | 6 | – | R7、R14、R32 | OS が描く装飾、Linux の右クリックのウィンドウメニュー。任意の内容は `uikit:TitleBar` |
 | ColorPicker | `ColorPicker`（`UIKitColorPickerTheme`） | 42 | – | – | –（GPUI のパレット・featured 行・HSLA のスライダーと、色なしの値は本体の `uikit:ColorSelect`）。ポップオーバーは挙動テストで確かめる |
 | DataTable | `DataGrid`（`UIKitDataGridTheme`） | 56 | – | R28 | 列の選択、多段の列見出し、読み込み中の表示、無限取得（ADR 30 でも範囲外）。セルの選択は選択行の current cell として描く（`cell-selectable`）。DataGrid 本体がトリム非対応なので NativeAOT は保証しない |
-<!-- TODO(shell): Notification と TitleBar / WindowBorder の行の対象外を、uikit:NotificationList と uikit:TitleBar で足したものに合わせて書き直す。 -->
 
 ### 新規実装
 
@@ -145,8 +143,9 @@ Avalonia に対応するコントロールがないため、新しいコント�
 | Image | `uikit:AsyncImage`、`ImageLoader` | 28 | – | R31 | SVG とアニメーション画像、`grayscale`、失敗した読み込みの保持（次の画像で読み直す） |
 | ProgressCircle | `uikit:ProgressCircles.Content` | 2 | – | – | – |
 | Spinner | `uikit:Spinners.Icon` | 6 | – | – | easing の変更（`ease()`） |
+| Notification | `uikit:NotificationList`、`uikit:NotificationItem`、`NotificationPlacement` | 60 | 入場・退場、左右中央の入場（フェードだけ） | R3、R5、R30 | OS の通知への配信、Sheet を開いている間の通知の層のずれ。同じ id での置き換えと、`MaxItems` で隠れていたカードの再表示は動きの差 |
+| TitleBar | `uikit:TitleBar` | 10 | – | R14、R32 | Linux の右クリックのウィンドウメニュー（`show_window_menu`。Avalonia に公開 API がない）、サーバー側の装飾かどうかによるボタンの出し分け（ウィンドウが装飾に広がっているかで決める） |
 | ColorPicker / ColorSelect | `uikit:ColorSelect`、`uikit:ColorSwatch` | 84 | – | R12 | – |
-<!-- TODO(shell): Notification（uikit:NotificationList、uikit:NotificationItem）と TitleBar（uikit:TitleBar）の行を足す。 -->
 
 ### サードパーティのライブラリ
 
@@ -270,9 +269,8 @@ Avalonia に対応するコントロールがないため、新しいコント�
 | [Popover][gp-popover] | 部分対応 | [`Flyout`][av-flyout] / `FlyoutPresenter` | アンカーに対する配置、`HorizontalOffset` / `VerticalOffset` による間隔、内容、枠・影、開くときの表示。論理的な開閉は標準 Flyout が担当。配置した辺に合わせて描く矢印（`arrow` クラス）は、`Placement` から間隔と矢印の位置を求める値変換（`PlacementConverter`）で描く。閉じるアニメーションを待って Popup を破棄する制御は追加しない（動きの差）。 |
 | [Menu / ContextMenu / DropdownMenu][gp-menu] | 対応 | [`ContextMenu`][av-contextmenu]、[`MenuFlyout`][av-menu-flyout]、[`MenuItem`][av-menu-item] | 項目、チェック、サブメニュー、アイコン、ショートカット表示、区切り、hover / disabled。クリック型トリガーには標準 `DropDownButton` も使える。ポインターの位置に開くメニューは `FlyoutPresenterClasses="context"` でトリガーとの間隔をなくす（TextBox の右クリックメニューも同じ）。 |
 | AppMenuBar（menu の公開型） | 対応 | [`Menu`][av-menu] | アプリ内に描画するメニューバーと項目。OS のネイティブメニューとは分ける。 |
-| [Notification][gp-notification] | 部分対応 | [`WindowNotificationManager`][av-notification-manager] / [`NotificationCard`][av-notification-card] | アプリ内通知の色、アイコン、内容、`Position` の 6 種の位置、標準の自動消去と入退場表示。GPUI の通知ごとの配置指定と左右中央の配置、重複排除 ID、重なりを hover で展開するスタックやばねによる並べ直しは移植しない。 |
-| [TitleBar][gp-title-bar] / WindowBorder | 部分対応 | [`WindowDrawnDecorations`][av-window-decorations]、`Window.WindowDecorationsTheme` | Avalonia が描くタイトルバー・枠のテンプレート、標準のキャプションボタン・状態をテーマ化。OS が描く装飾は対象外。GPUI のタイトルバーへの任意コンテンツ挿入 API やプラットフォーム処理は移植しない。実際に描画される部位は OS ごとに確認が必要。 |
-<!-- TODO(shell): Notification の行に uikit:NotificationList / uikit:NotificationItem、TitleBar の行に uikit:TitleBar で足したもの（通知ごとの配置、重複排除、重なりの展開、任意の内容など）を書き、まだ範囲外のもの（OS の通知への配信など）だけを残す。 -->
+| [Notification][gp-notification] | 部分対応 | [`WindowNotificationManager`][av-notification-manager] / [`NotificationCard`][av-notification-card]、`uikit:NotificationList` / `uikit:NotificationItem` | テーマ: アプリ内通知の色、アイコン、内容、`Position` の 6 種の位置、標準の自動消去と入退場表示。GPUI の NotificationList は `uikit:NotificationList`（ADR 30）で足す。通知ごとの配置（左右中央を含む 8 種。左右中央はスライドせずフェードだけ）と配置ごとのスタック、新しい順に 3 枚まで重ねてポインターかフォーカスがある間は広げる重なり、GPUI と同じばねでの並べ直し、どれかのスタックを広げている間は止まる 5 秒の自動消去、action（あると既定で消えない）、`Id` / `Key` による重複排除と置き換え、`Remove` / `Clear`、`MaxItems`。カードは `uikit:NotificationItem`（`NotificationCard` の派生。Avalonia の `Notification` と同名を避けた）で、見た目と入退場は WindowNotificationManager のカードと同じ。OS の通知への配信は追加しない（ADR 30 で範囲外）。Sheet を開いている間に通知の層をずらす GPUI の処理は持たない。 |
+| [TitleBar][gp-title-bar] / WindowBorder | 部分対応 | [`WindowDrawnDecorations`][av-window-decorations]、`Window.WindowDecorationsTheme`、`uikit:TitleBar` | テーマ: Avalonia が描くタイトルバー・枠のテンプレート、標準のキャプションボタン・状態。OS が描く装飾は対象外。実際に描画される部位は OS ごとに確認が必要。アプリがウィンドウの内容の先頭に置く GPUI の TitleBar は `uikit:TitleBar`（ADR 30）で足す。任意の子を両端に分けて並べ、34px の高さ、グラデーション、下の罫線を描く。Windows と macOS ではバーをウィンドウのタイトルバーの領域（`WindowDecorationProperties.ElementRole`）にして OS が移動と最大化を行い、ほかの OS ではバー自身がドラッグでウィンドウを動かし、ダブルクリックで最大化する。Windows と Linux ではウィンドウが許すキャプションボタンを末尾に置き、macOS では信号機の 80px を空ける。Linux の右クリックのウィンドウメニュー（`show_window_menu`）は Avalonia に公開 API がないので追加しない。WindowBorder（影・枠・リサイズ帯）は WindowDrawnDecorations のテーマが描く。 |
 
 ## 公式の別パッケージに対応するもの
 
@@ -375,10 +373,9 @@ Avalonia に対応先のない機能のうち、それを持つ広く使われ�
 | Notification の入退場 | 対応範囲あり | `NotificationCard` は `IsClosing` / `IsClosed` を持ち、標準テーマがアニメーションと閉じる完了を結び付けている。この契約を維持して外観と時間を変更する。 |
 | 途中で反転しても速度を維持する spring | 対応（2026-10-03 の方針改定後） | Avalonia の `SpringEasing` は速度を持たないので、見た目だけを動かす Behavior（`Motion.Spring`）で GPUI と同じ式を使う。 |
 | 選択タブを追いかける下線 | 対応（2026-10-03 の方針改定後） | 選択項目の位置と幅を読んでインジケーターだけを動かす Behavior（`Tabs.Indicator`）。 |
-| 通知の重なり・並べ直し | 非対応 | 通知の並びと寿命の管理が必要で、見た目だけのコードの範囲を超える。 |
+| 通知の重なり・並べ直し | 対応（ADR 30） | 通知の並びと寿命の管理が必要で、見た目だけのコードの範囲を超えるので、`uikit:NotificationList` で足した。内部の `NotificationStack` が GPUI の ToastStack と同じばねで、カードの位置・幅・高さ・不透明度を毎フレーム置く。 |
 | 自然高を計測し、レイアウト高も滑らかに変える reveal | 対応（2026-10-03 の方針改定後） | `Height=Auto` と数値の遷移だけでは GPUI の `MotionReveal` に相当しないので、内容を自然な高さで測る `Canvas` と値変換（`RevealConverters`）で、高さ ＝ 自然高 × ばねの値にする。 |
 | OS の reduced-motion 設定との同一連動 | 未保証 | GPUI の低減処理をそのまま移植しない。今回確認した Avalonia の公開 [`IPlatformSettings`][av-platform-settings] には同等の共通設定取得契約がない。テーマの動きの定義と OS の設定検出は別に評価する。 |
-<!-- TODO(shell): 通知の重なり・並べ直しの行を、uikit:NotificationList（ADR 30）で対応したことに合わせて書き直す。 -->
 
 共通の時間・曲線は、GPUI の [`MotionTokens`][gp-motion] を出発点にできる。
 
