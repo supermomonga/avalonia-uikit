@@ -12,7 +12,7 @@ use tiny_skia_path::PathSegment;
 const DEFAULT_ICONS: &str = include_str!("../vendor/gpui-kit/crates/assets/default-icons.txt");
 
 /// The icons the themes draw, by GPUI IconName file name.
-pub const ICONS: [&str; 52] = [
+pub const ICONS: [&str; 61] = [
     "check",
     "minus",
     "plus",
@@ -67,6 +67,16 @@ pub const ICONS: [&str; 52] = [
     "minimize",
     "pin",
     "pin-off",
+    // uikit:Sidebar: the sidebar story's items, header and footer.
+    "square-terminal",
+    "bot",
+    "book-open",
+    "frame",
+    "chart-pie",
+    "map",
+    "settings-2",
+    "gallery-vertical-end",
+    "circle-user",
 ];
 
 /// The icon's opaque outline, and the outline of its translucent parts with

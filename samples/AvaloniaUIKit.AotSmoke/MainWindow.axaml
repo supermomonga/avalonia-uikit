@@ -388,6 +388,47 @@
           <Border Background="{DynamicResource UIKit.Muted}" />
         </DrawerPage>
 
+        <TextBlock Text="uikit:Sidebar" Foreground="{DynamicResource UIKit.MutedForeground}" />
+        <DockPanel Width="480" Height="300" HorizontalAlignment="Left">
+          <uikit:Sidebar Name="GallerySidebar" DockPanel.Dock="Left" ExpandedWidth="220">
+            <uikit:Sidebar.Header>
+              <uikit:SidebarHeader>
+                <uikit:SidebarHeader.Flyout>
+                  <MenuFlyout Placement="BottomEdgeAlignedLeft">
+                    <MenuItem Header="Acme Inc." />
+                  </MenuFlyout>
+                </uikit:SidebarHeader.Flyout>
+                <TextBlock Text="Acme Inc." />
+              </uikit:SidebarHeader>
+            </uikit:Sidebar.Header>
+            <uikit:SidebarGroup Label="Platform">
+              <uikit:SidebarMenu>
+                <uikit:SidebarMenuItem Label="Inbox" Icon="{StaticResource UIKit.Icon.Inbox}" IsActive="True" IsOpen="True">
+                  <uikit:SidebarMenuItem Label="Unread">
+                    <uikit:SidebarMenuItem.Suffix>
+                      <uikit:Badge Count="3" />
+                    </uikit:SidebarMenuItem.Suffix>
+                  </uikit:SidebarMenuItem>
+                  <uikit:SidebarMenuItem Label="Archived" />
+                </uikit:SidebarMenuItem>
+                <uikit:SidebarMenuItem Label="Settings" Icon="{StaticResource UIKit.Icon.Settings2}" ClickToToggle="True">
+                  <uikit:SidebarMenuItem Label="General" />
+                </uikit:SidebarMenuItem>
+                <uikit:SidebarMenuItem Label="Archive" Icon="{StaticResource UIKit.Icon.Folder}" IsEnabled="False" />
+              </uikit:SidebarMenu>
+            </uikit:SidebarGroup>
+            <uikit:Sidebar.Footer>
+              <uikit:SidebarFooter>
+                <TextBlock Text="Jason Lee" />
+              </uikit:SidebarFooter>
+            </uikit:Sidebar.Footer>
+          </uikit:Sidebar>
+          <Border Background="{DynamicResource UIKit.Muted}">
+            <uikit:SidebarToggleButton Margin="8" HorizontalAlignment="Left" VerticalAlignment="Top"
+                                       IsCollapsed="{Binding #GallerySidebar.IsCollapsed}" />
+          </Border>
+        </DockPanel>
+
         <TextBlock Text="Sheet" Foreground="{DynamicResource UIKit.MutedForeground}" />
         <DrawerPage Classes="sheet" DrawerBehavior="Flyout" DrawerPlacement="Right" DrawerHeader="Settings"
                     IsOpen="True" Width="400" Height="200" HorizontalAlignment="Left">

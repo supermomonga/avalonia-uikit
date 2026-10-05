@@ -1,0 +1,330 @@
+<!--
+  GPUI Kit Sidebar (crates/component/src/sidebar) -> uikit:Sidebar and its parts:
+
+    <uikit:Sidebar IsCollapsed="{Binding ...}">
+      <uikit:Sidebar.Header><uikit:SidebarHeader>...</uikit:SidebarHeader></uikit:Sidebar.Header>
+      <uikit:SidebarGroup Label="Platform">
+        <uikit:SidebarMenu>
+          <uikit:SidebarMenuItem Label="Playground" Icon="{StaticResource UIKit.Icon.SquareTerminal}" IsOpen="True">
+            <uikit:SidebarMenuItem Label="History" />
+          </uikit:SidebarMenuItem>
+        </uikit:SidebarMenu>
+      </uikit:SidebarGroup>
+      <uikit:Sidebar.Footer><uikit:SidebarFooter>...</uikit:SidebarFooter></uikit:Sidebar.Footer>
+    </uikit:Sidebar>
+
+  Sidebar (mod.rs): the look of the SplitView theme's pane. The surface is the
+  sidebar color with a 1px border on the content side, ExpandedWidth wide (255
+  by default); the header row has 12px around it but below, the items scroll
+  12px in, the footer row has 12px around it but above. Collapsed to icons the
+  surface is 48px, the paddings 8px (the footer keeps 12 below, the items 20
+  above and below) and the three rows 8px apart. The clip around the surface
+  moves its width over 200ms (ease-in-out-cubic) while the surface snaps to
+  its own: on the window's side, against the content when off-canvas. As a
+  SplitView's pane the SplitView draws the surface and moves the width.
+
+  SidebarHeader / SidebarFooter (header.rs, footer.rs): 8px in, the theme
+  radius, the sidebar accent when hovered or selected.
+  SidebarGroup (group.rs): the label in a 32px row, 8px in, 12px text in the
+  sidebar foreground at 70%; hidden when collapsed to icons.
+  SidebarMenu (menu.rs): items 8px apart.
+  SidebarMenuItem (menu.rs): a 28px row, 8px in, the theme radius, 14px text;
+  the icon (14px, the text's size), label, suffix and the xsmall ghost caret
+  (its icon 12px, the button's) 8px apart. Hovered: the sidebar accent at 80%
+  (not when active or disabled); active: the sidebar accent and medium text;
+  disabled: muted text. The caret turns 90 degrees
+  when the submenu is open; the submenu sits under a 1px line 14px in, 10px
+  after it, 2px above and below, its items 4px apart. Collapsed to icons the
+  row is the icon alone, 8px in all round (30px tall), and the label shows as
+  a tooltip on its right.
+-->
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:uikit="using:AvaloniaUIKit">
+  <ControlTheme x:Key="{x:Type uikit:Sidebar}" TargetType="uikit:Sidebar">
+    <Setter Property="Background" Value="{DynamicResource UIKit.Sidebar.Fill}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.SidebarForeground}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource UIKit.SidebarBorder}" />
+    <Setter Property="ItemsPanel">
+      <ItemsPanelTemplate>
+        <StackPanel />
+      </ItemsPanelTemplate>
+    </Setter>
+    <Setter Property="Template">
+      <ControlTemplate>
+        <!-- mod.rs sidebar_wrapper: the clip whose width moves. -->
+        <Panel Name="PART_Clip" ClipToBounds="True">
+          <Border Name="PART_Surface"
+                  Background="{TemplateBinding Background}"
+                  BackgroundSizing="OuterBorderEdge"
+                  BorderBrush="{TemplateBinding BorderBrush}"
+                  TextElement.Foreground="{TemplateBinding Foreground}">
+            <DockPanel>
+              <Border Name="PART_HeaderHost" DockPanel.Dock="Top" Padding="12,12,12,0"
+                      IsVisible="{TemplateBinding Header, Converter={x:Static ObjectConverters.IsNotNull}}">
+                <ContentPresenter Name="PART_HeaderPresenter"
+                                  HorizontalContentAlignment="Stretch"
+                                  VerticalAlignment="Center"
+                                  Content="{TemplateBinding Header}" />
+              </Border>
+              <Border Name="PART_FooterHost" DockPanel.Dock="Bottom" Padding="12,0,12,12"
+                      IsVisible="{TemplateBinding Footer, Converter={x:Static ObjectConverters.IsNotNull}}">
+                <ContentPresenter Name="PART_FooterPresenter"
+                                  HorizontalContentAlignment="Stretch"
+                                  VerticalAlignment="Center"
+                                  Content="{TemplateBinding Footer}" />
+              </Border>
+              <ScrollViewer Name="PART_ScrollViewer" HorizontalScrollBarVisibility="Disabled">
+                <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" Margin="12" />
+              </ScrollViewer>
+            </DockPanel>
+          </Border>
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+
+    <!-- The width: ExpandedWidth, 48 collapsed to icons, 0 off-canvas; moving over 200ms. -->
+    <Style Selector="^ /template/ Panel#PART_Clip">
+      <Setter Property="Width" Value="{Binding $parent[uikit:Sidebar].ExpandedWidth}" />
+      <Setter Property="uikit:Motion.SettledTransitions">
+        <Transitions>
+          <DoubleTransition Property="Width" Duration="0:0:0.2" Easing="CubicEaseInOut" />
+        </Transitions>
+      </Setter>
+    </Style>
+    <Style Selector="^:icon-collapsed /template/ Panel#PART_Clip">
+      <Setter Property="Width" Value="48" />
+    </Style>
+    <Style Selector="^:offcanvas-collapsed /template/ Panel#PART_Clip">
+      <Setter Property="Width" Value="0" />
+    </Style>
+    <Style Selector="^ /template/ Border#PART_Surface">
+      <Setter Property="Width" Value="{Binding $parent[uikit:Sidebar].ExpandedWidth}" />
+    </Style>
+    <Style Selector="^:icon-collapsed /template/ Border#PART_Surface">
+      <Setter Property="Width" Value="48" />
+    </Style>
+
+    <!-- The side: the clip on the window's edge, the border on the content side; the
+         surface on the window's side, or against the content off-canvas (align_child_to_end). -->
+    <Style Selector="^:left /template/ Panel#PART_Clip">
+      <Setter Property="HorizontalAlignment" Value="Left" />
+    </Style>
+    <Style Selector="^:left /template/ Border#PART_Surface">
+      <Setter Property="HorizontalAlignment" Value="Left" />
+      <Setter Property="BorderThickness" Value="0,0,1,0" />
+    </Style>
+    <Style Selector="^:right /template/ Panel#PART_Clip">
+      <Setter Property="HorizontalAlignment" Value="Right" />
+    </Style>
+    <Style Selector="^:right /template/ Border#PART_Surface">
+      <Setter Property="HorizontalAlignment" Value="Right" />
+      <Setter Property="BorderThickness" Value="1,0,0,0" />
+    </Style>
+    <Style Selector="^:left:offcanvas /template/ Border#PART_Surface">
+      <Setter Property="HorizontalAlignment" Value="Right" />
+    </Style>
+    <Style Selector="^:right:offcanvas /template/ Border#PART_Surface">
+      <Setter Property="HorizontalAlignment" Value="Left" />
+    </Style>
+
+    <!-- Collapsed to icons: 8px paddings (12 below the footer, 20 above and below the
+         items, the first and last items' own) and 8px between the rows (gap_2). -->
+    <Style Selector="^:icon-collapsed">
+      <Style Selector="^ /template/ Border#PART_HeaderHost">
+        <Setter Property="Padding" Value="8,8,8,0" />
+        <Setter Property="Margin" Value="0,0,0,8" />
+      </Style>
+      <Style Selector="^ /template/ Border#PART_FooterHost">
+        <Setter Property="Padding" Value="8,8,8,12" />
+        <Setter Property="Margin" Value="0,8,0,0" />
+      </Style>
+      <Style Selector="^ /template/ ItemsPresenter#PART_ItemsPresenter">
+        <Setter Property="Margin" Value="8,20" />
+      </Style>
+    </Style>
+
+    <!-- A SplitView's pane: the SplitView draws the surface and moves the width. -->
+    <Style Selector="^:pane /template/ Panel#PART_Clip">
+      <Setter Property="Width" Value="NaN" />
+      <Setter Property="HorizontalAlignment" Value="Stretch" />
+      <Setter Property="uikit:Motion.SettledTransitions" Value="{x:Null}" />
+    </Style>
+    <Style Selector="^:pane /template/ Border#PART_Surface">
+      <Setter Property="Width" Value="NaN" />
+      <Setter Property="HorizontalAlignment" Value="Stretch" />
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="BorderThickness" Value="0" />
+    </Style>
+  </ControlTheme>
+
+  <!-- header.rs / footer.rs: the row both are. -->
+  <ControlTheme x:Key="UIKitSidebarRow" TargetType="Button">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Padding" Value="8" />
+    <Setter Property="CornerRadius" Value="{DynamicResource UIKit.Radius}" />
+    <Setter Property="HorizontalAlignment" Value="Stretch" />
+    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <ContentPresenter Name="PART_ContentPresenter"
+                          Background="{TemplateBinding Background}"
+                          CornerRadius="{TemplateBinding CornerRadius}"
+                          Padding="{TemplateBinding Padding}"
+                          Content="{TemplateBinding Content}"
+                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                          HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^:pointerover, ^:selected">
+      <Setter Property="Background" Value="{DynamicResource UIKit.SidebarAccent.Fill}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.SidebarAccentForeground}" />
+    </Style>
+  </ControlTheme>
+  <ControlTheme x:Key="{x:Type uikit:SidebarHeader}" TargetType="uikit:SidebarHeader"
+                BasedOn="{StaticResource UIKitSidebarRow}" />
+  <ControlTheme x:Key="{x:Type uikit:SidebarFooter}" TargetType="uikit:SidebarFooter"
+                BasedOn="{StaticResource UIKitSidebarRow}" />
+
+  <!-- group.rs. -->
+  <ControlTheme x:Key="{x:Type uikit:SidebarGroup}" TargetType="uikit:SidebarGroup">
+    <Setter Property="ItemsPanel">
+      <ItemsPanelTemplate>
+        <StackPanel />
+      </ItemsPanelTemplate>
+    </Setter>
+    <Setter Property="Template">
+      <ControlTemplate>
+        <StackPanel>
+          <Border Name="PART_LabelHost" Height="32" Padding="8,0">
+            <ContentPresenter Name="PART_LabelPresenter"
+                              VerticalAlignment="Center"
+                              FontSize="12"
+                              LineHeight="19.5"
+                              Foreground="{DynamicResource UIKit.SidebarForeground}"
+                              Opacity="0.7"
+                              Content="{TemplateBinding Label}" />
+          </Border>
+          <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
+        </StackPanel>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^:collapsed /template/ Border#PART_LabelHost">
+      <Setter Property="IsVisible" Value="False" />
+    </Style>
+  </ControlTheme>
+
+  <!-- menu.rs SidebarMenu: v_flex gap_2. -->
+  <ControlTheme x:Key="{x:Type uikit:SidebarMenu}" TargetType="uikit:SidebarMenu">
+    <Setter Property="ItemsPanel">
+      <ItemsPanelTemplate>
+        <StackPanel Spacing="8" />
+      </ItemsPanelTemplate>
+    </Setter>
+    <Setter Property="Template">
+      <ControlTemplate>
+        <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+
+  <!-- menu.rs SidebarMenuItem. -->
+  <ControlTheme x:Key="{x:Type uikit:SidebarMenuItem}" TargetType="uikit:SidebarMenuItem">
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.SidebarForeground}" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="CornerRadius" Value="{DynamicResource UIKit.Radius}" />
+    <Setter Property="ItemsPanel">
+      <ItemsPanelTemplate>
+        <StackPanel Spacing="4" />
+      </ItemsPanelTemplate>
+    </Setter>
+    <Setter Property="Template">
+      <ControlTemplate>
+        <StackPanel>
+          <!-- The row: hovered, it takes the hover; collapsed to icons, its tooltip is the label. -->
+          <Panel Name="PART_Row" Height="28" Background="Transparent"
+                 ToolTip.Placement="Right" ToolTip.HorizontalOffset="0" ToolTip.VerticalOffset="0">
+            <Border Name="PART_Background" CornerRadius="{TemplateBinding CornerRadius}" />
+            <Grid Name="PART_RowContent" Margin="8,0" ColumnDefinitions="Auto,*,Auto,Auto"
+                  TextElement.Foreground="{TemplateBinding Foreground}">
+              <PathIcon Name="PART_Icon" Width="14" Height="14" Margin="0,0,8,0"
+                        VerticalAlignment="Center"
+                        Data="{TemplateBinding Icon}"
+                        IsVisible="{TemplateBinding Icon, Converter={x:Static ObjectConverters.IsNotNull}}" />
+              <TextBlock Name="PART_Label" Grid.Column="1" VerticalAlignment="Center" LineHeight="22.5"
+                         ClipToBounds="True" Text="{TemplateBinding Label}" />
+              <ContentPresenter Name="PART_Suffix" Grid.Column="2" Margin="8,0,0,0" VerticalAlignment="Center"
+                                Content="{TemplateBinding Suffix}"
+                                IsVisible="{TemplateBinding Suffix, Converter={x:Static ObjectConverters.IsNotNull}}" />
+              <Button Name="PART_Caret" Grid.Column="3" Margin="8,0,0,0" VerticalAlignment="Center"
+                      Classes="xsmall ghost icon-only" IsVisible="False"
+                      AutomationProperties.Name="Toggle submenu">
+                <PathIcon Name="PART_CaretIcon" Data="{StaticResource UIKit.Icon.ChevronRight}" />
+              </Button>
+            </Grid>
+          </Panel>
+          <Border Name="PART_Submenu" IsVisible="False"
+                  BorderBrush="{DynamicResource UIKit.SidebarBorder}" BorderThickness="1,0,0,0"
+                  Margin="14,0,0,0" Padding="10,2,0,2">
+            <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
+          </Border>
+        </StackPanel>
+      </ControlTemplate>
+    </Setter>
+
+    <!-- With a submenu: the caret, turned while open; the submenu while open. -->
+    <Style Selector="^:submenu /template/ Button#PART_Caret">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+    <Style Selector="^:open /template/ PathIcon#PART_CaretIcon">
+      <Setter Property="RenderTransform" Value="rotate(90deg)" />
+    </Style>
+    <Style Selector="^:submenu:open /template/ Border#PART_Submenu">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+
+    <!-- Hovered (not active, not disabled): sidebar_accent at 80%. -->
+    <Style Selector="^:not(:active):not(:disabled) /template/ Panel#PART_Row:pointerover > Border#PART_Background">
+      <Setter Property="Background" Value="{DynamicResource UIKit.SidebarAccent}" />
+      <Setter Property="Opacity" Value="0.8" />
+    </Style>
+    <Style Selector="^:not(:active):not(:disabled) /template/ Panel#PART_Row:pointerover > Grid#PART_RowContent">
+      <Setter Property="TextElement.Foreground" Value="{DynamicResource UIKit.SidebarAccentForeground}" />
+    </Style>
+    <Style Selector="^:active /template/ Border#PART_Background">
+      <Setter Property="Background" Value="{DynamicResource UIKit.SidebarAccent.Fill}" />
+    </Style>
+    <Style Selector="^:active /template/ Grid#PART_RowContent">
+      <Setter Property="TextElement.Foreground" Value="{DynamicResource UIKit.SidebarAccentForeground}" />
+    </Style>
+    <Style Selector="^:active /template/ TextBlock#PART_Label">
+      <Setter Property="FontWeight" Value="Medium" />
+    </Style>
+    <Style Selector="^:disabled /template/ Grid#PART_RowContent">
+      <Setter Property="TextElement.Foreground" Value="{DynamicResource UIKit.MutedForeground}" />
+    </Style>
+
+    <!-- Collapsed to icons: the row is the icon 8px in all round (no h_7); no label,
+         suffix, caret or submenu; the label is the row's tooltip when there is an icon. -->
+    <Style Selector="^:collapsed">
+      <Style Selector="^ /template/ Panel#PART_Row">
+        <Setter Property="Height" Value="NaN" />
+      </Style>
+      <Style Selector="^ /template/ Grid#PART_RowContent">
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="Margin" Value="8" />
+      </Style>
+      <Style Selector="^ /template/ PathIcon#PART_Icon">
+        <Setter Property="Margin" Value="0" />
+      </Style>
+      <Style Selector="^ /template/ TextBlock#PART_Label, ^ /template/ ContentPresenter#PART_Suffix, ^ /template/ Button#PART_Caret, ^ /template/ Border#PART_Submenu">
+        <Setter Property="IsVisible" Value="False" />
+      </Style>
+    </Style>
+    <Style Selector="^:collapsed:icon /template/ Panel#PART_Row">
+      <Setter Property="ToolTip.Tip" Value="{Binding $parent[uikit:SidebarMenuItem].Label}" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>
