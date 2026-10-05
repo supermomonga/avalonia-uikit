@@ -9,10 +9,25 @@ namespace AvaloniaUIKit;
 
 /// <summary>
 /// The sliding indicator of GPUI Kit's TabBar (tab_bar.rs render_indicator),
-/// for the TabStrip and TabControl templates.
+/// for the TabStrip and TabControl templates, and the bar's prefix and suffix.
 /// </summary>
 public static class Tabs
 {
+    /// <summary>
+    /// Content at the start of a TabStrip's or TabControl's bar, before the
+    /// tabs (tab_bar.rs prefix), centered on the bar.
+    /// </summary>
+    public static readonly AttachedProperty<object?> PrefixProperty =
+        AvaloniaProperty.RegisterAttached<SelectingItemsControl, object?>("Prefix", typeof(Tabs));
+
+    /// <summary>
+    /// Content at the end of a TabStrip's or TabControl's bar, after the tabs
+    /// and the menu button (tab_bar.rs suffix). The tabs then end with 12px of
+    /// space (last_empty_space), as with the menu class.
+    /// </summary>
+    public static readonly AttachedProperty<object?> SuffixProperty =
+        AvaloniaProperty.RegisterAttached<SelectingItemsControl, object?>("Suffix", typeof(Tabs));
+
     /// <summary>
     /// Makes the element (in a Canvas of a TabStrip or TabControl template)
     /// the selected tab's indicator: it is placed over the selected tab, and
@@ -47,6 +62,18 @@ public static class Tabs
             }
         });
     }
+
+    /// <summary>Gets the bar's prefix.</summary>
+    public static object? GetPrefix(SelectingItemsControl element) => element.GetValue(PrefixProperty);
+
+    /// <summary>Sets the bar's prefix.</summary>
+    public static void SetPrefix(SelectingItemsControl element, object? value) => element.SetValue(PrefixProperty, value);
+
+    /// <summary>Gets the bar's suffix.</summary>
+    public static object? GetSuffix(SelectingItemsControl element) => element.GetValue(SuffixProperty);
+
+    /// <summary>Sets the bar's suffix.</summary>
+    public static void SetSuffix(SelectingItemsControl element, object? value) => element.SetValue(SuffixProperty, value);
 
     /// <summary>Gets whether the element is a tab indicator.</summary>
     public static bool GetIndicator(Control element) => element.GetValue(IndicatorProperty);

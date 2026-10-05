@@ -4,9 +4,10 @@ using Avalonia.Controls.Primitives;
 namespace AvaloniaUIKit;
 
 /// <summary>
-/// GPUI Kit's TabBar menu (tab_bar.rs menu(true)): a button in a TabsControl
-/// template that opens a menu of the tabs, checks the selected one and selects
-/// the one that is clicked. It is a Button and takes the Button theme.
+/// GPUI Kit's TabBar menu (tab_bar.rs menu(true)): a button in a TabStrip,
+/// TabControl or Tabalonia TabsControl template that opens a menu of the
+/// tabs, checks the selected one, disables the disabled ones and selects the
+/// one that is clicked. It is a Button and takes the Button theme.
 /// </summary>
 public class TabsMenuButton : Button
 {
@@ -45,15 +46,30 @@ public class TabsMenuButton : Button
                 IsChecked = owner.SelectedIndex == index,
                 IsEnabled = container?.IsEnabled ?? true,
             };
-            if (container is HeaderedContentControl { Header: not Control } tab)
+            // A TabItem's label is its header, a TabStripItem's its content.
+            var (label, template) = container switch
             {
-                item.Header = tab.Header;
-                item.HeaderTemplate = tab.HeaderTemplate;
-            }
-            else
+                HeaderedContentControl tab => (tab.Header, tab.HeaderTemplate),
+                ContentControl tab => (tab.Content, tab.ContentTemplate),
+                _ => (null, null),
+            };
+            switch (label)
             {
-                // A header that is a control is already shown by its tab.
-                item.Header = (container as HeaderedContentControl)?.Header is TextBlock { Text: { } text } ? text : $"Tab {index + 1}";
+                case not Control and not null:
+                    item.Header = label;
+                    item.HeaderTemplate = template;
+                    break;
+                // tab_bar.rs: an icon tab is listed by its icon. A control is already
+                // shown by its tab, so the menu gets its own copy of the glyph.
+                case PathIcon icon:
+                    item.Header = new PathIcon { Data = icon.Data };
+                    break;
+                case TextBlock { Text: { } text }:
+                    item.Header = text;
+                    break;
+                default:
+                    item.Header = $"Tab {index + 1}";
+                    break;
             }
             var selected = index;
             item.Click += (_, _) => owner.SelectedIndex = selected;

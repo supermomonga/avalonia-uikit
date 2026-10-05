@@ -461,6 +461,23 @@
             <TabStripItem Content="Profile" />
             <TabStripItem Content="Settings" />
           </TabStrip>
+          <TabStrip Classes="menu" SelectedIndex="0" Width="320">
+            <uikit:Tabs.Prefix>
+              <Button Classes="ghost xsmall icon-only" Margin="4,0">
+                <PathIcon Data="{StaticResource UIKit.Icon.ChevronLeft}" />
+              </Button>
+            </uikit:Tabs.Prefix>
+            <uikit:Tabs.Suffix>
+              <Button Classes="ghost xsmall icon-only" Margin="4,0">
+                <PathIcon Data="{StaticResource UIKit.Icon.Inbox}" />
+              </Button>
+            </uikit:Tabs.Suffix>
+            <TabStripItem Content="Account" />
+            <TabStripItem Content="Profile" />
+            <TabStripItem Content="Settings" />
+            <TabStripItem Content="Billing" />
+            <TabStripItem Content="Notifications" />
+          </TabStrip>
           <TabControl Classes="underline" Width="320" HorizontalAlignment="Left">
             <TabItem Header="Account"><TextBlock Text="Account settings" Margin="0,8" /></TabItem>
             <TabItem Header="Profile"><TextBlock Text="Profile" Margin="0,8" /></TabItem>
