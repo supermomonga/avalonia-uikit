@@ -1,0 +1,71 @@
+<!--
+  GPUI Kit Tree (crates/component/src/tree.rs, crates/base/src/tree.rs) ->
+  uikit:Tree, with the look of the TreeView theme.
+
+  GPUI's Tree draws no row of its own; its rows are GPUI Kit's canonical
+  ListItem (its shell, docs and story), which the ListItem theme draws: 16px
+  text on GPUI's default line with 12px by 4px of padding. Each row's content
+  (UIKitTreeEntryTemplate) is indented 16px per level (UIKit.TreeView.Indent)
+  and starts with a 16px folder (open when expanded) or file icon 8px before
+  the item's content (the Tree's ItemTemplate). No chrome of its own; the
+  Padding stays outside the scrolling rows, and the scrollbar overlays them.
+-->
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:uikit="using:AvaloniaUIKit"
+                    xmlns:conv="using:Avalonia.Controls.Converters">
+  <DataTemplate x:Key="UIKitTreeEntryTemplate" x:DataType="uikit:TreeEntry">
+    <Grid ColumnDefinitions="Auto,*">
+      <Grid.Margin>
+        <MultiBinding Converter="{x:Static conv:TreeViewItemIndentConverter.Instance}">
+          <Binding Path="Depth" />
+          <DynamicResource ResourceKey="UIKit.TreeView.Indent" />
+        </MultiBinding>
+      </Grid.Margin>
+      <Panel Width="16" Height="16" Margin="0,0,8,0" VerticalAlignment="Center">
+        <PathIcon Data="{StaticResource UIKit.Icon.File}" IsVisible="{Binding !IsFolder}" />
+        <PathIcon Data="{StaticResource UIKit.Icon.Folder}">
+          <PathIcon.IsVisible>
+            <MultiBinding Converter="{x:Static BoolConverters.And}">
+              <Binding Path="IsFolder" />
+              <Binding Path="!IsExpanded" />
+            </MultiBinding>
+          </PathIcon.IsVisible>
+        </PathIcon>
+        <PathIcon Data="{StaticResource UIKit.Icon.FolderOpen}">
+          <PathIcon.IsVisible>
+            <MultiBinding Converter="{x:Static BoolConverters.And}">
+              <Binding Path="IsFolder" />
+              <Binding Path="IsExpanded" />
+            </MultiBinding>
+          </PathIcon.IsVisible>
+        </PathIcon>
+      </Panel>
+      <!-- A presenter takes its content as data context, so the item comes from the row's grid. -->
+      <ContentPresenter Grid.Column="1" VerticalAlignment="Center" LineHeight="26"
+                        Content="{Binding $parent[Grid].((uikit:TreeEntry)DataContext).Item}"
+                        ContentTemplate="{Binding $parent[uikit:Tree].ItemTemplate}" />
+    </Grid>
+  </DataTemplate>
+
+  <ControlTheme x:Key="{x:Type uikit:Tree}" TargetType="uikit:Tree">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
+    <Setter Property="BorderThickness" Value="0" />
+    <Setter Property="Padding" Value="0" />
+    <Setter Property="FocusAdorner" Value="{x:Null}" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                CornerRadius="{TemplateBinding CornerRadius}"
+                Padding="{TemplateBinding Padding}">
+          <uikit:ListRows Name="PART_Rows"
+                          ScrollViewer.AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
+                          ScrollViewer.IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}" />
+        </Border>
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+</ResourceDictionary>

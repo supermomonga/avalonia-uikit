@@ -6,6 +6,8 @@ date: 2026-10-04
 links:
 - target: 15
   kind: amends
+- target: 30
+  kind: amendedby
 ---
 
 # Add controls to a third-party theme package where the library's template cannot hold GPUI Kit's parts

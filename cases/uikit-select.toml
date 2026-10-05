@@ -1,0 +1,142 @@
+# uikit:Select, GPUI Kit's Select (select.rs) as its own control. The groups
+# of select.toml first, on the same GPUI builder, so it keeps ComboBox's look;
+# then what ComboBox cannot do: search in the popup, sections, the clear
+# button, a title prefix, a menu width, an icon, an empty view and no
+# appearance. Open states wait out the 150ms enter motion; a query waits out
+# the 100ms the search field shows its spinner (list.rs start_search).
+component = "uikit-select"
+viewport = [320, 260]
+anchor = [16, 8]
+
+[[group]]
+name = "closed"
+params = { width = 200, selected = 1 }
+matrix = { size = ["xsmall", "small", "medium", "large"] }
+states = ["normal", "focus", "disabled"]
+
+[[group]]
+name = "placeholder"
+params = { width = 200, placeholder = "Select a fruit" }
+matrix = { size = ["xsmall", "large"] }
+states = ["normal", "disabled"]
+
+[[group]]
+name = "pointer"
+params = { width = 200, selected = 1 }
+states = ["hover", "pressed"]
+
+[[group]]
+name = "open"
+params = { width = 200, selected = 1, disabled_row = 3 }
+matrix = { size = ["xsmall", "small", "medium", "large"] }
+states = ["click+wait-200ms", "click+wait-200ms+at-60-64"]
+
+[[group]]
+name = "rows"
+params = { width = 200, selected = 1, disabled_row = 3 }
+states = ["click+wait-200ms+at-60-156", "click+wait-200ms+key-down", "focus+key-enter+wait-200ms"]
+
+[[group]]
+name = "openplaceholder"
+params = { width = 200 }
+states = ["click+wait-200ms"]
+
+[[group]]
+name = "closedafter"
+params = { width = 200, selected = 1 }
+states = ["click+wait-200ms+click-at-60-65", "click+wait-200ms+key-escape"]
+
+[[group]]
+name = "scroll"
+viewport = [320, 420]
+params = { width = 200, count = 12, selected = 2 }
+states = ["click+wait-200ms"]
+
+[[group]]
+name = "empty"
+params = { width = 200, count = 0 }
+states = ["click+wait-200ms"]
+
+# select.rs: ↑ and ↓ on the closed trigger open the popup (gpui-base
+# select.rs), leaving the cursor on the selected row.
+[[group]]
+name = "keys"
+params = { width = 200, selected = 1 }
+states = ["focus+key-down+wait-200ms", "focus+key-up+wait-200ms"]
+
+# searchable(true): the search field above the rows, by size.
+[[group]]
+name = "search"
+viewport = [320, 300]
+params = { width = 200, selected = 1, searchable = true }
+matrix = { size = ["xsmall", "small", "medium", "large"] }
+states = ["click+wait-200ms"]
+
+# A query: the rows that contain it, the cursor on the first, the trigger
+# titled with the cursor's row (or the placeholder when nothing matches);
+# Enter commits the cursor; Esc closes and drops the query.
+[[group]]
+name = "query"
+viewport = [320, 340]
+params = { width = 200, count = 8, selected = 1, searchable = true }
+states = [
+  "click+wait-200ms+key-a+key-n+wait-200ms",
+  "click+wait-200ms+key-a+key-n+wait-200ms+key-down",
+  "click+wait-200ms+key-x+key-z+wait-200ms",
+  "click+wait-200ms+key-a+key-n+wait-200ms+key-down+key-enter",
+  "click+wait-200ms+key-a+key-n+wait-200ms+key-escape+click+wait-200ms",
+]
+
+# Sections (SelectGroup): a muted header over each group's rows.
+[[group]]
+name = "groups"
+viewport = [320, 340]
+params = { width = 200, selected = 1, groups = true }
+states = ["click+wait-200ms", "click+wait-200ms+at-60-236", "click+wait-200ms+key-down+key-down"]
+
+# A query keeps the sections with a matching row, or whose title matches.
+[[group]]
+name = "groupsearch"
+viewport = [320, 340]
+params = { width = 200, selected = 1, groups = true, searchable = true }
+states = ["click+wait-200ms+key-e+wait-200ms"]
+
+# cleanable(true): the clear button replaces the caret while there is a value.
+[[group]]
+name = "clear"
+params = { width = 200, selected = 1, cleanable = true }
+states = ["normal", "hover", "at-196-24", "click-at-196-24"]
+
+[[group]]
+name = "prefix"
+params = { width = 200, selected = 1, title_prefix = "Fruit: " }
+states = ["normal"]
+
+[[group]]
+name = "menuwidth"
+params = { width = 200, selected = 1, menu_width = 280 }
+states = ["click+wait-200ms"]
+
+[[group]]
+name = "icon"
+params = { width = 200, selected = 1, icon = "search" }
+states = ["normal"]
+
+# empty(...): the Select story's "No Data" instead of the inbox icon.
+[[group]]
+name = "emptycustom"
+params = { width = 200, count = 0, empty = true }
+states = ["click+wait-200ms"]
+
+# appearance(false): no frame, no ring.
+[[group]]
+name = "plain"
+params = { width = 200, selected = 1, plain = true }
+states = ["normal", "focus"]
+
+[[motion]]
+name = "enter"
+params = { width = 200, selected = 1 }
+trigger = "click"
+samples_ms = [0, 16, 33, 50, 75, 100, 125, 150, 200]
+themes = ["light"]

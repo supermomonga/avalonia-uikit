@@ -1,0 +1,23 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:uikit="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.TitleBarTitleBar">
+  <Border Width="480" Height="140" HorizontalAlignment="Left" BorderThickness="1"
+          BorderBrush="{DynamicResource UIKit.WindowFrame}" Background="{DynamicResource UIKit.Background}">
+    <DockPanel>
+      <!-- In a window with ExtendClientAreaToDecorationsHint, the caption buttons show by themselves. -->
+      <uikit:TitleBar DockPanel.Dock="Top" ShowsCaptionButtons="True">
+        <TextBlock Text="My Application" FontSize="14" FontWeight="Medium" />
+        <StackPanel Orientation="Horizontal" Spacing="8" Margin="8,0">
+          <Button Classes="ghost small icon-only">
+            <PathIcon Data="{StaticResource UIKit.Icon.Github}" />
+          </Button>
+          <Button Classes="ghost small compact icon-only">
+            <PathIcon Data="{StaticResource UIKit.Icon.Bell}" />
+          </Button>
+        </StackPanel>
+      </uikit:TitleBar>
+      <TextBlock Text="Window content" Margin="16" Foreground="{DynamicResource UIKit.MutedForeground}" />
+    </DockPanel>
+  </Border>
+</UserControl>

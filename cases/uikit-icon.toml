@@ -1,0 +1,44 @@
+# GPUI Kit Icon -> uikit:Icon with an IconName (Kind). The icon cases
+# (cases/icon.toml) hold it to PathIcon's look; the grids draw every IconName
+# GPUI Kit ships by default, so each geometry is checked against GPUI's SVG.
+component = "uikit-icon"
+viewport = [40, 40]
+anchor = [8, 8]
+
+[[group]]
+name = "lucide"
+matrix = { icon = ["check", "minus", "plus", "chevron-down", "chevron-right", "chevron-up", "chevron-left", "loader", "copy", "external-link"], size = ["xsmall", "small", "medium", "large"] }
+
+[[group]]
+name = "more"
+matrix = { icon = ["chevrons-up-down", "close", "eye", "eye-off", "calendar", "inbox", "info", "circle-check", "triangle-alert", "circle-x", "panel-left-open", "panel-left-close", "window-minimize", "window-maximize", "window-restore", "window-close"], size = ["small", "medium"] }
+
+# No Size: GPUI takes the text size (16px here); uikit:Icon's default is 16.
+[[group]]
+name = "inherit"
+params = { icon = "check" }
+
+[[group]]
+name = "color"
+params = { icon = "copy", size = "large" }
+matrix = { color = ["muted-foreground", "primary", "danger"] }
+
+# Icon::rotate: a paint-time turn about the center.
+[[group]]
+name = "rotate"
+params = { icon = "chevron-right", size = "large", rotate = 90 }
+
+# A two-tone icon: the arrow GPUI's SVG draws at opacity 0.2.
+[[group]]
+name = "faint"
+params = { size = "large" }
+matrix = { icon = ["sort-ascending", "sort-descending"] }
+
+# Every IconName (crates/assets/default-icons.txt) in GPUI's variant order,
+# 12 to a row, 8px apart.
+[[group]]
+name = "all"
+params = { grid = true }
+matrix = { size = ["medium", "large"] }
+viewport = [400, 300]
+anchor = [12, 10]

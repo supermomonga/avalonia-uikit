@@ -1,0 +1,37 @@
+<!--
+  GPUI Kit Toolbar (crates/component/src/toolbar.rs) -> uikit:Toolbar:
+
+    <uikit:Toolbar>
+      <TextBlock Text="Files" />
+      <Button Classes="icon-only"><PathIcon Data="{StaticResource UIKit.Icon.Undo2}" /></Button>
+      <Separator Classes="vertical" Height="20" />
+      <uikit:ToolbarSpacer />
+      <ToggleButton Content="B" />
+    </uikit:Toolbar>
+
+  A transparent row: h_8 p_1 gap_1 text_sm at the default size (GPUI's
+  Small), h_7 p_1 gap_1 text_xs for xsmall, h_12 p_2 gap_2 for medium and
+  large. The items center on the row; the toolbar gives its controls its size
+  (and its plain buttons ghost and compact), so their own themes draw them.
+  A ToolbarGroup is a run of items without a gap of its own.
+-->
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:uikit="using:AvaloniaUIKit">
+  <Style Selector="uikit|Toolbar">
+    <Setter Property="Height" Value="32" />
+    <Setter Property="Padding" Value="4" />
+    <Setter Property="Spacing" Value="4" />
+    <Setter Property="TextElement.FontSize" Value="14" />
+    <Setter Property="TextElement.Foreground" Value="{DynamicResource UIKit.Foreground}" />
+  </Style>
+  <Style Selector="uikit|Toolbar.xsmall">
+    <Setter Property="Height" Value="28" />
+    <Setter Property="TextElement.FontSize" Value="12" />
+  </Style>
+  <Style Selector="uikit|Toolbar.medium, uikit|Toolbar.large">
+    <Setter Property="Height" Value="48" />
+    <Setter Property="Padding" Value="8" />
+    <Setter Property="Spacing" Value="8" />
+  </Style>
+</Styles>

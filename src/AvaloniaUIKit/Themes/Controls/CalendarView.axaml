@@ -1,0 +1,198 @@
+<!--
+  GPUI Kit Calendar (crates/component/src/time/calendar.rs) -> uikit:CalendarView
+  and its uikit:CalendarViewItem cells:
+
+    <uikit:CalendarView Date="2025-03-14" NumberOfMonths="2" Classes="small" />
+
+  The look of the themed Calendar (Calendar.axaml): a bordered card (radius_lg,
+  12px of padding, 248px per month), a header with the previous and next
+  buttons and the month and year toggles spaced evenly between them (with
+  several months, each month's name over its year instead), 2px, then the
+  months side by side (justify_around), each with its muted weekday titles at
+  half strength and only the weeks it needs. Day states: outside the month
+  muted, today accent, hovered secondary_hover, selected (a range's ends)
+  primary, between a range's ends accent, disabled muted at half strength
+  without a hover. The toggles open the months grid (three columns of full
+  names, text_xs) and the years grid (five columns of twenty years); the open
+  grid's toggle is primary. Sizes: small (28px cells, radius 3, 220px per
+  month), medium (32, 6, 248), large (40, 12, 304). The dropdown class is a
+  DateField's calendar: no card, 196, 224 or 280px per month.
+-->
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:uikit="using:AvaloniaUIKit">
+  <ControlTheme x:Key="{x:Type uikit:CalendarView}" TargetType="uikit:CalendarView">
+    <Setter Property="MonthWidth" Value="248" />
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Border}" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="CornerRadius" Value="7.5" />
+    <Setter Property="Padding" Value="12" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="HorizontalAlignment" Value="Left" />
+    <Setter Property="VerticalAlignment" Value="Top" />
+    <Setter Property="ClipToBounds" Value="False" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                CornerRadius="{TemplateBinding CornerRadius}"
+                Padding="{TemplateBinding Padding}">
+          <!-- v_flex gap_0p5: the header, 2px, the days (or a grid). -->
+          <Grid RowDefinitions="Auto,2,Auto">
+            <!-- Several months title each month text_sm, font_medium. -->
+            <Decorator Name="PART_Header"
+                       TextElement.FontSize="14" TextElement.FontWeight="Medium" TextBlock.LineHeight="22.5" />
+            <Decorator Name="PART_Body" Grid.Row="2" />
+          </Grid>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+    <Style Selector="^.small">
+      <Setter Property="MonthWidth" Value="220" />
+    </Style>
+    <Style Selector="^.large">
+      <Setter Property="MonthWidth" Value="304" />
+    </Style>
+    <!-- A DateField's calendar (date_picker.rs): no card, 224px per month (196 small, 280 large). -->
+    <Style Selector="^.dropdown">
+      <Setter Property="BorderThickness" Value="0" />
+      <Setter Property="Padding" Value="0" />
+      <Setter Property="CornerRadius" Value="0" />
+      <Setter Property="MonthWidth" Value="224" />
+    </Style>
+    <Style Selector="^.dropdown.small">
+      <Setter Property="MonthWidth" Value="196" />
+    </Style>
+    <Style Selector="^.dropdown.large">
+      <Setter Property="MonthWidth" Value="280" />
+    </Style>
+  </ControlTheme>
+
+  <!--
+    A cell: a square of the cell size (or the cell's height across a grid
+    column, or around a toggle's text), its background rounded. The text
+    inherits the calendar's color.
+  -->
+  <ControlTheme x:Key="{x:Type uikit:CalendarViewItem}" TargetType="uikit:CalendarViewItem">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Focusable" Value="False" />
+    <Setter Property="Width" Value="32" />
+    <Setter Property="Height" Value="32" />
+    <Setter Property="CornerRadius" Value="6" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="FontWeight" Value="Normal" />
+    <Setter Property="TextBlock.LineHeight" Value="22.5" />
+    <Setter Property="HorizontalContentAlignment" Value="Center" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Panel>
+          <ContentPresenter Name="PART_ContentPresenter"
+                            Background="{TemplateBinding Background}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            Padding="{TemplateBinding Padding}"
+                            Content="{TemplateBinding Content}"
+                            Foreground="{TemplateBinding Foreground}"
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+          <!-- The previous and next chevrons (size_4). -->
+          <PathIcon Name="PART_Icon" Width="16" Height="16" IsVisible="False"
+                    Foreground="{TemplateBinding Foreground}" />
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+
+    <Style Selector="^.previous /template/ PathIcon#PART_Icon">
+      <Setter Property="IsVisible" Value="True" />
+      <Setter Property="Data" Value="{StaticResource UIKit.Icon.ChevronLeft}" />
+    </Style>
+    <Style Selector="^.next /template/ PathIcon#PART_Icon">
+      <Setter Property="IsVisible" Value="True" />
+      <Setter Property="Data" Value="{StaticResource UIKit.Icon.ChevronRight}" />
+    </Style>
+    <!-- Weekday titles: text_xs, centered on the cell's own line. -->
+    <Style Selector="^.weekday">
+      <Setter Property="FontSize" Value="12" />
+      <Setter Property="TextBlock.LineHeight" Value="32" />
+    </Style>
+    <!-- The header's month and year: text_sm, font_medium, px_2 around the text. -->
+    <Style Selector="^.month-toggle, ^.year-toggle">
+      <Setter Property="Width" Value="NaN" />
+      <Setter Property="Padding" Value="8,0" />
+      <Setter Property="FontWeight" Value="Medium" />
+    </Style>
+    <!-- Grid items: the column's width, my_1. Months are text_xs. -->
+    <Style Selector="^.month, ^.year">
+      <Setter Property="Width" Value="NaN" />
+      <Setter Property="HorizontalAlignment" Value="Stretch" />
+      <Setter Property="Margin" Value="0,4" />
+    </Style>
+    <Style Selector="^.month">
+      <Setter Property="FontSize" Value="12" />
+      <Setter Property="TextBlock.LineHeight" Value="19.5" />
+    </Style>
+
+    <!-- small: 28px cells, radius 3, text_xs (the toggles stay text_sm). -->
+    <Style Selector="^.small">
+      <Setter Property="Width" Value="28" />
+      <Setter Property="Height" Value="28" />
+      <Setter Property="CornerRadius" Value="3" />
+      <Setter Property="FontSize" Value="12" />
+      <Setter Property="TextBlock.LineHeight" Value="19.5" />
+    </Style>
+    <Style Selector="^.small.weekday">
+      <Setter Property="TextBlock.LineHeight" Value="28" />
+    </Style>
+    <Style Selector="^.small.month-toggle, ^.small.year-toggle">
+      <Setter Property="Width" Value="NaN" />
+      <Setter Property="FontSize" Value="14" />
+      <Setter Property="TextBlock.LineHeight" Value="22.5" />
+    </Style>
+    <Style Selector="^.small.month, ^.small.year">
+      <Setter Property="Width" Value="NaN" />
+    </Style>
+    <!-- large: 40px cells, radius 12. -->
+    <Style Selector="^.large">
+      <Setter Property="Width" Value="40" />
+      <Setter Property="Height" Value="40" />
+      <Setter Property="CornerRadius" Value="12" />
+    </Style>
+    <Style Selector="^.large.weekday">
+      <Setter Property="TextBlock.LineHeight" Value="40" />
+    </Style>
+    <Style Selector="^.large.month-toggle, ^.large.year-toggle, ^.large.month, ^.large.year">
+      <Setter Property="Width" Value="NaN" />
+    </Style>
+
+    <!--
+      calendar.rs, later wins: muted, in range (accent), today (accent), hover
+      (secondary_hover, not on the active, disabled cells or the titles), active
+      (primary); disabled muted cells at half strength.
+    -->
+    <Style Selector="^:muted">
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.MutedForeground}" />
+    </Style>
+    <Style Selector="^:in-range">
+      <Setter Property="Background" Value="{DynamicResource UIKit.Accent}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.AccentForeground}" />
+    </Style>
+    <Style Selector="^:today:not(:active)">
+      <Setter Property="Background" Value="{DynamicResource UIKit.Accent}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.AccentForeground}" />
+    </Style>
+    <Style Selector="^:pointerover:not(:active):not(:disabled)">
+      <Setter Property="Background" Value="{DynamicResource UIKit.SecondaryHover}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
+    </Style>
+    <Style Selector="^:active">
+      <Setter Property="Background" Value="{DynamicResource UIKit.Primary.Fill}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.PrimaryForeground}" />
+    </Style>
+    <Style Selector="^:muted:disabled">
+      <Setter Property="Opacity" Value="0.5" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

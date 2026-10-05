@@ -1,0 +1,356 @@
+<!--
+  GPUI Kit ColorPicker and ColorSelect (crates/component/src/color_picker.rs)
+  -> uikit:ColorSelect, in the core assembly (no Avalonia.Controls.ColorPicker):
+
+    <uikit:ColorSelect Color="#2563EB" Classes="small" />              the swatch
+    <uikit:ColorSelect Color="#2563EB" Label="Background" />           with a label
+    <uikit:ColorSelect Icon="{StaticResource UIKit.Icon.Palette}" />   an icon instead
+    <uikit:ColorSelect Color="#2563EB" Classes="field" Width="200" />  ColorSelect
+
+  The swatch: a square of the color (16, 20, 32 or 44px for xsmall, small,
+  medium and large) with a border of the color darkened 30% and its hex as a
+  tooltip, 2px while open; without a color, the background with an input
+  border. The field class is ColorSelect: an input frame with a small swatch,
+  the hex or the muted placeholder and a caret, ringed while focused or open.
+  Both open a 288px popover 4px below (the Popover's surface): segmented
+  Palette / HSLA tabs; the featured row, a separator and the 9 x 11 palette
+  of 20px swatches 4px apart; or the Hue, Saturation, Lightness and Alpha
+  sliders over their tracks (a transparent bar, the thumb's face only); then,
+  once there is a color to preview, a separator, the color in a 20px swatch
+  and its hex in a small input. Disabled, half strength.
+-->
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:uikit="using:AvaloniaUIKit"
+        xmlns:gconv="using:AvaloniaUIKit.Converters">
+  <Styles.Resources>
+    <ResourceDictionary>
+      <x:String x:Key="UIKit.ColorSelect.Palette">Palette</x:String>
+      <x:String x:Key="UIKit.ColorSelect.Hsla">HSLA</x:String>
+      <x:String x:Key="UIKit.ColorSelect.Hue">Hue</x:String>
+      <x:String x:Key="UIKit.ColorSelect.Saturation">Saturation</x:String>
+      <x:String x:Key="UIKit.ColorSelect.Lightness">Lightness</x:String>
+      <x:String x:Key="UIKit.ColorSelect.Alpha">Alpha</x:String>
+
+      <!--
+        render_item: square, a 1px border of the color darkened 10%; no focus or
+        selected look. Its row makes it 20px, or narrower when the row is full.
+      -->
+      <ControlTheme x:Key="{x:Type uikit:ColorSwatch}" TargetType="uikit:ColorSwatch">
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Template">
+          <ControlTemplate>
+            <Border Name="PART_Swatch"
+                    BorderThickness="1" BackgroundSizing="OuterBorderEdge"
+                    Background="{TemplateBinding Color, Converter={x:Static gconv:ColorConverters.Brush}}"
+                    BorderBrush="{TemplateBinding Color, Converter={x:Static gconv:ColorConverters.Darken10}}" />
+          </ControlTemplate>
+        </Setter>
+        <Style Selector="^:pointerover /template/ Border#PART_Swatch">
+          <Setter Property="Background" Value="{Binding $parent[uikit:ColorSwatch].Color, Converter={x:Static gconv:ColorConverters.Lighten10}}" />
+          <Setter Property="BorderBrush" Value="{Binding $parent[uikit:ColorSwatch].Color, Converter={x:Static gconv:ColorConverters.Darken30}}" />
+        </Style>
+        <Style Selector="^:pressed /template/ Border#PART_Swatch">
+          <Setter Property="Background" Value="{Binding $parent[uikit:ColorSwatch].Color, Converter={x:Static gconv:ColorConverters.Darken20}}" />
+          <Setter Property="BorderBrush" Value="{Binding $parent[uikit:ColorSwatch].Color, Converter={x:Static gconv:ColorConverters.Darken50}}" />
+        </Style>
+      </ControlTheme>
+
+      <!--
+        Slider::bg(transparent): no bar and no fill (the edge around the thumb's
+        face is the panel's transparent UIKit.Slider.Thumb.Edge); the hover ring stays.
+      -->
+      <ControlTheme x:Key="UIKitColorSelectSlider" TargetType="Slider" BasedOn="{StaticResource {x:Type Slider}}">
+        <Setter Property="Minimum" Value="0" />
+        <Setter Property="Maximum" Value="1" />
+        <Setter Property="SmallChange" Value="0.01" />
+        <Setter Property="LargeChange" Value="0.1" />
+        <Setter Property="TickFrequency" Value="0.01" />
+        <Setter Property="IsSnapToTickEnabled" Value="True" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Style Selector="^ /template/ Border#PART_Bar, ^ /template/ Border#PART_DecreaseFill, ^ /template/ Border#PART_IncreaseFill">
+          <Setter Property="IsVisible" Value="False" />
+        </Style>
+      </ControlTheme>
+
+      <ControlTheme x:Key="{x:Type uikit:ColorSelect}" TargetType="uikit:ColorSelect">
+        <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <!-- The ring is drawn outside the bounds. -->
+        <Setter Property="ClipToBounds" Value="False" />
+        <Setter Property="FocusAdorner" Value="{x:Null}" />
+        <Setter Property="Template">
+          <ControlTemplate>
+            <Panel Background="{TemplateBinding Background}">
+              <!-- ColorSelect's ring: the 3px band outside the frame. -->
+              <Border Name="PART_FocusRing" Margin="-3" BorderThickness="3" CornerRadius="7.5"
+                      BorderBrush="{DynamicResource UIKit.FocusRing}"
+                      IsVisible="False" IsHitTestVisible="False" />
+              <!-- ColorPicker: the swatch (or the icon), and the label 8px after it. -->
+              <StackPanel Name="PART_SwatchLook" Orientation="Horizontal" Spacing="8">
+                <Border Name="PART_Swatch"
+                        Width="32" Height="32" BorderThickness="1" CornerRadius="5.5" BackgroundSizing="OuterBorderEdge"
+                        VerticalAlignment="Center"
+                        Background="{DynamicResource UIKit.Background.Fill}"
+                        BorderBrush="{DynamicResource UIKit.Input}"
+                        ToolTip.Tip="{TemplateBinding DisplayText}" />
+                <PathIcon Name="PART_Icon" Width="16" Height="16" VerticalAlignment="Center"
+                          Data="{TemplateBinding Icon}" IsVisible="False" />
+                <TextBlock Name="PART_Label" VerticalAlignment="Center" FontSize="16" LineHeight="26"
+                           Text="{TemplateBinding Label}"
+                           IsVisible="{TemplateBinding Label, Converter={x:Static ObjectConverters.IsNotNull}}" />
+              </StackPanel>
+              <!-- ColorSelect: an input frame with the swatch, the hex or placeholder and the caret, 8px apart. -->
+              <Border Name="PART_Frame"
+                      IsVisible="False" BackgroundSizing="OuterBorderEdge"
+                      Height="32" Padding="10,0"
+                      BorderThickness="1" CornerRadius="5.5"
+                      Background="{DynamicResource UIKit.InputBackground}"
+                      BorderBrush="{DynamicResource UIKit.Input}">
+                <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="8">
+                  <Border Name="PART_FieldSwatch"
+                          Width="16" Height="16" BorderThickness="1" CornerRadius="2.5" BackgroundSizing="OuterBorderEdge"
+                          VerticalAlignment="Center"
+                          BorderBrush="{DynamicResource UIKit.Input}" />
+                  <TextBlock Name="PART_FieldText" Grid.Column="1"
+                             VerticalAlignment="Center" FontSize="14" LineHeight="22.5"
+                             TextTrimming="None"
+                             Text="{TemplateBinding DisplayText}" />
+                  <TextBlock Name="PART_Placeholder" Grid.Column="1"
+                             VerticalAlignment="Center" FontSize="14" LineHeight="22.5"
+                             Foreground="{DynamicResource UIKit.MutedForeground}"
+                             Text="{TemplateBinding PlaceholderText}" />
+                  <PathIcon Name="PART_Caret" Grid.Column="2"
+                            Width="16" Height="16"
+                            Data="{StaticResource UIKit.Icon.ChevronDown}"
+                            Foreground="{DynamicResource UIKit.MutedForeground}" />
+                </Grid>
+              </Border>
+              <Popup Name="PART_Popup"
+                     IsOpen="{TemplateBinding IsDropDownOpen, Mode=TwoWay}"
+                     Placement="{TemplateBinding Placement}"
+                     PlacementConstraintAdjustment="SlideX, SlideY"
+                     IsLightDismissEnabled="True"
+                     WindowManagerAddShadowHint="False"
+                     InheritsTransform="True">
+                <!-- Popover.w_72: the popover's surface, 288px wide, its content p_0p5 gap_3. -->
+                <FlyoutPresenter Width="288">
+                  <StackPanel Margin="2" Spacing="12">
+                    <!-- TabBar::segmented with two flex_1 tabs. -->
+                    <TabStrip Name="PART_Tabs" Classes="segmented" HorizontalAlignment="Stretch"
+                              SelectedIndex="{TemplateBinding ActiveTab, Mode=TwoWay}">
+                      <TabStrip.ItemsPanel>
+                        <ItemsPanelTemplate>
+                          <UniformGrid Rows="1" ColumnSpacing="2" />
+                        </ItemsPanelTemplate>
+                      </TabStrip.ItemsPanel>
+                      <TabStripItem Content="{DynamicResource UIKit.ColorSelect.Palette}" />
+                      <TabStripItem Content="{DynamicResource UIKit.ColorSelect.Hsla}" />
+                    </TabStrip>
+                    <!-- render_palette_panel: the featured row, a separator, the palette rows 4px apart. -->
+                    <StackPanel Name="PART_PalettePanel" Spacing="12">
+                      <Panel Name="PART_Featured" />
+                      <Separator />
+                      <StackPanel Name="PART_Palette" Spacing="4" />
+                    </StackPanel>
+                    <!--
+                      render_slider_tab_panel: rows 8px apart of a 64px label (12px, the
+                      foreground at 70%), a 32px slider area over a track 40% as tall,
+                      and the value right-aligned in 40px, 8px between them.
+                    -->
+                    <StackPanel Name="PART_SlidersPanel" Spacing="8" IsVisible="False">
+                      <StackPanel.Resources>
+                        <SolidColorBrush x:Key="UIKit.Slider.Thumb.Edge" Color="Transparent" />
+                      </StackPanel.Resources>
+                      <StackPanel.Styles>
+                        <Style Selector="TextBlock.component">
+                          <Setter Property="FontSize" Value="12" />
+                          <Setter Property="LineHeight" Value="19.5" />
+                          <Setter Property="VerticalAlignment" Value="Center" />
+                          <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
+                          <Setter Property="Opacity" Value="0.7" />
+                        </Style>
+                        <Style Selector="Panel.track">
+                          <Setter Property="Height" Value="12.8" />
+                          <Setter Property="VerticalAlignment" Value="Center" />
+                          <Setter Property="ClipToBounds" Value="True" />
+                        </Style>
+                        <Style Selector="Border.track">
+                          <Setter Property="Height" Value="12.8" />
+                          <Setter Property="VerticalAlignment" Value="Center" />
+                        </Style>
+                      </StackPanel.Styles>
+                      <Grid ColumnDefinitions="64,*,40" ColumnSpacing="8" Height="32">
+                        <TextBlock Classes="component" Text="{DynamicResource UIKit.ColorSelect.Hue}" />
+                        <Panel Grid.Column="1">
+                          <Panel Name="PART_HueTrack" Classes="track" />
+                          <Slider Name="PART_Hue" Theme="{StaticResource UIKitColorSelectSlider}" />
+                        </Panel>
+                        <TextBlock Name="PART_HueText" Classes="component" Grid.Column="2" TextAlignment="Right" />
+                      </Grid>
+                      <Grid ColumnDefinitions="64,*,40" ColumnSpacing="8" Height="32">
+                        <TextBlock Classes="component" Text="{DynamicResource UIKit.ColorSelect.Saturation}" />
+                        <Panel Grid.Column="1">
+                          <Border Name="PART_SaturationTrack" Classes="track" />
+                          <Slider Name="PART_Saturation" Theme="{StaticResource UIKitColorSelectSlider}" />
+                        </Panel>
+                        <TextBlock Name="PART_SaturationText" Classes="component" Grid.Column="2" TextAlignment="Right" />
+                      </Grid>
+                      <Grid ColumnDefinitions="64,*,40" ColumnSpacing="8" Height="32">
+                        <TextBlock Classes="component" Text="{DynamicResource UIKit.ColorSelect.Lightness}" />
+                        <Panel Grid.Column="1">
+                          <Panel Name="PART_LightnessTrack" Classes="track" />
+                          <Slider Name="PART_Lightness" Theme="{StaticResource UIKitColorSelectSlider}" />
+                        </Panel>
+                        <TextBlock Name="PART_LightnessText" Classes="component" Grid.Column="2" TextAlignment="Right" />
+                      </Grid>
+                      <Grid ColumnDefinitions="64,*,40" ColumnSpacing="8" Height="32">
+                        <TextBlock Classes="component" Text="{DynamicResource UIKit.ColorSelect.Alpha}" />
+                        <Panel Grid.Column="1">
+                          <Border Name="PART_AlphaTrack" Classes="track" />
+                          <Slider Name="PART_Alpha" Theme="{StaticResource UIKitColorSelectSlider}" />
+                        </Panel>
+                        <TextBlock Name="PART_AlphaText" Classes="component" Grid.Column="2" TextAlignment="Right" />
+                      </Grid>
+                    </StackPanel>
+                    <!-- The previewed color: a 20px swatch (its border darkened 20%) and its hex in a small input, 8px apart. -->
+                    <Separator Name="PART_PreviewSeparator" IsVisible="False" />
+                    <Grid Name="PART_PreviewRow" ColumnDefinitions="Auto,*" ColumnSpacing="8" IsVisible="False">
+                      <Border Name="PART_PreviewSwatch"
+                              Width="20" Height="20" BorderThickness="1" CornerRadius="5.5" BackgroundSizing="OuterBorderEdge"
+                              VerticalAlignment="Center"
+                              Background="{TemplateBinding PreviewColor, Converter={x:Static gconv:ColorConverters.Brush}}"
+                              BorderBrush="{TemplateBinding PreviewColor, Converter={x:Static gconv:ColorConverters.Darken20}}" />
+                      <!-- Input::small().px_2p5(): 24px high, 10px in. -->
+                      <TextBox Name="PART_HexTextBox" Grid.Column="1" Height="24" HorizontalAlignment="Stretch" />
+                    </Grid>
+                  </StackPanel>
+                </FlyoutPresenter>
+              </Popup>
+            </Panel>
+          </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:disabled">
+          <Setter Property="Opacity" Value="0.5" />
+        </Style>
+
+        <!-- The color: the swatch filled with it, its border the color darkened 30%. -->
+        <Style Selector="^:has-color /template/ Border#PART_Swatch, ^:has-color /template/ Border#PART_FieldSwatch">
+          <Setter Property="Background" Value="{Binding $parent[uikit:ColorSelect].Color, Converter={x:Static gconv:ColorConverters.Brush}}" />
+          <Setter Property="BorderBrush" Value="{Binding $parent[uikit:ColorSelect].Color, Converter={x:Static gconv:ColorConverters.Darken30}}" />
+        </Style>
+        <Style Selector="^:has-color /template/ TextBlock#PART_Placeholder">
+          <Setter Property="IsVisible" Value="False" />
+        </Style>
+        <!-- icon(): the icon in place of the swatch. -->
+        <Style Selector="^:has-icon /template/ Border#PART_Swatch">
+          <Setter Property="IsVisible" Value="False" />
+        </Style>
+        <Style Selector="^:has-icon /template/ PathIcon#PART_Icon">
+          <Setter Property="IsVisible" Value="True" />
+        </Style>
+        <!-- The popover's trigger is selected while it is open: the swatch's border is 2px. -->
+        <Style Selector="^:dropdownopen /template/ Border#PART_Swatch">
+          <Setter Property="BorderThickness" Value="2" />
+          <Setter Property="CornerRadius" Value="5" />
+        </Style>
+        <!-- The panels and the preview. -->
+        <Style Selector="^:hsla /template/ StackPanel#PART_PalettePanel">
+          <Setter Property="IsVisible" Value="False" />
+        </Style>
+        <Style Selector="^:hsla /template/ StackPanel#PART_SlidersPanel">
+          <Setter Property="IsVisible" Value="True" />
+        </Style>
+        <Style Selector="^:has-preview /template/ Separator#PART_PreviewSeparator, ^:has-preview /template/ Grid#PART_PreviewRow">
+          <Setter Property="IsVisible" Value="True" />
+        </Style>
+
+        <!-- The swatch's sizes (size_with). -->
+        <Style Selector="^.xsmall /template/ Border#PART_Swatch">
+          <Setter Property="Width" Value="16" />
+          <Setter Property="Height" Value="16" />
+        </Style>
+        <Style Selector="^.small /template/ Border#PART_Swatch">
+          <Setter Property="Width" Value="20" />
+          <Setter Property="Height" Value="20" />
+        </Style>
+        <Style Selector="^.large /template/ Border#PART_Swatch">
+          <Setter Property="Width" Value="44" />
+          <Setter Property="Height" Value="44" />
+        </Style>
+
+        <!-- ColorSelect. -->
+        <Style Selector="^.field">
+          <Setter Property="HorizontalAlignment" Value="Stretch" />
+          <Style Selector="^ /template/ StackPanel#PART_SwatchLook">
+            <Setter Property="IsVisible" Value="False" />
+          </Style>
+          <Style Selector="^ /template/ Border#PART_Frame">
+            <Setter Property="IsVisible" Value="True" />
+          </Style>
+          <!--
+            render_field: ringed while focused, or while the popover is open (selected).
+            A click opens the popover, which takes the focus in GPUI; the trigger
+            keeps it here, so only focus from the keyboard rings it when closed.
+          -->
+          <Style Selector="^:focus-visible /template/ Border#PART_FocusRing, ^:dropdownopen /template/ Border#PART_FocusRing">
+            <Setter Property="IsVisible" Value="True" />
+          </Style>
+          <Style Selector="^:focus-visible /template/ Border#PART_Frame, ^:dropdownopen /template/ Border#PART_Frame">
+            <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Ring}" />
+          </Style>
+          <!-- input_size / input_text_size and the swatch and caret sizes. -->
+          <Style Selector="^.xsmall">
+            <Style Selector="^ /template/ Border#PART_Frame">
+              <Setter Property="Height" Value="20" />
+              <Setter Property="Padding" Value="4,0" />
+            </Style>
+            <Style Selector="^ /template/ Border#PART_FieldSwatch">
+              <Setter Property="Width" Value="12" />
+              <Setter Property="Height" Value="12" />
+            </Style>
+            <Style Selector="^ /template/ TextBlock#PART_FieldText, ^ /template/ TextBlock#PART_Placeholder">
+              <Setter Property="FontSize" Value="12" />
+              <Setter Property="LineHeight" Value="19.5" />
+            </Style>
+            <Style Selector="^ /template/ PathIcon#PART_Caret">
+              <Setter Property="Width" Value="12" />
+              <Setter Property="Height" Value="12" />
+            </Style>
+          </Style>
+          <Style Selector="^.small">
+            <Style Selector="^ /template/ Border#PART_Frame">
+              <Setter Property="Height" Value="24" />
+              <Setter Property="Padding" Value="8,0" />
+            </Style>
+            <Style Selector="^ /template/ Border#PART_FieldSwatch">
+              <Setter Property="Width" Value="14" />
+              <Setter Property="Height" Value="14" />
+            </Style>
+            <Style Selector="^ /template/ PathIcon#PART_Caret">
+              <Setter Property="Width" Value="14" />
+              <Setter Property="Height" Value="14" />
+            </Style>
+          </Style>
+          <Style Selector="^.large">
+            <Style Selector="^ /template/ Border#PART_Frame">
+              <Setter Property="Height" Value="44" />
+              <Setter Property="Padding" Value="12,0" />
+            </Style>
+            <Style Selector="^ /template/ Border#PART_FieldSwatch">
+              <Setter Property="Width" Value="20" />
+              <Setter Property="Height" Value="20" />
+            </Style>
+            <Style Selector="^ /template/ TextBlock#PART_FieldText, ^ /template/ TextBlock#PART_Placeholder">
+              <Setter Property="FontSize" Value="16" />
+              <Setter Property="LineHeight" Value="26" />
+            </Style>
+          </Style>
+        </Style>
+      </ControlTheme>
+    </ResourceDictionary>
+  </Styles.Resources>
+</Styles>

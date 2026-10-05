@@ -2,23 +2,30 @@
 //! frames, so presses and drags move it.
 use crate::{
     harness::Builder,
-    manifest::{Params, param_bool, param_f32},
+    manifest::{Params, param_bool, param_f32, param_str},
 };
 use anyhow::Result;
 use gpui_kit::{
     AppContext as _, IntoElement as _, ParentElement as _, Styled as _, div, px,
-    component::slider::{Slider, SliderState},
+    component::slider::{Slider, SliderScale, SliderState, SliderValue},
 };
 use std::rc::Rc;
 
+/// A single `value`, or (uikit-slider) the range `start`..`end`; `scale = "log"`
+/// for SliderScale::Logarithmic.
 pub fn builder(params: &Params) -> Result<Builder> {
     let (value, min, max) = (param_f32(params, "value", 40.), param_f32(params, "min", 0.), param_f32(params, "max", 100.));
     let step = param_f32(params, "step", 1.);
     let (vertical, reverse, disabled) = (param_bool(params, "vertical"), param_bool(params, "reverse"), super::disabled(params));
     let width = param_f32(params, "width", 200.);
+    let value = match (params.get("start"), params.get("end")) {
+        (Some(_), Some(_)) => SliderValue::Range(param_f32(params, "start", 0.), param_f32(params, "end", 0.)),
+        _ => SliderValue::Single(value),
+    };
+    let scale = if param_str(params, "scale", "linear") == "log" { SliderScale::Logarithmic } else { SliderScale::Linear };
     Ok(Rc::new(move |view, _, cx| {
         if view.state.entity.is_none() {
-            let state = cx.new(|_| SliderState::new().min(min).max(max).step(step).default_value(value));
+            let state = cx.new(|_| SliderState::new().min(min).max(max).scale(scale).step(step).default_value(value));
             view.state.entity = Some(state.into());
         }
         let state = view

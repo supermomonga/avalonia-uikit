@@ -6,6 +6,10 @@
         x:Class="AvaloniaUIKit.AotSmoke.MainWindow"
         Title="AvaloniaUIKit gallery" Width="760" Height="860">
   <DockPanel>
+    <uikit:TitleBar DockPanel.Dock="Top" ShowsCaptionButtons="True">
+      <TextBlock Text="AvaloniaUIKit gallery" FontSize="14" FontWeight="Medium" />
+      <Button Classes="ghost small icon-only"><PathIcon Data="{StaticResource UIKit.Icon.Bell}" /></Button>
+    </uikit:TitleBar>
     <Menu DockPanel.Dock="Top" Margin="8">
       <MenuItem Header="File">
         <MenuItem Header="New File" />
@@ -41,6 +45,88 @@
           <Button Content="Disabled" IsEnabled="False" />
         </WrapPanel>
 
+        <TextBlock Text="uikit:Buttons" Foreground="{DynamicResource UIKit.MutedForeground}" />
+        <WrapPanel ItemSpacing="8" LineSpacing="8">
+          <Button Classes="primary" uikit:Buttons.IsLoading="True">
+            <StackPanel Orientation="Horizontal" Spacing="8">
+              <PathIcon Data="{StaticResource UIKit.Icon.Check}" />
+              <TextBlock Text="Saving" VerticalAlignment="Center" />
+            </StackPanel>
+          </Button>
+          <Button Classes="outline" uikit:Buttons.IsLoading="True" uikit:Buttons.LoadingIcon="{StaticResource UIKit.Icon.LoaderCircle}">
+            <StackPanel Orientation="Horizontal" Spacing="8">
+              <PathIcon Data="{StaticResource UIKit.Icon.Check}" />
+              <TextBlock Text="Syncing" VerticalAlignment="Center" />
+            </StackPanel>
+          </Button>
+          <SplitButton Content="Deploy" uikit:Buttons.IsLoading="True" />
+          <TextBox Classes="group" Width="200" Text="gpui" uikit:Buttons.TakesFocusOnPointer="False">
+            <TextBox.InnerRightContent>
+              <Button Classes="icon-only">
+                <PathIcon Data="{StaticResource UIKit.Icon.Copy}" />
+              </Button>
+            </TextBox.InnerRightContent>
+          </TextBox>
+        </WrapPanel>
+
+        <TextBlock Text="uikit:ButtonGroup" Foreground="{DynamicResource UIKit.MutedForeground}" />
+        <WrapPanel ItemSpacing="8" LineSpacing="8">
+          <uikit:ButtonGroup Classes="outline" Click="OnButtonGroupClick">
+            <Button Content="Day" />
+            <Button Classes="selected" Content="Week" />
+            <Button Content="Month" />
+          </uikit:ButtonGroup>
+          <uikit:ButtonGroup Classes="primary small" Multiple="True" Click="OnButtonGroupClick">
+            <Button Classes="selected" Content="B" />
+            <Button Content="I" />
+            <Button Content="U" />
+          </uikit:ButtonGroup>
+        </WrapPanel>
+
+        <TextBlock Text="uikit:ToggleGroup" Foreground="{DynamicResource UIKit.MutedForeground}" />
+        <WrapPanel ItemSpacing="8" LineSpacing="8">
+          <uikit:ToggleGroup>
+            <ToggleButton Content="Bold" IsChecked="True" />
+            <ToggleButton Content="Italic" />
+            <ToggleButton Content="Underline" />
+          </uikit:ToggleGroup>
+          <uikit:ToggleGroup Classes="outline segmented small">
+            <ToggleButton IsChecked="True">
+              <PathIcon Data="{StaticResource UIKit.Icon.Bell}" />
+            </ToggleButton>
+            <ToggleButton>
+              <PathIcon Data="{StaticResource UIKit.Icon.Inbox}" />
+            </ToggleButton>
+            <ToggleButton>
+              <PathIcon Data="{StaticResource UIKit.Icon.Check}" />
+            </ToggleButton>
+          </uikit:ToggleGroup>
+        </WrapPanel>
+
+        <TextBlock Text="uikit:Accordion" Foreground="{DynamicResource UIKit.MutedForeground}" />
+        <uikit:Accordion Width="360" HorizontalAlignment="Left">
+          <Expander Header="Is it accessible?" Content="Yes, it is." IsExpanded="True" />
+          <Expander Header="Is it styled?" Content="Yes, by the theme." />
+          <Expander Header="Is it animated?" Content="Yes, with a spring." />
+        </uikit:Accordion>
+
+        <TextBlock Text="uikit:Toolbar" Foreground="{DynamicResource UIKit.MutedForeground}" />
+        <uikit:Toolbar Width="480" HorizontalAlignment="Left">
+          <TextBlock Text="Files" />
+          <uikit:ToolbarGroup Spacing="4" AutomationProperties.Name="History">
+            <Button Classes="icon-only">
+              <PathIcon Data="{StaticResource UIKit.Icon.Undo2}" />
+            </Button>
+            <Button Classes="icon-only">
+              <PathIcon Data="{StaticResource UIKit.Icon.Redo2}" />
+            </Button>
+          </uikit:ToolbarGroup>
+          <Separator Classes="vertical" Height="20" />
+          <ToggleButton Content="B" IsChecked="True" />
+          <uikit:ToolbarSpacer />
+          <Button Classes="primary small" Content="Publish" uikit:Toolbar.TakesSize="False" />
+        </uikit:Toolbar>
+
         <TextBlock Text="SplitButton" Foreground="{DynamicResource UIKit.MutedForeground}" />
         <WrapPanel ItemSpacing="8" LineSpacing="8">
           <SplitButton Content="Save">
@@ -53,6 +139,15 @@
           </SplitButton>
           <SplitButton Classes="primary" Content="Deploy" />
           <SplitButton Classes="ghost" Content="Ghost" />
+          <DropDownButton Content="Open">
+            <DropDownButton.Flyout>
+              <MenuFlyout Placement="BottomEdgeAlignedLeft">
+                <MenuItem Header="New File" />
+                <MenuItem Header="Open..." />
+              </MenuFlyout>
+            </DropDownButton.Flyout>
+          </DropDownButton>
+          <DropDownButton Classes="primary small" Content="Primary" />
         </WrapPanel>
 
         <TextBlock Text="Toggle, Checkbox, Radio, Switch" Foreground="{DynamicResource UIKit.MutedForeground}" />
@@ -70,13 +165,23 @@
         <TextBlock Text="NumericUpDown, Slider, ProgressBar, Spinner" Foreground="{DynamicResource UIKit.MutedForeground}" />
         <StackPanel Spacing="12" HorizontalAlignment="Left">
           <NumericUpDown Value="42" Width="160" />
+          <NumericUpDown Value="42" Width="160" InnerLeftContent="$" InnerRightContent="kg" />
           <Slider Value="40" Width="240" HorizontalAlignment="Left" />
+          <uikit:NumberInput Value="0.9" Increment="0.1" Minimum="0" Width="160" />
+          <uikit:RangeSlider StartValue="20" EndValue="60" Width="240" HorizontalAlignment="Left" />
+          <uikit:RangeSlider IsRange="False" Minimum="1" Maximum="1000" Scale="Logarithmic" EndValue="10" Width="240" HorizontalAlignment="Left" />
           <ProgressBar Value="40" Width="240" />
           <ProgressBar IsIndeterminate="True" Width="240" />
           <ProgressBar Theme="{StaticResource UIKitSpinner}" Classes="large" />
+          <ProgressBar Theme="{StaticResource UIKitSpinner}" uikit:Spinners.Icon="{StaticResource UIKit.Icon.LoaderCircle}" />
           <StackPanel Orientation="Horizontal" Spacing="12">
             <ProgressBar Theme="{StaticResource UIKitProgressCircle}" Value="60" />
             <ProgressBar Theme="{StaticResource UIKitProgressCircle}" Classes="large" IsIndeterminate="True" />
+            <ProgressBar Theme="{StaticResource UIKitProgressCircle}" Value="60" Width="80" Height="80">
+              <uikit:ProgressCircles.Content>
+                <TextBlock Text="60%" FontWeight="SemiBold" />
+              </uikit:ProgressCircles.Content>
+            </ProgressBar>
           </StackPanel>
         </StackPanel>
 
@@ -92,7 +197,20 @@
             <ListBoxItem Content="Italic" />
           </ListBox>
           <PathIcon Classes="large" Data="{StaticResource UIKit.Icon.Folder}" />
+          <uikit:Icon Classes="large" Kind="SortAscending" />
+          <uikit:Icon Kind="Github" Foreground="{DynamicResource UIKit.Primary}" />
           <TextBlock Classes="label">Company address<Run Classes="secondary"> (optional)</Run></TextBlock>
+          <uikit:TextLabel Text="Design system documentation" Secondary="(draft)" Highlights="doc" />
+          <uikit:TextLabel Text="secret" IsMasked="True" />
+          <uikit:AsyncImage Classes="rounded-full" Width="48" Height="48"
+                            Source="avares://AvaloniaUIKit.AotSmoke/Assets/small-48x48.png" />
+          <uikit:AsyncImage Width="48" Height="48" Source="avares://AvaloniaUIKit.AotSmoke/Assets/missing.png">
+            <uikit:AsyncImage.Fallback>
+              <Border Background="{DynamicResource UIKit.Muted}" CornerRadius="6">
+                <uikit:Icon Kind="CircleX" Foreground="{DynamicResource UIKit.MutedForeground}" />
+              </Border>
+            </uikit:AsyncImage.Fallback>
+          </uikit:AsyncImage>
         </WrapPanel>
 
         <TextBlock Text="Accordion, Collapsible" Foreground="{DynamicResource UIKit.MutedForeground}" />
@@ -113,6 +231,21 @@
           <TextBlock Grid.Column="2" Text="Two" Margin="8" />
         </Grid>
 
+        <TextBlock Text="uikit:ResizablePanelGroup" Foreground="{DynamicResource UIKit.MutedForeground}" />
+        <uikit:ResizablePanelGroup Width="480" Height="160" HorizontalAlignment="Left">
+          <uikit:ResizablePanel Size="120" MinSize="100" MaxSize="200" Padding="8" Content="Left" />
+          <uikit:ResizablePanel>
+            <uikit:ResizablePanelGroup Orientation="Vertical">
+              <uikit:ResizablePanel Padding="8" Content="Top" />
+              <uikit:ResizablePanel Size="60" MinSize="40" Padding="8" Content="Bottom" />
+            </uikit:ResizablePanelGroup>
+          </uikit:ResizablePanel>
+          <uikit:ResizablePanel Size="120" Padding="8" Content="Right" />
+        </uikit:ResizablePanelGroup>
+
+        <TextBlock Text="uikit:Sheet" Foreground="{DynamicResource UIKit.MutedForeground}" />
+        <Button Content="Open a sheet" Classes="outline" HorizontalAlignment="Left" Click="OnOpenSheet" />
+
         <TextBlock Text="Calendar" Foreground="{DynamicResource UIKit.MutedForeground}" />
         <StackPanel Orientation="Horizontal" Spacing="12">
           <Calendar SelectedDate="2025-03-14" DisplayDate="2025-03-14" />
@@ -123,6 +256,27 @@
                             CustomDateFormatString="yyyy/MM/dd" PlaceholderText="Select date" />
 
         <TimePicker SelectedTime="09:30" ClockIdentifier="24HourClock" />
+
+        <TextBlock Text="CalendarView, DateField, TimeField" Foreground="{DynamicResource UIKit.MutedForeground}" />
+        <StackPanel Orientation="Horizontal" Spacing="12">
+          <uikit:CalendarView Date="2025-03-14" EndDate="2025-03-20" IsRange="True" NumberOfMonths="2"
+                              DisabledDaysOfWeek="Sunday, Saturday" />
+          <uikit:CalendarView DisplayMode="Year" DisplayDate="2025-03-14" Classes="small">
+            <uikit:CalendarView.DisabledDates>
+              <uikit:DateRange Start="2025-03-17" End="2025-03-21" />
+            </uikit:CalendarView.DisabledDates>
+          </uikit:CalendarView>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Spacing="12">
+          <uikit:DateField Width="220" Date="2025-03-14 09:30" IsCleanable="True" TimePrecision="Minute" />
+          <uikit:DateField Width="240" IsRange="True" NumberOfMonths="2" Classes="small">
+            <uikit:DateField.Presets>
+              <uikit:DateRangePreset Label="Last 7 Days" Date="2025-03-07" EndDate="2025-03-14" />
+            </uikit:DateField.Presets>
+          </uikit:DateField>
+          <uikit:TimeField Time="21:05:09" Precision="Second" HourCycle="H12" />
+          <uikit:TimeField Classes="small" />
+        </StackPanel>
 
         <TextBlock Text="Table" Foreground="{DynamicResource UIKit.MutedForeground}" />
         <TableView Theme="{StaticResource UIKitTable}" Classes="stripe" Width="360" HorizontalAlignment="Left"
@@ -141,6 +295,45 @@
             <TableViewColumn Header="Amount" Binding="{Binding Amount}" Width="80" HorizontalContentAlignment="Right" />
           </TableView.Columns>
         </TableView>
+        <TableView Width="360" Height="124" HorizontalAlignment="Left">
+          <TableView.Columns>
+            <TableViewColumn Header="Invoice" Width="120" />
+            <TableViewColumn Header="Method" Width="140" />
+          </TableView.Columns>
+        </TableView>
+
+        <TextBlock Text="uikit:Table" Foreground="{DynamicResource UIKit.MutedForeground}" />
+        <uikit:Table Classes="small stripe" Width="480" HorizontalAlignment="Left"
+                     BorderThickness="1" CornerRadius="5.5">
+          <uikit:TableHeader>
+            <uikit:TableRow>
+              <uikit:TableHead>Invoice</uikit:TableHead>
+              <uikit:TableHead ColSpan="2">Status</uikit:TableHead>
+              <uikit:TableHead HorizontalContentAlignment="Right">Amount</uikit:TableHead>
+            </uikit:TableRow>
+          </uikit:TableHeader>
+          <uikit:TableBody>
+            <uikit:TableRow>
+              <uikit:TableCell>INV001</uikit:TableCell>
+              <uikit:TableCell>Paid</uikit:TableCell>
+              <uikit:TableCell>Credit Card</uikit:TableCell>
+              <uikit:TableCell HorizontalContentAlignment="Right">$250.00</uikit:TableCell>
+            </uikit:TableRow>
+            <uikit:TableRow>
+              <uikit:TableCell>INV002</uikit:TableCell>
+              <uikit:TableCell>Pending</uikit:TableCell>
+              <uikit:TableCell>PayPal</uikit:TableCell>
+              <uikit:TableCell HorizontalContentAlignment="Right">$150.00</uikit:TableCell>
+            </uikit:TableRow>
+          </uikit:TableBody>
+          <uikit:TableFooter>
+            <uikit:TableRow>
+              <uikit:TableCell ColSpan="3">Total</uikit:TableCell>
+              <uikit:TableCell HorizontalContentAlignment="Right">$400.00</uikit:TableCell>
+            </uikit:TableRow>
+          </uikit:TableFooter>
+          <uikit:TableCaption>A list of your recent invoices.</uikit:TableCaption>
+        </uikit:Table>
 
         <TextBlock Text="Carousel" Foreground="{DynamicResource UIKit.MutedForeground}" />
         <StackPanel Spacing="16" Width="240" Margin="48,0" HorizontalAlignment="Left">
@@ -167,6 +360,24 @@
           <PipsPager Classes="carousel" NumberOfPages="2" HorizontalAlignment="Center"
                      SelectedPageIndex="{Binding #Slides.SelectedIndex, Mode=TwoWay}" />
         </StackPanel>
+        <StackPanel Spacing="16" Width="240" Margin="48,0" HorizontalAlignment="Left">
+          <Panel>
+            <Carousel Name="Track" Focusable="True" WrapSelection="True" uikit:Carousels.TracksPointer="True">
+              <Border Height="120" CornerRadius="7.5" BorderThickness="1" BackgroundSizing="OuterBorderEdge"
+                      Background="{DynamicResource UIKit.Muted}" BorderBrush="{DynamicResource UIKit.Border}">
+                <TextBlock Text="1" FontSize="24" FontWeight="SemiBold" HorizontalAlignment="Center" VerticalAlignment="Center" />
+              </Border>
+              <Border Height="120" CornerRadius="7.5" BorderThickness="1" BackgroundSizing="OuterBorderEdge"
+                      Background="{DynamicResource UIKit.Muted}" BorderBrush="{DynamicResource UIKit.Border}">
+                <TextBlock Text="2" FontSize="24" FontWeight="SemiBold" HorizontalAlignment="Center" VerticalAlignment="Center" />
+              </Border>
+            </Carousel>
+            <uikit:CarouselPrevious Carousel="{Binding #Track}" />
+            <uikit:CarouselNext Carousel="{Binding #Track}" />
+          </Panel>
+          <PipsPager Classes="carousel" NumberOfPages="2" HorizontalAlignment="Center"
+                     SelectedPageIndex="{Binding #Track.SelectedIndex, Mode=TwoWay}" />
+        </StackPanel>
 
         <TextBlock Text="Sidebar" Foreground="{DynamicResource UIKit.MutedForeground}" />
         <SplitView DisplayMode="CompactInline" IsPaneOpen="True" OpenPaneLength="200" Width="400" Height="120"
@@ -181,6 +392,47 @@
           <Border Background="{DynamicResource UIKit.Muted}" />
         </DrawerPage>
 
+        <TextBlock Text="uikit:Sidebar" Foreground="{DynamicResource UIKit.MutedForeground}" />
+        <DockPanel Width="480" Height="300" HorizontalAlignment="Left">
+          <uikit:Sidebar Name="GallerySidebar" DockPanel.Dock="Left" ExpandedWidth="220">
+            <uikit:Sidebar.Header>
+              <uikit:SidebarHeader>
+                <uikit:SidebarHeader.Flyout>
+                  <MenuFlyout Placement="BottomEdgeAlignedLeft">
+                    <MenuItem Header="Acme Inc." />
+                  </MenuFlyout>
+                </uikit:SidebarHeader.Flyout>
+                <TextBlock Text="Acme Inc." />
+              </uikit:SidebarHeader>
+            </uikit:Sidebar.Header>
+            <uikit:SidebarGroup Label="Platform">
+              <uikit:SidebarMenu>
+                <uikit:SidebarMenuItem Label="Inbox" Icon="{StaticResource UIKit.Icon.Inbox}" IsActive="True" IsOpen="True">
+                  <uikit:SidebarMenuItem Label="Unread">
+                    <uikit:SidebarMenuItem.Suffix>
+                      <uikit:Badge Count="3" />
+                    </uikit:SidebarMenuItem.Suffix>
+                  </uikit:SidebarMenuItem>
+                  <uikit:SidebarMenuItem Label="Archived" />
+                </uikit:SidebarMenuItem>
+                <uikit:SidebarMenuItem Label="Settings" Icon="{StaticResource UIKit.Icon.Settings2}" ClickToToggle="True">
+                  <uikit:SidebarMenuItem Label="General" />
+                </uikit:SidebarMenuItem>
+                <uikit:SidebarMenuItem Label="Archive" Icon="{StaticResource UIKit.Icon.Folder}" IsEnabled="False" />
+              </uikit:SidebarMenu>
+            </uikit:SidebarGroup>
+            <uikit:Sidebar.Footer>
+              <uikit:SidebarFooter>
+                <TextBlock Text="Jason Lee" />
+              </uikit:SidebarFooter>
+            </uikit:Sidebar.Footer>
+          </uikit:Sidebar>
+          <Border Background="{DynamicResource UIKit.Muted}">
+            <uikit:SidebarToggleButton Margin="8" HorizontalAlignment="Left" VerticalAlignment="Top"
+                                       IsCollapsed="{Binding #GallerySidebar.IsCollapsed}" />
+          </Border>
+        </DockPanel>
+
         <TextBlock Text="Sheet" Foreground="{DynamicResource UIKit.MutedForeground}" />
         <DrawerPage Classes="sheet" DrawerBehavior="Flyout" DrawerPlacement="Right" DrawerHeader="Settings"
                     IsOpen="True" Width="400" Height="200" HorizontalAlignment="Left">
@@ -194,6 +446,13 @@
         <StackPanel Orientation="Horizontal" Spacing="16">
           <ColorPicker Color="#2563EB" Content="Background" />
           <ColorPicker Color="#F59E0B" Classes="field" Width="200" />
+        </StackPanel>
+
+        <TextBlock Text="uikit:ColorSelect" Foreground="{DynamicResource UIKit.MutedForeground}" />
+        <StackPanel Orientation="Horizontal" Spacing="16">
+          <uikit:ColorSelect Color="#2563EB" Label="Accent" />
+          <uikit:ColorSelect Icon="{StaticResource UIKit.Icon.Palette}" ActiveTab="1" />
+          <uikit:ColorSelect Classes="field small" Width="200" PlaceholderText="Pick a color" />
         </StackPanel>
 
         <TextBlock Text="Popover" Foreground="{DynamicResource UIKit.MutedForeground}" />
@@ -225,13 +484,38 @@
         <StackPanel Spacing="12" HorizontalAlignment="Left" Width="320">
           <TextBox PlaceholderText="Your name" />
           <TextBox Classes="revealPasswordButton" PasswordChar="•" Text="secret" />
+          <TextBox Classes="clearButton" Text="Clear me" />
           <TextBox AcceptsReturn="True" MinLines="3" Text="Multi-line" />
           <TextBox Classes="group" PlaceholderText="Search" />
+          <TextBox uikit:Inputs.MaskPattern="(999)999-9999" uikit:Inputs.CleanOnEscape="True" />
+          <TextBox uikit:Inputs.Pattern="^[a-zA-Z0-9]*$" PlaceholderText="Letters and digits" />
+          <TextBox Text="1234567.891">
+            <uikit:Inputs.MaskPattern>
+              <uikit:NumberMask Separator="," Fraction="2" />
+            </uikit:Inputs.MaskPattern>
+          </TextBox>
+          <TextBox AcceptsReturn="True" MinLines="3" uikit:Inputs.TabSize="2" Text="Tab indents the selected lines" />
+          <uikit:InputGroup>
+            <uikit:InputGroupAddon>
+              <PathIcon Data="{StaticResource UIKit.Icon.Search}" />
+            </uikit:InputGroupAddon>
+            <TextBox PlaceholderText="Search..." />
+            <uikit:InputGroupAddon Alignment="InlineEnd">
+              <Button Content="Clear" />
+            </uikit:InputGroupAddon>
+          </uikit:InputGroup>
+          <uikit:InputGroup>
+            <TextBox AcceptsReturn="True" MinLines="2" PlaceholderText="Write a message..." />
+            <uikit:InputGroupAddon Alignment="BlockEnd">
+              <TextBlock Text="0/280" />
+              <Button Content="Send" HorizontalAlignment="Right" />
+            </uikit:InputGroupAddon>
+          </uikit:InputGroup>
         </StackPanel>
 
         <TextBlock Text="List, Select, Combobox, Tree, Tabs, Pagination" Foreground="{DynamicResource UIKit.MutedForeground}" />
         <StackPanel Spacing="12" HorizontalAlignment="Left">
-          <ListBox Width="240" Height="120">
+          <ListBox Name="Fruits" Width="240" Height="120">
             <ListBoxItem Content="Apple" />
             <ListBoxItem Content="Banana" />
             <ListBoxItem Content="Cherry" />
@@ -244,17 +528,73 @@
             <ComboBoxItem Content="Apple" />
             <ComboBoxItem Content="Banana" />
           </ComboBox>
+          <ComboBox Width="200" IsEditable="True" PlaceholderText="Type a fruit">
+            <ComboBoxItem Content="Apple" />
+            <ComboBoxItem Content="Banana" />
+          </ComboBox>
+          <ComboBox Classes="clearButton" Width="200" SelectedIndex="1">
+            <ComboBoxItem Content="Apple" />
+            <ComboBoxItem Content="Banana" />
+          </ComboBox>
           <AutoCompleteBox Width="200" PlaceholderText="Fruit" />
+          <uikit:Select Width="200" IsSearchable="True" IsCleanable="True" PlaceholderText="Select a fruit" SelectedIndex="1">
+            <x:String>Apple</x:String>
+            <x:String>Banana</x:String>
+          </uikit:Select>
+          <uikit:Select Classes="combobox" Width="200" SelectionMode="Multiple" IsSearchable="True" PlaceholderText="Select food">
+            <uikit:SelectGroup Title="Fruits">
+              <x:String>Apple</x:String>
+              <x:String>Banana</x:String>
+            </uikit:SelectGroup>
+            <uikit:SelectGroup Title="Vegetables">
+              <x:String>Carrot</x:String>
+            </uikit:SelectGroup>
+            <uikit:Select.Footer>
+              <Button Classes="ghost" Content="New food" HorizontalAlignment="Stretch" />
+            </uikit:Select.Footer>
+          </uikit:Select>
           <TreeView Width="240">
             <TreeViewItem Header="src" IsExpanded="True">
               <TreeViewItem Header="main.rs" />
             </TreeViewItem>
             <TreeViewItem Header="Cargo.toml" />
           </TreeView>
+          <uikit:ListView Width="240" Height="200" IsSearchable="True" SelectedItem="Banana">
+            <uikit:ListSection Header="Fruits" Footer="2 items">
+              <x:String>Apple</x:String>
+              <x:String>Banana</x:String>
+            </uikit:ListSection>
+            <uikit:ListSection Header="Citrus">
+              <x:String>Lemon</x:String>
+            </uikit:ListSection>
+          </uikit:ListView>
+          <uikit:Tree Width="240" Height="120">
+            <uikit:TreeItem Label="src" IsExpanded="True">
+              <uikit:TreeItem Label="main.rs" />
+            </uikit:TreeItem>
+            <uikit:TreeItem Label="Cargo.toml" />
+          </uikit:Tree>
           <TabStrip Classes="pill" SelectedIndex="0">
             <TabStripItem Content="Account" />
             <TabStripItem Content="Profile" />
             <TabStripItem Content="Settings" />
+          </TabStrip>
+          <TabStrip Classes="menu" SelectedIndex="0" Width="320">
+            <uikit:Tabs.Prefix>
+              <Button Classes="ghost xsmall icon-only" Margin="4,0">
+                <PathIcon Data="{StaticResource UIKit.Icon.ChevronLeft}" />
+              </Button>
+            </uikit:Tabs.Prefix>
+            <uikit:Tabs.Suffix>
+              <Button Classes="ghost xsmall icon-only" Margin="4,0">
+                <PathIcon Data="{StaticResource UIKit.Icon.Inbox}" />
+              </Button>
+            </uikit:Tabs.Suffix>
+            <TabStripItem Content="Account" />
+            <TabStripItem Content="Profile" />
+            <TabStripItem Content="Settings" />
+            <TabStripItem Content="Billing" />
+            <TabStripItem Content="Notifications" />
           </TabStrip>
           <TabControl Classes="underline" Width="320" HorizontalAlignment="Left">
             <TabItem Header="Account"><TextBlock Text="Account settings" Margin="0,8" /></TabItem>
@@ -272,6 +612,8 @@
           </tab:TabsControl>
           <PipsPager NumberOfPages="5" SelectedPageIndex="2" />
           <PipsPager Classes="compact small" NumberOfPages="5" SelectedPageIndex="0" />
+          <uikit:Pagination TotalPages="20" CurrentPage="10" />
+          <uikit:Pagination Classes="compact small" TotalPages="10" CurrentPage="1" />
         </StackPanel>
 
         <TextBlock Text="Badge, Tag, Alert, Skeleton, Kbd, Clipboard, Rating" Foreground="{DynamicResource UIKit.MutedForeground}" />
@@ -365,8 +707,11 @@
         </uikit:Message>
         <TextBlock Text="GroupBox, Separator, Link" Foreground="{DynamicResource UIKit.MutedForeground}" />
         <GroupBox Classes="outline" Header="Account" Content="Content" Width="320" HorizontalAlignment="Left" />
+        <GroupBox Classes="fill" Header="Activity" Content="Content" Width="320" HorizontalAlignment="Left"
+                  uikit:GroupBoxes.Footer="Private contributions never reveal repository names." />
         <Separator Width="320" HorizontalAlignment="Left" />
         <Separator Classes="dashed" Width="320" HorizontalAlignment="Left" />
+        <Separator Width="320" HorizontalAlignment="Left" uikit:Separators.Label="Or continue with" />
         <HyperlinkButton Content="Documentation" />
 
         <Border Width="200" Height="64" BorderThickness="1" Background="Transparent"

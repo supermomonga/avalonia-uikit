@@ -1,0 +1,19 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:uikit="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.LabelHighlights">
+  <StackPanel Spacing="16" Width="320" HorizontalAlignment="Left">
+    <StackPanel Orientation="Horizontal" Spacing="8">
+      <TextBox Name="Query" Width="240" PlaceholderText="Search labels" Text="s" />
+      <ToggleButton Name="Mask" Classes="outline" Content="Mask" />
+    </StackPanel>
+    <Border Padding="16" CornerRadius="8" BorderThickness="1" BorderBrush="{DynamicResource UIKit.Border}">
+      <StackPanel Spacing="12">
+        <uikit:TextLabel Text="Design system documentation"
+                         Highlights="{Binding #Query.Text}" IsMasked="{Binding #Mask.IsChecked}" />
+        <uikit:TextLabel Text="Release notes" Secondary="(2 new)"
+                         Highlights="{Binding #Query.Text}" IsMasked="{Binding #Mask.IsChecked}" />
+      </StackPanel>
+    </Border>
+  </StackPanel>
+</UserControl>

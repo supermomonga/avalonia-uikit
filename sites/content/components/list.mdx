@@ -1,6 +1,6 @@
 ---
 title: "List"
-description: "List rows with hover, selection and the overlay scrollbar, as ListBox."
+description: "List rows with hover, selection and the overlay scrollbar, as ListBox, and uikit:ListView with sections, search and loading."
 ---
 
 <Demo name="list/demo" />
@@ -14,3 +14,26 @@ The theme covers `ListBox` and `ListBoxItem`: 34px rows of 16px text with 12×4 
 An empty list shows a 48px Inbox icon, centered; there is nothing to add for it.
 
 <Demo name="list/empty" title="Empty" />
+
+## ListView
+
+`uikit:ListView` is the List as a control of its own, with what a `ListBox` lacks: sections, a search field, a loading state and the List's selection rules. Its rows are `uikit:ListItem`s with the look above, in a virtualizing panel. Put the items in `ItemsSource` (or as children) and the row's content in `ItemTemplate`.
+
+- **Selection.** A click or Enter selects a row and raises `Confirmed`; with Cmd (macOS) or Ctrl the confirm is secondary (`IsSecondary`). Up and Down move the selection, wrap at the ends and skip headers and footers. Esc clears it and raises `Cancelled`. `SelectedItem` and `SelectedIndex` (an `IndexPath` of section and row) bind two-way; `IsSelectable="False"` turns selection off and keeps the hover.
+- **Right click.** A right press marks the row with a 1px frame in the selection color without selecting it; `RightClickedIndex` tells which, for a context menu. A click on a row or a press outside the list clears the mark.
+- **Disabled rows.** `DisabledSelector` returns whether an item's row is disabled.
+- **Scrolling.** `ScrollToItem(index, strategy)` centers the row with `Center`; any other strategy scrolls a row out of view to the nearer edge. The first row scrolls to the very top.
+- **Loading more.** With `HasMore`, scrolling within `LoadMoreThreshold` rows (20) of the end raises `LoadMore` and sets `IsLoadingMore`; clear it once the items are added.
+- **Check icon.** A row's `CheckIcon` shows in a 20px column at its end while the row `IsConfirmed`; set both with a style on `uikit|ListItem`.
+
+`uikit:ListSection`s (`Header`, `Footer` and items) make sections, with 14px muted headers and 12px muted footers. For your own objects, `SectionItemsSelector` returns a section's items and `SectionHeaderTemplate` and `SectionFooterTemplate` draw its header and footer. A section without items is not shown.
+
+<Demo name="list/sections" title="Sections" />
+
+`IsSearchable="True"` puts a search field above the rows. The query (`SearchText`) filters the items by their text, or by `SearchFilter`, and selects the first one; Up, Down and Enter work while typing.
+
+<Demo name="list/search" title="Search" />
+
+`IsLoading="True"` shows three skeleton rows instead of the rows. An empty list shows `EmptyContent`, or the Inbox icon.
+
+<Demo name="list/loading" title="Loading" />

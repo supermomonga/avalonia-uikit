@@ -1,0 +1,8 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:uikit="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.DatePickerDateField">
+  <Panel MinHeight="360">
+    <uikit:DateField Width="220" Date="2025-03-14" HorizontalAlignment="Left" VerticalAlignment="Top" />
+  </Panel>
+</UserControl>

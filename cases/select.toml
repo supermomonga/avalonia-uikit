@@ -63,3 +63,21 @@ params = { width = 200, selected = 1 }
 trigger = "click"
 samples_ms = [0, 16, 33, 50, 75, 100, 125, 150, 200]
 themes = ["light"]
+
+# Select::cleanable(true): with a value, a clear button (text xsmall, the Close
+# icon) stands in for the caret; without one the caret stays. The pointer on
+# the button (x 193-205 when medium) tints its icon.
+[[group]]
+name = "cleanable"
+params = { width = 200, selected = 1, cleanable = true }
+matrix = { size = ["xsmall", "small", "medium", "large"] }
+states = ["normal", "disabled"]
+
+[[group]]
+name = "cleanable-pointer"
+params = { width = 200, selected = 1, cleanable = true }
+states = ["at-199-24", "focus"]
+
+[[group]]
+name = "cleanable-empty"
+params = { width = 200, cleanable = true }

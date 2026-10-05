@@ -1,4 +1,5 @@
-//! `GroupBox` (group_box.rs), `Separator` (separator.rs) and `Link` (link.rs).
+//! `GroupBox` (group_box.rs) with its footer, `Separator` (separator.rs) with
+//! its label, and `Link` (link.rs).
 use crate::{
     harness::Builder,
     manifest::{Params, param_bool, param_f32, param_str},
@@ -22,11 +23,15 @@ pub fn group_box(params: &Params) -> Result<Builder> {
     };
     let title = params.get("title").and_then(|v| v.as_str()).map(str::to_string);
     let content = param_str(params, "content", "Content").to_string();
+    let footer = params.get("footer").and_then(|v| v.as_str()).map(str::to_string);
     let width = param_f32(params, "width", 240.);
     Ok(Rc::new(move |_, _, _| {
         let mut group = GroupBox::new().with_variant(variant).child(content.clone());
         if let Some(title) = title.clone() {
             group = group.title(title);
+        }
+        if let Some(footer) = footer.clone() {
+            group = group.footer(footer);
         }
         div().w(px(width)).child(group).into_any_element()
     }))
@@ -36,13 +41,17 @@ pub fn separator(params: &Params) -> Result<Builder> {
     let vertical = param_bool(params, "vertical");
     let dashed = param_bool(params, "dashed");
     let length = param_f32(params, "length", 160.);
+    let label = params.get("label").and_then(|v| v.as_str()).map(str::to_string);
     Ok(Rc::new(move |_, _, _| {
-        let separator = match (vertical, dashed) {
+        let mut separator = match (vertical, dashed) {
             (false, false) => Separator::horizontal(),
             (false, true) => Separator::horizontal_dashed(),
             (true, false) => Separator::vertical(),
             (true, true) => Separator::vertical_dashed(),
         };
+        if let Some(label) = label.clone() {
+            separator = separator.label(label);
+        }
         if vertical {
             div().h(px(length)).flex().child(separator).into_any_element()
         } else {

@@ -9,12 +9,30 @@ description: "An input frame with a focus ring and a placeholder, as Avalonia's 
 
 The theme covers `TextBox` (`MaskedTextBox` shares it): the frame with the input background and a 1px `input` border that turns to `ring`, with the ring band, while the field or anything in it has focus; the muted `PlaceholderText`; no hover look. The selection shows only while the field is focused.
 
-`InnerLeftContent` and `InnerRightContent` are the prefix and suffix, a size's gap from the text; for addons inside one bordered frame see Input Group. A password is masked with `PasswordChar="•"`, and `Classes="revealPasswordButton"` adds a mask toggle, an eye button that shows the text while checked. A disabled field fills with the disabled background and draws its text, placeholder and inner content at half strength; a read-only field has no look of its own.
+`InnerLeftContent` and `InnerRightContent` are the prefix and suffix, a size's gap from the text; for addons inside one bordered frame see Input Group. A password is masked with `PasswordChar="•"`, and `Classes="revealPasswordButton"` adds a mask toggle, an eye button that shows the text while checked. `Classes="clearButton"` adds a clear button while the text is not empty and can be edited; a click clears the text and focuses the field. After the text come the mask toggle, the clear button and the `InnerRightContent`, in that order. A disabled field fills with the disabled background and draws its text, placeholder and inner content at half strength; a read-only field has no look of its own.
+
+A right click opens the menu with Cut, Copy, Paste and Select All and their shortcuts. Cut needs a selection in an editable field, Copy a selection, Paste an editable field; a masked password cannot be cut or copied. The labels are the resources `UIKit.Strings.Cut`, `UIKit.Strings.Copy`, `UIKit.Strings.Paste` and `UIKit.Strings.SelectAll`; replace them to translate the menu, or set your own `ContextFlyout`.
 
 | Class | Effect |
 | --- | --- |
 | `xsmall`, `small`, `large` | Height 20, 24 and 44; medium, the default, is 32 |
 | `revealPasswordButton` | The eye button that reveals a masked password |
+| `clearButton` | The x button that clears the text |
+
+## Validation and masks
+
+The `uikit:Inputs` attached properties add rules to a single-line `TextBox`; nothing changes until one is set.
+
+| Property | Effect |
+| --- | --- |
+| `Pattern` | A regular expression the whole text must match, e.g. `^[a-zA-Z0-9]*$` |
+| `Validate` | A `Func<string, bool>` the whole text must pass (set from code) |
+| `MaskPattern` | A mask that formats the text while it is typed |
+| `CleanOnEscape` | Escape clears the text |
+
+An edit (typing, pasting, an IME commit, cutting or deleting) is rejected when the text it would leave fails `Validate`, the mask or `Pattern`, and the text before it passed. An empty text always passes, and a text set by the app that does not pass can still be edited. Clearing with Escape, like the other edits, can be undone.
+
+A string `MaskPattern` is a pattern mask: `9` takes a digit, `A` a letter, `#` a letter or a digit, `*` any character, and any other character is a separator the mask writes itself. `(999)999-9999` turns `1234567890` into `(123)456-7890`, and the empty field shows `(___)___-____` unless it has its own placeholder. A `uikit:NumberMask` takes a number: an optional sign, digits and one point, with full-width digits and signs typed as ASCII. With a `Separator` the digits are grouped by three while typing, and `Fraction` limits the digits after the point. Text the app sets is masked too. `Inputs.UnmaskValue(textBox)` returns the text without the separators.
 
 ## Examples
 
@@ -30,6 +48,18 @@ A masked password, with and without the reveal button.
 
 <Demo name="input/password" title="Password" />
 
+The clear button, alone and after the reveal button.
+
+<Demo name="input/clear" title="Clear button" />
+
 Read-only and disabled fields.
 
 <Demo name="input/states" title="States" />
+
+A phone number, a pattern of letters and digits, and an amount grouped by thousands with two decimals.
+
+<Demo name="input/masks" title="Masks" />
+
+A field that takes letters and digits only, and one that Escape clears.
+
+<Demo name="input/validation" title="Validation" />

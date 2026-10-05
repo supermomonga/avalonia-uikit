@@ -1,0 +1,106 @@
+<!--
+  GPUI Kit Notification / NotificationList (crates/component/src/notification.rs,
+  crates/base/src/toast.rs) -> uikit:NotificationList and uikit:NotificationItem.
+
+    var notifications = new NotificationList(topLevel);
+    notifications.Show(new NotificationItem(NotificationType.Success, "Saved.") { Title = "All changes saved" });
+
+  The card is NotificationCard's (Notification.axaml), with its shadows,
+  close button and enter and exit motions: a NotificationItem's theme is based
+  on it and lays out GPUI's parts. The type's icon (none without a type, or the
+  app's Icon, 16px at 16,18) indents the column of the title (semibold), the
+  message and the content by 24px; the action sits 12px after the column and
+  14px before the card's end, centered. The list places and stacks the cards
+  (NotificationList.cs); a card is as wide as the list's ItemWidth.
+-->
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:uikit="using:AvaloniaUIKit">
+  <Styles.Resources>
+    <ControlTheme x:Key="{x:Type uikit:NotificationItem}" TargetType="uikit:NotificationItem" BasedOn="{StaticResource {x:Type NotificationCard}}">
+      <!-- The stack gives the card its width (narrower when it is behind others). -->
+      <Setter Property="Width" Value="NaN" />
+      <Setter Property="Template">
+        <ControlTemplate>
+          <Panel Name="PART_Exit">
+            <Panel.RenderTransform><TranslateTransform /></Panel.RenderTransform>
+            <Panel Name="PART_Motion">
+              <Panel.RenderTransform><TranslateTransform /></Panel.RenderTransform>
+              <Border Name="PART_ShadowFar" CornerRadius="11" IsHitTestVisible="False">
+                <Border.BoxShadow>
+                  <MultiBinding Converter="{StaticResource UIKit.Shadow.Toast.Far}">
+                    <Binding ElementName="PART_Exit" Path="Opacity" />
+                    <Binding ElementName="PART_Motion" Path="Opacity" />
+                  </MultiBinding>
+                </Border.BoxShadow>
+              </Border>
+              <Border Name="PART_ShadowNear" CornerRadius="12" IsHitTestVisible="False">
+                <Border.BoxShadow>
+                  <MultiBinding Converter="{StaticResource UIKit.Shadow.Toast.Near}">
+                    <Binding ElementName="PART_Exit" Path="Opacity" />
+                    <Binding ElementName="PART_Motion" Path="Opacity" />
+                  </MultiBinding>
+                </Border.BoxShadow>
+              </Border>
+              <Border Name="PART_Card"
+                      BackgroundSizing="OuterBorderEdge"
+                      Background="{TemplateBinding Background}"
+                      BorderBrush="{TemplateBinding BorderBrush}"
+                      BorderThickness="{TemplateBinding BorderThickness}"
+                      CornerRadius="{TemplateBinding CornerRadius}">
+                <Panel>
+                  <PathIcon Name="PART_Icon" Width="16" Height="16" Margin="16,18,0,0"
+                            HorizontalAlignment="Left" VerticalAlignment="Top" />
+                  <ContentPresenter Name="PART_IconPresenter" Margin="16,18,0,0" IsVisible="False"
+                                    HorizontalAlignment="Left" VerticalAlignment="Top"
+                                    Content="{TemplateBinding Icon}">
+                    <ContentPresenter.DataTemplates>
+                      <DataTemplate DataType="uikit:IconName">
+                        <uikit:Icon Kind="{Binding}" />
+                      </DataTemplate>
+                      <DataTemplate DataType="Geometry">
+                        <PathIcon Data="{Binding}" />
+                      </DataTemplate>
+                    </ContentPresenter.DataTemplates>
+                  </ContentPresenter>
+                  <Grid Name="PART_Row" ColumnDefinitions="*,Auto" Margin="40,14,16,14">
+                    <StackPanel VerticalAlignment="Center">
+                      <TextBlock Name="PART_Title" Text="{TemplateBinding Title}" FontWeight="SemiBold" LineHeight="22.5"
+                                 IsVisible="{TemplateBinding Title, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
+                      <TextBlock Name="PART_Message" Text="{TemplateBinding Message}" LineHeight="22.5" TextWrapping="Wrap"
+                                 IsVisible="{TemplateBinding Message, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
+                      <ContentPresenter Name="PART_ContentPresenter"
+                                        Content="{TemplateBinding Content}"
+                                        ContentTemplate="{TemplateBinding ContentTemplate}"
+                                        IsVisible="{TemplateBinding Content, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                    </StackPanel>
+                    <ContentPresenter Name="PART_ActionPresenter" Grid.Column="1" Margin="12,0,14,0" VerticalAlignment="Center"
+                                      Content="{TemplateBinding Action}"
+                                      IsVisible="{TemplateBinding Action, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                  </Grid>
+                  <Button Name="PART_CloseButton" Classes="ghost xsmall icon-only"
+                          HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,4,4,0"
+                          NotificationCard.CloseOnClick="True"
+                          Opacity="0" IsHitTestVisible="False">
+                    <PathIcon Data="{StaticResource UIKit.Icon.Close}" />
+                  </Button>
+                </Panel>
+              </Border>
+            </Panel>
+          </Panel>
+        </ControlTemplate>
+      </Setter>
+
+      <!-- notification.rs: without a type, the app's icon or none, and no indent without one. -->
+      <Style Selector="^:icon /template/ PathIcon#PART_Icon, ^:plain /template/ PathIcon#PART_Icon">
+        <Setter Property="IsVisible" Value="False" />
+      </Style>
+      <Style Selector="^:icon /template/ ContentPresenter#PART_IconPresenter">
+        <Setter Property="IsVisible" Value="True" />
+      </Style>
+      <Style Selector="^:plain /template/ Grid#PART_Row">
+        <Setter Property="Margin" Value="16,14" />
+      </Style>
+    </ControlTheme>
+  </Styles.Resources>
+</Styles>

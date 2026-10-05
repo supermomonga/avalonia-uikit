@@ -216,11 +216,20 @@ public sealed class CaseHost : IDisposable
             "delete" => PhysicalKey.Delete,
             "pageup" => PhysicalKey.PageUp,
             "pagedown" => PhysicalKey.PageDown,
-            { Length: 1 } c when char.IsAsciiLetter(c[0]) => Enum.Parse<PhysicalKey>("Key" + char.ToUpperInvariant(c[0])),
+            { Length: 1 } c when char.IsAsciiLetter(c[0]) => Enum.Parse<PhysicalKey>(char.ToUpperInvariant(c[0]).ToString()),
             { Length: 1 } c when char.IsAsciiDigit(c[0]) => Enum.Parse<PhysicalKey>("Digit" + c),
+            "." => PhysicalKey.Period,
+            "," => PhysicalKey.Comma,
+            "[" => PhysicalKey.BracketLeft,
+            "]" => PhysicalKey.BracketRight,
             _ => throw new NotSupportedException($"key {name}"),
         };
         Window.KeyPressQwerty(key, modifiers);
+        // A character key types its character, as GPUI's dispatch_keystroke gives it to the focused input.
+        if (name.Length == 1 && (modifiers & ~RawInputModifiers.Shift) == RawInputModifiers.None)
+        {
+            Window.KeyTextInput((modifiers & RawInputModifiers.Shift) != 0 ? name.ToUpperInvariant() : name);
+        }
         Window.KeyReleaseQwerty(key, modifiers);
     }
 

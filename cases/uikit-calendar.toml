@@ -1,0 +1,128 @@
+# GPUI Kit Calendar -> uikit:CalendarView. The calendar groups first (the same
+# look as the themed Calendar), then what only CalendarView does: several
+# months, ranges, disabled weekdays, 4-6 week rows and the years grid.
+# March 2025: six weeks (Feb 23 - Apr 5). Medium geometry: content at (29, 29),
+# header y 29-61, weekdays y 63-95, day (row r, column c) centred at
+# (45 + 32c, 111 + 32r); grid items are 40px rows from y 63.
+component = "uikit-calendar"
+viewport = [340, 400]
+anchor = [16, 16]
+
+[[group]]
+name = "day"
+params = { date = "2025-03-14" }
+matrix = { size = ["small", "medium", "large"] }
+
+[[group]]
+name = "today"
+params = { date = "2025-03-14", today = "2025-03-10" }
+matrix = { size = ["small", "medium", "large"] }
+
+# Medium coordinates: prev, month pill, year pill, next, Feb 23 (outside), Mar 4, today, selected.
+[[group]]
+name = "pointer"
+params = { date = "2025-03-14", today = "2025-03-10" }
+states = ["at-45-45", "at-106-45", "at-177-45", "at-235-45", "at-45-111", "at-109-143", "at-77-175", "at-205-175", "at-45-45+pressed-at-45-45"]
+
+# Selecting Mar 4 by click (pointer stays on it: selected has no hover).
+[[group]]
+name = "select"
+params = { date = "2025-03-14" }
+states = ["click-at-109-143"]
+
+[[group]]
+name = "blackout"
+params = { date = "2025-03-14", blackout_from = "2025-03-17", blackout_to = "2025-03-21" }
+states = ["normal", "at-109-207"]
+
+[[group]]
+name = "unselected"
+params = { date = "none", today = "2025-03-10" }
+
+[[group]]
+name = "monday"
+params = { date = "2025-03-14", first_day = "mon" }
+
+# Months grid (Avalonia DisplayMode=Year); needs the 3-column layout behavior.
+[[group]]
+name = "months"
+params = { date = "2025-03-14", view = "month" }
+matrix = { size = ["small", "medium", "large"] }
+states = ["normal", "at-140-83"]
+
+# Aurora Light: the selected day is the primary gradient (ADR 26).
+[[group]]
+name = "aurora"
+params = { date = "2025-03-14", today = "2025-03-10" }
+states = ["normal", "at-205-175", "at-109-143"]
+themes = ["aurora-light"]
+
+# 4, 5 and 6 week rows: February 2026 starts on a Sunday, April 2025 needs five.
+[[group]]
+name = "weeks"
+matrix = { date = ["2026-02-10", "2025-04-10"] }
+
+# Next month from the header: April 2025 has five weeks (pointer stays on next).
+[[group]]
+name = "navigate"
+params = { date = "2025-03-14" }
+states = ["click-at-235-45", "click-at-45-45"]
+
+# Several months side by side; the header names each month over its year.
+[[group]]
+name = "months2"
+viewport = [660, 420]
+params = { date = "2025-03-14", today = "2025-03-10", months = 2 }
+matrix = { size = ["small", "medium", "large"] }
+
+[[group]]
+name = "months3"
+viewport = [800, 420]
+params = { date = "2025-03-14", today = "2025-03-10", months = 3 }
+
+# Disabled weekdays (Matcher::DayOfWeek): muted at half, no hover on Mar 8.
+[[group]]
+name = "weekdays"
+params = { date = "2025-03-14", disabled_weekdays = "0,6" }
+states = ["normal", "at-237-143", "at-205-143"]
+
+# A complete range: ends primary, the days between accent.
+[[group]]
+name = "range"
+params = { range = true, date = "2025-03-10", end = "2025-03-20" }
+matrix = { size = ["small", "medium", "large"] }
+
+# A range over disabled weekends.
+[[group]]
+name = "range-weekdays"
+params = { range = true, date = "2025-03-12", end = "2025-03-18", disabled_weekdays = "0,6" }
+
+# A range across two months: the days after the first month's end stay in range.
+[[group]]
+name = "range-months"
+viewport = [660, 420]
+params = { range = true, date = "2025-03-24", end = "2025-04-08", months = 2 }
+
+# Selecting a range by clicks: Mar 4, then Mar 12; a day before the start restarts.
+[[group]]
+name = "range-select"
+params = { range = true, date = "none", month = "2025-03-01" }
+states = ["click-at-109-143", "click-at-109-143+click-at-141-175", "click-at-109-143+click-at-141-175+at-205-207", "click-at-141-175+click-at-109-143"]
+
+# The years grid: twenty years (2015-2034 around 2025), five columns.
+[[group]]
+name = "years"
+params = { date = "2025-03-14", view = "year" }
+matrix = { size = ["small", "medium", "large"] }
+
+# Year toggle, a hovered year, the previous page, and picking 2027.
+[[group]]
+name = "year-toggle"
+params = { date = "2025-03-14" }
+states = ["click-at-177-45", "click-at-177-45+at-140-163", "click-at-177-45+click-at-45-45", "click-at-177-45+click-at-140-163"]
+
+# Month toggle, then picking May.
+[[group]]
+name = "month-toggle"
+params = { date = "2025-03-14" }
+states = ["click-at-106-45", "click-at-106-45+click-at-140-123"]

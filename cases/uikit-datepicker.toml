@@ -1,0 +1,129 @@
+# GPUI Kit DatePicker -> uikit:DateField. The datepicker groups first (the
+# same look as the themed CalendarDatePicker), then what only DateField does:
+# ranges, presets, the clear button, the time, several months. Field 220
+# wide unless stated; the popup opens 6px below, left-aligned. Medium popup
+# calendar: day (row r, column c) centred at (44 + 32c, 140 + 32r).
+component = "uikit-datepicker"
+viewport = [252, 60]
+anchor = [16, 8]
+
+[[group]]
+name = "field"
+params = { width = 220 }
+matrix = { size = ["xsmall", "small", "medium", "large"], date = ["none", "2025-03-14"] }
+states = ["normal", "focus", "disabled"]
+
+[[group]]
+name = "hover"
+params = { width = 220, date = "2025-03-14" }
+states = ["hover"]
+
+# Opened from the calendar icon; 200ms lets the 150ms enter motion finish.
+[[group]]
+name = "open"
+viewport = [340, 420]
+params = { width = 220, date = "2025-03-14", pointer_x = 0.9318 }
+matrix = { size = ["xsmall", "small", "medium", "large"] }
+states = ["click+wait-200ms"]
+
+[[group]]
+name = "open-hover"
+viewport = [340, 420]
+params = { width = 220, date = "2025-03-14", pointer_x = 0.9318 }
+states = ["click+wait-200ms+at-108-172"]
+
+# A range in the field and in its popup.
+[[group]]
+name = "range"
+viewport = [340, 420]
+params = { width = 260, range = true, date = "2025-03-10", end = "2025-03-20", pointer_x = 0.94 }
+states = ["normal", "click+wait-200ms"]
+
+# Two months in the popup, a range across them.
+[[group]]
+name = "range-months"
+viewport = [560, 420]
+params = { width = 260, range = true, date = "2025-03-24", end = "2025-04-08", months = 2, pointer_x = 0.94 }
+states = ["click+wait-200ms"]
+
+# Picking a range: Mar 4, then Mar 12 closes the popup.
+[[group]]
+name = "range-select"
+viewport = [340, 420]
+params = { width = 260, range = true, today = "2025-03-10", pointer_x = 0.94 }
+states = ["click+wait-200ms+click-at-108-172", "click+wait-200ms+click-at-108-172+click-at-140-204"]
+
+# Presets beside the calendar.
+[[group]]
+name = "presets"
+viewport = [420, 420]
+params = { width = 220, date = "2025-03-14", presets = true, pointer_x = 0.9318 }
+states = ["click+wait-200ms"]
+
+[[group]]
+name = "range-presets"
+viewport = [440, 420]
+params = { width = 260, range = true, date = "2025-03-07", end = "2025-03-14", presets = true, pointer_x = 0.94 }
+states = ["click+wait-200ms"]
+
+# The clear button replaces the icon while there is a value.
+[[group]]
+name = "cleanable"
+params = { width = 220, cleanable = true }
+matrix = { date = ["none", "2025-03-14"] }
+states = ["normal", "focus", "disabled"]
+
+[[group]]
+name = "clear"
+params = { width = 220, cleanable = true, date = "2025-03-14" }
+states = ["at-219-24", "click-at-219-24"]
+
+# The time of day: in the text, and edited below the popup's calendar.
+[[group]]
+name = "time"
+viewport = [340, 460]
+params = { width = 220, date = "2025-03-14", time = "09:30:00", precision = "minute", pointer_x = 0.9318 }
+matrix = { cycle = ["h23", "h12"] }
+states = ["normal", "click+wait-200ms"]
+
+[[group]]
+name = "time-seconds"
+viewport = [360, 520]
+params = { width = 220, date = "2025-03-14", time = "09:30:15", precision = "second", pointer_x = 0.9318 }
+matrix = { size = ["small", "large"] }
+states = ["click+wait-200ms"]
+
+# With the time, a picked day keeps the popup open; picking it again closes it.
+[[group]]
+name = "time-select"
+viewport = [340, 460]
+params = { width = 220, date = "2025-03-14", time = "09:30:00", precision = "minute", pointer_x = 0.9318 }
+states = ["click+wait-200ms+click-at-172-236", "click+wait-200ms+click-at-172-236+click-at-172-236"]
+
+# Picking a day closes the popup and shows it.
+[[group]]
+name = "select"
+viewport = [340, 420]
+params = { width = 220, date = "2025-03-14", pointer_x = 0.9318 }
+states = ["click+wait-200ms+click-at-172-236"]
+
+# Two months for a single date.
+[[group]]
+name = "months"
+viewport = [560, 420]
+params = { width = 220, date = "2025-03-14", months = 2, pointer_x = 0.9318 }
+states = ["click+wait-200ms"]
+
+# appearance(false): the text and icon alone.
+[[group]]
+name = "plain"
+params = { width = 220, date = "2025-03-14", plain = true }
+states = ["normal", "focus"]
+
+[[motion]]
+name = "enter"
+viewport = [340, 420]
+params = { width = 220, date = "2025-03-14", pointer_x = 0.9318 }
+trigger = "click"
+samples_ms = [0, 16, 33, 50, 75, 100, 125, 150, 200]
+themes = ["light"]

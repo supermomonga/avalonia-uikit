@@ -1,0 +1,101 @@
+# GPUI Kit Carousel (+ CarouselPrevious/Next + CarouselPagination) ->
+# Carousel with uikit:Carousels.TracksPointer, uikit:CarouselPrevious and
+# uikit:CarouselNext, and PipsPager.carousel. The groups of carousel.toml
+# first, then what the buttons and the track add: looping, a vertical
+# carousel, a drag and a trackpad scroll.
+# 240x120 slides; the nav buttons 16px outside the slides, the pages 16px below.
+component = "uikit-carousel"
+viewport = [368, 188]
+anchor = [64, 16]
+
+# Previous is disabled on the first slide, Next on the last.
+[[group]]
+name = "nav"
+matrix = { selected = [0, 1, 2] }
+
+# Next and Previous hovered, a page hovered, Next pressed.
+[[group]]
+name = "hover"
+params = { selected = 1 }
+states = ["at-336-76", "at-32-76", "at-212-162", "pressed-at-336-76"]
+
+[[group]]
+name = "size"
+params = { selected = 1 }
+matrix = { size = ["xsmall", "small", "large"] }
+
+# Keyboard focus on the carousel: the ring around the slides.
+[[group]]
+name = "focus"
+params = { selected = 1 }
+states = ["focus"]
+
+# A looping carousel never disables Previous or Next.
+[[group]]
+name = "loop"
+params = { looping = true }
+matrix = { selected = [0, 2] }
+
+# A vertical carousel: Previous above the slides, Next below, chevrons up and down.
+[[group]]
+name = "vertical"
+viewport = [368, 264]
+anchor = [64, 64]
+params = { vertical = true, no_pagination = true }
+matrix = { selected = [0, 1] }
+
+# A mouse drag: the slides follow the pointer once it has moved 2px along the
+# axis, and on release the nearest slide is selected (here the second).
+[[group]]
+name = "drag"
+params = { selected = 0 }
+states = ["pressed-at-200-76+drag-at-196-76+drag-at-120-76",
+          "pressed-at-200-76+drag-at-196-76+drag-at-60-76+release+wait-1000ms"]
+
+# A trackpad scroll moves a vertical carousel (40px a step) and snaps to the
+# nearest slide 28ms after the last step.
+[[group]]
+name = "scroll"
+viewport = [368, 264]
+anchor = [64, 64]
+params = { vertical = true, no_pagination = true, selected = 0 }
+states = ["wheel-at-184-124", "wheel-at-184-124+wheel-at-184-124+wheel-at-184-124+wait-1000ms"]
+
+# Before 500ms: GPUI opens the button's tooltip 500ms after the pointer arrives.
+[[motion]]
+name = "next"
+params = { selected = 0 }
+trigger = "click-at-336-76"
+samples_ms = [0, 16, 33, 50, 66, 83, 100, 133, 166, 200, 250, 300, 350, 400, 450]
+themes = ["light"]
+
+[[motion]]
+name = "previous"
+params = { selected = 2 }
+trigger = "click-at-32-76"
+samples_ms = [0, 16, 33, 50, 66, 83, 100, 133, 166, 200, 250, 300, 350, 400, 450]
+themes = ["light"]
+
+# Two pages at once: the track springs across the middle one (a click on page 3).
+[[motion]]
+name = "jump"
+params = { selected = 0 }
+trigger = "click-at-212-162"
+samples_ms = [0, 16, 33, 50, 66, 83, 100, 133, 166, 200, 250, 300, 350, 400, 450]
+themes = ["light"]
+
+# Looping: Next on the last slide carries on to the first without going back.
+[[motion]]
+name = "wrap"
+params = { selected = 2, looping = true }
+trigger = "click-at-336-76"
+samples_ms = [0, 16, 33, 50, 66, 83, 100, 133, 166, 200, 250, 300, 350, 400, 450]
+themes = ["light"]
+
+# A drag released past half a slide: the track springs on from where it was let go.
+[[motion]]
+name = "release"
+params = { selected = 0 }
+trigger = "pressed-at-200-76+drag-at-196-76+drag-at-60-76+release"
+samples_ms = [0, 16, 33, 50, 66, 83, 100, 133, 166, 200, 250, 300, 350, 400, 450]
+themes = ["light"]

@@ -1,0 +1,103 @@
+<!--
+  GPUI Kit TitleBar (crates/component/src/title_bar.rs) -> uikit:TitleBar.
+
+    <Window ExtendClientAreaToDecorationsHint="True">
+      <DockPanel>
+        <uikit:TitleBar DockPanel.Dock="Top">
+          <TextBlock Text="My Application" FontSize="14" FontWeight="Medium" />
+          <Button Classes="ghost small icon-only"><PathIcon Data="{StaticResource UIKit.Icon.Bell}" /></Button>
+        </uikit:TitleBar>
+        ...
+
+  The bar of WindowDrawnDecorations (WindowDecorations.axaml): 34px with a 1px
+  title_bar_border rule at its bottom, filled with GPUI's gradient from 55%
+  title_bar + 45% background down to title_bar (a Background paints over it). Its children start 12px in
+  (UIKit.TitleBar.Padding; 80px on macOS beside the traffic lights, and 12px
+  more in full screen) and are spread along it (TitleBarPanel). The caption
+  buttons are the decorations' (UIKitCaptionButton): 34 x 33 with 14px icons,
+  secondary on hover and press, danger for close; maximize shows restore while
+  the window is maximized. Like GPUI's, they are not tab stops.
+-->
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:uikit="using:AvaloniaUIKit">
+  <Styles.Resources>
+    <ControlTheme x:Key="{x:Type uikit:TitleBar}" TargetType="uikit:TitleBar">
+      <Setter Property="Height" Value="34" />
+      <Setter Property="Padding" Value="{DynamicResource UIKit.TitleBar.Padding}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.TitleBarBorder}" />
+      <Setter Property="BorderThickness" Value="0,0,0,1" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
+      <Setter Property="Template">
+        <ControlTemplate>
+          <Panel Name="PART_Root">
+            <Border Name="PART_TitleBar"
+                    BackgroundSizing="OuterBorderEdge"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}">
+              <Border.Background>
+                <LinearGradientBrush StartPoint="0%,0%" EndPoint="0%,100%">
+                  <GradientStop Offset="0" Color="{DynamicResource UIKit.TitleBar.GradientTop.Color}" />
+                  <GradientStop Offset="1" Color="{DynamicResource UIKit.TitleBar.Color}" />
+                </LinearGradientBrush>
+              </Border.Background>
+            </Border>
+            <!-- An app's Background (GPUI's bg) over the gradient, under the rule. -->
+            <Border Background="{TemplateBinding Background}" Margin="{TemplateBinding BorderThickness}" IsHitTestVisible="False" />
+            <!-- The padding is from the bar's outer edge: its bottom 1px is the rule's. -->
+            <DockPanel Margin="{TemplateBinding Padding}">
+              <StackPanel Name="PART_CaptionButtons" DockPanel.Dock="Right" Orientation="Horizontal" IsVisible="False">
+                <Button Name="PART_MinimizeButton" Focusable="False"
+                        Theme="{StaticResource UIKitCaptionButton}"
+                        WindowDecorationProperties.ElementRole="MinimizeButton">
+                  <PathIcon Width="14" Height="14" Data="{StaticResource UIKit.Icon.WindowMinimize}" />
+                </Button>
+                <Button Name="PART_MaximizeButton" Focusable="False"
+                        Theme="{StaticResource UIKitCaptionButton}"
+                        WindowDecorationProperties.ElementRole="MaximizeButton">
+                  <PathIcon Name="PART_MaximizeIcon" Width="14" Height="14" Data="{StaticResource UIKit.Icon.WindowMaximize}" />
+                </Button>
+                <Button Name="PART_CloseButton" Focusable="False"
+                        Classes="close"
+                        Theme="{StaticResource UIKitCaptionButton}"
+                        WindowDecorationProperties.ElementRole="CloseButton">
+                  <PathIcon Width="14" Height="14" Data="{StaticResource UIKit.Icon.WindowClose}" />
+                </Button>
+              </StackPanel>
+              <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
+            </DockPanel>
+          </Panel>
+        </ControlTemplate>
+      </Setter>
+
+      <!-- TITLE_BAR_LEFT_PADDING on macOS, beside the traffic lights. -->
+      <Style Selector="^:macos">
+        <Setter Property="Padding" Value="80,0,0,1" />
+      </Style>
+      <!-- title_bar.rs: the bar's content starts 12px further in a full screen window. -->
+      <Style Selector="^:fullscreen /template/ ItemsPresenter#PART_ItemsPresenter">
+        <Setter Property="Margin" Value="12,0,0,0" />
+      </Style>
+
+      <!-- title_bar.rs WindowControls: the controls the window supports, restore while maximized. -->
+      <Style Selector="^:caption-buttons /template/ StackPanel#PART_CaptionButtons">
+        <Setter Property="IsVisible" Value="True" />
+      </Style>
+      <Style Selector="^:not(:has-minimize) /template/ Button#PART_MinimizeButton, ^:not(:has-maximize) /template/ Button#PART_MaximizeButton">
+        <Setter Property="IsVisible" Value="False" />
+      </Style>
+      <Style Selector="^:maximized /template/ PathIcon#PART_MaximizeIcon">
+        <Setter Property="Data" Value="{StaticResource UIKit.Icon.WindowRestore}" />
+      </Style>
+    </ControlTheme>
+  </Styles.Resources>
+
+  <!--
+    Focusable controls in the bar get their own input on the title bar area
+    (Windows) instead of dragging the window. A control theme cannot reach its
+    content, so this is a style; a role the app sets on a control wins.
+  -->
+  <Style Selector="uikit|TitleBar :is(InputElement)[Focusable=True]">
+    <Setter Property="(WindowDecorationProperties.ElementRole)" Value="User" />
+  </Style>
+</Styles>

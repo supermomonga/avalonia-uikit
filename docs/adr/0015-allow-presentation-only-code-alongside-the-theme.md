@@ -8,6 +8,8 @@ links:
   kind: amendedby
 - target: 29
   kind: amendedby
+- target: 30
+  kind: amendedby
 ---
 
 # Allow presentation-only code alongside the theme

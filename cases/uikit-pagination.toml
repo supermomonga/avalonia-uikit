@@ -1,0 +1,86 @@
+# GPUI Kit Pagination -> uikit:Pagination. The groups of pagination.toml first
+# (total 5, current 3 unless noted: the PipsPager theme's look), then what
+# PipsPager cannot do: ellipses past visible_pages (5 unless noted) and the
+# menu an ellipsis opens to jump to a hidden page.
+component = "uikit-pagination"
+viewport = [400, 64]
+anchor = [16, 8]
+
+[[group]]
+name = "size"
+params = { total = 5, current = 3 }
+matrix = { size = ["xsmall", "small", "medium", "large"] }
+states = ["normal"]
+
+[[group]]
+name = "compact"
+params = { total = 5, current = 3, compact = true }
+matrix = { size = ["xsmall", "small", "medium", "large"] }
+viewport = [128, 64]
+states = ["normal"]
+
+[[group]]
+name = "ends"
+params = { total = 5 }
+matrix = { current = [1, 5] }
+states = ["normal"]
+
+[[group]]
+name = "pointer"
+params = { total = 5, current = 3 }
+states = ["at-176-32", "at-212-32", "pressed-at-212-32", "click-at-176-32",
+          "at-72-32", "pressed-at-72-32", "click-at-72-32", "at-338-32", "focus"]
+
+[[group]]
+name = "disabled"
+params = { total = 5, current = 3 }
+states = ["disabled"]
+
+[[group]]
+name = "single"
+params = { total = 1, current = 1 }
+states = ["normal"]
+
+# The story's 10 pages: one ellipsis after the first pages, one on each side
+# of the current page, one before the last pages.
+[[group]]
+name = "ellipsis"
+params = { total = 10 }
+matrix = { current = [1, 5, 10] }
+viewport = [480, 64]
+
+[[group]]
+name = "ellipsis-size"
+params = { total = 10, current = 5 }
+matrix = { size = ["xsmall", "small", "large"] }
+viewport = [520, 64]
+
+# visible_pages(7): two pages on each side of the current one.
+[[group]]
+name = "visible"
+params = { total = 50, current = 25, visible = 7 }
+viewport = [560, 64]
+
+[[group]]
+name = "ellipsis-disabled"
+params = { total = 10, current = 5 }
+viewport = [480, 64]
+states = ["disabled"]
+
+# The ellipsis after the current page (pages 7 to 9) opens a menu of them 4px
+# below; a click on one goes there. The one before lists pages 2 and 3.
+[[group]]
+name = "menu"
+params = { total = 10, current = 5 }
+viewport = [480, 200]
+states = ["at-320-32", "click-at-320-32", "click-at-320-32+at-330-97",
+          "click-at-320-32+click-at-330-97", "click-at-176-32"]
+
+# Long page numbers around a long run of hidden pages. Its menu (the 100 pages
+# nearest the current one, in 240px that scroll) is checked by
+# NavigationBehaviorTests: GPUI lets a menu's items shrink to their text once
+# they overflow it (R37).
+[[group]]
+name = "long"
+params = { total = 1000, current = 500 }
+viewport = [520, 64]

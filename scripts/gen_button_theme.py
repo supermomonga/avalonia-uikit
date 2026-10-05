@@ -82,9 +82,12 @@ w("           size     xsmall small large (medium is the default)")
 w("           corners  rounded-none rounded-small rounded-large rounded-full")
 w("  The focus ring shows on keyboard focus only (:focus-visible), as GPUI Kit")
 w("  prevents a pointer press from focusing a button.")
+w("  A loading button (uikit:Buttons.IsLoading) keeps its normal look under the")
+w("  pointer; Buttons.axaml fades it and spins its icon.")
 w("-->")
 w('<ResourceDictionary xmlns="https://github.com/avaloniaui"')
-w('                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">')
+w('                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"')
+w('                    xmlns:uikit="using:AvaloniaUIKit">')
 w('  <ControlTheme x:Key="{x:Type Button}" TargetType="Button">')
 w(f'    <Setter Property="Background" Value="{{DynamicResource {key("default", False, "normal", "Background")}}}" />')
 w(f'    <Setter Property="Foreground" Value="{{DynamicResource {key("default", False, "normal", "Foreground")}}}" />')
@@ -192,6 +195,15 @@ for variant in VARIANTS:
                 w(f'      <Setter Property="BorderThickness" Value="{border}" />')
                 w(f'      <Setter Property="CornerRadius" Value="{radius(ROUNDED["medium"], border)}" />')
             w('    </Style>')
+            if state == "pressed":
+                # A loading button keeps its normal look under the pointer
+                # (button.rs: no hover or active style unless interactive).
+                loading = f"{base}[(uikit|Buttons.IsLoading)=True]"
+                w(f'    <Style Selector="{loading}:pointerover, {loading}:pressed">')
+                w(f'      <Setter Property="Background" Value="{{DynamicResource {key(variant, outline, "normal", "Background")}}}" />')
+                w(f'      <Setter Property="Foreground" Value="{{DynamicResource {key(variant, outline, "normal", "Foreground")}}}" />')
+                w(f'      <Setter Property="BorderBrush" Value="{{DynamicResource {key(variant, outline, "normal", "Border")}}}" />')
+                w('    </Style>')
         for rounded, r in ROUNDED.items():
             if rounded == "medium":
                 continue

@@ -1,0 +1,135 @@
+# GPUI Kit ColorPicker / ColorSelect -> uikit:ColorSelect (the core control,
+# no Avalonia.Controls.ColorPicker): the color_picker cases, then no color
+# and the placeholder, an icon in place of the swatch, the open popover
+# (palette, HSLA sliders, the preview and its hex), pointing at a palette
+# color and committing it.
+# Values are hex without '#' ("none": no color); the builder asserts GPUI's hex round trip.
+component = "uikit-colorselect"
+viewport = [248, 88]
+anchor = [16, 24]
+
+# The swatch: 16/20/32/44px, its border the value darkened 30%. Focus draws nothing.
+[[group]]
+name = "swatch"
+params = { value = "2563EB" }
+matrix = { size = ["xsmall", "small", "medium", "large"] }
+states = ["normal", "focus"]
+
+# A label beside the swatch (16px, 8px apart).
+[[group]]
+name = "label"
+params = { value = "2563EB", label = "Background" }
+
+# The hex tooltip 500ms after the pointer arrives, above the swatch.
+[[group]]
+name = "tooltip"
+params = { value = "2563EB" }
+states = ["hover+wait-800ms"]
+viewport = [248, 110]
+anchor = [100, 60]
+
+# ColorSelect: a framed field like an input, ringed while focused.
+[[group]]
+name = "field"
+params = { field = true, value = "2563EB", width = 200 }
+matrix = { size = ["xsmall", "small", "medium", "large"] }
+states = ["normal", "focus"]
+
+# Saturated, white and black values (the swatch border and the hex text).
+[[group]]
+name = "value"
+params = { field = true, width = 200 }
+matrix = { value = ["F59E0B", "FFFFFF", "000000"] }
+
+# No color: an empty swatch (the background, an input border) and no tooltip.
+[[group]]
+name = "empty"
+params = { value = "none" }
+matrix = { size = ["small", "medium"] }
+states = ["normal", "hover+wait-800ms"]
+
+# No color in the field: an empty swatch and Select's placeholder, or the app's.
+[[group]]
+name = "placeholder"
+params = { field = true, value = "none", width = 200 }
+matrix = { size = ["xsmall", "small", "medium", "large"] }
+
+[[group]]
+name = "placeholder-text"
+params = { field = true, value = "none", width = 200, placeholder = "Pick a color" }
+
+# icon(): the 16px icon in place of the swatch, with or without the label.
+[[group]]
+name = "icon"
+params = { icon = "palette" }
+
+[[group]]
+name = "icon-label"
+params = { icon = "palette", label = "Color" }
+
+# Open: the popover 4px below, the Palette tab, the theme's featured row, the
+# 9 x 11 palette and the value's preview with its hex. The trigger is selected:
+# the swatch's border 2px, the field ringed.
+[[group]]
+name = "open"
+params = { value = "2563EB" }
+states = ["click"]
+viewport = [336, 480]
+anchor = [16, 16]
+
+[[group]]
+name = "open-field"
+params = { field = true, value = "2563EB", width = 200 }
+states = ["click"]
+viewport = [336, 480]
+anchor = [16, 16]
+
+# Without a color nothing is previewed: no separator, swatch or hex below the palette.
+[[group]]
+name = "open-empty"
+params = { field = true, value = "none", width = 200 }
+states = ["click"]
+viewport = [336, 480]
+anchor = [16, 16]
+
+# Pointing at a palette color (blue 300) and at a featured one previews it
+# below (lighter, its border darker); pressing darkens it.
+[[group]]
+name = "hover"
+params = { value = "2563EB" }
+states = ["click+at-208-308", "click+pressed-at-208-308", "click+at-39-120"]
+viewport = [336, 480]
+anchor = [16, 16]
+
+# Without a color, the preview appears with the first color pointed at.
+[[group]]
+name = "hover-empty"
+params = { field = true, value = "none", width = 200 }
+states = ["click+at-208-308"]
+viewport = [336, 480]
+anchor = [16, 16]
+
+# A click commits the pointed color (GPUI's hex of its HSL) and closes the popover.
+[[group]]
+name = "commit"
+params = { field = true, value = "2563EB", width = 200 }
+states = ["click+click-at-208-308"]
+viewport = [336, 480]
+anchor = [16, 16]
+
+# The HSLA tab: Hue, Saturation, Lightness and Alpha over their tracks (96 hue
+# and lightness steps, the saturation and alpha gradients), the values, and
+# black at zero without a color. The indicator has settled.
+[[group]]
+name = "hsla"
+params = { value = "2563EB" }
+states = ["click+click-at-223-82+wait-1000ms"]
+viewport = [336, 480]
+anchor = [16, 16]
+
+[[group]]
+name = "hsla-empty"
+params = { field = true, value = "none", width = 200 }
+states = ["click+click-at-223-82+wait-1000ms"]
+viewport = [336, 480]
+anchor = [16, 16]

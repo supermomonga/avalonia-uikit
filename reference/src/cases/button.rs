@@ -6,11 +6,12 @@ use crate::{
 };
 use anyhow::{Result, bail};
 use gpui_kit::{
-    Hsla, IntoElement as _, transparent_white,
+    Hsla, IntoElement as _, Styled as _, px, transparent_white,
     component::{
         Colorize as _, Theme,
         Disableable as _, Selectable as _, Sizable as _,
         button::{Button, ButtonGroup, ButtonRounded, ButtonVariant, ButtonVariants as _},
+        menu::DropdownMenu as _,
     },
 };
 use std::rc::Rc;
@@ -52,12 +53,21 @@ pub fn group(params: &Params) -> Result<Builder> {
     let disabled = disabled(params);
     let rounded = rounded(params);
     let labels: Vec<String> = param_str(params, "labels", "One,Two,Three").split(',').map(str::to_string).collect();
-    let selected = param_str(params, "selected", "").to_string();
-    Ok(Rc::new(move |_, _, _| {
+    let initial: u32 = param_str(params, "selected", "")
+        .bytes()
+        .enumerate()
+        .fold(0, |bits, (i, c)| bits | (((c == b'1') as u32) << i));
+    // `selectable`: an app that applies the indices on_click reports;
+    // `multiple` toggles the clicked button instead of selecting it alone.
+    let selectable = param_bool(params, "selectable");
+    let multiple = param_bool(params, "multiple");
+    Ok(Rc::new(move |view, _, cx| {
+        let bits = if view.state.toggled { view.state.value as u32 } else { initial };
         // `disabled` before `child`: ButtonGroup::child copies it.
         let mut group = ButtonGroup::new("case")
             .with_size(size)
             .disabled(disabled)
+            .multiple(multiple)
             .layout(if vertical { gpui_kit::Axis::Vertical } else { gpui_kit::Axis::Horizontal });
         if let Some(variant) = variant {
             group = group.with_variant(variant);
@@ -73,8 +83,15 @@ pub fn group(params: &Params) -> Result<Builder> {
                 Button::new(ix)
                     .label(label.clone())
                     .rounded(rounded)
-                    .selected(selected.as_bytes().get(ix) == Some(&b'1')),
+                    .selected(bits & (1 << ix) != 0),
             );
+        }
+        if selectable {
+            group = group.on_click(cx.listener(|view, selected: &Vec<usize>, _, cx| {
+                view.state.toggled = true;
+                view.state.value = selected.iter().fold(0u32, |bits, ix| bits | 1 << ix) as f32;
+                cx.notify();
+            }));
         }
         group.into_any_element()
     }))
@@ -93,13 +110,24 @@ pub fn builder(params: &Params) -> Result<Builder> {
         .map(|s| s.to_string());
     let icon = icon(param_str(params, "icon", ""));
     let rounded = rounded(params);
+    // Button::loading and loading_icon (button.rs, button_icon.rs).
+    let loading = param_bool(params, "loading");
+    let loading_icon = super::icon(param_str(params, "loading_icon", ""));
+    // `dropdownbutton`: the caret after the content, a fixed width, the standard menu on click.
+    let dropdown_caret = param_bool(params, "dropdown_caret");
+    let menu = param_bool(params, "menu");
+    let width = params.get("width").and_then(serde_json::Value::as_f64).map(|w| w as f32);
     Ok(Rc::new(move |_, _, _| {
         let mut button = Button::new("case")
             .with_variant(variant)
             .with_size(size)
             .rounded(rounded)
             .disabled(disabled)
-            .selected(selected);
+            .selected(selected)
+            .loading(loading);
+        if let Some(name) = loading_icon.clone() {
+            button = button.loading_icon(name);
+        }
         if outline {
             button = button.outline();
         }
@@ -111,6 +139,15 @@ pub fn builder(params: &Params) -> Result<Builder> {
         }
         if let Some(label) = label.clone() {
             button = button.label(label);
+        }
+        if dropdown_caret {
+            button = button.dropdown_caret(true);
+        }
+        if let Some(width) = width {
+            button = button.w(px(width));
+        }
+        if menu {
+            return button.dropdown_menu(super::menu::standard_menu).into_any_element();
         }
         button.into_any_element()
     }))

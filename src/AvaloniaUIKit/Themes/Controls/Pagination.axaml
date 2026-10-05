@@ -1,0 +1,127 @@
+<!--
+  GPUI Kit Pagination (crates/component/src/pagination.rs) -> uikit:Pagination:
+
+    <uikit:Pagination TotalPages="20" CurrentPage="{Binding Page}" Classes="small" />
+
+  The same look as the PipsPager theme (PipsPager.axaml): Previous and Next
+  are ghost compact buttons with a chevron and a label (the resources
+  UIKit.Pagination.Previous / Next), 4px apart from the pages inside 8px of
+  padding. The pages are compact Buttons the control builds: the current one
+  outline, the others ghost; an ellipsis is a ghost icon button whose menu
+  (UIKitPaginationMenu: 55px wide at least, 240px high at most) lists the
+  pages it hides. Classes: xsmall small large (medium is the default) and
+  compact (the chevrons only, as squares, and no pages).
+-->
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:uikit="using:AvaloniaUIKit">
+  <!--
+    pagination.rs: the ellipsis menu, min_w(55) max_h(240) scrollable. The
+    presenter also holds the 4px gap above the surface (Menus.axaml).
+  -->
+  <ControlTheme x:Key="UIKitPaginationMenu" TargetType="MenuFlyoutPresenter"
+                BasedOn="{StaticResource {x:Type MenuFlyoutPresenter}}">
+    <Setter Property="MinWidth" Value="55" />
+    <Setter Property="MaxHeight" Value="244" />
+  </ControlTheme>
+
+  <ControlTheme x:Key="{x:Type uikit:Pagination}" TargetType="uikit:Pagination">
+    <Setter Property="Padding" Value="8" />
+    <Setter Property="HorizontalAlignment" Value="Left" />
+    <Setter Property="VerticalAlignment" Value="Top" />
+    <Setter Property="ClipToBounds" Value="False" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <!-- pagination.rs: h_flex px_2 py_2 gap_1 items_center. -->
+        <StackPanel Orientation="Horizontal" Spacing="4"
+                    Margin="{TemplateBinding Padding}"
+                    Background="{TemplateBinding Background}">
+          <Button Name="PART_PreviousButton" Classes="ghost compact" VerticalAlignment="Center"
+                  ToolTip.Tip="{DynamicResource UIKit.Pagination.Previous}">
+            <StackPanel Orientation="Horizontal" Spacing="8">
+              <PathIcon Name="PreviousIcon" Width="14" Height="14"
+                        Data="{StaticResource UIKit.Icon.ChevronLeft}" />
+              <TextBlock Name="PreviousLabel" Text="{DynamicResource UIKit.Pagination.Previous}" />
+            </StackPanel>
+          </Button>
+          <StackPanel Name="PART_Pages" Orientation="Horizontal" Spacing="4" VerticalAlignment="Center" />
+          <Button Name="PART_NextButton" Classes="ghost compact" VerticalAlignment="Center"
+                  ToolTip.Tip="{DynamicResource UIKit.Pagination.Next}">
+            <StackPanel Orientation="Horizontal" Spacing="8">
+              <TextBlock Name="NextLabel" Text="{DynamicResource UIKit.Pagination.Next}" />
+              <PathIcon Name="NextIcon" Width="14" Height="14"
+                        Data="{StaticResource UIKit.Icon.ChevronRight}" />
+            </StackPanel>
+          </Button>
+        </StackPanel>
+      </ControlTemplate>
+    </Setter>
+
+    <!--
+      Sizes of Previous and Next (the pages take the size class itself): the
+      compact button sizes; a label's icon follows its text size.
+    -->
+    <Style Selector="^.xsmall /template/ Button">
+      <Setter Property="Height" Value="20" />
+      <Setter Property="MinWidth" Value="20" />
+      <Setter Property="Padding" Value="4,0" />
+      <Setter Property="FontSize" Value="12" />
+    </Style>
+    <Style Selector="^.xsmall /template/ TextBlock">
+      <Setter Property="LineHeight" Value="15" />
+    </Style>
+    <Style Selector="^.xsmall /template/ PathIcon">
+      <Setter Property="Width" Value="12" />
+      <Setter Property="Height" Value="12" />
+    </Style>
+    <Style Selector="^.small /template/ Button">
+      <Setter Property="Height" Value="24" />
+      <Setter Property="MinWidth" Value="24" />
+      <Setter Property="Padding" Value="6,0" />
+    </Style>
+    <Style Selector="^.large /template/ Button">
+      <Setter Property="FontSize" Value="16" />
+    </Style>
+    <Style Selector="^.large /template/ TextBlock">
+      <Setter Property="LineHeight" Value="20" />
+    </Style>
+    <Style Selector="^.large /template/ PathIcon">
+      <Setter Property="Width" Value="16" />
+      <Setter Property="Height" Value="16" />
+    </Style>
+
+    <!-- compact: the chevrons alone, as icon buttons with the button's icon size. -->
+    <Style Selector="^.compact /template/ TextBlock">
+      <Setter Property="IsVisible" Value="False" />
+    </Style>
+    <Style Selector="^.compact /template/ Button">
+      <Setter Property="Width" Value="32" />
+      <Setter Property="Height" Value="32" />
+      <Setter Property="Padding" Value="0" />
+    </Style>
+    <Style Selector="^.compact /template/ PathIcon">
+      <Setter Property="Width" Value="16" />
+      <Setter Property="Height" Value="16" />
+    </Style>
+    <Style Selector="^.compact.xsmall /template/ Button">
+      <Setter Property="Width" Value="20" />
+      <Setter Property="Height" Value="20" />
+    </Style>
+    <Style Selector="^.compact.xsmall /template/ PathIcon">
+      <Setter Property="Width" Value="12" />
+      <Setter Property="Height" Value="12" />
+    </Style>
+    <Style Selector="^.compact.small /template/ Button">
+      <Setter Property="Width" Value="24" />
+      <Setter Property="Height" Value="24" />
+    </Style>
+    <Style Selector="^.compact.small /template/ PathIcon">
+      <Setter Property="Width" Value="14" />
+      <Setter Property="Height" Value="14" />
+    </Style>
+    <Style Selector="^.compact.large /template/ PathIcon">
+      <Setter Property="Width" Value="24" />
+      <Setter Property="Height" Value="24" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

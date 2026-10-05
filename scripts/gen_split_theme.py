@@ -59,9 +59,12 @@ w("  The flyout opens below the right edge in GPUI (Anchor::TopRight): give the"
 w("  SplitButton's MenuFlyout Placement=\"BottomEdgeAlignedRight\".")
 w("  Avalonia focuses a SplitButton as one stop; its ring shows on the action half,")
 w("  where GPUI's first Tab lands.")
+w("  uikit:Buttons.IsLoading loads the action half, as GPUI's DropdownButton with")
+w("  a loading Button: inert, faded and spinning its icon; the menu half still opens.")
 w("-->")
 w('<ResourceDictionary xmlns="https://github.com/avaloniaui"')
-w('                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">')
+w('                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"')
+w('                    xmlns:uikit="using:AvaloniaUIKit">')
 w('  <ControlTheme x:Key="UIKitSplitButtonPart" TargetType="Button">')
 w('    <Setter Property="ClipToBounds" Value="False" />')
 w('    <Setter Property="HorizontalContentAlignment" Value="Center" />')
@@ -104,6 +107,7 @@ w('          <Button Name="PART_PrimaryButton" Theme="{StaticResource UIKitSplit
 w('                  Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}"')
 w('                  Command="{TemplateBinding Command}" CommandParameter="{TemplateBinding CommandParameter}"')
 w('                  FontSize="{TemplateBinding FontSize}"')
+w('                  uikit:Buttons.IsLoading="{TemplateBinding (uikit:Buttons.IsLoading)}"')
 w('                  Focusable="False" KeyboardNavigation.IsTabStop="False" />')
 w('          <Button Name="PART_SecondaryButton" Theme="{StaticResource UIKitSplitButtonPart}"')
 w('                  Padding="0" Focusable="False" KeyboardNavigation.IsTabStop="False">')
@@ -174,6 +178,16 @@ for variant in VARIANTS:
                 w(f'      <Setter Property="Foreground" Value="{{DynamicResource {key(variant, outline, state, "Foreground")}}}" />')
                 w(f'      <Setter Property="BorderBrush" Value="{{DynamicResource {key(variant, outline, state, "Border")}}}" />')
             w('    </Style>')
+            if state == "pressed":
+                # A loading action half (uikit:Buttons.IsLoading, the DropdownButton's
+                # Button::loading) keeps its normal look: no hover, press or group hover.
+                loading = f"{s}[(uikit|Buttons.IsLoading)=True]"
+                part = "/template/ Button#PART_PrimaryButton"
+                w(f'    <Style Selector="{loading} {part}, {loading} {part}:pointerover, {loading} {part}:pressed">')
+                w(f'      <Setter Property="Background" Value="{{DynamicResource {key(variant, outline, "normal", "Background")}}}" />')
+                w(f'      <Setter Property="Foreground" Value="{{DynamicResource {key(variant, outline, "normal", "Foreground")}}}" />')
+                w(f'      <Setter Property="BorderBrush" Value="{{DynamicResource {key(variant, outline, "normal", "Border")}}}" />')
+                w('    </Style>')
 w('')
 w('    <Style Selector="^:focus-visible /template/ Button#PART_PrimaryButton">')
 w('      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Ring}" />')

@@ -6,17 +6,22 @@ use crate::{
 };
 use anyhow::Result;
 use gpui_kit::{
-    AppContext as _, IntoElement as _, ParentElement as _, Styled as _, px,
+    AppContext as _, DismissEvent, Entity, Focusable as _, InteractiveElement as _, IntoElement as _, MouseButton,
+    ParentElement as _, Pixels, Point, Styled as _, Subscription, anchored, deferred, div, px,
     component::{
         Colorize as _, Icon, Sizable as _, Size, Theme,
         button::{Button, ButtonVariants as _},
         input::{
-            Input, InputGroup, InputGroupAddon, InputGroupAddonAlignment, InputGroupButton, InputState, Textarea,
-            TextareaState,
+            Copy, Cut, Input, InputGroup, InputGroupAddon, InputGroupAddonAlignment, InputGroupButton, InputState,
+            MaskPattern, Paste, SelectAll, Textarea, TextareaState,
         },
+        menu::PopupMenu,
     },
 };
-use std::rc::Rc;
+use std::{cell::RefCell, rc::Rc};
+
+/// The open right-click menu: where it opened, the menu, and its dismissal.
+type OpenMenu = Rc<RefCell<Option<(Point<Pixels>, Entity<PopupMenu>, Subscription)>>>;
 
 pub fn builder(params: &Params) -> Result<Builder> {
     let disabled = disabled(params);
@@ -30,6 +35,11 @@ pub fn builder(params: &Params) -> Result<Builder> {
     let prefix = icon(param_str(params, "prefix", ""));
     let suffix = icon(param_str(params, "suffix", ""));
     let width = param_f32(params, "width", 200.);
+    // input.rs cleanable: a clear button after the text while it is editable and not empty.
+    let cleanable = param_bool(params, "cleanable");
+    // The right-click menu as GPUI Kit draws it where the OS has no native one.
+    let context_menu = param_bool(params, "context_menu");
+    let open_menu: OpenMenu = Rc::new(RefCell::new(None));
     Ok(Rc::new(move |view, window, cx| {
         if view.state.entity.is_none() {
             let (value, placeholder) = (value.clone(), placeholder.clone());
@@ -65,7 +75,127 @@ pub fn builder(params: &Params) -> Result<Builder> {
         if mask_toggle {
             input = input.mask_toggle();
         }
-        input.into_any_element()
+        if cleanable {
+            input = input.cleanable(true);
+        }
+        if !context_menu {
+            return input.into_any_element();
+        }
+        // input.rs shows its context menu as a NativeMenu, which the macOS backend
+        // hands to AppKit (nothing to capture here) and native_menu/fallback.rs
+        // draws as a PopupMenu at the pointer: built here the same way, after the
+        // input has handled the click (and moved its caret).
+        let view_entity = cx.entity().downgrade();
+        let slot = open_menu.clone();
+        let mut root = div().child(input).capture_any_mouse_up(move |event, window, cx| {
+            if event.button != MouseButton::Right {
+                return;
+            }
+            let (position, slot, state, view) = (event.position, slot.clone(), state.clone(), view_entity.clone());
+            window.defer(cx, move |window, cx| {
+                let capabilities = state.read(cx).context_menu_capabilities();
+                let enabled = !capabilities.is_disabled();
+                let editable = enabled && !capabilities.is_readonly();
+                let copyable = capabilities.is_copyable();
+                let focus = state.read(cx).focus_handle(cx);
+                let menu = PopupMenu::build(window, cx, move |menu, _, _| {
+                    menu.action_context(focus.clone())
+                        .menu_with_check_and_disabled("Cut", false, Box::new(Cut), !(editable && copyable))
+                        .menu_with_check_and_disabled("Copy", false, Box::new(Copy), !copyable)
+                        .menu_with_check_and_disabled("Paste", false, Box::new(Paste), !editable)
+                        .separator()
+                        .menu_with_check_and_disabled("Select All", false, Box::new(SelectAll), false)
+                });
+                // Weak: the slot holds the subscription.
+                let dismissed = Rc::downgrade(&slot);
+                let subscription = cx.subscribe(&menu, move |_, _: &DismissEvent, _| {
+                    if let Some(slot) = dismissed.upgrade() {
+                        slot.borrow_mut().take();
+                    }
+                });
+                menu.focus_handle(cx).focus(window, cx);
+                *slot.borrow_mut() = Some((position, menu, subscription));
+                let _ = view.update(cx, |_, cx| cx.notify());
+            });
+        });
+        if let Some((position, menu, _)) = open_menu.borrow().as_ref() {
+            root = root.child(
+                deferred(anchored().position(*position).snap_to_window_with_margin(px(8.)).child(menu.clone()))
+                    .with_priority(gpui_kit::base::POPUP_PRIORITY),
+            );
+        }
+        root.into_any_element()
+    }))
+}
+
+/// The InputState rules uikit:Inputs ports (crates/base/src/input/base/state.rs):
+/// `mask` ("number" for MaskPattern::Number with `separator` and `fraction`, or
+/// a MaskPattern::new pattern), `digits` (a validate closure that keeps digits
+/// only; GPUI's pattern goes through the same is_valid_input) and
+/// `clean_on_escape`. With `textarea`, a Textarea of `rows` lines with its
+/// default TabSize (2 spaces), its lines selected when `select_lines`.
+pub fn uikit_input(params: &Params) -> Result<Builder> {
+    if param_bool(params, "textarea") {
+        let value = param_str(params, "value", "").to_string();
+        let rows = param_f32(params, "rows", 3.) as usize;
+        let width = param_f32(params, "width", 220.);
+        let select_lines = param_bool(params, "select_lines");
+        return Ok(Rc::new(move |view, window, cx| {
+            if view.state.entity.is_none() {
+                let value = value.clone();
+                let state = cx.new(|cx| {
+                    let mut state = TextareaState::new(window, cx).rows(rows).default_value(value);
+                    if select_lines {
+                        state.select_all(window, cx);
+                    }
+                    state
+                });
+                view.state.entity = Some(state.into());
+            }
+            let state = view
+                .state
+                .entity
+                .clone()
+                .and_then(|e| e.downcast::<TextareaState>().ok())
+                .expect("textarea state");
+            Textarea::new(&state).w(px(width)).into_any_element()
+        }));
+    }
+    let value = param_str(params, "value", "").to_string();
+    let placeholder = param_str(params, "placeholder", "").to_string();
+    let mask = param_str(params, "mask", "").to_string();
+    let separator = param_str(params, "separator", "").chars().next();
+    let fraction = params.get("fraction").and_then(serde_json::Value::as_u64).map(|f| f as usize);
+    let digits = param_bool(params, "digits");
+    let clean_on_escape = param_bool(params, "clean_on_escape");
+    let width = param_f32(params, "width", 200.);
+    Ok(Rc::new(move |view, window, cx| {
+        if view.state.entity.is_none() {
+            let (value, placeholder, mask) = (value.clone(), placeholder.clone(), mask.clone());
+            let state = cx.new(|cx| {
+                let mut state = InputState::new(window, cx).placeholder(placeholder).default_value(value);
+                if mask == "number" {
+                    state = state.mask_pattern(MaskPattern::Number { separator, fraction });
+                } else if !mask.is_empty() {
+                    state = state.mask_pattern(mask.as_str());
+                }
+                if digits {
+                    state = state.validate(|text, _| text.chars().all(|c| c.is_ascii_digit()));
+                }
+                if clean_on_escape {
+                    state = state.clean_on_escape();
+                }
+                state
+            });
+            view.state.entity = Some(state.into());
+        }
+        let state = view
+            .state
+            .entity
+            .clone()
+            .and_then(|e| e.downcast::<InputState>().ok())
+            .expect("input state");
+        Input::new(&state).w(px(width)).into_any_element()
     }))
 }
 
@@ -126,6 +256,12 @@ pub fn input_group(params: &Params) -> Result<Builder> {
     let end_button = param_str(params, "end_button", "").to_string();
     let end_icon = param_str(params, "end_icon", "").to_string();
     let button_size = if param_str(params, "button_size", "xsmall") == "small" { Size::Small } else { Size::XSmall };
+    // InputGroupButton::loading (group.rs).
+    let loading = param_bool(params, "loading");
+    // uikit-inputgroup: text in a row above the input, text and a button (at the row's end) below it.
+    let block_start = param_str(params, "block_start", "").to_string();
+    let block_end = param_str(params, "block_end", "").to_string();
+    let block_button = param_str(params, "block_button", "").to_string();
     let width = param_f32(params, "width", 240.);
     Ok(Rc::new(move |view, window, cx| {
         if view.state.entity.is_none() {
@@ -159,15 +295,30 @@ pub fn input_group(params: &Params) -> Result<Builder> {
             has_tail = true;
         }
         if !end_button.is_empty() {
-            tail = tail.child(InputGroupButton::new("btn").label(end_button.clone()).with_size(button_size));
+            tail = tail.child(InputGroupButton::new("btn").label(end_button.clone()).with_size(button_size).loading(loading));
             has_tail = true;
         }
         if let Some(name) = icon(&end_icon) {
-            tail = tail.child(InputGroupButton::new("btn").icon(name).with_size(button_size));
+            tail = tail.child(InputGroupButton::new("btn").icon(name).with_size(button_size).loading(loading));
             has_tail = true;
         }
         if has_tail {
             group = group.addon(tail);
+        }
+        if !block_start.is_empty() {
+            group = group.addon(
+                InputGroupAddon::new("top").align(InputGroupAddonAlignment::BlockStart).child(block_start.clone()),
+            );
+        }
+        if !block_end.is_empty() || !block_button.is_empty() {
+            let mut bottom = InputGroupAddon::new("bottom").align(InputGroupAddonAlignment::BlockEnd);
+            if !block_end.is_empty() {
+                bottom = bottom.child(block_end.clone());
+            }
+            if !block_button.is_empty() {
+                bottom = bottom.child(InputGroupButton::new("send").label(block_button.clone()).ml_auto());
+            }
+            group = group.addon(bottom);
         }
         group.into_any_element()
     }))

@@ -1,0 +1,17 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:uikit="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.ButtonGroupSelection">
+  <StackPanel Spacing="8" HorizontalAlignment="Left">
+    <uikit:ButtonGroup Classes="outline" Click="OnSelect">
+      <Button Content="Day" />
+      <Button Classes="selected" Content="Week" />
+      <Button Content="Month" />
+    </uikit:ButtonGroup>
+    <uikit:ButtonGroup Classes="outline small" Multiple="True" Click="OnSelect">
+      <Button Classes="selected" Content="Bold" />
+      <Button Content="Italic" />
+      <Button Content="Underline" />
+    </uikit:ButtonGroup>
+  </StackPanel>
+</UserControl>

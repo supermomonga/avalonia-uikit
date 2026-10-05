@@ -114,9 +114,11 @@
   </ControlTheme>
 
   <!-- Spinner: the Lucide loader at the size's icon size, one turn per 0.8s with
-       a quadratic ease-in-out applied to each turn. It takes the text color. -->
+       a quadratic ease-in-out applied to each turn. It takes the text color.
+       uikit:Spinners.Icon replaces the loader (spinner.rs icon). -->
   <ControlTheme x:Key="UIKitSpinner" TargetType="ProgressBar">
     <Setter Property="IsIndeterminate" Value="True" />
+    <Setter Property="uikit:Spinners.Icon" Value="{StaticResource UIKit.Icon.Loader}" />
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
     <Setter Property="Width" Value="16" />
@@ -129,7 +131,7 @@
       <ControlTemplate>
         <Panel>
           <Border Name="PART_Indicator" IsVisible="False" />
-          <PathIcon Name="PART_Icon" Data="{StaticResource UIKit.Icon.Loader}"
+          <PathIcon Name="PART_Icon" Data="{TemplateBinding (uikit:Spinners.Icon)}"
                     Width="{TemplateBinding Width}" Height="{TemplateBinding Height}"
                     Foreground="{TemplateBinding Foreground}" RenderTransformOrigin="50%,50%">
             <PathIcon.RenderTransform>
@@ -175,6 +177,8 @@
     the width, at most 5px. A value change sweeps the arc over 180ms (easing_move).
     Indeterminate, a 1s cycle: at phase d the arc spans [e(max(0, 2d - 1)), e(d)]
     of a turn, e the quadratic ease-in-out, keyframed exactly by quadratic splines.
+    uikit:ProgressCircles.Content is GPUI's children: centered in the circle, in
+    the text color.
   -->
   <gconv:AffineConverter x:Key="UIKit.ProgressCircle.Degrees" Scale="3.6" />
   <gconv:AffineConverter x:Key="UIKit.ProgressCircle.Stroke" Scale="0.15" Maximum="5" />
@@ -206,6 +210,12 @@
           </Arc>
           <Arc Name="PART_IndeterminateArc" Stroke="{TemplateBinding Foreground}" IsVisible="False"
                StrokeThickness="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource UIKit.ProgressCircle.Stroke}}" />
+          <!-- progress_circle.rs: the children, centered (flex items_center justify_center). -->
+          <ContentPresenter Name="PART_ContentPresenter"
+                            Content="{TemplateBinding (uikit:ProgressCircles.Content)}"
+                            Foreground="{DynamicResource UIKit.Foreground}"
+                            HorizontalAlignment="Center" VerticalAlignment="Center"
+                            IsVisible="{TemplateBinding (uikit:ProgressCircles.Content), Converter={x:Static ObjectConverters.IsNotNull}}" />
         </Panel>
       </ControlTemplate>
     </Setter>

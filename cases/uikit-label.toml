@@ -1,0 +1,72 @@
+# GPUI Kit Label -> uikit:TextLabel. The label cases (cases/label.toml) hold
+# it to TextBlock.label's look; then the highlighted matches (blue over the
+# text and the secondary text) and the mask.
+component = "uikit-label"
+viewport = [280, 52]
+anchor = [16, 12]
+
+[[group]]
+name = "size"
+params = { text = "Account details" }
+matrix = { text_size = ["xs", "sm", "base", "lg", "xl", "2xl"] }
+
+[[group]]
+name = "secondary"
+params = { text = "Company address", secondary = "(optional)" }
+matrix = { text_size = ["sm", "base"] }
+
+[[group]]
+name = "weight"
+params = { text = "Workspace owner", secondary = "Administrator" }
+matrix = { weight = ["medium", "semibold", "bold"] }
+
+[[group]]
+name = "align"
+params = { text = "Text align", width = 240 }
+matrix = { align = ["left", "center", "right"] }
+
+# Wraps at 200px; "relaxed" = line_height(rems(1.8)) = 28.8px.
+[[group]]
+name = "wrap"
+params = { text = "Label should support text wrap in default, if the text is too long, it should wrap to the next line.", width = 200 }
+matrix = { leading = ["default", "relaxed"] }
+viewport = [240, 140]
+
+[[group]]
+name = "color"
+params = { text = "Verified" }
+matrix = { color = ["muted", "danger"] }
+
+# Every case-insensitive match ("S" matches the three s), or none.
+[[group]]
+name = "highlight"
+params = { text = "Design system documentation" }
+matrix = { highlights = ["sign", "S", "xyz"] }
+
+# HighlightsMatch::Prefix: only a match at the start.
+[[group]]
+name = "prefix"
+params = { text = "Design system documentation", prefix = true }
+matrix = { highlights = ["design", "system"] }
+
+# Overlapping matches ("aa" in "aaaa" at 0, 1 and 2).
+[[group]]
+name = "overlap"
+params = { text = "aaaa bbb", highlights = "aa" }
+
+# Matches in the label before the secondary text, up to where it starts.
+# (Over the secondary text GPUI's color depends on the iteration order of the
+# hash set combine_highlights folds; TextLabel paints matches blue there too.)
+[[group]]
+name = "secondary-highlight"
+params = { text = "Company address", secondary = "(optional)" }
+matrix = { highlights = ["company", "address"] }
+
+# masked: a • per character, the secondary text and the matches unstyled.
+[[group]]
+name = "masked"
+params = { text = "Hello", masked = true }
+
+[[group]]
+name = "masked-secondary"
+params = { text = "Company address", secondary = "(optional)", highlights = "add", masked = true }

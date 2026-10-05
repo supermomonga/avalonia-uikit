@@ -1,0 +1,8 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:uikit="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.TextareaIndent">
+  <TextBox AcceptsReturn="True" MinLines="4" MaxLines="4" Width="320" HorizontalAlignment="Left"
+           uikit:Inputs.TabSize="2"
+           Text="Select these lines&#10;and press Tab to indent them,&#10;Shift+Tab to outdent." />
+</UserControl>

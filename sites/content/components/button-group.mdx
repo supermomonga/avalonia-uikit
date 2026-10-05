@@ -11,6 +11,8 @@ Put the buttons in a `StackPanel Classes="button-group"`, horizontal or vertical
 
 Grouped, only the first and last buttons keep their outer corners, and every later button drops the edge it shares with the one before, so neighbours share one 1px divider (borderless variants have no edge to drop). The focus ring follows each button's corners.
 
+`uikit:ButtonGroup` is the same group as a control. It is a `StackPanel`, horizontal by default, of `Button`s. Its color, `outline`, `compact` and size classes go on every button. A click on a button raises its `Click` with `SelectedIndices`, the buttons the selection becomes: the clicked button alone, or with `Multiple="True"` the selection with the clicked button added or removed. The group does not change the selection itself; the app applies it with each button's `selected` class. `IsEnabled="False"` on the group disables its buttons.
+
 ## Examples
 
 Default, primary and ghost groups, plain and outlined; the group takes any of the Button's colors.
@@ -24,3 +26,7 @@ The buttons' size classes set the group's size; give every button the same one.
 `Orientation="Vertical"` stacks the buttons and shares the horizontal edges instead.
 
 <Demo name="button-group/vertical" title="Vertical" />
+
+A `uikit:ButtonGroup` for one choice and one with `Multiple="True"`; each applies the indices its `Click` reports.
+
+<Demo name="button-group/selection" title="Selection" />

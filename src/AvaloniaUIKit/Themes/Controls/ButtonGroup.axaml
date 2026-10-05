@@ -10,9 +10,14 @@
   first and last keep their outer corners, and every later button drops the
   edge it shares with the one before (one 1px divider; borderless variants
   have no edge to drop). The focus ring follows the button's corners.
+
+  uikit:ButtonGroup (a StackPanel, horizontal by default) is the same group
+  with GPUI's group API: its variant, outline, compact and size classes go on
+  every button, and Click reports the selection a click makes.
 -->
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:uikit="using:AvaloniaUIKit"
         xmlns:conv="using:Avalonia.Controls.Converters"
         xmlns:gconv="using:AvaloniaUIKit.Converters">
   <Styles.Resources>
@@ -25,27 +30,27 @@
   </Styles.Resources>
 
   <!-- Corners: the first and last keep the group's outer ones, the middle none. -->
-  <Style Selector="StackPanel.button-group[Orientation=Horizontal] > Button:nth-child(1):not(:nth-last-child(1)) /template/ ContentPresenter#PART_ContentPresenter">
+  <Style Selector="StackPanel.button-group[Orientation=Horizontal] > Button:nth-child(1):not(:nth-last-child(1)) /template/ ContentPresenter#PART_ContentPresenter, uikit|ButtonGroup[Orientation=Horizontal] > Button:nth-child(1):not(:nth-last-child(1)) /template/ ContentPresenter#PART_ContentPresenter">
     <Setter Property="CornerRadius" Value="{Binding $parent[Button].CornerRadius, Converter={StaticResource UIKit.Corners.Left}}" />
   </Style>
-  <Style Selector="StackPanel.button-group[Orientation=Horizontal] > Button:nth-last-child(1):not(:nth-child(1)) /template/ ContentPresenter#PART_ContentPresenter">
+  <Style Selector="StackPanel.button-group[Orientation=Horizontal] > Button:nth-last-child(1):not(:nth-child(1)) /template/ ContentPresenter#PART_ContentPresenter, uikit|ButtonGroup[Orientation=Horizontal] > Button:nth-last-child(1):not(:nth-child(1)) /template/ ContentPresenter#PART_ContentPresenter">
     <Setter Property="CornerRadius" Value="{Binding $parent[Button].CornerRadius, Converter={StaticResource UIKit.Corners.Right}}" />
   </Style>
-  <Style Selector="StackPanel.button-group[Orientation=Vertical] > Button:nth-child(1):not(:nth-last-child(1)) /template/ ContentPresenter#PART_ContentPresenter">
+  <Style Selector="StackPanel.button-group[Orientation=Vertical] > Button:nth-child(1):not(:nth-last-child(1)) /template/ ContentPresenter#PART_ContentPresenter, uikit|ButtonGroup[Orientation=Vertical] > Button:nth-child(1):not(:nth-last-child(1)) /template/ ContentPresenter#PART_ContentPresenter">
     <Setter Property="CornerRadius" Value="{Binding $parent[Button].CornerRadius, Converter={StaticResource UIKit.Corners.Top}}" />
   </Style>
-  <Style Selector="StackPanel.button-group[Orientation=Vertical] > Button:nth-last-child(1):not(:nth-child(1)) /template/ ContentPresenter#PART_ContentPresenter">
+  <Style Selector="StackPanel.button-group[Orientation=Vertical] > Button:nth-last-child(1):not(:nth-child(1)) /template/ ContentPresenter#PART_ContentPresenter, uikit|ButtonGroup[Orientation=Vertical] > Button:nth-last-child(1):not(:nth-child(1)) /template/ ContentPresenter#PART_ContentPresenter">
     <Setter Property="CornerRadius" Value="{Binding $parent[Button].CornerRadius, Converter={StaticResource UIKit.Corners.Bottom}}" />
   </Style>
-  <Style Selector="StackPanel.button-group > Button:not(:nth-child(1)):not(:nth-last-child(1)) /template/ ContentPresenter#PART_ContentPresenter">
+  <Style Selector="StackPanel.button-group > Button:not(:nth-child(1)):not(:nth-last-child(1)) /template/ ContentPresenter#PART_ContentPresenter, uikit|ButtonGroup > Button:not(:nth-child(1)):not(:nth-last-child(1)) /template/ ContentPresenter#PART_ContentPresenter">
     <Setter Property="CornerRadius" Value="0" />
   </Style>
 
   <!-- Edges: every later button drops the one it shares with the previous button. -->
-  <Style Selector="StackPanel.button-group[Orientation=Horizontal] > Button:not(:nth-child(1)) /template/ ContentPresenter#PART_ContentPresenter">
+  <Style Selector="StackPanel.button-group[Orientation=Horizontal] > Button:not(:nth-child(1)) /template/ ContentPresenter#PART_ContentPresenter, uikit|ButtonGroup[Orientation=Horizontal] > Button:not(:nth-child(1)) /template/ ContentPresenter#PART_ContentPresenter">
     <Setter Property="BorderThickness" Value="{Binding $parent[Button].BorderThickness, Converter={StaticResource UIKit.Sides.NoLeft}}" />
   </Style>
-  <Style Selector="StackPanel.button-group[Orientation=Vertical] > Button:not(:nth-child(1)) /template/ ContentPresenter#PART_ContentPresenter">
+  <Style Selector="StackPanel.button-group[Orientation=Vertical] > Button:not(:nth-child(1)) /template/ ContentPresenter#PART_ContentPresenter, uikit|ButtonGroup[Orientation=Vertical] > Button:not(:nth-child(1)) /template/ ContentPresenter#PART_ContentPresenter">
     <Setter Property="BorderThickness" Value="{Binding $parent[Button].BorderThickness, Converter={StaticResource UIKit.Sides.NoTop}}" />
   </Style>
 
@@ -53,43 +58,43 @@
     The ring's corners are the button's plus 3 (Border thickness 3: radius
     r + 1.5), 1.5 where the button's corner is square.
   -->
-  <Style Selector="StackPanel.button-group[Orientation=Horizontal] > Button:nth-child(1):not(:nth-last-child(1)) /template/ Border#PART_FocusRing">
+  <Style Selector="StackPanel.button-group[Orientation=Horizontal] > Button:nth-child(1):not(:nth-last-child(1)) /template/ Border#PART_FocusRing, uikit|ButtonGroup[Orientation=Horizontal] > Button:nth-child(1):not(:nth-last-child(1)) /template/ Border#PART_FocusRing">
     <Setter Property="CornerRadius" Value="7.5,1.5,1.5,7.5" />
   </Style>
-  <Style Selector="StackPanel.button-group[Orientation=Horizontal] > Button:nth-last-child(1):not(:nth-child(1)) /template/ Border#PART_FocusRing">
+  <Style Selector="StackPanel.button-group[Orientation=Horizontal] > Button:nth-last-child(1):not(:nth-child(1)) /template/ Border#PART_FocusRing, uikit|ButtonGroup[Orientation=Horizontal] > Button:nth-last-child(1):not(:nth-child(1)) /template/ Border#PART_FocusRing">
     <Setter Property="CornerRadius" Value="1.5,7.5,7.5,1.5" />
   </Style>
-  <Style Selector="StackPanel.button-group[Orientation=Vertical] > Button:nth-child(1):not(:nth-last-child(1)) /template/ Border#PART_FocusRing">
+  <Style Selector="StackPanel.button-group[Orientation=Vertical] > Button:nth-child(1):not(:nth-last-child(1)) /template/ Border#PART_FocusRing, uikit|ButtonGroup[Orientation=Vertical] > Button:nth-child(1):not(:nth-last-child(1)) /template/ Border#PART_FocusRing">
     <Setter Property="CornerRadius" Value="7.5,7.5,1.5,1.5" />
   </Style>
-  <Style Selector="StackPanel.button-group[Orientation=Vertical] > Button:nth-last-child(1):not(:nth-child(1)) /template/ Border#PART_FocusRing">
+  <Style Selector="StackPanel.button-group[Orientation=Vertical] > Button:nth-last-child(1):not(:nth-child(1)) /template/ Border#PART_FocusRing, uikit|ButtonGroup[Orientation=Vertical] > Button:nth-last-child(1):not(:nth-child(1)) /template/ Border#PART_FocusRing">
     <Setter Property="CornerRadius" Value="1.5,1.5,7.5,7.5" />
   </Style>
-  <Style Selector="StackPanel.button-group[Orientation=Horizontal] > Button.rounded-small:nth-child(1):not(:nth-last-child(1)) /template/ Border#PART_FocusRing">
+  <Style Selector="StackPanel.button-group[Orientation=Horizontal] > Button.rounded-small:nth-child(1):not(:nth-last-child(1)) /template/ Border#PART_FocusRing, uikit|ButtonGroup[Orientation=Horizontal] > Button.rounded-small:nth-child(1):not(:nth-last-child(1)) /template/ Border#PART_FocusRing">
     <Setter Property="CornerRadius" Value="4.5,1.5,1.5,4.5" />
   </Style>
-  <Style Selector="StackPanel.button-group[Orientation=Horizontal] > Button.rounded-small:nth-last-child(1):not(:nth-child(1)) /template/ Border#PART_FocusRing">
+  <Style Selector="StackPanel.button-group[Orientation=Horizontal] > Button.rounded-small:nth-last-child(1):not(:nth-child(1)) /template/ Border#PART_FocusRing, uikit|ButtonGroup[Orientation=Horizontal] > Button.rounded-small:nth-last-child(1):not(:nth-child(1)) /template/ Border#PART_FocusRing">
     <Setter Property="CornerRadius" Value="1.5,4.5,4.5,1.5" />
   </Style>
-  <Style Selector="StackPanel.button-group[Orientation=Vertical] > Button.rounded-small:nth-child(1):not(:nth-last-child(1)) /template/ Border#PART_FocusRing">
+  <Style Selector="StackPanel.button-group[Orientation=Vertical] > Button.rounded-small:nth-child(1):not(:nth-last-child(1)) /template/ Border#PART_FocusRing, uikit|ButtonGroup[Orientation=Vertical] > Button.rounded-small:nth-child(1):not(:nth-last-child(1)) /template/ Border#PART_FocusRing">
     <Setter Property="CornerRadius" Value="4.5,4.5,1.5,1.5" />
   </Style>
-  <Style Selector="StackPanel.button-group[Orientation=Vertical] > Button.rounded-small:nth-last-child(1):not(:nth-child(1)) /template/ Border#PART_FocusRing">
+  <Style Selector="StackPanel.button-group[Orientation=Vertical] > Button.rounded-small:nth-last-child(1):not(:nth-child(1)) /template/ Border#PART_FocusRing, uikit|ButtonGroup[Orientation=Vertical] > Button.rounded-small:nth-last-child(1):not(:nth-child(1)) /template/ Border#PART_FocusRing">
     <Setter Property="CornerRadius" Value="1.5,1.5,4.5,4.5" />
   </Style>
-  <Style Selector="StackPanel.button-group[Orientation=Horizontal] > Button.rounded-large:nth-child(1):not(:nth-last-child(1)) /template/ Border#PART_FocusRing">
+  <Style Selector="StackPanel.button-group[Orientation=Horizontal] > Button.rounded-large:nth-child(1):not(:nth-last-child(1)) /template/ Border#PART_FocusRing, uikit|ButtonGroup[Orientation=Horizontal] > Button.rounded-large:nth-child(1):not(:nth-last-child(1)) /template/ Border#PART_FocusRing">
     <Setter Property="CornerRadius" Value="13.5,1.5,1.5,13.5" />
   </Style>
-  <Style Selector="StackPanel.button-group[Orientation=Horizontal] > Button.rounded-large:nth-last-child(1):not(:nth-child(1)) /template/ Border#PART_FocusRing">
+  <Style Selector="StackPanel.button-group[Orientation=Horizontal] > Button.rounded-large:nth-last-child(1):not(:nth-child(1)) /template/ Border#PART_FocusRing, uikit|ButtonGroup[Orientation=Horizontal] > Button.rounded-large:nth-last-child(1):not(:nth-child(1)) /template/ Border#PART_FocusRing">
     <Setter Property="CornerRadius" Value="1.5,13.5,13.5,1.5" />
   </Style>
-  <Style Selector="StackPanel.button-group[Orientation=Vertical] > Button.rounded-large:nth-child(1):not(:nth-last-child(1)) /template/ Border#PART_FocusRing">
+  <Style Selector="StackPanel.button-group[Orientation=Vertical] > Button.rounded-large:nth-child(1):not(:nth-last-child(1)) /template/ Border#PART_FocusRing, uikit|ButtonGroup[Orientation=Vertical] > Button.rounded-large:nth-child(1):not(:nth-last-child(1)) /template/ Border#PART_FocusRing">
     <Setter Property="CornerRadius" Value="13.5,13.5,1.5,1.5" />
   </Style>
-  <Style Selector="StackPanel.button-group[Orientation=Vertical] > Button.rounded-large:nth-last-child(1):not(:nth-child(1)) /template/ Border#PART_FocusRing">
+  <Style Selector="StackPanel.button-group[Orientation=Vertical] > Button.rounded-large:nth-last-child(1):not(:nth-child(1)) /template/ Border#PART_FocusRing, uikit|ButtonGroup[Orientation=Vertical] > Button.rounded-large:nth-last-child(1):not(:nth-child(1)) /template/ Border#PART_FocusRing">
     <Setter Property="CornerRadius" Value="1.5,1.5,13.5,13.5" />
   </Style>
-  <Style Selector="StackPanel.button-group > Button.rounded-none /template/ Border#PART_FocusRing, StackPanel.button-group > Button:not(:nth-child(1)):not(:nth-last-child(1)) /template/ Border#PART_FocusRing">
+  <Style Selector="StackPanel.button-group > Button.rounded-none /template/ Border#PART_FocusRing, StackPanel.button-group > Button:not(:nth-child(1)):not(:nth-last-child(1)) /template/ Border#PART_FocusRing, uikit|ButtonGroup > Button.rounded-none /template/ Border#PART_FocusRing, uikit|ButtonGroup > Button:not(:nth-child(1)):not(:nth-last-child(1)) /template/ Border#PART_FocusRing">
     <Setter Property="CornerRadius" Value="1.5" />
   </Style>
 </Styles>

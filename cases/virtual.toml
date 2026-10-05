@@ -20,3 +20,27 @@ states = ["normal", "at-248-60+wait-400ms"]
 name = "deep"
 params = { count = 10000, uniform = true, offset = 170000 }
 states = ["at-248-60+wait-400ms"]
+
+# VirtualListScrollHandle::scroll_to_item -> ItemsScrolling.ScrollToItem:
+# Center puts row 500 in the middle of the viewport; Top and Bottom scroll a
+# row out of view to the nearer edge (the bottom here). The scroll happens in
+# the window's first frame, before the harness pins the scrollbar's clock, so
+# the cases point at the strip to restart the bar's timeline, leave it, and
+# wait for the 2s hold and the 500ms fade.
+[[group]]
+name = "scroll-to"
+params = { count = 1000, uniform = true, scroll_to = 500 }
+matrix = { strategy = ["center", "top", "bottom"] }
+states = ["at-248-60+wait-400ms+at-100-60+wait-2000ms+wait-600ms"]
+
+# A row already in view stays where it is.
+[[group]]
+name = "scroll-to-visible"
+params = { count = 1000, uniform = true, scroll_to = 3, strategy = "top" }
+states = ["at-248-60+wait-400ms+at-100-60+wait-2000ms+wait-600ms"]
+
+# Rows of three heights: the rows around the centered one are laid out from it.
+[[group]]
+name = "scroll-to-variable"
+params = { count = 1000, scroll_to = 50, strategy = "center" }
+states = ["at-248-60+wait-400ms+at-100-60+wait-2000ms+wait-600ms"]

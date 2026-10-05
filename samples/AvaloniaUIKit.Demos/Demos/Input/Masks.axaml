@@ -1,0 +1,14 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:uikit="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.InputMasks">
+  <StackPanel Spacing="12" Width="240" HorizontalAlignment="Left">
+    <TextBox Width="240" uikit:Inputs.MaskPattern="(999)999-9999" />
+    <TextBox Width="240" uikit:Inputs.MaskPattern="AAA-###-AAA" />
+    <TextBox Width="240" PlaceholderText="Amount">
+      <uikit:Inputs.MaskPattern>
+        <uikit:NumberMask Separator="," Fraction="2" />
+      </uikit:Inputs.MaskPattern>
+    </TextBox>
+  </StackPanel>
+</UserControl>

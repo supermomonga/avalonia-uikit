@@ -1,0 +1,276 @@
+<!--
+  GPUI Kit InputGroup (crates/component/src/input/group.rs) -> uikit:InputGroup
+  with a TextBox and uikit:InputGroupAddons:
+
+    <uikit:InputGroup>
+      <uikit:InputGroupAddon><PathIcon Data="{StaticResource UIKit.Icon.Search}" /></uikit:InputGroupAddon>
+      <TextBox PlaceholderText="Search..." />
+      <uikit:InputGroupAddon Alignment="InlineEnd"><Button Content="Clear" /></uikit:InputGroupAddon>
+    </uikit:InputGroup>
+
+  Classes: xsmall small large (medium is the default). The look is the
+  TextBox group class's (TextBox.axaml): the input frame, input_h tall while the
+  input is single-line and nothing sits above or below it, transparent (light)
+  or tinted (dark); its border and background move to a new color over 120ms
+  (easing_move); the ring border and band while the input has focus, the danger
+  ones while invalid (even disabled). Disabled, the whole group fades to half.
+
+  The input (render_control) draws no frame, background or ring of its own and
+  takes the group's size; an inline addon replaces the input's inset on its
+  side with 8px (pl_2 / pr_2), a multi-line input keeps its own and is at least
+  64px tall (min_h_16). An addon (InputGroupAddon::render_in_group) is a row of
+  muted, medium-weight text, icons (16px) and buttons 8px apart; inline ones
+  sit 6px from the border (pl_1p5 / pr_1p5) with 6px above and below (none
+  when xsmall or small), rows above and below take the input's horizontal inset
+  (input_px) and 8px from the frame's edge (pt_2 / pb_2). Buttons take the
+  InputGroupButton look (UIKitInputGroupButton in TextBox.axaml).
+-->
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:uikit="using:AvaloniaUIKit">
+  <Styles.Resources>
+    <!-- The input without appearance: the group draws the frame, the background and the ring. -->
+    <ControlTheme x:Key="UIKitInputGroupTextBox" TargetType="TextBox" BasedOn="{StaticResource {x:Type TextBox}}">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="BorderThickness" Value="0" />
+      <Setter Property="Height" Value="NaN" />
+      <Setter Property="MinHeight" Value="32" />
+      <Setter Property="HorizontalAlignment" Value="Stretch" />
+      <Setter Property="VerticalAlignment" Value="Stretch" />
+      <Style Selector="^[AcceptsReturn=True]">
+        <Setter Property="MinHeight" Value="64" />
+      </Style>
+      <!-- Its rows start at the top of the 64px: the rest of the height stays below them. -->
+      <Style Selector="^[AcceptsReturn=True] /template/ ScrollViewer#PART_ScrollViewer">
+        <Setter Property="VerticalAlignment" Value="Top" />
+      </Style>
+      <Style Selector="^:focus-within /template/ Border#PART_FocusRing">
+        <Setter Property="IsVisible" Value="False" />
+      </Style>
+      <Style Selector="^:disabled">
+        <Setter Property="Background" Value="Transparent" />
+      </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type uikit:InputGroup}" TargetType="uikit:InputGroup">
+      <Setter Property="Background" Value="{DynamicResource UIKit.InputGroup.Background}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Input}" />
+      <Setter Property="BorderThickness" Value="1" />
+      <Setter Property="CornerRadius" Value="5.5" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
+      <Setter Property="FontSize" Value="14" />
+      <Setter Property="Height" Value="32" />
+      <Setter Property="VerticalAlignment" Value="Top" />
+      <Setter Property="ClipToBounds" Value="False" />
+      <Setter Property="ItemsPanel">
+        <ItemsPanelTemplate>
+          <uikit:InputGroupPanel />
+        </ItemsPanelTemplate>
+      </Setter>
+      <Setter Property="Template">
+        <ControlTemplate>
+          <Panel>
+            <Border Name="PART_BorderElement"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    BackgroundSizing="OuterBorderEdge">
+              <uikit:Motion.ColorTransition>
+                <uikit:ColorTransition Duration="0:0:0.12" Easing="0.2,0,0,1" Properties="Background, BorderBrush" />
+              </uikit:Motion.ColorTransition>
+            </Border>
+            <!-- focus_ring (styled.rs): a 3px band outside the border; it changes at once. -->
+            <Border Name="PART_FocusRing" Margin="-3" BorderThickness="3" CornerRadius="7.5"
+                    BorderBrush="{DynamicResource UIKit.FocusRing}" IsVisible="False" IsHitTestVisible="False" />
+            <ItemsPresenter Name="PART_ItemsPresenter"
+                            Margin="{TemplateBinding BorderThickness}"
+                            ItemsPanel="{TemplateBinding ItemsPanel}" />
+          </Panel>
+        </ControlTemplate>
+      </Setter>
+
+      <Style Selector="^.xsmall">
+        <Setter Property="Height" Value="20" />
+        <Setter Property="FontSize" Value="12" />
+      </Style>
+      <Style Selector="^.small">
+        <Setter Property="Height" Value="24" />
+      </Style>
+      <Style Selector="^.large">
+        <Setter Property="Height" Value="44" />
+        <Setter Property="FontSize" Value="16" />
+      </Style>
+      <!-- A multi-line input or a row above or below: the group takes its content's height. -->
+      <Style Selector="^:multiline, ^:block">
+        <Setter Property="Height" Value="NaN" />
+      </Style>
+
+      <Style Selector="^:input-focused">
+        <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Ring}" />
+      </Style>
+      <Style Selector="^:input-focused /template/ Border#PART_FocusRing">
+        <Setter Property="IsVisible" Value="True" />
+      </Style>
+      <Style Selector="^:invalid">
+        <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Danger}" />
+      </Style>
+      <Style Selector="^:invalid /template/ Border#PART_FocusRing">
+        <Setter Property="IsVisible" Value="True" />
+        <Setter Property="BorderBrush" Value="{DynamicResource UIKit.InputGroup.Invalid.Ring}" />
+      </Style>
+      <!-- A disabled input disables the group: the addons go with it. -->
+      <Style Selector="^:input-disabled /template/ ItemsPresenter#PART_ItemsPresenter">
+        <Setter Property="IsEnabled" Value="False" />
+      </Style>
+      <Style Selector="^:disabled, ^:input-disabled">
+        <Setter Property="Background" Value="{DynamicResource UIKit.InputGroup.Disabled.Background}" />
+        <Setter Property="Opacity" Value="0.5" />
+      </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type uikit:InputGroupAddon}" TargetType="uikit:InputGroupAddon">
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.MutedForeground}" />
+      <Setter Property="FontWeight" Value="Medium" />
+      <!-- Text without a line height of its own sits on GPUI's default (phi) line, snapped to device pixels. -->
+      <Setter Property="TextBlock.LineHeight" Value="22.5" />
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="ClipToBounds" Value="False" />
+      <Setter Property="Cursor" Value="Ibeam" />
+      <Setter Property="Padding" Value="6,6,0,6" />
+      <Setter Property="VerticalAlignment" Value="Center" />
+      <Setter Property="ItemsPanel">
+        <ItemsPanelTemplate>
+          <uikit:InputGroupAddonPanel />
+        </ItemsPanelTemplate>
+      </Setter>
+      <Setter Property="Template">
+        <ControlTemplate>
+          <Border Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
+            <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
+          </Border>
+        </ControlTemplate>
+      </Setter>
+      <Style Selector="^[Alignment=InlineEnd]">
+        <Setter Property="Padding" Value="0,6,6,6" />
+      </Style>
+      <Style Selector="^[Alignment=BlockStart]">
+        <Setter Property="Padding" Value="10,8,10,6" />
+      </Style>
+      <Style Selector="^[Alignment=BlockEnd]">
+        <Setter Property="Padding" Value="10,6,10,8" />
+      </Style>
+    </ControlTheme>
+  </Styles.Resources>
+
+  <Style Selector="uikit|InputGroup > TextBox">
+    <Setter Property="Theme" Value="{StaticResource UIKitInputGroupTextBox}" />
+  </Style>
+  <Style Selector="uikit|InputGroup[IsReadOnly=True] > TextBox">
+    <Setter Property="IsReadOnly" Value="True" />
+  </Style>
+
+  <!-- The input takes the group's size (input_h, input_px, text size). -->
+  <Style Selector="uikit|InputGroup.xsmall > TextBox">
+    <Setter Property="MinHeight" Value="20" />
+    <Setter Property="Padding" Value="4,0" />
+    <Setter Property="FontSize" Value="12" />
+  </Style>
+  <Style Selector="uikit|InputGroup.small > TextBox">
+    <Setter Property="MinHeight" Value="24" />
+    <Setter Property="Padding" Value="8,0" />
+  </Style>
+  <Style Selector="uikit|InputGroup.large > TextBox">
+    <Setter Property="MinHeight" Value="44" />
+    <Setter Property="Padding" Value="12,0" />
+    <Setter Property="FontSize" Value="16" />
+  </Style>
+  <Style Selector="uikit|InputGroup > TextBox[AcceptsReturn=True]">
+    <Setter Property="MinHeight" Value="64" />
+  </Style>
+  <Style Selector="uikit|InputGroup.xsmall > TextBox[AcceptsReturn=True] /template/ Panel#PART_TextPanel">
+    <Setter Property="Margin" Value="4,0" />
+  </Style>
+  <Style Selector="uikit|InputGroup.small > TextBox[AcceptsReturn=True] /template/ Panel#PART_TextPanel">
+    <Setter Property="Margin" Value="8,2" />
+  </Style>
+  <Style Selector="uikit|InputGroup.large > TextBox[AcceptsReturn=True] /template/ Panel#PART_TextPanel">
+    <Setter Property="Margin" Value="12,10" />
+  </Style>
+
+  <!-- An inline addon takes over the single-line input's inset on its side: 8px (pl_2 / pr_2). -->
+  <Style Selector="uikit|InputGroup:inline-start > TextBox">
+    <Setter Property="Padding" Value="8,0,10,0" />
+  </Style>
+  <Style Selector="uikit|InputGroup:inline-end > TextBox">
+    <Setter Property="Padding" Value="10,0,8,0" />
+  </Style>
+  <Style Selector="uikit|InputGroup:inline-start:inline-end > TextBox">
+    <Setter Property="Padding" Value="8,0" />
+  </Style>
+  <Style Selector="uikit|InputGroup.small:inline-start > TextBox, uikit|InputGroup.small:inline-end > TextBox">
+    <Setter Property="Padding" Value="8,0" />
+  </Style>
+  <Style Selector="uikit|InputGroup.xsmall:inline-start > TextBox">
+    <Setter Property="Padding" Value="8,0,4,0" />
+  </Style>
+  <Style Selector="uikit|InputGroup.xsmall:inline-end > TextBox">
+    <Setter Property="Padding" Value="4,0,8,0" />
+  </Style>
+  <Style Selector="uikit|InputGroup.large:inline-start > TextBox">
+    <Setter Property="Padding" Value="8,0,12,0" />
+  </Style>
+  <Style Selector="uikit|InputGroup.large:inline-end > TextBox">
+    <Setter Property="Padding" Value="12,0,8,0" />
+  </Style>
+  <Style Selector="uikit|InputGroup.xsmall:inline-start:inline-end > TextBox, uikit|InputGroup.small:inline-start:inline-end > TextBox, uikit|InputGroup.large:inline-start:inline-end > TextBox">
+    <Setter Property="Padding" Value="8,0" />
+  </Style>
+
+  <!-- Addons by size: input_text_size, no vertical padding when xsmall or small, the input's inset for rows. -->
+  <Style Selector="uikit|InputGroup.xsmall uikit|InputGroupAddon">
+    <Setter Property="FontSize" Value="12" />
+    <Setter Property="TextBlock.LineHeight" Value="19.5" />
+  </Style>
+  <Style Selector="uikit|InputGroup.large uikit|InputGroupAddon">
+    <Setter Property="FontSize" Value="16" />
+    <Setter Property="TextBlock.LineHeight" Value="26" />
+  </Style>
+  <Style Selector="uikit|InputGroup.xsmall > uikit|InputGroupAddon[Alignment=InlineStart], uikit|InputGroup.small > uikit|InputGroupAddon[Alignment=InlineStart]">
+    <Setter Property="Padding" Value="6,0,0,0" />
+  </Style>
+  <Style Selector="uikit|InputGroup.xsmall > uikit|InputGroupAddon[Alignment=InlineEnd], uikit|InputGroup.small > uikit|InputGroupAddon[Alignment=InlineEnd]">
+    <Setter Property="Padding" Value="0,0,6,0" />
+  </Style>
+  <Style Selector="uikit|InputGroup.xsmall > uikit|InputGroupAddon[Alignment=BlockStart]">
+    <Setter Property="Padding" Value="4,8,4,0" />
+  </Style>
+  <Style Selector="uikit|InputGroup.xsmall > uikit|InputGroupAddon[Alignment=BlockEnd]">
+    <Setter Property="Padding" Value="4,0,4,8" />
+  </Style>
+  <Style Selector="uikit|InputGroup.small > uikit|InputGroupAddon[Alignment=BlockStart]">
+    <Setter Property="Padding" Value="8,8,8,0" />
+  </Style>
+  <Style Selector="uikit|InputGroup.small > uikit|InputGroupAddon[Alignment=BlockEnd]">
+    <Setter Property="Padding" Value="8,0,8,8" />
+  </Style>
+  <Style Selector="uikit|InputGroup.large > uikit|InputGroupAddon[Alignment=BlockStart]">
+    <Setter Property="Padding" Value="12,8,12,6" />
+  </Style>
+  <Style Selector="uikit|InputGroup.large > uikit|InputGroupAddon[Alignment=BlockEnd]">
+    <Setter Property="Padding" Value="12,6,12,8" />
+  </Style>
+
+  <!-- InputGroupButton: the buttons in the addons; icons Small (14px), Medium (16px) in a small button. -->
+  <Style Selector="uikit|InputGroup Button">
+    <Setter Property="Theme" Value="{StaticResource UIKitInputGroupButton}" />
+  </Style>
+  <Style Selector="uikit|InputGroup Button PathIcon">
+    <Setter Property="Width" Value="14" />
+    <Setter Property="Height" Value="14" />
+  </Style>
+  <Style Selector="uikit|InputGroup Button.small PathIcon">
+    <Setter Property="Width" Value="16" />
+    <Setter Property="Height" Value="16" />
+  </Style>
+</Styles>

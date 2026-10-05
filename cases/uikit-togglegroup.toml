@@ -1,0 +1,54 @@
+# GPUI Kit ToggleGroup -> uikit:ToggleGroup of ToggleButtons: the togglegroup
+# cases, then the keyboard (every toggle a Tab stop, no arrow keys).
+# A click is followed by a pointer move on the spot: right after the click GPUI
+# paints an unchecked toggle's hover background but not yet its hover text.
+# Items: Bold, Italic, Underline; "010" = Italic checked. pointer_x picks an item:
+# 0.12 Bold, 0.42 Italic, 0.8 Underline.
+component = "uikit-togglegroup"
+viewport = [240, 52]
+anchor = [16, 8]
+
+[[group]]
+name = "label"
+params = { labels = "Bold,Italic,Underline", checked = "010" }
+matrix = { variant = ["ghost", "outline"], size = ["xsmall", "small", "medium", "large"] }
+states = ["normal"]
+
+[[group]]
+name = "segmented"
+params = { labels = "Bold,Italic,Underline", checked = "010", segmented = true }
+matrix = { variant = ["ghost", "outline"], size = ["small", "medium"] }
+states = ["normal"]
+
+[[group]]
+name = "unchecked"
+params = { labels = "Bold,Italic,Underline", checked = "010", pointer_x = 0.12 }
+matrix = { variant = ["ghost", "outline"], segmented = [false, true] }
+states = ["hover", "click+hover"]
+
+[[group]]
+name = "checked"
+params = { labels = "Bold,Italic,Underline", checked = "010", pointer_x = 0.42 }
+matrix = { variant = ["ghost", "outline"], segmented = [false, true] }
+states = ["hover", "click+hover"]
+
+[[group]]
+name = "disabled"
+params = { labels = "Bold,Italic,Underline", checked = "010", pointer_x = 0.12 }
+matrix = { variant = ["ghost", "outline"] }
+states = ["disabled+hover"]
+
+[[group]]
+name = "icon"
+params = { icons = "check,copy,plus", checked = "100" }
+matrix = { variant = ["ghost", "outline"], size = ["xsmall", "small", "medium", "large"] }
+states = ["normal"]
+
+# base/toggle.rs: every toggle is a Tab stop and draws no ring; the arrow keys
+# do nothing. (GPUI's group reports only pointer clicks, its "legacy" keyboard
+# rule; Space and Enter flipping a toggle are checked by the behavior tests.)
+[[group]]
+name = "keys"
+params = { labels = "Bold,Italic,Underline", checked = "010" }
+matrix = { variant = ["ghost", "outline"] }
+states = ["focus", "focus+key-right", "focus+focus"]

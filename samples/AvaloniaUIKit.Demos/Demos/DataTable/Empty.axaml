@@ -1,0 +1,12 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:uikit="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.DataTableEmpty">
+  <TableView Width="400" Height="180" HorizontalAlignment="Left">
+    <TableView.Columns>
+      <TableViewColumn Header="Name" Width="120" />
+      <TableViewColumn Header="Email" Width="180" />
+      <TableViewColumn Header="Amount" Width="100" HorizontalContentAlignment="Right" />
+    </TableView.Columns>
+  </TableView>
+</UserControl>

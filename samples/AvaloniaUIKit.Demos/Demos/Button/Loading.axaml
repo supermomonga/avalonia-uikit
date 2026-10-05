@@ -1,0 +1,40 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:uikit="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.ButtonLoading">
+  <StackPanel Spacing="8">
+    <WrapPanel ItemSpacing="8" LineSpacing="8">
+      <Button Classes="primary" uikit:Buttons.IsLoading="True">
+        <StackPanel Orientation="Horizontal" Spacing="8">
+          <PathIcon Data="{StaticResource UIKit.Icon.Check}" />
+          <TextBlock Text="Saving" VerticalAlignment="Center" />
+        </StackPanel>
+      </Button>
+      <Button Classes="outline" uikit:Buttons.IsLoading="True">
+        <StackPanel Orientation="Horizontal" Spacing="8">
+          <PathIcon Data="{StaticResource UIKit.Icon.Copy}" />
+          <TextBlock Text="Copying" VerticalAlignment="Center" />
+        </StackPanel>
+      </Button>
+      <Button Classes="ghost icon-only" uikit:Buttons.IsLoading="True">
+        <PathIcon Data="{StaticResource UIKit.Icon.Search}" />
+      </Button>
+      <Button Content="Submit" uikit:Buttons.IsLoading="True" />
+    </WrapPanel>
+    <WrapPanel ItemSpacing="8" LineSpacing="8">
+      <Button Classes="secondary" uikit:Buttons.IsLoading="True"
+              uikit:Buttons.LoadingIcon="{StaticResource UIKit.Icon.LoaderCircle}">
+        <StackPanel Orientation="Horizontal" Spacing="8">
+          <PathIcon Data="{StaticResource UIKit.Icon.Check}" />
+          <TextBlock Text="Syncing" VerticalAlignment="Center" />
+        </StackPanel>
+      </Button>
+      <Button Classes="primary" Click="OnSave">
+        <StackPanel Orientation="Horizontal" Spacing="8">
+          <PathIcon Data="{StaticResource UIKit.Icon.Check}" />
+          <TextBlock Text="Save" VerticalAlignment="Center" />
+        </StackPanel>
+      </Button>
+    </WrapPanel>
+  </StackPanel>
+</UserControl>

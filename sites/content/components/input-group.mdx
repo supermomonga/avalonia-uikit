@@ -11,6 +11,12 @@ description: "A text field with prefix and suffix addons inside one frame."
 
 A multi-line group is `AcceptsReturn="True"`, as for the Textarea. An invalid group (Avalonia's `:error`, set through `DataValidationErrors`) shows the danger border and ring, even when unfocused or disabled; disabled, the whole group fades to half. Sizes: `xsmall`, `small`, `large` (medium is the default).
 
+## uikit:InputGroup
+
+`uikit:InputGroup` frames a `TextBox` and its `uikit:InputGroupAddon`s with the same look, and also takes rows above and below the input. An addon's `Alignment` is `InlineStart` (before the input, the default), `InlineEnd` (after it), `BlockStart` (a row above it) or `BlockEnd` (a row below it). An addon lays out its items in a row 8px apart, in the muted medium-weight text; an item with `HorizontalAlignment="Right"` goes to the end of the row. Buttons in the addons get the group's button look.
+
+The input inside takes the group's size class and draws no frame of its own; a multi-line input is at least 64px tall. The ring shows while the input has focus. `IsInvalid`, or a validation error on the input or the group, shows the danger border and ring. A disabled group, or a disabled input, disables the input and the addons and fades the group to half; `IsReadOnly` makes the input read-only. A press on an addon, other than on a button in it, focuses the input.
+
 ## Examples
 
 Text addons on both sides, and a read-only field with a suffix.
@@ -24,3 +30,11 @@ Buttons as the suffix: a text button, an `icon-only` one, and a multi-line group
 An invalid group and a disabled one. The demo sets `DataValidationErrors.Errors` from a static helper that holds one validation message; an app gets its errors from its bindings' validation instead.
 
 <Demo name="input-group/states" title="States" />
+
+A `uikit:InputGroup` with text addons, an invalid one with a button, and a disabled one.
+
+<Demo name="input-group/control" title="uikit:InputGroup" />
+
+A row of text above a search field, and a composer with a counter and a Send button below a multi-line input.
+
+<Demo name="input-group/rows" title="Rows above and below" />

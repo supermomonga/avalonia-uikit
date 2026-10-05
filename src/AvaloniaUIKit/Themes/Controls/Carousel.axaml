@@ -7,16 +7,31 @@
   band); the carousel takes focus only where the app sets Focusable="True"
   (GPUI's carousel is a tab stop, and Avalonia's handles the arrow keys then).
 
-  The rest of GPUI's carousel is the app's: Previous and Next are Buttons
-  with the classes outline icon-only rounded-full and a chevron, 16px outside
-  the pages and centered on them; the pagination is a PipsPager with the
-  class carousel, 16px below. See docs/testing.md.
+  The rest of GPUI's carousel is the app's: Previous and Next are
+  uikit:CarouselPrevious and uikit:CarouselNext (or Buttons with the classes
+  outline icon-only rounded-full and a chevron), 16px outside the pages and
+  centered on them; the pagination is a PipsPager with the class carousel,
+  16px below. See docs/testing.md.
+
+  uikit:Carousels.TracksPointer="True" lays the pages out on a
+  uikit:CarouselTrack instead, GPUI's track: it follows a drag, the wheel and
+  a trackpad, and pages (also several at once, and around the ends with
+  WrapSelection) on the same spring.
 -->
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:uikit="using:AvaloniaUIKit">
   <!-- carousel.rs: spring_move with a 0.5px epsilon. -->
   <uikit:Spring x:Key="UIKit.Spring.CarouselSnap" Response="0:0:0.28" Damping="0.85" Epsilon="0.5" />
+
+  <!-- The Previous and Next controls' tooltips (GPUI's Carousel.previous / next). -->
+  <x:String x:Key="UIKit.Carousel.Previous">Previous slide</x:String>
+  <x:String x:Key="UIKit.Carousel.Next">Next slide</x:String>
+
+  <!-- carousel.rs CarouselContent: the pages side by side, 16px apart. -->
+  <ItemsPanelTemplate x:Key="UIKitCarouselTrack">
+    <uikit:CarouselTrack Spring="{StaticResource UIKit.Spring.CarouselSnap}" Gap="16" />
+  </ItemsPanelTemplate>
 
   <ControlTheme x:Key="{x:Type Carousel}" TargetType="Carousel">
     <Setter Property="Background" Value="Transparent" />
@@ -50,6 +65,63 @@
     </Setter>
     <Style Selector="^:focus-visible /template/ Border#PART_FocusRing, ^:focus-visible /template/ Border#PART_FocusBorder">
       <Setter Property="IsVisible" Value="True" />
+    </Style>
+    <Style Selector="^[(uikit|Carousels.TracksPointer)=True]">
+      <Setter Property="ItemsPanel" Value="{StaticResource UIKitCarouselTrack}" />
+    </Style>
+  </ControlTheme>
+
+  <!--
+    carousel.rs carousel_control: an outline Button, rounded_full, with the
+    chevron at the size's icon size; absolute, 16px (mr_4 / ml_4) outside the
+    pages and centered on them, above and below a vertical carousel.
+  -->
+  <ControlTheme x:Key="{x:Type uikit:CarouselPrevious}" TargetType="uikit:CarouselPrevious"
+                BasedOn="{StaticResource {x:Type Button}}">
+    <Setter Property="ToolTip.Tip" Value="{DynamicResource UIKit.Carousel.Previous}" />
+    <Setter Property="HorizontalAlignment" Value="Left" />
+    <Setter Property="VerticalAlignment" Value="Center" />
+    <Setter Property="Margin" Value="-48,0,0,0" />
+    <Style Selector="^.small">
+      <Setter Property="Margin" Value="-40,0,0,0" />
+    </Style>
+    <Style Selector="^.xsmall">
+      <Setter Property="Margin" Value="-36,0,0,0" />
+    </Style>
+    <Style Selector="^:vertical">
+      <Setter Property="HorizontalAlignment" Value="Center" />
+      <Setter Property="VerticalAlignment" Value="Top" />
+      <Setter Property="Margin" Value="0,-48,0,0" />
+    </Style>
+    <Style Selector="^:vertical.small">
+      <Setter Property="Margin" Value="0,-40,0,0" />
+    </Style>
+    <Style Selector="^:vertical.xsmall">
+      <Setter Property="Margin" Value="0,-36,0,0" />
+    </Style>
+  </ControlTheme>
+  <ControlTheme x:Key="{x:Type uikit:CarouselNext}" TargetType="uikit:CarouselNext"
+                BasedOn="{StaticResource {x:Type Button}}">
+    <Setter Property="ToolTip.Tip" Value="{DynamicResource UIKit.Carousel.Next}" />
+    <Setter Property="HorizontalAlignment" Value="Right" />
+    <Setter Property="VerticalAlignment" Value="Center" />
+    <Setter Property="Margin" Value="0,0,-48,0" />
+    <Style Selector="^.small">
+      <Setter Property="Margin" Value="0,0,-40,0" />
+    </Style>
+    <Style Selector="^.xsmall">
+      <Setter Property="Margin" Value="0,0,-36,0" />
+    </Style>
+    <Style Selector="^:vertical">
+      <Setter Property="HorizontalAlignment" Value="Center" />
+      <Setter Property="VerticalAlignment" Value="Bottom" />
+      <Setter Property="Margin" Value="0,0,0,-48" />
+    </Style>
+    <Style Selector="^:vertical.small">
+      <Setter Property="Margin" Value="0,0,0,-40" />
+    </Style>
+    <Style Selector="^:vertical.xsmall">
+      <Setter Property="Margin" Value="0,0,0,-36" />
     </Style>
   </ControlTheme>
 </ResourceDictionary>

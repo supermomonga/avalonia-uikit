@@ -1,0 +1,61 @@
+# GPUI Kit Table -> uikit:Table (Table, TableHeader, TableBody, TableFooter,
+# TableRow, TableHead, TableCell, TableCaption): the table cases, then
+# col_span, a footer, a caption, two header rows and the story's table.
+# Invoice / Method / Amount (right-aligned) x 5 rows in a 360px wide box.
+component = "uikit-table"
+viewport = [392, 272]
+anchor = [16, 16]
+
+[[group]]
+name = "size"
+matrix = { size = ["xsmall", "small", "medium", "large"] }
+
+# The story's Bordered table: border_1, the border color, rounded(radius).
+[[group]]
+name = "bordered"
+params = { bordered = true }
+matrix = { size = ["small", "medium", "large"] }
+
+# Every other body row filled with table_even (app styling in GPUI, the stripe class here).
+[[group]]
+name = "stripe"
+params = { bordered = true, stripe = true }
+
+# All columns fixed (100/120/100, 320 <= 360: none shrinks, the rest of the row stays empty).
+[[group]]
+name = "fixed"
+params = { fixed_widths = true }
+
+# GPUI's Table has no hover or selection: pointing at a row and clicking it change nothing.
+[[group]]
+name = "pointer"
+states = ["at-80-94", "click-at-80-94"]
+
+# A footer row on table_foot under a rule: Total over two columns, the sum right-aligned.
+[[group]]
+name = "footer"
+params = { footer = true }
+viewport = [392, 304]
+
+# The caption below the parts, muted and centered in the size's padding, inside the border.
+[[group]]
+name = "caption"
+params = { footer = true, caption = true }
+matrix = { size = ["xsmall", "medium", "large"], bordered = [false, true] }
+viewport = [392, 360]
+
+# Two header rows: a head over two columns above the column heads (a rule between them).
+[[group]]
+name = "header-rows"
+params = { group_header = true }
+viewport = [392, 304]
+
+# The story's Default table (table_story.rs), 560px wide: Invoice w(150), the
+# Status head over Status and Method, a two-line method, the footer's Total
+# over three columns and the sum over two, and the caption. Each row shrinks
+# its cells on its own, so the spans do not line up exactly (as in GPUI).
+[[group]]
+name = "story"
+params = { story = true, width = 560 }
+matrix = { size = ["xsmall", "medium"] }
+viewport = [592, 400]

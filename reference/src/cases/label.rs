@@ -1,13 +1,13 @@
 //! `Label` (crates/component/src/label.rs): text on a fixed 1.25rem line,
-//! with an optional muted secondary part.
+//! with an optional muted secondary part, highlighted matches and a mask.
 use crate::{
     harness::Builder,
-    manifest::{Params, param_str},
+    manifest::{Params, param_bool, param_str},
 };
 use anyhow::Result;
 use gpui_kit::{
     IntoElement as _, ParentElement as _, Styled as _, div, px, rems,
-    component::{ActiveTheme as _, StyledExt as _, label::Label},
+    component::{ActiveTheme as _, StyledExt as _, label::{HighlightsMatch, Label}},
 };
 use std::rc::Rc;
 
@@ -20,11 +20,22 @@ pub fn builder(params: &Params) -> Result<Builder> {
     let color = param_str(params, "color", "").to_string();
     let relaxed = param_str(params, "leading", "default") == "relaxed";
     let width = params.get("width").and_then(|v| v.as_f64()).map(|w| w as f32);
+    let highlights = params.get("highlights").and_then(|v| v.as_str()).map(str::to_string);
+    let prefix = param_bool(params, "prefix");
+    let masked = param_bool(params, "masked");
     Ok(Rc::new(move |_, _, cx| {
         let mut label = Label::new(text.clone());
         if let Some(s) = &secondary {
             label = label.secondary(s.clone());
         }
+        if let Some(h) = &highlights {
+            label = label.highlights(if prefix {
+                HighlightsMatch::Prefix(h.clone().into())
+            } else {
+                HighlightsMatch::Full(h.clone().into())
+            });
+        }
+        label = label.masked(masked);
         label = match text_size.as_str() {
             "xs" => label.text_xs(),
             "sm" => label.text_sm(),

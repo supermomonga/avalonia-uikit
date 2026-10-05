@@ -1,0 +1,11 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:uikit="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.TimeFieldSegmented">
+  <WrapPanel ItemSpacing="12" LineSpacing="12">
+    <uikit:TimeField Time="09:30" />
+    <uikit:TimeField Time="09:30:15" Precision="Second" />
+    <uikit:TimeField Time="21:05" HourCycle="H12" />
+    <uikit:TimeField />
+  </WrapPanel>
+</UserControl>

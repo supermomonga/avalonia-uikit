@@ -359,6 +359,15 @@ impl Harness {
     pub fn key(&mut self, window: &CaseWindow, key: &str) -> Result<()> {
         let keystroke = Keystroke::parse(key)?;
         self.sync_clock();
+        // A character key ("a") is typed: unhandled, it goes to the focused
+        // input as text, as the platform would send it (dispatch_keystroke).
+        if key.chars().count() == 1 {
+            self.cx.update_window(window.handle, |_, window, cx| {
+                window.dispatch_keystroke(keystroke.clone(), cx);
+                window.dispatch_event(KeyUpEvent { keystroke }.to_platform_input(), cx);
+            })?;
+            return self.render(window);
+        }
         self.cx.update_window(window.handle, |_, window, cx| {
             window.dispatch_event(
                 KeyDownEvent {

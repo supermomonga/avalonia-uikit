@@ -1,6 +1,6 @@
 ---
 title: "Dropdown Button"
-description: "A button with a caret half that opens a menu, as Avalonia's SplitButton."
+description: "A button with a caret half that opens a menu, as Avalonia's SplitButton; or a button with a caret, as DropDownButton."
 ---
 
 <Demo name="dropdown-button/demo" />
@@ -11,6 +11,10 @@ The theme covers `SplitButton`. The action half is the `Content`, run by `Click`
 
 The classes are the Button's: the colors `primary`, `secondary`, `danger`, `warning`, `success`, `info`, `ghost`, `link` and `text`, the modifiers `outline` and `selected`, and the sizes `xsmall`, `small` and `large`. While the menu is open the caret half keeps the pressed look. Avalonia focuses a `SplitButton` as one tab stop; its ring shows on the action half.
 
+For one button that opens the menu, use `DropDownButton`: the Button with a caret after its content. It takes all of the Button's classes; the caret keeps the button's normal text color at 75% in every state. Give its `MenuFlyout` `Placement="BottomEdgeAlignedLeft"`; while the menu is open the button shows the selected look.
+
+`uikit:Buttons.IsLoading` loads the action half as it loads a [Button](/components/button): the half fades, keeps its look under the pointer, spins its icon and ignores clicks, Enter and Space, while the caret half still opens the menu. `uikit:Buttons.TakesFocusOnPointer="False"` keeps the focus where it was when either half is pressed.
+
 ## Examples
 
 The main colors, plain and outlined, and a disabled one. The demo keeps one `MenuFlyout` in the panel's resources and shares it through `Flyout="{StaticResource SaveMenu}"`.
@@ -20,3 +24,11 @@ The main colors, plain and outlined, and a disabled one. The demo keeps one `Men
 The four sizes scale both halves and the caret.
 
 <Demo name="dropdown-button/sizes" title="Sizes" />
+
+`DropDownButton` in a few colors, a small one and a disabled one, all opening the same menu.
+
+<Demo name="dropdown-button/caret" title="DropDownButton" />
+
+A loading action half; the caret half still opens the menu.
+
+<Demo name="dropdown-button/loading" title="Loading" />

@@ -1,0 +1,14 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:uikit="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.NumberInputAffixes">
+  <StackPanel Spacing="12" Width="200" HorizontalAlignment="Left">
+    <NumericUpDown Value="250" Increment="10" InnerLeftContent="$" />
+    <NumericUpDown Value="72" InnerRightContent="kg" />
+    <NumericUpDown Value="42">
+      <NumericUpDown.InnerLeftContent>
+        <PathIcon Classes="small" Data="{StaticResource UIKit.Icon.Search}" />
+      </NumericUpDown.InnerLeftContent>
+    </NumericUpDown>
+  </StackPanel>
+</UserControl>

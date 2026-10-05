@@ -1,0 +1,27 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:uikit="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.ToolbarControls">
+  <Border BorderThickness="1" CornerRadius="6" BorderBrush="{DynamicResource UIKit.Border}" Width="520" HorizontalAlignment="Left">
+    <uikit:Toolbar>
+      <uikit:ToolbarGroup Spacing="4" AutomationProperties.Name="History">
+        <Button Classes="icon-only" ToolTip.Tip="Undo">
+          <PathIcon Data="{StaticResource UIKit.Icon.Undo2}" />
+        </Button>
+        <Button Classes="icon-only" ToolTip.Tip="Redo">
+          <PathIcon Data="{StaticResource UIKit.Icon.Redo2}" />
+        </Button>
+      </uikit:ToolbarGroup>
+      <Separator Classes="vertical" Height="20" />
+      <uikit:ToolbarGroup Spacing="4" AutomationProperties.Name="Formatting">
+        <ToggleButton Content="B" IsChecked="True" />
+        <ToggleButton Content="I" />
+        <ToggleButton Content="U" />
+      </uikit:ToolbarGroup>
+      <Separator Classes="vertical" Height="20" />
+      <TextBox Width="120" PlaceholderText="Search" />
+      <uikit:ToolbarSpacer />
+      <Button Classes="primary small" Content="Publish" uikit:Toolbar.TakesSize="False" />
+    </uikit:Toolbar>
+  </Border>
+</UserControl>

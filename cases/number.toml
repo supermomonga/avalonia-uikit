@@ -14,3 +14,23 @@ name = "buttons"
 params = { value = "42" }
 matrix = { size = ["small", "medium"] }
 states = ["at-30-24", "at-30-24+pressed-at-30-24", "at-160-24"]
+
+# NumberInput::prefix / suffix (InnerLeftContent / InnerRightContent): text and
+# icons beside the centered value, the story's text xsmall info button.
+[[group]]
+name = "prefix"
+params = { value = "42", prefix = "$" }
+matrix = { size = ["small", "medium", "large"] }
+states = ["normal", "disabled"]
+
+[[group]]
+name = "suffix"
+params = { value = "42", suffix = "kg" }
+matrix = { size = ["small", "medium"] }
+states = ["normal", "disabled"]
+
+[[group]]
+name = "icons"
+params = { value = "42", prefix_icon = "search", suffix_icon = "info" }
+matrix = { size = ["xsmall", "small", "medium", "large"] }
+states = ["normal", "disabled"]

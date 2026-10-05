@@ -12,3 +12,10 @@ matrix = { variant = ["normal", "fill", "outline"] }
 name = "untitled"
 params = { content = "Content" }
 matrix = { variant = ["fill", "outline"] }
+
+# GroupBox::footer (uikit:GroupBoxes.Footer): small muted text 8px under the surface.
+[[group]]
+name = "footer"
+params = { title = "Account", content = "Content", footer = "Visible to everyone." }
+matrix = { variant = ["normal", "fill", "outline"] }
+viewport = [272, 180]

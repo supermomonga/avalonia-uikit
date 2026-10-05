@@ -1,7 +1,9 @@
 <!--
   GPUI Kit's DataTable (crates/component/src/table/data_table.rs, state.rs) ->
   TableView, its default look; GPUI Kit's Table (table/table.rs) -> TableView
-  with Theme="{StaticResource UIKitTable}".
+  with Theme="{StaticResource UIKitTable}". Without rows, the DataTable look
+  shows its empty view (the Inbox icon) under the header; the Table look shows
+  the header alone, as GPUI's Table has no empty view.
 
   Both looks share the cell and column header themes: the TableView's theme
   hands its size and look to the rows, cells and headers (created in code)
@@ -27,7 +29,8 @@
         DataTable (state.rs): the header and its scroll area both fill with
         table_head, so the translucent dark fill lies twice; the header row's
         bottom rule is border. A striped table fills the body below its rows
-        with empty rows (PART_Filler, shown by the stripe class).
+        with empty rows (PART_Filler, shown by the stripe class). A table
+        without rows shows its empty view in the body instead (PART_Empty).
       -->
       <ControlTheme x:Key="UIKitTableViewScrollViewer" TargetType="ScrollViewer">
         <Setter Property="Background" Value="Transparent" />
@@ -87,6 +90,11 @@
                                       HorizontalSnapPointsAlignment="{TemplateBinding HorizontalSnapPointsAlignment}"
                                       VerticalSnapPointsAlignment="{TemplateBinding VerticalSnapPointsAlignment}"
                                       ScrollViewer.IsScrollInertiaEnabled="{TemplateBinding IsScrollInertiaEnabled}" />
+              <!-- delegate.rs render_empty: a 48px Inbox icon in muted_foreground at 60% (List's), centered in the body. -->
+              <Panel Name="PART_Empty" Grid.Row="1" IsVisible="False" IsHitTestVisible="False">
+                <PathIcon Width="48" Height="48" HorizontalAlignment="Center" VerticalAlignment="Center"
+                          Data="{StaticResource UIKit.Icon.Inbox}" Foreground="{DynamicResource UIKit.List.Empty}" />
+              </Panel>
               <ScrollBar Name="PART_VerticalScrollBar" Grid.Row="1" Orientation="Vertical" />
               <ScrollBar Name="PART_HorizontalScrollBar" Grid.Row="1" Orientation="Horizontal" />
             </Grid>
@@ -400,6 +408,13 @@
   <!-- A striped DataTable's empty rows below the last row (state.rs). -->
   <Style Selector="TableView.stripe /template/ ScrollViewer#PART_ScrollViewer /template/ ItemsControl#PART_Filler">
     <Setter Property="IsVisible" Value="True" />
+  </Style>
+  <!-- A DataTable without rows: the empty view replaces the body, filler rows included (state.rs). Table has none. -->
+  <Style Selector="TableView:empty /template/ ScrollViewer#PART_ScrollViewer /template/ Panel#PART_Empty">
+    <Setter Property="IsVisible" Value="True" />
+  </Style>
+  <Style Selector="TableView:empty /template/ ScrollViewer#PART_ScrollViewer /template/ ItemsControl#PART_Filler">
+    <Setter Property="IsVisible" Value="False" />
   </Style>
 
   <!-- Stripes (state.rs, and the Table story): every other row, starting with the second, fills with table_even. -->

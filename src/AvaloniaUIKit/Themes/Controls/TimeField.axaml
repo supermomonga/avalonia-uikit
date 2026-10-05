@@ -1,0 +1,128 @@
+<!--
+  GPUI Kit TimeField (crates/component/src/time/time_field.rs) -> uikit:TimeField:
+
+    <uikit:TimeField Time="09:30" Precision="Second" HourCycle="H12" Classes="small" />
+
+  The look of the themed TimePicker field (TimePicker.axaml): an input-styled
+  frame sized to its content, the hour, minute (and second) as two-digit
+  segments with tabular figures between colons, and on the 12-hour clock the
+  period after a 4px gap, as wide as the wider of AM and PM. Focused, the
+  border turns ring with the focus band and the selected segment shows the
+  selection. An error turns the border danger. Without a time the segments
+  show two dashes in the muted color. Sizes: xsmall small large (medium is the
+  default).
+-->
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:uikit="using:AvaloniaUIKit"
+                    xmlns:gconv="using:AvaloniaUIKit.Converters">
+  <ControlTheme x:Key="{x:Type uikit:TimeField}" TargetType="uikit:TimeField">
+    <Setter Property="Background" Value="{DynamicResource UIKit.InputBackground}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Input}" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="CornerRadius" Value="5.5" />
+    <Setter Property="Padding" Value="4,0" />
+    <Setter Property="Height" Value="32" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="TextBlock.LineHeight" Value="22.5" />
+    <Setter Property="HorizontalAlignment" Value="Left" />
+    <Setter Property="VerticalAlignment" Value="Top" />
+    <Setter Property="ClipToBounds" Value="False" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Panel>
+          <!-- focus_ring (styled.rs): a 3px band outside the border, in ring at 50%. -->
+          <Border Name="PART_FocusRing" Margin="-3" BorderThickness="3" CornerRadius="7.5"
+                  BorderBrush="{DynamicResource UIKit.FocusRing}" IsVisible="False" IsHitTestVisible="False" />
+          <Border Name="PART_Frame"
+                  BackgroundSizing="OuterBorderEdge"
+                  Background="{TemplateBinding Background}"
+                  BorderBrush="{TemplateBinding BorderBrush}"
+                  BorderThickness="{TemplateBinding BorderThickness}"
+                  CornerRadius="{TemplateBinding CornerRadius}"
+                  Padding="{TemplateBinding Padding}">
+            <!--
+              GPUI centres the segments' phi line, which may overflow the field,
+              and floors its top to a device pixel: room to overflow, centred
+              half a pixel high, lands each size where GPUI does.
+            -->
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,-4,0,-3.5"
+                        TextElement.FontFeatures="+tnum">
+              <Border Name="PART_Hour" Classes="segment">
+                <TextBlock Name="PART_HourText" />
+              </Border>
+              <TextBlock Text=":" />
+              <Border Name="PART_Minute" Classes="segment">
+                <TextBlock Name="PART_MinuteText" />
+              </Border>
+              <TextBlock Name="PART_SecondColon" Text=":" IsVisible="False" />
+              <Border Name="PART_Second" Classes="segment" IsVisible="False">
+                <TextBlock Name="PART_SecondText" />
+              </Border>
+              <!-- period_label: AM and PM in one cell, only the current one visible. -->
+              <Border Name="PART_Period" Classes="segment" Margin="4,0,0,0" IsVisible="False">
+                <Panel>
+                  <TextBlock Foreground="Transparent" Text="{TemplateBinding HourCycle, Converter={x:Static gconv:TimeConverters.AmDesignator}}" />
+                  <TextBlock Foreground="Transparent" Text="{TemplateBinding HourCycle, Converter={x:Static gconv:TimeConverters.PmDesignator}}" />
+                  <TextBlock Name="PART_PeriodText" />
+                </Panel>
+              </Border>
+            </StackPanel>
+          </Border>
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+
+    <!-- A segment: px_0p5, radius / 2. -->
+    <Style Selector="^ /template/ Border.segment">
+      <Setter Property="Padding" Value="2,0" />
+      <Setter Property="CornerRadius" Value="3" />
+    </Style>
+    <Style Selector="^:seconds /template/ TextBlock#PART_SecondColon, ^:seconds /template/ Border#PART_Second">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+    <Style Selector="^:twelve-hour /template/ Border#PART_Period">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+
+    <Style Selector="^.xsmall">
+      <Setter Property="Height" Value="20" />
+      <Setter Property="FontSize" Value="12" />
+      <Setter Property="TextBlock.LineHeight" Value="19.5" />
+    </Style>
+    <Style Selector="^.small">
+      <Setter Property="Height" Value="24" />
+    </Style>
+    <Style Selector="^.large">
+      <Setter Property="Height" Value="44" />
+      <Setter Property="FontSize" Value="16" />
+      <Setter Property="TextBlock.LineHeight" Value="26" />
+    </Style>
+
+    <Style Selector="^:empty">
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.MutedForeground}" />
+    </Style>
+    <Style Selector="^:focus">
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Ring}" />
+    </Style>
+    <Style Selector="^:focus /template/ Border#PART_FocusRing">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+    <Style Selector="^:focus /template/ Border.segment.selected">
+      <Setter Property="Background" Value="{DynamicResource UIKit.Selection}" />
+    </Style>
+    <!-- After focus: an invalid field keeps the danger border inside the ring band. -->
+    <Style Selector="^:error">
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Danger}" />
+    </Style>
+    <!-- input_style(disabled): the disabled input background, muted text, all at half. -->
+    <Style Selector="^:disabled">
+      <Setter Property="Background" Value="{DynamicResource UIKit.Number.Disabled.Background}" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.MutedForeground}" />
+    </Style>
+    <Style Selector="^:disabled /template/ Border#PART_Frame">
+      <Setter Property="Opacity" Value="0.5" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

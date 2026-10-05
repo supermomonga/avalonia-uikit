@@ -1,0 +1,32 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:uikit="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.IconIconName">
+  <StackPanel Spacing="16" HorizontalAlignment="Left">
+    <WrapPanel ItemSpacing="12" LineSpacing="12">
+      <uikit:Icon Kind="Info" />
+      <uikit:Icon Kind="Map" />
+      <uikit:Icon Kind="Bot" />
+      <uikit:Icon Kind="Github" />
+      <uikit:Icon Kind="Calendar" />
+      <uikit:Icon Kind="Globe" />
+      <uikit:Icon Kind="Heart" />
+      <uikit:Icon Kind="Settings" />
+      <uikit:Icon Kind="Palette" />
+    </WrapPanel>
+    <WrapPanel ItemSpacing="12" LineSpacing="12">
+      <uikit:Icon Classes="large" Kind="Maximize" Foreground="{DynamicResource UIKit.Green}" />
+      <uikit:Icon Classes="large" Kind="Minimize" Foreground="{DynamicResource UIKit.Red}" />
+      <uikit:Icon Classes="large" Kind="SortAscending" />
+      <Button Classes="ghost small icon-only">
+        <uikit:Icon Kind="Heart" />
+      </Button>
+      <Button Classes="outline">
+        <StackPanel Orientation="Horizontal" Spacing="8">
+          <uikit:Icon Kind="Search" />
+          <TextBlock Text="Search" />
+        </StackPanel>
+      </Button>
+    </WrapPanel>
+  </StackPanel>
+</UserControl>

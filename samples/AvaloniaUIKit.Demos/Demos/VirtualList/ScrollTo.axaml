@@ -1,0 +1,25 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:uikit="using:AvaloniaUIKit"
+             xmlns:local="using:AvaloniaUIKit.Demos"
+             x:Class="AvaloniaUIKit.Demos.VirtualListScrollTo">
+  <StackPanel Spacing="12" HorizontalAlignment="Left">
+    <StackPanel Orientation="Horizontal" Spacing="8">
+      <Button Classes="outline small" Content="Top" Click="OnTop" />
+      <Button Classes="outline small" Content="Row 50" Click="OnRow50" />
+      <Button Classes="outline small" Content="Center 25" Click="OnCenter25" />
+      <Button Classes="outline small" Content="Bottom" Click="OnBottom" />
+    </StackPanel>
+    <ListBox Name="Rows" Width="320" Height="240" HorizontalAlignment="Left"
+             ItemsSource="{x:Static local:VirtualRow.Samples}">
+      <ListBox.ItemTemplate>
+        <DataTemplate x:DataType="local:VirtualRow">
+          <StackPanel Orientation="Horizontal" Spacing="8">
+            <TextBlock Text="{Binding Number}" Width="48" Foreground="{DynamicResource UIKit.MutedForeground}" />
+            <TextBlock Text="{Binding Title}" />
+          </StackPanel>
+        </DataTemplate>
+      </ListBox.ItemTemplate>
+    </ListBox>
+  </StackPanel>
+</UserControl>

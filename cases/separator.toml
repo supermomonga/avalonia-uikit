@@ -7,3 +7,15 @@ anchor = [16, 16]
 name = "line"
 matrix = { vertical = [false, true], dashed = [false, true] }
 params = { length = 32 }
+
+# Separator::label (uikit:Separators.Label): the label over the middle of the line.
+[[group]]
+name = "label"
+params = { length = 160, label = "Or continue" }
+matrix = { dashed = [false, true] }
+
+[[group]]
+name = "label-vertical"
+params = { length = 80, label = "Or", vertical = true }
+matrix = { dashed = [false, true] }
+viewport = [96, 112]

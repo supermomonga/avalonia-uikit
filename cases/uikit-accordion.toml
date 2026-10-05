@@ -1,0 +1,66 @@
+# GPUI Kit Accordion -> uikit:Accordion of Expanders: the accordion cases (an
+# accordion that lets several items open, as there), then GPUI's default of
+# one open item: opening the second item closes the first.
+component = "uikit-accordion"
+viewport = [312, 220]
+anchor = [16, 8]
+
+[[group]]
+name = "card"
+matrix = { size = ["xsmall", "small", "medium", "large"], open_first = [false, true] }
+
+[[group]]
+name = "borderless"
+params = { borderless = true }
+matrix = { open_first = [false, true] }
+
+# The whole accordion disabled, or only item 1: no chevron, same colours.
+[[group]]
+name = "disabled"
+params = { open_first = true }
+matrix = { scope = ["all", "item"] }
+
+[[group]]
+name = "icon"
+params = { icons = true, open_first = true }
+matrix = { size = ["small", "medium"] }
+
+# GPUI has no hover style and no focus stop: both must look like "normal".
+# Drop "focus" if the theme adds an Avalonia-only :focus-visible ring (decision in §5).
+[[group]]
+name = "interaction"
+states = ["hover", "focus"]
+
+[[motion]]
+name = "open"
+trigger = "click-at-100-28"
+samples_ms = [0, 16, 33, 50, 66, 83, 100, 133, 166, 200, 233, 266, 300]
+themes = ["light"]
+
+[[motion]]
+name = "close"
+params = { open_first = true }
+trigger = "click-at-100-28"
+samples_ms = [0, 16, 33, 50, 66, 83, 100, 133, 166, 200, 233, 266, 300]
+themes = ["light"]
+
+# Closed again 80ms into the reveal: the height turns back with its velocity.
+[[motion]]
+name = "reverse"
+trigger = "click-at-100-28+wait-80ms+click-at-100-28"
+samples_ms = [0, 16, 33, 50, 66, 83, 100, 133, 166, 200, 233, 266, 300, 350]
+themes = ["light"]
+
+# multiple(false): a click on the second title opens it and closes the first.
+[[group]]
+name = "single"
+params = { open_first = true, single = true }
+matrix = { size = ["small", "medium"] }
+states = ["normal", "click-at-100-98+wait-600ms"]
+
+[[motion]]
+name = "exclusive"
+params = { open_first = true, single = true }
+trigger = "click-at-100-98"
+samples_ms = [0, 16, 33, 50, 66, 83, 100, 133, 166, 200, 233, 266, 300]
+themes = ["light"]

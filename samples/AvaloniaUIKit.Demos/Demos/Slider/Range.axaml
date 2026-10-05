@@ -1,0 +1,9 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:uikit="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.SliderRange">
+  <StackPanel Orientation="Horizontal" Spacing="24" HorizontalAlignment="Left">
+    <uikit:RangeSlider StartValue="12" EndValue="45" Width="240" Margin="12,8" VerticalAlignment="Center" />
+    <uikit:RangeSlider StartValue="20" EndValue="60" Orientation="Vertical" Margin="12,8" />
+  </StackPanel>
+</UserControl>

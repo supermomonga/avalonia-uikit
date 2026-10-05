@@ -1,5 +1,7 @@
 //! `Carousel` (crates/component/src/carousel): slides with Previous/Next
-//! controls and numbered pagination, as the story composes them.
+//! controls and numbered pagination, as the story composes them. `vertical`
+//! turns the track (its content then takes the slides' height) and `looping`
+//! wraps it.
 use super::size;
 use crate::{
     harness::Builder,
@@ -7,7 +9,7 @@ use crate::{
 };
 use anyhow::Result;
 use gpui_kit::{
-    AppContext as _, IntoElement as _, ParentElement as _, Styled as _, div, px,
+    AppContext as _, Axis, IntoElement as _, ParentElement as _, Styled as _, div, px,
     component::{
         ActiveTheme as _, Sizable as _, StyledExt as _,
         carousel::{
@@ -25,9 +27,14 @@ pub fn builder(params: &Params) -> Result<Builder> {
     let controls = !param_bool(params, "no_controls");
     let pagination = !param_bool(params, "no_pagination");
     let size = size(params);
+    let vertical = param_bool(params, "vertical");
+    let looping = param_bool(params, "looping");
     Ok(Rc::new(move |view, _, cx| {
         if view.state.entity.is_none() {
-            let state = cx.new(|_| CarouselState::new(count).with_selected_index(selected));
+            let axis = if vertical { Axis::Vertical } else { Axis::Horizontal };
+            let state = cx.new(|_| {
+                CarouselState::new(count).with_selected_index(selected).with_axis(axis).with_looping(looping)
+            });
             view.state.entity = Some(state.into());
         }
         let state = view
@@ -39,7 +46,9 @@ pub fn builder(params: &Params) -> Result<Builder> {
         let theme = cx.theme();
         let (border, muted, radius_lg) = (theme.border, theme.muted, theme.radius_lg);
         // The slides are app content: a muted card with its number.
-        let content = (0..count).fold(CarouselContent::new(&state), |content, ix| {
+        let track = CarouselContent::new(&state);
+        let track = if vertical { track.h(px(height)) } else { track };
+        let content = (0..count).fold(track, |content, ix| {
             content.child(
                 CarouselItem::new(("slide", ix), ix, &state).child(
                     div()

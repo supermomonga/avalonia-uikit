@@ -1,0 +1,422 @@
+<!--
+  GPUI Kit Select (select.rs) and Combobox (combobox.rs) -> uikit:Select.
+  Classes: xsmall small large (medium is the default); combobox (Combobox: the
+  trigger shows the committed selection only, not the row under the cursor);
+  plain (appearance(false): no frame, no ring).
+
+  The trigger and the dropdown are ComboBox's (ComboBox.axaml): the input
+  frame with the title or the muted placeholder and the caret 4px after it,
+  the ring while focused or open, half strength when disabled; the popup 6px
+  below, as wide as the trigger (MenuWidth otherwise), the popover surface
+  with its ring and shadows, sliding 8px down and fading in over 150ms. Rows
+  are ComboBox's rows (uikit:SelectListItem is based on the ComboBoxItem
+  theme), plus the accent on the keyboard cursor's row (:cursor).
+
+  What ComboBox has not: the search field above the rows (list.rs: a muted
+  search icon, the field without appearance, an input's height and text size,
+  over a 1px border; the clear button or a spinner after a query), section
+  headers (muted text_sm, padded as rows), the clear button (input.rs
+  clear_button: a 12px text button in place of the caret), an icon in place
+  of the caret (12px, muted), a footer under a 1px border with 4px padding,
+  a custom empty view and a custom trigger (TriggerTemplate).
+-->
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:uikit="using:AvaloniaUIKit"
+        xmlns:gconv="using:AvaloniaUIKit.Converters">
+  <Styles.Resources>
+    <!-- The search field: an Input without appearance (no frame, padding or ring). -->
+    <ControlTheme x:Key="UIKitSelectSearchBox" TargetType="TextBox" BasedOn="{StaticResource {x:Type TextBox}}">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="BorderThickness" Value="0" />
+      <Setter Property="Padding" Value="0" />
+      <Setter Property="HorizontalAlignment" Value="Stretch" />
+      <Setter Property="VerticalAlignment" Value="Center" />
+      <Style Selector="^:focus-within /template/ Border#PART_FocusRing">
+        <Setter Property="IsVisible" Value="False" />
+      </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type uikit:SelectListItem}" TargetType="uikit:SelectListItem" BasedOn="{StaticResource {x:Type ComboBoxItem}}">
+      <!-- item.rs: the cursor's row takes the accent, even disabled. -->
+      <Style Selector="^:cursor">
+        <Setter Property="Background" Value="{DynamicResource UIKit.Accent}" />
+      </Style>
+    </ControlTheme>
+
+    <!-- adapter.rs render_section_header: py_0p5 px_2 list_size text_sm, muted. -->
+    <ControlTheme x:Key="{x:Type uikit:SelectGroupHeader}" TargetType="uikit:SelectGroupHeader">
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.MutedForeground}" />
+      <Setter Property="FontSize" Value="14" />
+      <Setter Property="Padding" Value="7,4" />
+      <Setter Property="Focusable" Value="False" />
+      <Setter Property="Template">
+        <ControlTemplate>
+          <ContentPresenter Name="PART_ContentPresenter"
+                            Padding="{TemplateBinding Padding}"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            Foreground="{TemplateBinding Foreground}"
+                            LineHeight="22.5"
+                            TextTrimming="CharacterEllipsis" />
+        </ControlTemplate>
+      </Setter>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type uikit:SelectList}" TargetType="uikit:SelectList">
+      <Setter Property="Template">
+        <ControlTemplate>
+          <ScrollViewer Name="PART_ScrollViewer"
+                        HorizontalScrollBarVisibility="Disabled"
+                        VerticalScrollBarVisibility="Auto">
+            <ItemsPresenter Name="PART_ItemsPresenter" Margin="4" ItemsPanel="{TemplateBinding ItemsPanel}" />
+          </ScrollViewer>
+        </ControlTemplate>
+      </Setter>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type uikit:Select}" TargetType="uikit:Select">
+      <Setter Property="Background" Value="{DynamicResource UIKit.InputBackground}" />
+      <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Input}" />
+      <Setter Property="BorderThickness" Value="1" />
+      <Setter Property="CornerRadius" Value="5.5" />
+      <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
+      <Setter Property="PlaceholderForeground" Value="{DynamicResource UIKit.MutedForeground}" />
+      <Setter Property="FontSize" Value="14" />
+      <Setter Property="Height" Value="32" />
+      <Setter Property="Padding" Value="10,0" />
+      <Setter Property="HorizontalAlignment" Value="Left" />
+      <Setter Property="VerticalAlignment" Value="Top" />
+      <Setter Property="ClipToBounds" Value="False" />
+      <Setter Property="FocusAdorner" Value="{x:Null}" />
+      <Setter Property="TracksCursor" Value="True" />
+      <Setter Property="Template">
+        <ControlTemplate>
+          <Panel>
+            <Border Name="PART_FocusRing" Margin="-3" BorderThickness="3" CornerRadius="7.5"
+                    BorderBrush="{DynamicResource UIKit.FocusRing}" IsVisible="False" IsHitTestVisible="False" />
+            <Border Name="PART_Background"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="{TemplateBinding CornerRadius}"
+                    BackgroundSizing="OuterBorderEdge"
+                    Padding="{TemplateBinding Padding}">
+              <Grid ColumnDefinitions="*,Auto" ColumnSpacing="4">
+                <Panel Name="PART_Title" VerticalAlignment="Center">
+                  <TextBlock Name="PlaceholderTextBlock"
+                             Foreground="{TemplateBinding PlaceholderForeground}"
+                             Text="{TemplateBinding PlaceholderText}"
+                             LineHeight="22.5"
+                             TextTrimming="CharacterEllipsis"
+                             IsVisible="{TemplateBinding DisplayTitle, Converter={x:Static ObjectConverters.IsNull}}" />
+                  <TextBlock Name="PART_TitleText"
+                             Text="{TemplateBinding DisplayTitle}"
+                             LineHeight="22.5"
+                             TextTrimming="CharacterEllipsis" />
+                </Panel>
+                <!-- combobox.rs render_trigger: the app's content in place of the title and the caret. -->
+                <ContentPresenter Name="PART_Trigger"
+                                  VerticalAlignment="Center"
+                                  HorizontalContentAlignment="Stretch"
+                                  Content="{TemplateBinding TriggerContext}"
+                                  ContentTemplate="{TemplateBinding TriggerTemplate}"
+                                  IsVisible="False" />
+                <Panel Name="PART_Trailing" Grid.Column="1" VerticalAlignment="Center">
+                  <PathIcon Name="PART_Caret" Data="{StaticResource UIKit.Icon.ChevronDown}" Foreground="{DynamicResource UIKit.MutedForeground}" />
+                  <PathIcon Name="PART_Icon" Width="12" Height="12" Data="{TemplateBinding Icon}"
+                            Foreground="{DynamicResource UIKit.MutedForeground}" IsVisible="False" />
+                  <Button Name="PART_ClearButton" Classes="text xsmall" Focusable="False" IsVisible="False">
+                    <PathIcon Data="{StaticResource UIKit.Icon.Close}" />
+                  </Button>
+                </Panel>
+              </Grid>
+            </Border>
+            <Popup Name="PART_Popup"
+                   IsOpen="{TemplateBinding IsDropDownOpen, Mode=TwoWay}"
+                   PlacementTarget="PART_Background"
+                   Placement="BottomEdgeAlignedLeft"
+                   IsLightDismissEnabled="True"
+                   WindowManagerAddShadowHint="False"
+                   InheritsTransform="True">
+              <!-- 6px either side of the trigger: Avalonia keeps an offset's sign when the popup flips. -->
+              <Border Padding="0,6" ClipToBounds="False">
+                <Panel Name="PART_PopupMotion">
+                  <Panel.Width>
+                    <MultiBinding Converter="{x:Static gconv:FirstNonNullConverter.Instance}">
+                      <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="MenuWidth" />
+                      <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="Bounds.Width" />
+                    </MultiBinding>
+                  </Panel.Width>
+                  <Panel.RenderTransform>
+                    <TranslateTransform />
+                  </Panel.RenderTransform>
+                  <Border Name="PART_PopupRing" Margin="-1" CornerRadius="6"
+                          Background="{DynamicResource UIKit.PopoverRing}" IsHitTestVisible="False" />
+                  <Border Name="PART_PopupShadow" CornerRadius="6"
+                          BoxShadow="{StaticResource UIKit.Shadow.Popover}" IsHitTestVisible="False" />
+                  <Border Name="PART_PopupSurface" CornerRadius="6" ClipToBounds="True"
+                          Background="{DynamicResource UIKit.Popover}"
+                          TextElement.Foreground="{DynamicResource UIKit.PopoverForeground}">
+                    <DockPanel>
+                      <!-- list.rs: the search field over a 1px border, 8px in (6px small). -->
+                      <Border Name="PART_SearchRow" DockPanel.Dock="Top" Padding="8,0"
+                              BorderThickness="0,0,0,1" BorderBrush="{DynamicResource UIKit.Border}"
+                              IsVisible="{TemplateBinding IsSearchable}">
+                        <DockPanel>
+                          <PathIcon Name="PART_SearchIcon" DockPanel.Dock="Left" Width="14" Height="14" Margin="0,0,6,0"
+                                    VerticalAlignment="Center"
+                                    Data="{StaticResource UIKit.Icon.Search}" Foreground="{DynamicResource UIKit.MutedForeground}" />
+                          <!-- input.rs: the suffix (a spinner while searching, then the clear button), input_px from the end. -->
+                          <Panel Name="PART_SearchSuffix" DockPanel.Dock="Right" Margin="6,0,10,0" VerticalAlignment="Center" IsVisible="False">
+                            <ProgressBar Name="PART_SearchSpinner" Theme="{StaticResource UIKitSpinner}"
+                                         Foreground="{DynamicResource UIKit.MutedForeground}"
+                                         VerticalAlignment="Center" IsVisible="False" />
+                            <Button Name="PART_ClearSearchButton" Classes="text xsmall" Focusable="False" VerticalAlignment="Center">
+                              <PathIcon Data="{StaticResource UIKit.Icon.Close}" />
+                            </Button>
+                          </Panel>
+                          <TextBox Name="PART_SearchBox" Theme="{StaticResource UIKitSelectSearchBox}" Height="32"
+                                   Text="{TemplateBinding SearchText, Mode=TwoWay}"
+                                   PlaceholderText="{TemplateBinding SearchPlaceholderText}" />
+                        </DockPanel>
+                      </Border>
+                      <!-- combobox.rs: the footer under a 1px border, 4px in. -->
+                      <Border Name="PART_Footer" DockPanel.Dock="Bottom" Padding="4"
+                              BorderThickness="0,1,0,0" BorderBrush="{DynamicResource UIKit.Border}"
+                              IsVisible="{TemplateBinding Footer, Converter={x:Static ObjectConverters.IsNotNull}}">
+                        <ContentPresenter Content="{TemplateBinding Footer}" ContentTemplate="{TemplateBinding FooterTemplate}" />
+                      </Border>
+                      <!-- menu_max_h holds the rows and their 4px padding. -->
+                      <Panel MaxHeight="{TemplateBinding MaxDropDownHeight}">
+                        <uikit:SelectList Name="PART_List" ItemTemplate="{TemplateBinding ItemTemplate}" />
+                        <Panel Name="PART_Empty" IsVisible="False">
+                          <ContentPresenter Content="{TemplateBinding EmptyContent}"
+                                            IsVisible="{TemplateBinding EmptyContent, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                          <!-- select.rs: an empty list shows a 28px Inbox icon in 24px of padding. -->
+                          <Panel Height="76" IsVisible="{TemplateBinding EmptyContent, Converter={x:Static ObjectConverters.IsNull}}">
+                            <PathIcon Width="28" Height="28" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                      Data="{StaticResource UIKit.Icon.Inbox}" Foreground="{DynamicResource UIKit.Select.Empty}" />
+                          </Panel>
+                        </Panel>
+                      </Panel>
+                    </DockPanel>
+                  </Border>
+                </Panel>
+              </Border>
+            </Popup>
+          </Panel>
+        </ControlTemplate>
+      </Setter>
+
+      <!-- GPUI Kit's Combobox titles the trigger with the committed selection only. -->
+      <Style Selector="^.combobox">
+        <Setter Property="TracksCursor" Value="False" />
+      </Style>
+
+      <Style Selector="^:empty-view /template/ Panel#PART_Empty">
+        <Setter Property="IsVisible" Value="True" />
+      </Style>
+      <Style Selector="^:empty-view /template/ uikit|SelectList#PART_List">
+        <Setter Property="IsVisible" Value="False" />
+      </Style>
+
+      <!-- The trailing part: the caret, or the icon, or the clear button while there is a value. -->
+      <Style Selector="^:has-icon /template/ PathIcon#PART_Icon">
+        <Setter Property="IsVisible" Value="True" />
+      </Style>
+      <Style Selector="^:has-icon /template/ PathIcon#PART_Caret">
+        <Setter Property="IsVisible" Value="False" />
+      </Style>
+      <Style Selector="^:clearable /template/ Button#PART_ClearButton">
+        <Setter Property="IsVisible" Value="True" />
+      </Style>
+      <Style Selector="^:clearable /template/ PathIcon#PART_Caret, ^:clearable /template/ PathIcon#PART_Icon">
+        <Setter Property="IsVisible" Value="False" />
+      </Style>
+      <Style Selector="^:custom-trigger /template/ ContentPresenter#PART_Trigger">
+        <Setter Property="IsVisible" Value="True" />
+      </Style>
+      <Style Selector="^:custom-trigger /template/ Panel#PART_Title, ^:custom-trigger /template/ Panel#PART_Trailing">
+        <Setter Property="IsVisible" Value="False" />
+      </Style>
+
+      <!-- The search field's suffix: a spinner while searching, then the clear button while there is a query. -->
+      <Style Selector="^:query /template/ Panel#PART_SearchSuffix, ^:searching /template/ Panel#PART_SearchSuffix">
+        <Setter Property="IsVisible" Value="True" />
+      </Style>
+      <Style Selector="^:searching /template/ ProgressBar#PART_SearchSpinner">
+        <Setter Property="IsVisible" Value="True" />
+      </Style>
+      <Style Selector="^:searching /template/ Button#PART_ClearSearchButton">
+        <Setter Property="IsVisible" Value="False" />
+      </Style>
+
+      <!-- Sizes (sizing.rs): input_h, input_px, text size and line, caret 12/14/16/16. -->
+      <Style Selector="^ /template/ PathIcon#PART_Caret">
+        <Setter Property="Width" Value="16" />
+        <Setter Property="Height" Value="16" />
+      </Style>
+      <Style Selector="^.xsmall">
+        <Setter Property="Height" Value="20" />
+        <Setter Property="Padding" Value="4,0" />
+        <Setter Property="FontSize" Value="12" />
+      </Style>
+      <Style Selector="^.xsmall /template/ PathIcon#PART_Caret">
+        <Setter Property="Width" Value="12" />
+        <Setter Property="Height" Value="12" />
+      </Style>
+      <Style Selector="^.xsmall /template/ TextBlock#PlaceholderTextBlock, ^.xsmall /template/ TextBlock#PART_TitleText">
+        <Setter Property="LineHeight" Value="19.5" />
+      </Style>
+      <Style Selector="^.small">
+        <Setter Property="Height" Value="24" />
+        <Setter Property="Padding" Value="8,0" />
+      </Style>
+      <Style Selector="^.small /template/ PathIcon#PART_Caret">
+        <Setter Property="Width" Value="14" />
+        <Setter Property="Height" Value="14" />
+      </Style>
+      <Style Selector="^.large">
+        <Setter Property="Height" Value="44" />
+        <Setter Property="Padding" Value="12,0" />
+        <Setter Property="FontSize" Value="16" />
+      </Style>
+      <Style Selector="^.large /template/ TextBlock#PlaceholderTextBlock, ^.large /template/ TextBlock#PART_TitleText">
+        <Setter Property="LineHeight" Value="26" />
+      </Style>
+
+      <!-- The search field by size: the input's height and text, the icon at the text size, the gap (input.rs). -->
+      <Style Selector="^.xsmall /template/ TextBox#PART_SearchBox">
+        <Setter Property="Height" Value="20" />
+        <Setter Property="FontSize" Value="12" />
+      </Style>
+      <Style Selector="^.xsmall /template/ PathIcon#PART_SearchIcon">
+        <Setter Property="Width" Value="12" />
+        <Setter Property="Height" Value="12" />
+      </Style>
+      <Style Selector="^.xsmall /template/ Panel#PART_SearchSuffix">
+        <Setter Property="Margin" Value="6,0,4,0" />
+      </Style>
+      <Style Selector="^.small /template/ Border#PART_SearchRow">
+        <Setter Property="Padding" Value="6,0" />
+      </Style>
+      <Style Selector="^.small /template/ TextBox#PART_SearchBox">
+        <Setter Property="Height" Value="24" />
+      </Style>
+      <Style Selector="^.small /template/ PathIcon#PART_SearchIcon">
+        <Setter Property="Margin" Value="0,0,4,0" />
+      </Style>
+      <Style Selector="^.small /template/ Panel#PART_SearchSuffix">
+        <Setter Property="Margin" Value="4,0,8,0" />
+      </Style>
+      <Style Selector="^.large /template/ TextBox#PART_SearchBox">
+        <Setter Property="Height" Value="44" />
+        <Setter Property="FontSize" Value="16" />
+      </Style>
+      <Style Selector="^.large /template/ PathIcon#PART_SearchIcon">
+        <Setter Property="Width" Value="16" />
+        <Setter Property="Height" Value="16" />
+        <Setter Property="Margin" Value="0,0,8,0" />
+      </Style>
+      <Style Selector="^.large /template/ Panel#PART_SearchSuffix">
+        <Setter Property="Margin" Value="8,0,12,0" />
+      </Style>
+
+      <Style Selector="^:focus, ^:dropdownopen">
+        <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Ring}" />
+      </Style>
+      <Style Selector="^:focus /template/ Border#PART_FocusRing, ^:dropdownopen /template/ Border#PART_FocusRing">
+        <Setter Property="IsVisible" Value="True" />
+      </Style>
+      <Style Selector="^:disabled">
+        <Setter Property="Background" Value="{DynamicResource UIKit.Select.Disabled.Background}" />
+        <Setter Property="Foreground" Value="{DynamicResource UIKit.MutedForeground}" />
+        <Setter Property="Opacity" Value="0.5" />
+      </Style>
+      <Style Selector="^:error">
+        <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Danger}" />
+      </Style>
+
+      <!-- appearance(false): no background, border, corners or ring; disabled, only the title is muted. -->
+      <Style Selector="^.plain, ^.plain:focus, ^.plain:dropdownopen, ^.plain:error">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="CornerRadius" Value="0" />
+      </Style>
+      <Style Selector="^.plain:focus /template/ Border#PART_FocusRing, ^.plain:dropdownopen /template/ Border#PART_FocusRing">
+        <Setter Property="IsVisible" Value="False" />
+      </Style>
+      <Style Selector="^.plain:disabled">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Opacity" Value="1" />
+      </Style>
+
+      <!--
+        dropdown_popup: 8px down and a fade over 150ms. GPUI scales the ring and
+        shadow inks by the cube of the progress and then fades them with the rest,
+        so they follow the fourth power: here the cube on the layers inside the
+        panel's fade (as ComboBox.axaml).
+      -->
+      <Style Selector="^:dropdownopen /template/ Panel#PART_PopupMotion">
+        <Style.Animations>
+          <Animation Duration="0:0:0.15" Easing="CubicEaseOut">
+            <KeyFrame Cue="0%">
+              <Setter Property="Opacity" Value="0" />
+              <Setter Property="TranslateTransform.Y" Value="-8" />
+            </KeyFrame>
+            <KeyFrame Cue="100%">
+              <Setter Property="Opacity" Value="1" />
+              <Setter Property="TranslateTransform.Y" Value="0" />
+            </KeyFrame>
+          </Animation>
+        </Style.Animations>
+      </Style>
+      <Style Selector="^:dropdownopen /template/ Border#PART_PopupRing, ^:dropdownopen /template/ Border#PART_PopupShadow">
+        <Style.Animations>
+          <Animation Duration="0:0:0.15" Easing="CubicEaseOut">
+            <KeyFrame Cue="0%"><Setter Property="Opacity" Value="0" /></KeyFrame>
+            <KeyFrame Cue="10%"><Setter Property="Opacity" Value="0.001" /></KeyFrame>
+            <KeyFrame Cue="20%"><Setter Property="Opacity" Value="0.008" /></KeyFrame>
+            <KeyFrame Cue="30%"><Setter Property="Opacity" Value="0.027" /></KeyFrame>
+            <KeyFrame Cue="40%"><Setter Property="Opacity" Value="0.064" /></KeyFrame>
+            <KeyFrame Cue="50%"><Setter Property="Opacity" Value="0.125" /></KeyFrame>
+            <KeyFrame Cue="60%"><Setter Property="Opacity" Value="0.216" /></KeyFrame>
+            <KeyFrame Cue="70%"><Setter Property="Opacity" Value="0.343" /></KeyFrame>
+            <KeyFrame Cue="80%"><Setter Property="Opacity" Value="0.512" /></KeyFrame>
+            <KeyFrame Cue="90%"><Setter Property="Opacity" Value="0.729" /></KeyFrame>
+            <KeyFrame Cue="100%"><Setter Property="Opacity" Value="1" /></KeyFrame>
+          </Animation>
+        </Style.Animations>
+      </Style>
+    </ControlTheme>
+  </Styles.Resources>
+
+  <!-- Rows and section headers by the select's size (list_size, input_text_size), as ComboBox's rows. -->
+  <Style Selector="uikit|Select.xsmall uikit|SelectListItem">
+    <Setter Property="Padding" Value="1,4" />
+    <Setter Property="FontSize" Value="12" />
+  </Style>
+  <Style Selector="uikit|Select.xsmall uikit|SelectListItem /template/ ContentPresenter#PART_ContentPresenter">
+    <Setter Property="LineHeight" Value="19.5" />
+  </Style>
+  <Style Selector="uikit|Select.small uikit|SelectListItem">
+    <Setter Property="Padding" Value="5,2" />
+  </Style>
+  <Style Selector="uikit|Select.large uikit|SelectListItem">
+    <Setter Property="Padding" Value="9,8" />
+    <Setter Property="FontSize" Value="16" />
+  </Style>
+  <Style Selector="uikit|Select.large uikit|SelectListItem /template/ ContentPresenter#PART_ContentPresenter">
+    <Setter Property="LineHeight" Value="26" />
+  </Style>
+  <Style Selector="uikit|Select.xsmall uikit|SelectGroupHeader">
+    <Setter Property="Padding" Value="1,4" />
+  </Style>
+  <Style Selector="uikit|Select.small uikit|SelectGroupHeader">
+    <Setter Property="Padding" Value="5,2" />
+  </Style>
+  <Style Selector="uikit|Select.large uikit|SelectGroupHeader">
+    <Setter Property="Padding" Value="9,8" />
+  </Style>
+</Styles>

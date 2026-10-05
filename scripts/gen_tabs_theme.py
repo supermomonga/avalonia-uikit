@@ -232,20 +232,57 @@ def strip_template() -> str:
               <Border Name="PART_Baseline" BorderThickness="0,0,0,1"
                       BorderBrush="{DynamicResource UIKit.Border}" IsHitTestVisible="False" />
               <!--
-                The selected tab's indicator (Pill, Segmented, Underline), under the
-                tabs and clipped to the bar's content as GPUI clips its tab row.
+                tab_bar.rs: the bar is the prefix (uikit:Tabs.Prefix), the tabs
+                (scrolling sideways when they overflow), the menu button (the menu
+                class) and the suffix (uikit:Tabs.Suffix).
               -->
-              <Canvas Name="PART_IndicatorLayer" ClipToBounds="True" IsHitTestVisible="False">
-                <Panel Name="PART_Indicator" uikit:Tabs.Indicator="True"
-                       uikit:Motion.Spring="{StaticResource UIKit.Spring.Move}" uikit:Motion.SpringsCanvasLeft="True">
-                  <Border Name="PART_IndicatorFill"
-                          uikit:Motion.Spring="{StaticResource UIKit.Spring.Move}"
-                          Width="{Binding $self.(uikit:Motion.SpringValue)}" />
-                </Panel>
-              </Canvas>
-              <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
+              <Grid ColumnDefinitions="Auto,*,Auto,Auto">
+                <ContentPresenter Name="PART_Prefix" Content="{TemplateBinding (uikit:Tabs.Prefix)}"
+                                  VerticalAlignment="Center"
+                                  IsVisible="{TemplateBinding (uikit:Tabs.Prefix), Converter={x:Static ObjectConverters.IsNotNull}}" />
+                <ScrollViewer Name="PART_Scroller" Grid.Column="1" Theme="{StaticResource UIKitTabsScrollViewer}"
+                              HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Disabled">
+                  <Panel Name="PART_TabsArea">
+                    <!--
+                      The selected tab's indicator (Pill, Segmented, Underline), under the
+                      tabs and clipped to the tab row as GPUI clips it.
+                    -->
+                    <Canvas Name="PART_IndicatorLayer" ClipToBounds="True" IsHitTestVisible="False">
+                      <Panel Name="PART_Indicator" uikit:Tabs.Indicator="True"
+                             uikit:Motion.Spring="{StaticResource UIKit.Spring.Move}" uikit:Motion.SpringsCanvasLeft="True">
+                        <Border Name="PART_IndicatorFill"
+                                uikit:Motion.Spring="{StaticResource UIKit.Spring.Move}"
+                                Width="{Binding $self.(uikit:Motion.SpringValue)}" />
+                      </Panel>
+                    </Canvas>
+                    <!-- The tabs fill a row wider than them (a TabBar's flex_1 tabs), as outside a ScrollViewer. -->
+                    <Grid ColumnDefinitions="*,Auto">
+                      <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
+                      <!-- tab_bar.rs last_empty_space: 12px after the tabs with a menu or a suffix. -->
+                      <Panel Name="PART_EndSpace" Grid.Column="1" Width="12"
+                             IsVisible="{TemplateBinding (uikit:Tabs.Suffix), Converter={x:Static ObjectConverters.IsNotNull}}" />
+                    </Grid>
+                  </Panel>
+                </ScrollViewer>
+                <!-- tab_bar.rs menu(true): a ghost xsmall button with a caret that lists the tabs. -->
+                <uikit:TabsMenuButton Name="PART_MenuButton" Grid.Column="2" Classes="ghost xsmall icon-only"
+                                      VerticalAlignment="Center" IsVisible="False">
+                  <PathIcon Width="12" Height="12" Foreground="{DynamicResource UIKit.Button.Ghost.Caret}"
+                            Data="{DynamicResource UIKit.Icon.ChevronDown}" />
+                </uikit:TabsMenuButton>
+                <ContentPresenter Name="PART_Suffix" Grid.Column="3" Content="{TemplateBinding (uikit:Tabs.Suffix)}"
+                                  VerticalAlignment="Center"
+                                  IsVisible="{TemplateBinding (uikit:Tabs.Suffix), Converter={x:Static ObjectConverters.IsNotNull}}" />
+              </Grid>
             </Panel>
           </Border>"""
+
+
+# The menu class shows the menu button and the space after the tabs.
+MENU_STYLE = """      <Style Selector="^.menu /template/ Button#PART_MenuButton, ^.menu /template/ Panel#PART_EndSpace">
+        <Setter Property="IsVisible" Value="True" />
+      </Style>"""
+
 
 
 ITEMS_PANEL = """      <Setter Property="ItemsPanel">
@@ -265,6 +302,7 @@ def strip_theme() -> str:
         </ControlTemplate>
       </Setter>
 {strip_part_styles()}
+{MENU_STYLE}
     </ControlTheme>"""
 
 
@@ -298,9 +336,14 @@ def control_theme() -> str:
         </ControlTemplate>
       </Setter>
 {strip_part_styles()}
-      <!-- GPUI has no vertical tab bar: tabs stack, with no indicator or baseline. -->
+{MENU_STYLE}
+      <!-- GPUI has no vertical tab bar: tabs stack (scrolling down), with no indicator or baseline. -->
       <Style Selector="^[TabStripPlacement=Left] /template/ StackPanel#PART_TabsPanel, ^[TabStripPlacement=Right] /template/ StackPanel#PART_TabsPanel">
         <Setter Property="Orientation" Value="Vertical" />
+      </Style>
+      <Style Selector="^[TabStripPlacement=Left] /template/ ScrollViewer#PART_Scroller, ^[TabStripPlacement=Right] /template/ ScrollViewer#PART_Scroller">
+        <Setter Property="HorizontalScrollBarVisibility" Value="Disabled" />
+        <Setter Property="VerticalScrollBarVisibility" Value="Hidden" />
       </Style>
       <Style Selector="^[TabStripPlacement=Left] /template/ Canvas#PART_IndicatorLayer, ^[TabStripPlacement=Right] /template/ Canvas#PART_IndicatorLayer, ^[TabStripPlacement=Left] /template/ Border#PART_Baseline, ^[TabStripPlacement=Right] /template/ Border#PART_Baseline">
         <Setter Property="IsVisible" Value="False" />
@@ -373,8 +416,12 @@ HEADER = """<!--
   one); icon-only on an item whose content is an icon. Pill, Segmented and
   Underline show the selection with an indicator that springs to the selected
   tab (the Tabs.Indicator behavior); a pill's label fades in as it slides.
-  GPUI's overflow menu, prefix and suffix, closing and reordering are not part
-  of the controls. Tabs show an Avalonia-only ring on keyboard focus.
+  Tabs that overflow the bar scroll sideways, and the selected tab scrolls
+  into view (AutoScrollToSelectedItem). The class menu adds GPUI's menu(true),
+  a caret button listing the tabs (TabsMenuButton); uikit:Tabs.Prefix and
+  uikit:Tabs.Suffix are the bar's prefix and suffix. Closing and reordering
+  are not part of the controls. Tabs show an Avalonia-only ring on keyboard
+  focus, which the bar's scroll clip spares where no tab is scrolled away.
 -->"""
 
 
@@ -611,13 +658,42 @@ def tabalonia() -> None:
     TABALONIA_OUT.write_text(text)
 
 
+SCROLLER = """    <!--
+      The tab row's ScrollViewer: no scrollbars (GPUI's tab row shows none). Its
+      clip cuts the tabs at the row's edges where tabs are scrolled away, and
+      reaches 3px further elsewhere for the tabs' focus rings.
+    -->
+    <conv:OverflowClipConverter x:Key="UIKit.Tabs.ScrollClip" Inflate="3" />
+    <ControlTheme x:Key="UIKitTabsScrollViewer" TargetType="ScrollViewer">
+      <Setter Property="Template">
+        <ControlTemplate>
+          <ScrollContentPresenter Name="PART_ContentPresenter"
+                                  Content="{TemplateBinding Content}"
+                                  Padding="{TemplateBinding Padding}"
+                                  ClipToBounds="False">
+            <ScrollContentPresenter.Clip>
+              <MultiBinding Converter="{StaticResource UIKit.Tabs.ScrollClip}">
+                <Binding Path="Bounds" RelativeSource="{RelativeSource Self}" />
+                <Binding Path="Offset" RelativeSource="{RelativeSource Self}" />
+                <Binding Path="Extent" RelativeSource="{RelativeSource Self}" />
+                <Binding Path="Viewport" RelativeSource="{RelativeSource Self}" />
+              </MultiBinding>
+            </ScrollContentPresenter.Clip>
+          </ScrollContentPresenter>
+        </ControlTemplate>
+      </Setter>
+    </ControlTheme>"""
+
+
 def main() -> None:
     text = f"""{HEADER}
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:uikit="using:AvaloniaUIKit">
+        xmlns:uikit="using:AvaloniaUIKit"
+        xmlns:conv="using:AvaloniaUIKit.Converters">
   <Styles.Resources>
 {RESOURCES}
+{SCROLLER}
 {item_theme("TabStripItem", header=False)}
 {item_theme("TabItem", header=True)}
 {strip_theme()}

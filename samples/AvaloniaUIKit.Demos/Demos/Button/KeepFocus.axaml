@@ -1,0 +1,10 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:uikit="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.ButtonKeepFocus">
+  <StackPanel Orientation="Horizontal" Spacing="8" uikit:Buttons.TakesFocusOnPointer="False">
+    <TextBox Name="Note" Width="220" Text="Select a word, press Upper" />
+    <Button Classes="outline" Content="Upper" Click="OnUpper" />
+    <Button Classes="outline" Content="Lower" Click="OnLower" />
+  </StackPanel>
+</UserControl>

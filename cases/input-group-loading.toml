@@ -1,0 +1,24 @@
+# GPUI Kit InputGroupButton::loading -> a Button with uikit:Buttons.IsLoading in
+# a TextBox.group's InnerRightContent, and a pressed button that leaves the
+# focus in the input (uikit:Buttons.TakesFocusOnPointer="False", which GPUI's
+# buttons always do). pointer_x 0.95 is on the button.
+component = "input-group-loading"
+viewport = [280, 68]
+anchor = [16, 12]
+
+[[group]]
+name = "icon"
+params = { value = "gpui", end_icon = "copy", loading = true, width = 240, pointer_x = 0.95 }
+matrix = { button_size = ["xsmall", "small"] }
+states = ["normal", "hover", "disabled"]
+
+[[group]]
+name = "label"
+params = { value = "gpui", end_button = "Send", loading = true, width = 240, pointer_x = 0.95 }
+states = ["normal", "hover"]
+
+# Tab into the input, then click the button: the input keeps its focus ring.
+[[group]]
+name = "keeps-focus"
+params = { value = "gpui", end_icon = "copy", width = 240, pointer_x = 0.95, keeps_focus = true }
+states = ["focus+click", "focus+pressed"]

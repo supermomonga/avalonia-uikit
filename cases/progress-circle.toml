@@ -28,3 +28,10 @@ params = { size = "large", loading = true }
 trigger = "wait-0ms"
 samples_ms = [0, 100, 200, 300, 400, 500, 550, 600, 650, 700, 750, 800, 900, 950, 1000]
 themes = ["light"]
+
+# The circle's children (uikit:ProgressCircles.Content): the progress story's
+# semibold percentage, centered in a size_20 circle.
+[[group]]
+name = "content"
+params = { side = 80, value = 60, content = "60%" }
+viewport = [112, 96]

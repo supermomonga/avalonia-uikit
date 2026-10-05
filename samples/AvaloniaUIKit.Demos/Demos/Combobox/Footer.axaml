@@ -1,0 +1,22 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:uikit="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.ComboboxFooter">
+  <Panel MinHeight="300">
+    <uikit:Select Name="Universities" Classes="combobox" Width="240" IsSearchable="True" PlaceholderText="Select university"
+                  HorizontalAlignment="Left" VerticalAlignment="Top">
+      <x:String>Harvard University</x:String>
+      <x:String>MIT</x:String>
+      <x:String>Stanford</x:String>
+      <x:String>Cambridge</x:String>
+      <uikit:Select.Footer>
+        <Button Classes="ghost" HorizontalAlignment="Stretch" Click="OnAdd">
+          <StackPanel Orientation="Horizontal" Spacing="8">
+            <PathIcon Data="{StaticResource UIKit.Icon.Plus}" />
+            <TextBlock Text="New university" />
+          </StackPanel>
+        </Button>
+      </uikit:Select.Footer>
+    </uikit:Select>
+  </Panel>
+</UserControl>
