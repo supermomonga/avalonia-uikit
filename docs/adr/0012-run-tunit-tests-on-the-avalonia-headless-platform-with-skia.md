@@ -3,6 +3,9 @@ number: 12
 title: Run TUnit tests on the Avalonia headless platform with Skia
 status: accepted
 date: 2026-10-03
+links:
+- target: 31
+  kind: amendedby
 ---
 
 # Run TUnit tests on the Avalonia headless platform with Skia

@@ -117,16 +117,24 @@ public static class PixelComparison
     public static Region[] Classify(GoldenScene scene, int width, int height, double scale, IEnumerable<Primitive>? actual = null)
     {
         var regions = new Region[width * height];
-        void Mark(Region region, Func<double, double, bool> inside, Rect area)
+        // skip: where inside is known to fail (an outline test deep inside a box), not visited.
+        void Mark(Region region, Func<double, double, bool> inside, Rect area, Rect skip = default)
         {
             var x0 = Math.Max(0, (int)Math.Floor(area.X * scale));
             var y0 = Math.Max(0, (int)Math.Floor(area.Y * scale));
             var x1 = Math.Min(width, (int)Math.Ceiling(area.Right * scale));
             var y1 = Math.Min(height, (int)Math.Ceiling(area.Bottom * scale));
+            var (sx0, sx1, sy0, sy1) = Centers(skip, scale);
             for (var y = y0; y < y1; y++)
             {
+                var skipping = y >= sy0 && y < sy1;
                 for (var x = x0; x < x1; x++)
                 {
+                    if (skipping && x >= sx0 && x < sx1)
+                    {
+                        x = sx1 - 1;
+                        continue;
+                    }
                     var i = y * width + x;
                     if (Priority(region) > Priority(regions[i]) && inside((x + 0.5) / scale, (y + 0.5) / scale))
                     {
@@ -147,6 +155,13 @@ public static class PixelComparison
                 continue;
             }
             var area = q.Bounds.Inflate(edgeReach * 1.5).Intersect(q.Clip.Inflate(edgeReach));
+            var inner = q.Bounds.Deflate(q.BorderWidths);
+            var innerRadii = InnerRadii(q.Radii, q.BorderWidths);
+            var skip = Deep(q.Bounds, q.Radii, edgeReach * 1.01);
+            if (hasBorder)
+            {
+                skip = skip.Intersect(Deep(inner, innerRadii, edgeReach * 1.01));
+            }
             Mark(Region.Edge, (x, y) =>
             {
                 var d = RoundedRectDistance(q.Bounds, q.Radii, x, y);
@@ -156,16 +171,10 @@ public static class PixelComparison
                 }
                 if (hasBorder)
                 {
-                    var inner = q.Bounds.Deflate(q.BorderWidths);
-                    var innerRadii = new CornerRadius(
-                        Math.Max(0, q.Radii.TopLeft - Math.Max(q.BorderWidths.Left, q.BorderWidths.Top)),
-                        Math.Max(0, q.Radii.TopRight - Math.Max(q.BorderWidths.Right, q.BorderWidths.Top)),
-                        Math.Max(0, q.Radii.BottomRight - Math.Max(q.BorderWidths.Right, q.BorderWidths.Bottom)),
-                        Math.Max(0, q.Radii.BottomLeft - Math.Max(q.BorderWidths.Left, q.BorderWidths.Bottom)));
                     return Math.Abs(RoundedRectDistance(inner, innerRadii, x, y)) <= edgeReach * 1.01;
                 }
                 return false;
-            }, area);
+            }, area, skip);
         }
         // Where a clip cuts a quad, the cut is an edge too: GPUI rounds the clip's
         // edges to the nearest device pixel, Avalonia's layout rounds sizes up (R9).
@@ -178,7 +187,7 @@ public static class PixelComparison
                 continue;
             }
             Mark(Region.Edge, (x, y) => Math.Abs(RoundedRectDistance(q.Clip, default, x, y)) <= edgeReach * 1.01,
-                cut.Inflate(edgeReach * 1.5).Intersect(q.Bounds));
+                cut.Inflate(edgeReach * 1.5).Intersect(q.Bounds), Deep(q.Clip, default, edgeReach * 1.01));
         }
         // The outlines Avalonia paints count as edges too: text measurement may
         // place an edge up to one device pixel away from GPUI's (R9).
@@ -189,24 +198,26 @@ public static class PixelComparison
                 continue;
             }
             var area = p.Bounds.Inflate(edgeReach * 1.5);
+            var band = p.Kind == PrimitiveKind.Band;
+            var inner = p.Bounds.Deflate(p.Widths);
+            var innerRadii = InnerRadii(p.Radii, p.Widths);
+            var skip = Deep(p.Bounds, p.Radii, edgeReach * 1.01);
+            if (band)
+            {
+                skip = skip.Intersect(Deep(inner, innerRadii, edgeReach * 1.01));
+            }
             Mark(Region.Edge, (x, y) =>
             {
                 if (Math.Abs(RoundedRectDistance(p.Bounds, p.Radii, x, y)) <= edgeReach * 1.01)
                 {
                     return true;
                 }
-                if (p.Kind == PrimitiveKind.Band)
+                if (band)
                 {
-                    var inner = p.Bounds.Deflate(p.Widths);
-                    var innerRadii = new CornerRadius(
-                        Math.Max(0, p.Radii.TopLeft - Math.Max(p.Widths.Left, p.Widths.Top)),
-                        Math.Max(0, p.Radii.TopRight - Math.Max(p.Widths.Right, p.Widths.Top)),
-                        Math.Max(0, p.Radii.BottomRight - Math.Max(p.Widths.Right, p.Widths.Bottom)),
-                        Math.Max(0, p.Radii.BottomLeft - Math.Max(p.Widths.Left, p.Widths.Bottom)));
                     return Math.Abs(RoundedRectDistance(inner, innerRadii, x, y)) <= edgeReach * 1.01;
                 }
                 return false;
-            }, area);
+            }, area, skip);
         }
         foreach (var q in scene.Quads.Where(q => q.Gradient is not null))
         {
@@ -218,14 +229,15 @@ public static class PixelComparison
             Mark(Region.Image, (x, y) => RoundedRectDistance(drawn, image.Radii, x, y) < -edgeReach, drawn);
             // Half a source pixel at up to 5x: 2.5 device pixels.
             var rim = 2.5 / scale;
-            Mark(Region.ImageEdge, (x, y) => Math.Abs(RoundedRectDistance(drawn, image.Radii, x, y)) <= rim * 1.01, drawn.Inflate(rim * 1.5));
+            Mark(Region.ImageEdge, (x, y) => Math.Abs(RoundedRectDistance(drawn, image.Radii, x, y)) <= rim * 1.01, drawn.Inflate(rim * 1.5),
+                Deep(drawn, image.Radii, rim * 1.01));
         }
         foreach (var s in scene.Shadows)
         {
             // Only where the shadow shows: outside the element casting it.
             var spread = s.Sigma * 3 + reach;
             Mark(Region.Shadow, (x, y) => RoundedRectDistance(s.ElementBounds, s.ElementRadii, x, y) > -edgeReach,
-                s.Bounds.Inflate(spread).Intersect(s.Clip));
+                s.Bounds.Inflate(spread).Intersect(s.Clip), Deep(s.ElementBounds, s.ElementRadii, edgeReach));
         }
         foreach (var s in scene.Sprites)
         {
@@ -276,6 +288,31 @@ public static class PixelComparison
     }
 
     /// <summary>
+    /// The part of a rounded rectangle more than <paramref name="depth"/> inside
+    /// its outline, where <see cref="RoundedRectDistance"/> is below -depth
+    /// (empty if there is none): a test for pixels near the outline fails there,
+    /// so a large box costs its perimeter rather than its area.
+    /// </summary>
+    private static Rect Deep(Rect r, CornerRadius radii, double depth)
+    {
+        // Farther than every corner radius from each side, the distance is to the nearest side.
+        var inset = Math.Max(Math.Max(Math.Max(radii.TopLeft, radii.TopRight), Math.Max(radii.BottomRight, radii.BottomLeft)), depth) + 1e-3;
+        return r.Width > 2 * inset && r.Height > 2 * inset ? r.Deflate(inset) : default;
+    }
+
+    /// <summary>The device pixels whose centers lie inside <paramref name="area"/>: [x0, x1) by [y0, y1).</summary>
+    private static (int X0, int X1, int Y0, int Y1) Centers(Rect area, double scale) =>
+        ((int)Math.Floor(area.X * scale - 0.5) + 1, (int)Math.Ceiling(area.Right * scale - 0.5),
+         (int)Math.Floor(area.Y * scale - 0.5) + 1, (int)Math.Ceiling(area.Bottom * scale - 0.5));
+
+    /// <summary>The radii of the inner edge of a border: each corner's radius less its wider side.</summary>
+    private static CornerRadius InnerRadii(CornerRadius radii, Thickness widths) => new(
+        Math.Max(0, radii.TopLeft - Math.Max(widths.Left, widths.Top)),
+        Math.Max(0, radii.TopRight - Math.Max(widths.Right, widths.Top)),
+        Math.Max(0, radii.BottomRight - Math.Max(widths.Right, widths.Bottom)),
+        Math.Max(0, radii.BottomLeft - Math.Max(widths.Left, widths.Bottom)));
+
+    /// <summary>
     /// How much ink each side paints over what lies beneath it: the sum, over ink
     /// pixels, of each pixel's largest channel difference from the fills under it
     /// (from GPUI's scene). Rasterizers draw text a little bolder or lighter; a
@@ -284,6 +321,7 @@ public static class PixelComparison
     public static (double Expected, double Actual) InkMass(RgbaImage expected, RgbaImage actual, Region[] regions, GoldenScene scene, double scale)
     {
         double e = 0, a = 0;
+        var fills = Fills(scene);
         for (var y = 0; y < expected.Height; y++)
         {
             for (var x = 0; x < expected.Width; x++)
@@ -292,7 +330,7 @@ public static class PixelComparison
                 {
                     continue;
                 }
-                var bg = Beneath(scene, (x + 0.5) / scale, (y + 0.5) / scale);
+                var bg = Beneath(fills, (x + 0.5) / scale, (y + 0.5) / scale);
                 var ep = expected.Pixel(x, y);
                 var ap = actual.Pixel(x, y);
                 e += Math.Max(Math.Abs(ep[0] - bg.R), Math.Max(Math.Abs(ep[1] - bg.G), Math.Abs(ep[2] - bg.B)));
@@ -313,6 +351,7 @@ public static class PixelComparison
     {
         var edgeReach = 1.5 / scale;
         var result = new List<BandMass>();
+        var fills = Fills(scene);
         // GPUI paints a border cut by clips as one quad per clip.
         foreach (var group in scene.Quads
             .Where(q => q.BorderWidths != default && !q.BorderColor.IsTransparent)
@@ -321,14 +360,12 @@ public static class PixelComparison
             var (b, radii, w, _) = group.Key;
             // A popup or a moving element may land a device pixel off (R9): its
             // edge must not leave the band where a clip cuts it.
-            var clips = group.Select(q => q.Clip.Inflate(edgeReach)).ToList();
+            var clips = group.Select(q => q.Clip.Inflate(edgeReach)).ToArray();
             var inner = b.Deflate(w);
-            var innerRadii = new CornerRadius(
-                Math.Max(0, radii.TopLeft - Math.Max(w.Left, w.Top)),
-                Math.Max(0, radii.TopRight - Math.Max(w.Right, w.Top)),
-                Math.Max(0, radii.BottomRight - Math.Max(w.Right, w.Bottom)),
-                Math.Max(0, radii.BottomLeft - Math.Max(w.Left, w.Bottom)));
+            var innerRadii = InnerRadii(radii, w);
             var hollow = inner.Width > 0 && inner.Height > 0;
+            // The hollow inside the band is left out below: not visited.
+            var (sx0, sx1, sy0, sy1) = Centers(hollow ? Deep(inner, innerRadii, edgeReach * 1.01) : default, scale);
             // Where a clip cuts a side, the cut lands a device pixel either way (R9):
             // a hairline there may be painted twice as thick or not at all.
             var shown = group.Select(q => q.Clip).Aggregate((a, c) => a.Union(c));
@@ -341,18 +378,24 @@ public static class PixelComparison
             var y1 = Math.Min(expected.Height, (int)Math.Ceiling(area.Bottom * scale));
             for (var y = y0; y < y1; y++)
             {
+                var skipping = y >= sy0 && y < sy1;
                 for (var x = x0; x < x1; x++)
                 {
+                    if (skipping && x >= sx0 && x < sx1)
+                    {
+                        x = sx1 - 1;
+                        continue;
+                    }
                     var px = (x + 0.5) / scale;
                     var py = (y + 0.5) / scale;
                     if (regions[y * expected.Width + x] is Region.Ink or Region.Excluded ||
-                        !clips.Any(c => c.Contains(new Point(px, py))) ||
+                        !InAny(clips, new Point(px, py)) ||
                         RoundedRectDistance(b, radii, px, py) > edgeReach * 1.01 ||
                         (hollow && RoundedRectDistance(inner, innerRadii, px, py) < -edgeReach * 1.01))
                     {
                         continue;
                     }
-                    var bg = Beneath(scene, px, py);
+                    var bg = Beneath(fills, px, py);
                     var ep = expected.Pixel(x, y);
                     var ap = actual.Pixel(x, y);
                     var piece = Piece(b, radii, w, px, py);
@@ -407,12 +450,28 @@ public static class PixelComparison
         return side;
     }
 
-    private static (double R, double G, double B) Beneath(GoldenScene scene, double x, double y)
+    private static bool InAny(Rect[] areas, Point p)
+    {
+        foreach (var area in areas)
+        {
+            if (area.Contains(p))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /// <summary>The solid fills <see cref="Beneath"/> composites, in paint order: sorted once per frame, not per pixel.</summary>
+    private static SceneQuad[] Fills(GoldenScene scene) =>
+        scene.Quads.Where(q => q.SolidBackground && !q.Background.IsTransparent).OrderBy(q => q.Order).ToArray();
+
+    private static (double R, double G, double B) Beneath(SceneQuad[] fills, double x, double y)
     {
         double r = 0, g = 0, b = 0;
-        foreach (var q in scene.Quads.OrderBy(q => q.Order))
+        foreach (var q in fills)
         {
-            if (!q.SolidBackground || q.Background.IsTransparent || RoundedRectDistance(q.Bounds, q.Radii, x, y) > 0 || !q.Clip.Contains(new Point(x, y)))
+            if (RoundedRectDistance(q.Bounds, q.Radii, x, y) > 0 || !q.Clip.Contains(new Point(x, y)))
             {
                 continue;
             }
