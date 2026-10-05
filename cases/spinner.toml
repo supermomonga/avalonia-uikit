@@ -13,3 +13,9 @@ params = { size = "large" }
 trigger = "wait-0ms"
 samples_ms = [0, 100, 200, 300, 400, 500, 600, 700]
 themes = ["light"]
+
+# Spinner::icon (uikit:Spinners.Icon): the spinner story's LoaderCircle.
+[[group]]
+name = "custom"
+params = { icon = "loader-circle" }
+matrix = { size = ["small", "medium", "large"] }

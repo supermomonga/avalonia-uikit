@@ -9,7 +9,7 @@ use gpui_kit::{
     InteractiveElement as _, IntoElement as _, ParentElement as _, StatefulInteractiveElement as _,
     Styled as _, div, px,
     component::{
-        Sizable as _,
+        Sizable as _, StyledExt as _,
         progress::{Progress, ProgressCircle},
         spinner::Spinner,
     },
@@ -44,18 +44,25 @@ pub fn progress(params: &Params) -> Result<Builder> {
 }
 
 /// A progress circle; a click switches the value between `value` and `value_to`.
-/// `side` > 0 gives the circle a styled box (`size_20` is 80).
+/// `side` > 0 gives the circle a styled box (`size_20` is 80). `content` is a
+/// semibold text child centered in the circle, as the progress story's.
 pub fn circle(params: &Params) -> Result<Builder> {
     let size = size(params);
     let value = param_f32(params, "value", 40.);
     let value_to = param_f32(params, "value_to", value);
     let loading = param_bool(params, "loading");
     let side = param_f32(params, "side", 0.);
+    let content = params.get("content").and_then(|v| v.as_str()).map(str::to_string);
     Ok(Rc::new(move |view, _, cx| {
         let current = if view.state.toggled { value_to } else { value };
         let mut circle = ProgressCircle::new("case").with_size(size).value(current).loading(loading);
         if side > 0. {
             circle = circle.size(px(side));
+        }
+        if let Some(content) = content.clone() {
+            circle = circle.child(
+                div().size_full().flex().items_center().justify_center().font_semibold().child(content),
+            );
         }
         div()
             .id("case-box")
@@ -68,9 +75,18 @@ pub fn circle(params: &Params) -> Result<Builder> {
     }))
 }
 
+/// A spinner; `icon` replaces the Loader glyph (the spinner story's LoaderCircle).
 pub fn spinner(params: &Params) -> Result<Builder> {
     let size = size(params);
-    Ok(Rc::new(move |_, _, _| Spinner::new().with_size(size).into_any_element()))
+    let icon = params.get("icon").and_then(|v| v.as_str()).and_then(super::icon);
+    Ok(Rc::new(move |_, _, _| {
+        let spinner = Spinner::new().with_size(size);
+        match icon.clone() {
+            Some(icon) => spinner.icon(icon),
+            None => spinner,
+        }
+        .into_any_element()
+    }))
 }
 
 pub fn derived_colors(theme: &gpui_kit::component::Theme, out: &mut Vec<(String, super::Paint)>) {
