@@ -3,3 +3,5 @@
 /docs/components/* /components/:splat 301
 # The compatibility page was removed; the components index lists every component.
 /docs/compatibility /components 301
+# Tabalonia's theme was replaced by closing, adding and dragging on the standard tabs (ADR 33).
+/components/tabalonia /components/tabs 301

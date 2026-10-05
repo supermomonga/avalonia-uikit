@@ -3,7 +3,6 @@ import { raw } from "hono/html"
 import { createRoute } from "honox/factory"
 import {
   Activity,
-  AppWindow,
   ArrowRight,
   Bell,
   Blocks,
@@ -510,22 +509,6 @@ const packages: {
     link: { href: "/components/data-table", label: "Read the Data Table docs" },
   },
   {
-    icon: AppWindow,
-    name: "AvaloniaUIKit.Tabalonia",
-    title: "Tabalonia's draggable tabs",
-    text: "UIKitTabaloniaTheme gives Tabalonia's TabsControl the tab looks, with close and add buttons and a tab menu.",
-    code: `<Application.Styles>
-  <uikit:UIKitTheme />
-  <uikittabs:UIKitTabaloniaTheme />
-</Application.Styles>`,
-    points: [
-      "Tab, outline, pill, segmented and underline looks",
-      "Reorder by dragging; scrolls when the tabs overflow",
-      "Trimmable and NativeAOT compatible",
-    ],
-    link: { href: "/components/tabalonia", label: "Read the Tabalonia docs" },
-  },
-  {
     icon: PanelsTopLeft,
     name: "AvaloniaUIKit.Dock",
     title: "Dock.Avalonia's docking",
@@ -548,13 +531,13 @@ function Packages({ codes }: { codes: string[] }) {
     <section class="band">
       <div class="band__inner">
         <SectionHead
-          kicker="Five packages. One theme."
+          kicker="Four packages. One theme."
           title="Take only the themes your app uses."
         >
           UIKitTheme covers Avalonia's built-in controls and the new ones.
           Avalonia ships ColorPicker and DataGrid as packages of their own, and
-          so does this library; the themes for Tabalonia and Dock.Avalonia are
-          separate too, so an app takes no dependency it does not use.
+          so does this library; the theme for Dock.Avalonia is separate too, so
+          an app takes no dependency it does not use.
         </SectionHead>
         <div class="paths">
           {packages.map((item, index) => (

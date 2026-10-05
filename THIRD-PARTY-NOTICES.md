@@ -12,7 +12,7 @@ own copyright and license. This file ships in the NuGet packages.
 - License: Apache License 2.0 (full text below). GPUI Kit has no NOTICE file.
 
 In the NuGet packages (`AvaloniaUIKit`, `AvaloniaUIKit.ColorPicker`,
-`AvaloniaUIKit.DataGrid`, `AvaloniaUIKit.Tabalonia`, `AvaloniaUIKit.Dock`):
+`AvaloniaUIKit.DataGrid`, `AvaloniaUIKit.Dock`):
 
 - The components' looks, metrics and motion are ported from GPUI Kit's Rust
   source to Avalonia XAML and C# (`src/`).
@@ -95,18 +95,6 @@ with GPUI Kit's look, and the menu and window strings
 (`src/AvaloniaUIKit.Dock/Themes/Metrics.axaml`) are copied from
 Dock.Avalonia.Themes.Fluent. The package references Dock.Avalonia; it does not
 include Dock's code.
-
-## Tabalonia
-
-- Source: <https://github.com/egorozh/Tabalonia>, release `v12.0.0`
-- Copyright (c) 2024 Zheludkov Egor
-- License: MIT License (full text below)
-
-In the `AvaloniaUIKit.Tabalonia` package: the control themes
-(`src/AvaloniaUIKit.Tabalonia/Themes/Tabs.axaml`) follow the structure of
-Tabalonia's Fluent theme (its named parts and the close and add buttons'
-bindings), restyled with GPUI Kit's look. The package references Tabalonia; it
-does not include Tabalonia's code.
 
 ## License texts
 
@@ -316,33 +304,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
-
-### Tabalonia: MIT License
-
-```text
-MIT License
-
-Copyright (c) 2024 Zheludkov Egor
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
-
 ### Lucide: ISC License, and MIT License for the icons derived from Feather
 
 ```text
