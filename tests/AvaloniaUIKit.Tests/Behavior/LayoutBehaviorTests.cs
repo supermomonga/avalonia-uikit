@@ -202,4 +202,138 @@ public class LayoutBehaviorTests
         host.Flush();
         await Assert.That(handle.ResizeDirection).IsEqualTo(GridResizeDirection.Rows);
     }
+
+    // MARK: Sheet
+
+    /// <summary>A 560x400 window with <paramref name="content"/> at its origin.</summary>
+    private static CaseHost SheetHost(Control content) =>
+        CaseHost.Open(Case("uikit-sheet/open.right/click+wait-200ms/light"), content);
+
+    /// <summary>Shows <paramref name="sheet"/> and lets its 150ms slide finish.</summary>
+    private static void Open(CaseHost host, Sheet sheet, Visual anchor)
+    {
+        sheet.Show(anchor);
+        host.Flush();
+        AvaloniaUIKit.Tests.Infrastructure.VirtualTime.Advance(TimeSpan.FromMilliseconds(200));
+        host.Flush();
+    }
+
+    private static void Press(CaseHost host, Point at, MouseButton button = MouseButton.Left)
+    {
+        host.Window.MouseMove(at);
+        host.Window.MouseDown(at, button);
+        host.Window.MouseUp(at, button);
+        host.Flush();
+    }
+
+    // root.rs: opening focuses the sheet (and traps Tab in it); closing gives the
+    // focus back. sheet.rs: Escape closes it.
+    [Test]
+    public async Task A_sheet_takes_the_focus_and_gives_it_back_on_escape()
+    {
+        var box = new TextBox { Width = 120 };
+        using var host = SheetHost(new StackPanel { Children = { box } });
+        box.Focus();
+        var first = new TextBox();
+        var second = new TextBox();
+        var sheet = new Sheet { Title = "Settings", Content = new StackPanel { Children = { first, second } } };
+        var closed = 0;
+        sheet.Closed += (_, _) => closed++;
+        Open(host, sheet, box);
+        await Assert.That(sheet.IsOpen).IsTrue();
+        await Assert.That(sheet.IsKeyboardFocusWithin).IsTrue();
+        await Assert.That(Sheet.GetActive(box)).IsEqualTo(sheet);
+        // Tab stays inside: the close button, the fields, round again.
+        var seen = new List<IInputElement?>();
+        for (var i = 0; i < 4; i++)
+        {
+            host.PressKey("tab");
+            host.Flush();
+            seen.Add(host.Window.FocusManager!.GetFocusedElement());
+        }
+        await Assert.That(seen.All(e => e is Visual v && v.GetVisualAncestors().Contains(sheet))).IsTrue();
+        var close = sheet.GetVisualDescendants().OfType<Button>().Single(b => b.Name == "PART_CloseButton");
+        await Assert.That(seen[0] == close && seen[1] == first && seen[2] == second && seen[3] == close).IsTrue();
+        host.PressKey("escape");
+        host.Flush();
+        await Assert.That(sheet.IsOpen).IsFalse();
+        await Assert.That(closed).IsEqualTo(1);
+        await Assert.That(box.IsFocused).IsTrue();
+        await Assert.That(Sheet.GetActive(box)).IsNull();
+    }
+
+    // root.rs active_sheet: one sheet at a time. The new one closes the open one and
+    // keeps the focus it was to give back.
+    [Test]
+    public async Task Showing_a_sheet_closes_the_open_one()
+    {
+        var box = new TextBox { Width = 120 };
+        using var host = SheetHost(new StackPanel { Children = { box } });
+        box.Focus();
+        var first = new Sheet { Title = "First" };
+        var second = new Sheet { Title = "Second", Placement = DrawerPlacement.Left };
+        var closed = new List<string>();
+        first.Closed += (_, _) => closed.Add("first");
+        second.Closed += (_, _) => closed.Add("second");
+        Open(host, first, box);
+        Open(host, second, box);
+        await Assert.That(first.IsOpen).IsFalse();
+        await Assert.That(second.IsOpen).IsTrue();
+        await Assert.That(host.Window.GetVisualDescendants().OfType<Sheet>().Count()).IsEqualTo(1);
+        await Assert.That(Sheet.GetActive(box)).IsEqualTo(second);
+        second.Close();
+        host.Flush();
+        await Assert.That(closed).IsEquivalentTo(new[] { "first", "second" });
+        await Assert.That(box.IsFocused).IsTrue();
+    }
+
+    // base/sheet.rs: the overlay takes every press; the left button closes the sheet
+    // unless it is not closable or there is no overlay. The close button closes it.
+    [Test]
+    public async Task The_overlay_closes_the_sheet_when_it_may()
+    {
+        var clicks = 0;
+        var button = new Button { Content = "Page", Width = 120 };
+        button.Click += (_, _) => clicks++;
+        using var host = SheetHost(new StackPanel { Children = { button } });
+        var page = button.TranslatePoint(new Point(10, 10), host.Window)!.Value;
+
+        var sheet = new Sheet { Title = "Settings" };
+        Open(host, sheet, button);
+        Press(host, page, MouseButton.Right);
+        await Assert.That(sheet.IsOpen).IsTrue();
+        Press(host, page);
+        await Assert.That(sheet.IsOpen).IsFalse();
+
+        foreach (var kept in new[] { new Sheet { IsOverlayClosable = false }, new Sheet { HasOverlay = false } })
+        {
+            Open(host, kept, button);
+            Press(host, page);
+            await Assert.That(kept.IsOpen).IsTrue();
+            var close = kept.GetVisualDescendants().OfType<Button>().Single(b => b.Name == "PART_CloseButton");
+            Press(host, close.TranslatePoint(new Point(close.Bounds.Width / 2, close.Bounds.Height / 2), host.Window)!.Value);
+            await Assert.That(kept.IsOpen).IsFalse();
+        }
+        await Assert.That(clicks).IsEqualTo(0);
+    }
+
+    // sheet.rs: the size is pixels or a part of the window (DefiniteLength), along the
+    // placement; GPUI's title-bar offset (UIKit.Sheet.Margin) is not for a bottom sheet.
+    [Test]
+    public async Task A_sheet_is_its_size_from_its_edge()
+    {
+        var area = new Border { Width = 560, Height = 400 };
+        using var host = SheetHost(area);
+        host.Window.Resources["UIKit.Sheet.Margin"] = new Thickness(0, 34, 0, 0);
+        Rect Surface(Sheet sheet)
+        {
+            Open(host, sheet, area);
+            var surface = sheet.GetVisualDescendants().OfType<Border>().Single(b => b.Name == "PART_Surface");
+            return new Rect(surface.TranslatePoint(default, host.Window)!.Value, surface.Bounds.Size);
+        }
+        await Assert.That(Surface(new Sheet { Size = RelativeScalar.Parse("50%") })).IsEqualTo(new Rect(280, 34, 280, 366));
+        await Assert.That(Surface(new Sheet { Placement = DrawerPlacement.Top, Size = RelativeScalar.Parse("120") })).IsEqualTo(new Rect(0, 34, 560, 120));
+        await Assert.That(Surface(new Sheet { Placement = DrawerPlacement.Bottom })).IsEqualTo(new Rect(0, 50, 560, 350));
+        await Assert.That(Surface(new Sheet { Placement = DrawerPlacement.Left, Size = RelativeScalar.Parse("25%") })).IsEqualTo(new Rect(0, 34, 140, 366));
+    }
 }

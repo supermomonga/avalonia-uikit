@@ -102,6 +102,7 @@ public static partial class Adapters
         "uikit-carousel" => UikitCarouselCase(c),
         "sidebar" => c.Str("host", "splitview") == "drawer" ? SidebarDrawer(c) : Sidebar(c),
         "sheet" => Sheet(c),
+        "uikit-sheet" => SheetCase(c),
         "color_picker" => ColorPickerCase(c),
         "uikit-colorselect" => ColorSelectCase(c),
         "titlebar" => new DecorationsHost(c.Params.ContainsKey("title") ? c.Str("title", "") : null)

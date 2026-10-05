@@ -126,6 +126,7 @@ pub fn builder(case: &Case) -> Result<Builder> {
         "uikit-carousel" => carousel::builder(&params),
         "sidebar" => sidebar::builder(&params),
         "sheet" => sheet::builder(&params),
+        "uikit-sheet" => sheet::builder(&params),
         "titlebar" => title_bar::builder(&params),
         "color_picker" => color_picker::builder(&params),
         "uikit-colorselect" => color_picker::builder(&params),

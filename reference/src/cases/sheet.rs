@@ -2,6 +2,11 @@
 //! window at the case's placement. GPUI's sheet sits below a 34px custom
 //! title bar by default (sheet.margin_top); the case window has none, so the
 //! offset is zeroed.
+//!
+//! uikit:Sheet's cases (uikit-sheet) add `relative` (a size that is a part of
+//! the window), `mode` ("unclosable": overlay_closable(false); "no-overlay":
+//! overlay(false)) and `rows` (that many 40px rows, every other one muted, in
+//! place of the 40px block).
 use crate::{
     harness::Builder,
     manifest::{Params, param_bool, param_f32, param_str},
@@ -9,7 +14,8 @@ use crate::{
 use anyhow::Result;
 use gpui_kit::{
     InteractiveElement as _, IntoElement as _, ParentElement as _, StatefulInteractiveElement as _, Styled as _, div,
-    px,
+    prelude::FluentBuilder as _,
+    px, relative,
     component::{ActiveTheme as _, Placement, Theme, WindowExt as _},
 };
 use std::rc::Rc;
@@ -22,9 +28,13 @@ pub fn builder(params: &Params) -> Result<Builder> {
         _ => Placement::Right,
     };
     let title = params.get("title").and_then(|v| v.as_str()).map(str::to_string);
-    let size = params.get("size").and_then(|v| v.as_f64()).map(|v| px(v as f32));
+    let size = params.get("size").and_then(|v| v.as_f64()).map(|v| px(v as f32).into());
+    let size = params.get("relative").and_then(|v| v.as_f64()).map(|v| relative(v as f32)).or(size);
     let footer = param_bool(params, "footer");
-    let overlay = !param_bool(params, "no_overlay");
+    let mode = param_str(params, "mode", "");
+    let overlay = !param_bool(params, "no_overlay") && mode != "no-overlay";
+    let closable = mode != "unclosable";
+    let rows = param_f32(params, "rows", 0.) as usize;
     let (w, h) = (param_f32(params, "width", 560.), param_f32(params, "height", 400.));
     Ok(Rc::new(move |_, _, _| {
         let title = title.clone();
@@ -37,7 +47,12 @@ pub fn builder(params: &Params) -> Result<Builder> {
                 let title = title.clone();
                 window.open_sheet_at(placement, cx, move |sheet, _, cx| {
                     let (muted, primary) = (cx.theme().muted, cx.theme().primary);
-                    let mut sheet = sheet.overlay(overlay).child(div().h(px(40.)).bg(muted));
+                    let mut sheet = sheet.overlay(overlay).overlay_closable(closable);
+                    sheet = if rows > 0 {
+                        sheet.children((0..rows).map(|ix| div().h(px(40.)).when(ix % 2 == 0, |row| row.bg(muted))))
+                    } else {
+                        sheet.child(div().h(px(40.)).bg(muted))
+                    };
                     if let Some(t) = title.clone() {
                         sheet = sheet.title(t);
                     }
