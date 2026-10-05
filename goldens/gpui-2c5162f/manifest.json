@@ -176949,6 +176949,304 @@
       "png_sha256": "03631e96345ed3f40dc91ed7d2c2d7c803c5973bccdbc4cf65375ebe37c28b87"
     },
     {
+      "id": "virtual/scroll-to-variable.base/at-248-60+wait-400ms+at-100-60+wait-2000ms+wait-600ms/dark",
+      "component": "virtual",
+      "group": "scroll-to-variable",
+      "params": {
+        "count": 1000,
+        "scroll_to": 50,
+        "strategy": "center"
+      },
+      "state": "at-248-60+wait-400ms+at-100-60+wait-2000ms+wait-600ms",
+      "theme": "dark",
+      "viewport": [
+        300.0,
+        240.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        240.0,
+        200.0
+      ],
+      "png": "png/virtual/scroll-to-variable.base/at-248-60+wait-400ms+at-100-60+wait-2000ms+wait-600ms/dark.png",
+      "scene": "scenes/virtual/scroll-to-variable.base/at-248-60+wait-400ms+at-100-60+wait-2000ms+wait-600ms/dark.json",
+      "png_sha256": "4ffe4cff6c185283fbdfcc7adeddd7f7d8483cb69f3c7f71847d5d51e63e888c"
+    },
+    {
+      "id": "virtual/scroll-to-variable.base/at-248-60+wait-400ms+at-100-60+wait-2000ms+wait-600ms/light",
+      "component": "virtual",
+      "group": "scroll-to-variable",
+      "params": {
+        "count": 1000,
+        "scroll_to": 50,
+        "strategy": "center"
+      },
+      "state": "at-248-60+wait-400ms+at-100-60+wait-2000ms+wait-600ms",
+      "theme": "light",
+      "viewport": [
+        300.0,
+        240.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        240.0,
+        200.0
+      ],
+      "png": "png/virtual/scroll-to-variable.base/at-248-60+wait-400ms+at-100-60+wait-2000ms+wait-600ms/light.png",
+      "scene": "scenes/virtual/scroll-to-variable.base/at-248-60+wait-400ms+at-100-60+wait-2000ms+wait-600ms/light.json",
+      "png_sha256": "3716112a811b6e4e9e9b89f0c58cfb59e7cb4ea8c08cf5bd615e8f817ad09f36"
+    },
+    {
+      "id": "virtual/scroll-to-visible.base/at-248-60+wait-400ms+at-100-60+wait-2000ms+wait-600ms/dark",
+      "component": "virtual",
+      "group": "scroll-to-visible",
+      "params": {
+        "count": 1000,
+        "uniform": true,
+        "scroll_to": 3,
+        "strategy": "top"
+      },
+      "state": "at-248-60+wait-400ms+at-100-60+wait-2000ms+wait-600ms",
+      "theme": "dark",
+      "viewport": [
+        300.0,
+        240.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        240.0,
+        200.0
+      ],
+      "png": "png/virtual/scroll-to-visible.base/at-248-60+wait-400ms+at-100-60+wait-2000ms+wait-600ms/dark.png",
+      "scene": "scenes/virtual/scroll-to-visible.base/at-248-60+wait-400ms+at-100-60+wait-2000ms+wait-600ms/dark.json",
+      "png_sha256": "64c15787733f69f21895987858cdc993f7dc92688dc995fa2d8dd32bad82bfbe"
+    },
+    {
+      "id": "virtual/scroll-to-visible.base/at-248-60+wait-400ms+at-100-60+wait-2000ms+wait-600ms/light",
+      "component": "virtual",
+      "group": "scroll-to-visible",
+      "params": {
+        "count": 1000,
+        "uniform": true,
+        "scroll_to": 3,
+        "strategy": "top"
+      },
+      "state": "at-248-60+wait-400ms+at-100-60+wait-2000ms+wait-600ms",
+      "theme": "light",
+      "viewport": [
+        300.0,
+        240.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        240.0,
+        200.0
+      ],
+      "png": "png/virtual/scroll-to-visible.base/at-248-60+wait-400ms+at-100-60+wait-2000ms+wait-600ms/light.png",
+      "scene": "scenes/virtual/scroll-to-visible.base/at-248-60+wait-400ms+at-100-60+wait-2000ms+wait-600ms/light.json",
+      "png_sha256": "e42ef2149e35110c6255086a4f56984d22ae5c5a99a8230ddeaad07c194fbdcc"
+    },
+    {
+      "id": "virtual/scroll-to.bottom/at-248-60+wait-400ms+at-100-60+wait-2000ms+wait-600ms/dark",
+      "component": "virtual",
+      "group": "scroll-to",
+      "params": {
+        "count": 1000,
+        "uniform": true,
+        "scroll_to": 500,
+        "strategy": "bottom"
+      },
+      "state": "at-248-60+wait-400ms+at-100-60+wait-2000ms+wait-600ms",
+      "theme": "dark",
+      "viewport": [
+        300.0,
+        240.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        240.0,
+        200.0
+      ],
+      "png": "png/virtual/scroll-to.bottom/at-248-60+wait-400ms+at-100-60+wait-2000ms+wait-600ms/dark.png",
+      "scene": "scenes/virtual/scroll-to.bottom/at-248-60+wait-400ms+at-100-60+wait-2000ms+wait-600ms/dark.json",
+      "png_sha256": "ca33c3dc02ab051f9f2ec44f70f3354d8212baf337a4c33e3a90d4cb43a9f395"
+    },
+    {
+      "id": "virtual/scroll-to.bottom/at-248-60+wait-400ms+at-100-60+wait-2000ms+wait-600ms/light",
+      "component": "virtual",
+      "group": "scroll-to",
+      "params": {
+        "count": 1000,
+        "uniform": true,
+        "scroll_to": 500,
+        "strategy": "bottom"
+      },
+      "state": "at-248-60+wait-400ms+at-100-60+wait-2000ms+wait-600ms",
+      "theme": "light",
+      "viewport": [
+        300.0,
+        240.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        240.0,
+        200.0
+      ],
+      "png": "png/virtual/scroll-to.bottom/at-248-60+wait-400ms+at-100-60+wait-2000ms+wait-600ms/light.png",
+      "scene": "scenes/virtual/scroll-to.bottom/at-248-60+wait-400ms+at-100-60+wait-2000ms+wait-600ms/light.json",
+      "png_sha256": "97d860e407be102fd21272c9a3c0f75e49fc20d06497689de3b80f8a5bad3906"
+    },
+    {
+      "id": "virtual/scroll-to.center/at-248-60+wait-400ms+at-100-60+wait-2000ms+wait-600ms/dark",
+      "component": "virtual",
+      "group": "scroll-to",
+      "params": {
+        "count": 1000,
+        "uniform": true,
+        "scroll_to": 500,
+        "strategy": "center"
+      },
+      "state": "at-248-60+wait-400ms+at-100-60+wait-2000ms+wait-600ms",
+      "theme": "dark",
+      "viewport": [
+        300.0,
+        240.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        240.0,
+        200.0
+      ],
+      "png": "png/virtual/scroll-to.center/at-248-60+wait-400ms+at-100-60+wait-2000ms+wait-600ms/dark.png",
+      "scene": "scenes/virtual/scroll-to.center/at-248-60+wait-400ms+at-100-60+wait-2000ms+wait-600ms/dark.json",
+      "png_sha256": "13ba11c077755234666bdd86a03a186e18605967ff969895352f2bbc7800db29"
+    },
+    {
+      "id": "virtual/scroll-to.center/at-248-60+wait-400ms+at-100-60+wait-2000ms+wait-600ms/light",
+      "component": "virtual",
+      "group": "scroll-to",
+      "params": {
+        "count": 1000,
+        "uniform": true,
+        "scroll_to": 500,
+        "strategy": "center"
+      },
+      "state": "at-248-60+wait-400ms+at-100-60+wait-2000ms+wait-600ms",
+      "theme": "light",
+      "viewport": [
+        300.0,
+        240.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        240.0,
+        200.0
+      ],
+      "png": "png/virtual/scroll-to.center/at-248-60+wait-400ms+at-100-60+wait-2000ms+wait-600ms/light.png",
+      "scene": "scenes/virtual/scroll-to.center/at-248-60+wait-400ms+at-100-60+wait-2000ms+wait-600ms/light.json",
+      "png_sha256": "cb65cd023e31bacd600fd30a4cfeef2b657ebd669e1bf0c5402f712a54343037"
+    },
+    {
+      "id": "virtual/scroll-to.top/at-248-60+wait-400ms+at-100-60+wait-2000ms+wait-600ms/dark",
+      "component": "virtual",
+      "group": "scroll-to",
+      "params": {
+        "count": 1000,
+        "uniform": true,
+        "scroll_to": 500,
+        "strategy": "top"
+      },
+      "state": "at-248-60+wait-400ms+at-100-60+wait-2000ms+wait-600ms",
+      "theme": "dark",
+      "viewport": [
+        300.0,
+        240.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        240.0,
+        200.0
+      ],
+      "png": "png/virtual/scroll-to.top/at-248-60+wait-400ms+at-100-60+wait-2000ms+wait-600ms/dark.png",
+      "scene": "scenes/virtual/scroll-to.top/at-248-60+wait-400ms+at-100-60+wait-2000ms+wait-600ms/dark.json",
+      "png_sha256": "ca33c3dc02ab051f9f2ec44f70f3354d8212baf337a4c33e3a90d4cb43a9f395"
+    },
+    {
+      "id": "virtual/scroll-to.top/at-248-60+wait-400ms+at-100-60+wait-2000ms+wait-600ms/light",
+      "component": "virtual",
+      "group": "scroll-to",
+      "params": {
+        "count": 1000,
+        "uniform": true,
+        "scroll_to": 500,
+        "strategy": "top"
+      },
+      "state": "at-248-60+wait-400ms+at-100-60+wait-2000ms+wait-600ms",
+      "theme": "light",
+      "viewport": [
+        300.0,
+        240.0
+      ],
+      "anchor": [
+        16.0,
+        8.0
+      ],
+      "component_bounds": [
+        16.0,
+        8.0,
+        240.0,
+        200.0
+      ],
+      "png": "png/virtual/scroll-to.top/at-248-60+wait-400ms+at-100-60+wait-2000ms+wait-600ms/light.png",
+      "scene": "scenes/virtual/scroll-to.top/at-248-60+wait-400ms+at-100-60+wait-2000ms+wait-600ms/light.json",
+      "png_sha256": "97d860e407be102fd21272c9a3c0f75e49fc20d06497689de3b80f8a5bad3906"
+    },
+    {
       "id": "virtual/uniform.base/at-248-60+wait-400ms/dark",
       "component": "virtual",
       "group": "uniform",

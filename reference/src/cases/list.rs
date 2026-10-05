@@ -258,6 +258,9 @@ pub fn virtual_list(params: &Params) -> Result<Builder> {
     let height = param_f32(params, "height", 200.);
     let offset = param_f32(params, "offset", 0.);
     let uniform = param_bool(params, "uniform");
+    // VirtualListScrollHandle::scroll_to_item: Center, or the nearer edge for the rest.
+    let scroll_to = params.get("scroll_to").and_then(|v| v.as_u64()).map(|ix| ix as usize);
+    let strategy = strategy(params);
     let row = move |i: usize| if uniform { 34. } else { [30., 45., 60.][i % 3] };
     let sizes = Rc::new((0..count).map(|i| size(px(width), px(row(i)))).collect::<Vec<_>>());
     let handle = VirtualListScrollHandle::new();
@@ -265,6 +268,11 @@ pub fn virtual_list(params: &Params) -> Result<Builder> {
     Ok(Rc::new(move |_, _, cx| {
         if offset > 0. && !applied.replace(true) {
             handle.set_offset(point(px(0.), px(-offset)));
+        }
+        if let Some(ix) = scroll_to
+            && !applied.replace(true)
+        {
+            handle.scroll_to_item(ix, strategy);
         }
         let heights = sizes.clone();
         div()

@@ -7,7 +7,10 @@ using AvaloniaUIKit.Tests.Golden;
 
 namespace AvaloniaUIKit.Tests.Rendering;
 
-/// <summary>Adapters for uikit:TextLabel, uikit:Icon and uikit:AsyncImage (reference/src/cases/label.rs, icon.rs, image.rs).</summary>
+/// <summary>
+/// Adapters for uikit:TextLabel, uikit:Icon, uikit:AsyncImage and scrolling a
+/// virtual list to an item (reference/src/cases/label.rs, icon.rs, image.rs, list.rs).
+/// </summary>
 public static partial class Adapters
 {
     /// <summary>The uikit-label cases: the label cases' sizes, weights, colors and widths, highlights and the mask.</summary>
@@ -159,5 +162,21 @@ public static partial class Adapters
             "failed" => Task.FromException<IImage>(new IOException("missing")),
             _ => Task.FromResult<IImage>(new Bitmap(uri.LocalPath)),
         };
+    }
+
+    /// <summary>The virtual list cases, scrolled to `scroll_to` by `strategy` (GPUI's scroll_to_item).</summary>
+    private static ListBox VirtualListCase(GoldenCase c)
+    {
+        var list = VirtualList(c);
+        if (c.Has("scroll_to"))
+        {
+            list.ScrollToItem((int)c.Num("scroll_to", 0), c.Str("strategy", "top") switch
+            {
+                "center" => ScrollStrategy.Center,
+                "bottom" => ScrollStrategy.Bottom,
+                _ => ScrollStrategy.Top,
+            });
+        }
+        return list;
     }
 }
