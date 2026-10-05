@@ -13,6 +13,8 @@ public sealed partial class MainWindow : Window
         // A notification card, so its theme (converters and animations) runs too.
         Opened += (_, _) => new WindowNotificationManager(this) { MaxItems = 10 }
             .Show(new Notification("Gallery", "Every theme is loaded."), NotificationType.Information, TimeSpan.Zero);
+        // GPUI's scroll_to_item on a ListBox, waiting for the first layout.
+        this.FindControl<ListBox>("Fruits")!.ScrollToItem(2, ScrollStrategy.Center);
     }
 
     private void OnPreviousSlide(object? sender, RoutedEventArgs e) => this.FindControl<Carousel>("Slides")!.Previous();

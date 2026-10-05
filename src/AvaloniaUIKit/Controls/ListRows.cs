@@ -168,7 +168,7 @@ internal sealed class ListRows : ItemsControl
         foreach (var container in GetRealizedContainers())
         {
             var index = IndexFromContainer(container);
-            if (index >= 0 && RowSpan(container) is { } span && span.Top < bottom)
+            if (index >= 0 && ItemsScrolling.RowSpan(viewer, container) is { } span && span.Top < bottom)
             {
                 end = Math.Max(end, index + 1);
             }
@@ -176,8 +176,7 @@ internal sealed class ListRows : ItemsControl
         return end;
     }
 
-    private bool CanScroll() =>
-        Viewer is { } viewer && viewer.IsArrangeValid && viewer.Viewport.Height > 0 && Presenter?.Panel is not null;
+    private bool CanScroll() => ItemsScrolling.CanScroll(this, Viewer);
 
     private void ApplyScroll()
     {
@@ -187,84 +186,6 @@ internal sealed class ListRows : ItemsControl
         }
         _pendingScroll = null;
         _waitingForLayout = false;
-        var (index, strategy, mode) = request;
-        if (index < 0 || index >= ItemCount)
-        {
-            return;
-        }
-        var height = viewer.Viewport.Height;
-        var top = viewer.Offset.Y;
-        bool above, below;
-        if (ContainerFromIndex(index) is { } shown && RowSpan(shown) is { } span)
-        {
-            // uniform_list.rs: is the row above or below the rows in view.
-            above = span.Top < top - 0.01;
-            below = span.Bottom > top + height + 0.01;
-        }
-        else
-        {
-            var first = GetRealizedContainers().Select(IndexFromContainer).Where(i => i >= 0).DefaultIfEmpty(-1).Min();
-            above = first < 0 || index < first;
-            below = !above;
-        }
-        var place = strategy;
-        switch (mode)
-        {
-            case RowScrollMode.VirtualList when strategy != ScrollStrategy.Center:
-                // virtual_list.rs: anything but Center keeps a row in view and
-                // moves one out of view to the nearer edge.
-                if (!above && !below)
-                {
-                    return;
-                }
-                place = above ? ScrollStrategy.Top : ScrollStrategy.Bottom;
-                break;
-            case RowScrollMode.UniformList:
-                // uniform_list.rs (non-strict): a row in full view stays.
-                if (!above && !below)
-                {
-                    return;
-                }
-                if (strategy == ScrollStrategy.Nearest)
-                {
-                    place = above ? ScrollStrategy.Top : ScrollStrategy.Bottom;
-                }
-                break;
-            case RowScrollMode.Strict when strategy == ScrollStrategy.Nearest:
-                if (!above && !below)
-                {
-                    return;
-                }
-                place = above ? ScrollStrategy.Top : ScrollStrategy.Bottom;
-                break;
-        }
-
-        // Realizes the row at its place in the panel, then puts it where the strategy says.
-        ScrollIntoView(index);
-        if (ContainerFromIndex(index) is not { } container || RowSpan(container) is not { } row)
-        {
-            return;
-        }
-        var target = place switch
-        {
-            ScrollStrategy.Top => row.Top,
-            ScrollStrategy.Center => row.Top + row.Height / 2 - height / 2,
-            _ => row.Bottom - height,
-        };
-        var max = Math.Max(0, viewer.Extent.Height - height);
-        viewer.Offset = new Vector(viewer.Offset.X, Math.Clamp(target, 0, max));
-    }
-
-    /// <summary>
-    /// A container's box in the scroll viewer's content: its place in the items
-    /// presenter (which the scroll moves as a whole) below the presenter's margin.
-    /// </summary>
-    private Rect? RowSpan(Control container)
-    {
-        if (Presenter is not { } presenter || container.TranslatePoint(default, presenter) is not { } origin)
-        {
-            return null;
-        }
-        return new Rect(0, origin.Y + presenter.Margin.Top, container.Bounds.Width, container.Bounds.Height);
+        ItemsScrolling.Scroll(this, viewer, request.Index, request.Strategy, request.Mode);
     }
 }
