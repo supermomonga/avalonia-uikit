@@ -170,6 +170,13 @@ public static class Inputs
 
         public void Update()
         {
+            // A pattern that is not a regular expression fails where it is set.
+            var source = _box.GetValue(PatternProperty);
+            if (_regexSource != source)
+            {
+                _regex = source is null ? null : new Regex(source, RegexOptions.CultureInvariant);
+                _regexSource = source;
+            }
             var placeholder = IsSingleLine ? Mask.Placeholder : null;
             if (_box.PlaceholderText is null || _box.PlaceholderText == _maskPlaceholder)
             {
@@ -190,21 +197,7 @@ public static class Inputs
             {
                 return false;
             }
-            if (!Mask.IsValid(text))
-            {
-                return false;
-            }
-            var source = _box.GetValue(PatternProperty);
-            if (source is null)
-            {
-                return true;
-            }
-            if (_regexSource != source)
-            {
-                _regex = new Regex(source, RegexOptions.CultureInvariant);
-                _regexSource = source;
-            }
-            return _regex!.IsMatch(text);
+            return Mask.IsValid(text) && (_regex?.IsMatch(text) ?? true);
         }
 
         // Only a valid text is kept from going invalid, so a text that does not pass stays editable.
