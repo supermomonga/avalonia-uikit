@@ -1,37 +1,40 @@
 # GPUI Kit → Avalonia コンポーネント対応表
 
-調査日: 2026-09-11（固定点の更新: 2026-10-03、サードパーティのライブラリの追加: 2026-10-05）
+調査日: 2026-09-11（固定点の更新: 2026-10-03、サードパーティのライブラリと ADR 30 の機能の追加: 2026-10-05）
 
 ## 結論
 
-GPUI Kit の見た目を、Avalonia の既存コントロールに適用するテーマとして移植することは可能。配色だけでなく、`ControlTheme` と `ControlTemplate` を差し替えることで、余白、輪郭、内部の配置、状態表示、アニメーションも変更できる。ただし、**対応する既存コントロールの機能が上限**となる。
+GPUI Kit の見た目を、Avalonia の既存コントロールに適用するテーマとして移植することは可能。配色だけでなく、`ControlTheme` と `ControlTemplate` を差し替えることで、余白、輪郭、内部の配置、状態表示、アニメーションも変更できる。ただし、テーマで扱えるのは**対応する既存コントロールの機能まで**である。
 
-ボタン、入力欄、選択欄、タブ、メニュー、カレンダー、一覧、表、通知などは対象にできる。標準に存在しないコンポーネントのうち、見た目が中心で小さく作れるもの（Badge、Tag、Alert など）は新しいコントロールとして実装する（ADR 19）。標準を超える検索・選択・ドッキング・編集機能や、モーダル・可視化の仕組みは実装しない。ただし、ドッキングと D&D で並べ替えるタブは、それを持つサードパーティのライブラリ（Dock.Avalonia、Tabalonia）を使う人のために、別パッケージのテーマとして対応する（ADR 28）。対応表の「部分対応」は、記載した部分だけをテーマ化する意味であり、残りの機能を後から自作する予定を意味しない。
+ボタン、入力欄、選択欄、タブ、メニュー、カレンダー、一覧、表、通知などは対象にできる。標準に存在しないコンポーネントのうち、見た目が中心で小さく作れるもの（Badge、Tag、Alert など）は新しいコントロールとして実装する（ADR 19）。既存のコントロールが持たない GPUI Kit の機能（Select の検索、List のセクション、Calendar の複数月の表示など）は、既存のコントロールに付ける添付プロパティと新しいコントロールとして足す（ADR 30）。テキスト編集エンジンや OS の機能が要るもの、SVG とアニメーション画像の読み込み、keymap からの Action の解決、DataTable の機能、モーダル・コマンドパレット・可視化の仕組みは実装しない。ドッキングと D&D で並べ替えるタブは、それを持つサードパーティのライブラリ（Dock.Avalonia、Tabalonia）を使う人のために、別パッケージのテーマとして対応する（ADR 28）。対応表の「部分対応」は、既存のコントロールのテーマで扱う範囲を表す。テーマで扱えない機能のうち ADR 30 で足したものは、各行に添付プロパティと新しいコントロールの名前を書き、[ADR 30 で機能を足したもの](#adr-30-で機能を足したもの) にまとめた。
 
-この資料はもともと、移植範囲を決めるためのソース・資料調査として作った。その後、「対応」の 16 行と「部分対応」の 34 行（DataTable は `TableView` と DataGrid の 2 行）をテーマとして、「新規実装」の 19 行を新しいコントロールとして、サードパーティのライブラリの 2 行を別パッケージのテーマとして実装し、GPUI Kit との一致を自動テストで検証した（[実装状況](#実装状況)）。「部分対応」の各行に書いた範囲と対象外は、実装後もそのまま有効である。見た目だけのコードを認めた方針の改定（ADR 15）で対象に戻した動き（タブのインジケーター、自然高の reveal など）は、行の説明も改めた。
+この資料はもともと、移植範囲を決めるためのソース・資料調査として作った。その後、「対応」の 16 行と「部分対応」の 34 行（DataTable は `TableView` と DataGrid の 2 行）をテーマとして、「新規実装」の 19 行を新しいコントロールとして、サードパーティのライブラリの 2 行を別パッケージのテーマとして実装し、GPUI Kit との一致を自動テストで検証した（[実装状況](#実装状況)）。見た目だけのコードを認めた方針の改定（ADR 15）で対象に戻した動き（タブのインジケーター、自然高の reveal など）は、行の説明も改めた。さらに ADR 30 で「対応」「部分対応」の行に機能を足し、各行の対象外を、ADR 30 の後も扱わないものだけに書き直した。あわせて、Avalonia が持つのにテンプレートが描いていなかった機能（ComboBox の `IsEditable`、TextBox と ComboBox のクリアボタン、TextBox の右クリックメニュー、NumericUpDown の前後の内容、`DropDownButton`、表の空の表示など）をテーマで描くようにした。
 
 ## 実装状況
 
-2026-10-05 時点。「対応」と「部分対応」の全 50 行、「新規実装」の 19 行、サードパーティのライブラリの 2 行を実装し、GPUI Kit `2c5162f` が描いた参照データと比べて、Light / Dark、各 Variant・サイズ・状態、動きが一致することを自動テストで確かめた。本体のコントロールは `UIKitTheme`（`src/AvaloniaUIKit`）、公式の別パッケージのコントロールは別のアセンブリ（`src/AvaloniaUIKit.ColorPicker`、`src/AvaloniaUIKit.DataGrid`。ADR 16）、サードパーティのライブラリのテーマはそのライブラリごとのアセンブリ（`src/AvaloniaUIKit.Tabalonia`、`src/AvaloniaUIKit.Dock`。ADR 28）にある。全 3949 件のテストが成功している。検証の方法、許容値、緩和 ID の意味、利用側の約束は [テストと一致検証](../testing.md) にまとめた。
+2026-10-05 時点。「対応」と「部分対応」の全 50 行、「新規実装」の 19 行、サードパーティのライブラリの 2 行を実装し、ADR 30 で 34 のコンポーネントに機能を足した。GPUI Kit `2c5162f` が描いた参照データと比べて、Light / Dark、各 Variant・サイズ・状態、動きが一致することを自動テストで確かめた。本体のコントロールと ADR 30 の添付プロパティは `UIKitTheme`（`src/AvaloniaUIKit`）、公式の別パッケージのコントロールは別のアセンブリ（`src/AvaloniaUIKit.ColorPicker`、`src/AvaloniaUIKit.DataGrid`。ADR 16）、サードパーティのライブラリのテーマはそのライブラリごとのアセンブリ（`src/AvaloniaUIKit.Tabalonia`、`src/AvaloniaUIKit.Dock`。ADR 28）にある。全 <TOTAL_TESTS> 件のテストが成功している。検証の方法、許容値、緩和 ID の意味、利用側の約束は [テストと一致検証](../testing.md) にまとめた。
+<!-- TODO(shell): Notification と TitleBar の行を足したら「34 のコンポーネント」を 36 にする。 -->
+
+「静止ケース」は参照データの静止状態のケース数（Light / Dark と Aurora Light の合計）。「対象外とした機能」には、ADR 30 の後も扱わない機能を書く。ADR 30 で足した機能は、それを持つ添付プロパティと新しいコントロールの名前を添える（[ADR 30 で機能を足したもの](#adr-30-で機能を足したもの)）。GPUI と動きだけが違うもの（閉じるときのアニメーションなど）は「動きの差」と書く。
 
 ### 対応
 
 | GPUI Kit | Avalonia | 静止ケース | 動き（フレームごとの比較） | 固有の緩和 | 対象外とした機能 |
 | --- | --- | --- | --- | --- | --- |
-| Button | `Button` | 720 | – | R27 | loading、Custom variant、通常の Button への dropdown_caret、toggled |
-| DropdownButton | `SplitButton` | 150 | – | R12、R28 | Button と同じ |
+| Button | `Button`、`DropDownButton`（dropdown_caret） | 784、128 | – | R12、R27、R28 | –（loading とフォーカスを奪わない押下は `uikit:Buttons`） |
+| DropdownButton | `SplitButton` | 150 | – | R12、R28 | –（アクションの半分の loading は `uikit:Buttons.IsLoading`） |
 | Toggle | `ToggleButton` | 160 | – | – | – |
-| Checkbox | `CheckBox` | 80 | チェック記号のフェード（spring）、途中で戻したとき | R16、R27 | – |
-| Radio | `RadioButton` | 80 | チェック記号のフェード（spring） | R27 | – |
-| Switch | `ToggleSwitch` | 88 | つまみの移動（spring）、途中で戻したとき | R8 | 色の変更（`color()`） |
-| NumberInput | `NumericUpDown`、`ButtonSpinner` | 28 | – | R24、R25 | `ButtonSpinnerLocation`（GPUI と同じ [−] 値 [+] に固定） |
-| GroupBox | `GroupBox` | 10 | – | – | footer |
-| Scrollable / Scrollbar | `ScrollViewer`、`ScrollBar`、`Thumb` | 16 | 表示、2 秒後の消去、つまみの拡大、スクロールでの表示、Scrolling モード、つまみを直接指したときのスライド入場 | – | – |
-| Separator | `Separator` | 8 | – | – | label |
+| Checkbox | `CheckBox` | 86 | チェック記号のフェード（spring）、途中で戻したとき | R16、R27 | – |
+| Radio | `RadioButton` | 86 | チェック記号のフェード（spring） | R27 | – |
+| Switch | `ToggleSwitch` | 94 | つまみの移動（spring）、途中で戻したとき | R8 | – |
+| NumberInput | `NumericUpDown`、`ButtonSpinner` | 64 | – | R24、R25 | `ButtonSpinnerLocation`（GPUI と同じ [−] 値 [+] に固定）。入力の制限と値で変わる刻みは `uikit:NumberInput` |
+| GroupBox | `GroupBox` | 16 | – | – | –（footer は `uikit:GroupBoxes.Footer`） |
+| Scrollable / Scrollbar | `ScrollViewer`、`ScrollBar`、`Thumb` | 18 | 表示、2 秒後の消去、つまみの拡大、スクロールでの表示、Scrolling モード、つまみを直接指したときのスライド入場 | – | – |
+| Separator | `Separator` | 16 | – | – | –（label は `uikit:Separators.Label`） |
 | Link | `HyperlinkButton` | 6 | – | R18 | – |
-| Progress | `ProgressBar` | 24 | 値の変化、不定値の繰り返し | R19 | 色の変更（`color()`） |
-| Spinner | `ProgressBar`（`Theme="{StaticResource UIKitSpinner}"`） | 8 | 回転 | – | アイコン・速度・easing の変更 |
-| Tooltip | `ToolTip` | 4 | 表示（フェードとスライド） | R5、R21 | Action からのキー表示の解決、閉じる前の猶予、隣への切り替えスライド |
+| Progress | `ProgressBar` | 27 | 値の変化、不定値の繰り返し | R19 | – |
+| Spinner | `ProgressBar`（`Theme="{StaticResource UIKitSpinner}"`） | 14 | 回転 | – | easing の変更（`ease()`）。アイコンは `uikit:Spinners.Icon` |
+| Tooltip | `ToolTip` | 4 | 表示（フェードとスライド） | R5、R21 | Action からのキー表示の解決。閉じる前の猶予と隣への切り替えスライドは動きの差 |
 | Menu / ContextMenu / DropdownMenu | `ContextMenu`、`MenuFlyout`、`MenuItem` | 14 | – | R12、R22、R28 | link 項目 |
 | AppMenuBar | `Menu` | 4 | – | R28 | – |
 
@@ -41,40 +44,41 @@ GPUI Kit の見た目を、Avalonia の既存コントロールに適用する�
 
 | GPUI Kit | Avalonia | 静止ケース | 動き（フレームごとの比較） | 固有の緩和 | 対象外とした機能 |
 | --- | --- | --- | --- | --- | --- |
-| ButtonGroup | `StackPanel Classes="button-group"` の `Button` | 86 | – | R27 | グループ単位の操作 API |
-| ToggleGroup | `ListBox Classes="toggle-group"` | 76 | – | – | GPUI の選択ルール（`SelectionMode` でアプリが決める） |
-| Input | `TextBox` | 80 | – | R24、R25 | GPUI の検証・マスク構文、Esc でのクリア、インライントークン |
-| Textarea | `TextBox`（`AcceptsReturn`） | 42 | – | R25 | 検索 UI、インライントークン |
-| InputGroup | `TextBox Classes="group"` | 54 | フォーカスの色（HSLA の補間） | R25 | `BlockStart` / `BlockEnd` |
-| Slider | `Slider` | 52 | つまみのリングの表示・消去・途中で戻したとき | R30 | Range Slider。トラックを押している間の active 色（GPUI もつまみが先に動くので描かない） |
-| Select | `ComboBox` | 68 | 開くとき（スライドとフェード） | R5、R12 | ポップアップ内の検索欄、グループ、クリア |
-| Combobox | `ComboBox Classes="combobox"`、`AutoCompleteBox` | 24 | 開くとき | R5、R12 | 複数選択とチップ、独自の検索 |
-| List | `ListBox` | 24 | – | R29 | 内蔵検索、追加取得、並べ替えの D&D |
-| Tree | `TreeView` | 22 | – | – | GPUI のデータモデルと仮想化 |
-| Calendar | `Calendar` | 52 | – | R7（「今日」の固定） | 複数月の表示、20 年の年グリッド（Avalonia は 12 年）、月ごとに 4〜6 行の週（Avalonia は常に 6 行） |
-| DatePicker | `CalendarDatePicker` | 60 | 開くとき | R5、R7、R12 | 日付の範囲、プリセット、時刻の同時編集 |
-| TimeField | `TimePicker` | 46 | – | – | 欄内のセグメントの直接編集（フォーカスで時を選んだ見た目だけ付ける）。開いたピッカーは Avalonia のもの |
-| Table | `TableView`（`Theme="{StaticResource UIKitTable}"`） | 22 | – | – | `TableFooter` / `TableCaption` |
-| DataTable | `TableView` | 44 | – | – | ソート、列の移動・固定、セル範囲選択、無限読み込み。右クリックした行の枠（Avalonia は右ボタンで行を選択する） |
-| VirtualList | `ListBox`、`VirtualizingStackPanel` | 12 | – | – | スクロールハンドル、二次元の仮想化 |
-| Tabs / TabBar / Tab | `TabStrip`、`TabControl` | 100 | pill / segmented / underline のインジケーター、途中で戻したとき（`TabControl` も） | R8 | タブを閉じる操作、D&D（どちらも Tabalonia のテーマで対応） |
-| Accordion | `Expander`、`StackPanel Classes="accordion"` | 32 | 開く・閉じる・途中で戻したとき | R8 | 常に 1 項目だけを開く排他制御 |
+| ButtonGroup | `StackPanel Classes="button-group"` の `Button` | 86 | – | R27 | –（グループのクラスの受け渡し、選択とクリックの報告は `uikit:ButtonGroup`） |
+| ToggleGroup | `ListBox Classes="toggle-group"` | 76 | – | – | –（各トグルを Tab で移り、矢印キーで移らないキー操作は `uikit:ToggleGroup`） |
+| Input | `TextBox` | 116 | – | R24、R25 | インライントークン、自動入力のヒント（`content_type`）、IME の未確定の文字の検証、右クリックでのキャレットの移動。検証・マスク・Esc でのクリアは `uikit:Inputs` |
+| Textarea | `TextBox`（`AcceptsReturn`） | 42 | – | R25 | 検索 UI、インライントークン、複数カーソル。インデントは `uikit:Inputs.TabSize` |
+| InputGroup | `TextBox Classes="group"` | 54 | フォーカスの色（HSLA の補間） | R25 | –（`BlockStart` / `BlockEnd` の行は `uikit:InputGroup`、ボタンの loading は `uikit:Buttons.IsLoading`） |
+| Slider | `Slider` | 55 | つまみのリングの表示・消去・途中で戻したとき | R30 | トラックを押している間の active 色（GPUI もつまみが先に動くので描かない）。範囲と対数スケールは `uikit:RangeSlider` |
+| Select | `ComboBox` | 90 | 開くとき（スライドとフェード） | R5、R12 | –（ポップアップ内の検索欄、グループ、複数選択は `uikit:Select`） |
+| Combobox | `ComboBox Classes="combobox"`、`AutoCompleteBox` | 24 | 開くとき | R5、R12 | チェックの差し替え（`check_icon`）。検索欄、複数選択、footer、`render_trigger` は `uikit:Select`（`combobox` クラス） |
+| List | `ListBox` | 24 | – | R29 | `render_initial`、検索中のスピナー、区切りの項目（`ListItem::separator`、`ListSeparatorItem`）。セクション、検索欄、確定、追加取得、読み込み中の表示は `uikit:ListView` |
+| Tree | `TreeView` | 22 | – | – | –（平坦化した行の仮想化と GPUI のキー操作は `uikit:Tree`） |
+| Calendar | `Calendar` | 55 | – | R7（「今日」の固定） | 年の範囲の変更（`set_year_range`）。複数月の表示、20 年の年グリッド（Avalonia は 12 年）、月ごとに 4〜6 行の週（Avalonia は常に 6 行）、曜日と関数での無効な日は `uikit:CalendarView` |
+| DatePicker | `CalendarDatePicker` | 60 | 開くとき | R5、R7、R12 | 時刻付きのプリセット、年の範囲の変更。日付の範囲、プリセット、時刻の同時編集、クリアボタンは `uikit:DateField` |
+| TimeField | `TimePicker` | 46 | – | – | –（欄内のセグメントの直接編集は `uikit:TimeField`。`TimePicker` の開いたピッカーは Avalonia のもの） |
+| Table | `TableView`（`Theme="{StaticResource UIKitTable}"`） | 26 | – | – | –（宣言的な部品、列の結合、`TableFooter` / `TableCaption` は `uikit:Table`） |
+| DataTable | `TableView` | 52 | – | – | ソート、列の移動・固定・最小幅・最大幅、列とセルの選択、多段の列見出し、読み込み中の表示、無限読み込み（DataTable の機能は ADR 30 でも範囲外）。右クリックした行の枠（Avalonia は右ボタンで行を選択する） |
+| VirtualList | `ListBox`、`VirtualizingStackPanel` | 22 | – | – | –（`scroll_to_item` の Center は `ItemsScrolling.ScrollToItem`） |
+| Tabs / TabBar / Tab | `TabStrip`、`TabControl` | 110 | pill / segmented / underline のインジケーター、途中で戻したとき（`TabControl` も） | R8 | –（prefix と suffix は `uikit:Tabs.Prefix` / `Suffix`。溢れたタブのスクロールとタブの一覧のメニューはテーマ） |
+| Accordion | `Expander`、`StackPanel Classes="accordion"` | 32 | 開く・閉じる・途中で戻したとき | R8 | –（1 項目だけを開く制御は `uikit:Accordion`） |
 | Collapsible | `Expander`（`Theme="{StaticResource UIKitCollapsible}"`） | 16 | 開く・閉じる・即時・途中で戻したとき | R8 | – |
-| Carousel | `Carousel`、`PipsPager Classes="carousel"` | 22 | 次・前のページ送り（`uikit:SpringSlide`） | R8 | ページ番号での複数ページ飛び、途中での反転、ループ、ドラッグ・ホイール |
-| Pagination | `PipsPager` | 42 | – | – | 省略記号付きの番号生成 |
-| Resizable | `GridSplitter` | 30 | pill の hover・離脱・押下・ドラッグ・解放 | R30 | パネルの登録・保存・復元 |
-| Sidebar | `SplitView`、`DrawerPage` | 22 | icon の折り畳み・展開（左右）、offcanvas の折り畳み・展開 | – | SidebarMenu、バッジ、途中で戻したときに GPUI が前の目標へ飛ぶ動き、offcanvas の 200ms 後のアンマウント |
-| Sheet | `DrawerPage Classes="sheet"` | 28 | 4 方向の滑り込み | – | 複数の sheet、ドラッグでのサイズ変更 |
-| Toolbar | `CommandBar` | 50 | – | – | 任意の要素と伸縮スペーサー、`ToolbarGroup` |
-| Label | `TextBlock Classes="label"`、`Label` | 40 | – | R10（解消） | 検索一致の強調、マスク |
-| Icon | `PathIcon`（37 個の Lucide アイコン） | 154 | – | – | 任意 SVG の読み込み、`IconName` 互換 API |
-| Image | `Image` | 20 | – | R31 | URL の取得、失敗時の画像、枠より縦長の画像（GPUI が枠に収めない） |
-| ProgressCircle | `ProgressBar`（`Theme="{StaticResource UIKitProgressCircle}"`） | 42 | 値の変化、不定値 | – | 色の変更、中央のコンテンツ |
-| Popover | `Flyout`、`FlyoutPresenter` | 38 | 開くとき | R12 | 閉じるアニメーション |
+| Carousel | `Carousel`、`PipsPager Classes="carousel"` | 22 | 次・前のページ送り（`uikit:SpringSlide`） | R8 | –（ドラッグ・ホイール・トラックパッドと、複数ページ先への移動・途中での反転・ループの動きは `uikit:Carousels.TracksPointer`、前後のボタンは `uikit:CarouselPrevious` / `uikit:CarouselNext`） |
+| Pagination | `PipsPager` | 42 | – | – | –（省略記号付きの番号と、省略したページのメニューは `uikit:Pagination`） |
+| Resizable | `GridSplitter` | 30 | pill の hover・離脱・押下・ドラッグ・解放 | R30 | 状態の共有（`with_state`、`adopt_sizes`）。パネルの登録、連鎖するリサイズ、サイズの範囲は `uikit:ResizablePanelGroup` |
+| Sidebar | `SplitView`、`DrawerPage` | 22 | icon の折り畳み・展開（左右）、offcanvas の折り畳み・展開 | – | 項目の仮想化（`list()`）。途中で戻したときに GPUI が前の目標へ飛ぶ動きは動きの差。SidebarMenu、項目の suffix（バッジ）、offcanvas の 200ms 後の非表示は `uikit:Sidebar` |
+| Sheet | `DrawerPage Classes="sheet"` | 28 | 4 方向の滑り込み | – | –（コードからウィンドウの上に開く使い方は `uikit:Sheet`） |
+| Toolbar | `CommandBar` | 50 | – | – | 矢印キーの移動だけを止める `disabled`。任意の要素、伸縮スペーサー、`ToolbarGroup` は `uikit:Toolbar` |
+| Label | `TextBlock Classes="label"`、`Label` | 40 | – | R10（解消） | –（検索一致の強調とマスクは `uikit:TextLabel`） |
+| Icon | `PathIcon`（109 個の Lucide アイコン） | 154 | – | – | 任意 SVG の読み込み（ADR 30 でも範囲外）。`IconName` は `uikit:Icon` |
+| Image | `Image` | 20 | – | R31 | SVG とアニメーション画像（ADR 30 でも範囲外）、`grayscale`、枠より縦長の画像（GPUI が枠に収めない）。URL の取得、読み込み中と失敗時の内容は `uikit:AsyncImage` |
+| ProgressCircle | `ProgressBar`（`Theme="{StaticResource UIKitProgressCircle}"`） | 44 | 値の変化、不定値 | – | –（中央の内容は `uikit:ProgressCircles.Content`） |
+| Popover | `Flyout`、`FlyoutPresenter` | 38 | 開くとき | R12 | –（閉じるアニメーションは動きの差） |
 | Notification | `WindowNotificationManager`、`NotificationCard` | 34 | 入場・退場 | R3、R5、R30 | 通知ごとの配置、重複排除、重なりの展開と並べ直し |
 | TitleBar / WindowBorder | `WindowDrawnDecorations` | 6 | – | R7、R14、R32 | 任意のコンテンツ、OS が描く装飾 |
-| ColorPicker | `ColorPicker`（`UIKitColorPickerTheme`） | 42 | – | – | GPUI 独自のパレット・featured 行・HSL スライダー（標準の `FluentColorPalette` と RGB / HSV の成分）。ポップオーバーは挙動テストで確かめる |
-| DataTable | `DataGrid`（`UIKitDataGridTheme`） | 36 | – | R28 | セル範囲選択、無限取得。DataGrid 本体がトリム非対応なので NativeAOT は保証しない |
+| ColorPicker | `ColorPicker`（`UIKitColorPickerTheme`） | 42 | – | – | –（GPUI のパレット・featured 行・HSLA のスライダーと、色なしの値は本体の `uikit:ColorSelect`）。ポップオーバーは挙動テストで確かめる |
+| DataTable | `DataGrid`（`UIKitDataGridTheme`） | 56 | – | R28 | 列の選択、多段の列見出し、読み込み中の表示、無限取得（ADR 30 でも範囲外）。セルの選択は選択行の current cell として描く（`cell-selectable`）。DataGrid 本体がトリム非対応なので NativeAOT は保証しない |
+<!-- TODO(shell): Notification と TitleBar / WindowBorder の行の対象外を、uikit:NotificationList と uikit:TitleBar で足したものに合わせて書き直す。 -->
 
 ### 新規実装
 
@@ -86,7 +90,7 @@ Avalonia に対応するコントロールがないため、新しいコント�
 | Tag | `uikit:TagLabel` | 82 | – | – | 任意の色の組み合わせ（`TagVariant::Custom`。Background などを直接指定すれば描ける） |
 | Alert | `uikit:Alert` | 46 | – | R34 | メッセージの Markdown（TextView） |
 | Skeleton | `uikit:Skeleton` | 8 | 明滅 | – | – |
-| StatusBar | `uikit:StatusBar` | 8 | – | – | – |
+| StatusBar | `uikit:StatusBar` | 9 | – | – | – |
 | Breadcrumb | `uikit:Breadcrumb`、`uikit:BreadcrumbItem` | 8 | – | – | – |
 | Kbd | `uikit:Kbd` | 16 | – | R22 | Action からのキーの解決 |
 | Clipboard | `uikit:Clipboard` | 18 | – | – | 値を関数で渡す `value_fn`（クリック時に `Text` を設定すれば同じ） |
@@ -94,7 +98,7 @@ Avalonia に対応するコントロールがないため、新しいコント�
 | Avatar / AvatarGroup | `uikit:Avatar`、`uikit:AvatarGroup` | 36、10 | – | R33 | URL からの画像の取得 |
 | Empty | `uikit:EmptyState` | 8 | – | R34 | 破線の枠 |
 | DescriptionList | `uikit:DescriptionList`、`uikit:DescriptionItem`、`uikit:DescriptionSeparator` | 16 | – | – | – |
-| Stepper | `uikit:Stepper`、`uikit:StepperItem` | 24 | – | – | – |
+| Stepper | `uikit:Stepper`、`uikit:StepperItem` | 26 | – | – | – |
 | Form / Field | `uikit:Form`、`uikit:FormField` | 12 | – | – | 列の開始・終了位置の指定（`col_start` / `col_end`）、ラベルの文字サイズの変更 |
 | HoverCard | `uikit:HoverCard` | 8 | – | R9 | タップで開く `tap_to_open`、`appearance(false)` |
 | Shimmer / ShimmerText | `uikit:ShimmerText` | 6 | スイープ、逆向き（Light / Dark） | – | 複数の ShimmerText の位相をアプリの時計でそろえる（GPUI の repeat_synced）、絶対値の帯幅 |
@@ -102,13 +106,55 @@ Avalonia に対応するコントロールがないため、新しいコント�
 | Bubble | `uikit:Bubble` | 28 | – | – | リアクションに置く Button の自動の丸め |
 | Message / MessageGroup | `uikit:Message` | 10 | – | – | MessageGroup（StackPanel の Spacing 8 で同じ）、ヘッダー・フッターの inset の個別指定 |
 
+### ADR 30 で機能を足したもの
+
+既存のコントロールのテーマで扱えない GPUI Kit の機能を、添付プロパティと新しいコントロールとして足した（ADR 30）。どれも `UIKitTheme` に含まれ、NativeAOT のギャラリーにも入っている。標準のコントロールのテーマはそのまま残り、機能はアプリが添付プロパティや新しいコントロールを使ったときだけ加わる。テーマの修正で Avalonia の機能を描くようにしたもののうち、別のケースで比べるもの（`DropDownButton`、TextBox の右クリックメニュー）もここに書く。差し込み口の添付プロパティ（GroupBox、Separator、ProgressCircle、Spinner）と `ItemsScrolling` のケースは元のコンポーネントのケースに含まれ、ここにはそのうちの数を書く。
+
+| GPUI Kit | Avalonia | 静止ケース | 動き（フレームごとの比較） | 固有の緩和 | 対象外とした機能 |
+| --- | --- | --- | --- | --- | --- |
+| Button | `uikit:Buttons.IsLoading` / `LoadingIcon` / `TakesFocusOnPointer`（`Button` とその派生型）、`DropDownButton`（dropdown_caret。テーマ） | 356、128 | – | R12、R27、R28 | – |
+| DropdownButton | `SplitButton` の `uikit:Buttons.IsLoading`（アクションの半分） | 72 | – | R12、R28 | – |
+| ButtonGroup | `uikit:ButtonGroup` | 126 | – | R27 | – |
+| ToggleGroup | `uikit:ToggleGroup` | 88 | – | – | – |
+| Input | `TextBox` の `uikit:Inputs.Pattern` / `Validate` / `MaskPattern` / `CleanOnEscape`、右クリックメニュー（テーマ） | 18、8 | – | R12、R22、R24、R25、R28 | インライントークン、自動入力のヒント（`content_type`）、IME の未確定の文字の検証、右クリックでのキャレットの移動 |
+| Textarea | `TextBox` の `uikit:Inputs.TabSize` / `HardTabs` | 10 | – | R25 | 検索 UI、インライントークン、複数カーソル |
+| InputGroup | `uikit:InputGroup`、`uikit:InputGroupAddon`、`TextBox.group` の Button の `uikit:Buttons.IsLoading` | 76、20 | フォーカスの色 | R25 | アドオンの muted の文字（`InputGroupText`）、アドオンのボタンの色違い |
+| NumberInput | `uikit:NumberInput`（`NumericUpDown` の派生） | 46 | – | R24、R25 | – |
+| Slider | `uikit:RangeSlider` | 93 | つまみのリング（範囲の終点も） | R30 | – |
+| Select | `uikit:Select`、`uikit:SelectGroup` | 118 | 開くとき | R5、R12 | – |
+| Combobox | `uikit:Select Classes="combobox"` | 54 | 開くとき | R5、R12 | チェックの差し替え（`check_icon`） |
+| List | `uikit:ListView`、`uikit:ListItem`、`uikit:ListSection` | 68 | – | R29 | `render_initial`、検索中のスピナー、区切りの項目 |
+| Tree | `uikit:Tree`、`uikit:TreeItem` | 54 | – | – | – |
+| Calendar | `uikit:CalendarView` | 113 | – | R7 | 年の範囲の変更（`set_year_range`。今日の前後 50 年） |
+| DatePicker | `uikit:DateField` | 114 | 開くとき | R5、R7、R12 | 時刻付きのプリセット、年の範囲の変更 |
+| TimeField | `uikit:TimeField` | 80 | – | R16 | – |
+| Table | `uikit:Table` と部品（`TableHeader`、`TableBody`、`TableFooter`、`TableRow`、`TableHead`、`TableCell`、`TableCaption`） | 42 | – | – | – |
+| VirtualList | `ItemsScrolling.ScrollToItem` | 10 | – | – | – |
+| Tabs / TabBar / Tab | `TabStrip` / `TabControl` の `menu` クラス（`uikit:TabsMenuButton`）と溢れたタブのスクロール、`uikit:Tabs.Prefix` / `Suffix` | 38 | – | R12、R28 | – |
+| Accordion | `uikit:Accordion` | 40 | 開く・閉じる・途中で戻したとき、1 項目だけを開くとき | R8 | – |
+| Carousel | `uikit:Carousels.TracksPointer`（`uikit:CarouselTrack`）、`uikit:CarouselPrevious` / `uikit:CarouselNext` | 38 | 次・前・2 ページ先・ループの折り返し・ドラッグを離した後 | R8、R38 | 1 ページに複数のアイテムを並べる表示（`ViewportFraction` はトラックでは使えない） |
+| Pagination | `uikit:Pagination` | 70 | – | R12、R28、R37 | – |
+| GroupBox | `uikit:GroupBoxes.Footer` | 6 | – | – | – |
+| Resizable | `uikit:ResizablePanelGroup`、`uikit:ResizablePanel` | 60 | pill の hover・離脱・押下・ドラッグ・解放 | R30 | 状態の共有（`with_state`、`adopt_sizes`）、伸びないパネルのスタイル（`flex_none()` など） |
+| Sidebar | `uikit:Sidebar`、`uikit:SidebarHeader`、`uikit:SidebarFooter`、`uikit:SidebarGroup`、`uikit:SidebarMenu`、`uikit:SidebarMenuItem`、`uikit:SidebarToggleButton` | 52 | icon の折り畳み・展開（左右）、offcanvas の折り畳み・展開、メニューの折り畳み | – | 項目の仮想化（`list()`）、ラベルだけのスタイル（`label_style`）。途中で戻したときに GPUI が前の目標へ飛ぶ動きは動きの差 |
+| Sheet | `uikit:Sheet` | 40 | 4 方向の滑り込み | – | – |
+| Toolbar | `uikit:Toolbar`、`uikit:ToolbarGroup`、`uikit:ToolbarSpacer`、`uikit:Toolbar.TakesSize` | 72 | – | – | 矢印キーの移動だけを止める `disabled` |
+| Separator | `uikit:Separators.Label` | 8 | – | – | – |
+| Label | `uikit:TextLabel` | 56 | – | – | – |
+| Icon | `uikit:Icon`、`IconName`（106 個） | 162 | – | – | 任意 SVG の読み込み、`gpui_kit_assets` の全アイコン（1830 個）、サイズを指定しないアイコンを文字の大きさにすること（16px になる） |
+| Image | `uikit:AsyncImage`、`ImageLoader` | 28 | – | R31 | SVG とアニメーション画像、`grayscale`、失敗した読み込みの保持（次の画像で読み直す） |
+| ProgressCircle | `uikit:ProgressCircles.Content` | 2 | – | – | – |
+| Spinner | `uikit:Spinners.Icon` | 6 | – | – | easing の変更（`ease()`） |
+| ColorPicker / ColorSelect | `uikit:ColorSelect`、`uikit:ColorSwatch` | 84 | – | R12 | – |
+<!-- TODO(shell): Notification（uikit:NotificationList、uikit:NotificationItem）と TitleBar（uikit:TitleBar）の行を足す。 -->
+
 ### サードパーティのライブラリ
 
 そのライブラリを使う人のための別パッケージにある（ADR 28）。パッケージは 1 つの版（Tabalonia 12.0.0、Dock.Avalonia 12.1.0.6）に固定する。
 
 | GPUI Kit | Avalonia | 静止ケース | 動き（フレームごとの比較） | 固有の緩和 | 対象外とした機能 |
 | --- | --- | --- | --- | --- | --- |
-| Tabs / TabBar / Tab | Tabalonia の `TabsControl`、`DragTabItem`（`UIKitTabaloniaTheme`） | 172 | pill / segmented / underline のインジケーター。ドラッグしたタブにはばねなしで付いていく | R8 | 文字の幅に合わせたタブの幅（Tabalonia はすべてのタブを `TabItemWidth` の 1 つの幅に並べる）、並べ替え先の挿入線（Tabalonia はドラッグ中にその場で並べ替える） |
+| Tabs / TabBar / Tab | Tabalonia の `TabsControl`、`DragTabItem`（`UIKitTabaloniaTheme`） | 172 | pill / segmented / underline のインジケーター。ドラッグしたタブにはばねなしで付いていく | R8 | 文字の幅に合わせたタブの幅（Tabalonia はすべてのタブを `TabItemWidth` の 1 つの幅に並べる）、並べ替え先の挿入線（GPUI では Dock の TabPanel が描く。Tabalonia はドラッグ中にその場で並べ替える） |
 | Dock / DockArea / Panel / TabPanel | Dock.Avalonia の `DockControl` と各部品（`UIKitDockTheme`） | 26 | – | R5、R35、R36 | グループのズーム、左右・下のドックの開閉ボタン。浮いたウィンドウとピン留めの帯は GPUI にないので、GPUI の部品で描くが比べていない。Dock.Avalonia が trim 非対応なので NativeAOT は保証しない |
 
 ### 共通
@@ -116,8 +162,9 @@ Avalonia に対応するコントロールがないため、新しいコント�
 - 全コンポーネントに共通の緩和: R1（文字のラスタライズ）、R2（縁の AA）、R3（影）、R4（アイコン）、R7（仮想時計がない）、R9（レイアウトの丸め）、R11（色の量子化）、R13（システムフォント）、R14（参照データは macOS で生成）、R15（参照生成器の時計パッチ）、R17（rem は 16 固定）。
 - 静止ケースはすべて Light / Dark の両方で比べる（Tooltip のサイズ違いを除く）。テーマを FluentTheme の上に重ねても同じ見た目になることも確かめている。
 - テーマの既定フォントはシステム UI フォント。検証は同梱の Inter で行っている（R13）。
-- NativeAOT で publish したギャラリー（`samples/AvaloniaUIKit.AotSmoke`）で、DataGrid と Dock を除く全コントロール（新規実装と Tabalonia を含む）が警告なしにビルドでき、描画できることを確かめている。
+- NativeAOT で publish したギャラリー（`samples/AvaloniaUIKit.AotSmoke`）で、DataGrid と Dock を除く全コントロール（新規実装、ADR 30 のコントロールと添付プロパティ、Tabalonia を含む）が警告なしにビルドでき、描画できることを確かめている。
 - テーマで書けない見た目と動きは、見た目だけを動かす Behavior と値変換で補った（ADR 15、ADR 17）。一覧は [テストと一致検証](../testing.md#見た目だけのコード) にある。
+- 既存のコントロールにない機能は、アプリが設定したときだけ挙動を変える添付プロパティと、新しいコントロールで足した（ADR 30）。一覧は [テストと一致検証](../testing.md#機能を足したコントロールと添付プロパティ) にある。
 
 ## 調査対象と判定基準
 
@@ -136,7 +183,7 @@ Avalonia に対応するコントロールがないため、新しいコント�
 | Avalonia 本体 | `Avalonia.Controls` と標準の描画・レイアウト・アニメーション機構。テーマの基本対象。`Primitives`、`Notifications`、`Chrome` 名前空間の公開型も含む。 |
 | 公式の別パッケージ | `Avalonia.Controls.ColorPicker`、`Avalonia.Controls.DataGrid`。既存コントロールへのテーマ適用は可能だが、追加参照が必要なため別表に記載する。 |
 | サードパーティのライブラリ | Tabalonia、Dock.Avalonia。本体が依存しない別パッケージ（`AvaloniaUIKit.Tabalonia`、`AvaloniaUIKit.Dock`）で、ライブラリの 1 つの版に固定してテーマを付ける（2026-10-05 に追加。ADR 28）。ライブラリのテンプレートの約束に GPUI の部品を置けないところだけ、パッケージにコントロールを足す（ADR 29）。 |
-| 本体・上記のパッケージにないもの | 原則として非対応。見た目が中心で小さく作れるものだけ、新規実装として新しいコントロールを作る（ADR 19）。FluentAvalonia、上記以外の第三者製コントロール、Avalonia Pro の Charts / TreeDataGrid / Markdown 等を導入して対象を広げない。公式サイトに紹介ページがあることだけでは、本体標準とは判定しない。 |
+| 本体・上記のパッケージにないもの | 原則として非対応。見た目が中心で小さく作れるものだけ、新規実装として新しいコントロールを作る（ADR 19）。既存のコントロールが持たない機能は、添付プロパティと新しいコントロールで足す（2026-10-05 に追加。ADR 30）。FluentAvalonia、上記以外の第三者製コントロール、Avalonia Pro の Charts / TreeDataGrid / Markdown 等を導入して対象を広げない。公式サイトに紹介ページがあることだけでは、本体標準とは判定しない。 |
 
 判定は **対応**、**部分対応**、**新規実装**、**非対応** の四つ。前二つは既存のコントロールのテーマ、新規実装は新しいコントロール（2026-10-04 に追加。ADR 19）、最後が対象外となる。
 
@@ -144,9 +191,13 @@ Avalonia に対応するコントロールがないため、新しいコント�
 - テンプレート内の `Border`、`Path`、`TextBlock` 等の利用は可能。既存の状態・プロパティ・テンプレート部品に結び付ける。
 - 見た目だけを変えるコードは使える（2026-10-03 に改定。ADR 15）。
   - 使えるもの: 状態を持たない値変換（Converter）と、既存のコントロールの状態やイベントを読んで見た目のプロパティだけを動かす添付プロパティ型の Behavior。どちらもテーマのスタイルから適用し、アプリはテーマを追加するだけで使える。
-  - 作らないもの: 新規コントロール（2026-10-04 から、小さなコンポーネントに限って新規実装として作る。ADR 19）、コントロールの論理的な状態や操作を変える処理（ポップアップを閉じるのを遅らせる等）、選択・検索・データ管理の機能。
+  - 作らないもの: 新規コントロール（2026-10-04 から、小さなコンポーネントに限って新規実装として作る。ADR 19）、コントロールの論理的な状態や操作を変える処理（ポップアップを閉じるのを遅らせる等）、選択・検索・データ管理の機能。後の二つは、2026-10-05 から、アプリが設定する添付プロパティと新しいコントロールでは作る（ADR 30。下の項目）。
   - 条件: NativeAOT で動き、リフレクションを使わず、参照データとの比較テストで検証する。
   - 改定前は「独自のアニメーション処理を作らない」としていたため、ばねの途中反転やスクロール中だけ表示するスクロールバーを対象外にしていた。各行の「対象外」のうち、この条件で表せる見た目・動きは対象に戻す。
+- 既存のコントロールにない機能は、添付プロパティと新しいコントロールとして足せる（2026-10-05 に追加。ADR 30）。
+  - 既存のコントロールにそのまま足せる機能は、そのコントロールに付ける添付プロパティにし、アプリが設定したときだけ挙動を変える（`uikit:Buttons`、`uikit:Inputs` など）。テンプレートに差し込み口を足すだけのものは、値を置く添付プロパティとテーマのテンプレートにする（`uikit:GroupBoxes.Footer` など）。
+  - 構成や操作が既存のコントロールと違うものは、新しいコントロールにする（`uikit:Select`、`uikit:ListView` など）。中の Button、TextBox、ListBox、Popup などはテーマ済みの標準のコントロールを使う。
+  - 範囲外: テキスト編集エンジンが要るもの（インライントークン、複数カーソル、TextBox の中の検索）、OS の機能が要るもの（自動入力のヒント、OS の通知）、SVG とアニメーション画像の読み込み、keymap からの Action の解決、DataTable の機能、ADR 19 で範囲外にしたもの。
 - `Border` や `ItemsControl` を組み合わせれば描ける、という理由だけで標準に存在すると判定しない。`Badge` や `Breadcrumb` のような専用の構成は、既存のコントロールの対応ではなく、新規実装として扱う。
 - アプリによる通常のデータバインディング、コマンド、内容の指定は必要。テーマがアプリのデータ取得や業務処理を代行するものではない。
 
@@ -158,69 +209,70 @@ Avalonia に対応するコントロールがないため、新しいコント�
 
 | GPUI Kit | 判定 | Avalonia の対応先 | テーマで移植する範囲／対象外 |
 | --- | --- | --- | --- |
-| [Button][gp-button] | 対応 | [`Button`][av-button] | 色違い、outline / ghost / link 風の表示、サイズ、アイコンを含む内容、hover / pressed / focus / disabled。`loading` 専用 API や非同期処理との連携は追加しない。 |
-| ButtonGroup（Button の子部品） | 部分対応 | `Button`、標準 Panel | 各ボタンと、通常のレイアウトで隣接させたときの外観。専用のグループ型・グループ単位の操作 API は作らない。 |
-| [DropdownButton][gp-dropdown_button] | 対応 | [`SplitButton`][av-split-button] | 主操作とメニューを開く操作が独立した二分割ボタン。名称の似た `DropDownButton` は全体がメニュー起動ボタンなので対応先を分ける。 |
+| [Button][gp-button] | 対応 | [`Button`][av-button]、[`DropDownButton`][av-drop-down-button]、`uikit:Buttons` | 色違い、outline / ghost / link 風の表示、サイズ、アイコンを含む内容、hover / pressed / focus / disabled。`dropdown_caret` のボタンは `DropDownButton` のテーマで描く（Button のクラスがすべて効き、開いている間は selected の見た目）。Custom variant は `Background` などの指定とスタイルで、`toggled`（支援技術に伝える押下状態）は `ToggleButton` で表せる。loading は添付プロパティ `uikit:Buttons.IsLoading`（ADR 30）で足す。押下・Enter・Space・アクセスキー・`IsDefault` / `IsCancel` で Click と Command を出さず、無効の見た目にはせずに 80% にフェードし、アイコンをスピナーにする（`LoadingIcon`）。Avalonia が Click の前に行う ToggleButton の切り替えと Flyout の表示は、アクセスキー・`IsDefault`・`IsCancel` では止まらない。マウスの押下でフォーカスを奪わない GPUI の動作は `uikit:Buttons.TakesFocusOnPointer="False"` で選ぶ（既定は Avalonia のまま。R27）。 |
+| ButtonGroup（Button の子部品） | 部分対応 | `Button`、標準 Panel、`uikit:ButtonGroup` | テーマ: 各ボタンと、通常のレイアウトで隣接させたときの外観（`StackPanel Classes="button-group"`）。`uikit:ButtonGroup`（ADR 30。`StackPanel` の派生）は、グループの色・`outline`・`compact`・サイズのクラスを全ボタンに渡し、クリックで `Click`（`SelectedIndices`。単一選択は押したボタン、`Multiple` は押したボタンを足す・外す）を出す。選択はアプリが各ボタンの `selected` クラスに反映する（GPUI もアプリが描き直す）。GPUI のグループの on_click は子の on_click を置き換えるが、ここでは子の `Click` / `Command` も動き、キー操作のクリックも `Click` を出す。 |
+| [DropdownButton][gp-dropdown_button] | 対応 | [`SplitButton`][av-split-button] | 主操作とメニューを開く操作が独立した二分割ボタン。名称の似た `DropDownButton` は全体がメニュー起動ボタンなので対応先を分ける（Button の `dropdown_caret` の対応先）。アクションの半分だけの loading（GPUI の `DropdownButton::button(Button::loading(true))`）は `uikit:Buttons.IsLoading`（ADR 30）で足し、メニューの半分は開ける。 |
 | [Toggle][gp-toggle] | 対応 | [`ToggleButton`][av-toggle-button] | checked / unchecked / disabled、アイコン、枠線、サイズ。 |
-| ToggleGroup（Toggle の子部品） | 部分対応 | [`ListBox`][av-listbox] / `ListBoxItem` | 標準の単一・複数選択を使うボタン状の項目表示。GPUI のグループ API や選択ルールは移植しない。 |
+| ToggleGroup（Toggle の子部品） | 部分対応 | [`ListBox`][av-listbox] / `ListBoxItem`、`uikit:ToggleGroup` | テーマ: 標準の選択を使うボタン状の項目表示。`SelectionMode="Multiple,Toggle"` で GPUI と同じく各項目が独立に切り替わる。ListBox は矢印キーで項目を移るので、各トグルが Tab 停止で矢印キーでは何もしない GPUI のキー操作は `uikit:ToggleGroup`（ADR 30。`ToggleButton` を並べる `StackPanel` の派生、`Click` の `Checked`）で足す。Space / Enter でもトグルが切り替わり `Click` を出す（GPUI のグループはポインターのクリックだけを on_click に渡す）。 |
 | [Checkbox][gp-checkbox] | 対応 | [`CheckBox`][av-checkbox] | チェック記号、ラベル、枠、状態表示。標準の `IsThreeState` / `IsChecked` を使用する。 |
 | [Radio / RadioGroup][gp-radio] | 対応 | [`RadioButton`][av-radio] | 円形マークとラベル。グループ選択は標準の `GroupName` に従い、専用 RadioGroup 型は追加しない。 |
 | [Switch][gp-switch] | 対応 | [`ToggleSwitch`][av-switch] | トラック、つまみ、ラベル、checked / disabled、フォーカス表示、つまみの移動。つまみの移動は GPUI と同じばねの式で動かし、途中で反転しても速度を引き継ぐ（`Motion.Spring`）。 |
-| [Input][gp-input] | 部分対応 | [`TextBox`][av-textbox]、[`MaskedTextBox`][av-masked-textbox] | 枠、placeholder、選択色、キャレット、read-only / disabled、`PasswordChar` / `RevealPassword`、左右の内容領域。入力マスクは Avalonia の書式に従う。GPUI の検証・マスク構文、Esc でクリアする契約、mention 等のインライントークンなどは追加しない。 |
-| [Textarea][gp-textarea] | 部分対応 | `TextBox` | `AcceptsReturn`、`TextWrapping`、`MinLines` / `MaxLines` による複数行・高さ制限、スクロール部分をテーマ化。検索 UI、インライントークン、GPUI の編集 API は対象外。 |
-| [InputGroup][gp-input-group] | 部分対応 | `TextBox` の `InnerLeftContent` / `InnerRightContent` | 入力欄の前後に置く文字・アイコン・ボタンと入力欄を一つの枠で囲む外観。複数行は `AcceptsReturn` の `TextBox` を使い、無効・read-only・検証エラーは標準の状態で表示する。入力行の上下に置く `BlockStart` / `BlockEnd` の領域や専用のグループ型は追加しない。 |
-| [NumberInput][gp-number-input] | 対応 | [`NumericUpDown`][av-number-input]、`ButtonSpinner` | 数値入力、増減ボタン、書式、最小値・最大値・刻み幅という既存機能の外観。GPUI 独自の正規化・動的な刻み計算は移植しない。 |
-| [Slider][gp-slider] | 部分対応 | [`Slider`][av-slider]、`Track`、`Thumb`、`TickBar` | 単一値、縦横、トラック、つまみ、目盛りと状態表示。二つのつまみを持つ Range Slider や独自スケールは非対応。 |
+| [Input][gp-input] | 部分対応 | [`TextBox`][av-textbox]、[`MaskedTextBox`][av-masked-textbox]、`uikit:Inputs` | テーマ: 枠、placeholder、選択色、キャレット、read-only / disabled、`PasswordChar` / `RevealPassword`、左右の内容領域。GPUI の `cleanable` は `clearButton` クラス（Fluent と同じクラス名。単一行・編集可能・空でないときだけ出す）。右クリックメニュー（Cut / Copy / Paste / Select All とショートカット、GPUI の有効条件）はテーマが既定で付ける。見た目は GPUI が Linux で描くメニューで、macOS と Windows の GPUI は OS のメニューを出す。右クリックでキャレットをポインターの位置へ移す動作は Avalonia のまま。`MaskedTextBox` の入力マスクは Avalonia の書式に従う。GPUI の検証（`pattern` / `validate`。編集後の全文で判定）、マスク構文（`9` `A` `#` `*` と数値のマスク）、Esc でのクリアは添付プロパティ `uikit:Inputs`（ADR 30）で足す。IME の未確定の文字は確定したときに検証する。インライントークンと自動入力のヒント（`content_type`）は追加しない（ADR 30 で範囲外）。 |
+| [Textarea][gp-textarea] | 部分対応 | `TextBox`、`uikit:Inputs` | `AcceptsReturn`、`TextWrapping`、`MinLines` / `MaxLines` による複数行・高さ制限、スクロール部分、右クリックメニューをテーマ化。Tab / Shift+Tab と Cmd（macOS 以外は Ctrl）+ ] / [ による行のインデントは `uikit:Inputs.TabSize` / `HardTabs`（ADR 30）で足す。検索 UI、インライントークン、複数カーソルなど GPUI の編集エンジンの機能は対象外（ADR 30 で範囲外）。 |
+| [InputGroup][gp-input-group] | 部分対応 | `TextBox` の `InnerLeftContent` / `InnerRightContent`、`uikit:InputGroup` / `uikit:InputGroupAddon` | テーマ（`TextBox Classes="group"`）: 入力欄の前後に置く文字・アイコン・ボタンと入力欄を一つの枠で囲む外観。複数行は `AcceptsReturn` の `TextBox` を使い、無効・read-only・検証エラーは標準の状態で表示する。`uikit:InputGroup`（ADR 30）は同じ見た目で、入力行の上下の行（`InputGroupAddon` の `Alignment` が `BlockStart` / `BlockEnd`）、入力にフォーカスがあるときだけのリング、`IsInvalid`、入力の無効化によるグループ全体の無効化、`IsReadOnly`、アドオンの押下で入力にフォーカスすることを足す。中の Button の loading は `uikit:Buttons.IsLoading`、押しても入力のフォーカスを残すのは `TakesFocusOnPointer`。アドオンの muted の文字（`InputGroupText`）の型と、アドオンのボタンの色違いは追加しない。 |
+| [NumberInput][gp-number-input] | 対応 | [`NumericUpDown`][av-number-input]、`ButtonSpinner`、`uikit:NumberInput` | 数値入力、増減ボタン、書式、最小値・最大値・刻み幅という既存機能の外観。GPUI の prefix / suffix は `InnerLeftContent` / `InnerRightContent`。入力中の文字の制限と正規化（全角の数字を ASCII にする）、値と刻みの小数の桁を保つ刻み、値によって変わる刻み（`StepBy`）、値をアプリが決める刻み（`StepsValue="False"` と `Step`）は `uikit:NumberInput`（ADR 30。`NumericUpDown` の派生で同じテーマ）で足す。 |
+| [Slider][gp-slider] | 部分対応 | [`Slider`][av-slider]、`Track`、`Thumb`、`TickBar`、`uikit:RangeSlider` | 単一値、縦横、トラック、つまみ、目盛りと状態表示。二つのつまみを持つ範囲と対数スケールは `uikit:RangeSlider`（ADR 30）で足す。トラックの押下は近いほうのつまみを動かし、つまみはもう一方のつまみで止まる。Avalonia の `Slider` は値と位置の対応が線形なので、単一値の対数スライダーも `RangeSlider`（`IsRange="False"`）にする。キー操作は GPUI の Slider にもない。 |
 
 ### 選択・一覧・日付・表
 
 | GPUI Kit | 判定 | Avalonia の対応先 | テーマで移植する範囲／対象外 |
 | --- | --- | --- | --- |
-| [Select][gp-select] | 部分対応 | [`ComboBox`][av-combobox] / `ComboBoxItem` | 単一選択の閉じた欄、キャレット、候補リスト、選択・無効状態。GPUI のポップアップ内検索欄、グループ管理、クリア API は追加しない。 |
-| [Combobox][gp-combobox] | 部分対応 | `ComboBox`、[`AutoCompleteBox`][av-autocomplete] | 単一選択は `ComboBox`、入力による標準の候補絞り込みは `AutoCompleteBox` の外観を使用。GPUI の trigger ＋別の検索欄という構成、複数選択・選択済みチップ・独自検索基盤は非対応。12.1.3 の `ComboBox.IsEditable` も複数選択機能ではない。 |
-| [List][gp-list] | 部分対応 | `ListBox` / `ListBoxItem` | 行の色・余白・選択・hover、アプリの `ItemTemplate` に配置する内容。内蔵検索、非同期の追加取得、並べ替え D&D、ローディング管理は追加しない。 |
-| [Tree][gp-tree] | 部分対応 | [`TreeView`][av-tree] / `TreeViewItem` | 階層行、インデント、展開マーク、選択・無効表示。GPUI の平坦化データモデルや独自の仮想化・データ取得処理は移植しない。 |
-| [Calendar][gp-calendar] | 部分対応 | [`Calendar`][av-calendar]、`CalendarItem`、`CalendarButton`、`CalendarDayButton` | 月・年・年代の表示、日セル、今日・選択・無効日。範囲選択は標準 `SelectionMode` の範囲で対応。複数月の同時表示や GPUI の `RangeMatcher` は追加しない。 |
-| [DatePicker][gp-date-picker] | 部分対応 | [`CalendarDatePicker`][av-date-picker] | 欄とポップアップ内の Calendar をテーマ化。カレンダーを開く UI なので、ホイール状の標準 `DatePicker` よりこちらが対応する。開始・終了の二日付を持つ Date Range Picker、日付プリセット、`time_precision` による時刻の同時編集は非対応。 |
-| [TimeField][gp-time-field] | 部分対応 | [`TimePicker`][av-timepicker] | 時・分・秒・AM/PM を区切った欄、`ClockIdentifier` による 12 / 24 時間制、`UseSeconds` による秒の表示、無効・検証エラーの表示。値は標準のポップアップ（`TimePickerPresenter`）で選ぶ。欄内のセグメントを直接選び、数字入力や上下キーで変える GPUI の編集操作は追加しない。 |
-| [Table][gp-table] | 部分対応 | [`TableView`][av-tableview]、`TableViewColumnHeader`、`TableViewRow`、`TableViewCell` | ヘッダー、セル、罫線、外枠、行の余白。GPUI の宣言的な `TableFooter` / `TableCaption` API は新設しない。`TableView` は Avalonia 12.1 からの本体標準。 |
-| [DataTable][gp-data-table] | 部分対応 | `TableView` | 表示専用の表、行選択、標準の行仮想化、列幅の調整までを利用。ソート、列の移動・固定、セル範囲選択、無限読み込みは `TableView` に追加しない。公式別パッケージを使う場合は後述。 |
-| [VirtualList][gp-virtual-list] | 部分対応 | `ListBox`、[`VirtualizingStackPanel`][av-virtualizing-stack-panel] | 標準の仮想化を維持して行をテーマ化。GPUI のスクロールハンドル、独自サイズキャッシュ、二次元仮想化の仕組みは移植しない。 |
+| [Select][gp-select] | 部分対応 | [`ComboBox`][av-combobox] / `ComboBoxItem`、`uikit:Select` | テーマ: 単一選択の閉じた欄、キャレット、候補リスト、選択・無効状態。`IsEditable` の ComboBox は、Select の枠の中の枠なしの入力欄として描く。GPUI の `cleanable` は `clearButton` クラス（値があるときキャレットの位置にクリアボタン）。ポップアップ内の検索欄、グループ（`uikit:SelectGroup`）、`title_prefix`、アイコン、メニューの幅、空の表示、`appearance(false)`（`plain` クラス）、変更の取り消し（on_will_change。`SelectionChanging`）は `uikit:Select`（ADR 30）で足す。見た目はテーマ済みの ComboBox と同じ。無効な行はクリックでも Enter でも選べない（GPUI は見た目だけ無効で、確定できる）。 |
+| [Combobox][gp-combobox] | 部分対応 | `ComboBox`、[`AutoCompleteBox`][av-autocomplete]、`uikit:Select Classes="combobox"` | テーマ: 単一選択は `ComboBox`（`combobox` クラス）、入力による標準の候補絞り込みは `AutoCompleteBox` か `IsEditable` の `ComboBox`。GPUI の trigger と別の検索欄という構成、複数選択（トリガーは GPUI と同じく選んだ名前を ", " でつなぐ）、footer、トリガーのテンプレート（`render_trigger`）は `uikit:Select` の `combobox` クラス（ADR 30）で足す。選択済みのチップは GPUI の既定の表示ではなく `render_trigger` でアプリが描くもので、`TriggerTemplate` で同じことができる。チェックの差し替え（`check_icon`）は追加しない。GPUI の Combobox は閉じてもクエリとカーソルを残すが、`uikit:Select` は Select と同じく閉じるたびに戻す。 |
+| [List][gp-list] | 部分対応 | `ListBox` / `ListBoxItem`、`uikit:ListView` / `uikit:ListItem` / `uikit:ListSection` | テーマ: 行の色・余白・選択・hover、アプリの `ItemTemplate` に配置する内容。セクションと見出し・末尾、クリックと Enter での確定（`Confirmed`）、Esc での解除（`Cancelled`）、端で折り返す ↑↓、右クリックした行の枠、`selectable(false)`、検索欄、読み込み中のスケルトン、空の表示、`scroll_to_item`、追加取得（`HasMore` / `LoadMore`）は `uikit:ListView`（ADR 30）で足す。行は仮想化する。`render_initial`、検索中の 100ms のスピナー、区切りの項目（`ListItem::separator`、`ListSeparatorItem`）は追加しない。並べ替えの D&D は GPUI の List の機能ではない（ストーリーが行に付けている）。 |
+| [Tree][gp-tree] | 部分対応 | [`TreeView`][av-tree] / `TreeViewItem`、`uikit:Tree` / `uikit:TreeItem` | テーマ: 階層行、インデント、展開マーク、選択・無効表示。GPUI と同じく見えている木を行に平坦化して仮想化すること、押下での選択と開閉、↑↓ と → ←、Enter での開閉、右クリックした行の枠、祖先を開いて見せる `reveal_item` は `uikit:Tree`（ADR 30）で足す。項目は `uikit:TreeItem` か、任意のデータに子を返す関数かテンプレート（`ChildrenSelector`、`TreeDataTemplate`）。`context_menu` の builder は Avalonia の `ContextMenu` と `RightClickedItem` で組む。 |
+| [Calendar][gp-calendar] | 部分対応 | [`Calendar`][av-calendar]、`CalendarItem`、`CalendarButton`、`CalendarDayButton`、`uikit:CalendarView` | テーマ: 月・年・年代の表示、日セル、今日・選択・無効日。範囲選択は標準 `SelectionMode` の範囲で対応し、期間で無効にする日（GPUI の `RangeMatcher`）は `BlackoutDates` で表せる。複数月の表示、月ごとに 4〜6 行の週、月と年の別々のトグルと 20 年の年グリッド、GPUI の規則による日付の範囲の選択、曜日と関数で無効にする日（`Matcher::DayOfWeek` / `Custom`）は `uikit:CalendarView`（ADR 30）で足す。見た目はテーマ済みの Calendar と同じ。年の範囲は今日の前後 50 年に固定し、`set_year_range` は追加しない。キー操作は GPUI の Calendar にもない。 |
+| [DatePicker][gp-date-picker] | 部分対応 | [`CalendarDatePicker`][av-date-picker]、`uikit:DateField` | テーマ: 欄とポップアップ内の Calendar。カレンダーを開く UI なので、ホイール状の標準 `DatePicker` よりこちらが対応する。開始・終了の二日付を持つ範囲、日付のプリセット、`time_precision` による時刻の同時編集、クリアボタン、複数月の表示、Enter と Esc での開閉は `uikit:DateField`（ADR 30。中は `uikit:CalendarView`）で足す。見た目はテーマ済みの CalendarDatePicker と同じ。時刻付きのプリセット、`set_year_range`、ポップアップの外でボタンを離したときに閉じる動作（Avalonia は押下で閉じる）は追加しない。 |
+| [TimeField][gp-time-field] | 部分対応 | [`TimePicker`][av-timepicker]、`uikit:TimeField` | テーマ: 時・分・秒・AM/PM を区切った欄、`ClockIdentifier` による 12 / 24 時間制、`UseSeconds` による秒の表示、無効・検証エラーの表示。`TimePicker` の値は標準のポップアップ（`TimePickerPresenter`）で選ぶ。欄内のセグメントを直接選び、数字入力や上下キーで変える GPUI の編集操作は `uikit:TimeField`（ADR 30。GPUI の SegmentEditor の移植）で足す。見た目はテーマ済みの TimePicker の欄と同じ。値のない欄（`Time` が null）は Avalonia だけのもの。 |
+| [Table][gp-table] | 部分対応 | [`TableView`][av-tableview]、`TableViewColumnHeader`、`TableViewRow`、`TableViewCell`、`uikit:Table` | テーマ: ヘッダー、セル、罫線、外枠、行の余白。行がないときはヘッダーだけを描く（GPUI の Table に空の表示はない）。`TableView` は Avalonia 12.1 からの本体標準。GPUI の宣言的な部品（`TableHeader`、`TableBody`、`TableFooter`、`TableRow`、`TableHead`、`TableCell`、`TableCaption`）、列の結合（`col_span`）、GPUI の flex の規則による列幅は `uikit:Table`（ADR 30）で足す。行の hover と選択は GPUI の Table にもない。 |
+| [DataTable][gp-data-table] | 部分対応 | `TableView` | 表示専用の表、行選択、標準の行仮想化、列幅の調整、行がないときの空の表示（GPUI の `render_empty`）までを利用。ソート、列の移動・固定・最小幅・最大幅、列とセルの選択（GPUI の [`TableSelection`][gp-table-state-source] は 1 つのセルを選び、範囲は選ばない）、多段の列見出し、読み込み中の表示、無限読み込みは `TableView` に追加しない（DataTable の機能は規模が大きいので ADR 30 でも範囲外）。公式別パッケージを使う場合は後述。 |
+| [VirtualList][gp-virtual-list] | 部分対応 | `ListBox`、[`VirtualizingStackPanel`][av-virtualizing-stack-panel]、`ItemsScrolling` | 標準の仮想化を維持して行をテーマ化。GPUI の VirtualList は縦か横の一方向だけを仮想化するので、標準の仮想化と同じ範囲になる（行と列の二方向は DataTable の仮想化）。スクロールハンドルの `scroll_to_item` のうち、ListBox の `ScrollIntoView` にない Center は、`ItemsScrolling.ScrollToItem(index, ScrollStrategy)`（ADR 30。`ItemsControl` の拡張メソッド）で足す。 |
 
 ### ナビゲーション・レイアウト
 
 | GPUI Kit | 判定 | Avalonia の対応先 | テーマで移植する範囲／対象外 |
 | --- | --- | --- | --- |
-| [Tabs / TabBar / Tab][gp-tabs] | 部分対応 | [`TabControl`][av-tabs] / `TabItem`、[`TabStrip`][av-tabstrip] / `TabStripItem` | タブと内容を持つ場合は `TabControl`、選択列だけなら `TabStrip`。下線・pill・segment 等の外観。選択に付いていくインジケーターは、見た目だけを動かす Behavior（`Tabs.Indicator`）で GPUI と同じばねで動かす（2026-10-03 の方針改定後）。タブの閉じる処理、D&D 移動、GPUI のメニュー API は追加しない（閉じる操作と D&D は [Tabalonia のテーマ](#サードパーティのライブラリに対応するもの)で対応する）。 |
-| [Accordion / AccordionItem][gp-accordion] | 部分対応 | [`Expander`][av-expander] | 個々の開閉項目、見出し、境界線、矢印。複数の Expander は独立に開閉する。常に一項目だけを開く Accordion 全体の排他制御は非対応。 |
+| [Tabs / TabBar / Tab][gp-tabs] | 部分対応 | [`TabControl`][av-tabs] / `TabItem`、[`TabStrip`][av-tabstrip] / `TabStripItem`、`uikit:Tabs.Prefix` / `Suffix` | タブと内容を持つ場合は `TabControl`、選択列だけなら `TabStrip`。下線・pill・segment 等の外観。選択に付いていくインジケーターは、見た目だけを動かす Behavior（`Tabs.Indicator`）で GPUI と同じばねで動かす（2026-10-03 の方針改定後）。溢れたタブの横スクロールと、タブの一覧を開く `menu` クラス（GPUI の `menu(true)`。ボタンは `uikit:TabsMenuButton`）はテーマで描き、バーの prefix と suffix は `uikit:Tabs.Prefix` / `Suffix`（ADR 30）で置く。タブを閉じる操作と D&D は TabBar / Tab の機能ではなく、GPUI では Dock の [`TabPanel`][gp-tab-panel-source] が持つ。GPUI のドキュメントは閉じるボタンをタブの suffix に置く例だけを示す。Tabalonia を使う場合は [Tabalonia のテーマ](#サードパーティのライブラリに対応するもの)が閉じるボタンとドラッグでの並べ替えを描く。 |
+| [Accordion / AccordionItem][gp-accordion] | 部分対応 | [`Expander`][av-expander]、`uikit:Accordion` | テーマ: 個々の開閉項目、見出し、境界線、矢印。複数の Expander は独立に開閉する。GPUI の既定（`multiple(false)`）の 1 項目だけを開く制御、`Multiple`、`ToggleClick`、`bordered`（`IsBordered`）は `uikit:Accordion`（ADR 30。項目は Expander のまま）で足す。閉じる項目も開く項目と同じフレームからばねで動く。 |
 | [Collapsible][gp-collapsible] | 部分対応 | `Expander` | 一つの領域を展開・折り畳みする表示。GPUI の自然高を測定した可逆なばねアニメーション（`MotionReveal`）は、内容を自然な高さで測る `Canvas` と表示専用の値変換（`RevealConverters`）、`Motion.Spring` で再現する（2026-10-03 の方針改定後）。Accordion の各項目も同じ。 |
-| [Carousel][gp-carousel] | 部分対応 | [`Carousel`][av-carousel]、`PipsPager` | ページ表示と `PageTransition`、標準の `IsSwipeEnabled` / `ViewportFraction` / `WrapSelection` を使用。ページ送りは `PageSlide` の派生（`uikit:SpringSlide`）で、GPUI と同じく 2 ページを 16px 離してばねで動かす。隣接ページの表示と循環も 12.1.3 の既存機能内で扱う。GPUI の任意の item 幅、トラックレイアウト、トラックパッドの慣性・スナップ規則の一致は保証しない。 |
-| [Pagination][gp-pagination] | 部分対応 | [`PipsPager`][av-pips-pager] | 前後ボタン、選択状態、ページ項目。`TemplateSettings.Pips` に 1 始まりの番号があるので、点を番号表示へ差し替えられる。省略記号付きの番号生成やサーバーのページ取得は追加しない。 |
-| [GroupBox][gp-group-box] | 対応 | [`GroupBox`][av-groupbox] | 見出し、内容、背景、outline / fill、余白・角丸。枠の外に置く GPUI の `footer` は標準に該当する領域がないので追加しない。 |
-| [Resizable][gp-resizable] | 部分対応 | [`GridSplitter`][av-grid-splitter] と `Grid` | 通常の行・列分割、仕切りの太さ・色・hover・ドラッグ表示。パネルの登録・保存・復元 API は作らない。 |
-| [Sidebar][gp-sidebar] | 部分対応 | [`SplitView`][av-splitview]、[`DrawerPage`][av-drawer-page] | 側面の領域、境界線、展開・縮小・overlay。`DrawerPage` なら標準の header / footer 領域も使用できる。SidebarMenu 等の専用型、階層ナビゲーションモデル、バッジは追加しない。 |
-| [Sheet][gp-sheet] | 部分対応 | `DrawerPage` | 左右上下の引き出し、背景の暗転、標準の開閉・外側クリック・Esc とその外観。GPUI の root layer、複数 sheet 管理、ドラッグによるサイズ変更は移植しない。`SplitView` 単体と `DrawerPage` の機能を混同しない。 |
-| [Toolbar][gp-toolbar] | 部分対応 | [`CommandBar`][av-commandbar]、`CommandBarButton`、`CommandBarToggleButton`、`CommandBarSeparator` | 背景・枠のない横並びのコマンド列、アイコン・ラベル付きの ghost 風ボタン、区切り、`Content` 領域の文字・任意の内容、hover / pressed / checked、高さ・余白のサイズ。コマンド列には標準の `ICommandBarElement` だけを置き、任意の要素や伸縮スペーサーを挟む配置、`ToolbarGroup` の名前付きグループは追加しない。矢印キーでの移動は標準の `KeyboardNavigation` / `XYFocus` の設定で表せる範囲に限る。GPUI にないオーバーフローは `OverflowButtonVisibility` で隠す。 |
+| [Carousel][gp-carousel] | 部分対応 | [`Carousel`][av-carousel]、`PipsPager`、`uikit:Carousels.TracksPointer`、`uikit:CarouselPrevious` / `uikit:CarouselNext` | テーマ: ページ表示と `PageTransition`、標準の `IsSwipeEnabled` / `ViewportFraction` / `WrapSelection` を使用。ページ送りは `PageSlide` の派生（`uikit:SpringSlide`）で、GPUI と同じく 2 ページを 16px 離してばねで動かす。隣接ページの表示とループも 12.1.3 の既存機能内で扱う。ページを 16px 間隔で並べたトラックをばねで動かす GPUI の動き（複数ページ先へは間のページを通って動く、途中で向きを変える、ループの折り返し）と、マウス・ペン・タッチのドラッグ、ホイールのノッチ、トラックパッドのスクロールとスナップは、添付プロパティ `uikit:Carousels.TracksPointer`（ADR 30。テーマが ItemsPanel を `uikit:CarouselTrack` にする）で足す。前後のボタンは `uikit:CarouselPrevious` / `uikit:CarouselNext`。トラックは `ViewportFraction` と `IsSwipeEnabled` を使わず、1 ページに複数のアイテムを並べる GPUI の表示は扱わない。 |
+| [Pagination][gp-pagination] | 部分対応 | [`PipsPager`][av-pips-pager]、`uikit:Pagination` | テーマ: 前後ボタン、選択状態、ページ項目。`TemplateSettings.Pips` に 1 始まりの番号があるので、点を番号表示へ差し替えられる。省略記号付きの番号生成（`visible_pages`）と、省略記号から隠れたページを選ぶメニューは `uikit:Pagination`（ADR 30）で足す。見た目は PipsPager のテーマと同じ。サーバーのページ取得はアプリが行う。 |
+| [GroupBox][gp-group-box] | 対応 | [`GroupBox`][av-groupbox]、`uikit:GroupBoxes.Footer` | 見出し、内容、背景、outline / fill、余白・角丸。枠の外に置く GPUI の `footer` は、テンプレートに置く添付プロパティ `uikit:GroupBoxes.Footer`（ADR 30）で足す。 |
+| [Resizable][gp-resizable] | 部分対応 | [`GridSplitter`][av-grid-splitter] と `Grid`、`uikit:ResizablePanelGroup` / `uikit:ResizablePanel` | テーマ: 通常の行・列分割、仕切りの太さ・色・hover・ドラッグ表示。パネルの登録（`Size`、`MinSize` / `MaxSize`、`IsVisible`）、GPUI の flex の規則による最初のレイアウト、隣のパネルを順に縮める連鎖のリサイズ、`ResizePanel`、`Resized`、入れ子は `uikit:ResizablePanelGroup`（ADR 30。ハンドルは GridSplitter の派生で同じテーマ）で足す。外部の状態を共有する `with_state` と `adopt_sizes` は追加しない。 |
+| [Sidebar][gp-sidebar] | 部分対応 | [`SplitView`][av-splitview]、[`DrawerPage`][av-drawer-page]、`uikit:Sidebar` と部品 | テーマ: 側面の領域、境界線、展開・縮小・overlay。`DrawerPage` なら標準の header / footer 領域も使用できる。SidebarHeader / SidebarFooter / SidebarGroup / SidebarMenu / SidebarMenuItem、アイコンへの折り畳みと右のツールチップ、入れ子の項目、offcanvas で 200ms 後に内容を隠すことは `uikit:Sidebar`（ADR 30）で足す。単独でも `SplitView.Pane` の中でも使え、`Pane` では SplitView の開閉に従う。項目の仮想化（GPUI の `list()`）は追加しない。途中で戻したときに GPUI が前の目標へ飛ぶ動きは描かない（Avalonia の Transition は今の値から動く）。 |
+| [Sheet][gp-sheet] | 部分対応 | `DrawerPage`、`uikit:Sheet` | テーマ（`DrawerPage Classes="sheet"`）: 左右上下の引き出し、背景の暗転、標準の開閉・外側クリック・Esc とその外観。GPUI と同じくコードからウィンドウの root layer に開く使い方（`Show(visual)`。ウィンドウに 1 つ、Tab の循環、閉じたら元の要素にフォーカスを戻す、`overlay_closable`）は `uikit:Sheet`（ADR 30）で足す。GPUI `2c5162f` は sheet を 1 つだけ持ち（[`Root`][gp-root-source] の `active_sheet`）、[`resizable`][gp-sheet-source] は保存するだけで使わないので、複数の sheet とドラッグでのサイズ変更は GPUI にもない。`SplitView` 単体と `DrawerPage` の機能を混同しない。 |
+| [Toolbar][gp-toolbar] | 部分対応 | [`CommandBar`][av-commandbar]、`CommandBarButton`、`CommandBarToggleButton`、`CommandBarSeparator`、`uikit:Toolbar` | テーマ: 背景・枠のない横並びのコマンド列、アイコン・ラベル付きの ghost 風ボタン、区切り、`Content` 領域の文字・任意の内容、hover / pressed / checked、高さ・余白のサイズ。コマンド列には標準の `ICommandBarElement` だけを置く。矢印キーでの移動は標準の `KeyboardNavigation` / `XYFocus` の設定で表せる範囲に限る。GPUI にないオーバーフローは `OverflowButtonVisibility` で隠す。任意の要素、伸縮スペーサー（`uikit:ToolbarSpacer`）、`ToolbarGroup`、子へのサイズの受け渡し（`uikit:Toolbar.TakesSize`）、端で折り返す ← → のフォーカス移動は `uikit:Toolbar`（ADR 30）で足す。矢印キーの移動だけを止める GPUI の `disabled` は追加しない。 |
 | [Scrollable / Scrollbar][gp-scrollable] | 対応 | [`ScrollViewer`][av-scrollviewer]、[`ScrollBar`][av-scrollbar]、`Thumb` | トラック、つまみ、余白、表示条件と遷移。Always / Hover / Scrolling の 3 モード（`AllowAutoHide` と `uikit:Scrollbars.ShowOnHover`）。スクロール後の表示と idle 時間は見た目だけを動かす Behavior（`Scrollbars`）で再現する。 |
-| [Separator][gp-separator-source]（公開モジュール） | 対応 | [`Separator`][av-separator] | 線の色・太さ・余白。メニュー中の区切りも同様。 |
+| [Separator][gp-separator-source]（公開モジュール） | 対応 | [`Separator`][av-separator]、`uikit:Separators.Label` | 線の色・太さ・余白。メニュー中の区切りも同様。GPUI の `label` は添付プロパティ `uikit:Separators.Label`（ADR 30）で、横の線では末尾、縦の線では中央に置く。 |
 
 ### テキスト・画像・フィードバック・メニュー
 
 | GPUI Kit | 判定 | Avalonia の対応先 | テーマで移植する範囲／対象外 |
 | --- | --- | --- | --- |
-| [Label][gp-label] | 部分対応 | [`TextBlock`][av-textblock]、`SelectableTextBlock`、[`Label`][av-label] | 文字サイズ、色、行間、折り返し、配置。GPUI Label は表示テキストが中心なので、単純に同名型へ寄せない。検索一致の自動強調やマスク処理は追加しない。 |
+| [Label][gp-label] | 部分対応 | [`TextBlock`][av-textblock]、`SelectableTextBlock`、[`Label`][av-label]、`uikit:TextLabel` | テーマ: 文字サイズ、色、行間、折り返し、配置。GPUI Label は表示テキストが中心なので、単純に同名型へ寄せない。補足の文字（`secondary`）、検索一致の強調（`highlights`。全体か先頭）、マスクは `uikit:TextLabel`（ADR 30。`TextBlock` の派生。Avalonia の `Label` と同名を避けた）で足す。補足の上の一致の色は、GPUI ではハッシュの順で決まるが、TextLabel は常に一致の色にする。 |
 | [Link][gp-link-source]（公開モジュール） | 対応 | [`HyperlinkButton`][av-hyperlink] | リンクの色・装飾・hover・pressed。遷移は標準の `NavigateUri` / コマンドに従う。 |
-| [Icon][gp-icon] | 部分対応 | [`PathIcon`][av-pathicon]、`Path` / `DrawingImage` | テンプレートで必要なアイコン形状・色・線幅・サイズをリソース化。Lucide は別のアセットであり、Avalonia に同梱されているとは扱わない。任意 SVG の読み込み器や `IconName` 互換 API は追加しない。 |
-| [Image][gp-image] | 部分対応 | [`Image`][av-image] | 標準が読める画像の配置、拡縮、周囲の余白。URL 取得、非同期状態、失敗画像の差し替え、任意 SVG 対応は移植しない。`Image` 自体はテンプレートを持たないので `Style` を使う。 |
+| [Icon][gp-icon] | 部分対応 | [`PathIcon`][av-pathicon]、`Path` / `DrawingImage`、`uikit:Icon` | テンプレートで必要なアイコン形状・色・線幅・サイズをリソース化。Lucide は別のアセットであり、Avalonia に同梱されているとは扱わない。GPUI Kit の `IconName` の 106 個に、テーマが使うものを合わせた 109 個を `UIKit.Icon.*` のジオメトリとして同梱する。`IconName` で選ぶ API は `uikit:Icon`（ADR 30。`Kind` を持つ PathIcon の派生で、PathIcon のテーマとサイズのクラスが効く）で足す。任意 SVG の読み込み器は追加しない（ADR 30 で範囲外）。サイズを指定しないアイコンは 16px で、GPUI と違い文字の大きさに従わない。 |
+| [Image][gp-image] | 部分対応 | [`Image`][av-image]、`uikit:AsyncImage` | 標準が読める画像の配置、拡縮、周囲の余白。`Image` 自体はテンプレートを持たないので `Style` を使う。URL（http / https / file / avares）の非同期の取得、200ms を過ぎても終わらないときの読み込み中の内容、失敗時の内容は `uikit:AsyncImage`（ADR 30。GPUI の `img()`。取得は `IImageLoader`）で足す。SVG とアニメーション画像（ADR 30 で範囲外）、`grayscale` は移植しない。 |
 | [Progress][gp-progress] | 対応 | [`ProgressBar`][av-progress] | 横・縦のバー、トラック、確定値／不定値、色・角丸・値の変化。元コントロールの値と範囲の意味を維持する。 |
-| [ProgressCircle][gp-progress-circle-source]（Progress の子部品） | 部分対応 | `ProgressBar` の専用テンプレート、[`Arc`][av-arc] | 進捗の値・範囲・不定値は既存の ProgressBar に任せ、円形の描画を差し替える。不定値は標準の Animation で表現可能。確定値は `Percentage × 3.6` を `SweepAngle` に渡す表示専用の値変換（`AffineConverter`。2026-10-03 の方針改定で許可）を使う。新しい進捗管理型や GPUI の任意の中央コンテンツ API は追加しない。 |
-| [Spinner][gp-spinner] | 対応 | `ProgressBar`（`IsIndeterminate=true`）の専用テーマ | 回転するローディング記号として表現する。Avalonia の同名 `Spinner` / `ButtonSpinner` は数値の増減用であり、ローディングの対応先ではない。 |
-| [Tooltip][gp-tooltip] | 対応 | [`ToolTip`][av-tooltip] | 背景、枠、影、文字、余白、標準の表示遅延。GPUI の Action からキー表示を自動解決する機能は移植しない。 |
-| [Popover][gp-popover] | 部分対応 | [`Flyout`][av-flyout] / `FlyoutPresenter` | アンカーに対する配置、`HorizontalOffset` / `VerticalOffset` による間隔、内容、枠・影、開くときの表示。論理的な開閉は標準 Flyout が担当。配置した辺に合わせて描く矢印（`arrow` クラス）は、`Placement` から間隔と矢印の位置を求める値変換（`PlacementConverter`）で描く。閉じるアニメーションを待って Popup を破棄する制御は追加しない。 |
-| [Menu / ContextMenu / DropdownMenu][gp-menu] | 対応 | [`ContextMenu`][av-contextmenu]、[`MenuFlyout`][av-menu-flyout]、[`MenuItem`][av-menu-item] | 項目、チェック、サブメニュー、アイコン、ショートカット表示、区切り、hover / disabled。クリック型トリガーには標準 `DropDownButton` も使える。 |
+| [ProgressCircle][gp-progress-circle-source]（Progress の子部品） | 部分対応 | `ProgressBar` の専用テンプレート、[`Arc`][av-arc] | 進捗の値・範囲・不定値は既存の ProgressBar に任せ、円形の描画を差し替える。不定値は標準の Animation で表現可能。確定値は `Percentage × 3.6` を `SweepAngle` に渡す表示専用の値変換（`AffineConverter`。2026-10-03 の方針改定で許可）を使う。新しい進捗管理型は追加しない。円の中央の内容（GPUI の children）は添付プロパティ `uikit:ProgressCircles.Content`（ADR 30）で置く。 |
+| [Spinner][gp-spinner] | 対応 | `ProgressBar`（`IsIndeterminate=true`）の専用テーマ、`uikit:Spinners.Icon` | 回転するローディング記号として表現する。Avalonia の同名 `Spinner` / `ButtonSpinner` は数値の増減用であり、ローディングの対応先ではない。回すアイコン（GPUI の `icon`）は添付プロパティ `uikit:Spinners.Icon`（ADR 30）で変える。GPUI の回転は 0.8 秒に固定され、速さを変える公開 API はない。easing の変更（`ease()`）は追加しない。 |
+| [Tooltip][gp-tooltip] | 対応 | [`ToolTip`][av-tooltip] | 背景、枠、影、文字、余白、標準の表示遅延。GPUI の Action からキー表示を自動解決する機能は移植しない（ADR 30 でも範囲外）。閉じる前の猶予と隣への切り替えスライドは描かない（動きの差。R21）。 |
+| [Popover][gp-popover] | 部分対応 | [`Flyout`][av-flyout] / `FlyoutPresenter` | アンカーに対する配置、`HorizontalOffset` / `VerticalOffset` による間隔、内容、枠・影、開くときの表示。論理的な開閉は標準 Flyout が担当。配置した辺に合わせて描く矢印（`arrow` クラス）は、`Placement` から間隔と矢印の位置を求める値変換（`PlacementConverter`）で描く。閉じるアニメーションを待って Popup を破棄する制御は追加しない（動きの差）。 |
+| [Menu / ContextMenu / DropdownMenu][gp-menu] | 対応 | [`ContextMenu`][av-contextmenu]、[`MenuFlyout`][av-menu-flyout]、[`MenuItem`][av-menu-item] | 項目、チェック、サブメニュー、アイコン、ショートカット表示、区切り、hover / disabled。クリック型トリガーには標準 `DropDownButton` も使える。ポインターの位置に開くメニューは `FlyoutPresenterClasses="context"` でトリガーとの間隔をなくす（TextBox の右クリックメニューも同じ）。 |
 | AppMenuBar（menu の公開型） | 対応 | [`Menu`][av-menu] | アプリ内に描画するメニューバーと項目。OS のネイティブメニューとは分ける。 |
 | [Notification][gp-notification] | 部分対応 | [`WindowNotificationManager`][av-notification-manager] / [`NotificationCard`][av-notification-card] | アプリ内通知の色、アイコン、内容、`Position` の 6 種の位置、標準の自動消去と入退場表示。GPUI の通知ごとの配置指定と左右中央の配置、重複排除 ID、重なりを hover で展開するスタックやばねによる並べ直しは移植しない。 |
 | [TitleBar][gp-title-bar] / WindowBorder | 部分対応 | [`WindowDrawnDecorations`][av-window-decorations]、`Window.WindowDecorationsTheme` | Avalonia が描くタイトルバー・枠のテンプレート、標準のキャプションボタン・状態をテーマ化。OS が描く装飾は対象外。GPUI のタイトルバーへの任意コンテンツ挿入 API やプラットフォーム処理は移植しない。実際に描画される部位は OS ごとに確認が必要。 |
+<!-- TODO(shell): Notification の行に uikit:NotificationList / uikit:NotificationItem、TitleBar の行に uikit:TitleBar で足したもの（通知ごとの配置、重複排除、重なりの展開、任意の内容など）を書き、まだ範囲外のもの（OS の通知への配信など）だけを残す。 -->
 
 ## 公式の別パッケージに対応するもの
 
@@ -228,14 +280,14 @@ Avalonia に対応するコントロールがないため、新しいコント�
 
 | GPUI Kit | 判定 | 公式の対応先 | テーマで移植する範囲／制約 |
 | --- | --- | --- | --- |
-| [ColorPicker][gp-color-picker] | 部分対応 | [`Avalonia.Controls.ColorPicker`][av-colorpicker] の `ColorPicker` / `ColorView` / `ColorSpectrum` / `ColorSlider` / `ColorPreviewer` | 色見本、ドロップダウン、パレット、数値欄、周辺のボタンをテーマ化できる。枠付きの欄として描く `ColorSelect` は、同パッケージの `ColorToHexConverter` で 16 進値を表示するテンプレートで表せる。`Color` は未選択を持たないため、その placeholder は扱わない。色のモデル・編集は標準の RGB / HSV 等に従い、GPUI の HSL 編集 UI や独自パレット生成機能は追加しない。本体と対応する版の追加参照が必要。 |
-| [DataTable][gp-data-table] | 部分対応 | [`Avalonia.Controls.DataGrid` 12.1.2][av-datagrid] | 行・セル・ヘッダー・ソート表示・列リサイズ・列移動・固定列など、DataGrid が持つ機能の外観。GPUI と同じセル範囲選択、無限取得、データモデルは追加しない。**公式に非推奨**とされているため、新規テーマの基本対応先は `TableView`。DataGrid はこの追加パッケージを利用する場合の対応先として扱う。 |
+| [ColorPicker][gp-color-picker] | 部分対応 | [`Avalonia.Controls.ColorPicker`][av-colorpicker] の `ColorPicker` / `ColorView` / `ColorSpectrum` / `ColorSlider` / `ColorPreviewer` | 色見本、ドロップダウン、パレット、数値欄、周辺のボタンをテーマ化できる。枠付きの欄として描く `ColorSelect` は、同パッケージの `ColorToHexConverter` で 16 進値を表示するテンプレートで表せる。`Color` は未選択を持たないため、その placeholder は扱わない。色のモデル・編集は標準の RGB / HSV 等に従い、このパッケージのテーマには GPUI の HSL 編集 UI や独自パレットを追加しない。本体と対応する版の追加参照が必要。GPUI の ColorPicker と ColorSelect（パレット、featured の行、HSLA のスライダー、16 進の入力、色なしの値と placeholder）は、このパッケージに依存しない本体の `uikit:ColorSelect`（ADR 30。欄は `field` クラス）で足す。 |
+| [DataTable][gp-data-table] | 部分対応 | [`Avalonia.Controls.DataGrid` 12.1.2][av-datagrid] | 行・セル・ヘッダー・ソート表示・列リサイズ・列移動・固定列など、DataGrid が持つ機能の外観。行がないときの空の表示、GPUI の `cell_selectable`（`cell-selectable` クラス。DataGrid はクリックで行を選ぶので、選択行の current cell を GPUI の選択したセルとして描く）、`row_header`（`HeadersVisibility="All"`）もテーマで描く。列の選択、多段の列見出し、読み込み中の表示、無限取得、データモデルは追加しない（ADR 30 でも範囲外）。**公式に非推奨**とされているため、新規テーマの基本対応先は `TableView`。DataGrid はこの追加パッケージを利用する場合の対応先として扱う。 |
 
 根拠: [ColorPicker の追加参照と再テンプレート化][av-doc-colorpicker]、[DataGrid の配布条件・非推奨の案内][av-doc-datagrid]。公式の別パッケージがあることと、本体に機能を新設せず使えることは両立するが、必要な依存は明示する。
 
 ## 新しいコントロールとして実装するもの
 
-Avalonia に対応するコントロールがないコンポーネントのうち、見た目が中心で小さく作れるものは、新しいコントロールとして `UIKitTheme` に含める（2026-10-04 に決定。ADR 19）。判定は **新規実装**。コントロールはプロパティ・疑似クラス・テンプレートの部品だけを持ち、処理はそのコンポーネント自身の操作に限る。名前は GPUI に合わせ、Avalonia のメンバーとぶつかるものや意味が広すぎるものだけ変える。
+Avalonia に対応するコントロールがないコンポーネントのうち、見た目が中心で小さく作れるものは、新しいコントロールとして `UIKitTheme` に含める（2026-10-04 に決定。ADR 19）。判定は **新規実装**。コントロールはプロパティ・疑似クラス・テンプレートの部品だけを持ち、処理はそのコンポーネント自身の操作に限る。名前は GPUI に合わせ、Avalonia のメンバーとぶつかるものや意味が広すぎるものだけ変える。既存のコントロールが持たない機能を足す新しいコントロール（`uikit:Select`、`uikit:ListView` など。2026-10-05 に決定。ADR 30）は、対応する既存のコントロールがあるので、そのコンポーネントの行（[Avalonia 本体に対応するもの](#avalonia-本体に対応するもの)）と [ADR 30 で機能を足したもの](#adr-30-で機能を足したもの) に書く。
 
 | GPUI Kit | 判定 | Avalonia の新しいコントロール | 移植する範囲／対象外 |
 | --- | --- | --- | --- |
@@ -270,7 +322,7 @@ Avalonia に対応先のない機能のうち、それを持つ広く使われ�
 
 ## 対応する標準コンポーネントがないもの
 
-以下は非対応。モーダル、検索、編集、可視化などの仕組みそのものが要り、新しいコントロールを足しても小さく収まらない（ADR 19）。対応済みのボタン・文字等をアプリ側で使った結果として外観の一部が揃うことは、ここでのコンポーネント対応には数えない。
+以下は非対応。モーダル、コマンドパレット、編集エンジン、可視化などの仕組みそのものが要り、新しいコントロールを足しても小さく収まらない（ADR 19。ADR 30 でも範囲外）。対応済みのボタン・文字等をアプリ側で使った結果として外観の一部が揃うことは、ここでのコンポーネント対応には数えない。
 
 | GPUI Kit | 非対応とする理由 |
 | --- | --- |
@@ -317,7 +369,7 @@ Avalonia に対応先のない機能のうち、それを持つ広く使われ�
 | hover / pressed / checked の色・透明度変化 | 対応 | `BrushTransition`、`DoubleTransition` 等。対象プロパティの型に合う Transition を使う。 |
 | つまみ移動、記号の回転・拡縮 | 対応 | `TransformOperationsTransition` またはキーフレーム。操作中の Slider の値やつまみを遅らせず、描画側の状態に適用する。 |
 | Spinner・不定値 Progress の繰り返し | 対応 | テンプレート内の Shape / アイコンに `Animation` を適用する。新しい進捗管理型は不要。 |
-| Carousel のページ切り替え | 対応 | `PageTransition` に指定する `PageSlide` の派生（`uikit:SpringSlide`）で、GPUI と同じばねで動かす。 |
+| Carousel のページ切り替え | 対応 | `PageTransition` に指定する `PageSlide` の派生（`uikit:SpringSlide`）で、GPUI と同じばねで動かす。複数ページ先への移動、途中での反転、ループの折り返し、ドラッグを離した後は、ページを並べたトラック（`uikit:CarouselTrack`。`uikit:Carousels.TracksPointer`、ADR 30）を同じばねで動かす。 |
 | Expander / Sheet / Sidebar の開閉 | 対応（2026-10-03 の方針改定後） | DrawerPage / SplitView の既存状態・テンプレートに Transition とキーフレームを付ける。Expander の自然高の reveal は下の行。 |
 | Popup / Flyout / Menu / Tooltip の入退場 | 部分対応 | 内容が生存する間の表示開始アニメーションは可能。非表示・破棄後は描画できないので、閉じるアニメーションのために独自の表示寿命管理を追加しない。 |
 | Notification の入退場 | 対応範囲あり | `NotificationCard` は `IsClosing` / `IsClosed` を持ち、標準テーマがアニメーションと閉じる完了を結び付けている。この契約を維持して外観と時間を変更する。 |
@@ -326,6 +378,7 @@ Avalonia に対応先のない機能のうち、それを持つ広く使われ�
 | 通知の重なり・並べ直し | 非対応 | 通知の並びと寿命の管理が必要で、見た目だけのコードの範囲を超える。 |
 | 自然高を計測し、レイアウト高も滑らかに変える reveal | 対応（2026-10-03 の方針改定後） | `Height=Auto` と数値の遷移だけでは GPUI の `MotionReveal` に相当しないので、内容を自然な高さで測る `Canvas` と値変換（`RevealConverters`）で、高さ ＝ 自然高 × ばねの値にする。 |
 | OS の reduced-motion 設定との同一連動 | 未保証 | GPUI の低減処理をそのまま移植しない。今回確認した Avalonia の公開 [`IPlatformSettings`][av-platform-settings] には同等の共通設定取得契約がない。テーマの動きの定義と OS の設定検出は別に評価する。 |
+<!-- TODO(shell): 通知の重なり・並べ直しの行を、uikit:NotificationList（ADR 30）で対応したことに合わせて書き直す。 -->
 
 共通の時間・曲線は、GPUI の [`MotionTokens`][gp-motion] を出発点にできる。
 
@@ -368,6 +421,7 @@ Avalonia に対応先のない機能のうち、それを持つ広く使われ�
 [av-controls]: https://github.com/AvaloniaUI/Avalonia/tree/12.1.3/src/Avalonia.Controls
 [av-datagrid]: https://github.com/AvaloniaUI/Avalonia.Controls.DataGrid/blob/12.1.2/src/Avalonia.Controls.DataGrid/DataGrid.cs
 [av-date-picker]: https://github.com/AvaloniaUI/Avalonia/blob/12.1.3/src/Avalonia.Controls/CalendarDatePicker/CalendarDatePicker.cs
+[av-drop-down-button]: https://github.com/AvaloniaUI/Avalonia/blob/12.1.3/src/Avalonia.Controls/DropDownButton.cs
 [av-doc-animation]: https://docs.avaloniaui.net/docs/graphics-animation/keyframe-animations
 [av-doc-colorpicker]: https://docs.avaloniaui.net/controls/input/selectors/colorpicker
 [av-doc-datagrid]: https://docs.avaloniaui.net/controls/data-display/structured-data/datagrid
@@ -509,6 +563,10 @@ Avalonia に対応先のない機能のうち、それを持つ広く使われ�
 [gp-progress-circle-source]: https://github.com/longbridge/gpui-kit/blob/2c5162f8c5b0c7fcec066ed53125d304c632bfe2/crates/component/src/progress/progress_circle.rs
 [gp-breadcrumb-source]: https://github.com/longbridge/gpui-kit/blob/2c5162f8c5b0c7fcec066ed53125d304c632bfe2/crates/component/src/breadcrumb.rs
 [gp-native-menu-source]: https://github.com/longbridge/gpui-kit/blob/2c5162f8c5b0c7fcec066ed53125d304c632bfe2/crates/component/src/native_menu/mod.rs
+[gp-root-source]: https://github.com/longbridge/gpui-kit/blob/2c5162f8c5b0c7fcec066ed53125d304c632bfe2/crates/component/src/root.rs
+[gp-sheet-source]: https://github.com/longbridge/gpui-kit/blob/2c5162f8c5b0c7fcec066ed53125d304c632bfe2/crates/component/src/sheet.rs
+[gp-tab-panel-source]: https://github.com/longbridge/gpui-kit/blob/2c5162f8c5b0c7fcec066ed53125d304c632bfe2/crates/component/src/dock/tab_panel.rs
+[gp-table-state-source]: https://github.com/longbridge/gpui-kit/blob/2c5162f8c5b0c7fcec066ed53125d304c632bfe2/crates/component/src/table/state.rs
 [av-platform-settings]: https://github.com/AvaloniaUI/Avalonia/blob/12.1.3/src/Avalonia.Base/Platform/IPlatformSettings.cs
 [td-dock]: https://github.com/wieslawsoltes/Dock/tree/v12.1.0.6
 [td-tabalonia]: https://github.com/egorozh/Tabalonia/tree/v12.0.0
