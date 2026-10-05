@@ -163,6 +163,7 @@
           <NumericUpDown Value="42" Width="160" />
           <NumericUpDown Value="42" Width="160" InnerLeftContent="$" InnerRightContent="kg" />
           <Slider Value="40" Width="240" HorizontalAlignment="Left" />
+          <uikit:NumberInput Value="0.9" Increment="0.1" Minimum="0" Width="160" />
           <ProgressBar Value="40" Width="240" />
           <ProgressBar IsIndeterminate="True" Width="240" />
           <ProgressBar Theme="{StaticResource UIKitSpinner}" Classes="large" />
