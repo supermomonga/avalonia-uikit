@@ -183,7 +183,7 @@ public class TableRowPanel : Panel
     {
         var cells = Visible();
         Resolve(cells, finalSize.Width);
-        var runs = LayoutSnap.Runs(this, 0, _widths);
+        var runs = LayoutSnap.GpuiRuns(this, 0, _widths);
         for (var i = 0; i < cells.Count; i++)
         {
             cells[i].Arrange(new Rect(runs[i].Start, 0, runs[i].Length, finalSize.Height));
