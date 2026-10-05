@@ -92,6 +92,7 @@ public static partial class Adapters
         "collapsible" => Collapsible(c),
         "slider" => Slider(c),
         "table" => TableRows(Table(c), c),
+        "uikit-table" => UikitTableCase(c),
         "datatable" => TableRows(DataTable(c), c),
         "datagrid" => DataGridCells(DataGridCase(c), c),
         "tabalonia" => TabaloniaCase(c),

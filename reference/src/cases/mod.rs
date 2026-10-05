@@ -121,6 +121,7 @@ pub fn builder(case: &Case) -> Result<Builder> {
         "tabs-bar" => tabs::builder(&params),
         "dock" => dock::builder(&params),
         "table" => table::builder(&params),
+        "uikit-table" => table::builder(&params),
         "carousel" => carousel::builder(&params),
         "uikit-carousel" => carousel::builder(&params),
         "sidebar" => sidebar::builder(&params),

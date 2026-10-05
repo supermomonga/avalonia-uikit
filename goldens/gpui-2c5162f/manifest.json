@@ -173855,6 +173855,1184 @@
       "png_sha256": "c82e8ed613f2a7cd223c8fc01cd7e890ab94d29573636762fc53f24663158631"
     },
     {
+      "id": "uikit-table/bordered.large/normal/dark",
+      "component": "uikit-table",
+      "group": "bordered",
+      "params": {
+        "bordered": true,
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        272.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        238.0
+      ],
+      "png": "png/uikit-table/bordered.large/normal/dark.png",
+      "scene": "scenes/uikit-table/bordered.large/normal/dark.json",
+      "png_sha256": "c9b1469649c0b49abf377e685ae20a4066cfe6901ee5114ca14f2544dfd3f6aa"
+    },
+    {
+      "id": "uikit-table/bordered.large/normal/light",
+      "component": "uikit-table",
+      "group": "bordered",
+      "params": {
+        "bordered": true,
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        272.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        238.0
+      ],
+      "png": "png/uikit-table/bordered.large/normal/light.png",
+      "scene": "scenes/uikit-table/bordered.large/normal/light.json",
+      "png_sha256": "823a6dc06294f6572369c58be72935aa4dd42f8edefc8099eee15d6358e9bc87"
+    },
+    {
+      "id": "uikit-table/bordered.medium/normal/dark",
+      "component": "uikit-table",
+      "group": "bordered",
+      "params": {
+        "bordered": true,
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        272.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        190.0
+      ],
+      "png": "png/uikit-table/bordered.medium/normal/dark.png",
+      "scene": "scenes/uikit-table/bordered.medium/normal/dark.json",
+      "png_sha256": "79ce11f2cd0dd4176fa8fdfa2501c62987da8517155b11236b01c9c7a2d8d28e"
+    },
+    {
+      "id": "uikit-table/bordered.medium/normal/light",
+      "component": "uikit-table",
+      "group": "bordered",
+      "params": {
+        "bordered": true,
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        272.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        190.0
+      ],
+      "png": "png/uikit-table/bordered.medium/normal/light.png",
+      "scene": "scenes/uikit-table/bordered.medium/normal/light.json",
+      "png_sha256": "aa934f14140da27bbd3e4b1f153cdf09aea0c56e13702110446c35fad6a9f832"
+    },
+    {
+      "id": "uikit-table/bordered.small/normal/dark",
+      "component": "uikit-table",
+      "group": "bordered",
+      "params": {
+        "bordered": true,
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        272.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        178.0
+      ],
+      "png": "png/uikit-table/bordered.small/normal/dark.png",
+      "scene": "scenes/uikit-table/bordered.small/normal/dark.json",
+      "png_sha256": "d77522afd5cfa10f7ca64223035b362ac5d2fd9cb1e0817c2dbcc2471e90960a"
+    },
+    {
+      "id": "uikit-table/bordered.small/normal/light",
+      "component": "uikit-table",
+      "group": "bordered",
+      "params": {
+        "bordered": true,
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        272.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        178.0
+      ],
+      "png": "png/uikit-table/bordered.small/normal/light.png",
+      "scene": "scenes/uikit-table/bordered.small/normal/light.json",
+      "png_sha256": "a7dbeeb5c07fa75c680045972a8b6c9e0fdc70b264018864ec47ab8b21d39216"
+    },
+    {
+      "id": "uikit-table/caption.large.bordered/normal/dark",
+      "component": "uikit-table",
+      "group": "caption",
+      "params": {
+        "footer": true,
+        "caption": true,
+        "size": "large",
+        "bordered": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        360.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        316.0
+      ],
+      "png": "png/uikit-table/caption.large.bordered/normal/dark.png",
+      "scene": "scenes/uikit-table/caption.large.bordered/normal/dark.json",
+      "png_sha256": "e0f3a19a7cc8b7988e391e8531fc858ac38cadec00667023f3b6feeed6214d07"
+    },
+    {
+      "id": "uikit-table/caption.large.bordered/normal/light",
+      "component": "uikit-table",
+      "group": "caption",
+      "params": {
+        "footer": true,
+        "caption": true,
+        "size": "large",
+        "bordered": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        360.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        316.0
+      ],
+      "png": "png/uikit-table/caption.large.bordered/normal/light.png",
+      "scene": "scenes/uikit-table/caption.large.bordered/normal/light.json",
+      "png_sha256": "6ae3886f15057717436733a7bf88d5053446130e656344802555fef246d585d7"
+    },
+    {
+      "id": "uikit-table/caption.large/normal/dark",
+      "component": "uikit-table",
+      "group": "caption",
+      "params": {
+        "footer": true,
+        "caption": true,
+        "size": "large",
+        "bordered": false
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        360.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        314.0
+      ],
+      "png": "png/uikit-table/caption.large/normal/dark.png",
+      "scene": "scenes/uikit-table/caption.large/normal/dark.json",
+      "png_sha256": "938ecef778ef473a47078e27c9cf1271a4ab24abe6b3b1138701758b4db4588c"
+    },
+    {
+      "id": "uikit-table/caption.large/normal/light",
+      "component": "uikit-table",
+      "group": "caption",
+      "params": {
+        "footer": true,
+        "caption": true,
+        "size": "large",
+        "bordered": false
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        360.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        314.0
+      ],
+      "png": "png/uikit-table/caption.large/normal/light.png",
+      "scene": "scenes/uikit-table/caption.large/normal/light.json",
+      "png_sha256": "ebd5af70a6c2a2cafe8da36c1cc41621751b3b26830a3a1d81cc6c2911a0318e"
+    },
+    {
+      "id": "uikit-table/caption.medium.bordered/normal/dark",
+      "component": "uikit-table",
+      "group": "caption",
+      "params": {
+        "footer": true,
+        "caption": true,
+        "size": "medium",
+        "bordered": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        360.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        252.0
+      ],
+      "png": "png/uikit-table/caption.medium.bordered/normal/dark.png",
+      "scene": "scenes/uikit-table/caption.medium.bordered/normal/dark.json",
+      "png_sha256": "a72ef4f12a2448db48e28de0d6f3f0567ae6efd067e011b4b6d835f1f2990b53"
+    },
+    {
+      "id": "uikit-table/caption.medium.bordered/normal/light",
+      "component": "uikit-table",
+      "group": "caption",
+      "params": {
+        "footer": true,
+        "caption": true,
+        "size": "medium",
+        "bordered": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        360.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        252.0
+      ],
+      "png": "png/uikit-table/caption.medium.bordered/normal/light.png",
+      "scene": "scenes/uikit-table/caption.medium.bordered/normal/light.json",
+      "png_sha256": "fc5847c6dc8b97da2e2a81c9faeb642c61225669c4099bddf4827f9f86d54e7d"
+    },
+    {
+      "id": "uikit-table/caption.medium/normal/dark",
+      "component": "uikit-table",
+      "group": "caption",
+      "params": {
+        "footer": true,
+        "caption": true,
+        "size": "medium",
+        "bordered": false
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        360.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        250.0
+      ],
+      "png": "png/uikit-table/caption.medium/normal/dark.png",
+      "scene": "scenes/uikit-table/caption.medium/normal/dark.json",
+      "png_sha256": "4f546604797509814281528ac0c4da145273e5a6705b15ea382fdc870eeb2778"
+    },
+    {
+      "id": "uikit-table/caption.medium/normal/light",
+      "component": "uikit-table",
+      "group": "caption",
+      "params": {
+        "footer": true,
+        "caption": true,
+        "size": "medium",
+        "bordered": false
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        360.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        250.0
+      ],
+      "png": "png/uikit-table/caption.medium/normal/light.png",
+      "scene": "scenes/uikit-table/caption.medium/normal/light.json",
+      "png_sha256": "6f33d8e4572f6a681665ad98286d61636ade61c2fba1d9dc7ecd070302ad626a"
+    },
+    {
+      "id": "uikit-table/caption.xsmall.bordered/normal/dark",
+      "component": "uikit-table",
+      "group": "caption",
+      "params": {
+        "footer": true,
+        "caption": true,
+        "size": "xsmall",
+        "bordered": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        360.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        220.0
+      ],
+      "png": "png/uikit-table/caption.xsmall.bordered/normal/dark.png",
+      "scene": "scenes/uikit-table/caption.xsmall.bordered/normal/dark.json",
+      "png_sha256": "5d696ce60235c14df9a9c9a49c4bf01b29824fc877e7ad64586eac913f72c7aa"
+    },
+    {
+      "id": "uikit-table/caption.xsmall.bordered/normal/light",
+      "component": "uikit-table",
+      "group": "caption",
+      "params": {
+        "footer": true,
+        "caption": true,
+        "size": "xsmall",
+        "bordered": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        360.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        220.0
+      ],
+      "png": "png/uikit-table/caption.xsmall.bordered/normal/light.png",
+      "scene": "scenes/uikit-table/caption.xsmall.bordered/normal/light.json",
+      "png_sha256": "5cbcab110267b91a97e0fceb92bff167e123479fc99ff98858df95a3bdb9db1d"
+    },
+    {
+      "id": "uikit-table/caption.xsmall/normal/dark",
+      "component": "uikit-table",
+      "group": "caption",
+      "params": {
+        "footer": true,
+        "caption": true,
+        "size": "xsmall",
+        "bordered": false
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        360.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        218.0
+      ],
+      "png": "png/uikit-table/caption.xsmall/normal/dark.png",
+      "scene": "scenes/uikit-table/caption.xsmall/normal/dark.json",
+      "png_sha256": "5ed8d0e05530fd76781f4cac5b5881050a8625bbaa7275a858bfac149b7c5f6e"
+    },
+    {
+      "id": "uikit-table/caption.xsmall/normal/light",
+      "component": "uikit-table",
+      "group": "caption",
+      "params": {
+        "footer": true,
+        "caption": true,
+        "size": "xsmall",
+        "bordered": false
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        360.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        218.0
+      ],
+      "png": "png/uikit-table/caption.xsmall/normal/light.png",
+      "scene": "scenes/uikit-table/caption.xsmall/normal/light.json",
+      "png_sha256": "ad4ac182e3c3838f09fb22b9ccbebfb597da8b6ced99916e722e37629879998e"
+    },
+    {
+      "id": "uikit-table/fixed.base/normal/dark",
+      "component": "uikit-table",
+      "group": "fixed",
+      "params": {
+        "fixed_widths": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        272.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        188.0
+      ],
+      "png": "png/uikit-table/fixed.base/normal/dark.png",
+      "scene": "scenes/uikit-table/fixed.base/normal/dark.json",
+      "png_sha256": "b3fe5e42dd1364b4cd046b8e4beec0e869f129272cad5a4f9d2057d859d23aef"
+    },
+    {
+      "id": "uikit-table/fixed.base/normal/light",
+      "component": "uikit-table",
+      "group": "fixed",
+      "params": {
+        "fixed_widths": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        272.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        188.0
+      ],
+      "png": "png/uikit-table/fixed.base/normal/light.png",
+      "scene": "scenes/uikit-table/fixed.base/normal/light.json",
+      "png_sha256": "3adc1c2256ad78a1c69840fd2982d1bfd508cb0cff591df951238e933be5ef79"
+    },
+    {
+      "id": "uikit-table/footer.base/normal/dark",
+      "component": "uikit-table",
+      "group": "footer",
+      "params": {
+        "footer": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        304.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        219.5
+      ],
+      "png": "png/uikit-table/footer.base/normal/dark.png",
+      "scene": "scenes/uikit-table/footer.base/normal/dark.json",
+      "png_sha256": "ee3e6e4313c98c4c24fd6d2fd796b12909e13d5ced4c8dbf32db4fad902c39aa"
+    },
+    {
+      "id": "uikit-table/footer.base/normal/light",
+      "component": "uikit-table",
+      "group": "footer",
+      "params": {
+        "footer": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        304.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        219.5
+      ],
+      "png": "png/uikit-table/footer.base/normal/light.png",
+      "scene": "scenes/uikit-table/footer.base/normal/light.json",
+      "png_sha256": "d71e2820c373a5fe36f3b1b705ab09ecfbac37611de578e3a4719c2b74a13be0"
+    },
+    {
+      "id": "uikit-table/header-rows.base/normal/dark",
+      "component": "uikit-table",
+      "group": "header-rows",
+      "params": {
+        "group_header": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        304.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        219.5
+      ],
+      "png": "png/uikit-table/header-rows.base/normal/dark.png",
+      "scene": "scenes/uikit-table/header-rows.base/normal/dark.json",
+      "png_sha256": "7fa5ecfa8b057967ca399731402934331b49061b37436572995ee90fe75c5508"
+    },
+    {
+      "id": "uikit-table/header-rows.base/normal/light",
+      "component": "uikit-table",
+      "group": "header-rows",
+      "params": {
+        "group_header": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        304.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        219.5
+      ],
+      "png": "png/uikit-table/header-rows.base/normal/light.png",
+      "scene": "scenes/uikit-table/header-rows.base/normal/light.json",
+      "png_sha256": "139e917e0bc0679aca1ea1d76eb40e32c8b67489c5b66c192ffb590bfad4ad36"
+    },
+    {
+      "id": "uikit-table/pointer.base/at-80-94/dark",
+      "component": "uikit-table",
+      "group": "pointer",
+      "params": {},
+      "state": "at-80-94",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        272.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        188.0
+      ],
+      "png": "png/uikit-table/pointer.base/at-80-94/dark.png",
+      "scene": "scenes/uikit-table/pointer.base/at-80-94/dark.json",
+      "png_sha256": "29b82bbeb052ab60ed387a2278bd665683cee0d6d4006d6fa26a2a8f9ebe6a32"
+    },
+    {
+      "id": "uikit-table/pointer.base/at-80-94/light",
+      "component": "uikit-table",
+      "group": "pointer",
+      "params": {},
+      "state": "at-80-94",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        272.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        188.0
+      ],
+      "png": "png/uikit-table/pointer.base/at-80-94/light.png",
+      "scene": "scenes/uikit-table/pointer.base/at-80-94/light.json",
+      "png_sha256": "24e5f6015e5524a31e003e99b52d3243fa0e490c3d794f69500ca237f2296417"
+    },
+    {
+      "id": "uikit-table/pointer.base/click-at-80-94/dark",
+      "component": "uikit-table",
+      "group": "pointer",
+      "params": {},
+      "state": "click-at-80-94",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        272.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        188.0
+      ],
+      "png": "png/uikit-table/pointer.base/click-at-80-94/dark.png",
+      "scene": "scenes/uikit-table/pointer.base/click-at-80-94/dark.json",
+      "png_sha256": "29b82bbeb052ab60ed387a2278bd665683cee0d6d4006d6fa26a2a8f9ebe6a32"
+    },
+    {
+      "id": "uikit-table/pointer.base/click-at-80-94/light",
+      "component": "uikit-table",
+      "group": "pointer",
+      "params": {},
+      "state": "click-at-80-94",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        272.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        188.0
+      ],
+      "png": "png/uikit-table/pointer.base/click-at-80-94/light.png",
+      "scene": "scenes/uikit-table/pointer.base/click-at-80-94/light.json",
+      "png_sha256": "24e5f6015e5524a31e003e99b52d3243fa0e490c3d794f69500ca237f2296417"
+    },
+    {
+      "id": "uikit-table/size.large/normal/dark",
+      "component": "uikit-table",
+      "group": "size",
+      "params": {
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        272.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        236.0
+      ],
+      "png": "png/uikit-table/size.large/normal/dark.png",
+      "scene": "scenes/uikit-table/size.large/normal/dark.json",
+      "png_sha256": "62d53040dba6740645a8ed515f173776079d540c17b94c75ed641808969192af"
+    },
+    {
+      "id": "uikit-table/size.large/normal/light",
+      "component": "uikit-table",
+      "group": "size",
+      "params": {
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        272.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        236.0
+      ],
+      "png": "png/uikit-table/size.large/normal/light.png",
+      "scene": "scenes/uikit-table/size.large/normal/light.json",
+      "png_sha256": "2747f0d1cdd8958d203aeccdcc8c2599c31a2a302f63782131ab569c544d9474"
+    },
+    {
+      "id": "uikit-table/size.medium/normal/dark",
+      "component": "uikit-table",
+      "group": "size",
+      "params": {
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        272.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        188.0
+      ],
+      "png": "png/uikit-table/size.medium/normal/dark.png",
+      "scene": "scenes/uikit-table/size.medium/normal/dark.json",
+      "png_sha256": "29b82bbeb052ab60ed387a2278bd665683cee0d6d4006d6fa26a2a8f9ebe6a32"
+    },
+    {
+      "id": "uikit-table/size.medium/normal/light",
+      "component": "uikit-table",
+      "group": "size",
+      "params": {
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        272.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        188.0
+      ],
+      "png": "png/uikit-table/size.medium/normal/light.png",
+      "scene": "scenes/uikit-table/size.medium/normal/light.json",
+      "png_sha256": "24e5f6015e5524a31e003e99b52d3243fa0e490c3d794f69500ca237f2296417"
+    },
+    {
+      "id": "uikit-table/size.small/normal/dark",
+      "component": "uikit-table",
+      "group": "size",
+      "params": {
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        272.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        176.0
+      ],
+      "png": "png/uikit-table/size.small/normal/dark.png",
+      "scene": "scenes/uikit-table/size.small/normal/dark.json",
+      "png_sha256": "ad441f2a8b9ae8288e2f7a956ae679d9b3479fb494cb6a5aa86e886ba67778e4"
+    },
+    {
+      "id": "uikit-table/size.small/normal/light",
+      "component": "uikit-table",
+      "group": "size",
+      "params": {
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        272.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        176.0
+      ],
+      "png": "png/uikit-table/size.small/normal/light.png",
+      "scene": "scenes/uikit-table/size.small/normal/light.json",
+      "png_sha256": "25e16c4108acced481b2cf152431e8d62c15d310528c0f4fcf57b4c5c60ad950"
+    },
+    {
+      "id": "uikit-table/size.xsmall/normal/dark",
+      "component": "uikit-table",
+      "group": "size",
+      "params": {
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        272.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        164.0
+      ],
+      "png": "png/uikit-table/size.xsmall/normal/dark.png",
+      "scene": "scenes/uikit-table/size.xsmall/normal/dark.json",
+      "png_sha256": "d8c8e6cc0a97784e8799edcc36cf9da71c02dc2f024b0db873ad3963f9d7bff2"
+    },
+    {
+      "id": "uikit-table/size.xsmall/normal/light",
+      "component": "uikit-table",
+      "group": "size",
+      "params": {
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        272.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        164.0
+      ],
+      "png": "png/uikit-table/size.xsmall/normal/light.png",
+      "scene": "scenes/uikit-table/size.xsmall/normal/light.json",
+      "png_sha256": "111506d6cfce7a6480ffc05cf2b4425bc01f2284355fdddba1839bf4f76f1c5f"
+    },
+    {
+      "id": "uikit-table/story.medium/normal/dark",
+      "component": "uikit-table",
+      "group": "story",
+      "params": {
+        "story": true,
+        "width": 560,
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        592.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        560.0,
+        335.5
+      ],
+      "png": "png/uikit-table/story.medium/normal/dark.png",
+      "scene": "scenes/uikit-table/story.medium/normal/dark.json",
+      "png_sha256": "84a485f52d04907cb684380cf20301f694eeba3167e60baf5545cf71af99482a"
+    },
+    {
+      "id": "uikit-table/story.medium/normal/light",
+      "component": "uikit-table",
+      "group": "story",
+      "params": {
+        "story": true,
+        "width": 560,
+        "size": "medium"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        592.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        560.0,
+        335.5
+      ],
+      "png": "png/uikit-table/story.medium/normal/light.png",
+      "scene": "scenes/uikit-table/story.medium/normal/light.json",
+      "png_sha256": "83067f4ccfb531640b18a0bd8292c80a0b219d6fb337485e2b28a16b89e90941"
+    },
+    {
+      "id": "uikit-table/story.xsmall/normal/dark",
+      "component": "uikit-table",
+      "group": "story",
+      "params": {
+        "story": true,
+        "width": 560,
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        592.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        560.0,
+        295.5
+      ],
+      "png": "png/uikit-table/story.xsmall/normal/dark.png",
+      "scene": "scenes/uikit-table/story.xsmall/normal/dark.json",
+      "png_sha256": "e79c0d61f426797ca275540df5e59c9a6b91a72ad8c0e0ec9095e19fe2d2ae6f"
+    },
+    {
+      "id": "uikit-table/story.xsmall/normal/light",
+      "component": "uikit-table",
+      "group": "story",
+      "params": {
+        "story": true,
+        "width": 560,
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        592.0,
+        400.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        560.0,
+        295.5
+      ],
+      "png": "png/uikit-table/story.xsmall/normal/light.png",
+      "scene": "scenes/uikit-table/story.xsmall/normal/light.json",
+      "png_sha256": "cc8c4274dc1e80d31ba7d8ed53bf41fb8aa35bd5598cd21f2c5cc5cbe3c92573"
+    },
+    {
+      "id": "uikit-table/stripe.base/normal/dark",
+      "component": "uikit-table",
+      "group": "stripe",
+      "params": {
+        "bordered": true,
+        "stripe": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        392.0,
+        272.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        190.0
+      ],
+      "png": "png/uikit-table/stripe.base/normal/dark.png",
+      "scene": "scenes/uikit-table/stripe.base/normal/dark.json",
+      "png_sha256": "5b7c6926bc12c3c567ffb585bc8c55b8d2e07ca93861bf8b8e46f44327c55ee0"
+    },
+    {
+      "id": "uikit-table/stripe.base/normal/light",
+      "component": "uikit-table",
+      "group": "stripe",
+      "params": {
+        "bordered": true,
+        "stripe": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        392.0,
+        272.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        360.0,
+        190.0
+      ],
+      "png": "png/uikit-table/stripe.base/normal/light.png",
+      "scene": "scenes/uikit-table/stripe.base/normal/light.json",
+      "png_sha256": "d1afefed90119137bc03f3b756664b85ae2b6926fcc9b270ed96a7ec201ba994"
+    },
+    {
       "id": "uikit-timefield/click.base/click-at-58-26/dark",
       "component": "uikit-timefield",
       "group": "click",
