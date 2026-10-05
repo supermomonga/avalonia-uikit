@@ -227,6 +227,18 @@
           <TextBlock Grid.Column="2" Text="Two" Margin="8" />
         </Grid>
 
+        <TextBlock Text="uikit:ResizablePanelGroup" Foreground="{DynamicResource UIKit.MutedForeground}" />
+        <uikit:ResizablePanelGroup Width="480" Height="160" HorizontalAlignment="Left">
+          <uikit:ResizablePanel Size="120" MinSize="100" MaxSize="200" Padding="8" Content="Left" />
+          <uikit:ResizablePanel>
+            <uikit:ResizablePanelGroup Orientation="Vertical">
+              <uikit:ResizablePanel Padding="8" Content="Top" />
+              <uikit:ResizablePanel Size="60" MinSize="40" Padding="8" Content="Bottom" />
+            </uikit:ResizablePanelGroup>
+          </uikit:ResizablePanel>
+          <uikit:ResizablePanel Size="120" Padding="8" Content="Right" />
+        </uikit:ResizablePanelGroup>
+
         <TextBlock Text="Calendar" Foreground="{DynamicResource UIKit.MutedForeground}" />
         <StackPanel Orientation="Horizontal" Spacing="12">
           <Calendar SelectedDate="2025-03-14" DisplayDate="2025-03-14" />

@@ -1,0 +1,36 @@
+<!--
+  GPUI Kit Resizable (crates/component/src/resizable.rs, crates/base/src/resizable)
+  -> uikit:ResizablePanelGroup / uikit:ResizablePanel:
+
+    <uikit:ResizablePanelGroup>
+      <uikit:ResizablePanel Size="200" MinSize="150" MaxSize="400">...</uikit:ResizablePanel>
+      <uikit:ResizablePanel>...</uikit:ResizablePanel>
+    </uikit:ResizablePanelGroup>
+
+  A panel paints nothing of its own (GPUI's resizable_panel is a plain flex
+  div); its Background, border and Padding are the app's. The handles between
+  panels are GridSplitters with the GridSplitter theme (GridSplitter.axaml):
+  the hairline in the border color, the 9px band and the pill's motion.
+-->
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:uikit="using:AvaloniaUIKit">
+  <ControlTheme x:Key="{x:Type uikit:ResizablePanel}" TargetType="uikit:ResizablePanel">
+    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+    <Setter Property="VerticalContentAlignment" Value="Stretch" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <ContentPresenter Name="PART_ContentPresenter"
+                          Background="{TemplateBinding Background}"
+                          BorderBrush="{TemplateBinding BorderBrush}"
+                          BorderThickness="{TemplateBinding BorderThickness}"
+                          CornerRadius="{TemplateBinding CornerRadius}"
+                          Padding="{TemplateBinding Padding}"
+                          Content="{TemplateBinding Content}"
+                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                          HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+      </ControlTemplate>
+    </Setter>
+  </ControlTheme>
+</ResourceDictionary>
