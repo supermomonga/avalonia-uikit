@@ -1,0 +1,77 @@
+# GPUI Kit InputGroup -> uikit:InputGroup with a TextBox and InputGroupAddons.
+# The groups of input-group.toml (TextBox.group) hold it to the same look,
+# with the focus color motion; the rest add GPUI's rows above and below the
+# input and a press on an addon.
+component = "uikit-inputgroup"
+viewport = [280, 68]
+anchor = [16, 12]
+
+[[group]]
+name = "icon"
+params = { placeholder = "Search...", start = "search", width = 240 }
+matrix = { size = ["xsmall", "small", "medium", "large"] }
+states = ["normal", "focus", "disabled"]
+
+[[group]]
+name = "text"
+params = { value = "example", start = "https://", end = ".com", width = 240 }
+matrix = { size = ["small", "medium"] }
+states = ["normal", "focus"]
+
+[[group]]
+name = "button"
+params = { value = "gpui", end_button = "Clear", width = 240 }
+states = ["normal", "disabled"]
+
+[[group]]
+name = "iconbutton"
+params = { value = "gpui", end_icon = "close", width = 240 }
+matrix = { button_size = ["xsmall", "small"] }
+states = ["normal"]
+
+[[group]]
+name = "invalid"
+params = { value = "not an email", start = "search", invalid = true, width = 240 }
+states = ["normal", "focus", "disabled"]
+
+[[group]]
+name = "readonly"
+params = { value = "Read only", end = "Saving", readonly = true, width = 240 }
+states = ["normal", "focus"]
+
+[[group]]
+name = "textarea"
+params = { multiline = true, rows = 3, value = "Write a message", end_button = "Send", width = 240 }
+states = ["normal", "focus"]
+viewport = [280, 116]
+
+# The border turns from input to ring over 120ms, cubic-bezier(0.2, 0, 0, 1);
+# the ring band appears at once.
+[[motion]]
+name = "focus"
+params = { placeholder = "Search...", start = "search", width = 240 }
+trigger = "focus"
+samples_ms = [0, 16, 33, 50, 66, 83, 100, 120, 150]
+themes = ["light"]
+
+# BlockStart: a row of text above a single-line input, across the group.
+[[group]]
+name = "blockstart"
+params = { placeholder = "Search...", block_start = "Filter", width = 240 }
+viewport = [280, 100]
+matrix = { size = ["small", "medium"] }
+states = ["normal", "focus", "disabled"]
+
+# BlockEnd (the composer): a counter and a Send button at the row's end under a textarea.
+[[group]]
+name = "blockend"
+params = { multiline = true, rows = 2, value = "Hello", block_end = "5/280", block_button = "Send", width = 280 }
+viewport = [320, 140]
+matrix = { invalid = [false, true] }
+states = ["normal", "focus"]
+
+# A press on an addon focuses the input.
+[[group]]
+name = "addonclick"
+params = { placeholder = "Search...", start = "search", width = 240, pointer_x = 0.05 }
+states = ["click"]

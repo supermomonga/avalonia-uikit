@@ -1,0 +1,138 @@
+# GPUI Kit Slider -> uikit:RangeSlider. The groups of slider.toml hold its
+# single-value mode (IsRange False) to the themed Slider's look; the rest are
+# GPUI's range value (crates/base/src/slider.rs): two thumbs with their own
+# rings, the nearer thumb taking a press on the track, a dragged thumb stopping
+# at the other, and SliderScale::Logarithmic.
+component = "uikit-slider"
+viewport = [232, 40]
+anchor = [16, 8]
+
+# Thumb at 0 / 40 / 100 %; the pointer sits on the thumb center.
+[[group]]
+name = "v0"
+params = { value = 0, pointer_x = 0.0 }
+states = ["normal", "hover+wait-400ms", "pressed+wait-400ms", "focus"]
+[[group]]
+name = "v40"
+params = { value = 40, pointer_x = 0.4 }
+states = ["normal", "hover+wait-400ms", "pressed+wait-400ms", "focus"]
+[[group]]
+name = "v100"
+params = { value = 100, pointer_x = 1.0 }
+states = ["normal", "hover+wait-400ms", "pressed+wait-400ms", "focus"]
+
+# Disabled: no thumb, track and fill unchanged.
+[[group]]
+name = "disabled"
+matrix = { value = [0, 40, 100] }
+states = ["disabled"]
+
+# Press on the bar at 80 %: the value jumps.
+[[group]]
+name = "bar"
+params = { value = 40, pointer_x = 0.8 }
+states = ["pressed", "pressed+wait-400ms"]
+
+# Drag the thumb from 40 % to 60 %, held and released.
+[[group]]
+name = "drag"
+params = { value = 40, pointer_x = 0.4 }
+states = ["pressed+drag-at-110-20+drag-at-136-20+wait-400ms", "pressed+drag-at-110-20+drag-at-136-20+release+wait-400ms"]
+
+[[group]]
+name = "reverse"
+params = { value = 40, reverse = true }
+
+# Vertical 24 x 120: thumb at bottom / 40 % / top.
+[[group]]
+name = "vertical"
+viewport = [56, 152]
+anchor = [16, 16]
+params = { vertical = true }
+matrix = { value = [0, 40, 100] }
+states = ["normal", "disabled"]
+
+# Aurora Light: the thumb is a gradient (ADR 26).
+[[group]]
+name = "aurora"
+params = { value = 40, pointer_x = 0.4 }
+states = ["normal", "hover+wait-400ms", "pressed+wait-400ms"]
+themes = ["aurora-light"]
+
+# A range 20..60: the pointer on the start thumb, then on the end thumb.
+[[group]]
+name = "range"
+params = { start = 20, end = 60, pointer_x = 0.2 }
+states = ["normal", "hover+wait-400ms", "pressed+wait-400ms", "disabled"]
+[[group]]
+name = "rangeend"
+params = { start = 20, end = 60, pointer_x = 0.6 }
+states = ["hover+wait-400ms", "pressed+wait-400ms"]
+
+# A press on the bar moves the nearer thumb: at 30 % the start, at 80 % the end.
+[[group]]
+name = "rangebar"
+params = { start = 20, end = 60 }
+matrix = { pointer_x = [0.3, 0.8] }
+states = ["pressed", "pressed+wait-400ms"]
+
+# The start thumb dragged to 50 %, and on past the end thumb, where it stops.
+[[group]]
+name = "rangedrag"
+params = { start = 20, end = 60, pointer_x = 0.2 }
+states = ["pressed+drag-at-76-20+drag-at-116-20+wait-400ms", "pressed+drag-at-76-20+drag-at-196-20+release+wait-400ms"]
+
+# reverse only applies to a single value.
+[[group]]
+name = "rangereverse"
+params = { start = 20, end = 60, reverse = true }
+
+[[group]]
+name = "rangevertical"
+viewport = [56, 152]
+anchor = [16, 16]
+params = { vertical = true, start = 20, end = 60 }
+states = ["normal", "disabled"]
+
+# SliderScale::Logarithmic from 1 to 1000: 10 a third of the way, 100 two thirds.
+[[group]]
+name = "log"
+params = { min = 1, max = 1000, scale = "log" }
+matrix = { value = [10, 100] }
+[[group]]
+name = "logrange"
+params = { min = 1, max = 1000, scale = "log", start = 10, end = 100 }
+
+[[group]]
+name = "rangeaurora"
+params = { start = 20, end = 60, pointer_x = 0.6 }
+states = ["normal", "hover+wait-400ms"]
+themes = ["aurora-light"]
+
+# Ring grows on hover (spring_control), shrinks on leave, and turns around mid-flight.
+[[motion]]
+name = "ring"
+params = { value = 40, pointer_x = 0.4 }
+trigger = "hover"
+samples_ms = [0, 16, 33, 50, 66, 83, 100, 133, 166, 200, 266, 333]
+themes = ["light"]
+[[motion]]
+name = "ring-out"
+params = { value = 40, pointer_x = 0.4 }
+from = "hover+wait-400ms"
+trigger = "leave"
+samples_ms = [0, 16, 33, 50, 66, 83, 100, 133, 166, 200, 266, 333]
+themes = ["light"]
+[[motion]]
+name = "ring-reverse"
+params = { value = 40, pointer_x = 0.4 }
+trigger = "hover+wait-60ms+leave"
+samples_ms = [0, 16, 33, 50, 66, 83, 100, 133, 166, 200, 266, 333]
+themes = ["light"]
+# The end thumb's ring of a range.
+[[motion]]
+name = "range-ring"
+params = { start = 20, end = 60, pointer_x = 0.6 }
+trigger = "hover"
+samples_ms = [0, 16, 33, 50, 66, 83, 100, 133, 166, 200, 266, 333]
+themes = ["light"]

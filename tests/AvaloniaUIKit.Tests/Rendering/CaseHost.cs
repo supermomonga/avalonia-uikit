@@ -218,6 +218,10 @@ public sealed class CaseHost : IDisposable
             "pagedown" => PhysicalKey.PageDown,
             { Length: 1 } c when char.IsAsciiLetter(c[0]) => Enum.Parse<PhysicalKey>(char.ToUpperInvariant(c[0]).ToString()),
             { Length: 1 } c when char.IsAsciiDigit(c[0]) => Enum.Parse<PhysicalKey>("Digit" + c),
+            "." => PhysicalKey.Period,
+            "," => PhysicalKey.Comma,
+            "[" => PhysicalKey.BracketLeft,
+            "]" => PhysicalKey.BracketRight,
             _ => throw new NotSupportedException($"key {name}"),
         };
         Window.KeyPressQwerty(key, modifiers);

@@ -13,7 +13,7 @@ use gpui_kit::{
         button::{Button, ButtonVariants as _},
         input::{
             Copy, Cut, Input, InputGroup, InputGroupAddon, InputGroupAddonAlignment, InputGroupButton, InputState,
-            Paste, SelectAll, Textarea, TextareaState,
+            MaskPattern, Paste, SelectAll, Textarea, TextareaState,
         },
         menu::PopupMenu,
     },
@@ -128,6 +128,77 @@ pub fn builder(params: &Params) -> Result<Builder> {
     }))
 }
 
+/// The InputState rules uikit:Inputs ports (crates/base/src/input/base/state.rs):
+/// `mask` ("number" for MaskPattern::Number with `separator` and `fraction`, or
+/// a MaskPattern::new pattern), `digits` (a validate closure that keeps digits
+/// only; GPUI's pattern goes through the same is_valid_input) and
+/// `clean_on_escape`. With `textarea`, a Textarea of `rows` lines with its
+/// default TabSize (2 spaces), its lines selected when `select_lines`.
+pub fn uikit_input(params: &Params) -> Result<Builder> {
+    if param_bool(params, "textarea") {
+        let value = param_str(params, "value", "").to_string();
+        let rows = param_f32(params, "rows", 3.) as usize;
+        let width = param_f32(params, "width", 220.);
+        let select_lines = param_bool(params, "select_lines");
+        return Ok(Rc::new(move |view, window, cx| {
+            if view.state.entity.is_none() {
+                let value = value.clone();
+                let state = cx.new(|cx| {
+                    let mut state = TextareaState::new(window, cx).rows(rows).default_value(value);
+                    if select_lines {
+                        state.select_all(window, cx);
+                    }
+                    state
+                });
+                view.state.entity = Some(state.into());
+            }
+            let state = view
+                .state
+                .entity
+                .clone()
+                .and_then(|e| e.downcast::<TextareaState>().ok())
+                .expect("textarea state");
+            Textarea::new(&state).w(px(width)).into_any_element()
+        }));
+    }
+    let value = param_str(params, "value", "").to_string();
+    let placeholder = param_str(params, "placeholder", "").to_string();
+    let mask = param_str(params, "mask", "").to_string();
+    let separator = param_str(params, "separator", "").chars().next();
+    let fraction = params.get("fraction").and_then(serde_json::Value::as_u64).map(|f| f as usize);
+    let digits = param_bool(params, "digits");
+    let clean_on_escape = param_bool(params, "clean_on_escape");
+    let width = param_f32(params, "width", 200.);
+    Ok(Rc::new(move |view, window, cx| {
+        if view.state.entity.is_none() {
+            let (value, placeholder, mask) = (value.clone(), placeholder.clone(), mask.clone());
+            let state = cx.new(|cx| {
+                let mut state = InputState::new(window, cx).placeholder(placeholder).default_value(value);
+                if mask == "number" {
+                    state = state.mask_pattern(MaskPattern::Number { separator, fraction });
+                } else if !mask.is_empty() {
+                    state = state.mask_pattern(mask.as_str());
+                }
+                if digits {
+                    state = state.validate(|text, _| text.chars().all(|c| c.is_ascii_digit()));
+                }
+                if clean_on_escape {
+                    state = state.clean_on_escape();
+                }
+                state
+            });
+            view.state.entity = Some(state.into());
+        }
+        let state = view
+            .state
+            .entity
+            .clone()
+            .and_then(|e| e.downcast::<InputState>().ok())
+            .expect("input state");
+        Input::new(&state).w(px(width)).into_any_element()
+    }))
+}
+
 /// `Textarea` (crates/component/src/input/textarea.rs): `rows` lines, or
 /// `auto_grow(min_rows, max_rows)`, or a fixed `height`.
 pub fn textarea(params: &Params) -> Result<Builder> {
@@ -187,6 +258,10 @@ pub fn input_group(params: &Params) -> Result<Builder> {
     let button_size = if param_str(params, "button_size", "xsmall") == "small" { Size::Small } else { Size::XSmall };
     // InputGroupButton::loading (group.rs).
     let loading = param_bool(params, "loading");
+    // uikit-inputgroup: text in a row above the input, text and a button (at the row's end) below it.
+    let block_start = param_str(params, "block_start", "").to_string();
+    let block_end = param_str(params, "block_end", "").to_string();
+    let block_button = param_str(params, "block_button", "").to_string();
     let width = param_f32(params, "width", 240.);
     Ok(Rc::new(move |view, window, cx| {
         if view.state.entity.is_none() {
@@ -229,6 +304,21 @@ pub fn input_group(params: &Params) -> Result<Builder> {
         }
         if has_tail {
             group = group.addon(tail);
+        }
+        if !block_start.is_empty() {
+            group = group.addon(
+                InputGroupAddon::new("top").align(InputGroupAddonAlignment::BlockStart).child(block_start.clone()),
+            );
+        }
+        if !block_end.is_empty() || !block_button.is_empty() {
+            let mut bottom = InputGroupAddon::new("bottom").align(InputGroupAddonAlignment::BlockEnd);
+            if !block_end.is_empty() {
+                bottom = bottom.child(block_end.clone());
+            }
+            if !block_button.is_empty() {
+                bottom = bottom.child(InputGroupButton::new("send").label(block_button.clone()).ml_auto());
+            }
+            group = group.addon(bottom);
         }
         group.into_any_element()
     }))

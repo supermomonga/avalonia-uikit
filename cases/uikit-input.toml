@@ -1,0 +1,59 @@
+# uikit:Inputs on a TextBox -> GPUI Kit Input's InputState rules
+# (crates/base/src/input/base/state.rs, mask_pattern.rs, editor/indent.rs).
+# The field's look is input.toml's and textarea.toml's; these cases show what
+# the rules leave in it after typing. No case activates the window, so GPUI
+# draws no caret or selection.
+component = "uikit-input"
+viewport = [240, 68]
+anchor = [16, 12]
+
+# MaskPattern::Number { separator: ',', fraction: 2 }: typed digits are grouped
+# by three, at most two follow the point, and a deletion regroups them.
+[[group]]
+name = "number"
+params = { mask = "number", separator = ",", fraction = 2, width = 200 }
+states = [
+  "focus+key-1+key-2+key-3+key-4+key-5+key-6+key-7",
+  "focus+key-1+key-2+key-3+key-4+key-.+key-5+key-6+key-7",
+  "focus+key-1+key-2+key-3+key-4+key-backspace",
+]
+
+# MaskPattern::new("(999)999-9999"): the separators are written while typing,
+# a letter is rejected, and the empty field shows the mask's placeholder.
+[[group]]
+name = "pattern"
+params = { mask = "(999)999-9999", width = 200 }
+states = [
+  "normal",
+  "focus+key-1+key-2+key-3+key-4+key-5+key-6+key-7+key-8+key-9+key-0",
+  "focus+key-1+key-2+key-3+key-4+key-a",
+]
+
+# A rule the whole text must pass (digits only): letters are rejected.
+[[group]]
+name = "validate"
+params = { value = "12", digits = true, width = 200 }
+states = ["focus+key-a+key-3+key-b+key-4"]
+
+# clean_on_escape: Escape clears the text, and the placeholder shows; without it, Escape leaves the text.
+[[group]]
+name = "escape"
+params = { value = "Hello world", placeholder = "Type here", width = 200 }
+matrix = { clean_on_escape = [false, true] }
+states = ["focus+key-escape"]
+
+# Textarea, TabSize 2: Tab indents the selected lines (twice: further),
+# Shift+Tab outdents them again.
+[[group]]
+name = "indent"
+params = { textarea = true, value = "One\nTwo\nThree", rows = 4, select_lines = true, width = 220 }
+viewport = [260, 120]
+states = ["focus+key-tab", "focus+key-tab+key-tab", "focus+key-tab+key-tab+key-shift-tab"]
+
+# Without a selection, Tab inserts the indent at the caret; Shift+Tab takes
+# the indent off the caret's line.
+[[group]]
+name = "inline"
+params = { textarea = true, value = "One\n  Two", rows = 4, width = 220 }
+viewport = [260, 120]
+states = ["focus+key-tab", "focus+key-down+key-shift-tab"]

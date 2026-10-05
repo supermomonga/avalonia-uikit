@@ -7,11 +7,13 @@ use gpui_kit::{
     component::{
         Colorize as _, Disableable as _, Icon, Sizable as _, Theme,
         button::{Button, ButtonVariants as _},
-        input::{InputState, NumberInput},
+        input::{InputState, MaskPattern, NumberInput},
     },
 };
 use std::rc::Rc;
 
+/// `value` in a NumberInput; uikit-number adds the state's `step`, `min`,
+/// `max`, and a MaskPattern::Number with `separator` and `fraction`.
 /// `prefix` / `suffix` are text; `prefix_icon` a small icon and `suffix_icon` a
 /// text xsmall icon button (the story's info action).
 pub fn builder(params: &Params) -> Result<Builder> {
@@ -23,10 +25,29 @@ pub fn builder(params: &Params) -> Result<Builder> {
     let suffix = param_str(params, "suffix", "").to_string();
     let prefix_icon = icon(param_str(params, "prefix_icon", ""));
     let suffix_icon = icon(param_str(params, "suffix_icon", ""));
+    let number = |key: &str| params.get(key).and_then(serde_json::Value::as_f64);
+    let (step, min, max) = (number("step"), number("min"), number("max"));
+    let separator = param_str(params, "separator", "").chars().next();
+    let fraction = params.get("fraction").and_then(serde_json::Value::as_u64).map(|f| f as usize);
     Ok(Rc::new(move |view, window, cx| {
         if view.state.entity.is_none() {
             let value = value.clone();
-            let state = cx.new(|cx| InputState::new(window, cx).default_value(value));
+            let state = cx.new(|cx| {
+                let mut state = InputState::new(window, cx).default_value(value);
+                if let Some(step) = step {
+                    state = state.step(step);
+                }
+                if let Some(min) = min {
+                    state = state.min(min);
+                }
+                if let Some(max) = max {
+                    state = state.max(max);
+                }
+                if separator.is_some() {
+                    state = state.mask_pattern(MaskPattern::Number { separator, fraction });
+                }
+                state
+            });
             view.state.entity = Some(state.into());
         }
         let state = view
