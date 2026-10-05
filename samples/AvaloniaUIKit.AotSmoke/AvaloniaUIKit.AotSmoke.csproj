@@ -15,5 +15,7 @@
     <ProjectReference Include="../../src/AvaloniaUIKit/AvaloniaUIKit.csproj" />
     <ProjectReference Include="../../src/AvaloniaUIKit.ColorPicker/AvaloniaUIKit.ColorPicker.csproj" />
     <ProjectReference Include="../../src/AvaloniaUIKit.Tabalonia/AvaloniaUIKit.Tabalonia.csproj" />
+    <!-- uikit:AsyncImage loads it from the app's assets. -->
+    <AvaloniaResource Include="../../assets/images/small-48x48.png" Link="Assets/small-48x48.png" />
   </ItemGroup>
 </Project>

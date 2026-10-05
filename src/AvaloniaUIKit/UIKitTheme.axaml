@@ -58,6 +58,7 @@
         <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/Marker.axaml" />
         <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/ListView.axaml" />
         <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/Tree.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/AsyncImage.axaml" />
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
   </Styles.Resources>

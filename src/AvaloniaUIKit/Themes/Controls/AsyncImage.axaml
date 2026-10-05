@@ -1,0 +1,54 @@
+<!--
+  GPUI's img() of a resource (gpui elements/img.rs) -> uikit:AsyncImage. The
+  image is drawn as Image.axaml draws an Image: in the control's box at the
+  size Stretch gives it, centered, so ObjectFit maps to Stretch as there
+  (None draws at the top left, as GPUI does). The classes rounded, rounded-lg
+  and rounded-full clip the drawn image, not the box: img().rounded(..)
+  rounds what it paints, and the loading and fallback content keeps its own
+  corners. That content is laid out in the box (GPUI lays the replacement
+  element out as the img's child).
+-->
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:uikit="using:AvaloniaUIKit"
+                    xmlns:gconv="using:AvaloniaUIKit.Converters">
+  <gconv:RoundedClipConverter x:Key="UIKit.AsyncImage.Clip.Rounded" Radius="6" />
+  <gconv:RoundedClipConverter x:Key="UIKit.AsyncImage.Clip.RoundedLg" Radius="8" />
+  <gconv:RoundedClipConverter x:Key="UIKit.AsyncImage.Clip.RoundedFull" Radius="9999" />
+
+  <ControlTheme x:Key="{x:Type uikit:AsyncImage}" TargetType="uikit:AsyncImage">
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Panel Background="{TemplateBinding Background}">
+          <Image Name="PART_Image"
+                 Stretch="{TemplateBinding Stretch}"
+                 StretchDirection="{TemplateBinding StretchDirection}" />
+          <ContentPresenter Name="PART_LoadingPresenter" Content="{TemplateBinding Loading}" IsVisible="False" />
+          <ContentPresenter Name="PART_FallbackPresenter" Content="{TemplateBinding Fallback}" IsVisible="False" />
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+
+    <Style Selector="^:loading /template/ ContentPresenter#PART_LoadingPresenter">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+    <Style Selector="^:failed /template/ ContentPresenter#PART_FallbackPresenter">
+      <Setter Property="IsVisible" Value="True" />
+    </Style>
+
+    <Style Selector="^[Stretch=None] /template/ Image#PART_Image">
+      <Setter Property="HorizontalAlignment" Value="Left" />
+      <Setter Property="VerticalAlignment" Value="Top" />
+    </Style>
+
+    <Style Selector="^.rounded /template/ Image#PART_Image">
+      <Setter Property="Clip" Value="{Binding $self.Bounds, Converter={StaticResource UIKit.AsyncImage.Clip.Rounded}}" />
+    </Style>
+    <Style Selector="^.rounded-lg /template/ Image#PART_Image">
+      <Setter Property="Clip" Value="{Binding $self.Bounds, Converter={StaticResource UIKit.AsyncImage.Clip.RoundedLg}}" />
+    </Style>
+    <Style Selector="^.rounded-full /template/ Image#PART_Image">
+      <Setter Property="Clip" Value="{Binding $self.Bounds, Converter={StaticResource UIKit.AsyncImage.Clip.RoundedFull}}" />
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

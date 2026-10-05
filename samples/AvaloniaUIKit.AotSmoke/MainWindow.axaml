@@ -192,6 +192,15 @@
           <TextBlock Classes="label">Company address<Run Classes="secondary"> (optional)</Run></TextBlock>
           <uikit:TextLabel Text="Design system documentation" Secondary="(draft)" Highlights="doc" />
           <uikit:TextLabel Text="secret" IsMasked="True" />
+          <uikit:AsyncImage Classes="rounded-full" Width="48" Height="48"
+                            Source="avares://AvaloniaUIKit.AotSmoke/Assets/small-48x48.png" />
+          <uikit:AsyncImage Width="48" Height="48" Source="avares://AvaloniaUIKit.AotSmoke/Assets/missing.png">
+            <uikit:AsyncImage.Fallback>
+              <Border Background="{DynamicResource UIKit.Muted}" CornerRadius="6">
+                <uikit:Icon Kind="CircleX" Foreground="{DynamicResource UIKit.MutedForeground}" />
+              </Border>
+            </uikit:AsyncImage.Fallback>
+          </uikit:AsyncImage>
         </WrapPanel>
 
         <TextBlock Text="Accordion, Collapsible" Foreground="{DynamicResource UIKit.MutedForeground}" />
