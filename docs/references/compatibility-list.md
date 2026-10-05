@@ -315,7 +315,7 @@ Avalonia に対応先のない機能のうち、それを持つ広く使われ�
 
 | GPUI Kit | 判定 | ライブラリ | テーマで移植する範囲／制約 |
 | --- | --- | --- | --- |
-| [Tabs / TabBar / Tab][gp-tabs] | 部分対応 | [Tabalonia][td-tabalonia] 12.0.0 の `TabsControl` / `DragTabItem`（`AvaloniaUIKit.Tabalonia`） | Tabs の 5 種類と 4 サイズ、インジケーター、閉じるボタン、追加ボタン、前後の内容、溢れたタブのスクロール、タブを並べた一覧のメニュー（`TabsMenuButton`）。ドラッグでの並べ替えと別ウィンドウへの切り離しは Tabalonia のもの。Tabalonia はすべてのタブを 1 つの幅に並べるので、GPUI の文字の幅に合わせたタブは表せない。 |
+| [Tabs / TabBar / Tab][gp-tabs] | 部分対応 | [Tabalonia][td-tabalonia] 12.0.0 の `TabsControl` / `DragTabItem`（`AvaloniaUIKit.Tabalonia`） | Tabs の 5 種類と 4 サイズ、インジケーター、閉じるボタン、追加ボタン、前後の内容、溢れたタブのスクロール、タブを並べた一覧のメニュー（`TabsMenuButton`。本体の TabStrip / TabControl の `menu` クラスと共有するので、本体のアセンブリにある）。ドラッグでの並べ替えと別ウィンドウへの切り離しは Tabalonia のもの。Tabalonia はすべてのタブを 1 つの幅に並べるので、GPUI の文字の幅に合わせたタブは表せない。 |
 | [Dock][gp-dock] / DockArea / Panel / TabPanel | 部分対応 | [Dock.Avalonia][td-dock] 12.1.0.6 の `DockControl` と各部品（`AvaloniaUIKit.Dock`） | タブバーとツールバーのメニュー、1 つだけのパネルのタイトルバー、場所を取らない分割のハンドル、ドラッグ中のドロップ先（GPUI と同じ 35% / 30% / 35% の区分）とプレビュー、閉じるボタン。ドッキング、浮いたウィンドウ、ピン留め、配置の保存・復元は Dock.Avalonia のもの。Dock.Avalonia が trim 非対応なので NativeAOT は保証しない。 |
 
 ## 対応する標準コンポーネントがないもの
