@@ -308,6 +308,24 @@
           <PipsPager Classes="carousel" NumberOfPages="2" HorizontalAlignment="Center"
                      SelectedPageIndex="{Binding #Slides.SelectedIndex, Mode=TwoWay}" />
         </StackPanel>
+        <StackPanel Spacing="16" Width="240" Margin="48,0" HorizontalAlignment="Left">
+          <Panel>
+            <Carousel Name="Track" Focusable="True" WrapSelection="True" uikit:Carousels.TracksPointer="True">
+              <Border Height="120" CornerRadius="7.5" BorderThickness="1" BackgroundSizing="OuterBorderEdge"
+                      Background="{DynamicResource UIKit.Muted}" BorderBrush="{DynamicResource UIKit.Border}">
+                <TextBlock Text="1" FontSize="24" FontWeight="SemiBold" HorizontalAlignment="Center" VerticalAlignment="Center" />
+              </Border>
+              <Border Height="120" CornerRadius="7.5" BorderThickness="1" BackgroundSizing="OuterBorderEdge"
+                      Background="{DynamicResource UIKit.Muted}" BorderBrush="{DynamicResource UIKit.Border}">
+                <TextBlock Text="2" FontSize="24" FontWeight="SemiBold" HorizontalAlignment="Center" VerticalAlignment="Center" />
+              </Border>
+            </Carousel>
+            <uikit:CarouselPrevious Carousel="{Binding #Track}" />
+            <uikit:CarouselNext Carousel="{Binding #Track}" />
+          </Panel>
+          <PipsPager Classes="carousel" NumberOfPages="2" HorizontalAlignment="Center"
+                     SelectedPageIndex="{Binding #Track.SelectedIndex, Mode=TwoWay}" />
+        </StackPanel>
 
         <TextBlock Text="Sidebar" Foreground="{DynamicResource UIKit.MutedForeground}" />
         <SplitView DisplayMode="CompactInline" IsPaneOpen="True" OpenPaneLength="200" Width="400" Height="120"
