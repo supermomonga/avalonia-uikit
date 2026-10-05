@@ -1,0 +1,86 @@
+<!--
+  GPUI Kit Slider with a range value (crates/component/src/slider.rs) ->
+  uikit:RangeSlider:
+
+    <uikit:RangeSlider StartValue="20" EndValue="60" />
+    <uikit:RangeSlider IsRange="False" EndValue="10" Minimum="1" Maximum="1000" Scale="Logarithmic" />
+
+  The themed Slider's look (Slider.axaml): a 6px pill (the bar at 20%) in a
+  24px band (24px wide and 120px tall when vertical), filled in the bar color
+  between the thumbs; 16px thumbs (UIKitSliderThumb: the bar at 50% around the
+  thumb color) centered on their values, overhanging the ends by half their
+  width, each with its own 3px ring that springs in while it is hovered or
+  dragged, or the track was pressed under it. Disabled, no thumb is drawn. A
+  single-value slider (IsRange False) fills from the start, or with the class
+  reverse from its thumb to the end.
+-->
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:uikit="using:AvaloniaUIKit">
+  <Styles.Resources>
+    <ControlTheme x:Key="{x:Type uikit:RangeSlider}" TargetType="uikit:RangeSlider">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="ClipToBounds" Value="False" />
+      <Setter Property="Template">
+        <ControlTemplate>
+          <Panel Name="PART_Root" Background="{TemplateBinding Background}">
+            <Border Name="PART_Bar" CornerRadius="3" Background="{DynamicResource UIKit.Slider.Track}" />
+            <uikit:RangeSliderTrack Name="PART_Track"
+                                    ClipToBounds="False"
+                                    Orientation="{TemplateBinding Orientation}"
+                                    StartRatio="{TemplateBinding StartRatio}"
+                                    EndRatio="{TemplateBinding EndRatio}">
+              <Border Name="PART_Fill" CornerRadius="3" Background="{DynamicResource UIKit.SliderBar.Fill}" />
+              <Thumb Name="PART_StartThumb" Theme="{DynamicResource UIKitSliderThumb}" IsVisible="{TemplateBinding IsRange}" />
+              <Thumb Name="PART_EndThumb" Theme="{DynamicResource UIKitSliderThumb}" />
+            </uikit:RangeSliderTrack>
+          </Panel>
+        </ControlTemplate>
+      </Setter>
+
+      <Style Selector="^:horizontal">
+        <Setter Property="Height" Value="24" />
+      </Style>
+      <Style Selector="^:horizontal /template/ Border#PART_Bar">
+        <Setter Property="Height" Value="6" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+      </Style>
+      <Style Selector="^:horizontal /template/ Border#PART_Fill">
+        <Setter Property="Height" Value="6" />
+      </Style>
+      <Style Selector="^:vertical">
+        <Setter Property="Width" Value="24" />
+        <Setter Property="Height" Value="120" />
+      </Style>
+      <Style Selector="^:vertical /template/ Border#PART_Bar">
+        <Setter Property="Width" Value="6" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+      </Style>
+      <Style Selector="^:vertical /template/ Border#PART_Fill">
+        <Setter Property="Width" Value="6" />
+      </Style>
+
+      <!-- reverse fills a single value's remaining side; a range ignores it. -->
+      <Style Selector="^.reverse:not(:range) /template/ uikit|RangeSliderTrack#PART_Track">
+        <Setter Property="IsFillReversed" Value="True" />
+      </Style>
+
+      <!-- Disabled: GPUI draws no thumb; the fill keeps its place. -->
+      <Style Selector="^:disabled /template/ Thumb">
+        <Setter Property="Opacity" Value="0" />
+        <Setter Property="IsHitTestVisible" Value="False" />
+      </Style>
+    </ControlTheme>
+  </Styles.Resources>
+
+  <!--
+    A press on the track jumps the nearer thumb under the pointer, which keeps
+    its ring up: GPUI finds that thumb hovered once it has moved.
+  -->
+  <Style Selector="uikit|RangeSlider:start-active /template/ Thumb#PART_StartThumb /template/ Border#PART_Ring">
+    <Setter Property="uikit:Motion.SpringTarget" Value="1" />
+  </Style>
+  <Style Selector="uikit|RangeSlider:end-active /template/ Thumb#PART_EndThumb /template/ Border#PART_Ring">
+    <Setter Property="uikit:Motion.SpringTarget" Value="1" />
+  </Style>
+</Styles>
