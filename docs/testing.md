@@ -163,7 +163,7 @@ UIKitTheme が GPUI Kit と同じ見た目・動きになっていることを�
 | DatePicker → `uikit:DateField` | 114（1） | datepicker の全ケースと開く動き、範囲（欄と開いた状態）、2 か月の範囲、クリックでの範囲選択、プリセット（単一・範囲）、クリアボタン（値の有無 × normal / focus / disabled、hover、クリック）、時刻（24 / 12 時間、秒 × small / large、日を選んで開いたまま・同じ日で閉じる）、日の選択、2 か月、plain |
 | Calendar → `uikit:CalendarView` | 113 | calendar の全ケース、4・5 週の月、前後の月送り、2 か月 × 3 サイズ、3 か月、無効な曜日と hover、範囲 × 3 サイズ、無効な週末をまたぐ範囲、月をまたぐ範囲、クリックでの範囲選択とやり直し、年グリッド × 3 サイズ、年・月のトグルとページ送りと選択 |
 | Slider → `uikit:RangeSlider` | 93（4） | slider の全ケースとリングの動き（単一値、`IsRange=False`）、範囲の始点 / 終点のつまみの hover / 押下、トラックの押下で近いつまみ（30% / 80%）、始点のドラッグと終点で止まる、reverse を無視、縦、disabled、Aurora Light、対数スケール（単一 10 / 100、範囲 10..100）、終点のつまみのリングの動き |
-| ToggleGroup → `uikit:ToggleGroup` | 88 | togglegroup の全ケース、Tab で 1 つ目 / 2 つ目、1 つ目で → （リングなし、何も変わらない） |
+| ToggleGroup → `uikit:ToggleGroup` | 88 | togglegroup の全ケース、Tab で 1 つ目 / 2 つ目、1 つ目で →（リングなし、何も変わらない） |
 | ColorPicker / ColorSelect → `uikit:ColorSelect` | 84 | スウォッチ 4 サイズ × focus、ラベル、ツールチップ、field 4 サイズ × focus、値、色なし（スウォッチ × 2 サイズ × hover、placeholder × 4 サイズ、アプリの placeholder）、アイコン（ラベルあり・なし）、開いたポップオーバー（スウォッチ、field、色なし）、パレット・featured の色を指す / 押す、色なしでの最初のプレビュー、クリックでの確定、HSLA タブ（色あり・なし） |
 | TimeField → `uikit:TimeField` | 80 | timefield の全ケース、セグメントの移動（→、←、Tab）、入力（2 桁、25 → 05、保留中の 1、↑↓、Backspace、分の ↓）、秒への Tab と入力、12 時間の AM/PM と p、12 → 0 時、クリックで分を選ぶ |
 | InputGroup → `uikit:InputGroup` | 76（1） | input-group の全ケースとフォーカスの色の動き、上の行 × 2 サイズ × 通常 / focus / disabled、下の行（カウンターと末尾の Send）× invalid × 通常 / focus、アドオンの押下でフォーカス |
