@@ -1,0 +1,16 @@
+---
+title: "Accordion"
+description: "An accordion that keeps one item open at a time, as uikit:Accordion."
+---
+
+<Demo name="uikit-accordion/demo" />
+
+## Usage
+
+`uikit:Accordion` holds the `Expander`s itself, in the look of the [Accordion](/components/accordion): it draws the same separators and card (`IsBordered="False"` leaves the card out) and keeps one item open at a time. Opening an item, by a click or in code, closes the others, each on the spring; `Multiple="True"` lets items open independently. A click on a title raises `ToggleClick` with `OpenIndices`, the items open after it. Its size classes (`xsmall`, `small`, `large`) go on every item, and `IsEnabled="False"` disables them.
+
+## Examples
+
+`Multiple="True"` and `IsBordered="False"`, at `small`.
+
+<Demo name="uikit-accordion/multiple" title="Multiple" />

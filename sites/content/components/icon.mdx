@@ -9,6 +9,8 @@ description: "Lucide icons as geometry for PathIcon."
 
 The theme covers `PathIcon` and bundles Lucide icons as geometry resources: set `Data` to one of them, such as `{StaticResource UIKit.Icon.Search}` (see [Icons](/docs/icons) for the list). An icon is 16px, the medium size, and takes its `Foreground`. The classes `xsmall`, `small` and `large` give 12, 14 and 24px, and any other `Width` and `Height` scale the outline exactly.
 
+To draw one of the components' icons by name, use [`uikit:Icon`](/components/uikit-icon).
+
 ## Examples
 
 The three size classes, the default, and a 48px icon by `Width` and `Height`.
@@ -18,13 +20,3 @@ The three size classes, the default, and a 48px icon by `Width` and `Height`.
 Color with `Foreground` (the theme's muted, primary and danger brushes here), and turn an icon with a `RenderTransform`.
 
 <Demo name="icon/colors" title="Colors" />
-
-## Icon
-
-`uikit:Icon` draws an icon by name: `Kind` is one of the `IconName` values, the icons GPUI Kit ships for its components (listed in [Icons](/docs/icons)). It is a `PathIcon`, so the size classes, `Foreground`, and the sizes buttons and menus give their icons apply to it the same way. `IconNames.ResourceKey` gives an icon's geometry resource for code.
-
-<Demo name="icon/icon-name" title="IconName" />
-
-Every `IconName`; point at an icon for its name.
-
-<Demo name="icon/gallery" title="Gallery" />

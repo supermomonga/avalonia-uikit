@@ -1,0 +1,20 @@
+---
+title: "Sheet"
+description: "A panel opened from code that slides in from a side over the dimmed window, as uikit:Sheet."
+---
+
+<Demo name="uikit-sheet/demo" />
+
+## Usage
+
+`uikit:Sheet` is the [Sheet](/components/sheet) opened from code, over the whole window: `new Sheet { Title = "Settings", Content = ... }.Show(this)`. It sits on the window's overlay layer, so popups opened from it stay above it, and one sheet is open per window: showing another closes the open one. Opening it moves the focus into it and keeps Tab inside; Escape, the close button and a press on the overlay close it, and the focus goes back to where it was. `Closed` is raised however it closes, and `Sheet.GetActive(visual)` returns the open one.
+
+| Property | Meaning |
+| --- | --- |
+| `Placement` | The side it slides in from: `Left`, `Right` (the default), `Top` or `Bottom`. |
+| `Size` | Its width, or height from the top or bottom: pixels (350 by default) or a part of the window, such as `50%`. |
+| `Title`, `Content`, `Footer` | The title row, the body (it scrolls) and the footer. |
+| `HasOverlay` | Whether the window is dimmed; without it the overlay is clear but still takes the presses. |
+| `IsOverlayClosable` | Whether a press on the overlay closes the sheet. |
+
+The demo opens a sheet from each side, and one at half the window's width; the footer's buttons call `Close`.

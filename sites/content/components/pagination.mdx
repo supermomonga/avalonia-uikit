@@ -9,6 +9,8 @@ description: "Previous, numbered pages and Next, as a PipsPager."
 
 `PipsPager` with numbered pages: set `NumberOfPages` and `SelectedPageIndex`. Previous and Next are ghost compact buttons with a chevron and a label (the resources `UIKit.Pagination.Previous` and `UIKit.Pagination.Next`), and the pages are compact buttons, the current one outline. The end buttons stay visible and disabled at the first and the last page. Sizes: `xsmall`, `small`, `large` (medium without one); `compact` keeps the chevrons alone, as square icon buttons. Set the classes in XAML, before the template applies: PipsPager sizes its page list from the first page it realizes. Past `MaxVisiblePips` the pages scroll.
 
+[`uikit:Pagination`](/components/uikit-pagination) builds the page buttons from a page count, with ellipses and their page menus.
+
 ## Examples
 
 The four sizes.
@@ -18,15 +20,3 @@ The four sizes.
 `compact` with `small`, at the default size, and disabled.
 
 <Demo name="pagination/compact" title="Compact" />
-
-## uikit:Pagination
-
-`uikit:Pagination` looks the same and builds its page buttons from `TotalPages` and `CurrentPage` (from 1, two-way). Up to `VisiblePages` pages (5 by default, at least 5) it shows every page; past that it keeps the first and the last page, the pages on each side of the current one, and an ellipsis for each run of hidden pages. An ellipsis opens a menu of the pages it hides (at most the 100 nearest the current page, in a list that scrolls past 240px) to jump to one. A click on a page, Previous, Next or a menu entry sets `CurrentPage` and raises `PageChanged` with the old and the new page. Sizes and `compact` are the same classes as above.
-
-Ten pages around page 5, and 50 pages with `VisiblePages="7"` in `small`.
-
-<Demo name="pagination/ellipsis" title="Ellipsis" />
-
-`compact`, at the default size and with `small`.
-
-<Demo name="pagination/uikit-compact" title="Compact uikit:Pagination" />

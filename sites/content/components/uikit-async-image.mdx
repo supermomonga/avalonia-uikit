@@ -1,0 +1,14 @@
+---
+title: "AsyncImage"
+description: "An image loaded from a URI off the UI thread, with loading and fallback content, as uikit:AsyncImage."
+---
+
+<Demo name="uikit-async-image/demo" />
+
+## Usage
+
+`uikit:AsyncImage` loads its `Source`, an `http`, `https`, `file` or `avares` URI, off the UI thread and draws the image as [Image](/components/image) does: `Stretch`, `StretchDirection` and the `rounded`, `rounded-lg` and `rounded-full` classes work the same. While the image loads, the control keeps its own size and draws nothing; if the load is still running after 200ms, it shows its `Loading` content, so a fast load never flashes it. If the load fails, it shows its `Fallback` content. The pseudo-classes `:loading`, `:loaded` and `:failed` follow the load.
+
+The default loader (`ImageLoader.Default`) keeps each source's image for every `AsyncImage` that shows it; `Remove` and `Clear` forget images, and a failed load is tried again by the next image of that source. Set `Loader` to your own `IImageLoader` to load images another way. SVG and animated images are not decoded.
+
+In the demo, the first two images load from the app's assets; the third one's source is missing, so it shows its fallback.

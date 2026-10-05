@@ -1,0 +1,30 @@
+---
+title: "DateField"
+description: "A date field with ranges, presets, a clear button and the time of day, as uikit:DateField."
+---
+
+<Demo name="uikit-date-field/demo" />
+
+## Usage
+
+`uikit:DateField` is the field and popup of the [Date Picker](/components/date-picker) with a [`uikit:CalendarView`](/components/uikit-calendar-view) inside, plus ranges, presets, a clear button and the time of day. It shows the value as `yyyy/MM/dd` (and the time, when it is edited) unless `DateFormat` sets a .NET format, and `PlaceholderText` ("Select date" by default) without a value. A click on the field opens the popup; Enter opens and closes it, and Escape closes it. Picking a day sets `Date`, closes the popup and raises `Changed`.
+
+With `IsRange="True"` the popup selects a range, and the field takes `Date` and `EndDate` once the second day is picked. `NumberOfMonths` shows several months in the popup. `Presets` are buttons beside the calendar: each `uikit:DateRangePreset` has a `Label` and a `Date`, with an `EndDate` for a range. `IsCleanable="True"` replaces the icon with a clear button while there is a value; Delete and Backspace also clear a focused field.
+
+`TimePrecision` (`Minute` or `Second`) adds a [`uikit:TimeField`](/components/uikit-time-field) below the calendar, on the clock `HourCycle` picks (`H23` or `H12`). Picking a day then keeps the popup open and every change applies at once; picking the selected day again closes it. `DefaultTime` is the time a picked day starts with. A range edits dates only.
+
+The disabled days (`DisabledDaysOfWeek`, `DisabledDates`, `DisabledMatcher`) and `FirstDayOfWeek` pass to the calendar. The `plain` class drops the field's frame and focus ring, for a field inside another surface.
+
+## Examples
+
+A range over two months, with presets.
+
+<Demo name="uikit-date-field/range" title="Range and presets" />
+
+A date with its time, to the minute and to the second.
+
+<Demo name="uikit-date-field/time" title="Date and time" />
+
+Presets, disabled weekends and the `plain` class.
+
+<Demo name="uikit-date-field/presets" title="Presets, disabled weekends and plain" />

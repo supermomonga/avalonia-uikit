@@ -1,0 +1,23 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:uikit="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.UikitSidebarPane">
+  <SplitView DisplayMode="CompactInline" OpenPaneLength="200" IsPaneOpen="{Binding #PaneToggle.IsChecked}"
+             Width="480" Height="220" HorizontalAlignment="Left">
+    <SplitView.Pane>
+      <uikit:Sidebar>
+        <uikit:SidebarMenu>
+          <uikit:SidebarMenuItem Label="Inbox" Icon="{StaticResource UIKit.Icon.Inbox}" IsActive="True" />
+          <uikit:SidebarMenuItem Label="Starred" Icon="{StaticResource UIKit.Icon.Star}" />
+          <uikit:SidebarMenuItem Label="Projects" Icon="{StaticResource UIKit.Icon.Folder}" />
+        </uikit:SidebarMenu>
+      </uikit:Sidebar>
+    </SplitView.Pane>
+    <Border Background="{DynamicResource UIKit.Muted}">
+      <ToggleButton Name="PaneToggle" Classes="outline" IsChecked="True" Margin="8"
+                    HorizontalAlignment="Left" VerticalAlignment="Top">
+        <PathIcon Data="{StaticResource UIKit.Icon.PanelLeftClose}" />
+      </ToggleButton>
+    </Border>
+  </SplitView>
+</UserControl>

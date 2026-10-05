@@ -1,0 +1,18 @@
+---
+title: "TimeField"
+description: "A time field edited segment by segment, as uikit:TimeField."
+---
+
+<Demo name="uikit-time-field/demo" />
+
+## Usage
+
+`uikit:TimeField` is the field of the [Time Field](/components/time-field), edited segment by segment. It is one Tab stop; one segment is selected at a time and shows the selection while the field has the focus. Up and Down step the selected segment and wrap within it, Left and Right move between segments, and Tab moves to the next segment before it leaves the field. Digits fill the segment and move on once no further digit could fit (typing 7 sets 07; 1 waits for a second digit). A and P set the period, and Backspace or Delete resets the segment. A click selects the segment under the pointer.
+
+`Time` is a `TimeSpan?` that binds two-way; without one the segments show dashes, and typing starts from 00:00. `Precision` is `Minute` or `Second`, and `HourCycle` is `H23` or `H12` (with the period segment). The `Changed` event reports the user's edits, not values the app sets, and `SelectedSegment` is the selected segment. The sizes (`xsmall`, `small`, `large`), the invalid border (`DataValidationErrors`) and the disabled look are the Time Field's.
+
+## Examples
+
+A small and a large field, a disabled one and an invalid one.
+
+<Demo name="uikit-time-field/states" title="Sizes and states" />

@@ -1,0 +1,12 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:uikit="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.UikitDateFieldTime">
+  <Panel MinHeight="420">
+    <WrapPanel ItemSpacing="12" LineSpacing="12" VerticalAlignment="Top">
+      <uikit:DateField Width="220" TimePrecision="Minute" Date="2025-03-14 09:30" />
+      <uikit:DateField Width="240" TimePrecision="Second" HourCycle="H12" DefaultTime="09:00"
+                       IsCleanable="True" PlaceholderText="12-hour clock" />
+    </WrapPanel>
+  </Panel>
+</UserControl>

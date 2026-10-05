@@ -4,7 +4,7 @@ import { componentPages } from "@/lib/docs"
 import { DocsPage } from "./docs-layout"
 
 const description =
-  "Every component the library covers: themes for Avalonia's own controls, and new controls for the small components Avalonia lacks."
+  "Every component the library covers: themes for Avalonia's own controls with the attached properties that add what they lack, and new controls in the uikit: namespace."
 
 const groupId = (group: string) =>
   `${group.toLowerCase().replace(/\s+/g, "-")}-components`

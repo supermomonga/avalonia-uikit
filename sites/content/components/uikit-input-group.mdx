@@ -1,0 +1,20 @@
+---
+title: "InputGroup"
+description: "A text field and its addons in one frame, with rows above and below, as uikit:InputGroup."
+---
+
+<Demo name="uikit-input-group/demo" />
+
+## Usage
+
+`uikit:InputGroup` frames a `TextBox` and its `uikit:InputGroupAddon`s with the look of the [Input Group](/components/input-group), and also takes rows above and below the input. An addon's `Alignment` is `InlineStart` (before the input, the default), `InlineEnd` (after it), `BlockStart` (a row above it) or `BlockEnd` (a row below it). An addon lays out its items in a row 8px apart, in the muted medium-weight text; an item with `HorizontalAlignment="Right"` goes to the end of the row. Buttons in the addons get the group's button look.
+
+The input inside takes the group's size class and draws no frame of its own; a multi-line input is at least 64px tall. The ring shows while the input has focus. `IsInvalid`, or a validation error on the input or the group, shows the danger border and ring. A disabled group, or a disabled input, disables the input and the addons and fades the group to half; `IsReadOnly` makes the input read-only. A press on an addon, other than on a button in it, focuses the input.
+
+The demo shows text addons, an invalid group with a button, and a disabled one.
+
+## Examples
+
+A row of text above a search field, and a composer with a counter and a Send button below a multi-line input.
+
+<Demo name="uikit-input-group/rows" title="Rows above and below" />

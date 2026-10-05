@@ -1,0 +1,12 @@
+---
+title: "Toolbar"
+description: "A row of any controls that share one size and the arrow keys, as uikit:Toolbar."
+---
+
+<Demo name="uikit-toolbar/demo" />
+
+## Usage
+
+`uikit:Toolbar` is a transparent row of any controls and content, centered on the row, in the look of the [Toolbar](/components/toolbar). It gives its size to its controls: the size class goes on every templated control but a `Separator`, and plain `Button`s also become `ghost` and `compact`, so `Classes="icon-only"` makes a square command. `uikit:Toolbar.TakesSize="False"` keeps a control's own size and color. Text, panels, a `Separator Classes="vertical" Height="20"` and `uikit:ToolbarSpacer` stay as they are; spacers share the width the other items leave. A `uikit:ToolbarGroup` is a run of controls announced as one group (`AutomationProperties.Name`), with no gap of its own (`Spacing`); it takes the toolbar's size and passes it on. With the focus on one of its controls, Left and Right move it to the previous or next control and wrap at the ends; a `TextBox` keeps the arrow keys for its caret. Tab moves through the controls as usual. Sizes: `xsmall`, the default small and `medium` (`large` is the same).
+
+The demo has two groups, a separator, a `TextBox`, a spacer and a primary button that keeps its own look.

@@ -1,0 +1,20 @@
+---
+title: "RangeSlider"
+description: "A slider with two thumbs or a logarithmic scale, as uikit:RangeSlider."
+---
+
+<Demo name="uikit-range-slider/demo" />
+
+## Usage
+
+`uikit:RangeSlider` has the look of the [Slider](/components/slider) with two thumbs: `StartValue` and `EndValue`, filled between them, from `Minimum` to `Maximum` (0 to 100 by default) in steps of `Step` (1 by default). A press on the track moves the nearer thumb there; a thumb is dragged directly and stops at the other one. Each thumb has its own ring. `Changed` is raised while the user moves a value and `Released` once the pointer is released. `Orientation="Vertical"` works as for `Slider`.
+
+`Scale="Logarithmic"` spreads the values by ratio: from 1 to 1000, a third of the way is 10 and two thirds is 100. It needs a `Minimum` above 0. `IsRange="False"` gives a single thumb at `EndValue`, filled from the start (or to the end with `reverse`), for a single value on a logarithmic scale.
+
+The demo shows a range, horizontal and vertical.
+
+## Examples
+
+A single value on a logarithmic scale from 0.25x to 4x.
+
+<Demo name="uikit-range-slider/logarithmic" title="Logarithmic" />

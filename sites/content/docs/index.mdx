@@ -3,10 +3,11 @@ title: "Introduction"
 description: "Avalonia themes and controls based on shadcn/ui and GPUI Kit, verified pixel by pixel in light and dark."
 ---
 
-Avalonia UIKit is a set of themes and controls for [Avalonia](https://avaloniaui.net), based on the Nova style of [shadcn/ui](https://ui.shadcn.com) and on [GPUI Kit](https://github.com/longbridge/gpui-kit). It is two things:
+Avalonia UIKit is a set of themes and controls for [Avalonia](https://avaloniaui.net), based on the Nova style of [shadcn/ui](https://ui.shadcn.com) and on [GPUI Kit](https://github.com/longbridge/gpui-kit). It is three things:
 
 - **`UIKitTheme`**, a `Styles` theme for Avalonia's own controls, in GPUI Kit's Default Light and Default Dark and the 36 color themes it bundles (Aurora, Ayu, Catppuccin, Tokyo Night and others): `Button`, `TextBox`, `ComboBox`, `TabControl`, `Calendar`, `ListBox`, `TreeView`, `TableView`, `Menu`, `ToolTip` and the rest. The theme replaces each control's `ControlTheme`, so it changes the colors, the padding, the outlines, the inner layout, the states and the animations, not just the palette.
-- **A few new controls** in the `uikit:` namespace for the small components Avalonia has no counterpart for: `Badge`, `TagLabel`, `Alert`, `Avatar`, `Breadcrumb`, `Kbd`, `Clipboard`, `Rating`, `EmptyState`, `Skeleton`, `StatusBar`, `DescriptionList`, `Stepper`, `Form`, `HoverCard`, `ShimmerText`, `Marker`, `Bubble` and `Message`.
+- **New controls** in the `uikit:` namespace, in the same look. Some are the small components Avalonia has no counterpart for: `Badge`, `TagLabel`, `Alert`, `Avatar`, `Breadcrumb`, `Kbd`, `Clipboard`, `Rating`, `EmptyState`, `Skeleton`, `StatusBar`, `DescriptionList`, `Stepper`, `Form`, `HoverCard`, `ShimmerText`, `Marker`, `Bubble` and `Message`. The others do what an Avalonia control cannot: `Select` with a search field and multiple selection, `ListView` with sections, the virtualized `Tree`, `CalendarView` with several months and ranges, `DateField`, `TimeField`, `Table`, `ColorSelect`, `Sidebar`, `Sheet`, `NotificationList`, `TitleBar` and more. Each has its own page under UIKit Controls in [Components](/components).
+- **Attached properties** that add features to Avalonia's own controls: a loading state for buttons (`uikit:Buttons`), validation and input masks for `TextBox` (`uikit:Inputs`), a prefix and a suffix for tab bars (`uikit:Tabs`), a footer for `GroupBox`, a label for `Separator`, and others. They act only where the app sets them.
 
 Every component is checked against reference renders: Light and Dark, each variant, size and state, and the motion frame by frame. The color tokens are generated, including the colors the components derive for their states, so no color is approximated by hand.
 
@@ -14,7 +15,7 @@ The library is built for NativeAOT. It uses compiled bindings only and bans refl
 
 ## What it is not
 
-The library themes looks, not systems. Components that need a mechanism of their own, such as a modal layer, search, docking, text editing or charts, are out of scope.
+The library adds to Avalonia's controls rather than replacing them: an app keeps writing `Button`, `TextBox` or `ComboBox`, and takes a `uikit:` control or an attached property only where it needs what that adds. Components that need an engine or a platform service of their own are out of scope, such as a code editor, multiple cursors or inline tokens in a text field, charts, dialogs, a command palette, OS notifications, and SVG or animated images. Docking comes from Dock.Avalonia, which `AvaloniaUIKit.Dock` themes.
 
 ## Where to go next
 

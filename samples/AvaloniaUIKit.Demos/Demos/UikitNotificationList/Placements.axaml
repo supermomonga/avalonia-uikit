@@ -1,0 +1,19 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:uikit="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.UikitNotificationListPlacements">
+  <Panel MinWidth="600" MinHeight="420">
+    <UniformGrid Columns="3" Width="330" Height="120" HorizontalAlignment="Center" VerticalAlignment="Center">
+      <Button Classes="outline small" Content="TopLeft" Click="OnShow" />
+      <Button Classes="outline small" Content="TopCenter" Click="OnShow" />
+      <Button Classes="outline small" Content="TopRight" Click="OnShow" />
+      <Button Classes="outline small" Content="LeftCenter" Click="OnShow" />
+      <Panel />
+      <Button Classes="outline small" Content="RightCenter" Click="OnShow" />
+      <Button Classes="outline small" Content="BottomLeft" Click="OnShow" />
+      <Button Classes="outline small" Content="BottomCenter" Click="OnShow" />
+      <Button Classes="outline small" Content="BottomRight" Click="OnShow" />
+    </UniformGrid>
+    <uikit:NotificationList Name="Notifications" Padding="16" />
+  </Panel>
+</UserControl>

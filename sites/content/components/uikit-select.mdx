@@ -1,0 +1,42 @@
+---
+title: "Select"
+description: "A select with a search field, sections, multiple selection and a footer, as uikit:Select."
+---
+
+<Demo name="uikit-select/demo" />
+
+## Usage
+
+`uikit:Select` keeps the look of the [Select](/components/select) and adds what `ComboBox` does not have: a search field above the rows (`IsSearchable`), sections (`uikit:SelectGroup` with a `Title`), a clear button in place of the chevron while there is a value (`IsCleanable`), a prefix before the title (`TitlePrefix`), an icon in place of the chevron (`Icon`), a popup width of its own (`MenuWidth`), a footer (`Footer`) and an empty view (`EmptyContent`; an inbox icon by default). Items are data: strings, or objects whose text comes from `TextSelector`. `ItemTemplate` draws the rows, and `ItemEnabledSelector` disables items.
+
+A query keeps the items whose text contains it, ignoring case, and a section while one of its items or its title matches; `Filter` replaces the rule and `AsyncPopulator` fetches the items instead. The cursor moves to the first match, and while the popup is open the trigger shows the item under the cursor. ↑, ↓ and Enter open the closed select; then ↑ and ↓ move the cursor, Enter selects the item under it and Escape closes. Every close clears the query.
+
+The selection is `SelectedItem`, `SelectedIndex` (sections flattened) and `SelectedItems`. `SelectionChanging` is raised before a click or Enter changes it: a handler can edit `e.Selection` or set `e.Cancel`.
+
+The demo has a search field: type to filter the fruits.
+
+### Combobox
+
+`Classes="combobox"` gives the [Combobox](/components/combobox) look: the trigger is titled with the committed item only. With `SelectionMode="Multiple"` a click or Enter toggles an item and the popup stays open; the trigger joins the selected items' text with commas. `Footer` sits below the rows under a separator. `TriggerTemplate` replaces the trigger's content with a template of a `uikit:SelectTriggerContext` (`SelectedItems`, `Title`, `PlaceholderText`, `HasSelection`, `IsOpen`).
+
+## Examples
+
+Sections, with the search field.
+
+<Demo name="uikit-select/groups" title="Groups" />
+
+A clear button while there is a value, and a title prefix with an icon in place of the chevron.
+
+<Demo name="uikit-select/clear" title="Clear" />
+
+Multiple selection with a search field and a clear button.
+
+<Demo name="uikit-select/multiple" title="Multiple" />
+
+A footer button that adds what was typed in the search field.
+
+<Demo name="uikit-select/footer" title="Footer" />
+
+A trigger template: an icon, the title or the placeholder, and the chevron.
+
+<Demo name="uikit-select/trigger" title="Custom trigger" />

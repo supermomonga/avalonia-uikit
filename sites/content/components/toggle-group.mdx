@@ -1,6 +1,6 @@
 ---
 title: "Toggle Group"
-description: "Toggles that select one or several items, as uikit:ToggleGroup or a ListBox with the toggle-group class."
+description: "Toggles that select one or several items, as a ListBox with the toggle-group class."
 ---
 
 <Demo name="toggle-group/demo" />
@@ -15,7 +15,7 @@ description: "Toggles that select one or several items, as uikit:ToggleGroup or 
 | `segmented` | Joins the items: only the outer corners are rounded and neighbours share one edge |
 | `xsmall`, `small`, `large` | Item height 20, 24 and 36; medium, the default, is 32. An icon takes the text size |
 
-`uikit:ToggleGroup` is the group made of `ToggleButton`s, in a row 8px apart. Its `outline`, `segmented` and size classes work as above; `outline` and the size go on every toggle. Each toggle flips on its own and is its own Tab stop; the arrow keys do not move between them. A click on a toggle, or Space or Enter on it, raises the group's `Click` with `Checked`, every toggle's state after it. `IsChecked` on each toggle is the state. `IsEnabled="False"` on the group disables its toggles.
+[`uikit:ToggleGroup`](/components/uikit-toggle-group) is the group made of `ToggleButton`s, each flipping on its own.
 
 ## Examples
 
@@ -30,7 +30,3 @@ The four sizes of an outlined group.
 A `PathIcon` as an item's content; the icon follows the group's size.
 
 <Demo name="toggle-group/icons" title="Icons" />
-
-`uikit:ToggleGroup` with labels, and outlined and `segmented` with icons.
-
-<Demo name="toggle-group/toggle-buttons" title="ToggleButtons" />

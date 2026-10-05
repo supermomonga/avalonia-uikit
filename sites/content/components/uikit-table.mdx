@@ -1,0 +1,22 @@
+---
+title: "Table"
+description: "A table written out row by row, with column spans, a footer and a caption, as uikit:Table."
+---
+
+<Demo name="uikit-table/demo" />
+
+## Usage
+
+`uikit:Table` has the look of the [Table](/components/table) and is written out row by row instead of bound to items: a `uikit:TableHeader`, `uikit:TableBody` and `uikit:TableFooter` of `uikit:TableRow`s, and a `uikit:TableCaption`, stacked in the order given. A header row holds `uikit:TableHead`s and the other rows `uikit:TableCell`s. The footer is on the foot color under a rule, and the caption is muted, centered text in the cells' padding.
+
+Every row lays out its cells on its own: a cell's share of the row is its `ColSpan` (1 by default), cells never get narrower than 100px per column (or their `MinWidth`), and `PreferredWidth` asks for a width that shrinks with the other cells when the row is too narrow, while `Width` keeps one. Rows whose spans add up the same line up. Cell text stays on one line, and `HorizontalContentAlignment` places a cell's content. The table is not virtualized.
+
+The Table's classes apply: `xsmall`, `small`, `large` and `stripe`, and `BorderThickness="1" CornerRadius="5.5"` for the bordered table.
+
+The demo has a header cell over two columns, tags in the cells, a footer whose total spans three columns, and a caption.
+
+## Examples
+
+Bordered, striped and `small`.
+
+<Demo name="uikit-table/striped" title="Striped" />

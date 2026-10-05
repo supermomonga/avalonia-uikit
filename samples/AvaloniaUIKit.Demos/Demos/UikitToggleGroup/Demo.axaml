@@ -1,0 +1,23 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:uikit="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.UikitToggleGroupDemo">
+  <StackPanel Spacing="8" HorizontalAlignment="Left">
+    <uikit:ToggleGroup>
+      <ToggleButton Content="Bold" IsChecked="True" />
+      <ToggleButton Content="Italic" />
+      <ToggleButton Content="Underline" />
+    </uikit:ToggleGroup>
+    <uikit:ToggleGroup Classes="outline segmented small">
+      <ToggleButton IsChecked="True">
+        <PathIcon Data="{StaticResource UIKit.Icon.Bell}" />
+      </ToggleButton>
+      <ToggleButton>
+        <PathIcon Data="{StaticResource UIKit.Icon.Inbox}" />
+      </ToggleButton>
+      <ToggleButton>
+        <PathIcon Data="{StaticResource UIKit.Icon.Check}" />
+      </ToggleButton>
+    </uikit:ToggleGroup>
+  </StackPanel>
+</UserControl>
