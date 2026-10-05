@@ -9,6 +9,8 @@ description: "A multi-line input in the Input's frame, as TextBox with AcceptsRe
 
 `TextBox AcceptsReturn="True"` is the textarea. It has no fixed height: give it rows with `MinLines` and `MaxLines`, or a `Height`. The theme wraps the text (`TextWrapping="Wrap"`), aligns it to the top and pads it inside the scrolling area rather than the frame, so the overlay scrollbar runs along the whole inner frame. The frame, the placeholder, the focus ring, the disabled look and the right-click menu are the Input's. Sizes: `xsmall`, `small`, `large` (medium is the default).
 
+`uikit:Inputs.TabSize` (2 is the usual size) makes Tab indent: at the caret, or every selected line. Shift+Tab outdents the caret's or the selected lines, and Cmd+] and Cmd+[ (Ctrl+] and Ctrl+[ on Windows and Linux) indent and outdent the lines. `uikit:Inputs.HardTabs="True"` indents with a tab character instead of spaces. A read-only textarea, or one without a `TabSize`, leaves Tab to move the focus.
+
 ## Examples
 
 `MinLines="2" MaxLines="5"`: the field grows with its text from two to five lines, then scrolls.
@@ -22,3 +24,7 @@ The four sizes, each two lines tall.
 Read-only and disabled textareas.
 
 <Demo name="textarea/states" title="States" />
+
+Select lines and press Tab or Shift+Tab.
+
+<Demo name="textarea/indent" title="Indent" />

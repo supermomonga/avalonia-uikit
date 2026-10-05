@@ -11,6 +11,12 @@ The theme covers `Slider` with its `Track`, `Thumb` and `TickBar`s: a 6px pill f
 
 `Orientation="Vertical"` makes it 24px wide and 120px tall by default, filling from the bottom; `Classes="reverse"` fills from the thumb to the end instead. Disabled, the thumb is not drawn and the fill keeps its length. There is one size. Ticks (`TickPlacement`, `TickFrequency`) are Avalonia's own, drawn as muted 1px lines at the band's edges.
 
+## uikit:RangeSlider
+
+`uikit:RangeSlider` has the same look with two thumbs: `StartValue` and `EndValue`, filled between them, from `Minimum` to `Maximum` (0 to 100 by default) in steps of `Step` (1 by default). A press on the track moves the nearer thumb there; a thumb is dragged directly and stops at the other one. Each thumb has its own ring. `Changed` is raised while the user moves a value and `Released` once the pointer is released. `Orientation="Vertical"` works as for `Slider`.
+
+`Scale="Logarithmic"` spreads the values by ratio: from 1 to 1000, a third of the way is 10 and two thirds is 100. It needs a `Minimum` above 0. `IsRange="False"` gives a single thumb at `EndValue`, filled from the start (or to the end with `reverse`), for a single value on a logarithmic scale.
+
 ## Examples
 
 Vertical sliders at the minimum, a value and the maximum.
@@ -24,3 +30,11 @@ A normal and a `reverse` slider at the same value.
 Disabled sliders keep their fill but draw no thumb.
 
 <Demo name="slider/disabled" title="Disabled" />
+
+A `uikit:RangeSlider`, horizontal and vertical.
+
+<Demo name="slider/range" title="Range" />
+
+A single value on a logarithmic scale from 0.25x to 4x.
+
+<Demo name="slider/logarithmic" title="Logarithmic" />

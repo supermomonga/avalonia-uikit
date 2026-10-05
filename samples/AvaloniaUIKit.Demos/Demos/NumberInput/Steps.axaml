@@ -1,0 +1,14 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:uikit="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.NumberInputSteps">
+  <StackPanel Spacing="12" Width="200" HorizontalAlignment="Left">
+    <uikit:NumberInput Value="0.1" Increment="0.2" />
+    <uikit:NumberInput Value="1234.56" Increment="100" Minimum="0">
+      <uikit:Inputs.MaskPattern>
+        <uikit:NumberMask Separator="," Fraction="2" />
+      </uikit:Inputs.MaskPattern>
+    </uikit:NumberInput>
+    <uikit:NumberInput Value="0.9" Minimum="0" Loaded="OnLoaded" />
+  </StackPanel>
+</UserControl>

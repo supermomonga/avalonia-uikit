@@ -540,9 +540,19 @@ public sealed partial class InputGroupButtons : UserControl
     public InputGroupButtons() => AvaloniaXamlLoader.Load(this);
 }
 
+public sealed partial class InputGroupControl : UserControl
+{
+    public InputGroupControl() => AvaloniaXamlLoader.Load(this);
+}
+
 public sealed partial class InputGroupDemo : UserControl
 {
     public InputGroupDemo() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class InputGroupRows : UserControl
+{
+    public InputGroupRows() => AvaloniaXamlLoader.Load(this);
 }
 
 public sealed partial class InputGroupStates : UserControl
@@ -565,6 +575,11 @@ public sealed partial class InputIcons : UserControl
     public InputIcons() => AvaloniaXamlLoader.Load(this);
 }
 
+public sealed partial class InputMasks : UserControl
+{
+    public InputMasks() => AvaloniaXamlLoader.Load(this);
+}
+
 public sealed partial class InputPassword : UserControl
 {
     public InputPassword() => AvaloniaXamlLoader.Load(this);
@@ -578,6 +593,11 @@ public sealed partial class InputSizes : UserControl
 public sealed partial class InputStates : UserControl
 {
     public InputStates() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class InputValidation : UserControl
+{
+    public InputValidation() => AvaloniaXamlLoader.Load(this);
 }
 
 public sealed partial class KbdDemo : UserControl
@@ -718,6 +738,11 @@ public sealed partial class NumberInputRange : UserControl
 public sealed partial class NumberInputSizes : UserControl
 {
     public NumberInputSizes() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class NumberInputSteps : UserControl
+{
+    public NumberInputSteps() => AvaloniaXamlLoader.Load(this);
 }
 
 public sealed partial class PaginationCompact : UserControl
@@ -955,6 +980,16 @@ public sealed partial class SliderDisabled : UserControl
     public SliderDisabled() => AvaloniaXamlLoader.Load(this);
 }
 
+public sealed partial class SliderLogarithmic : UserControl
+{
+    public SliderLogarithmic() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class SliderRange : UserControl
+{
+    public SliderRange() => AvaloniaXamlLoader.Load(this);
+}
+
 public sealed partial class SliderReverse : UserControl
 {
     public SliderReverse() => AvaloniaXamlLoader.Load(this);
@@ -1113,6 +1148,11 @@ public sealed partial class TextareaAutoGrow : UserControl
 public sealed partial class TextareaDemo : UserControl
 {
     public TextareaDemo() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class TextareaIndent : UserControl
+{
+    public TextareaIndent() => AvaloniaXamlLoader.Load(this);
 }
 
 public sealed partial class TextareaSizes : UserControl
@@ -1377,14 +1417,18 @@ public static partial class DemoRegistry
         ["image/rounded"] = static () => new ImageRounded(),
         ["input-group/addons"] = static () => new InputGroupAddons(),
         ["input-group/buttons"] = static () => new InputGroupButtons(),
+        ["input-group/control"] = static () => new InputGroupControl(),
         ["input-group/demo"] = static () => new InputGroupDemo(),
+        ["input-group/rows"] = static () => new InputGroupRows(),
         ["input-group/states"] = static () => new InputGroupStates(),
         ["input/clear"] = static () => new InputClear(),
         ["input/demo"] = static () => new InputDemo(),
         ["input/icons"] = static () => new InputIcons(),
+        ["input/masks"] = static () => new InputMasks(),
         ["input/password"] = static () => new InputPassword(),
         ["input/sizes"] = static () => new InputSizes(),
         ["input/states"] = static () => new InputStates(),
+        ["input/validation"] = static () => new InputValidation(),
         ["kbd/demo"] = static () => new KbdDemo(),
         ["kbd/outline"] = static () => new KbdOutline(),
         ["label/demo"] = static () => new LabelDemo(),
@@ -1413,6 +1457,7 @@ public static partial class DemoRegistry
         ["number-input/demo"] = static () => new NumberInputDemo(),
         ["number-input/range"] = static () => new NumberInputRange(),
         ["number-input/sizes"] = static () => new NumberInputSizes(),
+        ["number-input/steps"] = static () => new NumberInputSteps(),
         ["pagination/compact"] = static () => new PaginationCompact(),
         ["pagination/demo"] = static () => new PaginationDemo(),
         ["pagination/sizes"] = static () => new PaginationSizes(),
@@ -1460,6 +1505,8 @@ public static partial class DemoRegistry
         ["skeleton/shapes"] = static () => new SkeletonShapes(),
         ["slider/demo"] = static () => new SliderDemo(),
         ["slider/disabled"] = static () => new SliderDisabled(),
+        ["slider/logarithmic"] = static () => new SliderLogarithmic(),
+        ["slider/range"] = static () => new SliderRange(),
         ["slider/reverse"] = static () => new SliderReverse(),
         ["slider/vertical"] = static () => new SliderVertical(),
         ["spinner/demo"] = static () => new SpinnerDemo(),
@@ -1492,6 +1539,7 @@ public static partial class DemoRegistry
         ["tag/sizes"] = static () => new TagSizes(),
         ["textarea/auto-grow"] = static () => new TextareaAutoGrow(),
         ["textarea/demo"] = static () => new TextareaDemo(),
+        ["textarea/indent"] = static () => new TextareaIndent(),
         ["textarea/sizes"] = static () => new TextareaSizes(),
         ["textarea/states"] = static () => new TextareaStates(),
         ["time-field/demo"] = static () => new TimeFieldDemo(),

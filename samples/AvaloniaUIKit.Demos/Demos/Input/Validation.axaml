@@ -1,0 +1,9 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:uikit="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.InputValidation">
+  <StackPanel Spacing="12" Width="240" HorizontalAlignment="Left">
+    <TextBox Width="240" uikit:Inputs.Pattern="^[a-zA-Z0-9]*$" PlaceholderText="Letters and digits only" />
+    <TextBox Width="240" uikit:Inputs.CleanOnEscape="True" Text="Press Escape to clear" />
+  </StackPanel>
+</UserControl>

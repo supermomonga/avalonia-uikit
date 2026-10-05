@@ -1,0 +1,26 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:uikit="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.InputGroupControl">
+  <StackPanel Spacing="12" Width="280" HorizontalAlignment="Left">
+    <uikit:InputGroup>
+      <uikit:InputGroupAddon>https://</uikit:InputGroupAddon>
+      <TextBox Text="example" />
+      <uikit:InputGroupAddon Alignment="InlineEnd">.com</uikit:InputGroupAddon>
+    </uikit:InputGroup>
+    <uikit:InputGroup IsInvalid="True">
+      <TextBox Text="not an email" />
+      <uikit:InputGroupAddon Alignment="InlineEnd">
+        <Button Classes="icon-only">
+          <PathIcon Data="{StaticResource UIKit.Icon.Close}" />
+        </Button>
+      </uikit:InputGroupAddon>
+    </uikit:InputGroup>
+    <uikit:InputGroup IsEnabled="False">
+      <uikit:InputGroupAddon>
+        <PathIcon Data="{StaticResource UIKit.Icon.Search}" />
+      </uikit:InputGroupAddon>
+      <TextBox PlaceholderText="Disabled" />
+    </uikit:InputGroup>
+  </StackPanel>
+</UserControl>
