@@ -61,6 +61,7 @@
         <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/AsyncImage.axaml" />
         <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/Pagination.axaml" />
         <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/ResizablePanelGroup.axaml" />
+        <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Controls/Sheet.axaml" />
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
   </Styles.Resources>

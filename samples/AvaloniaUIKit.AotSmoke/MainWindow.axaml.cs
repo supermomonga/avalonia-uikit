@@ -15,7 +15,27 @@ public sealed partial class MainWindow : Window
             .Show(new Notification("Gallery", "Every theme is loaded."), NotificationType.Information, TimeSpan.Zero);
         // GPUI's scroll_to_item on a ListBox, waiting for the first layout.
         this.FindControl<ListBox>("Fruits")!.ScrollToItem(2, ScrollStrategy.Center);
+        // A sheet shown and closed again, so its template runs too.
+        Opened += (_, _) =>
+        {
+            var sheet = NewSheet();
+            sheet.Show(this);
+            sheet.Close();
+        };
     }
+
+    private void OnOpenSheet(object? sender, RoutedEventArgs e) => NewSheet().Show(this);
+
+    private static Sheet NewSheet() => new()
+    {
+        Title = "Settings",
+        Content = new StackPanel
+        {
+            Spacing = 12,
+            Children = { new TextBox { PlaceholderText = "Your name" }, new CheckBox { Content = "Notify me" } },
+        },
+        Footer = new Button { Content = "Save", Classes = { "primary" } },
+    };
 
     private void OnPreviousSlide(object? sender, RoutedEventArgs e) => this.FindControl<Carousel>("Slides")!.Previous();
 

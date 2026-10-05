@@ -1,0 +1,164 @@
+<!--
+  GPUI Kit Sheet (crates/component/src/sheet.rs, base/sheet.rs) -> uikit:Sheet:
+
+    var sheet = new Sheet { Title = "Settings", Placement = DrawerPlacement.Right, Content = ... };
+    sheet.Show(this);
+
+  The look of DrawerPage.sheet (DrawerPage.axaml on the SplitView theme's
+  overlay mode): the window dimmed by the theme overlay, and a surface in the
+  background color with a 1px border on its inner edge and shadow_xl, 350px
+  (Size) from its edge, below UIKit.Sheet.Margin (GPUI's title-bar offset; not
+  for a bottom sheet). The title row has 16px before the title (semibold),
+  12px after the small ghost close button and 8px above and below; the body
+  scrolls with 16px at its sides (Padding); the footer has 16px by 12px. The
+  surface slides 100px in over 150ms, linearly, as it opens, and goes at once.
+-->
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:uikit="using:AvaloniaUIKit">
+  <ControlTheme x:Key="{x:Type uikit:Sheet}" TargetType="uikit:Sheet">
+    <Setter Property="Background" Value="{DynamicResource UIKit.Background}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Border}" />
+    <Setter Property="Padding" Value="16,0" />
+    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+    <!-- The body is a v_flex: its children stack from the top. -->
+    <Setter Property="VerticalContentAlignment" Value="Top" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Panel>
+          <!-- base/sheet.rs: the overlay covers the window and takes every press. -->
+          <Border Name="PART_Overlay" Background="{DynamicResource UIKit.Overlay}" />
+          <Panel Name="PART_Root" Margin="{DynamicResource UIKit.Sheet.Margin}">
+            <Panel.RenderTransform>
+              <TranslateTransform />
+            </Panel.RenderTransform>
+            <!-- shadow_xl: a Border with a one-sided border draws no BoxShadow. -->
+            <Border Name="PART_Shadow" BoxShadow="{StaticResource UIKit.Shadow.Xl}" IsHitTestVisible="False" />
+            <!-- The focus while the sheet is open: focusable, but no tab stop. -->
+            <Border Name="PART_Surface"
+                    Focusable="True"
+                    KeyboardNavigation.IsTabStop="False"
+                    Background="{TemplateBinding Background}"
+                    BackgroundSizing="OuterBorderEdge"
+                    BorderBrush="{TemplateBinding BorderBrush}">
+              <DockPanel>
+                <Border Name="PART_TitleBar" DockPanel.Dock="Top" Padding="16,8,12,8">
+                  <DockPanel>
+                    <Button Name="PART_CloseButton"
+                            DockPanel.Dock="Right"
+                            Classes="ghost small icon-only"
+                            VerticalAlignment="Center"
+                            AutomationProperties.Name="Close">
+                      <PathIcon Data="{StaticResource UIKit.Icon.Close}" />
+                    </Button>
+                    <ContentPresenter Name="PART_TitlePresenter"
+                                      VerticalAlignment="Center"
+                                      FontWeight="SemiBold"
+                                      LineHeight="26"
+                                      Content="{TemplateBinding Title}" />
+                  </DockPanel>
+                </Border>
+                <Border Name="PART_FooterHost" DockPanel.Dock="Bottom" Padding="16,12"
+                        IsVisible="{TemplateBinding Footer, Converter={x:Static ObjectConverters.IsNotNull}}">
+                  <ContentPresenter Name="PART_FooterPresenter" Content="{TemplateBinding Footer}" />
+                </Border>
+                <ScrollViewer Name="PART_ScrollViewer" HorizontalScrollBarVisibility="Disabled">
+                  <ContentPresenter Name="PART_ContentPresenter"
+                                    Padding="{TemplateBinding Padding}"
+                                    Content="{TemplateBinding Content}"
+                                    ContentTemplate="{TemplateBinding ContentTemplate}"
+                                    HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+                </ScrollViewer>
+              </DockPanel>
+            </Border>
+          </Panel>
+        </Panel>
+      </ControlTemplate>
+    </Setter>
+
+    <!-- overlay(false): a clear overlay, still in front of the window. -->
+    <Style Selector="^[HasOverlay=False] /template/ Border#PART_Overlay">
+      <Setter Property="Background" Value="Transparent" />
+    </Style>
+
+    <!-- The surface on its edge, with the border on its inner edge. -->
+    <Style Selector="^:left /template/ Panel#PART_Root">
+      <Setter Property="HorizontalAlignment" Value="Left" />
+    </Style>
+    <Style Selector="^:left /template/ Border#PART_Surface">
+      <Setter Property="BorderThickness" Value="0,0,1,0" />
+    </Style>
+    <Style Selector="^:right /template/ Panel#PART_Root">
+      <Setter Property="HorizontalAlignment" Value="Right" />
+    </Style>
+    <Style Selector="^:right /template/ Border#PART_Surface">
+      <Setter Property="BorderThickness" Value="1,0,0,0" />
+    </Style>
+    <Style Selector="^:top /template/ Panel#PART_Root">
+      <Setter Property="VerticalAlignment" Value="Top" />
+    </Style>
+    <Style Selector="^:top /template/ Border#PART_Surface">
+      <Setter Property="BorderThickness" Value="0,0,0,1" />
+    </Style>
+    <!-- A bottom sheet sits on the window's bottom edge, under no title bar. -->
+    <Style Selector="^:bottom /template/ Panel#PART_Root">
+      <Setter Property="VerticalAlignment" Value="Bottom" />
+      <Setter Property="Margin" Value="0" />
+    </Style>
+    <Style Selector="^:bottom /template/ Border#PART_Surface">
+      <Setter Property="BorderThickness" Value="0,1,0,0" />
+    </Style>
+
+    <!-- sheet.rs: the "slide" animation, 150ms from 100px outside, linear. -->
+    <Style Selector="^:open:left /template/ Panel#PART_Root">
+      <Style.Animations>
+        <Animation Duration="0:0:0.15">
+          <KeyFrame Cue="0%">
+            <Setter Property="TranslateTransform.X" Value="-100" />
+          </KeyFrame>
+          <KeyFrame Cue="100%">
+            <Setter Property="TranslateTransform.X" Value="0" />
+          </KeyFrame>
+        </Animation>
+      </Style.Animations>
+    </Style>
+    <Style Selector="^:open:right /template/ Panel#PART_Root">
+      <Style.Animations>
+        <Animation Duration="0:0:0.15">
+          <KeyFrame Cue="0%">
+            <Setter Property="TranslateTransform.X" Value="100" />
+          </KeyFrame>
+          <KeyFrame Cue="100%">
+            <Setter Property="TranslateTransform.X" Value="0" />
+          </KeyFrame>
+        </Animation>
+      </Style.Animations>
+    </Style>
+    <Style Selector="^:open:top /template/ Panel#PART_Root">
+      <Style.Animations>
+        <Animation Duration="0:0:0.15">
+          <KeyFrame Cue="0%">
+            <Setter Property="TranslateTransform.Y" Value="-100" />
+          </KeyFrame>
+          <KeyFrame Cue="100%">
+            <Setter Property="TranslateTransform.Y" Value="0" />
+          </KeyFrame>
+        </Animation>
+      </Style.Animations>
+    </Style>
+    <Style Selector="^:open:bottom /template/ Panel#PART_Root">
+      <Style.Animations>
+        <Animation Duration="0:0:0.15">
+          <KeyFrame Cue="0%">
+            <Setter Property="TranslateTransform.Y" Value="100" />
+          </KeyFrame>
+          <KeyFrame Cue="100%">
+            <Setter Property="TranslateTransform.Y" Value="0" />
+          </KeyFrame>
+        </Animation>
+      </Style.Animations>
+    </Style>
+  </ControlTheme>
+</ResourceDictionary>

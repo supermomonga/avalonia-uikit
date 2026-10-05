@@ -239,6 +239,9 @@
           <uikit:ResizablePanel Size="120" Padding="8" Content="Right" />
         </uikit:ResizablePanelGroup>
 
+        <TextBlock Text="uikit:Sheet" Foreground="{DynamicResource UIKit.MutedForeground}" />
+        <Button Content="Open a sheet" Classes="outline" HorizontalAlignment="Left" Click="OnOpenSheet" />
+
         <TextBlock Text="Calendar" Foreground="{DynamicResource UIKit.MutedForeground}" />
         <StackPanel Orientation="Horizontal" Spacing="12">
           <Calendar SelectedDate="2025-03-14" DisplayDate="2025-03-14" />
