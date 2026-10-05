@@ -347,6 +347,14 @@
           <TextBox Classes="clearButton" Text="Clear me" />
           <TextBox AcceptsReturn="True" MinLines="3" Text="Multi-line" />
           <TextBox Classes="group" PlaceholderText="Search" />
+          <TextBox uikit:Inputs.MaskPattern="(999)999-9999" uikit:Inputs.CleanOnEscape="True" />
+          <TextBox uikit:Inputs.Pattern="^[a-zA-Z0-9]*$" PlaceholderText="Letters and digits" />
+          <TextBox Text="1234567.891">
+            <uikit:Inputs.MaskPattern>
+              <uikit:NumberMask Separator="," Fraction="2" />
+            </uikit:Inputs.MaskPattern>
+          </TextBox>
+          <TextBox AcceptsReturn="True" MinLines="3" uikit:Inputs.TabSize="2" Text="Tab indents the selected lines" />
         </StackPanel>
 
         <TextBlock Text="List, Select, Combobox, Tree, Tabs, Pagination" Foreground="{DynamicResource UIKit.MutedForeground}" />
