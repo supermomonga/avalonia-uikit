@@ -50,11 +50,12 @@ Chosen option: 「まとめて表示」「CI では `manifest.json` だけ」「
 ### Consequences
 
 * Good, because プレビューの描画が macOS arm64 で 298 秒から 15 秒（`--manifest-only` では 12 秒）になる。手元で PNG を描くときも同じだけ速くなる。
+* Good, because PR #13 のワークフローは、キャッシュに当たらないとき 2 分 24 秒、当たるとき（同じ実行の再実行）は最初のジョブの開始から最後のジョブの終了まで 43 秒だった。変更前は 7 分 19 秒。
 * Good, because サイトだけを変えた PR や push では .NET をビルドしない。.NET を変えたときも、プレビューと WASM が並んで走る。
 * Good, because 使われない 576 枚の PNG をデプロイしなくなる。
 * Bad, because キャッシュのキーに入れ忘れたファイルがあると、古い出力のまま配信される。出力の元を増やしたら（新しいプロジェクトの参照、`assets/` の外のファイル）、`site.yml` のハッシュの対象にも加える必要がある（`docs/site.md`）。ワークロードのマニフェストは SDK のバージョンとは別に更新されることがあるが、キーには入れていない。
 * Bad, because PR で保存したキャッシュは main から読めない（GitHub のキャッシュの範囲）ので、PR のマージのあとの push では作り直す。
-* Bad, because ジョブが 3 つになり、それぞれに起動と checkout の時間がかかる。
+* Bad, because ジョブが 3 つになり、それぞれに起動と checkout の時間がかかる。WASM の publish は、プレビューのビルドが済ませていた `src` と Demos を自分でビルドするので、37 秒から 72 秒になった。プレビューと並んで走るので、全体の時間はほぼこちらで決まる。
 * Neutral, because スピナーや indeterminate の進捗、シマーのように繰り返すアニメーションの PNG は、撮る瞬間の位相で変わる。これはまとめる前から実行ごとに変わっていた。
 
 ### Confirmation
@@ -62,6 +63,7 @@ Chosen option: 「まとめて表示」「CI では `manifest.json` だけ」「
 * macOS arm64 で、変更前と変更後の Previews の出力を比べた。`manifest.json` は一致した。PNG は 576 枚のうち 548 枚がバイト単位で一致した。残る 28 枚（14 デモ: Button、DropdownButton、Marker、ListView の loading、Progress と ProgressCircle の indeterminate、Shimmer、Skeleton、Spinner）は繰り返すアニメーションで、変更前のコードを 2 回実行しても、そのうち 27 枚が異なった。
 * 待つ間に例外を投げる偽のデモを一時的に加えると、そのデモだけが `InvalidOperationException` として報告され、同じバッチのほかのデモは描かれ、終了コードは 1 になった。
 * `--manifest-only` の `manifest.json` だけで `bun run build` と `bun scripts/smoke.ts` が通る。`actionlint` が `site.yml` に何も報告しない。
+* PR #13 の 1 回目の実行では、`previews`（99 秒）と `wasm`（109 秒）がどちらも作って保存し、`site`（29 秒）が復元してビルドと smoke を通した。再実行では、2 つのジョブがキャッシュを見つけて 11〜12 秒で終わり、`site` が同じキー（`previews-Linux-10.0.401-…`、`wasm-Linux-10.0.401-…`）から復元した。
 
 ## Pros and Cons of the Options
 
