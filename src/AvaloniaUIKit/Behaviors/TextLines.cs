@@ -127,7 +127,11 @@ public static class TextLines
     {
         var padding = text.Padding.Left + text.Padding.Right;
         var natural = text.TextLayout.WidthIncludingTrailingWhitespace + padding;
-        var width = Math.Ceiling(natural - padding - 1e-4) + padding;
+        // GPUI on macOS shapes a line's first run at the font size's next float
+        // up (text_system.rs layout_line, to keep runs apart), so its width lands
+        // just above the advances' sum: a width of whole pixels rounds up one more.
+        var textWidth = natural - padding;
+        var width = (textWidth > 1e-4 ? Math.Floor(textWidth + 1e-4) + 1 : 0) + padding;
         // A stretched text wider than its slot overflows (or trims) at Avalonia's own
         // width: held at its rounded width, it would center on the slot instead. One
         // aligned to a side overflows from that side either way.
