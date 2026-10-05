@@ -15,7 +15,7 @@ https://avalonia-uikit.omofla.sh の構成と約束事。サイト本体は `sit
 | `samples/AvaloniaUIKit.Previews/` | ヘッドレスで各デモを描き、`sites/public/previews/` に PNG と `manifest.json` を書く。 |
 | `sites/scripts/images.ts` | OG 画像（`sites/public/og.png`）とアイコンを描く。生成物はコミットする。 |
 | `samples/AvaloniaUIKit.Browser/` | `net10.0-browser` のアプリ。1 つの .NET ランタイムの上に複数の `AvaloniaView` を載せ、ページ内の `<avalonia-demo>` にデモを描く。publish の出力は `sites/public/wasm/<hash>/`（`sites/scripts/publish-wasm.sh`）。 |
-| `.github/workflows/site.yml` | main への push で、デモの publish、プレビュー生成、サイトのビルド、`wrangler deploy` を行う。 |
+| `.github/workflows/site.yml` | main への push で、デモの大きさの計測、ブラウザーのアプリの publish、サイトのビルド、`wrangler deploy` を行う（「ビルドとデプロイ」）。 |
 
 `sites/public/previews/` と `sites/public/wasm/` は生成物なのでコミットしない。
 
@@ -55,8 +55,11 @@ https://avalonia-uikit.omofla.sh の構成と約束事。サイト本体は `sit
 - `sites/public/previews/<component-slug>/<name-slug>.light.png`、`.dark.png`
 - `sites/public/previews/manifest.json`: `{ "<demo id>": { "width": <論理px>, "height": <論理px> } }`
 - `--only <component-slug>` で一部だけ描く。
+- `--manifest-only` で `manifest.json` だけを書き、PNG は描かない（CI はこれ）。
 
-サイトはデモの枠の大きさに `manifest.json` を使う（PNG は OG 画像だけが使い、ページには出さない）。
+サイトはデモの枠の大きさに `manifest.json` を使う（PNG は OG 画像だけが使い、ページには出さない）。そのため CI は PNG を作らず、サイトにも置かない。
+
+デモは、読み込み時の遷移（通知のカードの入場、Sheet のスライドなど）が終わるまで実時間で約 0.5 秒待ってから大きさを測り、撮る。この待ちをデモごとに払わないよう、32 個ずつデモの Light と Dark をまとめて表示し、1 回待ってから順に撮る。待つ間に例外が出たら、その 32 個を 1 つずつ描き直して、どのデモが失敗したかを示す。
 
 ## ライブデモ
 
@@ -100,4 +103,14 @@ Browser 側の JS から呼べる関数（`[JSExport]`、クラス `AvaloniaUIKi
 | サイトのビルド | `cd sites && bun run build`（`vite build --mode client && vite build`） |
 | 公開 | `cd sites && bunx wrangler deploy`（`CLOUDFLARE_API_TOKEN` と `CLOUDFLARE_ACCOUNT_ID` は `mise.local.toml` にある） |
 
-GitHub Actions は `sites/**`、`src/**`、`samples/**`、`assets/**` の変更で動き、上の手順をそのまま実行する。
+GitHub Actions は `sites/**`、`src/**`、`samples/**`、`assets/**` などの変更で動き、上の手順を 3 つのジョブで実行する。
+
+| ジョブ | 内容 |
+| --- | --- |
+| `previews` | `--manifest-only` でデモの大きさを測る。 |
+| `wasm` | `wasm-tools` を入れ、`publish-wasm.sh` を実行する。 |
+| `site` | 2 つのジョブの出力を受け取り、デモの登録の確認、型の検査、ビルド、`smoke.ts` のあと、main なら `wrangler deploy`、PR なら `--dry-run` を行う。 |
+
+`previews` と `wasm` は並んで走り、出力（`sites/public/previews/`、`sites/public/wasm/`）を Actions のキャッシュに保存する。キーは解決された SDK のバージョン（`dotnet --version`）と、出力の元になるファイル（`src/**`、Demos と Previews または Browser、`assets/**`、ルートの props、`global.json`、`site.yml`、wasm は `publish-wasm.sh` も）のハッシュ。同じキーの出力がすでにあれば .NET のビルドを丸ごと省くので、サイトだけの変更では .NET をビルドしない。`site` はキーをジョブの出力で受け取ってキャッシュから復元する。出力の元を増やしたら（新しいプロジェクトの参照、`assets/` の外のファイルなど）、`site.yml` のハッシュの対象にも加える。加え忘れると、古い出力のまま配信される。
+
+PR で保存したキャッシュは main からは読めない（GitHub のキャッシュの範囲）ので、main への push では作り直す。PR は main のキャッシュを読める。

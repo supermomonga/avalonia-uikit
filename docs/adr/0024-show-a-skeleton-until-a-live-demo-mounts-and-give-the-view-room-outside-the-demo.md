@@ -8,6 +8,8 @@ links:
   kind: amends
 - target: 23
   kind: amends
+- target: 32
+  kind: amendedby
 ---
 
 # Show a skeleton until a live demo mounts and give the view room outside the demo
