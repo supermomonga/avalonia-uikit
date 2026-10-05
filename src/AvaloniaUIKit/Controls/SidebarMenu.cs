@@ -183,6 +183,15 @@ public class SidebarMenuItem : ItemsControl
     public SidebarMenuItem()
     {
         UpdateState();
+        // menu.rs: a context menu is its own row's; a nested item without one does not
+        // open its parent item's.
+        AddHandler(ContextRequestedEvent, (_, e) =>
+        {
+            if (ContextMenu is null && ContextFlyout is null && Parent is SidebarMenuItem)
+            {
+                e.Handled = true;
+            }
+        });
     }
 
     /// <inheritdoc cref="LabelProperty"/>

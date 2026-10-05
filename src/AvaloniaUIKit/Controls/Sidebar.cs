@@ -3,6 +3,7 @@ using Avalonia.Controls;
 using Avalonia.Controls.Metadata;
 using Avalonia.Data;
 using Avalonia.LogicalTree;
+using Avalonia.Threading;
 
 namespace AvaloniaUIKit;
 
@@ -39,7 +40,8 @@ public enum SidebarCollapsible
 /// <see cref="IsCollapsed"/> collapses it the way <see cref="Collapsible"/>
 /// says: to its icons (48px; group labels, item labels, suffixes and carets
 /// hide, and an item with an icon shows its label as a tooltip on the right),
-/// off the layout (sliding away from the content), or not at all. The width
+/// off the layout (sliding away from the content, whose controls then leave
+/// the tab order), or not at all. The width
 /// moves over 200ms (ease-in-out-cubic) while the surface inside snaps to its
 /// new width, as GPUI animates the clip and not the content. The collapsed
 /// state reaches the parts through the inherited
@@ -53,7 +55,7 @@ public enum SidebarCollapsible
 /// modes and off the layout in the others, on the pane's side.
 /// </para>
 /// </summary>
-[PseudoClasses(":left", ":right", ":offcanvas", ":icon-collapsed", ":offcanvas-collapsed", ":pane")]
+[PseudoClasses(":left", ":right", ":offcanvas", ":icon-collapsed", ":offcanvas-collapsed", ":offcanvas-hidden", ":pane")]
 public class Sidebar : ItemsControl
 {
     /// <summary>The content above the items (GPUI's <c>header</c>), usually a <see cref="SidebarHeader"/>.</summary>
@@ -88,7 +90,11 @@ public class Sidebar : ItemsControl
     public static readonly AttachedProperty<bool> IsIconCollapsedProperty =
         AvaloniaProperty.RegisterAttached<Sidebar, Control, bool>("IsIconCollapsed", inherits: true);
 
+    // mod.rs SIDEBAR_TRANSITION_DURATION: off-canvas, the content goes once the width has.
+    private static readonly TimeSpan HideDelay = TimeSpan.FromMilliseconds(200);
+
     private SplitView? _host;
+    private IDisposable? _hide;
 
     static Sidebar()
     {
@@ -206,9 +212,26 @@ public class Sidebar : ItemsControl
         PseudoClasses.Set(":left", Side == Side.Left);
         PseudoClasses.Set(":right", Side == Side.Right);
         PseudoClasses.Set(":offcanvas", Collapsible == SidebarCollapsible.Offcanvas);
+        var offcanvas = collapsed && Collapsible == SidebarCollapsible.Offcanvas;
         PseudoClasses.Set(":icon-collapsed", icons);
-        PseudoClasses.Set(":offcanvas-collapsed", collapsed && Collapsible == SidebarCollapsible.Offcanvas);
+        PseudoClasses.Set(":offcanvas-collapsed", offcanvas);
         SetValue(IsIconCollapsedProperty, icons);
+        // mod.rs SidebarAnimationState: off-canvas keeps the content while the width
+        // moves, then unmounts it so its controls leave the tab order.
+        if (offcanvas && !PseudoClasses.Contains(":offcanvas-hidden") && _hide is null)
+        {
+            _hide = DispatcherTimer.RunOnce(() =>
+            {
+                _hide = null;
+                PseudoClasses.Set(":offcanvas-hidden", true);
+            }, HideDelay);
+        }
+        else if (!offcanvas)
+        {
+            _hide?.Dispose();
+            _hide = null;
+            PseudoClasses.Set(":offcanvas-hidden", false);
+        }
     }
 }
 

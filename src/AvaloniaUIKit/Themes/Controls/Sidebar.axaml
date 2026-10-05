@@ -105,6 +105,11 @@
       <Setter Property="Width" Value="48" />
     </Style>
 
+    <!-- Off-canvas, the content goes once the width has (200ms): its controls leave the tab order. -->
+    <Style Selector="^:offcanvas-hidden /template/ Border#PART_Surface">
+      <Setter Property="IsVisible" Value="False" />
+    </Style>
+
     <!-- The side: the clip on the window's edge, the border on the content side; the
          surface on the window's side, or against the content off-canvas (align_child_to_end). -->
     <Style Selector="^:left /template/ Panel#PART_Clip">
