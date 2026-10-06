@@ -44,6 +44,7 @@ https://avalonia-uikit.omofla.sh の構成と約束事。サイト本体は `sit
 - 大きさは内容に任せる（自然な大きさで描く）。横幅の上限は 640（論理ピクセル）。ポップアップ（Flyout、ComboBox、DatePicker など）と、コードから開く `uikit:Sheet` は `AvaloniaView` の範囲に重ねて描かれ、範囲の外には出られないので、開いた状態が収まる大きさをデモ自身が確保する（`MinHeight` など）。
 - デモの中でスクロールするもの（ListBox、ScrollViewer、TreeView、TableView、複数行の TextBox など）はカタログの `scroll: true` で宣言する。宣言のないデモでは、ページのスクロールを妨げないようにホイール操作をデモに渡さない。
 - 登録は `samples/AvaloniaUIKit.Demos/DemoRegistry.g.cs` に生成する（`bun sites/scripts/demo-registry.ts`）。XAML を増やしたら再生成してコミットする。CI は生成結果が一致することを確かめる。
+- コントロールカタログ（`docs/control-catalog.md`）も同じデモを使い、コンポーネントとデモの一覧を `samples/AvaloniaUIKit.Demo.ControlCatalog/Catalog/Catalog.g.cs` に生成する（`bun sites/scripts/control-catalog.ts`）。デモ、カタログ（`catalog.ts`）、ページの説明やデモの見出しを変えたら再生成してコミットする。CI はこれも一致を確かめる。
 - フォントは同梱の Inter（`assets/fonts/inter/`）。ブラウザーにはシステムフォントがないので、Browser と Previews の両方で `UIKit.FontFamily` を Inter にする。
 - DataGrid はトリミング非対応なので、WASM では動かないことがある。その場合は「Live demo unavailable」と出す（下の「ライブデモ」）。
 - 第三者のライブラリのデモ（ADR 28）は、ページにウィンドウがないことに合わせる。Dock は Browser のアプリが `DockSettings.UseManagedWindows` で浮動ウィンドウを DockControl の中に描く。Dock 12.1.0.6 の管理モードのドラッグのプレビューは Avalonia 12 では左上に残る（`docs/testing.md` の R35）ので、Browser のアプリはそれを隠す。
@@ -96,6 +97,7 @@ Browser 側の JS から呼べる関数（`[JSExport]`、クラス `AvaloniaUIKi
 | 目的 | コマンド |
 | --- | --- |
 | デモの登録を更新 | `bun sites/scripts/demo-registry.ts` |
+| コントロールカタログの一覧を更新 | `bun sites/scripts/control-catalog.ts` |
 | プレビュー | `dotnet run --project samples/AvaloniaUIKit.Previews -- --out sites/public/previews` |
 | OG 画像とアイコン | `cd sites && bun run images`（プレビューを描いてから。Playwright の Chromium が要る） |
 | WASM の publish | `sites/scripts/publish-wasm.sh`（`dotnet publish samples/AvaloniaUIKit.Browser -c Release` して `sites/public/wasm/<hash>/` に置き、`index.json` を書く。`wasm-tools` ワークロードが要る。別の SDK を使うなら `DOTNET=/path/to/dotnet`） |
@@ -110,7 +112,7 @@ GitHub Actions は `sites/**`、`src/**`、`samples/**`、`assets/**` などの�
 | --- | --- |
 | `previews` | `--manifest-only` でデモの大きさを測る。 |
 | `wasm` | `wasm-tools` を入れ、`publish-wasm.sh` を実行する。 |
-| `site` | 2 つのジョブの出力を受け取り、デモの登録の確認、型の検査、ビルド、`smoke.ts` のあと、main なら `wrangler deploy`、PR なら `--dry-run` を行う。 |
+| `site` | 2 つのジョブの出力を受け取り、デモの登録とコントロールカタログの一覧の確認、型の検査、ビルド、`smoke.ts` のあと、main なら `wrangler deploy`、PR なら `--dry-run` を行う。 |
 
 `previews` と `wasm` は並んで走り、出力（`sites/public/previews/`、`sites/public/wasm/`）を Actions のキャッシュに保存する。キーは解決された SDK のバージョン（`dotnet --version`）と、出力の元になるファイル（`src/**`、Demos と Previews または Browser、`assets/**`、ルートの props、`global.json`、`site.yml`、wasm は `publish-wasm.sh` も）のハッシュ。同じキーの出力がすでにあれば .NET のビルドを丸ごと省くので、サイトだけの変更では .NET をビルドしない。`site` はキーをジョブの出力で受け取ってキャッシュから復元する。出力の元を増やしたら（新しいプロジェクトの参照、`assets/` の外のファイルなど）、`site.yml` のハッシュの対象にも加える。加え忘れると、古い出力のまま配信される。
 
