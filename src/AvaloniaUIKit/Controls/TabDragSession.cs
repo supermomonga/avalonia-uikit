@@ -39,6 +39,9 @@ internal sealed class TabDragSession
     private const double ScrollZone = 24;
     private const double ScrollStep = 8;
 
+    // The pseudo-class of the tab following the pointer.
+    private const string Dragging = ":dragging";
+
     // The other tabs make room as Tabalonia's do.
     private static readonly TimeSpan SlideDuration = TimeSpan.FromMilliseconds(200);
 
@@ -411,7 +414,9 @@ internal sealed class TabDragSession
         }
         if (!slide)
         {
+            // Over the other tabs, drawing the selected tab's indicator itself (the theme's :dragging).
             tab.ZIndex = int.MaxValue;
+            ((IPseudoClasses)tab.Classes).Set(Dragging, true);
         }
         var translate = TransformOperations.CreateBuilder(1);
         translate.AppendTranslate(horizontal ? offset : 0, horizontal ? 0 : offset);
@@ -451,6 +456,7 @@ internal sealed class TabDragSession
             {
                 tab.ClearValue(Visual.ZIndexProperty);
             }
+            ((IPseudoClasses)tab.Classes).Set(Dragging, false);
         }
         _moved.Clear();
     }
@@ -519,8 +525,8 @@ internal sealed class TabDragSession
         }
         else
         {
-            Tabs.TabList.Dragged(_host, false);
             Restore();
+            Tabs.TabList.Dragged(_host, false);
             if (_to != _from && Tabs.TabList.Of(_host) is { } items && items.IndexOf(_item) is >= 0 and var at)
             {
                 items.RemoveAt(at);

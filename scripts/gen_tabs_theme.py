@@ -51,6 +51,20 @@ GAP = {
     "underline": [10, 12, 16, 20],
 }
 BASELINE = {"tab", "underline"}
+# The selected tab's indicator (PART_IndicatorFill), which Tab and Outline lack; sizes in indicator_fill_size.
+INDICATOR_FILL = {
+    "pill": {"Background": "{DynamicResource UIKit.Primary.Fill}"},
+    "segmented": {
+        "Background": "{DynamicResource UIKit.Background}",
+        "BoxShadow": "{StaticResource UIKit.Shadow.Raised}",
+        "VerticalAlignment": "Center",
+    },
+    "underline": {"Background": "{DynamicResource UIKit.Primary.Fill}", "Height": "2", "VerticalAlignment": "Bottom"},
+}
+# What a dragged tab draws over the tabs it passes: the indicator as its background,
+# or, without one, the active tab's background.
+DRAGGED_INDICATOR = {"pill", "segmented"}
+DRAGGED_BACKGROUND = {"outline": "UIKit.TabActive", "underline": "UIKit.TabActive"}
 
 T = "Transparent"
 # (foreground, background, border) by state (tab.rs normal / hovered / selected / disabled).
@@ -132,6 +146,13 @@ def items(variant: str, size: str | None = None, suffix: str = "") -> str:
     return ", ".join(f"{owner}{VARIANT_SEL[variant]}{size_sel} > {item}{suffix}" for owner, item in OWNERS)
 
 
+def dragged(variant: str, size: str | None = None, suffix: str = "") -> str:
+    """The dragged tab of a bar that shows the indicator: not a TabControl's stacked tabs."""
+    size_sel = SIZE_SEL[size] if size else ""
+    owners = [("TabStrip", "TabStripItem")] + [(f"TabControl[TabStripPlacement={p}]", "TabItem") for p in ("Top", "Bottom")]
+    return ", ".join(f"{owner}{VARIANT_SEL[variant]}{size_sel} > {item}:dragging{suffix}" for owner, item in owners)
+
+
 def item_theme(item: str, header: bool) -> str:
     source = "Header" if header else "Content"
     return f"""    <ControlTheme x:Key="{{x:Type {item}}}" TargetType="{item}">
@@ -195,6 +216,15 @@ def panel_gap(selector: str, gap: float) -> str:
     return style(f"{selector} /template/ StackPanel#PART_TabsPanel", {"Spacing": num(gap)}, "      ")
 
 
+def indicator_fill_size(variant: str, i: int) -> dict:
+    """The indicator's parts that depend on the size."""
+    if variant == "segmented":
+        return {"Height": num(INNER_HEIGHT[variant][i]), "CornerRadius": num(SEGMENTED_INNER_RADIUS[i])}
+    if variant == "pill":
+        return {"CornerRadius": num(RADIUS[variant][i])}
+    return {}
+
+
 def strip_part_styles() -> str:
     out = []
     for v in VARIANTS:
@@ -202,17 +232,7 @@ def strip_part_styles() -> str:
         out.append(style(f"^{vs} /template/ Border#PART_Baseline", {"IsVisible": str(v in BASELINE)}, "      "))
         bar = {"Background": BAR_BACKGROUND.get(v, T)}
         out.append(style(f"^{vs} /template/ Border#PART_Bar", bar, "      "))
-        fill = {
-            "tab": {"IsVisible": "False"},
-            "outline": {"IsVisible": "False"},
-            "pill": {"Background": "{DynamicResource UIKit.Primary.Fill}"},
-            "segmented": {
-                "Background": "{DynamicResource UIKit.Background}",
-                "BoxShadow": "{StaticResource UIKit.Shadow.Raised}",
-                "VerticalAlignment": "Center",
-            },
-            "underline": {"Background": "{DynamicResource UIKit.Primary.Fill}", "Height": "2", "VerticalAlignment": "Bottom"},
-        }[v]
+        fill = INDICATOR_FILL.get(v, {"IsVisible": "False"})
         out.append(style(f"^{vs} /template/ Border#PART_IndicatorFill", fill, "      "))
         for i, s in enumerate(SIZES):
             sel = f"^{vs}{SIZE_SEL[s]}"
@@ -222,12 +242,8 @@ def strip_part_styles() -> str:
                     "Padding": f"{num(SEGMENTED_PADDING[i])},0",
                     "CornerRadius": num(RADIUS[v][i]),
                 }, "      "))
-                out.append(style(f"{sel} /template/ Border#PART_IndicatorFill", {
-                    "Height": num(INNER_HEIGHT[v][i]),
-                    "CornerRadius": num(SEGMENTED_INNER_RADIUS[i]),
-                }, "      "))
-            if v == "pill":
-                out.append(style(f"{sel} /template/ Border#PART_IndicatorFill", {"CornerRadius": num(RADIUS[v][i])}, "      "))
+            if size_fill := indicator_fill_size(v, i):
+                out.append(style(f"{sel} /template/ Border#PART_IndicatorFill", size_fill, "      "))
     return "\n".join(out)
 
 
@@ -414,6 +430,33 @@ def item_styles() -> str:
                 "Padding": "0",
             }))
             out.append(style(items(v, s, " /template/ Border#PART_FocusRing"), {"CornerRadius": num(r + 1.5) if r else "1.5"}))
+        # A dragged tab (uikit:Tabs.Reorderable) hides the tabs it passes, while the bar's
+        # indicator hides under them. A pill or segment draws the indicator as its background:
+        # the fill's brush as the tab's, the rest on the part that paints it.
+        if v in DRAGGED_INDICATOR:
+            fill = dict(INDICATOR_FILL[v])
+            out.append(style(dragged(v), {"Background": fill.pop("Background")}))
+            if fill:
+                out.append(style(dragged(v, suffix=" /template/ Border#PART_Background"), fill))
+            for i, s in enumerate(SIZES):
+                if size_fill := indicator_fill_size(v, i):
+                    out.append(style(dragged(v, s, " /template/ Border#PART_Background"), size_fill))
+        # Outline and Underline paint no background: the dragged one takes the active tab's,
+        # as GPUI's dragged tab preview (DragPanelPreview), and an underline draws the
+        # indicator's line with its own bottom border.
+        if v in DRAGGED_BACKGROUND:
+            out.append(style(items(v, suffix=":dragging"), {"Background": brush(DRAGGED_BACKGROUND[v])}))
+        if v == "underline":
+            assert INDICATOR_FILL[v]["Height"] == num(BORDER_WIDTH[v])
+            out.append(style(dragged(v), {"BorderBrush": INDICATOR_FILL[v]["Background"]}))
+            # An underline tab is its label alone: its background reaches half the gap
+            # past it, so what shows of a passed tab's label stays apart from its own. It
+            # stops at the bottom border, which no label reaches, to leave the baseline.
+            for i, s in enumerate(SIZES):
+                reach = num(-GAP[v][i] / 2)
+                out.append(style(items(v, s, ":dragging /template/ Border#PART_Background"), {
+                    "Margin": f"{reach},0,{reach},{num(BORDER_WIDTH[v])}",
+                }))
     for i, s in enumerate(SIZES):
         sel = ", ".join(f"{owner}{SIZE_SEL[s]} > {item} PathIcon" for owner, item in OWNERS)
         out.append(style(sel, {"Width": num(ICON_SIZE[i]), "Height": num(ICON_SIZE[i])}))
@@ -441,10 +484,12 @@ HEADER = """<!--
   a caret button listing the tabs (TabsMenuButton); uikit:Tabs.Prefix and
   uikit:Tabs.Suffix are the bar's prefix and suffix. uikit:Tabs.Closable
   gives the tabs the close button the tabs story puts in a tab's suffix, and
-  uikit:Tabs.NewTabFactory an Avalonia-only add button after the last tab
-  (dragging tabs, uikit:Tabs.Reorderable and DragGroup, draws no parts of its
-  own). Tabs show an Avalonia-only ring on keyboard focus, which the bar's
-  scroll clip spares where no tab is scrolled away.
+  uikit:Tabs.NewTabFactory an Avalonia-only add button after the last tab.
+  Dragging tabs (uikit:Tabs.Reorderable and DragGroup) adds no parts: the
+  dragged tab (:dragging) draws the indicator itself, over the other tabs,
+  and an outline or underline tab takes the active tab's background.
+  Tabs show an Avalonia-only ring on keyboard focus, which the bar's scroll
+  clip spares where no tab is scrolled away.
 -->"""
 
 

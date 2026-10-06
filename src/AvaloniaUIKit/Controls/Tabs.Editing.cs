@@ -36,8 +36,11 @@ public static partial class Tabs
 
     /// <summary>
     /// Lets the tabs be dragged along the bar to reorder them. The dragged tab
-    /// follows the pointer and the others make room for it; the drop moves its
-    /// item. A bar that overflows scrolls while the tab is held at its ends.
+    /// follows the pointer over the others, with the :dragging pseudo-class
+    /// (the theme draws the selected tab's indicator on it, or, without one,
+    /// the active tab's background), and the others make room for it; the
+    /// drop moves its item. A bar that overflows scrolls while the tab is held
+    /// at its ends.
     /// </summary>
     public static readonly AttachedProperty<bool> ReorderableProperty =
         AvaloniaProperty.RegisterAttached<SelectingItemsControl, bool>("Reorderable", typeof(Tabs));

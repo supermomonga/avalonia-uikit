@@ -31,3 +31,4 @@
 * [31. Run the tests in Release and split them between processes run side by side](0031-run-the-tests-in-release-and-split-them-between-processes-run-side-by-side.md)
 * [32. Render the previews in batches and build the site's .NET outputs in cached jobs side by side](0032-render-the-previews-in-batches-and-build-the-site-s-net-outputs-in-cached-jobs-side-by-side.md)
 * [33. Replace the Tabalonia theme with drag, close, add and detach on the standard tabs](0033-replace-the-tabalonia-theme-with-drag-close-add-and-detach-on-the-standard-tabs.md)
+* [34. Let the dragged tab draw the selected tab's indicator over the other tabs](0034-let-the-dragged-tab-draw-the-selected-tab-s-indicator-over-the-other-tabs.md)
