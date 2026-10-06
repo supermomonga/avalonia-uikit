@@ -6,6 +6,7 @@ using Avalonia.Controls.Primitives;
 using Avalonia.Headless;
 using Avalonia.Input;
 using Avalonia.Layout;
+using Avalonia.Media;
 using Avalonia.Threading;
 using Avalonia.VisualTree;
 using AvaloniaUIKit.Tests.Infrastructure;
@@ -338,29 +339,122 @@ public class TabsEditingBehaviorTests
         await Assert.That(Order(strip)).IsEqualTo("Account, Profile, Settings");
     }
 
-    // The pill follows the dragged tab at once, rather than springing after it.
+    // The indicator lies under the tab row, under the labels of the tabs the dragged one
+    // passes: the dragged tab draws it itself, as the indicator does, over them.
     [Test]
-    public async Task The_indicator_moves_with_the_dragged_tab()
+    [Arguments("pill", false)]
+    [Arguments("segmented", false)]
+    [Arguments("pill", true)]
+    public async Task The_dragged_tab_draws_the_indicator_over_the_other_tabs(string variant, bool tabControl)
+    {
+        using var windows = new Windows();
+        SelectingItemsControl bar = tabControl
+            ? new TabControl { HorizontalAlignment = HorizontalAlignment.Left, ItemsSource = new ObservableCollection<string>(Labels), SelectedIndex = 0 }
+            : Strip();
+        Tabs.SetReorderable(bar, true);
+        bar.Classes.Add(variant);
+        var window = windows.Open(bar);
+        var indicator = Part<Panel>(bar, "PART_Indicator");
+        var fill = Part<Border>(bar, "PART_IndicatorFill");
+        var dragged = Tab(bar, 0);
+        var at = fill.TranslatePoint(default, dragged)!.Value;
+        var size = fill.Bounds.Size;
+        var start = In(dragged);
+        Press(window, start);
+        DragTo(window, start, start + new Vector(30, 0));
+        var background = Part<Border>(dragged, "PART_Background");
+        var drawn = background.TranslatePoint(default, dragged)!.Value;
+        await Assert.That(indicator.IsVisible).IsFalse();
+        await Assert.That(dragged.Classes.Contains(":dragging")).IsTrue();
+        await Assert.That(dragged.ZIndex).IsGreaterThan(Tab(bar, 1).ZIndex);
+        await Assert.That(drawn.X).IsEqualTo(at.X).Within(0.01);
+        await Assert.That(drawn.Y).IsEqualTo(at.Y).Within(0.01);
+        await Assert.That(background.Bounds.Width).IsEqualTo(size.Width).Within(0.01);
+        await Assert.That(background.Bounds.Height).IsEqualTo(size.Height).Within(0.01);
+        await Assert.That(((ISolidColorBrush)background.Background!).Color).IsEqualTo(((ISolidColorBrush)fill.Background!).Color);
+        await Assert.That(background.CornerRadius).IsEqualTo(fill.CornerRadius);
+        await Assert.That(background.BoxShadow).IsEqualTo(fill.BoxShadow);
+        Release(window, start + new Vector(30, 0));
+        await Assert.That(dragged.Classes.Contains(":dragging")).IsFalse();
+        await Assert.That(indicator.IsVisible).IsTrue();
+    }
+
+    // Outline and underline tabs paint no background, and the labels of the tabs the
+    // dragged one passes would show through it: it takes the active tab's, as GPUI's
+    // dragged tab preview, until the drop. An underline tab, its label alone, takes it
+    // half the gap further, to keep the labels apart, and above its bottom border, to
+    // leave the bar's baseline.
+    [Test]
+    [Arguments("outline", false)]
+    [Arguments("underline", true)]
+    public async Task A_dragged_tab_without_a_background_takes_the_active_tab_s(string variant, bool underline)
+    {
+        using var windows = new Windows();
+        var strip = Strip();
+        strip.Classes.Add(variant);
+        var window = windows.Open(strip);
+        var dragged = Tab(strip, 0);
+        var background = Part<Border>(dragged, "PART_Background");
+        var start = In(dragged);
+        Press(window, start);
+        DragTo(window, start, start + new Vector(30, 0));
+        await Assert.That(dragged.ZIndex).IsGreaterThan(Tab(strip, 1).ZIndex);
+        await Assert.That(((ISolidColorBrush)background.Background!).Color).IsEqualTo((Color)window.FindResource("UIKit.TabActive.Color")!);
+        var reach = underline ? ((StackPanel)strip.ItemsPanelRoot!).Spacing / 2 : 0;
+        var border = underline ? ((TemplatedControl)dragged).BorderThickness.Bottom : 0;
+        await Assert.That(new Rect(background.TranslatePoint(default, dragged)!.Value, background.Bounds.Size))
+            .IsEqualTo(new Rect(dragged.Bounds.Size).Inflate(new Thickness(reach, 0, reach, -border)));
+        Release(window, start + new Vector(30, 0));
+        await Assert.That(((ISolidColorBrush)background.Background!).Color).IsEqualTo(Colors.Transparent);
+    }
+
+    // The underline's indicator is the line its tab's 2px bottom border leaves room for:
+    // the dragged tab draws it there, over the tabs it passes.
+    [Test]
+    public async Task The_dragged_underline_tab_draws_the_indicator_with_its_bottom_border()
+    {
+        using var windows = new Windows();
+        var strip = Strip();
+        strip.Classes.Add("underline");
+        var window = windows.Open(strip);
+        var indicator = Part<Panel>(strip, "PART_Indicator");
+        var fill = Part<Border>(strip, "PART_IndicatorFill");
+        var dragged = Tab(strip, 0);
+        var line = new Rect(fill.TranslatePoint(default, dragged)!.Value, fill.Bounds.Size);
+        var start = In(dragged);
+        Press(window, start);
+        DragTo(window, start, start + new Vector(30, 0));
+        var root = Part<Border>(dragged, "PART_LayoutRoot");
+        await Assert.That(indicator.IsVisible).IsFalse();
+        await Assert.That(((ISolidColorBrush)root.BorderBrush!).Color).IsEqualTo(((ISolidColorBrush)fill.Background!).Color);
+        await Assert.That(root.BorderThickness).IsEqualTo(new Thickness(0, 0, 0, line.Height));
+        await Assert.That(new Rect(root.TranslatePoint(default, dragged)!.Value, root.Bounds.Size)).IsEqualTo(new Rect(dragged.Bounds.Size));
+        await Assert.That(line).IsEqualTo(new Rect(0, dragged.Bounds.Height - line.Height, dragged.Bounds.Width, line.Height));
+        Release(window, start + new Vector(30, 0));
+        await Assert.That(((ISolidColorBrush)root.BorderBrush!).Color).IsEqualTo(Colors.Transparent);
+        await Assert.That(indicator.IsVisible).IsTrue();
+    }
+
+    // The tab dropped back in its place lays nothing out; the indicator comes back to it
+    // all the same, at once, as to a tab dropped in another place.
+    [Test]
+    [Arguments(30, "Account, Profile, Settings", 0)]
+    [Arguments(140, "Profile, Account, Settings", 1)]
+    public async Task The_indicator_comes_back_to_the_dropped_tab_at_once(double distance, string order, int index)
     {
         using var windows = new Windows();
         var strip = Strip();
         strip.Classes.Add("pill");
         var window = windows.Open(strip);
         var indicator = Part<Panel>(strip, "PART_Indicator");
-        var dragged = Tab(strip, 0);
-        double Offset() => indicator.TranslatePoint(default, strip)!.Value.X - dragged.TranslatePoint(default, strip)!.Value.X;
-        var start = In(dragged);
+        var start = In(Tab(strip, 0));
         Press(window, start);
-        DragTo(window, start, start + new Vector(90, 0));
-        await Assert.That(Offset()).IsEqualTo(0).Within(0.01);
-        DragTo(window, start + new Vector(90, 0), start + new Vector(140, 0));
-        await Assert.That(Offset()).IsEqualTo(0).Within(0.01);
-        Release(window, start + new Vector(140, 0));
-        VirtualTime.Advance(TimeSpan.FromMilliseconds(500));
-        Flush();
-        await Assert.That(Order(strip)).IsEqualTo("Profile, Account, Settings");
-        dragged = Tab(strip, 1);
-        await Assert.That(Offset()).IsEqualTo(0).Within(0.01);
+        DragTo(window, start, start + new Vector(distance, 0));
+        Release(window, start + new Vector(distance, 0));
+        await Assert.That(Order(strip)).IsEqualTo(order);
+        await Assert.That(indicator.IsVisible).IsTrue();
+        await Assert.That(indicator.TranslatePoint(default, strip)!.Value.X)
+            .IsEqualTo(Tab(strip, index).TranslatePoint(default, strip)!.Value.X).Within(0.01);
     }
 
     [Test]

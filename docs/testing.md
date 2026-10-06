@@ -55,7 +55,7 @@ UIKitTheme が GPUI Kit と同じ見た目・動きになっていることを�
 
 ## テストの構成
 
-6914 件。macOS arm64（P コア 4 つ）での最新の実行結果は全件成功し、`scripts/verify.sh`（4 プロセス）で約 50〜70 秒、1 プロセスでは約 1 分 45 秒かかる。テストの時刻はすべて仮想時計で進める（[時刻](#時刻)）。
+6921 件。macOS arm64（P コア 4 つ）での最新の実行結果は全件成功し、`scripts/verify.sh`（4 プロセス）で約 50〜70 秒、1 プロセスでは約 1 分 45 秒かかる。テストの時刻はすべて仮想時計で進める（[時刻](#時刻)）。
 
 | テスト | 件数 | 内容 |
 | --- | --- | --- |
@@ -65,7 +65,7 @@ UIKitTheme が GPUI Kit と同じ見た目・動きになっていることを�
 | `BehaviorTests`、`ControlBehaviorTests` | 24、34 | 時間・入力・無効状態の挙動。後者は新しいコントロール（ADR 19）の操作と、GPUI の表記・色の計算。 |
 | `ThemeFixBehaviorTests` | 16 | テーマで描くようにした Avalonia の機能（クリアボタン、右クリックメニュー、編集可能な ComboBox など）。 |
 | `ButtonsBehaviorTests`、`InputsBehaviorTests`、`SelectBehaviorTests`、`ListsBehaviorTests`、`DatesBehaviorTests`、`DisplayBehaviorTests`、`NavigationBehaviorTests`、`TableColorBehaviorTests`、`LayoutBehaviorTests`、`ShellBehaviorTests` | 19、50、27、17、50、16、21、24、19、20 | ADR 30 のコントロールと添付プロパティの操作と、GPUI のテストと同じ例の計算。 |
-| `TabsEditingBehaviorTests` | 22 | タブを閉じる・追加する・ドラッグする操作（ADR 33）。GPUI Kit に参照がないので、項目と選択の変化、ウィンドウの開閉で確かめる。 |
+| `TabsEditingBehaviorTests` | 29 | タブを閉じる・追加する・ドラッグする操作（ADR 33、34）。GPUI Kit に参照がないので、項目と選択の変化、ウィンドウの開閉で確かめる。 |
 | `DockBehaviorTests` | 3 | サードパーティのライブラリ（ADR 28）の操作が、テーマの部品を通して効くこと。 |
 | `FluentLayeringTests` | 19 | FluentTheme の上に重ねても見た目が変わらないこと。 |
 

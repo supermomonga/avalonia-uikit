@@ -34,7 +34,8 @@ public static partial class Tabs
     /// Makes the element (in a Canvas of a TabStrip or TabControl template)
     /// the selected tab's indicator: it is placed over the selected tab, and
     /// its child springs to the tab's width (Motion.SpringTarget). Hidden
-    /// while no tab is selected.
+    /// while no tab is selected, and while a tab is dragged: the dragged tab,
+    /// with the :dragging pseudo-class, draws it over the other tabs.
     /// </summary>
     public static readonly AttachedProperty<bool> IndicatorProperty =
         AvaloniaProperty.RegisterAttached<Control, bool>("Indicator", typeof(Tabs));
@@ -68,7 +69,8 @@ public static partial class Tabs
 
     /// <summary>
     /// Raised by a tab drag on the bar whose tab it moves: with true after each
-    /// move of the dragged tab, with false just before the drop changes the items.
+    /// move of the dragged tab, with false once the tabs are back in their places,
+    /// just before the drop changes the items.
     /// </summary>
     private static event Action<SelectingItemsControl, bool>? Dragged;
 
@@ -111,6 +113,7 @@ public static partial class Tabs
         private readonly Control _indicator;
         private SelectingItemsControl? _owner;
         private bool _placed;
+        private bool _dragging;
         private bool _dropping;
         private CancellationTokenSource? _fade;
 
@@ -128,6 +131,8 @@ public static partial class Tabs
         private void Attach()
         {
             Detach();
+            // A drop while detached went unseen; a drag still going says so at its next move.
+            _dragging = false;
             _owner = _indicator.TemplatedParent as SelectingItemsControl;
             if (_owner is null)
             {
@@ -153,19 +158,22 @@ public static partial class Tabs
 
         private void OnLayoutUpdated(object? sender, EventArgs e) => Place();
 
-        // A dragged tab moves by its render transform, which lays nothing out: follow it
-        // at once. The drop reselects the tab, which is no switch to fade or spring to;
-        // the springs travel again once the dropped tabs are laid out.
+        // The dragged tab draws the indicator itself (:dragging), over the tabs it passes,
+        // while this one hides under them. The drop puts the tab back in its place, by its
+        // render transform, which lays nothing out: take the place at once, before the drop
+        // changes the items. The drop reselects the tab, which is no switch to fade or spring
+        // to; the springs travel again once the dropped tabs are laid out.
         private void OnDragged(SelectingItemsControl owner, bool moving)
         {
             if (owner != _owner)
             {
                 return;
             }
+            _dragging = moving;
             Travel(false);
+            Place();
             if (moving)
             {
-                Place();
                 return;
             }
             _dropping = true;
@@ -206,7 +214,7 @@ public static partial class Tabs
         {
             var layer = _indicator.GetVisualParent();
             var tab = _owner?.ContainerFromIndex(_owner.SelectedIndex);
-            if (layer is null || tab is null || !tab.IsVisible || !tab.IsArrangeValid ||
+            if (_dragging || layer is null || tab is null || !tab.IsVisible || !tab.IsArrangeValid ||
                 tab.TranslatePoint(default, layer) is not { } origin)
             {
                 _indicator.IsVisible = false;

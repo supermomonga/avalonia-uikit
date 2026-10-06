@@ -39,7 +39,7 @@ These attached properties go on a `TabStrip` or a `TabControl`. They change the 
 | --- | --- |
 | `uikit:Tabs.Closable` | A close button in each tab, as GPUI Kit's closable tab: the tab is padded `px_2` and ends with a ghost `xsmall` Close button. On the strip it applies to every tab; on a tab, to that tab. |
 | `uikit:Tabs.NewTabFactory` | An add button after the last tab. It adds the item the function returns at the end and selects it. |
-| `uikit:Tabs.Reorderable` | Tabs are dragged along the bar to reorder them: the dragged tab follows the pointer, the others make room, and the drop moves its item. The indicator moves with the tab, and a bar whose tabs overflow scrolls while the tab is held at its end. |
+| `uikit:Tabs.Reorderable` | Tabs are dragged along the bar to reorder them: the dragged tab follows the pointer, the others make room, and the drop moves its item. The dragged tab has the `:dragging` pseudo-class and is drawn over the tabs it passes: with the indicator, or, in `outline` and `underline`, with the active tab's background. A bar whose tabs overflow scrolls while the tab is held at its end. |
 | `uikit:Tabs.DragGroup` | With `Reorderable`, a tab dragged onto another bar of the same group moves to it. Bars in different windows exchange tabs; in a browser, only bars in the same view do. |
 | `uikit:Tabs.DetachedWindowFactory` | With a `DragGroup`, a tab dragged off every bar of its group moves into the window the function returns, which follows the pointer until the drop. In a window only. |
 

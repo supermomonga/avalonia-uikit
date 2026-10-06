@@ -10,6 +10,8 @@ links:
   kind: amends
 - target: 30
   kind: amends
+- target: 34
+  kind: amendedby
 ---
 
 # Replace the Tabalonia theme with drag, close, add and detach on the standard tabs
