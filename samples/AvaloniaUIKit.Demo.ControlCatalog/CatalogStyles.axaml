@@ -1,0 +1,162 @@
+<!--
+  The catalog's own look, on the UIKit theme's colors: the page of a component,
+  its demo cards and the property grid. The views build their parts in code and
+  give them these classes.
+-->
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:code="using:AvaloniaUIKit.Demo.ControlCatalog.Code"
+        x:Class="AvaloniaUIKit.Demo.ControlCatalog.CatalogStyles">
+  <Styles.Resources>
+    <FontFamily x:Key="Catalog.Monospace">Menlo, SF Mono, Cascadia Mono, Consolas, DejaVu Sans Mono, Liberation Mono</FontFamily>
+  </Styles.Resources>
+
+  <!-- Text -->
+  <Style Selector="TextBlock.muted, SelectableTextBlock.muted">
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.MutedForeground}" />
+  </Style>
+  <Style Selector="TextBlock.eyebrow">
+    <Setter Property="FontFamily" Value="{StaticResource Catalog.Monospace}" />
+    <Setter Property="FontSize" Value="11" />
+    <Setter Property="LetterSpacing" Value="0.6" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.MutedForeground}" />
+  </Style>
+  <Style Selector="TextBlock.page-title">
+    <Setter Property="FontSize" Value="30" />
+    <Setter Property="FontWeight" Value="SemiBold" />
+    <Setter Property="LetterSpacing" Value="-0.6" />
+  </Style>
+  <Style Selector="SelectableTextBlock.page-description">
+    <Setter Property="FontSize" Value="15" />
+    <Setter Property="LineHeight" Value="24" />
+    <Setter Property="TextWrapping" Value="Wrap" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.MutedForeground}" />
+  </Style>
+  <Style Selector="TextBlock.section-heading">
+    <Setter Property="FontSize" Value="18" />
+    <Setter Property="FontWeight" Value="SemiBold" />
+    <Setter Property="Margin" Value="0,16,0,0" />
+  </Style>
+
+  <!-- A control's name in the page header: inline code. -->
+  <Style Selector="Border.chip">
+    <Setter Property="Background" Value="{DynamicResource UIKit.Muted}" />
+    <Setter Property="CornerRadius" Value="4" />
+    <Setter Property="Padding" Value="6,2" />
+  </Style>
+  <Style Selector="Border.chip > TextBlock">
+    <Setter Property="FontFamily" Value="{StaticResource Catalog.Monospace}" />
+    <Setter Property="FontSize" Value="12" />
+  </Style>
+
+  <!-- A demo card: the header, the live demo, the code. -->
+  <Style Selector="Border.card">
+    <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Border}" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="CornerRadius" Value="{DynamicResource UIKit.RadiusLg}" />
+    <Setter Property="Background" Value="{DynamicResource UIKit.Background}" />
+    <Setter Property="BackgroundSizing" Value="OuterBorderEdge" />
+  </Style>
+  <Style Selector="Border.card.active">
+    <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Ring}" />
+  </Style>
+  <Style Selector="Border.card-header">
+    <Setter Property="Padding" Value="16,10,10,12" />
+    <Setter Property="BorderThickness" Value="0,0,0,1" />
+    <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Border}" />
+  </Style>
+  <Style Selector="TextBlock.card-title">
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="FontWeight" Value="SemiBold" />
+  </Style>
+  <Style Selector="SelectableTextBlock.card-description">
+    <Setter Property="FontSize" Value="13" />
+    <Setter Property="LineHeight" Value="20" />
+    <Setter Property="TextWrapping" Value="Wrap" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.MutedForeground}" />
+  </Style>
+  <Style Selector="Border.card-preview">
+    <Setter Property="Padding" Value="32,28" />
+    <Setter Property="MinHeight" Value="96" />
+  </Style>
+  <Style Selector="Border.card-code">
+    <Setter Property="BorderThickness" Value="0,1,0,0" />
+    <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Border}" />
+  </Style>
+  <Style Selector="code|CodeView">
+    <Setter Property="CornerRadius" Value="0,0,7,7" />
+  </Style>
+  <Style Selector="Border.code-tabs">
+    <Setter Property="Padding" Value="12,6" />
+    <Setter Property="BorderThickness" Value="0,0,0,1" />
+    <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Border}" />
+  </Style>
+
+  <!-- The property grid. -->
+  <Style Selector="Border.inspector">
+    <Setter Property="Background" Value="{DynamicResource UIKit.Background}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Border}" />
+    <Setter Property="BorderThickness" Value="1,0,0,0" />
+  </Style>
+  <Style Selector="Border.inspector-section">
+    <Setter Property="Padding" Value="14,12" />
+    <Setter Property="BorderThickness" Value="0,0,0,1" />
+    <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Border}" />
+  </Style>
+  <Style Selector="TextBlock.inspector-label">
+    <Setter Property="FontSize" Value="11" />
+    <Setter Property="FontWeight" Value="Medium" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.MutedForeground}" />
+  </Style>
+  <Style Selector="TextBlock.element-name">
+    <Setter Property="FontFamily" Value="{StaticResource Catalog.Monospace}" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="FontWeight" Value="SemiBold" />
+  </Style>
+  <Style Selector="TextBlock.property-name">
+    <Setter Property="FontSize" Value="12" />
+    <Setter Property="VerticalAlignment" Value="Center" />
+    <Setter Property="TextTrimming" Value="CharacterEllipsis" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.MutedForeground}" />
+  </Style>
+  <Style Selector="TextBlock.property-name.written">
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
+  </Style>
+  <Style Selector="TextBlock.property-name.edited">
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.Foreground}" />
+    <Setter Property="FontWeight" Value="SemiBold" />
+  </Style>
+  <Style Selector="Ellipse.edited-dot">
+    <Setter Property="Width" Value="6" />
+    <Setter Property="Height" Value="6" />
+    <Setter Property="Fill" Value="{DynamicResource UIKit.Info}" />
+    <Setter Property="VerticalAlignment" Value="Center" />
+  </Style>
+  <Style Selector="TextBlock.group-title">
+    <Setter Property="FontSize" Value="12" />
+    <Setter Property="FontWeight" Value="SemiBold" />
+    <Setter Property="VerticalAlignment" Value="Center" />
+  </Style>
+  <Style Selector="TextBlock.outline-type">
+    <Setter Property="FontFamily" Value="{StaticResource Catalog.Monospace}" />
+    <Setter Property="FontSize" Value="12" />
+  </Style>
+  <Style Selector="TextBlock.outline-note">
+    <Setter Property="FontSize" Value="12" />
+    <Setter Property="TextTrimming" Value="CharacterEllipsis" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.MutedForeground}" />
+  </Style>
+  <Style Selector="TreeViewItem.unmapped TextBlock">
+    <Setter Property="Opacity" Value="0.5" />
+  </Style>
+  <Style Selector="ToggleButton.class-chip">
+    <Setter Property="FontFamily" Value="{StaticResource Catalog.Monospace}" />
+    <Setter Property="Padding" Value="5,0" />
+  </Style>
+  <!-- A class the control has: in the primary colors, unlike the toggle's faint accent. -->
+  <Style Selector="ToggleButton.class-chip:checked">
+    <Setter Property="Background" Value="{DynamicResource UIKit.Primary}" />
+    <Setter Property="Foreground" Value="{DynamicResource UIKit.PrimaryForeground}" />
+    <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Primary}" />
+  </Style>
+</Styles>

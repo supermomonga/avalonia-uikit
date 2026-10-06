@@ -156,6 +156,9 @@ jobs:
       - name: The demo registry is up to date
         run: bun sites/scripts/demo-registry.ts --check
 
+      - name: The control catalog is up to date
+        run: bun sites/scripts/control-catalog.ts --check
+
       - name: Restore the previews
         uses: actions/cache/restore@v4
         with:

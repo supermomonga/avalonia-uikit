@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# Builds the theme and runs every test: tokens, looks, motions and behaviors.
+# Builds the theme and runs every test: tokens, looks, motions and behaviors, and
+# the control catalog's.
 # In Release: the pixel comparisons run 4x slower without the JIT optimizing them.
 #
 # A process hosts one headless Avalonia session and runs its tests one at a
@@ -13,7 +14,15 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 PROJECT="$ROOT/tests/AvaloniaUIKit.Tests"
+CATALOG="$ROOT/tests/AvaloniaUIKit.Demo.ControlCatalog.Tests"
 dotnet build -c Release "$PROJECT"
+
+# The control catalog's tests (docs/control-catalog.md): one process, under a minute.
+# Arguments filter the theme's tests only, so they skip these.
+if [[ $# -eq 0 ]]; then
+  dotnet build -c Release "$CATALOG"
+  dotnet run --no-build -c Release --project "$CATALOG"
+fi
 
 SHARDS="${AVALONIA_UIKIT_SHARDS:-$(sysctl -n hw.perflevel0.physicalcpu 2>/dev/null || getconf _NPROCESSORS_ONLN)}"
 if [[ $# -gt 0 || -n "${AVALONIA_UIKIT_CALIBRATE:-}" || "$SHARDS" -le 1 ]]; then

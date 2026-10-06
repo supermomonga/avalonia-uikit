@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <IsPackable>false</IsPackable>
+    <RootNamespace>AvaloniaUIKit.Demo.ControlCatalog.Tests</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="TUnit" />
+    <PackageReference Include="Avalonia.Headless" />
+    <PackageReference Include="Avalonia.Skia" />
+    <ProjectReference Include="../../samples/AvaloniaUIKit.Demo.ControlCatalog/AvaloniaUIKit.Demo.ControlCatalog.csproj" />
+  </ItemGroup>
+</Project>
