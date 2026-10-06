@@ -10,8 +10,10 @@
     <Project Path="samples/AvaloniaUIKit.Demos/AvaloniaUIKit.Demos.csproj" />
     <Project Path="samples/AvaloniaUIKit.Previews/AvaloniaUIKit.Previews.csproj" />
     <Project Path="samples/AvaloniaUIKit.Browser/AvaloniaUIKit.Browser.csproj" />
+    <Project Path="samples/AvaloniaUIKit.Demo.ControlCatalog/AvaloniaUIKit.Demo.ControlCatalog.csproj" />
   </Folder>
   <Folder Name="/tests/">
     <Project Path="tests/AvaloniaUIKit.Tests/AvaloniaUIKit.Tests.csproj" />
+    <Project Path="tests/AvaloniaUIKit.Demo.ControlCatalog.Tests/AvaloniaUIKit.Demo.ControlCatalog.Tests.csproj" />
   </Folder>
 </Solution>

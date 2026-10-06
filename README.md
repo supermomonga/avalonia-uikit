@@ -29,10 +29,10 @@ Avalonia themes and controls based on the Nova style of
 | Path | Contents |
 | --- | --- |
 | `src/` | The theme and controls (`AvaloniaUIKit`), `AvaloniaUIKit.ColorPicker`, `AvaloniaUIKit.DataGrid`, `AvaloniaUIKit.Dock` |
-| `samples/` | A NativeAOT gallery, the site's demos, the preview renderer and the browser (WebAssembly) app |
+| `samples/` | A NativeAOT gallery, the site's demos, the preview renderer, the browser (WebAssembly) app and the control catalog |
 | `sites/` | The documentation site (HonoX, Cloudflare Workers) — see `docs/site.md` |
-| `tests/` | The comparison tests against GPUI Kit's reference renders |
-| `docs/` | Design records (`docs/adr`), the testing guide, the compatibility list |
+| `tests/` | The comparison tests against GPUI Kit's reference renders, and the control catalog's tests |
+| `docs/` | Design records (`docs/adr`), the testing guide, the compatibility list, the site and the control catalog |
 
 ## Building
 
@@ -42,6 +42,17 @@ scripts/aot-smoke.sh       # publish the gallery with NativeAOT
 ```
 
 The site's demos, previews and WebAssembly bundle are described in `docs/site.md`.
+
+## Control catalog
+
+```sh
+dotnet run --project samples/AvaloniaUIKit.Demo.ControlCatalog
+```
+
+A desktop app with every demo of the site, live: pick a component in the
+sidebar, read its demos' XAML, and change the demos' controls in a property
+grid (style classes, properties, attached properties), which writes the changes
+into the XAML shown. See `docs/control-catalog.md`.
 
 ## License
 

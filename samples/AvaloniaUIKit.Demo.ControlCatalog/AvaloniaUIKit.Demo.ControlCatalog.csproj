@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>AvaloniaUIKit.Demo.ControlCatalog</RootNamespace>
+    <IsPackable>false</IsPackable>
+    <!-- The analyzers only: the catalog's own code stays free of reflection (ADR 11, ADR 35). -->
+    <IsAotCompatible>true</IsAotCompatible>
+    <AvaloniaXamlIlVerifyIl>true</AvaloniaXamlIlVerifyIl>
+    <BuiltInComInteropSupport>false</BuiltInComInteropSupport>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Avalonia.Desktop" />
+    <PackageReference Include="AvaloniaUI.DiagnosticsSupport" Condition="'$(Configuration)' == 'Debug'" />
+    <ProjectReference Include="../AvaloniaUIKit.Demos/AvaloniaUIKit.Demos.csproj" />
+    <!-- The demos' XAML and code-behind, shown as their code. The .txt keeps the XAML compiler off them. -->
+    <AvaloniaResource Include="../AvaloniaUIKit.Demos/Demos/**/*.axaml;../AvaloniaUIKit.Demos/Demos/**/*.axaml.cs"
+                      Link="Sources/%(RecursiveDir)%(Filename)%(Extension).txt" />
+    <InternalsVisibleTo Include="AvaloniaUIKit.Demo.ControlCatalog.Tests" />
+  </ItemGroup>
+</Project>
