@@ -28,10 +28,11 @@ export const siteConfig = {
     lucide: "https://lucide.dev",
     inter: "https://rsms.me/inter/",
   },
-  /** The top bar's sections; each has its own sidebar. */
+  /** The top bar's sections; Docs and Components have their own sidebars. */
   navItems: [
     { href: "/docs", label: "Docs" },
     { href: "/components", label: "Components" },
+    { href: "/icons", label: "Icons" },
   ],
   /** The top bar's Resources menu. */
   resources: [

@@ -1,0 +1,436 @@
+/*
+ * The Icons page (components/icons-page.tsx): the search bar, the grid of
+ * icons, and the picked icon's details, beside the grid from 960px and a
+ * sheet over the bottom of the window below.
+ */
+
+@layer components {
+  /* Focus and links scroll the grid clear of the search bar. */
+  html:has(.icons-page) {
+    scroll-padding-top: calc(var(--nav-height) + 3.75rem + 0.5rem);
+  }
+  .icons-page {
+    --icons-toolbar-height: 3.75rem;
+    width: var(--layout-width);
+    margin-inline: auto;
+    padding-top: 3rem;
+  }
+  .icons-page__header {
+    max-width: 46rem;
+  }
+  .icons-page__title {
+    margin-bottom: 1rem;
+    font-size: clamp(1.75rem, 2.6vw, 2rem);
+    font-weight: 660;
+    line-height: 1.25;
+    letter-spacing: -0.03em;
+  }
+  .icons-page__standfirst {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--muted-foreground);
+  }
+  .icons-page__standfirst a {
+    color: var(--foreground);
+    text-decoration: underline;
+    text-decoration-color: var(--border-hover);
+    text-underline-offset: 3px;
+  }
+  .icons-page__standfirst a:hover {
+    text-decoration-color: currentColor;
+  }
+  .icons-page :is(.icons-page__standfirst, .icons-empty, .icon-detail__note)
+    code {
+    padding: 0.1rem 0.3rem;
+    border-radius: 0.3rem;
+    background: var(--secondary);
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    color: var(--foreground);
+  }
+
+  /* The search bar stays under the top bar while the grid scrolls. */
+  .icons-toolbar {
+    position: sticky;
+    top: var(--nav-height);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    height: var(--icons-toolbar-height);
+    background: var(--background);
+  }
+  .icons-search {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    gap: 0.6rem;
+    max-width: 26rem;
+    height: 2.25rem;
+    padding-inline: 0.75rem;
+    border: 1px solid var(--input);
+    border-radius: var(--radius-control);
+    background: var(--background);
+    transition: border-color 120ms;
+  }
+  .icons-search:focus-within {
+    border-color: var(--ring);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--ring) 22%, transparent);
+  }
+  .icons-search input {
+    flex: 1;
+    min-width: 0;
+    height: 100%;
+    background: transparent;
+    font-size: 0.875rem;
+    outline: none;
+  }
+  .icons-search input::placeholder {
+    color: var(--muted-foreground);
+  }
+  .icons-count {
+    margin-left: auto;
+    font: 0.75rem/1 var(--font-mono);
+    color: var(--muted-foreground);
+    white-space: nowrap;
+  }
+
+  .icons-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  .icons-layout[data-detail-open] {
+    grid-template-columns: minmax(0, 1fr) 26rem;
+  }
+  /*
+   * The page's bottom space is inside the grid's column, so the details
+   * stay in place until the grid ends and then scroll away with it.
+   */
+  .icons-browse {
+    min-width: 0;
+    padding-bottom: 4rem;
+  }
+
+  .icon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(7.25rem, 1fr));
+    gap: 0.5rem;
+  }
+  .icon-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    width: 100%;
+    height: 6.5rem;
+    padding: 0.75rem 0.5rem 0.6rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-card);
+    background: var(--background);
+    color: var(--foreground);
+    cursor: pointer;
+    transition:
+      border-color 120ms,
+      background-color 120ms;
+  }
+  .icon-tile svg {
+    flex: none;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  .icon-tile:hover {
+    border-color: var(--border-hover);
+    background: var(--secondary);
+  }
+  .icon-tile[aria-pressed="true"] {
+    border-color: var(--brand);
+    box-shadow: inset 0 0 0 1px var(--brand);
+  }
+  .icon-tile__name {
+    max-width: 100%;
+    overflow: hidden;
+    font-size: 0.72rem;
+    line-height: 1.2;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: var(--muted-foreground);
+  }
+  .icon-tile:is(:hover, [aria-pressed="true"]) .icon-tile__name {
+    color: var(--foreground);
+  }
+
+  .icons-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 4rem 1rem;
+    border: 1px dashed var(--border);
+    border-radius: var(--radius-card);
+    text-align: center;
+  }
+
+  /*
+   * The picked icon, level with the search bar. --icon-color is the chosen
+   * color (app/client.ts).
+   */
+  .icon-detail {
+    --icon-color: var(--foreground);
+    position: sticky;
+    top: calc(var(--nav-height) + 0.75rem);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-height: calc(100svh - var(--nav-height) - 1.5rem);
+    margin-top: 0.75rem;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 1rem 1.1rem 1.1rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-surface);
+    background: var(--popover);
+    box-shadow: var(--elevation-raise);
+  }
+  .icon-detail__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+  .icon-detail__name {
+    overflow-wrap: anywhere;
+    font-size: 1.05rem;
+    font-weight: 640;
+    line-height: 1.35;
+    letter-spacing: -0.012em;
+  }
+  .icon-detail__file {
+    margin-top: 0.15rem;
+    font: 0.72rem/1.4 var(--font-mono);
+    color: var(--muted-foreground);
+  }
+  .icon-detail__stage {
+    --grid-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 8rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-card);
+    background-color: var(--background);
+    color: var(--icon-color);
+  }
+  .icon-detail__stage svg {
+    width: 96px;
+    height: 96px;
+  }
+  .icon-detail__section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .icon-sizes {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.375rem;
+  }
+  .icon-size {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+    padding: 0.6rem 0.25rem 0.45rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-control);
+    background: var(--background);
+    cursor: pointer;
+    transition: border-color 120ms;
+  }
+  .icon-size:hover {
+    border-color: var(--border-hover);
+  }
+  .icon-size[aria-checked="true"] {
+    border-color: var(--brand);
+    box-shadow: inset 0 0 0 1px var(--brand);
+  }
+  .icon-size__box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 1.75rem;
+    color: var(--icon-color);
+  }
+  .icon-size__box svg {
+    width: var(--icon-px);
+    height: var(--icon-px);
+  }
+  .icon-size__name {
+    font-size: 0.75rem;
+    font-weight: 560;
+  }
+  .icon-size__px {
+    font: 0.66rem/1.2 var(--font-mono);
+    color: var(--muted-foreground);
+  }
+
+  .icon-colors {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.375rem;
+  }
+  .icon-color {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    height: 1.75rem;
+    padding-inline: 0.5rem 0.6rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--background);
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: border-color 120ms;
+  }
+  .icon-color:hover {
+    border-color: var(--border-hover);
+  }
+  .icon-color[aria-checked="true"] {
+    border-color: var(--brand);
+    box-shadow: inset 0 0 0 1px var(--brand);
+  }
+  .icon-color__swatch {
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 999px;
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--foreground) 14%, transparent);
+  }
+
+  /* uikit:Icon or PathIcon: a segmented control, as the shadcn tabs list looks. */
+  .icon-syntax {
+    display: inline-flex;
+    padding: 3px;
+    border-radius: var(--radius-control);
+    background: var(--muted);
+  }
+  .icon-syntax__option {
+    height: 1.5rem;
+    padding-inline: 0.55rem;
+    border-radius: calc(var(--radius-control) - 2px);
+    font: 0.72rem/1 var(--font-mono);
+    color: var(--muted-foreground);
+    cursor: pointer;
+  }
+  .icon-syntax__option:hover {
+    color: var(--foreground);
+  }
+  .icon-syntax__option[aria-checked="true"] {
+    background: var(--background);
+    color: var(--foreground);
+    box-shadow: var(--elevation-hairline), var(--elevation-raise);
+  }
+  .icon-syntax__option:disabled {
+    cursor: not-allowed;
+    opacity: 0.45;
+  }
+
+  .icon-detail__code {
+    margin: 0;
+  }
+  /*
+   * Long lines wrap rather than scroll, hanging under the attributes
+   * (--hang, set per line by app/client.ts).
+   */
+  .icon-detail__code pre {
+    font-size: 0.75rem;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+  .icon-detail__code .line {
+    padding-left: var(--hang, 0);
+    text-indent: calc(-1 * var(--hang, 0));
+  }
+  .icon-detail__note {
+    font-size: 0.75rem;
+    line-height: 1.6;
+    color: var(--muted-foreground);
+  }
+  /* The notes for the element shown, and for an icon without an IconName or with a faint part. */
+  .icon-detail:not([data-element="icon"]) [data-icon-note="icon"],
+  .icon-detail:not([data-no-kind]) [data-icon-note="no-kind"],
+  .icon-detail:not([data-faint]) [data-icon-note="faint"],
+  .icon-detail[data-no-kind] [data-icon-detail-kind-row] {
+    display: none;
+  }
+  /* PathIcon draws only Data: the faint part is uikit:Icon's. */
+  .icon-detail:not([data-element="icon"]) [data-faint] {
+    display: none;
+  }
+
+  .icon-detail__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.75rem;
+  }
+  .icon-detail__meta > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    min-height: 1.75rem;
+  }
+  .icon-detail__meta dt {
+    color: var(--muted-foreground);
+  }
+  .icon-detail__meta dd {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    min-width: 0;
+  }
+  .icon-detail__meta code {
+    overflow: hidden;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* Below 960px the details are a sheet over the bottom of the window. */
+  @media (width <= 959px) {
+    /* The picked icon scrolls into view above the sheet, the last row too. */
+    html:has(.icons-layout[data-detail-open]) {
+      scroll-padding-bottom: min(75svh, 40rem);
+    }
+    .icons-layout[data-detail-open] {
+      grid-template-columns: minmax(0, 1fr);
+      padding-bottom: min(75svh, 40rem);
+    }
+    .icon-detail {
+      position: fixed;
+      inset: auto 0 0;
+      margin-top: 0;
+      z-index: 45;
+      max-height: min(75svh, 40rem);
+      padding-inline: max(1rem, (100vw - 36rem) / 2);
+      border-width: 1px 0 0;
+      border-radius: var(--radius-surface) var(--radius-surface) 0 0;
+      box-shadow: var(--elevation-dialog);
+    }
+  }
+  @media (width <= 640px) {
+    .icon-grid {
+      grid-template-columns: repeat(auto-fill, minmax(5.75rem, 1fr));
+    }
+    .icon-tile {
+      height: 5.75rem;
+    }
+  }
+}

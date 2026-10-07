@@ -49,6 +49,7 @@ const pages = [
   "/docs/theming.html",
   "/docs/icons.html",
   "/components.html",
+  "/icons.html",
   "/sitemap.xml",
   "/search.json",
   "/favicon.ico",

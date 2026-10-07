@@ -9,6 +9,7 @@ export default createRoute((c) => {
     ...docPages.keys(),
     "/components",
     ...components.map((entry) => `/components/${entry.slug}`),
+    "/icons",
   ]
   const urls = paths
     .map((path) => `<url><loc>${new URL(path, siteConfig.url)}</loc></url>`)

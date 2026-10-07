@@ -7,11 +7,14 @@ import { Icon } from "./icon"
 /** Copies `value` (see app/client.ts). */
 export function CopyButton({
   value,
+  label = "Copy",
   class: className,
+  ...data
 }: {
   value: string
+  label?: string
   class?: string
-}) {
+} & Record<`data-${string}`, string>) {
   return (
     <Button
       data-copy={value}
@@ -21,7 +24,8 @@ export function CopyButton({
         "group/copy text-muted-foreground hover:bg-secondary hover:text-foreground",
         className
       )}
-      aria-label="Copy"
+      aria-label={label}
+      {...data}
     >
       <Icon icon={Copy} class="group-data-copied/copy:hidden" />
       <Icon icon={Check} class="hidden group-data-copied/copy:block" />

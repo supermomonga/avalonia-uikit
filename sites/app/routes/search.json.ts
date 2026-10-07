@@ -11,6 +11,7 @@ export default createRoute((c) =>
         href: item.href,
       })),
       { title: "Components", href: "/components" },
+      { title: "Icons", href: "/icons" },
     ],
     components: components.map((entry) => ({
       title: entry.title,
