@@ -35,3 +35,4 @@
 * [35. Build the control catalog app on the site's demos and edit them through the property registry and the XAML text](0035-build-the-control-catalog-app-on-the-site-s-demos-and-edit-them-through-the-property-registry-and-the-xaml-text.md)
 * [36. Add an Icons page that draws the icons from the theme's generated geometry](0036-add-an-icons-page-that-draws-the-icons-from-the-theme-s-generated-geometry.md)
 * [37. Release the packages under one version from a merged release pull request through trusted publishing](0037-release-the-packages-under-one-version-from-a-merged-release-pull-request-through-trusted-publishing.md)
+* [38. Ship every IconName and add the icons an app uses with a source generator](0038-ship-every-iconname-and-add-the-icons-an-app-uses-with-a-source-generator.md)

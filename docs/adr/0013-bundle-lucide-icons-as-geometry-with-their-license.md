@@ -8,6 +8,8 @@ links:
   kind: amendedby
 - target: 27
   kind: amendedby
+- target: 38
+  kind: amendedby
 ---
 
 # Bundle Lucide icons as geometry with their license
