@@ -33,3 +33,4 @@
 * [33. Replace the Tabalonia theme with drag, close, add and detach on the standard tabs](0033-replace-the-tabalonia-theme-with-drag-close-add-and-detach-on-the-standard-tabs.md)
 * [34. Let the dragged tab draw the selected tab's indicator over the other tabs](0034-let-the-dragged-tab-draw-the-selected-tab-s-indicator-over-the-other-tabs.md)
 * [35. Build the control catalog app on the site's demos and edit them through the property registry and the XAML text](0035-build-the-control-catalog-app-on-the-site-s-demos-and-edit-them-through-the-property-registry-and-the-xaml-text.md)
+* [36. Add an Icons page that draws the icons from the theme's generated geometry](0036-add-an-icons-page-that-draws-the-icons-from-the-theme-s-generated-geometry.md)
