@@ -32,7 +32,7 @@ Avalonia themes and controls based on the Nova style of
 | `samples/` | A NativeAOT gallery, the site's demos, the preview renderer, the browser (WebAssembly) app and the control catalog |
 | `sites/` | The documentation site (HonoX, Cloudflare Workers) — see `docs/site.md` |
 | `tests/` | The comparison tests against GPUI Kit's reference renders, and the control catalog's tests |
-| `docs/` | Design records (`docs/adr`), the testing guide, the compatibility list, the site and the control catalog |
+| `docs/` | Design records (`docs/adr`), the testing guide, the compatibility list, the site, the control catalog and the releases |
 
 ## Building
 
@@ -42,6 +42,13 @@ scripts/aot-smoke.sh       # publish the gallery with NativeAOT
 ```
 
 The site's demos, previews and WebAssembly bundle are described in `docs/site.md`.
+
+## Releasing
+
+The four packages share one version (`<Version>` in `src/Directory.Build.props`).
+The Version Bump workflow raises it and opens a pull request labeled `release`;
+merging the pull request publishes the packages to nuget.org and creates the
+GitHub release. See `docs/release.md`.
 
 ## Control catalog
 
