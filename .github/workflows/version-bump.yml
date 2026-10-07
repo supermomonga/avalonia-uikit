@@ -39,8 +39,8 @@ jobs:
           release_type: ${{ inputs.version == '' && inputs.release_type || '' }}
           version: ${{ inputs.version }}
 
-      # A pull request opened with GITHUB_TOKEN runs no workflows: site.yml
-      # builds the bump when it reaches main.
+      # Runs a pull request opened with GITHUB_TOKEN starts wait for approval;
+      # site.yml leaves src/Directory.Build.props out, so this one starts none.
       - name: Open the release pull request
         uses: peter-evans/create-pull-request@v8
         with:

@@ -36,3 +36,4 @@
 * [36. Add an Icons page that draws the icons from the theme's generated geometry](0036-add-an-icons-page-that-draws-the-icons-from-the-theme-s-generated-geometry.md)
 * [37. Release the packages under one version from a merged release pull request through trusted publishing](0037-release-the-packages-under-one-version-from-a-merged-release-pull-request-through-trusted-publishing.md)
 * [38. Ship every IconName and add the icons an app uses with a source generator](0038-ship-every-iconname-and-add-the-icons-an-app-uses-with-a-source-generator.md)
+* [39. Leave the packages' version out of the site workflow's paths so the version bump's pull request starts no run](0039-leave-the-packages-version-out-of-the-site-workflow-s-paths-so-the-version-bump-s-pull-request-starts-no-run.md)

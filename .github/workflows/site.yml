@@ -4,12 +4,17 @@ name: Site
 # at https://avalonia-uikit.omofla.sh when main changes what it is built
 # from: the site, the themes and controls, the demos. Pull requests run the
 # same build without deploying. See docs/site.md.
+# src/Directory.Build.props is left out: it holds the packages' version and
+# metadata, which the site does not show, and the Version Bump workflow's
+# pull request changes nothing else. A run on that pull request, opened with
+# GITHUB_TOKEN, would wait for approval (docs/release.md, ADR 39).
 on:
   push:
     branches: [main]
     paths:
       - "sites/**"
       - "src/**"
+      - "!src/Directory.Build.props"
       - "samples/**"
       - "assets/**"
       - "Directory.Build.props"
@@ -20,6 +25,7 @@ on:
     paths:
       - "sites/**"
       - "src/**"
+      - "!src/Directory.Build.props"
       - "samples/**"
       - "assets/**"
       - "Directory.Build.props"
