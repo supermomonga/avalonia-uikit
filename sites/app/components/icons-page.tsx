@@ -132,7 +132,22 @@ function IconDetail() {
         </Button>
       </div>
 
-      <div class="icon-detail__stage blueprint" data-icon-preview="" />
+      <div class="icon-detail__preview">
+        <div class="icon-detail__stage blueprint" data-icon-preview="" />
+        {/* Every size at once, at its real size, for comparing them side by side. */}
+        <div class="icon-actual-sizes">
+          {iconSizes.map((size) => (
+            <div class="icon-actual-size">
+              <span
+                class="icon-actual-size__box"
+                style={`--icon-px: ${size.px}px`}
+                data-icon-preview=""
+              />
+              <span class="icon-actual-size__px">{size.px}px</span>
+            </div>
+          ))}
+        </div>
+      </div>
 
       <section class="icon-detail__section">
         <p class="kicker">Size</p>
