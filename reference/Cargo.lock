@@ -541,9 +541,8 @@ dependencies = [
  "serde",
  "serde_json",
  "sha2 0.10.9",
- "tiny-skia-path",
  "toml 0.8.23",
- "usvg 0.46.0",
+ "uikit-icons",
 ]
 
 [[package]]
@@ -7127,6 +7126,15 @@ dependencies = [
  "memoffset",
  "tempfile",
  "windows-sys 0.61.2",
+]
+
+[[package]]
+name = "uikit-icons"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "tiny-skia-path",
+ "usvg 0.46.0",
 ]
 
 [[package]]

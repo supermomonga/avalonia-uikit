@@ -469,11 +469,17 @@ function showIcon(tile: HTMLElement) {
   else delete detail.dataset.kind
   detail.toggleAttribute("data-no-kind", !kind)
   detail.toggleAttribute("data-faint", !!faintOpacity)
+  detail.toggleAttribute("data-generated", tile.dataset.generated !== undefined)
   setText(detail, "[data-icon-detail-name]", name)
   setText(detail, "[data-icon-detail-file]", `${file}.svg`)
   setText(detail, "[data-icon-detail-key]", key)
   setText(detail, "[data-icon-detail-kind]", kind ?? "")
   setText(detail, "[data-icon-faint-key]", `${key}.Faint`)
+  setText(
+    detail,
+    "[data-icon-generated-item]",
+    `<UIKitIcon Include="${kind ?? name}" />`
+  )
   setText(
     detail,
     "[data-icon-faint-opacity]",

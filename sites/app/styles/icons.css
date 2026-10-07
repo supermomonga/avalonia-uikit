@@ -213,20 +213,54 @@
     font: 0.72rem/1.4 var(--font-mono);
     color: var(--muted-foreground);
   }
+  /* The enlarged icon on the grid, and under it every size at its real size. */
+  .icon-detail__preview {
+    /* overflow (for the corners) would let the details' column squeeze it. */
+    flex: none;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-card);
+    background-color: var(--background);
+    color: var(--icon-color);
+  }
   .icon-detail__stage {
     --grid-size: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 8rem;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-card);
-    background-color: var(--background);
-    color: var(--icon-color);
   }
   .icon-detail__stage svg {
     width: 96px;
     height: 96px;
+  }
+  /* Four columns, as the sizes below. */
+  .icon-actual-sizes {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    padding: 0.7rem 0.25rem 0.55rem;
+    border-top: 1px solid var(--border);
+  }
+  .icon-actual-size {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+  }
+  /* As tall as the largest size, so the icons share a center line. */
+  .icon-actual-size__box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 24px;
+  }
+  .icon-actual-size__box svg {
+    width: var(--icon-px);
+    height: var(--icon-px);
+  }
+  .icon-actual-size__px {
+    font: 0.66rem/1.2 var(--font-mono);
+    color: var(--muted-foreground);
   }
   .icon-detail__section {
     display: flex;
@@ -359,10 +393,11 @@
     line-height: 1.6;
     color: var(--muted-foreground);
   }
-  /* The notes for the element shown, and for an icon without an IconName or with a faint part. */
+  /* The notes for the element shown, and for an icon without an IconName, with a faint part or added by the generator. */
   .icon-detail:not([data-element="icon"]) [data-icon-note="icon"],
   .icon-detail:not([data-no-kind]) [data-icon-note="no-kind"],
   .icon-detail:not([data-faint]) [data-icon-note="faint"],
+  .icon-detail:not([data-generated]) [data-icon-note="generated"],
   .icon-detail[data-no-kind] [data-icon-detail-kind-row] {
     display: none;
   }

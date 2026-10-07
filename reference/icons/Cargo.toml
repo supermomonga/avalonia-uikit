@@ -1,0 +1,18 @@
+[package]
+name = "uikit-icons"
+version = "0.1.0"
+edition = "2024"
+publish = false
+description = "Converts the icons GPUI Kit ships to filled outlines for the Avalonia theme and the AvaloniaUIKit icon generator."
+
+[lib]
+path = "src/lib.rs"
+
+[[bin]]
+name = "uikit-icons"
+path = "src/main.rs"
+
+[dependencies]
+anyhow = "1"
+usvg = "=0.46.0"
+tiny-skia-path = "0.11"

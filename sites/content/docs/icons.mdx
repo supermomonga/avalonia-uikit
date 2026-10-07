@@ -1,155 +1,67 @@
 ---
 title: "Icons"
-description: "The Lucide icons GPUI Kit ships, bundled as geometry for PathIcon and uikit:Icon."
+description: "Every Lucide icon GPUI Kit ships, as geometry for PathIcon and uikit:Icon: the theme carries the components' icons, and the package's generator adds the others an app uses."
 ---
 
-The components draw [Lucide](https://lucide.dev) icons. The theme bundles them, and every other icon GPUI Kit ships for its components, as `StreamGeometry` resources, so the icons an app places next to the components match them exactly, and no SVG parser is needed at run time (the geometry is compiled XAML, which suits NativeAOT). Lucide is licensed under the ISC License; the license ships with the package in `THIRD-PARTY-NOTICES.md`.
+The components draw [Lucide](https://lucide.dev) icons. `IconName` names every icon GPUI Kit ships: the 1,818 icons of Lucide 1.43.0 and 12 of GPUI Kit's own (the title bar's buttons, `Github`, `ResizeCorner` and a few more). They are `StreamGeometry` resources, so the icons an app places next to the components match them exactly, and no SVG parser is needed at run time (the geometry is compiled into the assemblies, which suits NativeAOT). Lucide is licensed under the ISC License; the license ships with the package in `THIRD-PARTY-NOTICES.md`.
 
 ## Usage
 
-Set a `PathIcon`'s `Data` to the icon's resource. The icon is 16px, the medium size, and takes the `Foreground`:
+[`uikit:Icon`](/components/uikit-icon) draws an icon by name: `Kind` is an `IconName`. The icon is 16px, the medium size, and takes the `Foreground`:
 
 ```xml
-<PathIcon Data="{StaticResource UIKit.Icon.Search}" />
-<PathIcon Data="{StaticResource UIKit.Icon.TriangleAlert}"
-          Foreground="{DynamicResource UIKit.Warning}" />
+<uikit:Icon Kind="Search" />
+<uikit:Icon Kind="TriangleAlert"
+            Foreground="{DynamicResource UIKit.Warning}" />
 ```
 
 The classes `xsmall`, `small` and `large` give the other sizes, 12, 14 and 24px:
 
 ```xml
-<PathIcon Classes="small" Data="{StaticResource UIKit.Icon.ChevronDown}" />
+<uikit:Icon Classes="small" Kind="ChevronDown" />
+<uikit:Icon Classes="large" Kind="Bell" />
+```
+
+A misspelt `Kind` fails the build, as any enum value in compiled XAML does. `uikit:Icon` is a `PathIcon`, and a `PathIcon` takes the same icons as resources, `UIKit.Icon.<IconName>`:
+
+```xml
+<PathIcon Data="{StaticResource UIKit.Icon.Search}" />
 <PathIcon Classes="large" Data="{StaticResource UIKit.Icon.Bell}" />
 ```
 
-Any other geometry works the same way; the theme's `PathIcon` scales whatever `Data` it gets to its size.
+Any other geometry works the same way; the theme's `PathIcon` scales whatever `Data` it gets to its size. In code, `IconName.Search.ResourceKey()` is the resource's key, `UIKit.Icon.Search`.
 
-[`uikit:Icon`](/components/uikit-icon) is a `PathIcon` that takes the icon by name instead: `Kind` is an `IconName`, GPUI Kit's names for its icons. The sizes and colors are the same:
+## Which icons an app has
+
+The theme carries the icons its components draw and the rest of GPUI Kit's component icons: the 109 of `IconNames.Bundled`, which draw in any app. The others come with the generator in the package, which adds to each project the icons it names, so an app carries only the icons it uses. It finds them in the project's XAML and C#:
 
 ```xml
-<uikit:Icon Kind="Search" />
-<uikit:Icon Classes="large" Kind="TriangleAlert"
-            Foreground="{DynamicResource UIKit.Warning}" />
+<uikit:Icon Kind="Bike" />
+<PathIcon Data="{StaticResource UIKit.Icon.Bike}" />
+<uikit:Icon Kind="{x:Static uikit:IconName.Bike}" />
+<Setter Property="Kind" Value="Bike" />
 ```
 
-In code, `IconName.Search.ResourceKey()` is the resource's key, `UIKit.Icon.Search`.
+```csharp
+icon.Kind = IconName.Bike;
+var key = "UIKit.Icon.Bike";
+```
 
-## Bundled icons
+It cannot see an icon only chosen at run time: a name read from a file or a setting, `Enum.Parse<IconName>`, or a key put together from parts. List those in the project file, by `IconName`, Lucide name or key, or take every icon, which adds about 2 MB to the app:
 
-Browse them on the [Icons](/icons) page, which shows each one at every size and in the theme's colors, and writes the XAML that draws it.
+```xml
+<ItemGroup>
+  <UIKitIcon Include="Bike;Camera" />
+</ItemGroup>
+<PropertyGroup>
+  <UIKitIcons>All</UIKitIcons>
+</PropertyGroup>
+```
 
-The theme bundles every icon of GPUI Kit's `IconName`, the icons GPUI Kit ships for its components, and the few more its controls draw. The `IconName` column is the `Kind` that draws the icon with `uikit:Icon`. Most are Lucide icons under their Lucide names; the rest come with GPUI Kit (the title bar's buttons, `Github`, `ResizeCorner`).
+A name in `UIKitIcon` that is no icon is a build warning (`UIKIT001`). An icon the app does not have draws nothing, and the theme writes a warning naming it to Avalonia's log (`LogToTrace()` sends it to the debug output). The generator is a C# source generator: a project in another language has the theme's own icons, `IconNames.Bundled`.
 
-| Key | `IconName` | Icon |
-| --- | --- | --- |
-| `UIKit.Icon.ALargeSmall` | `ALargeSmall` | a-large-small |
-| `UIKit.Icon.ArrowDown` | `ArrowDown` | arrow-down |
-| `UIKit.Icon.ArrowLeft` | `ArrowLeft` | arrow-left |
-| `UIKit.Icon.ArrowRight` | `ArrowRight` | arrow-right |
-| `UIKit.Icon.ArrowUp` | `ArrowUp` | arrow-up |
-| `UIKit.Icon.Asterisk` | `Asterisk` | asterisk |
-| `UIKit.Icon.Ban` | `Ban` | ban |
-| `UIKit.Icon.Battery` | `Battery` | battery |
-| `UIKit.Icon.BatteryCharging` | `BatteryCharging` | battery-charging |
-| `UIKit.Icon.BatteryFull` | `BatteryFull` | battery-full |
-| `UIKit.Icon.BatteryLow` | `BatteryLow` | battery-low |
-| `UIKit.Icon.BatteryMedium` | `BatteryMedium` | battery-medium |
-| `UIKit.Icon.BatteryWarning` | `BatteryWarning` | battery-warning |
-| `UIKit.Icon.Bell` | `Bell` | bell |
-| `UIKit.Icon.BookOpen` | `BookOpen` | book-open |
-| `UIKit.Icon.Bot` | `Bot` | bot |
-| `UIKit.Icon.Building2` | `Building2` | building-2 |
-| `UIKit.Icon.Calendar` | `Calendar` | calendar |
-| `UIKit.Icon.CaseSensitive` | `CaseSensitive` | case-sensitive |
-| `UIKit.Icon.ChartPie` | `ChartPie` | chart-pie |
-| `UIKit.Icon.Check` | `Check` | check |
-| `UIKit.Icon.ChevronDown` | `ChevronDown` | chevron-down |
-| `UIKit.Icon.ChevronLeft` | `ChevronLeft` | chevron-left |
-| `UIKit.Icon.ChevronRight` | `ChevronRight` | chevron-right |
-| `UIKit.Icon.ChevronUp` | `ChevronUp` | chevron-up |
-| `UIKit.Icon.ChevronsUpDown` | `ChevronsUpDown` | chevrons-up-down |
-| `UIKit.Icon.CircleAlert` | `CircleAlert` | circle-alert |
-| `UIKit.Icon.CircleCheck` | `CircleCheck` | circle-check |
-| `UIKit.Icon.CircleUser` | `CircleUser` | circle-user |
-| `UIKit.Icon.CircleX` | `CircleX` | circle-x |
-| `UIKit.Icon.Close` | `Close` | x |
-| `UIKit.Icon.Copy` | `Copy` | copy |
-| `UIKit.Icon.Cpu` | `Cpu` | cpu |
-| `UIKit.Icon.Dash` | `Dash` | dash |
-| `UIKit.Icon.Delete` | `Delete` | delete |
-| `UIKit.Icon.Ellipsis` | `Ellipsis` | ellipsis |
-| `UIKit.Icon.EllipsisVertical` | `EllipsisVertical` | ellipsis-vertical |
-| `UIKit.Icon.ExternalLink` | `ExternalLink` | external-link |
-| `UIKit.Icon.Eye` | `Eye` | eye |
-| `UIKit.Icon.EyeOff` | `EyeOff` | eye-off |
-| `UIKit.Icon.File` | `File` | file |
-| `UIKit.Icon.FileText` | `FileText` | file-text |
-| `UIKit.Icon.Folder` | `Folder` | folder |
-| `UIKit.Icon.FolderClosed` | `FolderClosed` | folder-closed |
-| `UIKit.Icon.FolderOpen` | `FolderOpen` | folder-open |
-| `UIKit.Icon.Frame` | `Frame` | frame |
-| `UIKit.Icon.GalleryVerticalEnd` | `GalleryVerticalEnd` | gallery-vertical-end |
-| `UIKit.Icon.Github` | `Github` | github |
-| `UIKit.Icon.Globe` | `Globe` | globe |
-| `UIKit.Icon.HardDrive` | `HardDrive` | hard-drive |
-| `UIKit.Icon.Heart` | `Heart` | heart |
-| `UIKit.Icon.HeartOff` | `HeartOff` | heart-off |
-| `UIKit.Icon.Inbox` | `Inbox` | inbox |
-| `UIKit.Icon.Info` | `Info` | info |
-| `UIKit.Icon.Inspector` | `Inspector` | inspector |
-| `UIKit.Icon.LayoutDashboard` | `LayoutDashboard` | layout-dashboard |
-| `UIKit.Icon.Loader` | `Loader` | loader-circle |
-| `UIKit.Icon.LoaderCircle` | `LoaderCircle` | loader-circle |
-| `UIKit.Icon.Map` | `Map` | map |
-| `UIKit.Icon.Maximize` | `Maximize` | maximize |
-| `UIKit.Icon.MemoryStick` | `MemoryStick` | memory-stick |
-| `UIKit.Icon.Menu` | `Menu` | menu |
-| `UIKit.Icon.Mic` | `Mic` | mic |
-| `UIKit.Icon.Minimize` | `Minimize` | minimize |
-| `UIKit.Icon.Minus` | `Minus` | minus |
-| `UIKit.Icon.Moon` | `Moon` | moon |
-| `UIKit.Icon.Network` | `Network` | network |
-| `UIKit.Icon.Palette` | `Palette` | palette |
-| `UIKit.Icon.PanelBottom` | `PanelBottom` | panel-bottom |
-| `UIKit.Icon.PanelBottomOpen` | `PanelBottomOpen` | panel-bottom-open |
-| `UIKit.Icon.PanelLeft` | `PanelLeft` | panel-left |
-| `UIKit.Icon.PanelLeftClose` | `PanelLeftClose` | panel-left-close |
-| `UIKit.Icon.PanelLeftOpen` | `PanelLeftOpen` | panel-left-open |
-| `UIKit.Icon.PanelRight` | `PanelRight` | panel-right |
-| `UIKit.Icon.PanelRightClose` | `PanelRightClose` | panel-right-close |
-| `UIKit.Icon.PanelRightOpen` | `PanelRightOpen` | panel-right-open |
-| `UIKit.Icon.PanelTop` | – | panel-top |
-| `UIKit.Icon.Pause` | `Pause` | pause |
-| `UIKit.Icon.Pin` | – | pin |
-| `UIKit.Icon.PinOff` | – | pin-off |
-| `UIKit.Icon.Play` | `Play` | play |
-| `UIKit.Icon.Plus` | `Plus` | plus |
-| `UIKit.Icon.Redo` | `Redo` | redo |
-| `UIKit.Icon.Redo2` | `Redo2` | redo-2 |
-| `UIKit.Icon.RefreshCw` | `RefreshCw` | refresh-cw |
-| `UIKit.Icon.Replace` | `Replace` | replace |
-| `UIKit.Icon.ResizeCorner` | `ResizeCorner` | resize-corner |
-| `UIKit.Icon.RotateCw` | `RotateCw` | rotate-cw |
-| `UIKit.Icon.Search` | `Search` | search |
-| `UIKit.Icon.Settings` | `Settings` | settings |
-| `UIKit.Icon.Settings2` | `Settings2` | settings-2 |
-| `UIKit.Icon.SortAscending`, `UIKit.Icon.SortAscending.Faint` | `SortAscending` | arrow-up (the faint one for an inactive column) |
-| `UIKit.Icon.SortDescending`, `UIKit.Icon.SortDescending.Faint` | `SortDescending` | arrow-down |
-| `UIKit.Icon.Square` | `Square` | square |
-| `UIKit.Icon.SquareTerminal` | `SquareTerminal` | square-terminal |
-| `UIKit.Icon.Star` | `Star` | star |
-| `UIKit.Icon.StarFill` | `StarFill` | star, filled |
-| `UIKit.Icon.StarOff` | `StarOff` | star-off |
-| `UIKit.Icon.Sun` | `Sun` | sun |
-| `UIKit.Icon.ThumbsDown` | `ThumbsDown` | thumbs-down |
-| `UIKit.Icon.ThumbsUp` | `ThumbsUp` | thumbs-up |
-| `UIKit.Icon.TriangleAlert` | `TriangleAlert` | triangle-alert |
-| `UIKit.Icon.Undo` | `Undo` | undo |
-| `UIKit.Icon.Undo2` | `Undo2` | undo-2 |
-| `UIKit.Icon.User` | `User` | user |
-| `UIKit.Icon.WindowClose` | `WindowClose` | the title bar's close |
-| `UIKit.Icon.WindowMaximize` | `WindowMaximize` | the title bar's maximize |
-| `UIKit.Icon.WindowMinimize` | `WindowMinimize` | the title bar's minimize |
-| `UIKit.Icon.WindowRestore` | `WindowRestore` | the title bar's restore |
+## Browsing the icons
 
-For other icons, add your own `StreamGeometry` resources, or a package such as `Lucide.Avalonia`, and point `Data` at them.
+The [Icons](/icons) page shows every icon at each size and in the theme's colors, and writes the XAML that draws it; for an icon the generator adds, it gives the `UIKitIcon` item that lists it.
+
+For icons outside `IconName`, add your own `StreamGeometry` resources and point `Data` at them.

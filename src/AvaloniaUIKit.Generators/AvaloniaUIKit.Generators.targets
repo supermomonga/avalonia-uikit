@@ -1,0 +1,12 @@
+<Project>
+  <!--
+    For the repository's projects that reference AvaloniaUIKit by project: what the
+    package brings to an app (ADR 38), the icon generator and its settings.
+  -->
+  <Import Project="$(MSBuildThisFileDirectory)../AvaloniaUIKit/buildTransitive/AvaloniaUIKit.props" />
+  <Import Project="$(MSBuildThisFileDirectory)../AvaloniaUIKit/buildTransitive/AvaloniaUIKit.targets" />
+  <ItemGroup>
+    <ProjectReference Include="$(MSBuildThisFileDirectory)AvaloniaUIKit.Generators.csproj"
+                      OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+  </ItemGroup>
+</Project>

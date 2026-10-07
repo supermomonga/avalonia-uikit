@@ -15,4 +15,11 @@
     <AdditionalFiles Include="BannedSymbols.txt" />
     <InternalsVisibleTo Include="AvaloniaUIKit.Tests" />
   </ItemGroup>
+  <ItemGroup>
+    <!-- The icon generator ships in this package (ADR 38): built first, packed as its analyzer with its settings. -->
+    <ProjectReference Include="../AvaloniaUIKit.Generators/AvaloniaUIKit.Generators.csproj" ReferenceOutputAssembly="false" PrivateAssets="all" />
+    <None Include="../AvaloniaUIKit.Generators/bin/$(Configuration)/netstandard2.0/AvaloniaUIKit.Generators.dll"
+          Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
+    <None Include="buildTransitive/AvaloniaUIKit.props;buildTransitive/AvaloniaUIKit.targets" Pack="true" PackagePath="build;buildTransitive" />
+  </ItemGroup>
 </Project>

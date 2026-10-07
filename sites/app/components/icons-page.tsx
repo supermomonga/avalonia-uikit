@@ -1,29 +1,27 @@
 import type { Child } from "hono/jsx"
 import { Check, Copy, Search, X } from "lucide"
 import { Button } from "@/components/ui/button"
-import {
-  type BundledIcon,
-  bundledIcons,
-  iconColors,
-  iconSizes,
-} from "@/lib/icons"
+import { iconColors, iconSizes, type ThemeIcon, themeIcons } from "@/lib/icons"
 import { CopyButton } from "./code-block"
 import { Icon } from "./icon"
 
-export const iconsDescription = `The ${bundledIcons.length} icons the theme bundles as geometry for PathIcon and uikit:Icon. Pick one to see it at each size and color, and copy the XAML that draws it.`
+export const iconsDescription = `The ${themeIcons.length} icons of IconName, as geometry for PathIcon and uikit:Icon. Pick one to see it at each size and color, and copy the XAML that draws it.`
 
 /** Lower case letters and digits only, so `chevron-down` and `UIKit.Icon.ChevronDown` both match "chevron down". */
-const searchText = (icon: BundledIcon) =>
+const searchText = (icon: ThemeIcon) =>
   [icon.name, icon.file, icon.key]
     .map((text) => text.toLowerCase().replace(/[^a-z0-9]/g, ""))
     .join(" ")
 
 /**
- * The icon's geometry, as the theme's PathIcon draws it: the 24×24 box
- * scaled to the size, filled with the color. The faint part of a two-tone
- * icon is painted under it, as uikit:Icon does.
+ * The icon in its 24×24 box, scaled to the size in the color: a Lucide icon
+ * as Lucide draws it, the strokes the theme outlines (lib/icons.ts), and
+ * GPUI Kit's own icons as the theme's outline, with a two-tone icon's faint
+ * part painted under it, as uikit:Icon does.
  */
-function BundledIconSvg({ icon }: { icon: BundledIcon }) {
+function ThemeIconSvg({ icon }: { icon: ThemeIcon }) {
+  if (icon.lucide) return <Icon icon={icon.lucide} />
+  const outline = icon.outline!
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -31,19 +29,19 @@ function BundledIconSvg({ icon }: { icon: BundledIcon }) {
       fill="currentColor"
       aria-hidden="true"
     >
-      {icon.faint && (
+      {outline.faint && (
         <path
-          d={icon.faint.path}
-          opacity={icon.faint.opacity}
+          d={outline.faint.path}
+          opacity={outline.faint.opacity}
           data-faint=""
         />
       )}
-      <path d={icon.path} fill-rule={icon.fillRule} />
+      <path d={outline.path} fill-rule={outline.fillRule} />
     </svg>
   )
 }
 
-function IconTile({ icon }: { icon: BundledIcon }) {
+function IconTile({ icon }: { icon: ThemeIcon }) {
   return (
     <li>
       <button
@@ -52,12 +50,13 @@ function IconTile({ icon }: { icon: BundledIcon }) {
         data-icon-tile={icon.name}
         data-kind={icon.kind}
         data-file={icon.file}
-        data-faint-opacity={icon.faint?.opacity}
+        data-faint-opacity={icon.outline?.faint?.opacity}
+        data-generated={icon.carried ? undefined : ""}
         data-search={searchText(icon)}
         aria-pressed="false"
         title={icon.key}
       >
-        <BundledIconSvg icon={icon} />
+        <ThemeIconSvg icon={icon} />
         <span class="icon-tile__name">{icon.name}</span>
       </button>
     </li>
@@ -133,7 +132,22 @@ function IconDetail() {
         </Button>
       </div>
 
-      <div class="icon-detail__stage blueprint" data-icon-preview="" />
+      <div class="icon-detail__preview">
+        <div class="icon-detail__stage blueprint" data-icon-preview="" />
+        {/* Every size at once, at its real size, for comparing them side by side. */}
+        <div class="icon-actual-sizes">
+          {iconSizes.map((size) => (
+            <div class="icon-actual-size">
+              <span
+                class="icon-actual-size__box"
+                style={`--icon-px: ${size.px}px`}
+                data-icon-preview=""
+              />
+              <span class="icon-actual-size__px">{size.px}px</span>
+            </div>
+          ))}
+        </div>
+      </div>
 
       <section class="icon-detail__section">
         <p class="kicker">Size</p>
@@ -210,6 +224,11 @@ function IconDetail() {
           <code>uikit</code> is{" "}
           <code>xmlns:uikit="using:AvaloniaUIKit"</code>.
         </p>
+        <p class="icon-detail__note" data-icon-note="generated">
+          The theme does not carry this icon: the generator adds it to an app
+          that names it in C# or XAML. For one only chosen at run time, list
+          it in the project: <code data-icon-generated-item="" />.
+        </p>
         <p class="icon-detail__note" data-icon-note="no-kind">
           No <code>IconName</code> draws this icon, only its resource: use{" "}
           <code>PathIcon</code>.
@@ -251,8 +270,8 @@ function IconDetail() {
 }
 
 /**
- * The Icons page: every bundled icon in a grid that the search filters, and
- * the picked one's details beside it, without leaving the page (app/client.ts).
+ * The Icons page: every icon in a grid that the search filters, and the
+ * picked one's details beside it, without leaving the page (app/client.ts).
  */
 export function IconsPage() {
   return (
@@ -260,12 +279,13 @@ export function IconsPage() {
       <header class="icons-page__header">
         <h1 class="icons-page__title">Icons</h1>
         <p class="icons-page__standfirst">
-          The {bundledIcons.length} icons the theme bundles as geometry for{" "}
-          <code>PathIcon</code> and <code>uikit:Icon</code>: the Lucide icons
-          GPUI Kit ships for its components, and the title bar's. Pick one to
-          see it at each size and color, and copy the XAML that draws it. See{" "}
-          <a href="/docs/icons">Icons</a> in the docs for how they work; Lucide
-          is licensed under the ISC License.
+          The {themeIcons.length} icons of <code>IconName</code>, as geometry
+          for <code>PathIcon</code> and <code>uikit:Icon</code>: every Lucide
+          icon GPUI Kit ships, and its own. The theme carries the ones its
+          components draw; the generator adds any other to the app that names
+          it. Pick one to see it at each size and color, and copy the XAML that
+          draws it. See <a href="/docs/icons">Icons</a> in the docs for how
+          they work; Lucide is licensed under the ISC License.
         </p>
       </header>
 
@@ -277,7 +297,7 @@ export function IconsPage() {
               <input
                 type="search"
                 data-icons-search=""
-                placeholder={`Search ${bundledIcons.length} icons`}
+                placeholder={`Search ${themeIcons.length} icons`}
                 autocomplete="off"
                 spellcheck={false}
                 aria-label="Search icons"
@@ -285,11 +305,11 @@ export function IconsPage() {
               />
             </label>
             <p class="icons-count" data-icons-count="" aria-live="polite">
-              {bundledIcons.length} icons
+              {themeIcons.length} icons
             </p>
           </div>
           <ul class="icon-grid" id="icon-grid" aria-label="Icons">
-            {bundledIcons.map((icon) => (
+            {themeIcons.map((icon) => (
               <IconTile icon={icon} />
             ))}
           </ul>

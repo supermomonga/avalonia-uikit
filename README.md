@@ -63,6 +63,6 @@ into the XAML shown. See `docs/control-catalog.md`.
 
 ## License
 
-[MIT](LICENSE). The themes are ported from GPUI Kit (Apache-2.0) and bundle
+[MIT](LICENSE). The themes are ported from GPUI Kit (Apache-2.0) and draw
 Lucide icons (ISC); [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md) lists
 these and the other third-party material, and ships in the NuGet packages.

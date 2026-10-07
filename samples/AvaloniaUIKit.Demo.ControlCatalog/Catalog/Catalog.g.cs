@@ -776,7 +776,7 @@ public static partial class Catalog
             "An icon drawn by name, as uikit:Icon.",
             [
                 new("uikit-icon/demo", "UikitIcon/Demo", null, null, null),
-                new("uikit-icon/gallery", "UikitIcon/Gallery", "Gallery", "Examples", "Every `IconName`; point at an icon for its name."),
+                new("uikit-icon/gallery", "UikitIcon/Gallery", "Gallery", "Examples", "The icons the theme carries, `IconNames.Bundled`; point at an icon for its name."),
             ]),
         new(
             "uikit-input-group", "InputGroup", "Input Group",

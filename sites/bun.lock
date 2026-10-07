@@ -21,7 +21,7 @@
         "@types/mdast": "4.0.4",
         "estree-util-value-to-estree": "3.4.1",
         "github-slugger": "2.0.0",
-        "lucide": "1.48.0",
+        "lucide": "1.43.0",
         "mdast-util-to-string": "4.0.0",
         "playwright-core": "1.63.0",
         "remark-frontmatter": "5.0.0",
@@ -440,7 +440,7 @@
 
     "longest-streak": ["longest-streak@3.1.0", "", {}, "sha512-9Ri+o0JYgehTaVBBDoMqIl8GXtbWg711O3srftcHhZ0dqnETqLaoIK0x17fUw9rFSlK/0NlsKe0Ahhyl5pXE2g=="],
 
-    "lucide": ["lucide@1.48.0", "", {}, "sha512-8FglIlGkcIItJjJfLUiqAufUCdbtnTOsdG02/fxXd4oIt+NrcrEVH8t0ZcKAfawxHckorO5qJ9XDfnJbdf0TOg=="],
+    "lucide": ["lucide@1.43.0", "", {}, "sha512-koRMVADN3XR9zte+NHXFHuJM4ejAqvwu/6DMf2O40jl2rMlhzu3t2mHSd3ugXnmTm5HIMUbOexhC/nClhetbGg=="],
 
     "magic-string": ["magic-string@0.30.21", "", { "dependencies": { "@jridgewell/sourcemap-codec": "^1.5.5" } }, "sha512-vd2F4YUyEXKGcLHoq+TEyCjxueSeHnFxyyjNp80yg0XV4vUhnDer/lvvlqM/arB5bXQN5K2/3oinyCRyx8T2CQ=="],
 

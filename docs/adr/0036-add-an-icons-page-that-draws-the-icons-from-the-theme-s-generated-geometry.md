@@ -6,6 +6,8 @@ date: 2026-10-07
 links:
 - target: 22
   kind: amends
+- target: 38
+  kind: amendedby
 ---
 
 # Add an Icons page that draws the icons from the theme's generated geometry

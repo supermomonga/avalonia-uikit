@@ -139,7 +139,7 @@ Avalonia に対応するコントロールがないため、新しいコント�
 | Toolbar | `uikit:Toolbar`、`uikit:ToolbarGroup`、`uikit:ToolbarSpacer`、`uikit:Toolbar.TakesSize` | 72 | – | – | 矢印キーの移動だけを止める `disabled` |
 | Separator | `uikit:Separators.Label` | 8 | – | – | – |
 | Label | `uikit:TextLabel` | 56 | – | – | – |
-| Icon | `uikit:Icon`、`IconName`（106 個） | 162 | – | – | 任意 SVG の読み込み、`gpui_kit_assets` の全アイコン（1830 個）、サイズを指定しないアイコンを文字の大きさにすること（16px になる） |
+| Icon | `uikit:Icon`、`IconName`（1830 個。テーマが 109 個を持ち、残りはジェネレーターが使うアプリに足す。ADR 38） | 162 | – | – | 任意 SVG の読み込み、サイズを指定しないアイコンを文字の大きさにすること（16px になる） |
 | Image | `uikit:AsyncImage`、`ImageLoader` | 28 | – | R31 | SVG とアニメーション画像、`grayscale`、失敗した読み込みの保持（次の画像で読み直す） |
 | ProgressCircle | `uikit:ProgressCircles.Content` | 2 | – | – | – |
 | Spinner | `uikit:Spinners.Icon` | 6 | – | – | easing の変更（`ease()`） |
@@ -259,7 +259,7 @@ Avalonia に対応するコントロールがないため、新しいコント�
 | --- | --- | --- | --- |
 | [Label][gp-label] | 部分対応 | [`TextBlock`][av-textblock]、`SelectableTextBlock`、[`Label`][av-label]、`uikit:TextLabel` | テーマ: 文字サイズ、色、行間、折り返し、配置。GPUI Label は表示テキストが中心なので、単純に同名型へ寄せない。補足の文字（`secondary`）、検索一致の強調（`highlights`。全体か先頭）、マスクは `uikit:TextLabel`（ADR 30。`TextBlock` の派生。Avalonia の `Label` と同名を避けた）で足す。補足の上の一致の色は、GPUI ではハッシュの順で決まるが、TextLabel は常に一致の色にする。 |
 | [Link][gp-link-source]（公開モジュール） | 対応 | [`HyperlinkButton`][av-hyperlink] | リンクの色・装飾・hover・pressed。遷移は標準の `NavigateUri` / コマンドに従う。 |
-| [Icon][gp-icon] | 部分対応 | [`PathIcon`][av-pathicon]、`Path` / `DrawingImage`、`uikit:Icon` | テンプレートで必要なアイコン形状・色・線幅・サイズをリソース化。Lucide は別のアセットであり、Avalonia に同梱されているとは扱わない。GPUI Kit の `IconName` の 106 個に、テーマが使うものを合わせた 109 個を `UIKit.Icon.*` のジオメトリとして同梱する。`IconName` で選ぶ API は `uikit:Icon`（ADR 30。`Kind` を持つ PathIcon の派生で、PathIcon のテーマとサイズのクラスが効く）で足す。任意 SVG の読み込み器は追加しない（ADR 30 で範囲外）。サイズを指定しないアイコンは 16px で、GPUI と違い文字の大きさに従わない。 |
+| [Icon][gp-icon] | 部分対応 | [`PathIcon`][av-pathicon]、`Path` / `DrawingImage`、`uikit:Icon` | テンプレートで必要なアイコン形状・色・線幅・サイズをリソース化。Lucide は別のアセットであり、Avalonia に同梱されているとは扱わない。GPUI Kit の共有の `IconName`（`gpui_kit::assets`）の 1830 個（Lucide 1.43.0 の 1818 個と GPUI Kit 独自の 12 個）を `IconName` とし、`UIKit.Icon.*` のジオメトリで描く。テーマはコンポーネントの `IconName` の 106 個に、テーマが使うものを合わせた 109 個を同梱し、残りはパッケージのソースジェネレーターが、アプリの C# と XAML が名前を書いたものだけをアプリに足す（ADR 38。GPUI Kit の既定の `Assets` と `AllAssets` の関係に当たる）。`IconName` で選ぶ API は `uikit:Icon`（ADR 30。`Kind` を持つ PathIcon の派生で、PathIcon のテーマとサイズのクラスが効く）で足す。任意 SVG の読み込み器は追加しない（ADR 30 で範囲外）。サイズを指定しないアイコンは 16px で、GPUI と違い文字の大きさに従わない。 |
 | [Image][gp-image] | 部分対応 | [`Image`][av-image]、`uikit:AsyncImage` | 標準が読める画像の配置、拡縮、周囲の余白。`Image` 自体はテンプレートを持たないので `Style` を使う。URL（http / https / file / avares）の非同期の取得、200ms を過ぎても終わらないときの読み込み中の内容、失敗時の内容は `uikit:AsyncImage`（ADR 30。GPUI の `img()`。取得は `IImageLoader`）で足す。SVG とアニメーション画像（ADR 30 で範囲外）、`grayscale` は移植しない。 |
 | [Progress][gp-progress] | 対応 | [`ProgressBar`][av-progress] | 横・縦のバー、トラック、確定値／不定値、色・角丸・値の変化。元コントロールの値と範囲の意味を維持する。 |
 | [ProgressCircle][gp-progress-circle-source]（Progress の子部品） | 部分対応 | `ProgressBar` の専用テンプレート、[`Arc`][av-arc] | 進捗の値・範囲・不定値は既存の ProgressBar に任せ、円形の描画を差し替える。不定値は標準の Animation で表現可能。確定値は `Percentage × 3.6` を `SweepAngle` に渡す表示専用の値変換（`AffineConverter`。2026-10-03 の方針改定で許可）を使う。新しい進捗管理型は追加しない。円の中央の内容（GPUI の children）は添付プロパティ `uikit:ProgressCircles.Content`（ADR 30）で置く。 |

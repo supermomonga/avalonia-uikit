@@ -258,13 +258,16 @@ public class DisplayBehaviorTests
         await Assert.That(Shows(image, "Unavailable")).IsTrue();
     }
 
-    // The IconName catalog: every variant names a geometry in the theme.
+    // The IconName catalog: every icon GPUI Kit ships, of which the theme
+    // carries the component icons and the ones its controls draw.
     [Test]
-    public async Task Every_icon_name_has_its_geometry_in_the_theme()
+    public async Task Every_bundled_icon_has_its_geometry_in_the_theme()
     {
-        var names = Enum.GetValues<IconName>();
-        await Assert.That(names.Length).IsEqualTo(106);
-        foreach (var name in names)
+        await Assert.That(Enum.GetValues<IconName>().Length).IsEqualTo(1831);
+        await Assert.That(IconNames.Component.Count).IsEqualTo(106);
+        await Assert.That(IconNames.Bundled.Count).IsEqualTo(109);
+        await Assert.That(IconNames.Bundled).Contains(IconName.PinOff);
+        foreach (var name in IconNames.Bundled)
         {
             await Assert.That(Application.Current!.FindResource(name.ResourceKey())).IsTypeOf<StreamGeometry>();
         }
@@ -274,7 +277,7 @@ public class DisplayBehaviorTests
     }
 
     // icon.rs: an Icon is styled as a PathIcon, so a button's size reaches it;
-    // its Kind sets the geometry and a cleared Kind leaves Data to the app.
+    // its Kind sets the geometry and Kind None, the default, leaves Data to the app.
     [Test]
     public async Task An_icon_takes_its_geometry_from_kind_and_the_sizes_of_a_path_icon()
     {
@@ -285,8 +288,9 @@ public class DisplayBehaviorTests
         await Assert.That(icon.Bounds.Size).IsEqualTo(new Size(14, 14));
         icon.Kind = IconName.Copy;
         await Assert.That(icon.Data).IsSameReferenceAs(Application.Current!.FindResource("UIKit.Icon.Copy"));
-        icon.Kind = null;
+        icon.Kind = IconName.None;
         await Assert.That(icon.Data).IsNull();
+        await Assert.That(new AvaloniaUIKit.Icon().Kind).IsEqualTo(IconName.None);
     }
 
     /// <summary>The ink of a window area: how far its pixels are from the background, summed.</summary>
