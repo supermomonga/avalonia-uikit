@@ -1,0 +1,56 @@
+name: Version Bump
+
+# Raises the packages' version (<Version> in src/Directory.Build.props) and
+# opens a pull request labeled "release" for it; merging the pull request
+# publishes the packages (release.yml). See docs/release.md.
+on:
+  workflow_dispatch:
+    inputs:
+      release_type:
+        description: "Release type"
+        required: true
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+      version:
+        description: "Explicit version (overrides release_type if set, e.g. 1.2.3)"
+        required: false
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Bump the version
+        id: bump
+        uses: supermomonga/action-bump-cli@v1
+        with:
+          file: src/Directory.Build.props
+          pattern: '<Version>(\d+\.\d+\.\d+)</Version>'
+          release_type: ${{ inputs.version == '' && inputs.release_type || '' }}
+          version: ${{ inputs.version }}
+
+      # A pull request opened with GITHUB_TOKEN runs no workflows: site.yml
+      # builds the bump when it reaches main.
+      - name: Open the release pull request
+        uses: peter-evans/create-pull-request@v8
+        with:
+          branch: release/v${{ steps.bump.outputs.version }}
+          commit-message: "🔧 chore: Release v${{ steps.bump.outputs.version }}"
+          title: "🔧 chore: Release v${{ steps.bump.outputs.version }}"
+          body: |
+            Raises the packages' version to **${{ steps.bump.outputs.version }}**.
+
+            Merging this pull request publishes `AvaloniaUIKit`, `AvaloniaUIKit.ColorPicker`, `AvaloniaUIKit.DataGrid` and `AvaloniaUIKit.Dock` ${{ steps.bump.outputs.version }} to nuget.org and creates the GitHub release `v${{ steps.bump.outputs.version }}` (`.github/workflows/release.yml`, `docs/release.md`).
+
+            Opened by the Version Bump workflow.
+          labels: release

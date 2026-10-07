@@ -1,0 +1,95 @@
+name: Release
+
+# Publishes the packages (src/*) to nuget.org and creates the GitHub release
+# v<Version> when a pull request labeled "release" is merged into main (the
+# Version Bump workflow opens one), or when run by hand on main.
+# nuget.org trusts this workflow by its file name (trusted publishing):
+# renaming the file stops the publishing until the policy is changed too.
+# See docs/release.md.
+on:
+  pull_request:
+    types: [closed]
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    if: >-
+      (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main') ||
+      (github.event.pull_request.merged == true && contains(github.event.pull_request.labels.*.name, 'release'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write # the tag and the release
+      id-token: write # nuget.org's trusted publishing
+    env:
+      # The commit the merge made on main, or main's head when run by hand.
+      SHA: ${{ github.event.pull_request.merge_commit_sha || github.sha }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ env.SHA }}
+
+      - uses: actions/setup-dotnet@v5
+        with:
+          global-json-file: global.json
+
+      - name: Read the version
+        id: version
+        run: |
+          version=$(dotnet msbuild src/AvaloniaUIKit/AvaloniaUIKit.csproj -getProperty:Version)
+          echo "Version $version"
+          echo "tag=v$version" >> "$GITHUB_OUTPUT"
+
+      # A version is released from one commit: a rerun of the same release
+      # goes on, a release from a later commit needs the version raised first.
+      - name: Check the tag
+        run: |
+          tagged=$(git ls-remote --tags origin "refs/tags/$TAG" | cut -f1)
+          if [[ -n "$tagged" && "$tagged" != "$SHA" ]]; then
+            echo "::error::$TAG is already released from $tagged. Raise the version with the Version Bump workflow."
+            exit 1
+          fi
+        env:
+          TAG: ${{ steps.version.outputs.tag }}
+
+      - name: Pack
+        run: |
+          for project in src/*/*.csproj; do
+            dotnet pack "$project" -c Release -o "$RUNNER_TEMP/packages" -p:ContinuousIntegrationBuild=true
+          done
+
+      - name: Log in to nuget.org
+        id: nuget
+        uses: NuGet/login@v1
+        with:
+          user: ${{ secrets.NUGET_USER }}
+
+      # --skip-duplicate: a rerun after a partial push pushes the rest.
+      - name: Push to nuget.org
+        run: >-
+          dotnet nuget push "$RUNNER_TEMP/packages/*.nupkg"
+          --source https://api.nuget.org/v3/index.json
+          --api-key "$NUGET_API_KEY"
+          --skip-duplicate
+        env:
+          NUGET_API_KEY: ${{ steps.nuget.outputs.NUGET_API_KEY }}
+
+      - name: Create the GitHub release
+        run: |
+          if gh release view "$TAG" --repo "$GITHUB_REPOSITORY" > /dev/null 2>&1; then
+            echo "$TAG is already released"
+          else
+            gh release create "$TAG" "$RUNNER_TEMP"/packages/*.nupkg \
+              --repo "$GITHUB_REPOSITORY" --target "$SHA" --title "$TAG" --generate-notes
+          fi
+        env:
+          TAG: ${{ steps.version.outputs.tag }}
+          GH_TOKEN: ${{ github.token }}
