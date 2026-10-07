@@ -1,3 +1,5 @@
+[![Avalonia UIKit: modern looks and motion for Avalonia apps, beside real controls rendered by the theme.](sites/public/og.png)](https://avalonia-uikit.omofla.sh)
+
 # Avalonia UIKit
 
 Avalonia themes and controls based on the Nova style of
@@ -23,6 +25,22 @@ Avalonia themes and controls based on the Nova style of
   renders of GPUI Kit itself (6,300+ automated cases, `docs/testing.md`).
 - No reflection; NativeAOT and trimming are supported (except where a
   dependency is not trimmable: DataGrid, Dock.Avalonia).
+
+## Packages
+
+| Package | Contents | Version |
+| --- | --- | --- |
+| [AvaloniaUIKit](https://www.nuget.org/packages/AvaloniaUIKit) | `UIKitTheme` and the controls | [![AvaloniaUIKit](https://img.shields.io/nuget/v/AvaloniaUIKit.svg)](https://www.nuget.org/packages/AvaloniaUIKit) |
+| [AvaloniaUIKit.ColorPicker](https://www.nuget.org/packages/AvaloniaUIKit.ColorPicker) | The theme for Avalonia's `ColorPicker` | [![AvaloniaUIKit.ColorPicker](https://img.shields.io/nuget/v/AvaloniaUIKit.ColorPicker.svg)](https://www.nuget.org/packages/AvaloniaUIKit.ColorPicker) |
+| [AvaloniaUIKit.DataGrid](https://www.nuget.org/packages/AvaloniaUIKit.DataGrid) | The theme for Avalonia's `DataGrid` | [![AvaloniaUIKit.DataGrid](https://img.shields.io/nuget/v/AvaloniaUIKit.DataGrid.svg)](https://www.nuget.org/packages/AvaloniaUIKit.DataGrid) |
+| [AvaloniaUIKit.Dock](https://www.nuget.org/packages/AvaloniaUIKit.Dock) | The theme for Dock.Avalonia | [![AvaloniaUIKit.Dock](https://img.shields.io/nuget/v/AvaloniaUIKit.Dock.svg)](https://www.nuget.org/packages/AvaloniaUIKit.Dock) |
+
+```sh
+dotnet add package AvaloniaUIKit
+```
+
+Then add `UIKitTheme` to the application's styles: see
+[Installation](https://avalonia-uikit.omofla.sh/docs/installation).
 
 ## Repository
 
