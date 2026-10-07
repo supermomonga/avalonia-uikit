@@ -6,6 +6,8 @@ date: 2026-10-04
 links:
 - target: 20
   kind: amends
+- target: 36
+  kind: amendedby
 ---
 
 # Model the docs site on gpui-kit.com and render its social image from a site page
