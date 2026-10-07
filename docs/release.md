@@ -14,7 +14,7 @@ NuGet パッケージ（`AvaloniaUIKit`、`AvaloniaUIKit.ColorPicker`、`Avaloni
 
 1. 手元で `scripts/verify.sh` を通す。テストを流す CI はないので、リリースするコミットのテストは手元で確かめる。
 2. Actions の「Version Bump」を main で実行する。`release_type`（patch / minor / major）を選ぶか、`version` に `1.2.3` の形で直接書く（`version` を書けば `release_type` は使わない）。最初のリリースは `0.0.0` から minor で `0.1.0` になる。
-3. 開いた Pull Request（`🔧 chore: Release v<version>`）の差分（`<Version>` の 1 行）を確かめてマージする。GITHUB_TOKEN で開いた Pull Request ではワークフローが走らないので、チェックは付かない。
+3. 開いた Pull Request（`🔧 chore: Release v<version>`）の差分（`<Version>` の 1 行）を確かめてマージする。GITHUB_TOKEN で開いた Pull Request が起動するワークフローの実行は承認待ちになるが、`site.yml` は `src/Directory.Build.props` だけの変更では動かないので（ADR 39）、この Pull Request では何も起動しない。ほかのワークフローが承認待ちで出ても、承認せずにマージしてよい（Release はマージで走る）。
 4. マージで「Release」が走る。nuget.org では検証とインデックスに数分から数十分かかり、その後にパッケージが検索に出る。
 
 ## 約束事

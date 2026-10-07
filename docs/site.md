@@ -108,7 +108,7 @@ Browser 側の JS から呼べる関数（`[JSExport]`、クラス `AvaloniaUIKi
 | サイトのビルド | `cd sites && bun run build`（`vite build --mode client && vite build`） |
 | 公開 | `cd sites && bunx wrangler deploy`（`CLOUDFLARE_API_TOKEN` と `CLOUDFLARE_ACCOUNT_ID` は `mise.local.toml` にある） |
 
-GitHub Actions は `sites/**`、`src/**`、`samples/**`、`assets/**` などの変更で動き、上の手順を 3 つのジョブで実行する。
+GitHub Actions は `sites/**`、`src/**`、`samples/**`、`assets/**` などの変更で動き、上の手順を 3 つのジョブで実行する。`src/Directory.Build.props` だけの変更では動かない。このファイルはパッケージのバージョンと情報だけを持ち、サイトは使わない。Version Bump の Pull Request（`docs/release.md`）に承認待ちの実行を作らないためである（ADR 39）。ビルドに効く設定をこのファイルに足すなら、除外を見直す。
 
 | ジョブ | 内容 |
 | --- | --- |

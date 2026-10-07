@@ -3,6 +3,9 @@ number: 37
 title: Release the packages under one version from a merged release pull request through trusted publishing
 status: accepted
 date: 2026-10-07
+links:
+- target: 39
+  kind: amendedby
 ---
 
 # Release the packages under one version from a merged release pull request through trusted publishing
