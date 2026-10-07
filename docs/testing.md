@@ -14,7 +14,7 @@ UIKitTheme が GPUI Kit と同じ見た目・動きになっていることを�
 | 全テスト | `scripts/verify.sh` | Release でビルドし、テストを複数のプロセスに分けて同時に実行する（ADR 31）。プロセスの数は macOS では P コアの数、ほかでは論理コアの数で、`AVALONIA_UIKIT_SHARDS=N` で変えられる（1 なら 1 プロセス）。macOS 以外でも動く。 |
 | 一部だけ | `scripts/verify.sh --treenode-filter "/*/*/ButtonTests/*"` | クラス名で絞る。引数を渡すと 1 プロセスで実行する。 |
 | 許容値の校正 | `AVALONIA_UIKIT_CALIBRATE=1 scripts/verify.sh` | `tests/artifacts/pixel-stats.csv`（領域ごとの n / max / mean / bias）、`ink-mass.csv`、`border-mass.csv`（枠線の角と辺ごと）を書き出す。CSV に追記するので 1 プロセスで実行する。 |
-| 参照データの再生成 | `scripts/generate-goldens.sh [--only <id 接頭辞>]` | macOS（Metal）専用。`reference/vendor/` を作り直し、生成後に 2 回描画して一致を確かめる。`Palettes.g.cs`、`Lucide.g.axaml`、`IconName.g.cs`、サイトのテーマ（`sites/app/lib/themes.g.json`、`sites/app/styles/themes.g.css`）も再生成する。色だけなら `reference tokens` で足りる。全体の生成が途中で失敗すると `goldens/` の一部が消えるので、`git checkout goldens` で戻す。 |
+| 参照データの再生成 | `scripts/generate-goldens.sh [--only <id 接頭辞>]` | macOS（Metal）専用。`reference/vendor/` を作り直し、生成後に 2 回描画して一致を確かめる。`Palettes.g.cs`、アイコン（`Lucide.g.axaml`、`IconName.g.cs`、ジェネレーターの `Icons.g.tsv`）、サイトのテーマ（`sites/app/lib/themes.g.json`、`sites/app/styles/themes.g.css`）も再生成する。色だけなら `reference tokens`、アイコンだけなら `reference/` で `cargo run --release -p uikit-icons`（GPUI も Metal も要らない）で足りる。全体の生成が途中で失敗すると `goldens/` の一部が消えるので、`git checkout goldens` で戻す。 |
 | NativeAOT | `scripts/aot-smoke.sh` | ギャラリーを NativeAOT で publish し（trim / AOT 警告はエラー）、`--smoke` で Light / Dark を描画して終了する。 |
 
 失敗したケースは `tests/artifacts/<ケース ID>/` に `gpui.png`、`avalonia.png`、`diff.png`、`mask.png`（領域の分類）、`report.txt` を出力する。
@@ -31,7 +31,7 @@ UIKitTheme が GPUI Kit と同じ見た目・動きになっていることを�
    - 置き換え漏れがあれば止まる。描画結果は変わらない。
 3. `HeadlessAppContext` と Metal の headless レンダラで、`cases/*.toml` に定義した組み合わせを描く。フォントは同梱の Inter（`assets/fonts/inter/`）、スケールは 2。状態は GPUI の入力（hover、マウス押下、Tab、クリック、右クリック、ドラッグ、ホイール、キー）と `advance_clock` で作る。ケースの終わりにドラッグを止め、次のケースに持ち越さない。
 4. 各ケースについて、PNG と Scene（quad、影、下線、スプライト、パス、画像）の JSON、要素の bounds を書き出す。quad の塗りは単色と 2 色の線形グラデーションを書き出す。トークン（解決済みの色、コンポーネントが描画時に作る派生色、トークンの背景）は、Default Light / Default Dark が `tokens/gpui-theme.json`、同梱のテーマが `tokens/gpui-themes.json` になり、どちらも `Palettes.g.cs` になる（ADR 26）。
-5. アイコンは GPUI Kit の Lucide SVG を線から塗りの輪郭に変換して `Lucide.g.axaml` に書き出す。テーマが使うアイコン（`reference/src/icons.rs` の `ICONS`）に続けて、GPUI Kit の `IconName` の全 106 個（`crates/assets/default-icons.txt`）を重複なしで書き、`uikit:Icon` の列挙 `IconName.g.cs` も生成する。不透明度の付いた部分（二色アイコンの薄い半分）は `<名前>.Faint` の別のジオメトリにする。
+5. アイコンは `reference/icons`（`uikit-icons`。ADR 38）が、GPUI Kit の SVG（`crates/assets/assets/icons` の 1830 個）を線から塗りの輪郭に変換する。テーマが使うアイコン（`reference/icons/src/lib.rs` の `ICONS`）に続けて、GPUI Kit のコンポーネントの `IconName` の 106 個（`crates/assets/default-icons.txt`）を重複なしで `Lucide.g.axaml` に書き、残りの形はジェネレーターのデータ `src/AvaloniaUIKit.Generators/Icons.g.tsv` に書く。`uikit:Icon` の列挙 `IconName.g.cs` は全 1830 個と `None` を持つ。不透明度の付いた部分（二色アイコンの薄い半分）は `<名前>.Faint` の別のジオメトリにする。
 
 ケース ID は `<コンポーネント>/<グループ>.<組み合わせ>/<状態>/<テーマ>` の形（例: `button/outline.primary.small/hover/dark`）。動きのケースは `<ID>/<経過 ms>` のフレーム列を持つ。
 
@@ -55,7 +55,7 @@ UIKitTheme が GPUI Kit と同じ見た目・動きになっていることを�
 
 ## テストの構成
 
-6921 件。macOS arm64（P コア 4 つ）での最新の実行結果は全件成功し、`scripts/verify.sh`（4 プロセス）で約 50〜70 秒、1 プロセスでは約 1 分 45 秒かかる。テストの時刻はすべて仮想時計で進める（[時刻](#時刻)）。
+6930 件。macOS arm64（P コア 4 つ）での最新の実行結果は全件成功し、`scripts/verify.sh`（4 プロセス）で約 50〜70 秒、1 プロセスでは約 1 分 45 秒かかる。テストの時刻はすべて仮想時計で進める（[時刻](#時刻)）。
 
 | テスト | 件数 | 内容 |
 | --- | --- | --- |
@@ -65,6 +65,7 @@ UIKitTheme が GPUI Kit と同じ見た目・動きになっていることを�
 | `BehaviorTests`、`ControlBehaviorTests` | 24、34 | 時間・入力・無効状態の挙動。後者は新しいコントロール（ADR 19）の操作と、GPUI の表記・色の計算。 |
 | `ThemeFixBehaviorTests` | 16 | テーマで描くようにした Avalonia の機能（クリアボタン、右クリックメニュー、編集可能な ComboBox など）。 |
 | `ButtonsBehaviorTests`、`InputsBehaviorTests`、`SelectBehaviorTests`、`ListsBehaviorTests`、`DatesBehaviorTests`、`DisplayBehaviorTests`、`NavigationBehaviorTests`、`TableColorBehaviorTests`、`LayoutBehaviorTests`、`ShellBehaviorTests` | 19、50、27、17、50、16、21、24、19、20 | ADR 30 のコントロールと添付プロパティの操作と、GPUI のテストと同じ例の計算。 |
+| `IconGeneratorTests` | 9 | アイコンのジェネレーター（ADR 38）。メモリ上のプロジェクトで C#、XAML、`UIKitIcon`、`All` から足すアイコンと警告、生成したコードのコンパイル、`Icons.g.tsv` と `IconName` の一致。テストのアセンブリ自身にも通し、名前を書いたアイコンの描画、`UIKitIcon` で足したアイコン、誰も足していないアイコンの警告を確かめる。 |
 | `TabsEditingBehaviorTests` | 29 | タブを閉じる・追加する・ドラッグする操作（ADR 33、34）。GPUI Kit に参照がないので、項目と選択の変化、ウィンドウの開閉で確かめる。 |
 | `DockBehaviorTests` | 3 | サードパーティのライブラリ（ADR 28）の操作が、テーマの部品を通して効くこと。 |
 | `FluentLayeringTests` | 19 | FluentTheme の上に重ねても見た目が変わらないこと。 |

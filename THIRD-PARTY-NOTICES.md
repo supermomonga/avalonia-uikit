@@ -56,9 +56,12 @@ crate; nothing from it ships in the NuGet packages.
 - License: ISC License; the icons derived from Feather, MIT License (full text
   below, also `src/AvaloniaUIKit/Themes/Icons/LUCIDE-LICENSE.txt`)
 
-In the `AvaloniaUIKit` package: the icons the components draw, stroked to
-filled outlines (`src/AvaloniaUIKit/Themes/Icons/Lucide.g.axaml`). The
-documentation site also draws Lucide icons from the `lucide` npm package.
+In the `AvaloniaUIKit` package: the icons, stroked to filled outlines. The
+theme carries the ones the components draw
+(`src/AvaloniaUIKit/Themes/Icons/Lucide.g.axaml`); the package's icon
+generator carries every icon (`src/AvaloniaUIKit.Generators/Icons.g.tsv`) and
+adds the ones an app uses to the app's assembly. The documentation site also
+draws Lucide icons from the `lucide` npm package.
 
 ## Inter
 

@@ -7,10 +7,10 @@ description: "An icon drawn by name, as uikit:Icon."
 
 ## Usage
 
-`uikit:Icon` draws an icon by name: `Kind` is one of the `IconName` values, the icons GPUI Kit ships for its components (listed in [Icons](/docs/icons)). It is a `PathIcon`, so the size classes of the [Icon](/components/icon), `Foreground`, and the sizes buttons and menus give their icons apply to it the same way. `IconNames.ResourceKey` gives an icon's geometry resource for code.
+`uikit:Icon` draws an icon by name: `Kind` is one of the `IconName` values, every icon GPUI Kit ships (browse them on the [Icons](/icons) page). The theme carries the components' icons, and the package's generator adds any other an app names (see [Icons](/docs/icons)). `Kind` is `None` by default, which leaves `Data` to the app. It is a `PathIcon`, so the size classes of the [Icon](/components/icon), `Foreground`, and the sizes buttons and menus give their icons apply to it the same way. `IconNames.ResourceKey` gives an icon's geometry resource for code.
 
 ## Examples
 
-Every `IconName`; point at an icon for its name.
+The icons the theme carries, `IconNames.Bundled`; point at an icon for its name.
 
 <Demo name="uikit-icon/gallery" title="Gallery" />
