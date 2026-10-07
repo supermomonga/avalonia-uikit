@@ -19,4 +19,6 @@
     <!-- The Image demos: the small opaque test images (assets/images, no license restrictions). -->
     <AvaloniaResource Include="Assets/*.png" />
   </ItemGroup>
+  <!-- The icon generator, as the package brings it (ADR 38). -->
+  <Import Project="../../src/AvaloniaUIKit.Generators/AvaloniaUIKit.Generators.targets" />
 </Project>

@@ -1,0 +1,13 @@
+<Project>
+  <!--
+    The icon generator's settings (ADR 38), which AvaloniaUIKit.Generators reads.
+    By default (Used) it adds the icons the project names in C# and XAML. For icons
+    chosen at run time:
+      <UIKitIcon Include="Bike;Camera" />  these icons too (IconName, file or key)
+      <UIKitIcons>All</UIKitIcons>         every icon
+  -->
+  <ItemGroup>
+    <CompilerVisibleProperty Include="UIKitIcons" />
+    <CompilerVisibleProperty Include="_UIKitIconList" />
+  </ItemGroup>
+</Project>

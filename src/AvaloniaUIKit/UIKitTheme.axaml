@@ -5,6 +5,8 @@
   <Styles.Resources>
     <ResourceDictionary>
       <ResourceDictionary.MergedDictionaries>
+        <!-- First, so asked last: the icons the generator added to the app (ADR 38), after Lucide.g.axaml's. -->
+        <uikit:GeneratedIcons />
         <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Tokens/Metrics.axaml" />
         <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Icons/Lucide.g.axaml" />
         <MergeResourceInclude Source="avares://AvaloniaUIKit/Themes/Base/PathIcon.axaml" />

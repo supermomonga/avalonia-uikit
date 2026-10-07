@@ -17,4 +17,6 @@
     <!-- uikit:AsyncImage loads it from the app's assets. -->
     <AvaloniaResource Include="../../assets/images/small-48x48.png" Link="Assets/small-48x48.png" />
   </ItemGroup>
+  <!-- The icon generator, as the package brings it (ADR 38): MainWindow names icons the theme does not carry. -->
+  <Import Project="../../src/AvaloniaUIKit.Generators/AvaloniaUIKit.Generators.targets" />
 </Project>

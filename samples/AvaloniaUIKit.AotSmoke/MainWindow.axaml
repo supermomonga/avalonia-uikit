@@ -198,6 +198,9 @@
           <PathIcon Classes="large" Data="{StaticResource UIKit.Icon.Folder}" />
           <uikit:Icon Classes="large" Kind="SortAscending" />
           <uikit:Icon Kind="Github" Foreground="{DynamicResource UIKit.Primary}" />
+          <!-- Icons the theme does not carry: the generator adds them to the app (ADR 38). -->
+          <uikit:Icon Kind="Rocket" />
+          <PathIcon Data="{StaticResource UIKit.Icon.Sparkles}" />
           <TextBlock Classes="label">Company address<Run Classes="secondary"> (optional)</Run></TextBlock>
           <uikit:TextLabel Text="Design system documentation" Secondary="(draft)" Highlights="doc" />
           <uikit:TextLabel Text="secret" IsMasked="True" />

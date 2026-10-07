@@ -359,10 +359,11 @@
     line-height: 1.6;
     color: var(--muted-foreground);
   }
-  /* The notes for the element shown, and for an icon without an IconName or with a faint part. */
+  /* The notes for the element shown, and for an icon without an IconName, with a faint part or added by the generator. */
   .icon-detail:not([data-element="icon"]) [data-icon-note="icon"],
   .icon-detail:not([data-no-kind]) [data-icon-note="no-kind"],
   .icon-detail:not([data-faint]) [data-icon-note="faint"],
+  .icon-detail:not([data-generated]) [data-icon-note="generated"],
   .icon-detail[data-no-kind] [data-icon-detail-kind-row] {
     display: none;
   }

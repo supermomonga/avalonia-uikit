@@ -7,6 +7,8 @@
     <IsAotCompatible>true</IsAotCompatible>
     <AvaloniaXamlIlVerifyIl>true</AvaloniaXamlIlVerifyIl>
     <BuiltInComInteropSupport>false</BuiltInComInteropSupport>
+    <!-- Every icon: the property grid sets any IconName (ADR 38). -->
+    <UIKitIcons>All</UIKitIcons>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Avalonia.Desktop" />
@@ -17,4 +19,6 @@
                       Link="Sources/%(RecursiveDir)%(Filename)%(Extension).txt" />
     <InternalsVisibleTo Include="AvaloniaUIKit.Demo.ControlCatalog.Tests" />
   </ItemGroup>
+  <!-- The icon generator, as the package brings it (ADR 38). -->
+  <Import Project="../../src/AvaloniaUIKit.Generators/AvaloniaUIKit.Generators.targets" />
 </Project>

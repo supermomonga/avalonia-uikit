@@ -47,7 +47,7 @@ fn grid(params: &Params) -> Result<Builder> {
         "large" => 24.,
         _ => 16.,
     };
-    let names: Vec<String> = crate::icons::icon_names().into_iter().map(|(_, stem)| stem).collect();
+    let names: Vec<String> = uikit_icons::component_icon_names().into_iter().map(|(_, stem)| stem).collect();
     Ok(Rc::new(move |_, _, _| {
         div()
             .w(px(12. * side + 11. * 8.))

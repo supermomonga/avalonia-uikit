@@ -10,10 +10,20 @@
     <PackageReference Include="Avalonia.Skia" />
     <PackageReference Include="Avalonia.Themes.Fluent" />
     <PackageReference Include="Dock.Model.Avalonia" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" />
     <ProjectReference Include="../../src/AvaloniaUIKit/AvaloniaUIKit.csproj" />
     <ProjectReference Include="../../src/AvaloniaUIKit.ColorPicker/AvaloniaUIKit.ColorPicker.csproj" />
     <ProjectReference Include="../../src/AvaloniaUIKit.DataGrid/AvaloniaUIKit.DataGrid.csproj" />
     <ProjectReference Include="../../src/AvaloniaUIKit.Dock/AvaloniaUIKit.Dock.csproj" />
     <AvaloniaResource Include="../../assets/fonts/inter/*.ttf" Link="Assets/Fonts/%(Filename)%(Extension)" />
+  </ItemGroup>
+  <!-- The icon generator (ADR 38): runs on these tests as on an app, and IconGeneratorTests drives it directly. -->
+  <Import Project="../../src/AvaloniaUIKit/buildTransitive/AvaloniaUIKit.props" />
+  <Import Project="../../src/AvaloniaUIKit/buildTransitive/AvaloniaUIKit.targets" />
+  <ItemGroup>
+    <ProjectReference Include="../../src/AvaloniaUIKit.Generators/AvaloniaUIKit.Generators.csproj"
+                      OutputItemType="Analyzer" ReferenceOutputAssembly="true" />
+    <!-- Named nowhere else: IconGeneratorTests checks that an icon listed here reaches the app. -->
+    <UIKitIcon Include="tent" />
   </ItemGroup>
 </Project>

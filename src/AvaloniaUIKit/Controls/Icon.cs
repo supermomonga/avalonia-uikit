@@ -10,16 +10,18 @@ namespace AvaloniaUIKit;
 /// GPUI Kit's Icon (icon.rs) for an <see cref="IconName"/>: a
 /// <see cref="PathIcon"/> whose <see cref="PathIcon.Data"/> is the icon's
 /// geometry from the theme (the resource <see cref="IconNames.ResourceKey"/>
-/// names). It is styled as a PathIcon: 16px (Size::Medium), the classes
-/// xsmall, small and large (12, 14 and 24px), the Foreground as its color,
-/// and the sizes the controls give the icons in them. A two-tone icon's faint
-/// part is painted under it at the SVG's opacity, as GPUI's SVG draws it.
+/// names), which the theme carries or the package's generator adds to the
+/// app (<see cref="IconGeometries"/>). It is styled as a PathIcon: 16px
+/// (Size::Medium), the classes xsmall, small and large (12, 14 and 24px), the
+/// Foreground as its color, and the sizes the controls give the icons in
+/// them. A two-tone icon's faint part is painted under it at the SVG's
+/// opacity, as GPUI's SVG draws it.
 /// </summary>
 public class Icon : PathIcon
 {
-    /// <summary>The icon to show; without one, <see cref="PathIcon.Data"/> is the app's.</summary>
-    public static readonly StyledProperty<IconName?> KindProperty =
-        AvaloniaProperty.Register<Icon, IconName?>(nameof(Kind));
+    /// <summary>The icon to show; with <see cref="IconName.None"/>, the default, <see cref="PathIcon.Data"/> is the app's.</summary>
+    public static readonly StyledProperty<IconName> KindProperty =
+        AvaloniaProperty.Register<Icon, IconName>(nameof(Kind));
 
     private IDisposable? _data;
     private Path? _path;
@@ -31,7 +33,7 @@ public class Icon : PathIcon
     }
 
     /// <inheritdoc cref="KindProperty"/>
-    public IconName? Kind
+    public IconName Kind
     {
         get => GetValue(KindProperty);
         set => SetValue(KindProperty, value);
@@ -52,7 +54,8 @@ public class Icon : PathIcon
     {
         base.Render(context);
         // sort-ascending.svg: the arrow GPUI fades to opacity 0.2 is the resource "<key>.Faint".
-        if (Kind is not { } kind)
+        var kind = Kind;
+        if (kind == IconName.None)
         {
             return;
         }
@@ -78,6 +81,7 @@ public class Icon : PathIcon
     private void UpdateData()
     {
         _data?.Dispose();
-        _data = Kind is { } kind ? Bind(DataProperty, this.GetResourceObservable(kind.ResourceKey())) : null;
+        var kind = Kind;
+        _data = kind == IconName.None ? null : Bind(DataProperty, this.GetResourceObservable(kind.ResourceKey()));
     }
 }

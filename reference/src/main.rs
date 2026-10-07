@@ -10,7 +10,6 @@ mod cases;
 mod derived;
 mod fonts;
 mod harness;
-mod icons;
 mod manifest;
 mod scene_json;
 mod themes;
@@ -181,7 +180,7 @@ fn all_cases(root: &Path, only: Option<&str>) -> Result<Vec<Case>> {
 fn generate(root: &Path, out: &Path, only: Option<&str>) -> Result<()> {
     let mut harness = Harness::new(root)?;
     write_tokens(&mut harness, root, out)?;
-    icons::write_xaml(root)?;
+    uikit_icons::write(root)?;
 
     let cases = all_cases(root, only)?;
     // Every case must have a builder before anything is deleted.

@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk" TreatAsLocalProperty="PublishAot">
+  <!--
+    The icon generator (ADR 38): adds the icons a project uses, and the theme
+    does not carry, to the project's assembly. It ships inside the AvaloniaUIKit
+    package (analyzers/dotnet/cs), so it is not a package of its own.
+  -->
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <IsPackable>false</IsPackable>
+    <IsRoslynComponent>true</IsRoslynComponent>
+    <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
+    <!-- An analyzer runs in the compiler: -p:PublishAot=true for an app (scripts/aot-smoke.sh) is not for it. -->
+    <PublishAot>false</PublishAot>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" PrivateAssets="all" />
+    <EmbeddedResource Include="Icons.g.tsv" LogicalName="AvaloniaUIKit.Generators.Icons.tsv" />
+    <AdditionalFiles Include="AnalyzerReleases.Shipped.md;AnalyzerReleases.Unshipped.md" />
+    <InternalsVisibleTo Include="AvaloniaUIKit.Tests" />
+  </ItemGroup>
+</Project>

@@ -59,7 +59,7 @@ public static partial class Adapters
 
     /// <summary>
     /// The uikit-icon cases: a uikit:Icon by Kind with the icon cases' size
-    /// class, color and rotation, or every IconName in a grid of 12 a row.
+    /// class, color and rotation, or GPUI Kit's component icons in a grid of 12 a row.
     /// </summary>
     public static Control IconKindCase(GoldenCase c)
     {
@@ -67,7 +67,7 @@ public static partial class Adapters
         {
             var side = c.Str("size", "medium") switch { "xsmall" => 12, "small" => 14, "large" => 24, _ => 16 };
             var grid = new WrapPanel { Width = 12 * side + 11 * 8, ItemSpacing = 8, LineSpacing = 8 };
-            foreach (var kind in Enum.GetValues<IconName>())
+            foreach (var kind in IconNames.Component)
             {
                 var item = new AvaloniaUIKit.Icon { Kind = kind };
                 ClassFrom(item, c, "size", "medium");

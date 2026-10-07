@@ -69,6 +69,19 @@ const pages = [
 for (const page of pages) {
   if (!relative.has(page)) failures.push(`missing ${page}`)
 }
+// Every tile of the Icons page draws its icon (lib/icons.ts).
+if (relative.has("/icons.html")) {
+  const iconsPage = readFileSync(path.join(dist, "icons.html"), "utf8")
+  const tiles = [
+    ...iconsPage.matchAll(/data-icon-tile="([^"]+)"[^>]*>\s*<svg[^>]*>([\s\S]*?)<\/svg>/g),
+  ]
+  if (tiles.length === 0) failures.push("icons.html has no icons")
+  for (const [, name, shape] of tiles) {
+    if (!/<(path|circle|rect|line|polyline|polygon|ellipse)\b/.test(shape)) {
+      failures.push(`icons.html draws nothing for ${name}`)
+    }
+  }
+}
 // The social image's page (routes/og-image.tsx) is only for scripts/images.ts.
 if (relative.has("/og-image.html")) failures.push("og-image.html is built")
 
