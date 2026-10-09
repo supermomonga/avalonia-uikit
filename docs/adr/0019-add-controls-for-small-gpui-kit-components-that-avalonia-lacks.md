@@ -10,6 +10,8 @@ links:
   kind: amendedby
 - target: 30
   kind: amendedby
+- target: 40
+  kind: amendedby
 ---
 
 # Add controls for small GPUI Kit components that Avalonia lacks

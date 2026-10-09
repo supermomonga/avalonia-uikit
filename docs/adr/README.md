@@ -37,3 +37,4 @@
 * [37. Release the packages under one version from a merged release pull request through trusted publishing](0037-release-the-packages-under-one-version-from-a-merged-release-pull-request-through-trusted-publishing.md)
 * [38. Ship every IconName and add the icons an app uses with a source generator](0038-ship-every-iconname-and-add-the-icons-an-app-uses-with-a-source-generator.md)
 * [39. Leave the packages' version out of the site workflow's paths so the version bump's pull request starts no run](0039-leave-the-packages-version-out-of-the-site-workflow-s-paths-so-the-version-bump-s-pull-request-starts-no-run.md)
+* [40. Add Settings as new controls whose fields are the standard controls and follow their defaults by type](0040-add-settings-as-new-controls-whose-fields-are-the-standard-controls-and-follow-their-defaults-by-type.md)

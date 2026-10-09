@@ -52,6 +52,7 @@ mod list;
 mod scroll;
 mod select;
 mod sheet;
+mod settings;
 mod sidebar;
 mod slider;
 mod surface;
@@ -123,6 +124,7 @@ pub fn builder(case: &Case) -> Result<Builder> {
         "uikit-table" => table::builder(&params),
         "carousel" => carousel::builder(&params),
         "uikit-carousel" => carousel::builder(&params),
+        "settings" => settings::builder(&params),
         "sidebar" => sidebar::builder(&params),
         "uikit-sidebar" => sidebar::builder(&params),
         "sheet" => sheet::builder(&params),

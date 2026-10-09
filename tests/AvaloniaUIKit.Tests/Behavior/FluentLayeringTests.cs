@@ -32,6 +32,7 @@ public class FluentLayeringTests
     [Arguments("dropdown/menu.base/click+at-60-117/dark")]
     [Arguments("menubar/bar.base/at-20-20/light")]
     [Arguments("scroll/hover.base/at-164-20+wait-400ms/light")]
+    [Arguments("settings/reset.base/at-788-45/light")]
     public Task Layered_over_fluent_still_matches_gpui(string id)
     {
         Application.Current!.Styles.Insert(0, new FluentTheme());

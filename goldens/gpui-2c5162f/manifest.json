@@ -93527,6 +93527,1384 @@
       "png_sha256": "d6472b7196bb9537d97c06b8c90794a13dcc32e62e416de8a8289557ac7a74b2"
     },
     {
+      "id": "settings/about.normal/normal/dark",
+      "component": "settings",
+      "group": "about",
+      "params": {
+        "page": 2,
+        "variant": "normal"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        832.0,
+        552.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        800.0,
+        520.0
+      ],
+      "png": "png/settings/about.normal/normal/dark.png",
+      "scene": "scenes/settings/about.normal/normal/dark.json",
+      "png_sha256": "b2cd91596ccd198f07f98186b340792acbaa548b19ccb10e1859c270685e92bc"
+    },
+    {
+      "id": "settings/about.normal/normal/light",
+      "component": "settings",
+      "group": "about",
+      "params": {
+        "page": 2,
+        "variant": "normal"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        832.0,
+        552.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        800.0,
+        520.0
+      ],
+      "png": "png/settings/about.normal/normal/light.png",
+      "scene": "scenes/settings/about.normal/normal/light.json",
+      "png_sha256": "d79440f360d675828a0174c1affe2644898ea6399b7e0406b9a6413196d1420b"
+    },
+    {
+      "id": "settings/about.outline/normal/dark",
+      "component": "settings",
+      "group": "about",
+      "params": {
+        "page": 2,
+        "variant": "outline"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        832.0,
+        552.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        800.0,
+        520.0
+      ],
+      "png": "png/settings/about.outline/normal/dark.png",
+      "scene": "scenes/settings/about.outline/normal/dark.json",
+      "png_sha256": "abb0eb1ec164447409929bceee0fc4d8f42f7c5796625d0b47c1b7b5c99c6ed7"
+    },
+    {
+      "id": "settings/about.outline/normal/light",
+      "component": "settings",
+      "group": "about",
+      "params": {
+        "page": 2,
+        "variant": "outline"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        832.0,
+        552.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        800.0,
+        520.0
+      ],
+      "png": "png/settings/about.outline/normal/light.png",
+      "scene": "scenes/settings/about.outline/normal/light.json",
+      "png_sha256": "d5f9dc25fb2844f10f6b357f550227e57e182cd7ef6c14e1dceac5329a518b62"
+    },
+    {
+      "id": "settings/disabled.base/normal/dark",
+      "component": "settings",
+      "group": "disabled",
+      "params": {
+        "variant": "outline",
+        "disabled": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        832.0,
+        552.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        800.0,
+        520.0
+      ],
+      "png": "png/settings/disabled.base/normal/dark.png",
+      "scene": "scenes/settings/disabled.base/normal/dark.json",
+      "png_sha256": "0d41adc89b3e928abbc650c3355e697b4312b3fa4ed816c321b7de32c6f18369"
+    },
+    {
+      "id": "settings/disabled.base/normal/light",
+      "component": "settings",
+      "group": "disabled",
+      "params": {
+        "variant": "outline",
+        "disabled": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        832.0,
+        552.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        800.0,
+        520.0
+      ],
+      "png": "png/settings/disabled.base/normal/light.png",
+      "scene": "scenes/settings/disabled.base/normal/light.json",
+      "png_sha256": "b05df49066dd69b36c7ed0db56916d1b72dfba44dfcdd7e45e4224bbc448b3b6"
+    },
+    {
+      "id": "settings/group-variant.base/normal/dark",
+      "component": "settings",
+      "group": "group-variant",
+      "params": {
+        "variant": "outline",
+        "group_variant": "normal"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        832.0,
+        552.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        800.0,
+        520.0
+      ],
+      "png": "png/settings/group-variant.base/normal/dark.png",
+      "scene": "scenes/settings/group-variant.base/normal/dark.json",
+      "png_sha256": "bdd784213265f28f9f3e142a1b050ce483b9320fa0588219ec5f162252c649eb"
+    },
+    {
+      "id": "settings/group-variant.base/normal/light",
+      "component": "settings",
+      "group": "group-variant",
+      "params": {
+        "variant": "outline",
+        "group_variant": "normal"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        832.0,
+        552.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        800.0,
+        520.0
+      ],
+      "png": "png/settings/group-variant.base/normal/light.png",
+      "scene": "scenes/settings/group-variant.base/normal/light.json",
+      "png_sha256": "bc88fab38382e1b55d137b648e6487d43ad9612c5380b5187c628a30c3213a6d"
+    },
+    {
+      "id": "settings/menu.base/at-100-218/dark",
+      "component": "settings",
+      "group": "menu",
+      "params": {
+        "variant": "outline"
+      },
+      "state": "at-100-218",
+      "theme": "dark",
+      "viewport": [
+        832.0,
+        552.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        800.0,
+        520.0
+      ],
+      "png": "png/settings/menu.base/at-100-218/dark.png",
+      "scene": "scenes/settings/menu.base/at-100-218/dark.json",
+      "png_sha256": "530eff095cf5aadb83e27e329891e8153cc19d5d13de6381400f5862b78a05c1"
+    },
+    {
+      "id": "settings/menu.base/at-100-218/light",
+      "component": "settings",
+      "group": "menu",
+      "params": {
+        "variant": "outline"
+      },
+      "state": "at-100-218",
+      "theme": "light",
+      "viewport": [
+        832.0,
+        552.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        800.0,
+        520.0
+      ],
+      "png": "png/settings/menu.base/at-100-218/light.png",
+      "scene": "scenes/settings/menu.base/at-100-218/light.json",
+      "png_sha256": "d502f7a4824da0560a10d0b6985eb6829526fb3b6f07039bcaaa935d931611c4"
+    },
+    {
+      "id": "settings/menu.base/click-at-100-150/dark",
+      "component": "settings",
+      "group": "menu",
+      "params": {
+        "variant": "outline"
+      },
+      "state": "click-at-100-150",
+      "theme": "dark",
+      "viewport": [
+        832.0,
+        552.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        800.0,
+        520.0
+      ],
+      "png": "png/settings/menu.base/click-at-100-150/dark.png",
+      "scene": "scenes/settings/menu.base/click-at-100-150/dark.json",
+      "png_sha256": "42ff889b22d8837ec67e698d5760add53832de7538306eea2b77e1796a3e9251"
+    },
+    {
+      "id": "settings/menu.base/click-at-100-150/light",
+      "component": "settings",
+      "group": "menu",
+      "params": {
+        "variant": "outline"
+      },
+      "state": "click-at-100-150",
+      "theme": "light",
+      "viewport": [
+        832.0,
+        552.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        800.0,
+        520.0
+      ],
+      "png": "png/settings/menu.base/click-at-100-150/light.png",
+      "scene": "scenes/settings/menu.base/click-at-100-150/light.json",
+      "png_sha256": "bf3b1ffdc379ef17373eec4e1d8894661f182abca28d06560769c7ad01db6eed"
+    },
+    {
+      "id": "settings/menu.base/click-at-100-182/dark",
+      "component": "settings",
+      "group": "menu",
+      "params": {
+        "variant": "outline"
+      },
+      "state": "click-at-100-182",
+      "theme": "dark",
+      "viewport": [
+        832.0,
+        552.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        800.0,
+        520.0
+      ],
+      "png": "png/settings/menu.base/click-at-100-182/dark.png",
+      "scene": "scenes/settings/menu.base/click-at-100-182/dark.json",
+      "png_sha256": "b3b32445f03fe6ca3d6044f98239d70b2b00727a74ef285cb34895531e6b85b6"
+    },
+    {
+      "id": "settings/menu.base/click-at-100-182/light",
+      "component": "settings",
+      "group": "menu",
+      "params": {
+        "variant": "outline"
+      },
+      "state": "click-at-100-182",
+      "theme": "light",
+      "viewport": [
+        832.0,
+        552.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        800.0,
+        520.0
+      ],
+      "png": "png/settings/menu.base/click-at-100-182/light.png",
+      "scene": "scenes/settings/menu.base/click-at-100-182/light.json",
+      "png_sha256": "98035869079aff137e3c5520071bd3a3b5e5d04d789648c7933aa2a012dde86e"
+    },
+    {
+      "id": "settings/menu.base/click-at-100-218/dark",
+      "component": "settings",
+      "group": "menu",
+      "params": {
+        "variant": "outline"
+      },
+      "state": "click-at-100-218",
+      "theme": "dark",
+      "viewport": [
+        832.0,
+        552.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        800.0,
+        520.0
+      ],
+      "png": "png/settings/menu.base/click-at-100-218/dark.png",
+      "scene": "scenes/settings/menu.base/click-at-100-218/dark.json",
+      "png_sha256": "b4a572af7120969c3da4b30141abc8828638d98452cf04c8407871cc5a45407d"
+    },
+    {
+      "id": "settings/menu.base/click-at-100-218/light",
+      "component": "settings",
+      "group": "menu",
+      "params": {
+        "variant": "outline"
+      },
+      "state": "click-at-100-218",
+      "theme": "light",
+      "viewport": [
+        832.0,
+        552.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        800.0,
+        520.0
+      ],
+      "png": "png/settings/menu.base/click-at-100-218/light.png",
+      "scene": "scenes/settings/menu.base/click-at-100-218/light.json",
+      "png_sha256": "c9ee4bf89754d381601acd65197d7cada0bcb8c552d4ce198399b25684275dbe"
+    },
+    {
+      "id": "settings/menu.base/click-at-100-254/dark",
+      "component": "settings",
+      "group": "menu",
+      "params": {
+        "variant": "outline"
+      },
+      "state": "click-at-100-254",
+      "theme": "dark",
+      "viewport": [
+        832.0,
+        552.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        800.0,
+        520.0
+      ],
+      "png": "png/settings/menu.base/click-at-100-254/dark.png",
+      "scene": "scenes/settings/menu.base/click-at-100-254/dark.json",
+      "png_sha256": "a17aea8aac5d6a20822b1ea1b239c811184646fcb231a9928503ac032e112135"
+    },
+    {
+      "id": "settings/menu.base/click-at-100-254/light",
+      "component": "settings",
+      "group": "menu",
+      "params": {
+        "variant": "outline"
+      },
+      "state": "click-at-100-254",
+      "theme": "light",
+      "viewport": [
+        832.0,
+        552.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        800.0,
+        520.0
+      ],
+      "png": "png/settings/menu.base/click-at-100-254/light.png",
+      "scene": "scenes/settings/menu.base/click-at-100-254/light.json",
+      "png_sha256": "55b6347c1b9589f0d531045e05a9ff7766e00119aa8692695b01a369db379bc8"
+    },
+    {
+      "id": "settings/narrow.normal/normal/dark",
+      "component": "settings",
+      "group": "narrow",
+      "params": {
+        "width": 720,
+        "variant": "normal"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        752.0,
+        552.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        720.0,
+        520.0
+      ],
+      "png": "png/settings/narrow.normal/normal/dark.png",
+      "scene": "scenes/settings/narrow.normal/normal/dark.json",
+      "png_sha256": "74092e9a9a630c799206cc21ba4f0e11db13243a98414c87f1ab80da24215e2f"
+    },
+    {
+      "id": "settings/narrow.normal/normal/light",
+      "component": "settings",
+      "group": "narrow",
+      "params": {
+        "width": 720,
+        "variant": "normal"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        752.0,
+        552.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        720.0,
+        520.0
+      ],
+      "png": "png/settings/narrow.normal/normal/light.png",
+      "scene": "scenes/settings/narrow.normal/normal/light.json",
+      "png_sha256": "6a26f6f422c7b151c457e2b2a3ad506d06b648088547c9d3b430aff5230d13e5"
+    },
+    {
+      "id": "settings/narrow.outline/normal/dark",
+      "component": "settings",
+      "group": "narrow",
+      "params": {
+        "width": 720,
+        "variant": "outline"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        752.0,
+        552.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        720.0,
+        520.0
+      ],
+      "png": "png/settings/narrow.outline/normal/dark.png",
+      "scene": "scenes/settings/narrow.outline/normal/dark.json",
+      "png_sha256": "e7eb06c91f31b69da702ebadde989305100e35eab2e22e13cb92f16b97532688"
+    },
+    {
+      "id": "settings/narrow.outline/normal/light",
+      "component": "settings",
+      "group": "narrow",
+      "params": {
+        "width": 720,
+        "variant": "outline"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        752.0,
+        552.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        720.0,
+        520.0
+      ],
+      "png": "png/settings/narrow.outline/normal/light.png",
+      "scene": "scenes/settings/narrow.outline/normal/light.json",
+      "png_sha256": "ebdb750ff1111f04797620c54e8936fabc404789fa1e4d73a7c7030b71b6ea30"
+    },
+    {
+      "id": "settings/reset.base/at-788-45/dark",
+      "component": "settings",
+      "group": "reset",
+      "params": {
+        "variant": "outline",
+        "dirty": true
+      },
+      "state": "at-788-45",
+      "theme": "dark",
+      "viewport": [
+        832.0,
+        552.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        800.0,
+        520.0
+      ],
+      "png": "png/settings/reset.base/at-788-45/dark.png",
+      "scene": "scenes/settings/reset.base/at-788-45/dark.json",
+      "png_sha256": "2cac8b083a791054ba6f01d91d7601daa07d16b2c2b6edab5fa1e7d3a7e02de5"
+    },
+    {
+      "id": "settings/reset.base/at-788-45/light",
+      "component": "settings",
+      "group": "reset",
+      "params": {
+        "variant": "outline",
+        "dirty": true
+      },
+      "state": "at-788-45",
+      "theme": "light",
+      "viewport": [
+        832.0,
+        552.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        800.0,
+        520.0
+      ],
+      "png": "png/settings/reset.base/at-788-45/light.png",
+      "scene": "scenes/settings/reset.base/at-788-45/light.json",
+      "png_sha256": "201c1815c1b818eb1b19a85c5794df4eead9f9aa81fba4bf7c51fff44c4067f9"
+    },
+    {
+      "id": "settings/reset.base/click-at-788-45+at-600-45/dark",
+      "component": "settings",
+      "group": "reset",
+      "params": {
+        "variant": "outline",
+        "dirty": true
+      },
+      "state": "click-at-788-45+at-600-45",
+      "theme": "dark",
+      "viewport": [
+        832.0,
+        552.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        800.0,
+        520.0
+      ],
+      "png": "png/settings/reset.base/click-at-788-45+at-600-45/dark.png",
+      "scene": "scenes/settings/reset.base/click-at-788-45+at-600-45/dark.json",
+      "png_sha256": "f7dd3aa44416a80137a43f9131a2a2840c63fc933dfd657f9f6436aa42306597"
+    },
+    {
+      "id": "settings/reset.base/click-at-788-45+at-600-45/light",
+      "component": "settings",
+      "group": "reset",
+      "params": {
+        "variant": "outline",
+        "dirty": true
+      },
+      "state": "click-at-788-45+at-600-45",
+      "theme": "light",
+      "viewport": [
+        832.0,
+        552.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        800.0,
+        520.0
+      ],
+      "png": "png/settings/reset.base/click-at-788-45+at-600-45/light.png",
+      "scene": "scenes/settings/reset.base/click-at-788-45+at-600-45/light.json",
+      "png_sha256": "741a39bb63d0d50745b61aa4f9524bff07bc845faf04e1664d26b2b81f6c5d35"
+    },
+    {
+      "id": "settings/reset.base/normal/dark",
+      "component": "settings",
+      "group": "reset",
+      "params": {
+        "variant": "outline",
+        "dirty": true
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        832.0,
+        552.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        800.0,
+        520.0
+      ],
+      "png": "png/settings/reset.base/normal/dark.png",
+      "scene": "scenes/settings/reset.base/normal/dark.json",
+      "png_sha256": "f60ba02c0ca535267e58826fb71ac7e9f32a0db9dbec2af7968ad2b15fc42f19"
+    },
+    {
+      "id": "settings/reset.base/normal/light",
+      "component": "settings",
+      "group": "reset",
+      "params": {
+        "variant": "outline",
+        "dirty": true
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        832.0,
+        552.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        800.0,
+        520.0
+      ],
+      "png": "png/settings/reset.base/normal/light.png",
+      "scene": "scenes/settings/reset.base/normal/light.json",
+      "png_sha256": "7d030780e9214b296ddb5e228ee2df5092e5a596dd139b2d9b7b6d116f434ba5"
+    },
+    {
+      "id": "settings/search.base/focus+key-f+key-o+key-n+key-t/dark",
+      "component": "settings",
+      "group": "search",
+      "params": {
+        "variant": "outline"
+      },
+      "state": "focus+key-f+key-o+key-n+key-t",
+      "theme": "dark",
+      "viewport": [
+        832.0,
+        552.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        800.0,
+        520.0
+      ],
+      "png": "png/settings/search.base/focus+key-f+key-o+key-n+key-t/dark.png",
+      "scene": "scenes/settings/search.base/focus+key-f+key-o+key-n+key-t/dark.json",
+      "png_sha256": "42abdc8ddbe75391919f33010266ee84da32ef87ea43c7bad13c5dd0f1fa4c1e"
+    },
+    {
+      "id": "settings/search.base/focus+key-f+key-o+key-n+key-t/light",
+      "component": "settings",
+      "group": "search",
+      "params": {
+        "variant": "outline"
+      },
+      "state": "focus+key-f+key-o+key-n+key-t",
+      "theme": "light",
+      "viewport": [
+        832.0,
+        552.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        800.0,
+        520.0
+      ],
+      "png": "png/settings/search.base/focus+key-f+key-o+key-n+key-t/light.png",
+      "scene": "scenes/settings/search.base/focus+key-f+key-o+key-n+key-t/light.json",
+      "png_sha256": "be46918f328f6eb3342bc80404373302dce3aafa1d128ba208a5f26331a34b23"
+    },
+    {
+      "id": "settings/search.base/focus+key-s+key-h+key-e+key-l+key-l/dark",
+      "component": "settings",
+      "group": "search",
+      "params": {
+        "variant": "outline"
+      },
+      "state": "focus+key-s+key-h+key-e+key-l+key-l",
+      "theme": "dark",
+      "viewport": [
+        832.0,
+        552.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        800.0,
+        520.0
+      ],
+      "png": "png/settings/search.base/focus+key-s+key-h+key-e+key-l+key-l/dark.png",
+      "scene": "scenes/settings/search.base/focus+key-s+key-h+key-e+key-l+key-l/dark.json",
+      "png_sha256": "3bd295d9ca1b08600ee77b65eefe859531d22dee9407a1ff3340f1415615d669"
+    },
+    {
+      "id": "settings/search.base/focus+key-s+key-h+key-e+key-l+key-l/light",
+      "component": "settings",
+      "group": "search",
+      "params": {
+        "variant": "outline"
+      },
+      "state": "focus+key-s+key-h+key-e+key-l+key-l",
+      "theme": "light",
+      "viewport": [
+        832.0,
+        552.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        800.0,
+        520.0
+      ],
+      "png": "png/settings/search.base/focus+key-s+key-h+key-e+key-l+key-l/light.png",
+      "scene": "scenes/settings/search.base/focus+key-s+key-h+key-e+key-l+key-l/light.json",
+      "png_sha256": "6470731bdfc361a3042f1df04ab5bd88adbb2e5ae7cf191c15bb57d9523f7fa7"
+    },
+    {
+      "id": "settings/search.base/focus+key-u+key-p+key-d+key-a+key-t+key-e/dark",
+      "component": "settings",
+      "group": "search",
+      "params": {
+        "variant": "outline"
+      },
+      "state": "focus+key-u+key-p+key-d+key-a+key-t+key-e",
+      "theme": "dark",
+      "viewport": [
+        832.0,
+        552.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        800.0,
+        520.0
+      ],
+      "png": "png/settings/search.base/focus+key-u+key-p+key-d+key-a+key-t+key-e/dark.png",
+      "scene": "scenes/settings/search.base/focus+key-u+key-p+key-d+key-a+key-t+key-e/dark.json",
+      "png_sha256": "efcd5a166ab430549ada6d32c35e61003d0e1631c07243365fd212c4a4d0fd45"
+    },
+    {
+      "id": "settings/search.base/focus+key-u+key-p+key-d+key-a+key-t+key-e/light",
+      "component": "settings",
+      "group": "search",
+      "params": {
+        "variant": "outline"
+      },
+      "state": "focus+key-u+key-p+key-d+key-a+key-t+key-e",
+      "theme": "light",
+      "viewport": [
+        832.0,
+        552.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        800.0,
+        520.0
+      ],
+      "png": "png/settings/search.base/focus+key-u+key-p+key-d+key-a+key-t+key-e/light.png",
+      "scene": "scenes/settings/search.base/focus+key-u+key-p+key-d+key-a+key-t+key-e/light.json",
+      "png_sha256": "23f4ab160c224707ebe242e655b3cbbf07e0f5660a1f23e6b09b539da56733c4"
+    },
+    {
+      "id": "settings/search.base/focus+key-z+key-z+key-z/dark",
+      "component": "settings",
+      "group": "search",
+      "params": {
+        "variant": "outline"
+      },
+      "state": "focus+key-z+key-z+key-z",
+      "theme": "dark",
+      "viewport": [
+        832.0,
+        552.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        800.0,
+        520.0
+      ],
+      "png": "png/settings/search.base/focus+key-z+key-z+key-z/dark.png",
+      "scene": "scenes/settings/search.base/focus+key-z+key-z+key-z/dark.json",
+      "png_sha256": "74e1dc004889e7a9a670a289e45a58b8a4c81fbba6583935d67704d45f391695"
+    },
+    {
+      "id": "settings/search.base/focus+key-z+key-z+key-z/light",
+      "component": "settings",
+      "group": "search",
+      "params": {
+        "variant": "outline"
+      },
+      "state": "focus+key-z+key-z+key-z",
+      "theme": "light",
+      "viewport": [
+        832.0,
+        552.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        800.0,
+        520.0
+      ],
+      "png": "png/settings/search.base/focus+key-z+key-z+key-z/light.png",
+      "scene": "scenes/settings/search.base/focus+key-z+key-z+key-z/light.json",
+      "png_sha256": "d20160d693de70baedf645879be56ff00f308f51f94e3147726e93de10e1e080"
+    },
+    {
+      "id": "settings/size.large/normal/dark",
+      "component": "settings",
+      "group": "size",
+      "params": {
+        "variant": "outline",
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        832.0,
+        552.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        800.0,
+        520.0
+      ],
+      "png": "png/settings/size.large/normal/dark.png",
+      "scene": "scenes/settings/size.large/normal/dark.json",
+      "png_sha256": "13ffd58d4573226b4436c6b1647b12c4df4aa713c25e048ab9713ab143b56b09"
+    },
+    {
+      "id": "settings/size.large/normal/light",
+      "component": "settings",
+      "group": "size",
+      "params": {
+        "variant": "outline",
+        "size": "large"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        832.0,
+        552.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        800.0,
+        520.0
+      ],
+      "png": "png/settings/size.large/normal/light.png",
+      "scene": "scenes/settings/size.large/normal/light.json",
+      "png_sha256": "fb71aba904b4f9c381c17ccdd1ddfafc676866ef884be0c82ff5894fb6e6f719"
+    },
+    {
+      "id": "settings/size.small/normal/dark",
+      "component": "settings",
+      "group": "size",
+      "params": {
+        "variant": "outline",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        832.0,
+        552.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        800.0,
+        520.0
+      ],
+      "png": "png/settings/size.small/normal/dark.png",
+      "scene": "scenes/settings/size.small/normal/dark.json",
+      "png_sha256": "9fffe42998c60f2c07eb47a52ed7bb20a80f0e1d988ecd187c8ff0160985f059"
+    },
+    {
+      "id": "settings/size.small/normal/light",
+      "component": "settings",
+      "group": "size",
+      "params": {
+        "variant": "outline",
+        "size": "small"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        832.0,
+        552.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        800.0,
+        520.0
+      ],
+      "png": "png/settings/size.small/normal/light.png",
+      "scene": "scenes/settings/size.small/normal/light.json",
+      "png_sha256": "055aaaa7769cf1684cf6da81570db03654708da5f173ea57fe16ea75adca6b4a"
+    },
+    {
+      "id": "settings/size.xsmall/normal/dark",
+      "component": "settings",
+      "group": "size",
+      "params": {
+        "variant": "outline",
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        832.0,
+        552.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        800.0,
+        520.0
+      ],
+      "png": "png/settings/size.xsmall/normal/dark.png",
+      "scene": "scenes/settings/size.xsmall/normal/dark.json",
+      "png_sha256": "40f62e57ef6c3e1fb5e189e9ec0d1a7de81657c099cf8b7e205cc2a6564fddcd"
+    },
+    {
+      "id": "settings/size.xsmall/normal/light",
+      "component": "settings",
+      "group": "size",
+      "params": {
+        "variant": "outline",
+        "size": "xsmall"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        832.0,
+        552.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        800.0,
+        520.0
+      ],
+      "png": "png/settings/size.xsmall/normal/light.png",
+      "scene": "scenes/settings/size.xsmall/normal/light.json",
+      "png_sha256": "3fab91b94ba34405bb59d60d60f55b2b5b3a2ab243cc1afca47e3a063d6cc6c8"
+    },
+    {
+      "id": "settings/story.fill/normal/dark",
+      "component": "settings",
+      "group": "story",
+      "params": {
+        "variant": "fill"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        832.0,
+        552.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        800.0,
+        520.0
+      ],
+      "png": "png/settings/story.fill/normal/dark.png",
+      "scene": "scenes/settings/story.fill/normal/dark.json",
+      "png_sha256": "5263c0ff458922791d2135ae8762bfedde83e5633f1d81b518601e757079ea35"
+    },
+    {
+      "id": "settings/story.fill/normal/light",
+      "component": "settings",
+      "group": "story",
+      "params": {
+        "variant": "fill"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        832.0,
+        552.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        800.0,
+        520.0
+      ],
+      "png": "png/settings/story.fill/normal/light.png",
+      "scene": "scenes/settings/story.fill/normal/light.json",
+      "png_sha256": "1724bfe86e179d36408de8ae5ee6b26b4ec984f670e6c21f1e190a4509d6bceb"
+    },
+    {
+      "id": "settings/story.normal/normal/dark",
+      "component": "settings",
+      "group": "story",
+      "params": {
+        "variant": "normal"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        832.0,
+        552.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        800.0,
+        520.0
+      ],
+      "png": "png/settings/story.normal/normal/dark.png",
+      "scene": "scenes/settings/story.normal/normal/dark.json",
+      "png_sha256": "5cc50e5e08083fbc43ebe0bbeb29413cdc18c1dc34b4dfa4b0c3abb200b5a847"
+    },
+    {
+      "id": "settings/story.normal/normal/light",
+      "component": "settings",
+      "group": "story",
+      "params": {
+        "variant": "normal"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        832.0,
+        552.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        800.0,
+        520.0
+      ],
+      "png": "png/settings/story.normal/normal/light.png",
+      "scene": "scenes/settings/story.normal/normal/light.json",
+      "png_sha256": "94fe789fb0ca1b9b618da2a1cce0fc374b094bc444ed3508e328284ab252a4a4"
+    },
+    {
+      "id": "settings/story.outline/normal/dark",
+      "component": "settings",
+      "group": "story",
+      "params": {
+        "variant": "outline"
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        832.0,
+        552.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        800.0,
+        520.0
+      ],
+      "png": "png/settings/story.outline/normal/dark.png",
+      "scene": "scenes/settings/story.outline/normal/dark.json",
+      "png_sha256": "c5d4541b357bea3154c3f60ae4756d5f85fcec95335d6643a7a5195eedd74bf7"
+    },
+    {
+      "id": "settings/story.outline/normal/light",
+      "component": "settings",
+      "group": "story",
+      "params": {
+        "variant": "outline"
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        832.0,
+        552.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        800.0,
+        520.0
+      ],
+      "png": "png/settings/story.outline/normal/light.png",
+      "scene": "scenes/settings/story.outline/normal/light.json",
+      "png_sha256": "6511eef61b6a1ef7488f7593468a20efeefee15b4264d794abc38f9ad4c43763"
+    },
+    {
+      "id": "settings/unresettable.base/normal/dark",
+      "component": "settings",
+      "group": "unresettable",
+      "params": {
+        "variant": "outline",
+        "dirty": true,
+        "resettable": false
+      },
+      "state": "normal",
+      "theme": "dark",
+      "viewport": [
+        832.0,
+        552.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        800.0,
+        520.0
+      ],
+      "png": "png/settings/unresettable.base/normal/dark.png",
+      "scene": "scenes/settings/unresettable.base/normal/dark.json",
+      "png_sha256": "ddbaff55890f5f3ae5461315680b55436592642062ca65b3c2d6d28bbdb977e4"
+    },
+    {
+      "id": "settings/unresettable.base/normal/light",
+      "component": "settings",
+      "group": "unresettable",
+      "params": {
+        "variant": "outline",
+        "dirty": true,
+        "resettable": false
+      },
+      "state": "normal",
+      "theme": "light",
+      "viewport": [
+        832.0,
+        552.0
+      ],
+      "anchor": [
+        16.0,
+        16.0
+      ],
+      "component_bounds": [
+        16.0,
+        16.0,
+        800.0,
+        520.0
+      ],
+      "png": "png/settings/unresettable.base/normal/light.png",
+      "scene": "scenes/settings/unresettable.base/normal/light.json",
+      "png_sha256": "b339db7c50c4bd033c23eb7b7924218787dd2d8ae36268d4c20720a6adc6b6a7"
+    },
+    {
       "id": "sheet/close.base/click+wait-200ms+at-536-21/dark",
       "component": "sheet",
       "group": "close",

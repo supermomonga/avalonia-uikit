@@ -840,6 +840,26 @@ public sealed partial class SeparatorVariants : UserControl
     public SeparatorVariants() => AvaloniaXamlLoader.Load(this);
 }
 
+public sealed partial class SettingsDemo : UserControl
+{
+    public SettingsDemo() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class SettingsGroupVariants : UserControl
+{
+    public SettingsGroupVariants() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class SettingsItems : UserControl
+{
+    public SettingsItems() => AvaloniaXamlLoader.Load(this);
+}
+
+public sealed partial class SettingsReset : UserControl
+{
+    public SettingsReset() => AvaloniaXamlLoader.Load(this);
+}
+
 public sealed partial class SheetDemo : UserControl
 {
     public SheetDemo() => AvaloniaXamlLoader.Load(this);
@@ -1607,6 +1627,10 @@ public static partial class DemoRegistry
         ["separator/demo"] = static () => new SeparatorDemo(),
         ["separator/label"] = static () => new SeparatorLabel(),
         ["separator/variants"] = static () => new SeparatorVariants(),
+        ["settings/demo"] = static () => new SettingsDemo(),
+        ["settings/group-variants"] = static () => new SettingsGroupVariants(),
+        ["settings/items"] = static () => new SettingsItems(),
+        ["settings/reset"] = static () => new SettingsReset(),
         ["sheet/demo"] = static () => new SheetDemo(),
         ["sheet/placements"] = static () => new SheetPlacements(),
         ["shimmer/demo"] = static () => new ShimmerDemo(),

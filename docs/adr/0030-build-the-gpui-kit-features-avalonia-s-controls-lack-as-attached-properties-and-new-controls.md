@@ -12,6 +12,8 @@ links:
   kind: amends
 - target: 33
   kind: amendedby
+- target: 40
+  kind: amendedby
 ---
 
 # Build the GPUI Kit features Avalonia's controls lack as attached properties and new controls

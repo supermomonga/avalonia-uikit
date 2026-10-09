@@ -109,6 +109,7 @@ export const components: ComponentEntry[] = [
   entry("scrollable", "Scrollable", "Scrollable, Scrollbar", "ScrollViewer", "full", "Layout", { scroll: true }),
   entry("select", "Select", "Select", "ComboBox", "partial", "Forms"),
   entry("separator", "Separator", "Separator", "Separator", "full", "Layout"),
+  entry("settings", "Settings", "Settings, SettingPage, SettingGroup, SettingItem, Preferences", "uikit:Settings, uikit:SettingPage, uikit:SettingGroup, uikit:SettingItem", "new", "Layout", { scroll: true }),
   entry("sheet", "Sheet", "Sheet", "DrawerPage.sheet", "partial", "Overlays"),
   entry("shimmer", "Shimmer", "Shimmer", "uikit:ShimmerText", "new", "Feedback"),
   entry("sidebar", "Sidebar", "Sidebar", "SplitView, DrawerPage", "partial", "Navigation"),

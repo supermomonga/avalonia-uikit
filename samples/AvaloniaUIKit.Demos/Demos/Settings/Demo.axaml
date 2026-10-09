@@ -1,0 +1,64 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:uikit="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.SettingsDemo">
+  <Border BorderBrush="{DynamicResource UIKit.Border}" BorderThickness="1" CornerRadius="6" ClipToBounds="True"
+          Width="640" Height="440" HorizontalAlignment="Left">
+    <uikit:Settings GroupVariant="Outline" SidebarWidth="150" SidebarMinWidth="120">
+      <uikit:SettingPage Title="General" Icon="{StaticResource UIKit.Icon.Settings2}" IsOpen="True">
+        <uikit:SettingGroup Title="Appearance">
+          <uikit:SettingItem Title="Dark Mode" Description="Switch between light and dark themes." DefaultValue="False">
+            <ToggleSwitch />
+          </uikit:SettingItem>
+          <uikit:SettingItem Title="Auto Switch Theme" Description="Follow the system's light or dark setting." DefaultValue="False">
+            <CheckBox />
+          </uikit:SettingItem>
+        </uikit:SettingGroup>
+        <uikit:SettingGroup Title="Font" Footer="Font preferences apply to this window only.">
+          <uikit:SettingItem Title="Font Family" Description="Select the font family." DefaultValue="Inter">
+            <ComboBox SelectedIndex="0" Width="160">
+              <x:String>Inter</x:String>
+              <x:String>Helvetica</x:String>
+              <x:String>Times New Roman</x:String>
+            </ComboBox>
+          </uikit:SettingItem>
+          <uikit:SettingItem Title="Font Size" Description="Between 8 and 72." DefaultValue="14">
+            <NumericUpDown Value="14" Minimum="8" Maximum="72" />
+          </uikit:SettingItem>
+        </uikit:SettingGroup>
+        <uikit:SettingGroup Title="Other">
+          <uikit:SettingItem Title="CLI Path" Description="Path to the CLI executable." Keywords="shell, terminal"
+                             Orientation="Vertical" DefaultValue="/usr/local/bin/bash">
+            <TextBox Text="/usr/local/bin/bash" />
+          </uikit:SettingItem>
+        </uikit:SettingGroup>
+      </uikit:SettingPage>
+      <uikit:SettingPage Title="Updates" Icon="{StaticResource UIKit.Icon.Cpu}">
+        <uikit:SettingGroup Title="Updates">
+          <uikit:SettingItem Title="Notifications" Description="Hear about updates and news." DefaultValue="True">
+            <ToggleSwitch IsChecked="True" />
+          </uikit:SettingItem>
+          <uikit:SettingItem Title="Auto Update" Description="Download and install new versions." DefaultValue="True">
+            <ToggleSwitch IsChecked="True" />
+          </uikit:SettingItem>
+        </uikit:SettingGroup>
+      </uikit:SettingPage>
+      <uikit:SettingPage Title="About" Icon="{StaticResource UIKit.Icon.Info}"
+                         Description="The application and where to find out more.">
+        <uikit:SettingGroup>
+          <uikit:SettingItem>
+            <StackPanel Spacing="4">
+              <TextBlock Text="Avalonia UIKit" />
+              <TextBlock Text="Version 0.1.0" FontSize="14" Foreground="{DynamicResource UIKit.MutedForeground}" />
+            </StackPanel>
+          </uikit:SettingItem>
+        </uikit:SettingGroup>
+        <uikit:SettingGroup Title="Links">
+          <uikit:SettingItem Title="Repository" Description="The source on GitHub.">
+            <Button Classes="outline" Content="Open..." />
+          </uikit:SettingItem>
+        </uikit:SettingGroup>
+      </uikit:SettingPage>
+    </uikit:Settings>
+  </Border>
+</UserControl>

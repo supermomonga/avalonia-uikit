@@ -13,9 +13,10 @@ Avalonia themes and controls based on the Nova style of
   GPUI Kit components and features Avalonia lacks: small components (Badge,
   Tag, Alert, Avatar, Stepper, Form and others), controls such as Select with
   search and multiple selection, ListView, Tree, CalendarView, DateField,
-  Sidebar, Sheet and NotificationList, and attached properties such as a
-  loading Button, input masks and tabs that close, reorder and drag out into
-  windows. Optional packages cover `ColorPicker` and `DataGrid`, and the
+  Sidebar, Sheet, NotificationList and a searchable Settings window, and
+  attached properties such as a loading Button, input masks and tabs that
+  close, reorder and drag out into windows. Optional packages cover
+  `ColorPicker` and `DataGrid`, and the
   third-party library [Dock.Avalonia](https://github.com/wieslawsoltes/Dock)
   (docking layouts).
 - Colors come in GPUI Kit's Default Light and Default Dark and in the 36 color

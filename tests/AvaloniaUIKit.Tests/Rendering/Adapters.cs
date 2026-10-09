@@ -100,6 +100,7 @@ public static partial class Adapters
         "dock" => DockCase(c),
         "carousel" => CarouselCase(c),
         "uikit-carousel" => UikitCarouselCase(c),
+        "settings" => SettingsCase(c),
         "sidebar" => c.Str("host", "splitview") == "drawer" ? SidebarDrawer(c) : Sidebar(c),
         "uikit-sidebar" => SidebarCase(c),
         "sheet" => Sheet(c),
