@@ -435,6 +435,32 @@
           </Border>
         </DockPanel>
 
+        <TextBlock Text="uikit:Settings" Foreground="{DynamicResource UIKit.MutedForeground}" />
+        <uikit:Settings Width="720" Height="360" HorizontalAlignment="Left" GroupVariant="Outline">
+          <uikit:SettingPage Title="General" Icon="{StaticResource UIKit.Icon.Settings2}" IsOpen="True">
+            <uikit:SettingGroup Title="Appearance">
+              <uikit:SettingItem Title="Dark Mode" Description="Switch between light and dark themes." DefaultValue="False">
+                <ToggleSwitch />
+              </uikit:SettingItem>
+              <uikit:SettingItem Title="Font Size" Description="Between 8 and 72." DefaultValue="14">
+                <NumericUpDown Value="14" Minimum="8" Maximum="72" />
+              </uikit:SettingItem>
+            </uikit:SettingGroup>
+            <uikit:SettingGroup Title="Other" Footer="Applies to this device only.">
+              <uikit:SettingItem Title="CLI Path" Keywords="shell, terminal" Orientation="Vertical" DefaultValue="/usr/local/bin/bash">
+                <TextBox Text="/usr/local/bin/bash" />
+              </uikit:SettingItem>
+            </uikit:SettingGroup>
+          </uikit:SettingPage>
+          <uikit:SettingPage Title="About" Icon="{StaticResource UIKit.Icon.Info}">
+            <uikit:SettingGroup>
+              <uikit:SettingItem>
+                <TextBlock Text="AvaloniaUIKit" />
+              </uikit:SettingItem>
+            </uikit:SettingGroup>
+          </uikit:SettingPage>
+        </uikit:Settings>
+
         <TextBlock Text="Sheet" Foreground="{DynamicResource UIKit.MutedForeground}" />
         <DrawerPage Classes="sheet" DrawerBehavior="Flyout" DrawerPlacement="Right" DrawerHeader="Settings"
                     IsOpen="True" Width="400" Height="200" HorizontalAlignment="Left">

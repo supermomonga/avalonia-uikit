@@ -5,7 +5,7 @@ UIKitTheme が GPUI Kit と同じ見た目・動きになっていることを�
 - 移植元: gpui-kit [`2c5162f8c5b0c7fcec066ed53125d304c632bfe2`](https://github.com/longbridge/gpui-kit/tree/2c5162f8c5b0c7fcec066ed53125d304c632bfe2)（gpui-pre 0.3.7）
 - 移植先: Avalonia 12.1.3（別パッケージは `Avalonia.Controls.ColorPicker` 12.1.3、`Avalonia.Controls.DataGrid` 12.1.2）、.NET 10、TUnit 1.72.16
 - サードパーティのライブラリ（ADR 28）: Dock.Avalonia 12.1.0.6
-- 参照データ: `goldens/gpui-2c5162f/`（6396 ケース。うち動き 98、Aurora Light 124。PNG、Scene JSON、トークン）
+- 参照データ: `goldens/gpui-2c5162f/`（6446 ケース。うち動き 98、Aurora Light 124。PNG、Scene JSON、トークン）
 
 ## コマンド
 
@@ -55,11 +55,11 @@ UIKitTheme が GPUI Kit と同じ見た目・動きになっていることを�
 
 ## テストの構成
 
-6930 件。macOS arm64（P コア 4 つ）での最新の実行結果は全件成功し、`scripts/verify.sh`（4 プロセス）で約 50〜70 秒、1 プロセスでは約 1 分 45 秒かかる。テストの時刻はすべて仮想時計で進める（[時刻](#時刻)）。
+6994 件。macOS arm64（P コア 4 つ）での最新の実行結果は全件成功し、`scripts/verify.sh`（4 プロセス）で約 50〜70 秒、1 プロセスでは約 1 分 45 秒かかる。テストの時刻はすべて仮想時計で進める（[時刻](#時刻)）。
 
 | テスト | 件数 | 内容 |
 | --- | --- | --- |
-| `*_matches_gpui`（コンポーネント別 104 クラス） | 6394 | 静止状態の全ケース（TabControl は Tabs のケースをもう一度使い、TabBar のケースは TabStrip と TabControl の両方で、Select の閉じた欄のケースは編集可能な ComboBox でも使う）。構造と画素を比較する。 |
+| `*_matches_gpui`（コンポーネント別 105 クラス） | 6444 | 静止状態の全ケース（TabControl は Tabs のケースをもう一度使い、TabBar のケースは TabStrip と TabControl の両方で、Select の閉じた欄のケースは編集可能な ComboBox でも使う）。構造と画素を比較する。 |
 | `MotionTests`、`TabControl_moves_as_gpui` | 95、4 | 動きを GPUI が記録した時刻ごとに描画し、フレームを比較する。 |
 | `TokenTests` | 40 | トークンの完全一致と過不足。Default Light / Default Dark と同梱の 36 テーマのそれぞれ、テーマのバリアントの継承。 |
 | `BehaviorTests`、`ControlBehaviorTests` | 24、34 | 時間・入力・無効状態の挙動。後者は新しいコントロール（ADR 19）の操作と、GPUI の表記・色の計算。 |
@@ -68,7 +68,8 @@ UIKitTheme が GPUI Kit と同じ見た目・動きになっていることを�
 | `IconGeneratorTests` | 9 | アイコンのジェネレーター（ADR 38）。メモリ上のプロジェクトで C#、XAML、`UIKitIcon`、`All` から足すアイコンと警告、生成したコードのコンパイル、`Icons.g.tsv` と `IconName` の一致。テストのアセンブリ自身にも通し、名前を書いたアイコンの描画、`UIKitIcon` で足したアイコン、誰も足していないアイコンの警告を確かめる。 |
 | `TabsEditingBehaviorTests` | 29 | タブを閉じる・追加する・ドラッグする操作（ADR 33、34）。GPUI Kit に参照がないので、項目と選択の変化、ウィンドウの開閉で確かめる。 |
 | `DockBehaviorTests` | 3 | サードパーティのライブラリ（ADR 28）の操作が、テーマの部品を通して効くこと。 |
-| `FluentLayeringTests` | 19 | FluentTheme の上に重ねても見た目が変わらないこと。 |
+| `SettingsBehaviorTests` | 13 | `uikit:Settings`（ADR 40）。GPUI Kit の `setting/tests.rs` と同じ例の検索と選択の規則、group へのスクロール、footer、検索で隠れた項目を残すリセット、group の variant の上書き。加えて、`DefaultValue` による各フィールドの値の追従とバインディングを通したリセット、`IsModified` と `ResetCommand`、サイズのクラス、狭いページの縦並び、`IsOpen` の同期、ページより先に設定した `SelectedIndex`。 |
+| `FluentLayeringTests` | 20 | FluentTheme の上に重ねても見た目が変わらないこと。 |
 
 コンポーネント別の静止ケース数（括弧内は動きのケース数）:
 
@@ -129,11 +130,12 @@ UIKitTheme が GPUI Kit と同じ見た目・動きになっていることを�
 | Tooltip → ToolTip | 4（1） | 表示後、サイズ |
 | 背景（Window） | 2 | Light / Dark |
 
-新しいコントロール（ADR 19）の静止ケース数:
+新しいコントロール（ADR 19、ADR 40）の静止ケース数:
 
 | コンポーネント（GPUI → Avalonia） | ケース | 組み合わせ |
 | --- | --- | --- |
 | Tag → TagLabel | 82 | 6 色 × outline、19 のパレット色、4 サイズ、rounded-full、hover |
+| Settings → Settings | 50 | 設定のストーリー（3 ページ）× group の 3 つの variant、メニューの hover とクリック（ページ、group へのスクロール、About を開く）、検索 4 種（1 group だけ、別のページへ、キーワード、結果なし）、3 サイズ、リセットボタンの表示・hover・クリック、リセットなし、無効、group の variant の上書き、About（説明、タイトルのない項目）× 2 variant、480px 以下のページ × 2 variant |
 | Alert → Alert | 46 | 5 種類、タイトル、4 サイズ、banner、アイコン、折り返し、閉じるボタンの hover / 押下 |
 | Avatar → Avatar | 36 | 頭文字 × 4 サイズ、12 色のうち 8 名分、1 語、代わりのアイコン、画像 |
 | Badge → Badge | 32 | 数 / 点 / アイコン × 3 サイズ、2 桁、上限、色 |
@@ -386,6 +388,7 @@ Avalonia には時刻を指定する公開 API がないので、テストに限
 | Sidebar | 折り畳むと部品が `:collapsed` になり、ラベル・グループ名・サブメニューが隠れ、ツールチップが出る。offcanvas は 200ms 後に内容を隠す。項目の `Click`、`Command`、キャレット、click_to_open / click_to_toggle、無効な項目。`SplitView.Pane` の中では SplitView に従う。 |
 | NotificationList | 入場から 5.4 秒で閉じ、退場 200ms の後に消える。action があると残る（`AutoHide` で変える）。ポインターかフォーカスがある間は止まり、離れると残りから再開する。同じ `Id` と `Key` は退場なしに置き換えて最新にする。`Remove` と `Clear`。`MaxItems` を超えた古いものは隠れて待つ。配置ごとのスタック、GPUI の stack_geometry のテストの値、新しいカードで古いカードがばねで 14px 下がって狭くなること、4 枚目は畳んでいる間描かないこと。クリックは `Click` を処理するときだけ閉じ、中クリックと閉じるボタンは常に閉じる。TopLevel 用のリストはアドーナー層に置かれ、カードの外の入力を通す。 |
 | uikit:TitleBar | キャプションボタンの 34 × 33 と 14px のアイコン、hover の色、役割、最小化・最大化 / 復元・閉じる、ウィンドウが許すボタンだけ、装飾に広がっていないウィンドウでは出ないこと。子が両端に分かれて縦の中央に並ぶ。バーの役割（Windows / macOS は TitleBar、ほかは None）、フォーカスできる子は User。バーのダブルクリックで最大化 / 復元する。OS の移動と最大化は実機では確かめていない。 |
+| uikit:Settings | 項目の中身が GPUI のフィールド。GPUI の dropdown フィールドの見た目は `DropDownButton Classes="outline"` と MenuFlyout（値は追わない）、値を追うなら ComboBox。既定値は `SettingItem.DefaultValue`（ToggleButton、TextBox、NumericUpDown、RangeBase、SelectingItemsControl、`uikit:Select`）、ほかの中身は `IsModified` と `Reset` / `ResetCommand`。フィールドのサイズは Settings のサイズのクラス | GPUI の `SettingField` の型を作らず、標準のコントロールとそのテーマで描く（ADR 40）。 |
 | 計算 | Avatar の頭文字（GPUI の extract_text_initials）、Kbd の表記（GPUI の test_format、macOS と他の OS）、DescriptionList の行の分け方（GPUI の test_group_item_rows）、TextLabel の一致の範囲（GPUI の test_highlight_ranges）、ColorSelect の 16 進（GPUI の parse_hex / hex_string のテストの例）、月の週の数（GPUI の test_days）。 |
 
 ## 見た目だけのコード

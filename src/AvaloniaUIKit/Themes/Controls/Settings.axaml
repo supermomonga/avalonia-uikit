@@ -1,0 +1,264 @@
+<!--
+  GPUI Kit Settings (crates/component/src/setting) -> uikit:Settings with
+  uikit:SettingPage, uikit:SettingGroup and uikit:SettingItem (the content is
+  the field):
+
+    <uikit:Settings GroupVariant="Outline">
+      <uikit:SettingPage Title="General" Icon="{StaticResource UIKit.Icon.Settings2}" IsOpen="True">
+        <uikit:SettingGroup Title="Appearance">
+          <uikit:SettingItem Title="Dark Mode" Description="Switch between light and dark themes." DefaultValue="False">
+            <ToggleSwitch IsChecked="{Binding DarkMode}" />
+          </uikit:SettingItem>
+        </uikit:SettingGroup>
+      </uikit:SettingPage>
+    </uikit:Settings>
+
+  Settings (settings.rs): a ResizablePanelGroup of the sidebar (250px, 160 to
+  360) and the selected page. The sidebar is the Sidebar's surface without
+  its border: the sidebar color, the search box (a TextBox with the search
+  icon) 12px in at the top, and the SidebarMenu of the pages 12px in below.
+
+  SettingPage (page.rs): the header, 16px in above a 1px line: the 16px title
+  (with the title suffix 4px after it) and the small ghost reset button at the
+  end, the 14px muted description 12px under them. The groups scroll under
+  it, 16px in at the sides.
+
+  SettingGroup (group.rs, GroupBox): 16px above and below. The title is
+  muted on a 1.25 line, the 14px muted description 4px under it, and the
+  surface 16px below them (group.rs puts gap_4 on the GroupBox, for every
+  variant). Fill paints the group_box color and outline a 1px border, both
+  16px in with the theme radius; the items are 16px apart. The footer is
+  14px muted text 8px under the surface.
+
+  SettingItem (item.rs): the 14px title on a 20px line and the 14px muted
+  description on GPUI's phi line (22.5px: window.rs pixel_snap), 12px from the field (SettingItemPanel).
+  Horizontally a TextBox is 256px and a NumericUpDown 128px wide (fields/
+  string.rs w_64, number.rs w_32); vertically they and a button fill the
+  row, and a ToggleSwitch or CheckBox keeps its width at the start. A
+  disabled item is dimmed to 50%.
+-->
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:uikit="using:AvaloniaUIKit">
+  <Styles.Resources>
+    <ControlTheme x:Key="{x:Type uikit:Settings}" TargetType="uikit:Settings">
+      <Setter Property="ItemsPanel">
+        <ItemsPanelTemplate>
+          <Panel />
+        </ItemsPanelTemplate>
+      </Setter>
+      <Setter Property="Template">
+        <ControlTemplate>
+          <uikit:ResizablePanelGroup Name="PART_Panels">
+            <uikit:ResizablePanel Size="{TemplateBinding SidebarWidth}"
+                                  MinSize="{TemplateBinding SidebarMinWidth}"
+                                  MaxSize="{TemplateBinding SidebarMaxWidth}">
+              <!-- settings.rs render_sidebar: Sidebar::new().w(relative(1.)).border_0(). -->
+              <Border Name="PART_Sidebar"
+                      Background="{DynamicResource UIKit.Sidebar.Fill}"
+                      TextElement.Foreground="{DynamicResource UIKit.SidebarForeground}">
+                <DockPanel>
+                  <Border DockPanel.Dock="Top" Padding="12,12,12,0">
+                    <!-- The Input has no text color of its own: the text and the icon take the sidebar's. -->
+                    <TextBox Name="PART_SearchBox"
+                             HorizontalAlignment="Stretch"
+                             Foreground="{DynamicResource UIKit.SidebarForeground}"
+                             Text="{TemplateBinding SearchText, Mode=TwoWay}"
+                             PlaceholderText="{TemplateBinding SearchPlaceholderText}">
+                      <TextBox.InnerLeftContent>
+                        <PathIcon Classes="small" Data="{StaticResource UIKit.Icon.Search}" />
+                      </TextBox.InnerLeftContent>
+                    </TextBox>
+                  </Border>
+                  <ScrollViewer Name="PART_SidebarScrollViewer" HorizontalScrollBarVisibility="Disabled">
+                    <uikit:SidebarMenu Name="PART_Menu" Margin="12" />
+                  </ScrollViewer>
+                </DockPanel>
+              </Border>
+            </uikit:ResizablePanel>
+            <uikit:ResizablePanel>
+              <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
+            </uikit:ResizablePanel>
+          </uikit:ResizablePanelGroup>
+        </ControlTemplate>
+      </Setter>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type uikit:SettingPage}" TargetType="uikit:SettingPage">
+      <Setter Property="ItemsPanel">
+        <ItemsPanelTemplate>
+          <StackPanel />
+        </ItemsPanelTemplate>
+      </Setter>
+      <Setter Property="Template">
+        <ControlTemplate>
+          <DockPanel>
+            <Border Name="PART_Header" DockPanel.Dock="Top"
+                    Padding="16"
+                    BorderThickness="0,0,0,1"
+                    BorderBrush="{DynamicResource UIKit.Border}">
+              <StackPanel Spacing="12">
+                <DockPanel>
+                  <Button Name="PART_ResetButton" DockPanel.Dock="Right"
+                          Classes="ghost small icon-only"
+                          VerticalAlignment="Center"
+                          IsVisible="False"
+                          ToolTip.Tip="Reset All"
+                          AutomationProperties.Name="Reset All">
+                    <PathIcon Data="{StaticResource UIKit.Icon.Undo2}" />
+                  </Button>
+                  <StackPanel Orientation="Horizontal" Spacing="4" VerticalAlignment="Center">
+                    <TextBlock Name="PART_Title"
+                               VerticalAlignment="Center"
+                               FontSize="16"
+                               LineHeight="26"
+                               Foreground="{DynamicResource UIKit.Foreground}"
+                               Text="{TemplateBinding Title}" />
+                    <ContentPresenter Name="PART_TitleSuffix"
+                                      VerticalAlignment="Center"
+                                      Content="{TemplateBinding TitleSuffix}"
+                                      IsVisible="{TemplateBinding TitleSuffix, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                  </StackPanel>
+                </DockPanel>
+                <TextBlock Name="PART_Description"
+                           FontSize="14"
+                           LineHeight="20"
+                           TextWrapping="Wrap"
+                           Foreground="{DynamicResource UIKit.MutedForeground}"
+                           Text="{TemplateBinding Description}"
+                           IsVisible="{TemplateBinding Description, Converter={x:Static ObjectConverters.IsNotNull}}" />
+              </StackPanel>
+            </Border>
+            <ScrollViewer Name="PART_ScrollViewer" HorizontalScrollBarVisibility="Disabled">
+              <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" Margin="16,0" />
+            </ScrollViewer>
+          </DockPanel>
+        </ControlTemplate>
+      </Setter>
+      <Style Selector="^:resettable /template/ Button#PART_ResetButton">
+        <Setter Property="IsVisible" Value="True" />
+      </Style>
+      <Style Selector="^:unselected">
+        <Setter Property="IsVisible" Value="False" />
+      </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type uikit:SettingGroup}" TargetType="uikit:SettingGroup">
+      <Setter Property="Padding" Value="0,16" />
+      <Setter Property="ItemsPanel">
+        <ItemsPanelTemplate>
+          <StackPanel Spacing="16" />
+        </ItemsPanelTemplate>
+      </Setter>
+      <Setter Property="Template">
+        <ControlTemplate>
+          <DockPanel Margin="{TemplateBinding Padding}">
+            <StackPanel Name="PART_Header" DockPanel.Dock="Top" Margin="0,0,0,16" Spacing="4" IsVisible="False">
+              <TextBlock Name="PART_Title"
+                         FontSize="16"
+                         LineHeight="20"
+                         TextWrapping="Wrap"
+                         Foreground="{DynamicResource UIKit.MutedForeground}"
+                         Text="{TemplateBinding Title}" />
+              <TextBlock Name="PART_Description"
+                         FontSize="14"
+                         LineHeight="20"
+                         TextWrapping="Wrap"
+                         Foreground="{DynamicResource UIKit.MutedForeground}"
+                         Text="{TemplateBinding Description}"
+                         IsVisible="{TemplateBinding Description, Converter={x:Static ObjectConverters.IsNotNull}}" />
+            </StackPanel>
+            <!-- group_box.rs footer: text_sm, muted, 8px (gap_2) under the surface. -->
+            <ContentPresenter Name="PART_Footer" DockPanel.Dock="Bottom"
+                              Margin="0,8,0,0"
+                              FontSize="14"
+                              LineHeight="22.5"
+                              TextWrapping="Wrap"
+                              Foreground="{DynamicResource UIKit.MutedForeground}"
+                              Content="{TemplateBinding Footer}"
+                              IsVisible="{TemplateBinding Footer, Converter={x:Static ObjectConverters.IsNotNull}}" />
+            <Border Name="PART_Surface"
+                    BackgroundSizing="OuterBorderEdge"
+                    CornerRadius="6"
+                    TextElement.Foreground="{DynamicResource UIKit.GroupBoxForeground}">
+              <ItemsPresenter Name="PART_ItemsPresenter" ItemsPanel="{TemplateBinding ItemsPanel}" />
+            </Border>
+          </DockPanel>
+        </ControlTemplate>
+      </Setter>
+      <Style Selector="^:titled /template/ StackPanel#PART_Header">
+        <Setter Property="IsVisible" Value="True" />
+      </Style>
+      <Style Selector="^:fill /template/ Border#PART_Surface">
+        <Setter Property="Background" Value="{DynamicResource UIKit.GroupBox}" />
+        <Setter Property="Padding" Value="16" />
+      </Style>
+      <Style Selector="^:outline /template/ Border#PART_Surface">
+        <Setter Property="BorderBrush" Value="{DynamicResource UIKit.Border}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="5.5" />
+        <Setter Property="Padding" Value="16" />
+      </Style>
+      <Style Selector="^:unmatched">
+        <Setter Property="IsVisible" Value="False" />
+      </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type uikit:SettingItem}" TargetType="uikit:SettingItem">
+      <Setter Property="Template">
+        <ControlTemplate>
+          <uikit:SettingItemPanel Name="PART_Layout" Spacing="12">
+            <StackPanel Name="PART_Text">
+              <TextBlock Name="PART_Title"
+                         FontSize="14"
+                         LineHeight="20"
+                         TextWrapping="Wrap"
+                         Foreground="{DynamicResource UIKit.Foreground}"
+                         Text="{TemplateBinding Title}" />
+              <ContentPresenter Name="PART_Description"
+                                FontSize="14"
+                                LineHeight="22.5"
+                                TextWrapping="Wrap"
+                                Foreground="{DynamicResource UIKit.MutedForeground}"
+                                Content="{TemplateBinding Description}"
+                                IsVisible="{TemplateBinding Description, Converter={x:Static ObjectConverters.IsNotNull}}" />
+            </StackPanel>
+            <ContentPresenter Name="PART_ContentPresenter"
+                              Content="{TemplateBinding Content}"
+                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+          </uikit:SettingItemPanel>
+        </ControlTemplate>
+      </Setter>
+      <Style Selector="^:custom /template/ StackPanel#PART_Text">
+        <Setter Property="IsVisible" Value="False" />
+      </Style>
+      <Style Selector="^:vertical /template/ uikit|SettingItemPanel#PART_Layout">
+        <Setter Property="Orientation" Value="Vertical" />
+      </Style>
+      <Style Selector="^:disabled">
+        <Setter Property="Opacity" Value="0.5" />
+      </Style>
+      <Style Selector="^:unmatched">
+        <Setter Property="IsVisible" Value="False" />
+      </Style>
+    </ControlTheme>
+  </Styles.Resources>
+
+  <!-- The fields' widths beside the text (fields/string.rs w_64, number.rs w_32). -->
+  <Style Selector="uikit|SettingItem:horizontal > :is(TextBox)">
+    <Setter Property="Width" Value="256" />
+  </Style>
+  <Style Selector="uikit|SettingItem:horizontal > :is(NumericUpDown)">
+    <Setter Property="Width" Value="128" />
+  </Style>
+  <!-- item.rs: vertically the field's box is the row's width, and a block child fills it;
+       a switch or checkbox draws its control at the start. -->
+  <Style Selector="uikit|SettingItem:vertical > :is(Control)">
+    <Setter Property="HorizontalAlignment" Value="Stretch" />
+  </Style>
+  <Style Selector="uikit|SettingItem:vertical > :is(ToggleButton)">
+    <Setter Property="HorizontalAlignment" Value="Left" />
+  </Style>
+</Styles>

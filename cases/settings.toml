@@ -1,0 +1,76 @@
+# GPUI Kit Settings -> uikit:Settings, after the settings story
+# (settings_story.rs) in an 800x520 box: a 250px sidebar beside a 550px page.
+# Pages: General (Appearance, Font with a footer, Other with a vertical
+# input), Software Update and About (a custom item, and Links).
+#
+# The sidebar's rows: the search box y=28..60 (Tab focuses it), General
+# 72..100, its groups Appearance 104..132, Font 136..164 and Other 168..196,
+# Software Update 204..232, About 240..268. The page's reset button is at
+# (788, 45).
+component = "settings"
+viewport = [832, 552]
+anchor = [16, 16]
+
+[[group]]
+name = "story"
+matrix = { variant = ["normal", "fill", "outline"] }
+
+# A page's row hovered and clicked; a group's row clicked scrolls the page to
+# the group; About's row opens its groups and selects it.
+[[group]]
+name = "menu"
+params = { variant = "outline" }
+states = ["at-100-218", "click-at-100-218", "click-at-100-150", "click-at-100-182", "click-at-100-254"]
+
+# The search keeps the items whose title, description or keywords contain it:
+# "font" leaves the Font group (one group: no rows under General), "update"
+# only Software Update (selected), "shell" the CLI Path's keyword, "zzz" nothing.
+[[group]]
+name = "search"
+params = { variant = "outline" }
+states = [
+  "focus+key-f+key-o+key-n+key-t",
+  "focus+key-u+key-p+key-d+key-a+key-t+key-e",
+  "focus+key-s+key-h+key-e+key-l+key-l",
+  "focus+key-z+key-z+key-z",
+]
+
+# The fields' size follows the settings'.
+[[group]]
+name = "size"
+params = { variant = "outline" }
+matrix = { size = ["xsmall", "small", "large"] }
+
+# Dark Mode and Font Size away from their defaults: the reset button shows,
+# hovered, and clicked puts them back and hides it. Not resettable: no button.
+[[group]]
+name = "reset"
+params = { variant = "outline", dirty = true }
+states = ["normal", "at-788-45", "click-at-788-45+at-600-45"]
+
+[[group]]
+name = "unresettable"
+params = { variant = "outline", dirty = true, resettable = false }
+
+# Disabled items are dimmed, their fields disabled.
+[[group]]
+name = "disabled"
+params = { variant = "outline", disabled = true }
+
+# A group's own variant overrides the settings': the Font group plain.
+[[group]]
+name = "group-variant"
+params = { variant = "outline", group_variant = "normal" }
+
+# About: the page's description, a custom item and a render field.
+[[group]]
+name = "about"
+params = { page = 2 }
+matrix = { variant = ["normal", "outline"] }
+
+# 720px: the page is 470px, under 480, so every item is vertical.
+[[group]]
+name = "narrow"
+params = { width = 720 }
+viewport = [752, 552]
+matrix = { variant = ["normal", "outline"] }

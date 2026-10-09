@@ -1,18 +1,18 @@
 # GPUI Kit → Avalonia コンポーネント対応表
 
-調査日: 2026-09-11（固定点の更新: 2026-10-03、サードパーティのライブラリと ADR 30 の機能の追加: 2026-10-05）
+調査日: 2026-09-11（固定点の更新: 2026-10-03、サードパーティのライブラリと ADR 30 の機能の追加: 2026-10-05、Settings の追加: 2026-10-09）
 
 ## 結論
 
 GPUI Kit の見た目を、Avalonia の既存コントロールに適用するテーマとして移植することは可能。配色だけでなく、`ControlTheme` と `ControlTemplate` を差し替えることで、余白、輪郭、内部の配置、状態表示、アニメーションも変更できる。ただし、テーマで扱えるのは**対応する既存コントロールの機能まで**である。
 
-ボタン、入力欄、選択欄、タブ、メニュー、カレンダー、一覧、表、通知などは対象にできる。標準に存在しないコンポーネントのうち、見た目が中心で小さく作れるもの（Badge、Tag、Alert など）は新しいコントロールとして実装する（ADR 19）。既存のコントロールが持たない GPUI Kit の機能（Select の検索、List のセクション、Calendar の複数月の表示など）は、既存のコントロールに付ける添付プロパティと新しいコントロールとして足す（ADR 30）。テキスト編集エンジンや OS の機能が要るもの、SVG とアニメーション画像の読み込み、keymap からの Action の解決、DataTable の機能、モーダル・コマンドパレット・可視化の仕組みは実装しない。ドッキングは、それを持つサードパーティのライブラリ（Dock.Avalonia）を使う人のために、別パッケージのテーマとして対応する（ADR 28）。タブを閉じる・足す・D&D で並べ替える・ウィンドウへ切り離す操作は、TabStrip / TabControl の添付プロパティとして足す（ADR 33）。対応表の「部分対応」は、既存のコントロールのテーマで扱う範囲を表す。テーマで扱えない機能のうち ADR 30 で足したものは、各行に添付プロパティと新しいコントロールの名前を書き、[ADR 30 で機能を足したもの](#adr-30-で機能を足したもの) にまとめた。
+ボタン、入力欄、選択欄、タブ、メニュー、カレンダー、一覧、表、通知などは対象にできる。標準に存在しないコンポーネントのうち、見た目が中心で小さく作れるもの（Badge、Tag、Alert など）は新しいコントロールとして実装する（ADR 19）。既存のコントロールが持たない GPUI Kit の機能（Select の検索、List のセクション、Calendar の複数月の表示など）は、既存のコントロールに付ける添付プロパティと新しいコントロールとして足す（ADR 30）。設定画面（Settings）は、ページ・group・項目の新しいコントロールとして足し、フィールドには標準のコントロールを置く（ADR 40）。テキスト編集エンジンや OS の機能が要るもの、SVG とアニメーション画像の読み込み、keymap からの Action の解決、DataTable の機能、モーダル・コマンドパレット・可視化の仕組みは実装しない。ドッキングは、それを持つサードパーティのライブラリ（Dock.Avalonia）を使う人のために、別パッケージのテーマとして対応する（ADR 28）。タブを閉じる・足す・D&D で並べ替える・ウィンドウへ切り離す操作は、TabStrip / TabControl の添付プロパティとして足す（ADR 33）。対応表の「部分対応」は、既存のコントロールのテーマで扱う範囲を表す。テーマで扱えない機能のうち ADR 30 で足したものは、各行に添付プロパティと新しいコントロールの名前を書き、[ADR 30 で機能を足したもの](#adr-30-で機能を足したもの) にまとめた。
 
-この資料はもともと、移植範囲を決めるためのソース・資料調査として作った。その後、「対応」の 16 行と「部分対応」の 34 行（DataTable は `TableView` と DataGrid の 2 行）をテーマとして、「新規実装」の 19 行を新しいコントロールとして、サードパーティのライブラリの 2 行を別パッケージのテーマとして実装し、GPUI Kit との一致を自動テストで検証した（[実装状況](#実装状況)）。見た目だけのコードを認めた方針の改定（ADR 15）で対象に戻した動き（タブのインジケーター、自然高の reveal など）は、行の説明も改めた。さらに ADR 30 で「対応」「部分対応」の行に機能を足し、各行の対象外を、ADR 30 の後も扱わないものだけに書き直した。あわせて、Avalonia が持つのにテンプレートが描いていなかった機能（ComboBox の `IsEditable`、TextBox と ComboBox のクリアボタン、TextBox の右クリックメニュー、NumericUpDown の前後の内容、`DropDownButton`、表の空の表示など）をテーマで描くようにした。
+この資料はもともと、移植範囲を決めるためのソース・資料調査として作った。その後、「対応」の 16 行と「部分対応」の 34 行（DataTable は `TableView` と DataGrid の 2 行）をテーマとして、「新規実装」の 20 行（Settings は 2026-10-09 に ADR 40 で追加）を新しいコントロールとして、サードパーティのライブラリの 2 行を別パッケージのテーマとして実装し、GPUI Kit との一致を自動テストで検証した（[実装状況](#実装状況)）。見た目だけのコードを認めた方針の改定（ADR 15）で対象に戻した動き（タブのインジケーター、自然高の reveal など）は、行の説明も改めた。さらに ADR 30 で「対応」「部分対応」の行に機能を足し、各行の対象外を、ADR 30 の後も扱わないものだけに書き直した。あわせて、Avalonia が持つのにテンプレートが描いていなかった機能（ComboBox の `IsEditable`、TextBox と ComboBox のクリアボタン、TextBox の右クリックメニュー、NumericUpDown の前後の内容、`DropDownButton`、表の空の表示など）をテーマで描くようにした。
 
 ## 実装状況
 
-2026-10-05 時点。「対応」と「部分対応」の全 50 行、「新規実装」の 19 行、サードパーティのライブラリの 1 行を実装し、ADR 30 で 36 のコンポーネントに機能を足した。GPUI Kit `2c5162f` が描いた参照データと比べて、Light / Dark、各 Variant・サイズ・状態、動きが一致することを自動テストで確かめた。本体のコントロールと ADR 30 の添付プロパティは `UIKitTheme`（`src/AvaloniaUIKit`）、公式の別パッケージのコントロールは別のアセンブリ（`src/AvaloniaUIKit.ColorPicker`、`src/AvaloniaUIKit.DataGrid`。ADR 16）、サードパーティのライブラリのテーマはそのライブラリごとのアセンブリ（`src/AvaloniaUIKit.Dock`。ADR 28）にある。全 6921 件のテストが成功している。検証の方法、許容値、緩和 ID の意味、利用側の約束は [テストと一致検証](../testing.md) にまとめた。
+2026-10-09 時点。「対応」と「部分対応」の全 50 行、「新規実装」の 20 行、サードパーティのライブラリの 1 行を実装し、ADR 30 で 36 のコンポーネントに機能を足した。GPUI Kit `2c5162f` が描いた参照データと比べて、Light / Dark、各 Variant・サイズ・状態、動きが一致することを自動テストで確かめた。本体のコントロールと ADR 30 の添付プロパティは `UIKitTheme`（`src/AvaloniaUIKit`）、公式の別パッケージのコントロールは別のアセンブリ（`src/AvaloniaUIKit.ColorPicker`、`src/AvaloniaUIKit.DataGrid`。ADR 16）、サードパーティのライブラリのテーマはそのライブラリごとのアセンブリ（`src/AvaloniaUIKit.Dock`。ADR 28）にある。全 6994 件のテストが成功している。検証の方法、許容値、緩和 ID の意味、利用側の約束は [テストと一致検証](../testing.md) にまとめた。
 
 「静止ケース」は参照データの静止状態のケース数（Light / Dark と Aurora Light の合計）。「対象外とした機能」には、ADR 30 の後も扱わない機能を書く。ADR 30 で足した機能は、それを持つ添付プロパティと新しいコントロールの名前を添える（[ADR 30 で機能を足したもの](#adr-30-で機能を足したもの)）。GPUI と動きだけが違うもの（閉じるときのアニメーションなど）は「動きの差」と書く。
 
@@ -80,7 +80,7 @@ GPUI Kit の見た目を、Avalonia の既存コントロールに適用する�
 
 ### 新規実装
 
-Avalonia に対応するコントロールがないため、新しいコントロールとして作った（ADR 19）。どれも `UIKitTheme` に含まれ、NativeAOT のギャラリーにも入っている。
+Avalonia に対応するコントロールがないため、新しいコントロールとして作った（ADR 19。Settings は ADR 40）。どれも `UIKitTheme` に含まれ、NativeAOT のギャラリーにも入っている。
 
 | GPUI Kit | Avalonia | 静止ケース | 動き（フレームごとの比較） | 固有の緩和 | 対象外とした機能 |
 | --- | --- | --- | --- | --- | --- |
@@ -103,6 +103,7 @@ Avalonia に対応するコントロールがないため、新しいコント�
 | Marker | `uikit:Marker` | 18 | – | – | 区切り線のスタイル変更（`separator_style`） |
 | Bubble | `uikit:Bubble` | 28 | – | – | リアクションに置く Button の自動の丸め |
 | Message / MessageGroup | `uikit:Message` | 10 | – | – | MessageGroup（StackPanel の Spacing 8 で同じ）、ヘッダー・フッターの inset の個別指定 |
+| Settings / SettingPage / SettingGroup / SettingItem | `uikit:Settings`、`uikit:SettingPage`、`uikit:SettingGroup`、`uikit:SettingItem` | 50 | – | R34 | dropdown フィールドの自動の見た目（`DropDownButton.outline` で同じ見た目を作れるが値は追わない）、説明の Markdown（TextBlock の Inlines で代える）、`sidebar_style` / `header_style` の StyleRefinement、group の一覧の仮想化（GPUI の `list`。全 group を並べる） |
 
 ### ADR 30 で機能を足したもの
 
@@ -284,7 +285,7 @@ Avalonia に対応するコントロールがないため、新しいコント�
 
 ## 新しいコントロールとして実装するもの
 
-Avalonia に対応するコントロールがないコンポーネントのうち、見た目が中心で小さく作れるものは、新しいコントロールとして `UIKitTheme` に含める（2026-10-04 に決定。ADR 19）。判定は **新規実装**。コントロールはプロパティ・疑似クラス・テンプレートの部品だけを持ち、処理はそのコンポーネント自身の操作に限る。名前は GPUI に合わせ、Avalonia のメンバーとぶつかるものや意味が広すぎるものだけ変える。既存のコントロールが持たない機能を足す新しいコントロール（`uikit:Select`、`uikit:ListView` など。2026-10-05 に決定。ADR 30）は、対応する既存のコントロールがあるので、そのコンポーネントの行（[Avalonia 本体に対応するもの](#avalonia-本体に対応するもの)）と [ADR 30 で機能を足したもの](#adr-30-で機能を足したもの) に書く。
+Avalonia に対応するコントロールがないコンポーネントのうち、見た目が中心で小さく作れるものは、新しいコントロールとして `UIKitTheme` に含める（2026-10-04 に決定。ADR 19）。判定は **新規実装**。コントロールはプロパティ・疑似クラス・テンプレートの部品だけを持ち、処理はそのコンポーネント自身の操作に限る。名前は GPUI に合わせ、Avalonia のメンバーとぶつかるものや意味が広すぎるものだけ変える。設定画面の Settings は、ページ・group・項目の構成と検索・選択・リセットを持つ新しいコントロールとして作る（2026-10-09 に決定。ADR 40）。既存のコントロールが持たない機能を足す新しいコントロール（`uikit:Select`、`uikit:ListView` など。2026-10-05 に決定。ADR 30）は、対応する既存のコントロールがあるので、そのコンポーネントの行（[Avalonia 本体に対応するもの](#avalonia-本体に対応するもの)）と [ADR 30 で機能を足したもの](#adr-30-で機能を足したもの) に書く。
 
 | GPUI Kit | 判定 | Avalonia の新しいコントロール | 移植する範囲／対象外 |
 | --- | --- | --- | --- |
@@ -307,6 +308,7 @@ Avalonia に対応するコントロールがないコンポーネントのう�
 | [Marker][gp-marker] と子部品 | 新規実装（第 2 弾） | `Marker` | 会話やタイムラインの区切りのアイコン・内容・線、読み込み中の表示。 |
 | [Bubble][gp-bubble] と子部品 | 新規実装（第 2 弾） | `Bubble` | メッセージの吹き出しと reaction 領域。 |
 | [Message][gp-message] / MessageGroup と子部品 | 新規実装（第 2 弾） | `Message`、`MessageGroup` | アバター・ヘッダー・本文・フッターの配置と左右の寄せ。会話の末尾への追従（MessageScroller）は対象外。 |
+| [Settings][gp-settings] / SettingPage / SettingGroup / SettingItem | 新規実装（ADR 40） | `Settings`、`SettingPage`、`SettingGroup`、`SettingItem`、`SettingItemPanel`（項目の配置） | 検索欄付きのサイドバーとページのリサイズ可能な分割、ページのメニューと group の行（`click_to_open`、`default_open` は `IsOpen`）、タイトル・説明・キーワードでの検索と GPUI の選択の規則、group へのスクロール、group の variant（`GroupVariant`、group ごとの `Variant`）、footer、480px 以下のページでの縦並び、項目の縦横の配置と無効、サイズ（項目の中身にサイズのクラスを付ける）。フィールドは GPUI の `SettingField` の型を作らず、標準のコントロールを項目の中身に置く。`DefaultValue` を書くと ToggleButton、TextBox、NumericUpDown、RangeBase、SelectingItemsControl、`uikit:Select` の値を型ごとの分岐で追い（リフレクションなし）、既定と違う間はページにリセットボタンを出し、押すと検索で見えている項目を既定に戻す。ほかの中身は `IsModified` と `Reset` / `ResetCommand`（GPUI の `on_reset`）。 |
 
 ## サードパーティのライブラリに対応するもの
 
@@ -329,7 +331,6 @@ Avalonia に対応先のない機能のうち、それを持つ広く使われ�
 | [MessageScroller][gp-message-scroller] | 会話の末尾追従・アンカー保持を管理する専用型がない。通常の ScrollViewer のテーマに追従処理は追加しない。 |
 | [OtpInput][gp-otp-input] | 複数桁に分離した入力欄、貼り付け時の配分、桁間移動の標準型がない。MaskedTextBox と同一視しない。 |
 | [Questionnaire][gp-questionnaire] と子部品 | 設問の順序、回答・検証状態、前後の移動、選択肢のショートカットを管理する標準型がない。含まれる RadioButton・CheckBox・TextBox・Button だけがテーマの対象になる。 |
-| [Settings][gp-settings] / SettingPage / SettingGroup / SettingItem | 設定画面の構成・フィールド生成・reset 管理を持つ標準型がない。含まれる通常の入力コントロールだけがテーマの対象になる。 |
 | [Speech][gp-speech] | 音声の取り込み・認識と入力レベルの波形表示を持つ標準型がない。開始・停止ボタンの外観を ToggleButton 等で揃えても、録音・認識処理はテーマで追加しない。 |
 | [TextView / Markdown / HTML][gp-text-view] | Markdown / HTML の解析・レイアウト・装飾を行う本体標準型がない。TextBlock の Inlines は markup parser の代わりにならない。 |
 | [Chart][gp-chart] | Line / Bar / Area / Pie / Radar / Candlestick / Sankey の各 Chart は本体標準にない。Avalonia Pro の Charts は本件の標準範囲に含めない。 |

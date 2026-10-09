@@ -1,0 +1,30 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:uikit="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.SettingsItems">
+  <uikit:SettingGroup Title="Editor" Description="The fields are the standard controls." Variant="Outline"
+                      Width="560" HorizontalAlignment="Left">
+    <uikit:SettingItem Title="Line Numbers" Description="A ToggleSwitch.">
+      <ToggleSwitch IsChecked="True" />
+    </uikit:SettingItem>
+    <uikit:SettingItem Title="Word Wrap" Description="A CheckBox.">
+      <CheckBox />
+    </uikit:SettingItem>
+    <uikit:SettingItem Title="Theme" Description="A ComboBox, or any selection control.">
+      <ComboBox SelectedIndex="0" Width="160">
+        <ComboBoxItem Content="Default Light" />
+        <ComboBoxItem Content="Default Dark" />
+      </ComboBox>
+    </uikit:SettingItem>
+    <uikit:SettingItem Title="Tab Size" Description="A NumericUpDown, 128px wide beside the text.">
+      <NumericUpDown Value="4" Minimum="1" Maximum="8" />
+    </uikit:SettingItem>
+    <uikit:SettingItem Title="Formatter" Description="A vertical item: the field is under the text, the width of the row."
+                       Orientation="Vertical">
+      <TextBox PlaceholderText="prettier --write" />
+    </uikit:SettingItem>
+    <uikit:SettingItem Title="Minimap" Description="A disabled item is dimmed." IsEnabled="False">
+      <ToggleSwitch />
+    </uikit:SettingItem>
+  </uikit:SettingGroup>
+</UserControl>

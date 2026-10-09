@@ -1,0 +1,25 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:uikit="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.SettingsReset">
+  <Border BorderBrush="{DynamicResource UIKit.Border}" BorderThickness="1" CornerRadius="6" ClipToBounds="True"
+          Width="560" HorizontalAlignment="Left">
+    <uikit:SettingPage Title="Editor" Description="Change a setting: the button at the end of the header resets them all.">
+      <uikit:SettingGroup Variant="Outline">
+        <uikit:SettingItem Title="Format On Save" Description="Follows its default: False." DefaultValue="False">
+          <ToggleSwitch />
+        </uikit:SettingItem>
+        <uikit:SettingItem Title="Tab Size" Description="Follows its default: 4." DefaultValue="4">
+          <NumericUpDown Value="4" Minimum="1" Maximum="8" />
+        </uikit:SettingItem>
+        <uikit:SettingItem Name="Density" Title="Density" Description="Custom content reports IsModified and handles Reset."
+                           Reset="OnDensityReset">
+          <StackPanel Orientation="Horizontal" Spacing="4">
+            <Button Name="Comfortable" Classes="primary" Content="Comfortable" Click="OnDensityClick" />
+            <Button Name="Compact" Classes="outline" Content="Compact" Click="OnDensityClick" />
+          </StackPanel>
+        </uikit:SettingItem>
+      </uikit:SettingGroup>
+    </uikit:SettingPage>
+  </Border>
+</UserControl>

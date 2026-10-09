@@ -1,0 +1,57 @@
+---
+title: "Settings"
+description: "A settings window with searchable pages, grouped items and a reset button, as uikit:Settings."
+---
+
+<Demo name="settings/demo" />
+
+## Usage
+
+`uikit:Settings` puts a sidebar beside the selected page, the boundary between them resizable (`SidebarWidth`, 250 by default, from `SidebarMinWidth` 160 to `SidebarMaxWidth` 360). The sidebar has a search box and a menu of the pages. Its items are `uikit:SettingPage`s, which hold `uikit:SettingGroup`s, which hold `uikit:SettingItem`s:
+
+```xml
+<uikit:Settings GroupVariant="Outline">
+  <uikit:SettingPage Title="General" Icon="{StaticResource UIKit.Icon.Settings2}" IsOpen="True">
+    <uikit:SettingGroup Title="Appearance">
+      <uikit:SettingItem Title="Dark Mode" Description="Switch between light and dark themes." DefaultValue="False">
+        <ToggleSwitch IsChecked="{Binding DarkMode}" />
+      </uikit:SettingItem>
+    </uikit:SettingGroup>
+  </uikit:SettingPage>
+</uikit:Settings>
+```
+
+A page is a row in the menu with its `Icon`; when it has more than one group, its titled groups are rows under it, open while the page `IsOpen`. Clicking a page selects it (`SelectedIndex`); clicking a group selects it too (`SelectedGroup`) and scrolls the page to it. The page shows its `Title`, a `TitleSuffix` after it (a help button) and its `Description` above the groups, which scroll.
+
+| Property | On | Effect |
+| --- | --- | --- |
+| `SelectedIndex`, `SelectedGroup` | `Settings` | The selected page, and the group chosen in the sidebar (null for the whole page) |
+| `SearchText`, `SearchPlaceholderText` | `Settings` | The search box's text and its placeholder ("Search..." by default) |
+| `GroupVariant` | `Settings` (inherited) | The groups' surface: `Normal`, `Fill` or `Outline` |
+| `Title`, `Icon`, `Description`, `TitleSuffix` | `SettingPage` | The page's header and its row in the sidebar |
+| `IsOpen` | `SettingPage` | Whether the page's groups show under it in the sidebar |
+| `IsResettable` | `SettingPage` | Whether the header shows the reset button (true by default) |
+| `Title`, `Description`, `Footer` | `SettingGroup` | The muted title and description above the surface, and small muted text under it |
+| `Variant` | `SettingGroup` | The group's own surface, instead of the settings' `GroupVariant` |
+| `Title`, `Description` | `SettingItem` | The text beside the field; without a title the content fills the row |
+| `Keywords` | `SettingItem` | Comma-separated words the search also matches, never shown |
+| `Orientation` | `SettingItem` | `Horizontal` puts the field at the end of the row, `Vertical` under the text |
+| `DefaultValue`, `IsModified`, `Reset`, `ResetCommand` | `SettingItem` | The field's default and what the reset button does (below) |
+
+An item's content is its field: any control. Beside the text, a `TextBox` is 256px and a `NumericUpDown` 128px wide; under it, the field is the width of the row, except a `ToggleSwitch` or a `CheckBox`. A page narrower than 480px lays every item out vertically. The size classes on the settings (`xsmall`, `small`, `large`) go on every item's content. A disabled item (`IsEnabled="False"`) is dimmed with its field.
+
+The search keeps the items whose title, description or keywords contain the text, ignoring case, the groups with such items and the pages with such groups. An item without a title is found by its keywords only. The selected page stays while it has results, otherwise the first page with results is selected; with no results, no page shows.
+
+## Examples
+
+The fields are the standard controls, in a group used on its own.
+
+<Demo name="settings/items" title="Items" />
+
+`Variant` on a group, or `GroupVariant` on the settings for every group: the items on the page, on a filled surface, or in a bordered card.
+
+<Demo name="settings/group-variants" title="Group variants" />
+
+With a `DefaultValue`, an item follows a `ToggleSwitch` or `CheckBox` (`IsChecked`), a `TextBox` (`Text`), a `NumericUpDown` or `Slider` (`Value`), a `ComboBox` or `ListBox` (`SelectedValue`) and a `uikit:Select` (`SelectedItem`); a default written in XAML is text converted to the field's type. While a field differs from its default, the page shows a reset button that sets every item the search keeps back to its default, through the field's bindings. Other content sets `IsModified` itself and puts its default back in `Reset` or `ResetCommand`.
+
+<Demo name="settings/reset" title="Reset" />

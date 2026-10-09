@@ -1,0 +1,22 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:uikit="using:AvaloniaUIKit"
+             x:Class="AvaloniaUIKit.Demos.SettingsGroupVariants">
+  <StackPanel Width="520" HorizontalAlignment="Left">
+    <uikit:SettingGroup Title="Normal">
+      <uikit:SettingItem Title="Auto Save" Description="The items sit on the page.">
+        <ToggleSwitch IsChecked="True" />
+      </uikit:SettingItem>
+    </uikit:SettingGroup>
+    <uikit:SettingGroup Title="Fill" Variant="Fill">
+      <uikit:SettingItem Title="Auto Save" Description="The items sit on a filled surface.">
+        <ToggleSwitch IsChecked="True" />
+      </uikit:SettingItem>
+    </uikit:SettingGroup>
+    <uikit:SettingGroup Title="Outline" Variant="Outline" Footer="A footer sits under the surface.">
+      <uikit:SettingItem Title="Auto Save" Description="The items sit in a bordered card.">
+        <ToggleSwitch IsChecked="True" />
+      </uikit:SettingItem>
+    </uikit:SettingGroup>
+  </StackPanel>
+</UserControl>

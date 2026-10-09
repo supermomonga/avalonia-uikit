@@ -507,6 +507,17 @@ public static partial class Catalog
                 new("separator/label", "Separator/Label", "Label", "Examples", "`uikit:Separators.Label` puts 12px muted text on the line, over the page background: at the end of a horizontal line and in the middle of a vertical one. A labeled separator is as tall (or, vertical, as wide) as its label."),
             ]),
         new(
+            "settings", "Settings", "Settings, SettingPage, SettingGroup, SettingItem, Preferences",
+            CatalogSection.UIKit, "Layout", ["uikit:Settings", "uikit:SettingPage", "uikit:SettingGroup", "uikit:SettingItem"],
+            null, null,
+            "A settings window with searchable pages, grouped items and a reset button, as uikit:Settings.",
+            [
+                new("settings/demo", "Settings/Demo", null, null, null),
+                new("settings/items", "Settings/Items", "Items", "Examples", "The fields are the standard controls, in a group used on its own."),
+                new("settings/group-variants", "Settings/GroupVariants", "Group variants", "Examples", "`Variant` on a group, or `GroupVariant` on the settings for every group: the items on the page, on a filled surface, or in a bordered card."),
+                new("settings/reset", "Settings/Reset", "Reset", "Examples", "With a `DefaultValue`, an item follows a `ToggleSwitch` or `CheckBox` (`IsChecked`), a `TextBox` (`Text`), a `NumericUpDown` or `Slider` (`Value`), a `ComboBox` or `ListBox` (`SelectedValue`) and a `uikit:Select` (`SelectedItem`); a default written in XAML is text converted to the field's type. While a field differs from its default, the page shows a reset button that sets every item the search keeps back to its default, through the field's bindings. Other content sets `IsModified` itself and puts its default back in `Reset` or `ResetCommand`."),
+            ]),
+        new(
             "sheet", "Sheet", "Sheet",
             CatalogSection.Avalonia, "Overlays", ["DrawerPage.sheet"],
             null, null,
